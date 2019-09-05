@@ -1,0 +1,31 @@
+/* Layout
+/* ---------------------------------------------------------- */
+.viewport {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.home-template .viewport,
+.tag-template .viewport {
+    max-width: 90%;
+}
+
+.home-container,
+.tag-container {
+    max-width: 1020px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 2.3fr 1fr;
+}
+
+@media (max-width: 800px) {
+    .home-container,
+    .tag-container {
+        grid-template-columns: 1fr;
+        max-width: unset;
+    }
+}

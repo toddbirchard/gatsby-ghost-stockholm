@@ -1,0 +1,166 @@
+.sidebar {
+  @media(max-width: 800px){
+    display: none;
+  }
+  
+    .widget {
+        padding: 30px;
+        background: #fff 50%;
+        background-size: cover;
+        border-radius: 5px;
+        box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06), 1px 3px 8px rgba(39, 44, 49, 0.03);
+        transition: all 0.5s ease;
+        margin-bottom: 20px;
+
+        p {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        &.about {
+            .site-logo {
+                width: 80%;
+                margin: 0 auto 10px;
+                display: block;
+            }
+
+            .description {
+                margin: 15px 0 0;
+                line-height: 1.2;
+                text-align: justify;
+                font-size: 0.9em;
+            }
+        }
+
+        &.social {
+            display: flex;
+            justify-content: space-between;
+
+            svg {
+              font-size: 1.5em;
+            }
+
+            .medium {
+                svg {
+                    color: lighten(@medium-color, 10%);
+                }
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .facebook {
+                svg {
+                    color: lighten(@facebook-color, 20%);
+                }
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .twitter {
+                svg {
+                    color: lighten(@twitter-color, 10%);
+                }
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .angellist,
+            .github {
+                svg {
+                    color: lighten(@github-color, 10%);
+                }
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .tumblr {
+                svg {
+                    color: lighten(@tumblr-color, 20%);
+                }
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .rss {
+                svg {
+                    color: lighten(@rss-color, 20%);
+                }
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .pocket svg {
+                color: lighten(#f14861, 10%);
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .quora svg {
+                color: lighten(#b92b27, 10%);
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+
+            .linkedin svg {
+                color: lighten(@linkedin-color, 10%);
+
+                &:hover {
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &.tags {
+            .tag {
+                color: #7591a9;
+                line-height: 1.5em;
+                display: inline-block;
+                font-size: 0.9em !important;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                font-family: 'proxima-nova', sans-serif;
+                font-weight: normal;
+                flex-grow: 1;
+                text-align: center;
+                margin: 0 2px 4px;
+                padding: 6px 10px;
+                border-radius: 2px;
+                border: 1px solid rgba(220, 228, 238, 0.79);
+
+                &:hover {
+          				cursor: pointer;
+          				background: @hover-color;
+          				border: 1px solid @hover-color;
+          				color: white !important;
+          			}
+            }
+        }
+    }
+}

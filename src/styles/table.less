@@ -1,0 +1,63 @@
+.tableContainer {
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 3px;
+    border: 1px solid #d3dadd;
+    margin: 30px 0;
+    max-height: 539px;
+
+    table {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 0;
+      background-color: #fff;
+      border-spacing: 0;
+
+      tr {
+        text-align: left;
+        padding: 10px;
+        vertical-align: top;
+        border-top: 0;
+        transition: all 0.3s ease-out;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 150px;
+        text-overflow: ellipsis;
+        border-bottom: 0;
+      }
+
+      thead {
+        tr {
+          background: #f6f8fb;
+          padding: 15px 10px;
+          vertical-align: top;
+          font-size: 1em;
+
+          th {
+            font-weight: 600;
+            padding: 15px 10px;
+          }
+        }
+      }
+
+      tbody {
+        tr:nth-child(even) {
+          background: #f6f8fb;
+        }
+
+        td {
+          text-align: left;
+          padding: 10px;
+          vertical-align: top;
+          border-top: 0;
+          transition: all 0.3s ease-out;
+          overflow: hidden;
+          white-space: nowrap;
+          max-width: 150px;
+          text-overflow: ellipsis;
+          border-bottom: 0;
+          font-size: 0.8em;
+        }
+      }
+    }
+}
