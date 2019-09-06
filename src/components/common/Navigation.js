@@ -26,7 +26,7 @@ const Navigation = ({ data, navClass, logo, isHome }) => (
               </div>
               <div className="right-links">
                   <Link to="/about" className="site-nav-item">About</Link>
-                  <Link external to="https://www.patreon.com/hackersandslackers" className="donate-btn">Donate</Link>
+                  <a href="https://www.patreon.com/hackersandslackers" className="donate-btn">Donate</a>
               </div>
               </div>
               </div>

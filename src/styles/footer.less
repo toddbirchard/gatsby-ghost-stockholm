@@ -8,9 +8,18 @@
         padding: 50px 0;
         max-width: 900px;
         margin: auto;
+        @media(max-width: @mobile-breakpoint) {
+          display: block;
+          padding: 60px;
+          max-width: unset;
+        }
 
         .widget {
             max-width: 29%;
+            @media(max-width: @mobile-breakpoint) {
+              max-width: unset;
+              margin-bottom: 20px;
+            }
 
             .footer-widget-title {
                 font-family: @sub-header-font;
@@ -25,20 +34,32 @@
                 li {
                     margin: 0;
                     padding-left: 0;
-                    line-height: 1.5em;
+                    line-height: 1em;
+                    margin-bottom: 10px;
+                    font-size: .9em;
 
                     a {
-                        color: @secondary-font-color;
+                      color: #576979;
+                      font-family: 'proxima-nova', sans-serif;
                     }
                 }
             }
 
             &.about {
+              @media(max-width: @mobile-breakpoint) {
+                border-bottom: 1px solid rgba(76, 108, 157, 0.2);
+                padding-bottom: 20px !important;
+                margin: 0 0 20px;
+              }
                 .logo {
-                    width: 70%;
+                    width: 90%;
                     display: block;
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                     transition: all 0.2s ease-out;
+                    @media(max-width: @mobile-breakpoint) {
+                      margin-bottom: 25px;
+                      max-width: 200px;
+                    }
 
                     &:hover {
                         opacity: 0.7;

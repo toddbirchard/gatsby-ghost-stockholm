@@ -32,12 +32,16 @@
     "eslint-plugin-react": "7.14.3"
   },
   "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/highlight": "^7.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-brands-svg-icons": "^5.10.2",
     "@fortawesome/free-solid-svg-icons": "^5.10.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@tryghost/helpers": "1.1.8",
     "@tryghost/helpers-gatsby": "1.0.11",
+    "babel-plugin-prismjs": "^1.1.1",
+    "babel-preset-gatsby": "^0.2.12",
     "cheerio": "1.0.0-rc.3",
     "gatsby": "2.15.6",
     "gatsby-awesome-pagination": "0.3.4",

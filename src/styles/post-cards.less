@@ -80,19 +80,6 @@
     font-family: @header-font;
 }
 
-@media(max-width: 600px) {
-    .post-card-title {
-        font-size: 1.7em;
-    }
-}
-
-.post-card-excerpt {
-    font-size: 1.6rem;
-    line-height: 1.55em;
-    font-weight: 400;
-    color: #44495e;
-}
-
 .post-card-image {
     margin: 0 0 10px 0;
     width: auto;
@@ -100,11 +87,9 @@
     background: @text-color-light no-repeat center center;
     background-size: cover;
     transition: opacity .2s ease-out;
-}
 
-@media(max-width: 600px) {
-    .post-card-image {
-        height: 225px;
+    @media(max-width: 600px) {
+        height: 260px;
     }
 }
 

@@ -1,312 +1,343 @@
-/*
- * Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
- * Copyright (c) 2017-present Sven Greb <development@svengreb.de>
- *
- * Project:    Nord highlight.js
- * Version:    0.1.0
- * Repository: https://github.com/arcticicestudio/nord-highlightjs
- * License:    MIT
- * References:
- *   https://github.com/arcticicestudio/nord
- */
 
-.hljs {
-  display: block;
+pre[class*="language-"] {
+    display: block;
+    color: unset !important;
     overflow-x: auto;
-    padding: 1.5em;
+    padding: 1.5em !important;
     background: #353c4a;
-    font-size: .85em;
-    font-family: 'dm';
-}
-
-.hljs,
-.hljs-subst {
-  color: #D8DEE9;
-}
-
-.hljs-selector-tag {
-  color: #81A1C1;
-}
-
-.hljs-selector-id {
-  color: #8FBCBB;
-  font-weight: bold;
-}
-
-.hljs-selector-class {
-  color: #8FBCBB;
-}
-
-.hljs-selector-attr {
-  color: #8FBCBB;
-}
-
-.hljs-selector-pseudo {
-  color: #88C0D0;
-}
-
-.hljs-addition {
-  background-color: rgba(163, 190, 140, 0.5);
-}
-
-.hljs-deletion {
-  background-color: rgba(191, 97, 106, 0.5);
-}
-
-.hljs-built_in,
-.hljs-type {
-  color: #8FBCBB;
-}
-
-.hljs-class {
-  color: #8FBCBB;
-}
-
-.hljs-function {
-  color: #88C0D0;
-}
-
-.hljs-function > .hljs-title {
-  color: #88C0D0;
-}
-
-.hljs-keyword,
-.hljs-literal,
-.hljs-symbol {
-  color: #81A1C1;
-  font-weight: 900;
-}
-
-.hljs-number {
-  color: #B48EAD;
-}
-
-.hljs-regexp {
-  color: #EBCB8B;
-}
-
-.hljs-string {
-  color: #A3BE8C;
-}
-
-.hljs-title {
-  color: #8FBCBB;
-}
-
-.hljs-params {
-  color: #D8DEE9;
-}
-
-.hljs-bullet {
-  color: #81A1C1;
-}
-
-.hljs-code {
-  color: #8FBCBB;
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-.hljs-formula {
-  color: #8FBCBB;
-}
-
-.hljs-strong {
-  font-weight: bold;
-}
-
-.hljs-link:hover {
-  text-decoration: underline;
-}
-
-.hljs-quote {
-  color: #4C566A;
-}
-
-.hljs-comment {
-  color: #767e8f;
-}
-
-.hljs-doctag {
-  color: #8FBCBB;
-}
-
-.hljs-meta,
-.hljs-meta-keyword {
-  color: #5E81AC;
-}
-
-.hljs-meta-string {
-  color: #A3BE8C;
-}
-
-.hljs-attr {
-  color: #8FBCBB;
-}
-
-.hljs-attribute {
-  color: #D8DEE9;
-}
-
-.hljs-builtin-name {
-  color: #81A1C1;
-}
-
-.hljs-name {
-  color: #81A1C1;
-}
-
-.hljs-section {
-  color: #88C0D0;
-}
-
-.hljs-tag {
-  color: #81A1C1;
-}
-
-.hljs-variable {
-  color: #D8DEE9;
-}
-
-.hljs-template-variable {
-  color: #D8DEE9;
-}
-
-.hljs-template-tag {
-  color: #5E81AC;
-}
-
-.abnf .hljs-attribute {
-  color: #88C0D0;
-}
-
-.abnf .hljs-symbol {
-  color: #EBCB8B;
-}
-
-.apache .hljs-attribute {
-  color: #88C0D0;
-}
-
-.apache .hljs-section {
-  color: #81A1C1;
-}
-
-.arduino .hljs-built_in {
-  color: #88C0D0;
-}
-
-.aspectj .hljs-meta {
-  color: #D08770;
-}
-
-.aspectj > .hljs-title {
-  color: #88C0D0;
-}
-
-.bnf .hljs-attribute {
-  color: #8FBCBB;
-}
-
-.clojure .hljs-name {
-  color: #88C0D0;
-}
-
-.clojure .hljs-symbol {
-  color: #EBCB8B;
-}
-
-.coq .hljs-built_in {
-  color: #88C0D0;
-}
-
-.cpp .hljs-meta-string {
-  color: #8FBCBB;
-}
-
-.css .hljs-built_in {
-  color: #88C0D0;
-}
-
-.css .hljs-keyword {
-  color: #D08770;
-}
-
-.diff .hljs-meta {
-  color: #8FBCBB;
-}
-
-.ebnf .hljs-attribute {
-  color: #8FBCBB;
-}
-
-.glsl .hljs-built_in {
-  color: #88C0D0;
-}
-
-.groovy .hljs-meta:not(:first-child) {
-  color: #D08770;
-}
-
-.haxe .hljs-meta {
-  color: #D08770;
-}
-
-.java .hljs-meta {
-  color: #D08770;
-}
-
-.ldif .hljs-attribute {
-  color: #8FBCBB;
-}
-
-.lisp .hljs-name {
-  color: #88C0D0;
-}
-
-.lua .hljs-built_in {
-  color: #88C0D0;
-}
-
-.moonscript .hljs-built_in {
-  color: #88C0D0;
-}
-
-.nginx .hljs-attribute {
-  color: #88C0D0;
-}
-
-.nginx .hljs-section {
-  color: #5E81AC;
-}
-
-.pf .hljs-built_in {
-  color: #88C0D0;
-}
-
-.processing .hljs-built_in {
-  color: #88C0D0;
-}
-
-.scss .hljs-keyword {
-  color: #81A1C1;
-}
-
-.stylus .hljs-keyword {
-  color: #81A1C1;
-}
-
-.swift .hljs-meta {
-  color: #D08770;
-}
-
-.vim .hljs-built_in {
-  color: #88C0D0;
-  font-style: italic;
-}
-
-.yaml .hljs-meta {
-  color: #D08770;
+    font-size: 0.85em;
+    font-family: 'dm' !important;
+    text-shadow: none !important;
+    overflow-x: hidden;
+    border-radius: 5px;
+    margin: 30px auto;
+
+    code {
+        color: #dfe3ea !important;
+        text-shadow: unset !important;
+
+        .subst {
+            color: #D8DEE9 !important;
+        }
+
+        .selector-tag {
+            color: #81A1C1 !important;
+        }
+
+        .selector-id {
+            color: #8FBCBB !important;
+            font-weight: bold !important;
+        }
+
+        .selector-class {
+            color: #8FBCBB !important;
+        }
+
+        .selector-attr {
+            color: #8FBCBB !important;
+        }
+
+        .selector-pseudo {
+            color: #88C0D0 !important;
+        }
+
+        .addition {
+            background-color: rgba(163, 190, 140, 0.5) !important;
+        }
+
+        .deletion {
+            background-color: rgba(191, 97, 106, 0.5) !important;
+        }
+
+        .built_in,
+        .type {
+            color: #8FBCBB !important;
+        }
+
+        .class {
+            color: #8FBCBB !important;
+        }
+
+        .function {
+            color: #88C0D0 !important;
+            font-weight: 900 !important;
+        }
+
+        .function > .title {
+            color: #88C0D0 !important;
+        }
+
+        .keyword,
+        .literal,
+        .symbol {
+            color: #81A1C1 !important;
+            font-weight: 900 !important;
+        }
+
+        .number {
+            color: #B48EAD !important;
+        }
+
+        .regexp {
+            color: #EBCB8B !important;
+        }
+
+        .string {
+            color: #A3BE8C !important;
+        }
+
+        .title {
+            color: #8FBCBB !important;
+        }
+
+        .params {
+            color: #D8DEE9;
+        }
+
+        .bullet {
+            color: #81A1C1;
+        }
+
+        .code {
+            color: #8FBCBB;
+        }
+
+        .emphasis {
+            font-style: italic !important;
+        }
+
+        .formula {
+            color: #8FBCBB;
+        }
+
+        .strong {
+            font-weight: bold !important;
+        }
+
+        .link:hover {
+            text-decoration: underline !important;
+        }
+
+        .quote {
+            color: #4C566A !important;
+        }
+
+        .comment {
+            color: #767e8f !important;
+        }
+
+        .doctag {
+            color: #8FBCBB !important;
+        }
+
+        .meta,
+        .meta-keyword {
+            color: #5E81AC !important;
+        }
+
+        .meta-string {
+            color: #A3BE8C !important;
+        }
+
+        .attr {
+            color: #8FBCBB !important;
+        }
+
+        .attribute {
+            color: #D8DEE9 !important;
+        }
+
+        .builtin-name {
+            color: #81A1C1 !important;
+        }
+
+        .name {
+            color: #81A1C1 !important;
+        }
+
+        .section {
+            color: #88C0D0 !important;
+        }
+
+        .tag {
+            color: #81A1C1 !important;
+        }
+
+        .variable {
+            color: #D8DEE9 !important;
+        }
+
+        .template-variable {
+            color: #D8DEE9 !important;
+        }
+
+        .template-tag {
+            color: #5E81AC !important;
+        }
+
+        .abnf .attribute {
+            color: #88C0D0 !important;
+        }
+
+        .abnf .symbol {
+            color: #EBCB8B;
+        }
+
+        .apache .attribute {
+            color: #88C0D0;
+        }
+
+        .apache .section {
+            color: #81A1C1;
+        }
+
+        .arduino .built_in {
+            color: #88C0D0;
+        }
+
+        .aspectj .meta {
+            color: #D08770;
+        }
+
+        .aspectj > .title {
+            color: #88C0D0;
+        }
+
+        .bnf .attribute {
+            color: #8FBCBB;
+        }
+
+        .clojure .name {
+            color: #88C0D0;
+        }
+
+        .clojure .symbol {
+            color: #EBCB8B;
+        }
+
+        .coq .built_in {
+            color: #88C0D0;
+        }
+
+        .cpp .meta-string {
+            color: #8FBCBB;
+        }
+
+        .css .built_in {
+            color: #88C0D0;
+        }
+
+        .css .keyword {
+            color: #D08770;
+        }
+
+        .diff .meta {
+            color: #8FBCBB;
+        }
+
+        .ebnf .attribute {
+            color: #8FBCBB;
+        }
+
+        .glsl .built_in {
+            color: #88C0D0;
+        }
+
+        .groovy .meta:not(:first-child) {
+            color: #D08770;
+        }
+
+        .haxe .meta {
+            color: #D08770;
+        }
+
+        .java .meta {
+            color: #D08770;
+        }
+
+        .ldif .attribute {
+            color: #8FBCBB;
+        }
+
+        .lisp .name {
+            color: #88C0D0;
+        }
+
+        .lua .built_in {
+            color: #88C0D0;
+        }
+
+        .moonscript .built_in {
+            color: #88C0D0;
+        }
+
+        .nginx .attribute {
+            color: #88C0D0;
+        }
+
+        .nginx .section {
+            color: #5E81AC;
+        }
+
+        .pf .built_in {
+            color: #88C0D0;
+        }
+
+        .processing .built_in {
+            color: #88C0D0;
+        }
+
+        .scss .keyword {
+            color: #81A1C1;
+        }
+
+        .stylus .keyword {
+            color: #81A1C1;
+        }
+
+        .swift .meta {
+            color: #D08770;
+        }
+
+        .vim .built_in {
+            color: #88C0D0;
+            font-style: italic;
+        }
+
+        .yaml .meta {
+            color: #D08770 !important;
+        }
+
+        .token {
+            & * {
+                background: none !important;
+            }
+
+            &.operator {
+                color: #D8DEE9 !important;
+                background: none !important;
+            }
+
+            &.property {
+                color: #8FBCBB !important;
+            }
+
+            &.boolean {
+                color: #B48EAD !important;
+            }
+
+            &.class-name {
+                color: #8FBCBB;
+                font-weight: 900 !important;
+            }
+
+            &.builtin {
+                color: #5E81AC !important;
+            }
+
+            &.triple-quoted-string {
+                color: #838d92 !important;
+            }
+        }
+    }
 }

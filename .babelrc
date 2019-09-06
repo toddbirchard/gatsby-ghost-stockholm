@@ -1,0 +1,23 @@
+{
+    "plugins": [
+        [
+            "prismjs",
+            {
+                "languages": [
+                    "markup",
+                    "css",
+                    "javascript",
+                    "markup-templating",
+                    "http",
+                    "json",
+                    "markdown",
+                    "python",
+                ],
+                "plugins": ["line-numbers"],
+                "theme": "default",
+                "css": true
+            }
+        ]
+    ],
+    "presets": ["babel-preset-gatsby"]
+}

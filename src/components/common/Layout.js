@@ -23,9 +23,6 @@ import '../../styles/app.less'
 
 
 const DefaultLayout = ({ data, children, bodyClass, isHome, template }) => {
-  /*componentDidMount() {
-    Prism.highlightAll();
-  }*/
 
     const site = data.allGhostSettings.edges[0].node
 

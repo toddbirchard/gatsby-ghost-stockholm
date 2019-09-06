@@ -1,4 +1,10 @@
 /* eslint-disable */
+import Prism from 'prismjs';
+/*import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+import python from 'highlight.js/lib/languages/python';
+import json from 'highlight.js/lib/languages/json';*/
+
 /**
  * Trust All Scripts
  *
@@ -9,10 +15,10 @@
  * via ids/classnames etc.
  *
  */
-
-require("prismjs/themes/prism-solarizedlight.css")
-var trustAllScripts = function () {
-    var scriptNodes = document.querySelectorAll('.load-external-scripts script');
+var trustAllScripts = function() {
+    var scriptNodes = document.querySelectorAll(
+        '.load-external-scripts script'
+    );
 
     for (var i = 0; i < scriptNodes.length; i += 1) {
         var node = scriptNodes[i];
@@ -29,6 +35,18 @@ var trustAllScripts = function () {
     }
 };
 
-exports.onRouteUpdate = function () {
+/*
+ * NOTICE: ES6 module exports are not officially supported because of NodeJs
+ * https://github.com/gatsbyjs/gatsby/pull/9239
+ *
+ * ES6 modules are here used because PrismJS should not work with CommonJs.
+ */
+
+export const onRouteUpdate = () => {
     trustAllScripts();
+    Prism.highlightAll();
+    /*hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('python', python);
+    hljs.registerLanguage('json', json);
+    hljs.initHighlightingOnLoad();*/
 };

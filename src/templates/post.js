@@ -13,6 +13,9 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RecentPosts, RelatedPosts, PostAuthor } from '../components/common/posts'
 
+
+
+import '../styles/nord.less'
 /**
 * Single post view (/:slug)
 *
@@ -23,6 +26,7 @@ library.add(faUserEdit, faGlobe)
 
 const Post = ({ data, location }) => {
     const post = data.ghostPost
+    const tags = data.ghostTag
     const relatedPosts = data.allGhostPost
     const readingTime = readingTimeHelper(post)
     const authorUrl = post.primary_author.slug ? `author/${post.primary_author.slug}` : null
@@ -36,8 +40,6 @@ const Post = ({ data, location }) => {
                 />
                 <Helmet>
                     <style type="text/css">{`${post.codeinjection_styles}`}</style>
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-                    <script>hljs.initHighlightingOnLoad();</script>
                 </Helmet>
                 <Layout template="post-template">
                 { post.feature_image ?
@@ -49,9 +51,10 @@ const Post = ({ data, location }) => {
 
                         <section className="post-content">
                             <div className="post-meta">
-                                <div className="meta-item"> <Link to="/about"><FontAwesomeIcon icon="user-edit" />{post.primary_author.name} </Link></div>
-                                <div className="meta-item"> <FontAwesomeIcon icon="tag" />{post.tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
-                                <div className="meta-item"> <FontAwesomeIcon icon="eye" /><span> {readingTime}</span> </div>
+                                <div className="meta-item author"> <Link to="/about"><FontAwesomeIcon icon="user-edit" /><span>{post.primary_author.name}</span> </Link></div>
+                                <div className="meta-item tag"> <FontAwesomeIcon icon="tag" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
+                                <div className="meta-item reading-time"> <FontAwesomeIcon icon="eye" /><span> {readingTime}</span> </div>
+                                <div className="meta-item date"> <FontAwesomeIcon icon="eye" />{post.published_at_pretty} </div>
                             </div>
                             <h1 className="post-title">{post.title}</h1>
                             {/* The main post content */ }
@@ -61,10 +64,10 @@ const Post = ({ data, location }) => {
                             />
                         </section>
                         <div className="post-tags">
-                            {/* <Tags post={post} visibility="public" autolink={true} /> */}
-                            {post.tags.map(({ name, slug }) => (
+                            <Tags post={post} visibility="public" autolink={true} />
+                            {/*{tags.map(({ name, slug }) => (
                                 <Link to={`/tag/${ slug }`} className="tag" key={ name }>{ name }</Link>
-                            ))}
+                            ))}*/}
                         </div>
                     </article>
 
@@ -91,6 +94,7 @@ Post.propTypes = {
             }).isRequired,
             primary_author: PropTypes.object.isRequired,
         }).isRequired,
+        ghostTag: PropTypes.object.isRequired,
         allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
@@ -110,6 +114,10 @@ query($slug: String!, $primaryTag: String!) {
           twitter
           facebook
         }
+    }
+    ghostTag(visibility: {eq: "public"}) {
+      slug
+      name
     }
     allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}}) {
       edges {
