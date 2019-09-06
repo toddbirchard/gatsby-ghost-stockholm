@@ -24,7 +24,6 @@ const Tag = ({ data, location, pageContext }) => {
             />
             <Layout template="tag-template" hasSidebar={true}>
                 <div className="tag-container">
-                    <Sidebar />
                     <section className="post-feed">
                         <header className="tag-header">
                             <h1>{tag.name}</h1>
@@ -36,9 +35,7 @@ const Tag = ({ data, location, pageContext }) => {
                         ))}
                         <Pagination pageContext={pageContext} />
                     </section>
-
                 </div>
-
             </Layout>
         </>
     )
