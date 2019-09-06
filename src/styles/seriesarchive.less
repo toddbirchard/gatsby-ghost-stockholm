@@ -1,0 +1,66 @@
+.seriesarchive-template {
+  .series-grid {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+
+    .series-card {
+      display: block;
+      background: white;
+
+      &:hover {
+        cursor: pointer;
+        background: #e7f7ff;
+        border-color: #bee8ff;
+
+        .series-card-image {
+          opacity: .7;
+        }
+
+        .series-card-title,
+        .series-card-description,
+        .series-card-count {
+          color: #4381a1 !important;
+        }
+      }
+
+      .series-card-image {
+        height: 200px;
+      }
+    }
+
+    .series-card-info {
+      padding: 20px;
+    }
+
+    .series-card-title {
+      color: #3f4856;
+      font-family: @sub-header-font;
+      margin-bottom: 7px;
+      margin-top: 0;
+      font-size: 1.5em;
+      line-height: 1.2;
+      font-weight: 600;
+      transition: @transition;
+    }
+
+    .series-card-description {
+      color: #373940;
+      margin: 10px 0;
+      line-height: 1.3;
+      text-align: left;
+      font-family: 'proxima-nova', sans-serif;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: @transition;
+    }
+
+    .series-card-count {
+      font-size: 0.8em;
+      color: @text-color-light;
+    }
+  }
+
+}

@@ -26,7 +26,7 @@ library.add(faUserEdit, faGlobe)
 
 const Post = ({ data, location }) => {
     const post = data.ghostPost
-    const tags = data.ghostTag
+    const tags = data.ghostPost.tags
     const relatedPosts = data.allGhostPost
     const readingTime = readingTimeHelper(post)
     const authorUrl = post.primary_author.slug ? `author/${post.primary_author.slug}` : null
@@ -65,9 +65,6 @@ const Post = ({ data, location }) => {
                         </section>
                         <div className="post-tags">
                             <Tags post={post} visibility="public" autolink={true} />
-                            {/*{tags.map(({ name, slug }) => (
-                                <Link to={`/tag/${ slug }`} className="tag" key={ name }>{ name }</Link>
-                            ))}*/}
                         </div>
                     </article>
 
@@ -94,7 +91,6 @@ Post.propTypes = {
             }).isRequired,
             primary_author: PropTypes.object.isRequired,
         }).isRequired,
-        ghostTag: PropTypes.object.isRequired,
         allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
@@ -114,10 +110,6 @@ query($slug: String!, $primaryTag: String!) {
           twitter
           facebook
         }
-    }
-    ghostTag(visibility: {eq: "public"}) {
-      slug
-      name
     }
     allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}}) {
       edges {

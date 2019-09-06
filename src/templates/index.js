@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import { Layout, PostCard, Pagination } from '../components/common'
+import { Layout, PostCard, Pagination, SeriesList } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 /**
@@ -19,7 +19,7 @@ const Index = ({ data, location, pageContext }) => {
     return (
         <>
             <MetaData location={location} />
-            <Layout isHome={true} template="home-template">
+            <Layout hasSidebar={true} template="home-template">
                 <main className="site-main">
                     <section className="post-feed">
                         {posts.map(({ node }) => (

@@ -19,10 +19,10 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 library.add(fab, faRss, faTag)
 
-const Sidebar = ({ data }) => {
-    const site = data.allGhostSettings.edges[0].node
+const Sidebar = ({ site, tags }) => {
+    // const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
-    const publicTags = data.allGhostTag.edges
+    const publicTags = tags.edges
 
     return (
     <>
@@ -35,12 +35,12 @@ const Sidebar = ({ data }) => {
             </div>
 
             <div className="widget social">
-                <Link external to={ twitterUrl } className="twitter"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></Link>
-                <Link external to="https://angel.co/todd-birchard?public_profile=1" className="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></Link>
-                <Link external to="https://www.linkedin.com/in/toddbirchard/" className="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></Link>
-                <Link external to="https://github.com/toddbirchard" className="github"><FontAwesomeIcon icon={[`fab`, `github`]} /></Link>
-                <Link external to="https://www.quora.com/profile/Todd-Birchard" className="quora"><FontAwesomeIcon icon={[`fab`, `quora`]} /></Link>
-                <Link external to="/rss/" className="rss"><FontAwesomeIcon icon="rss" /></Link>
+                <a href={ twitterUrl } className="twitter"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
+                <a href="https://angel.co/todd-birchard?public_profile=1" className="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
+                <a href="https://www.linkedin.com/in/toddbirchard/" className="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
+                <a href="https://github.com/toddbirchard" className="github"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
+                <a href="https://www.quora.com/profile/Todd-Birchard" className="quora"><FontAwesomeIcon icon={[`fab`, `quora`]} /></a>
+                <a href="/rss/" className="rss"><FontAwesomeIcon icon="rss" /></a>
             </div>
 
             <div className="widget tags">
@@ -69,40 +69,4 @@ const Sidebar = ({ data }) => {
     )
 }
 
-Sidebar.propTypes = {
-    bodyClass: PropTypes.string,
-    isHome: PropTypes.bool,
-    data: PropTypes.shape({
-        allGhostSettings: PropTypes.object.isRequired,
-        allGhostTag: PropTypes.object.isRequired,
-    }).isRequired,
-}
-
-const SidebarQuery = props => (
-    <StaticQuery
-        query={graphql`
-            query SidebarGQL {
-                allGhostSettings {
-                    edges {
-                        node {
-                            ...GhostSettingsFields
-                        }
-                    }
-                }
-                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}}) {
-                  edges {
-                    node {
-                      name
-                      slug
-                      url
-                      postCount
-                    }
-                  }
-                }
-            }
-        `}
-        render={data => <Sidebar data={data} {...props} />}
-    />
-)
-
-export default SidebarQuery
+export default Sidebar

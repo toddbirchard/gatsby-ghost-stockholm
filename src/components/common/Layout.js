@@ -22,9 +22,9 @@ import '../../styles/app.less'
 */
 
 
-const DefaultLayout = ({ data, children, bodyClass, isHome, template }) => {
-
+const DefaultLayout = ({ data, children, bodyClass, hasSidebar, template }) => {
     const site = data.allGhostSettings.edges[0].node
+    const tags = data.allGhostTag
 
     return (
     <>
@@ -34,14 +34,14 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, template }) => {
             <body className={ template } />
         </Helmet>
 
-        <Navigation data={site.navigation} navClass="site-nav-item" navType="home-nav" logo={site.icon} url={site.url} isHome={isHome} />
+        <Navigation data={site.navigation} navClass="site-nav-item" navType="home-nav" logo={site.icon} url={site.url} />
         <div className="viewport">
 
-            <div className={ isHome ? `home-container` : `container` }>
+            <div className={ hasSidebar ? `home-container` : `container` }>
                 {/* All the main content gets inserted here, index.js, post.js */}
 
                 {children}
-                { isHome ? <Sidebar /> : null}
+                { hasSidebar ? <Sidebar site={site} tags={tags} /> : null}
             </div>
         </div>
         {/* The footer at the very bottom of the screen */}
@@ -53,7 +53,7 @@ const DefaultLayout = ({ data, children, bodyClass, isHome, template }) => {
 DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired,
     bodyClass: PropTypes.string,
-    isHome: PropTypes.bool,
+    hasSidebar: PropTypes.bool,
     template: PropTypes.string,
     data: PropTypes.shape({
         allGhostSettings: PropTypes.object.isRequired,

@@ -15,7 +15,7 @@ import { Menu, NavigationLinks } from '.'
 *
 */
 
-const Navigation = ({ data, navClass, logo, isHome }) => (
+const Navigation = ({ data, navClass, logo }) => (
     <>
         <nav className="navigation">
           <div className="nav-wrapper">
@@ -31,7 +31,6 @@ const Navigation = ({ data, navClass, logo, isHome }) => (
               </div>
               </div>
         </nav>
-        { isHome ? null : <Menu left data={data} navClass={navClass} />}
 
     </>
 )
@@ -39,17 +38,6 @@ const Navigation = ({ data, navClass, logo, isHome }) => (
 Navigation.defaultProps = {
     navClass: `site-nav-item`,
     navType: `home-nav`,
-}
-
-Navigation.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-        }).isRequired,
-    ).isRequired,
-    navClass: PropTypes.string,
-    navType: PropTypes.string,
 }
 
 export default Navigation

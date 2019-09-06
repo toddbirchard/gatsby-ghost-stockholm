@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
+import Img from 'gatsby-image'
 import { Layout, PostCard, Pagination, Sidebar } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
@@ -11,7 +11,7 @@ import { MetaData } from '../components/common/meta'
 * Loads all posts for the requested tag incl. pagination.
 *
 */
-const Tag = ({ data, location, pageContext }) => {
+const SeriesDetail = ({ data, location, pageContext }) => {
     const tag = data.ghostTag
     const posts = data.allGhostPost.edges
 
@@ -24,7 +24,6 @@ const Tag = ({ data, location, pageContext }) => {
             />
             <Layout template="tag-template" hasSidebar={true}>
                 <div className="tag-container">
-                    <Sidebar />
                     <section className="post-feed">
                         <header className="tag-header">
                             <h1>{tag.name}</h1>
@@ -44,7 +43,7 @@ const Tag = ({ data, location, pageContext }) => {
     )
 }
 
-Tag.propTypes = {
+SeriesDetail.propTypes = {
     data: PropTypes.shape({
         ghostTag: PropTypes.shape({
             name: PropTypes.string.isRequired,
@@ -59,10 +58,10 @@ Tag.propTypes = {
     icon: PropTypes.string,
 }
 
-export default Tag
+export default SeriesDetail
 
 export const pageQuery = graphql`
-    query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
+    query GhostSeriesQuery($slug: String!, $limit: Int!, $skip: Int!) {
         ghostTag(slug: { eq: $slug }) {
             ...GhostTagFields
         }

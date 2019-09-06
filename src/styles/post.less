@@ -536,6 +536,10 @@
 					white-space: normal;
 					background: #ffe5cb;
 					color: #8b572b;
+          @media(max-width: @mobile-breakpoint) {
+            border-radius: 0;
+            .mobile-full-width()
+          }
 
 					&:before {
 						text-shadow: -1px 1px 1px rgba(46, 31, 0, 0.6) !important;
