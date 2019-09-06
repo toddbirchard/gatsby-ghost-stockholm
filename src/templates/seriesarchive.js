@@ -25,7 +25,7 @@ const SeriesArchive = ({ data, location, pageContext }) => {
             <Layout template="seriesarchive-template" hasSidebar={true}>
                 <div className="content">
                         <header className="tag-header">
-                            <h1>{page.title}</h1>
+                            {page.title ? <h1>{page.title}</h1> : null }
                             {page.description ? <p>{page.description}</p> : null }
                         </header>
                         <div className="series-grid">

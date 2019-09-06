@@ -1,10 +1,10 @@
 {
   "development": {
-    "apiUrl": "https://toddbirchard.app",
-    "contentApiKey": "edfd4896eb259c50cc4992a954"
+    "apiUrl": "https://hackersandslackers.app",
+    "contentApiKey": "584c3e3f19081da3dfbf8eabe1"
   },
   "production": {
-    "apiUrl": "https://toddbirchard.app",
-    "contentApiKey": "edfd4896eb259c50cc4992a954"
+    "apiUrl": "https://hackersandslackers.app",
+    "contentApiKey": "584c3e3f19081da3dfbf8eabe1"
   }
 }
