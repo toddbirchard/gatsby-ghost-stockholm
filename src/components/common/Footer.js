@@ -115,7 +115,6 @@ const FooterQuery = props => ( <
                   node {
                     logo
                     title
-                    url
                     description
                     icon
                   }
