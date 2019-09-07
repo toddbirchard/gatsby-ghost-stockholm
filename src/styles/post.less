@@ -81,7 +81,6 @@
             align-items: center;
             text-transform: capitalize;
             line-height: 1;
-            margin: 0 20px;
 
             * {
                 padding: 0;
@@ -190,9 +189,7 @@
                 max-width: auto;
                 letter-spacing: 0;
                 line-height: 1.1;
-                margin: unset;
-                margin-left: calc(-40vw + 40%) !important;
-                margin-right: calc(-40vw + 40%) !important;
+                margin: unset calc(-40vw + 40%) !important;
             }
         }
 
@@ -646,11 +643,11 @@
         }
 
         * {
-          font-style: italic;
-          font-weight: 600;
-          line-height: 1.5;
-          font-size: 1.2em;
-          color: #a9abae;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.5;
+            font-size: 1.2em;
+            color: #a9abae;
         }
 
         code {
@@ -695,6 +692,7 @@
     pre {
         @media(max-width: @mobile-breakpoint) {
             .mobile-full-width();
+            border-radius: 0;
         }
     }
 }

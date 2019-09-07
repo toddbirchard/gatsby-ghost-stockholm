@@ -2,21 +2,22 @@
   display: flex;
   margin: 20px 0 50px;
   background: white;
-  border-radius: 5px;
   padding: 30px;
   justify-content: space-between;
-  align-items: center;
+  align-items: top;
+  box-shadow: @box-shadow;
 }
 
 .post-author .post-author-content {
-    margin-right: 20px;
+    margin-left: 20px;
+    width: -webkit-fill-available;
 }
 
 .post-author-name {
     margin: 0 0 .5em 0;
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-family: @sub-header-font;
-    color: var(--color-content-title);
+    color: #7c8a90;
 }
 
 .post-author-bio {
@@ -25,9 +26,9 @@
 }
 
 .post-author-image {
-    width: 90px;
-    height: 90px;
-    min-width: 100px;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
     border-radius: 50%;
     overflow: hidden;
 
@@ -43,12 +44,21 @@
 }
 
 
+.post-author-meta {
+  margin: 10px 0;
+}
+
 
 .post-author-item {
-    color: var(--color-secondary);
+    color: @secondary-font-color;
     opacity: .7;
     margin-right: 20px;
     font-size: .9em;
+    @media(max-width: @mobile-breakpoint) {
+      font-size: 1em;
+      display: block;
+      margin-bottom: 5px;
+    }
 }
 
 .post-author-item svg {

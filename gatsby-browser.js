@@ -46,8 +46,8 @@ var trustAllScripts = function() {
 export const onRouteUpdate = () => {
     trustAllScripts();
     Prism.highlightAll();
-    /*hljs.registerLanguage('javascript', javascript);
-    hljs.registerLanguage('python', python);
-    hljs.registerLanguage('json', json);
-    hljs.initHighlightingOnLoad();*/
 };
+
+export const onInitialClientRender = () => {
+    Prism.highlightAll();
+}

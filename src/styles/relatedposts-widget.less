@@ -13,43 +13,50 @@
 .recent-post-card {
     background: white;
     box-shadow: 0 0 10px #e8e9ef;
-    border-radius: 5px;
     overflow: hidden;
     width: 32%;
+    box-shadow: @box-shadow;
     transition: all .2s ease-out;
-    @media(max-width: 600px) {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      margin-bottom: 10px;
-    }
 
     &:hover {
-        background: var(--color-primary);
+      .related-post-info {
+        background: @theme-color;
         color: white !important;
         text-decoration: none;
+
+        * {
+          color: white;
+        }
+      }
     }
 
     img {
       max-width: 100%;
-
-      @media(max-width: 600px) {
-              width: 30%;
-              height: 77px;
-      }
     }
 }
 
-
+.related-post-info {
+  padding: 20px;
+  background: white;
+}
 
 .related-post-title,
 .recent-post-title {
-    margin: 0;
-    padding: 20px;
+    margin: 0 0 10px 0;
     width: -webkit-fill-available;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 1.2;
     color: @body-color;
     font-weight: 600;
+}
+
+.related-post-excerpt {
+  color: #8e91a2;
+  margin: 0;
+  line-height: 1.1;
+  -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

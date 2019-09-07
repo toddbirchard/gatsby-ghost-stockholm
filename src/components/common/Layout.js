@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import Prism from 'prismjs'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
 import Img from 'gatsby-image'
@@ -45,7 +44,7 @@ const DefaultLayout = ({ data, children, bodyClass, hasSidebar, template }) => {
             </div>
         </div>
         {/* The footer at the very bottom of the screen */}
-        <Footer tags={tags} />
+        <Footer />
     </>
     )
 }

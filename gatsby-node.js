@@ -18,6 +18,13 @@ exports.createPages = async ({ graphql, actions }) => {
                         primary_tag {
                           slug
                         }
+                        primary_author {
+                          slug
+                        }
+                        tags {
+                          slug
+                          visibility
+                        }
                     }
                 }
             }
@@ -217,6 +224,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
 
+
         createPage({
             path: node.url,
             component: pageTemplate,
@@ -241,6 +249,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 slug: node.slug,
+                primaryAuthor: node.primary_author.slug,
                 primaryTag: node.primary_tag.slug
             },
         })

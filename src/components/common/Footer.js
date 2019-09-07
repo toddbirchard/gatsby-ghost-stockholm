@@ -20,6 +20,7 @@ const Footer = ({ data, tags }) => {
   const site = data.allGhostSettings.edges[0].node
   const pageLinks = data.allGhostPage.edges
   const authorLinks = data.allGhostAuthor.edges
+  const topTags = data.allGhostTag.edges
 
     return (
     <>
@@ -60,7 +61,7 @@ const Footer = ({ data, tags }) => {
                 <div className="widget tags">
                   <h5 className="footer-widget-title">Tags</h5>
                   <ul>
-                  {tags.map(({ node }) => (
+                  {topTags.map(({ node }) => (
                       <li key={ node.slug }><Link to={`/tag/${ node.slug }`}>{ node.name }</Link></li>
                   ))}
                 </ul>
@@ -74,7 +75,7 @@ const Footer = ({ data, tags }) => {
 Footer.propTypes = {
     data: PropTypes.shape({
         allGhostAuthor: PropTypes.object.isRequired,
-        allGhostTag: PropTypes.object.isRequired,
+        allGhostTag: PropTypes.object,
         allGhostPage: PropTypes.object.isRequired,
         allGhostSettings: PropTypes.object.isRequired,
     }).isRequired,
@@ -88,6 +89,14 @@ const FooterQuery = props => ( <
                 edges {
                   node {
                     url
+                    name
+                    slug
+                  }
+                }
+              }
+              allGhostTag(limit: 10, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}}) {
+                edges {
+                  node {
                     name
                     slug
                   }
@@ -118,4 +127,4 @@ const FooterQuery = props => ( <
         />
     )
 
-        export default FooterQuery
+export default FooterQuery

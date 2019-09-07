@@ -27,6 +27,7 @@ library.add(faUserEdit, faGlobe, faHome)
 const Post = ({ data, location }) => {
     const post = data.ghostPost
     const tags = data.ghostPost.tags
+    const author = data.ghostAuthor
     const relatedPosts = data.allGhostPost
     const readingTime = readingTimeHelper(post)
     const authorUrl = post.primary_author.slug ? `author/${post.primary_author.slug}` : null
@@ -70,7 +71,7 @@ const Post = ({ data, location }) => {
                     </div>
                     <section className="post-footer">
                         <RelatedPosts data={data} />
-                        <PostAuthor author={post.primary_author} />
+                        <PostAuthor author={author} />
                     </section>
                 </Layout>
             </>
@@ -83,13 +84,9 @@ Post.propTypes = {
             title: PropTypes.string.isRequired,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
-            tags: PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-                slug: PropTypes.string.isRequired,
-            }).isRequired,
-            primary_author: PropTypes.object.isRequired,
+            tags: PropTypes.object.isRequired,
         }).isRequired,
+        ghostAuthor: PropTypes.object.isRequired,
         allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.object.isRequired,
@@ -98,18 +95,21 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-query($slug: String!, $primaryTag: String!) {
+query($slug: String!, $primaryTag: String!, $primaryAuthor: String!) {
     ghostPost(slug: { eq: $slug }) {
         ...GhostPostFields
-        primary_author {
-          name
-          url
-          bio
-          website
-          twitter
-          facebook
-          location
-        }
+    }
+    ghostAuthor(slug: {eq: $primaryAuthor}) {
+      postCount
+      location
+      facebook
+      cover_image
+      bio
+      name
+      slug
+      twitter
+      website
+      profile_image
     }
     allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}}) {
       edges {
@@ -118,6 +118,7 @@ query($slug: String!, $primaryTag: String!) {
           feature_image
           title
           slug
+          custom_excerpt
         }
       }
     }
