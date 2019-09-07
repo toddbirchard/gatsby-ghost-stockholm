@@ -50,12 +50,19 @@
     color: @text-color-light;
     font-size: 0.9em;
     font-weight: normal;
+    display: flex;
+    align-items: center;
 
     a {
       color: var(--secondary-color);
     }
 
-    &.date{
+    span {
+      white-space: nowrap;
+    }
+
+    &.date,
+    &.reading-item {
       @media(max-width: 800px) {
         display: none;
       }

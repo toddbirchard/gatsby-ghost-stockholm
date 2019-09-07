@@ -40,19 +40,18 @@
     }
 
     .post-meta {
-        margin: 15px auto;
+        margin: 15px auto 60px;
         color: @text-color-light;
         font-size: 12px;
         display: flex;
         width: auto;
         align-items: center;
         justify-content: center;
-        width: 80%;
         @media(max-width: @mobile-breakpoint) {
             padding: 0;
             max-width: none;
             width: auto;
-            order: 2;
+            margin: 15px auto 35px;
 
             .date {
                 display: none !important;
@@ -88,6 +87,7 @@
                 padding: 0;
                 color: @text-color-light !important;
                 font-weight: 600;
+                white-space: nowrap;
                 @media(max-width: @tablet-breakpoint) {
                     font-size: 0.9em;
                 }
@@ -174,23 +174,25 @@
 
         .post-title {
             width: -webkit-fill-available;
-            margin: 0 0 60px;
             display: block;
             font-family: @header-font !important;
             font-size: 3em;
             letter-spacing: 0;
-            line-height: 1.1;
+            line-height: 1;
+            margin-top: 10px;
             color: @h1-color;
             text-align: center;
             @media(max-width: @tablet-breakpoint) {
                 font-size: 2.5em;
             }
             @media(max-width: @mobile-breakpoint) {
-                font-size: 2.3em;
+                font-size: 2em;
                 max-width: auto;
                 letter-spacing: 0;
                 line-height: 1.1;
-                margin: 0 0 30px;
+                margin: unset;
+                margin-left: calc(-40vw + 40%) !important;
+                margin-right: calc(-40vw + 40%) !important;
             }
         }
 
@@ -256,9 +258,9 @@
             }
 
             a {
-                color: #99a2b3 !important;
+                color: #757d8c !important;
                 display: inline-block;
-                border: 1px solid #cfd4dd;
+                border: 1px solid #cbd0d8;
                 border-radius: 3px;
                 font-size: 1em;
                 font-weight: unset !important;
@@ -334,6 +336,7 @@
         color: @body-color;
         font-family: @body-font;
         -webkit-font-smoothing: auto;
+        font-size: 1.1em;
         @media(max-width: @mobile-breakpoint) {
             font-size: 1em;
         }
@@ -595,8 +598,6 @@
         }
 
         pre {
-
-
             code {
                 padding: 12px 19px;
                 border-radius: 3px;
@@ -645,15 +646,12 @@
         }
 
         * {
-            font-weight: 600;
-            font-style: italic;
-            font-weight: 100;
-            line-height: 1.6;
-            font-size: 1.05em;
-            color: #a9abae;
+          font-style: italic;
+          font-weight: 600;
+          line-height: 1.5;
+          font-size: 1.2em;
+          color: #a9abae;
         }
-
-
 
         code {
             font-family: 'Hack', sans-serif;
@@ -695,8 +693,8 @@
     }
 
     pre {
-      @media(max-width: @mobile-breakpoint) {
-          .mobile-full-width();
-      }
+        @media(max-width: @mobile-breakpoint) {
+            .mobile-full-width();
+        }
     }
 }

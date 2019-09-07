@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Prism from 'prismjs';
+import 'lazysizes'
 /*import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import python from 'highlight.js/lib/languages/python';

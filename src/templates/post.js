@@ -48,15 +48,14 @@ const Post = ({ data, location }) => {
                     </figure> : null }
                     <div className="post-wrapper">
                     <article className="post">
-
                         <section className="post-content">
+                            <h1 className="post-title">{post.title}</h1>
                             <div className="post-meta">
                                 <div className="meta-item author"> <Link to="/about"><FontAwesomeIcon icon="user-edit" /><span>{post.primary_author.name}</span> </Link></div>
                                 <div className="meta-item tag"> <FontAwesomeIcon icon="tag" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
                                 <div className="meta-item reading-time"> <FontAwesomeIcon icon="eye" /><span> {readingTime}</span> </div>
                                 <div className="meta-item date"> <FontAwesomeIcon icon="eye" />{post.published_at_pretty} </div>
                             </div>
-                            <h1 className="post-title">{post.title}</h1>
                             {/* The main post content */ }
                             <section
                                 className="content-body load-external-scripts"

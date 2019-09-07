@@ -83,6 +83,7 @@ module.exports = {
                             withWebp: true,
                         },
                     },
+                    `gatsby-remark-lazy-load`,
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {
@@ -123,7 +124,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-feed`,
             options: {
-                title: "Your Site's RSS Feed",
+                title: "Hackers and Slackers RSS",
                 query: `
                 {
                     allGhostSettings {
@@ -214,6 +215,5 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
-
     ],
 }

@@ -140,8 +140,10 @@ ul {
 a {
   text-decoration: none;
 
+  &:hover {
+    color: @secondary-color !important;
+  }
 }
-
 
 input {
     line-height: normal;
@@ -179,11 +181,6 @@ legend {
 
 textarea {
     overflow: auto;
-}
-
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
 }
 
 td,
@@ -311,43 +308,6 @@ dd {
     text-align: left;
 }
 
-blockquote {
-    margin: 0.3em auto 1.8em;
-    padding: 0 1.6em 0 1.6em;
-    border-left: #a67585 0.5em solid;
-    width: 90%;
-    color: #a67585;
-    font-style: italic;
-    font-weight: bold;
-}
-
-blockquote p {
-    margin: 0.8em 0;
-    font-size: 1.2em;
-    font-weight: 300;
-}
-
-blockquote small {
-    display: inline-block;
-    margin: 0.8em 0 0.8em 1.5em;
-    font-size: 0.9em;
-    opacity: 0.8;
-}
-
-/* Quotation marks */
-blockquote small:before {
-    content: "\2014 \00A0";
-}
-
-blockquote cite {
-    font-weight: bold;
-}
-
-blockquote cite a {
-    font-weight: normal;
-}
-
-
 
 /* Header
 /* ---------------------------------------------------------- */
@@ -394,6 +354,7 @@ blockquote cite a {
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 1fr;
+    grid-template-rows: min-content;
 }
 
 
