@@ -6,13 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { Link } from 'gatsby'
 
-/**
-* Single post view (/:slug)
-*
-* This file renders a single post and loads all the content.
-*
-*/
-library.add(faUserEdit, faGlobe)
 
 const PostAuthor = ({ author }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
@@ -25,13 +18,14 @@ const PostAuthor = ({ author }) => {
                       <h4 className="post-author-name">{author.name}</h4>
                       {author.bio && <p className="post-author-bio">{author.bio}</p>}
                       <div className="post-author-meta">
+                          {author.location && <span className="post-author-item"><FontAwesomeIcon icon={[`fas`, `home`]} />{author.location}</span>}
                           {author.website && <Link external className="post-author-item" to={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fas`, `globe`]} />Website</Link>}
                           {authorTwitterUrl && <Link external className="post-author-item" to={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} />Twitter</Link>}
                           {authorFacebookUrl && <Link external className="post-author-item" to={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} />Facebook</Link>}
                       </div>
                   </div>
                   <div className="post-author-image">
-                      {author.profile_image && <img src={author.profile_image} alt={author.name} />}
+                      {author.profile_image ? <img src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" /> }
                   </div>
               </div>
             </>

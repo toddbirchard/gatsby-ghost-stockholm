@@ -22,12 +22,11 @@ const Tag = ({ data, location, pageContext }) => {
                 location={location}
                 type="series"
             />
-            <Layout template="tag-template" hasSidebar={true}>
-                <div className="tag-container">
+            <Layout template="tag-template page-template" hasSidebar={true}>
                     <section className="post-feed">
                         <header className="tag-header">
-                            <h1>{tag.name}</h1>
-                            {tag.description ? <p>{tag.description}</p> : null }
+                            <h1 className="tag-title">{tag.name}</h1>
+                            {tag.description ? <p className="tag-description">{tag.description}</p> : null }
                         </header>
                         {posts.map(({ node }) => (
                             // The tag below includes the markup for each post - components/common/PostCard.js
@@ -35,7 +34,6 @@ const Tag = ({ data, location, pageContext }) => {
                         ))}
                         <Pagination pageContext={pageContext} />
                     </section>
-                </div>
             </Layout>
         </>
     )

@@ -16,10 +16,9 @@ import {
 
 library.add(fab, faRss, faTag)
 
-const Footer = ({ data }) => {
+const Footer = ({ data, tags }) => {
   const site = data.allGhostSettings.edges[0].node
   const pageLinks = data.allGhostPage.edges
-  const tagLinks = data.allGhostTag.edges
   const authorLinks = data.allGhostAuthor.edges
 
     return (
@@ -28,7 +27,7 @@ const Footer = ({ data }) => {
         <footer className="site-footer">
             <div className="footer-wrapper">
               <div className="widget about">
-                <Link to="logo" href="/">
+                <Link to="/" alt="/">
                   {site.logo ? <img className="logo" src={site.logo} alt={site.title} /> : <Img className="logo" fixed={site.logo} alt={site.title} loading="lazy" /> }
                 </Link>
                 <p className="description">Community of hackers obsessed with data science, data engineering, and analysis. Openly pushing a pro-robot agenda.</p>
@@ -46,7 +45,7 @@ const Footer = ({ data }) => {
                 <h5 className="footer-widget-title">Links</h5>
                 <ul>
                   {pageLinks.map(({ node }) => (
-                      <li key={ node.title }><Link to={ node.url } className="tag" key={ node.slug }>{ node.title }</Link></li>
+                      <li key={ node.title }><Link to={ `/${ node.slug }` } key={ node.slug }>{ node.title }</Link></li>
                   ))}
                   </ul>
                 </div>
@@ -54,15 +53,15 @@ const Footer = ({ data }) => {
                   <h5 className="footer-widget-title">Authors</h5>
                   <ul>
                   {authorLinks.map(({ node }) => (
-                      <li key={ node.name }><Link to={`/tag/${ node.slug }`} className="tag">{ node.name }</Link></li>
+                      <li key={ node.name }><Link to={`/author/${ node.slug }`} >{ node.name }</Link></li>
                   ))}
                   </ul>
                 </div>
                 <div className="widget tags">
                   <h5 className="footer-widget-title">Tags</h5>
                   <ul>
-                  {tagLinks.map(({ node }) => (
-                      <li key={ node.slug }><Link to={`/tag/${ node.slug }`} className="tag">{ node.name }</Link></li>
+                  {tags.map(({ node }) => (
+                      <li key={ node.slug }><Link to={`/tag/${ node.slug }`}>{ node.name }</Link></li>
                   ))}
                 </ul>
               </div>
@@ -90,15 +89,7 @@ const FooterQuery = props => ( <
                   node {
                     url
                     name
-                  }
-                }
-              }
-              allGhostTag(limit: 10, sort: {order: DESC, fields: postCount}, filter: {}) {
-                edges {
-                  node {
                     slug
-                    url
-                    name
                   }
                 }
               }
@@ -107,6 +98,7 @@ const FooterQuery = props => ( <
                   node {
                     url
                     title
+                    slug
                   }
                 }
               }

@@ -30,7 +30,7 @@ const PostCard = ({ post }) => {
                         {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>}
                     </div>
                     <div className="meta-item reading-item"> <FontAwesomeIcon icon="eye" /> {readingTime} </div>
-                    <div className="meta-item author"> <Link to={post.primary_author.url}><FontAwesomeIcon icon="user-edit" />{post.primary_author.name} </Link></div>
+                    <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon="user-edit" />{post.primary_author.name} </Link></div>
                     <div className="meta-item date"> <FontAwesomeIcon icon="eye" />{post.published_at_pretty} </div>
                 </div>
             </footer>

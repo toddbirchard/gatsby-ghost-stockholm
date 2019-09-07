@@ -24,7 +24,7 @@ import '../../styles/app.less'
 
 const DefaultLayout = ({ data, children, bodyClass, hasSidebar, template }) => {
     const site = data.allGhostSettings.edges[0].node
-    const tags = data.allGhostTag
+    const tags = data.allGhostTag.edges
 
     return (
     <>
@@ -45,7 +45,7 @@ const DefaultLayout = ({ data, children, bodyClass, hasSidebar, template }) => {
             </div>
         </div>
         {/* The footer at the very bottom of the screen */}
-        <Footer />
+        <Footer tags={tags} />
     </>
     )
 }
@@ -79,16 +79,16 @@ const DefaultLayoutSettingsQuery = props => (
                         }
                     }
                 }
-                allGhostTag(sort: {order: DESC, fields: postCount}) {
-                  edges {
-                    node {
-                      name
-                      slug
-                      url
-                      postCount
-                    }
+                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}}) {
+                edges {
+                  node {
+                    name
+                    slug
+                    url
+                    postCount
                   }
                 }
+              }
             }
         `}
         render={data => <DefaultLayout data={data} {...props} />}

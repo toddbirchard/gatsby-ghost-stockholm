@@ -1,12 +1,19 @@
 .seriesarchive-template {
   .series-grid {
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
+    margin: 30px 0;
+    @media(max-width: @mobile-breakpoint) {
+        grid-template-columns: 1fr;
+    }
 
     .series-card {
       display: block;
       background: white;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid #d3dbe1;
 
       &:hover {
         cursor: pointer;
@@ -25,7 +32,8 @@
       }
 
       .series-card-image {
-        height: 200px;
+        height: 150px;
+        background-size: cover;
       }
     }
 
@@ -38,7 +46,7 @@
       font-family: @sub-header-font;
       margin-bottom: 7px;
       margin-top: 0;
-      font-size: 1.5em;
+      font-size: 1.3em;
       line-height: 1.2;
       font-weight: 600;
       transition: @transition;
@@ -55,11 +63,14 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       transition: @transition;
+      font-size: .9em;
     }
 
     .series-card-count {
       font-size: 0.8em;
       color: @text-color-light;
+      font-weight: 600;
+      text-align: right;
     }
   }
 

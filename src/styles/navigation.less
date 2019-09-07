@@ -12,7 +12,7 @@ nav {
         display: flex;
         align-items: center;
         @media(max-width: 1100px) {
-            max-width: 93%;
+            max-width: 90%;
         }
         @media(max-width: 800px) {
             max-width: 86%;
@@ -44,6 +44,20 @@ nav {
             }
         }
 
+        .right-links {
+          @media(max-width: @mobile-breakpoint) {
+              display: none !important;
+          }
+        }
+
+        .left-links {
+          @media(max-width: @mobile-breakpoint) {
+            width: 150px;
+            float: right;
+          }
+
+        }
+
         .left-links,
         .right-links {
             display: flex;
@@ -51,8 +65,9 @@ nav {
             align-items: center;
             @media(max-width: @mobile-breakpoint) {
                 justify-content: inherit;
-                display: none;
             }
+
+
 
             .site-nav-item {
                 color: #626573;
@@ -64,7 +79,7 @@ nav {
                 display: flex;
                 justify-content: center;
                 font-weight: normal;
-                @media(max-width: @tablet-breakpoint) {
+                @media(max-width: @mobile-breakpoint) {
                     margin: 0 0 0 20px;
                 }
             }

@@ -5,7 +5,7 @@ import Prism from 'prismjs'
 import Helmet from 'react-helmet'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
-import { faUserEdit, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faUserEdit, faGlobe, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -22,7 +22,7 @@ import '../styles/nord.less'
 * This file renders a single post and loads all the content.
 *
 */
-library.add(faUserEdit, faGlobe)
+library.add(faUserEdit, faGlobe, faHome)
 
 const Post = ({ data, location }) => {
     const post = data.ghostPost
@@ -109,6 +109,7 @@ query($slug: String!, $primaryTag: String!) {
           website
           twitter
           facebook
+          location
         }
     }
     allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}}) {

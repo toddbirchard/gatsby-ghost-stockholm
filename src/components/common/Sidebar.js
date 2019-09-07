@@ -22,7 +22,6 @@ library.add(fab, faRss, faTag)
 const Sidebar = ({ site, tags }) => {
     // const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
-    const publicTags = tags.edges
 
     return (
     <>
@@ -44,7 +43,7 @@ const Sidebar = ({ site, tags }) => {
             </div>
 
             <div className="widget tags">
-                {publicTags.map(({ node }) => (
+                {tags.map(({ node }) => (
                     <Link to={`/tag/${ node.slug }`} className="tag" key={ node.name }>{ node.name }</Link>
                 ))}
             </div>

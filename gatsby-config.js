@@ -15,7 +15,10 @@ try {
         },
     }
 } finally {
-    const { apiUrl, contentApiKey } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
+    const {
+        apiUrl,
+        contentApiKey
+    } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
 
     if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
         throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`) // eslint-disable-line
@@ -24,12 +27,12 @@ try {
 
 
 /**
-* This is the place where you can tell Gatsby which plugins to use
-* and set them up the way you want.
-*
-* Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/
-*
-*/
+ * This is the place where you can tell Gatsby which plugins to use
+ * and set them up the way you want.
+ *
+ * Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/
+ *
+ */
 module.exports = {
     siteMetadata: {
         siteUrl: config.siteUrl,
@@ -55,45 +58,44 @@ module.exports = {
             },
         },
         {
-          resolve: `gatsby-plugin-less`,
-          options: {
-            javascriptEnabled: true,
-          }
+            resolve: `gatsby-plugin-less`,
+            options: {
+                javascriptEnabled: true,
+            }
         },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         {
             resolve: `gatsby-source-ghost`,
-            options:
-                process.env.NODE_ENV === `development`
-                    ? ghostConfig.development
-                    : ghostConfig.production,
+            options: process.env.NODE_ENV === `development` ?
+                ghostConfig.development :
+                ghostConfig.production,
         },
         /**
          *  Utility Plugins
          */
-         {
+        {
             resolve: `gatsby-transformer-remark`,
             options: {
-              plugins: [
-                {
-                    resolve: `gatsby-remark-images`,
-                    options: {
-                        withWebp: true,
+                plugins: [{
+                        resolve: `gatsby-remark-images`,
+                        options: {
+                            withWebp: true,
+                        },
                     },
-                },
-                {
-                resolve: `gatsby-remark-prismjs`,
-                options: {
-                  classPrefix: "language-",
-                  inlineCodeMarker: null,
-                  aliases: {},
-                  showLineNumbers: false,
-                  noInlineHighlight: false,
-                },
-              }],
+                    {
+                        resolve: `gatsby-remark-prismjs`,
+                        options: {
+                            classPrefix: "language-",
+                            inlineCodeMarker: null,
+                            aliases: {},
+                            showLineNumbers: false,
+                            noInlineHighlight: false,
+                        },
+                    },
+                ],
             },
-          },
+        },
         {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {

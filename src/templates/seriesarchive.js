@@ -22,24 +22,22 @@ const SeriesArchive = ({ data, location, pageContext }) => {
                 location={location}
                 type="series"
             />
-            <Layout template="seriesarchive-template" hasSidebar={true}>
-                <div className="content">
-                        <header className="tag-header">
-                            {page.title ? <h1>{page.title}</h1> : null }
-                            {page.description ? <p>{page.description}</p> : null }
-                        </header>
+            <Layout template="seriesarchive-template page-template" hasSidebar={true}>
+                <div className="page-content post-content">
+                        {page.title ? <h1>{page.title}</h1> : null }
+                        {page.plaintext ? <p>{page.plaintext}</p> : null }
                         <div className="series-grid">
                         {tags.map(({ node }) => (
-                            <Link to={node.url} className="series-card" key={node.id}>
+                            <Link to={`/tag/${node.slug}`} className="series-card" key={node.id}>
                                 {
                                     node.feature_image && <div className="series-card-image" style={{
                                         backgroundImage: `url(${node.feature_image})`
                                     }}></div>
                                 }
                               <div className="series-card-info">
-                                <h2 className="series-card-title">{node.name}</h2>
+                                <h2 className="series-card-title">{node.meta_title}</h2>
                                 <p className="series-card-description">{node.description}</p>
-                                <span className="series-card-count">{node.postCount}</span>
+                                <span className="series-card-count">{node.postCount} Posts</span>
                               </div>
                             </Link>
                         ))}
