@@ -74,6 +74,7 @@ module.exports = {
         /**
          *  Utility Plugins
          */
+         `gatsby-plugin-altair-graphql`,
         {
             resolve: `gatsby-transformer-remark`,
             options: {

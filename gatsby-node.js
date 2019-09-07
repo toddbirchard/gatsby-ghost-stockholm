@@ -224,7 +224,6 @@ exports.createPages = async ({ graphql, actions }) => {
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
 
-
         createPage({
             path: node.url,
             component: pageTemplate,
@@ -241,6 +240,14 @@ exports.createPages = async ({ graphql, actions }) => {
         // This part here defines, that our posts will use
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
+        node.series = ``
+        node.tags.forEach(function(element) {
+          if (element.visibility == 'internal') {
+            //console.log(node.slug + " = " + element.slug);
+            node.series = element.slug
+          }
+          // console.log(node.slug + " = " + node.series)
+        });
 
         createPage({
             path: node.url,
@@ -250,7 +257,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 // in page queries as GraphQL variables.
                 slug: node.slug,
                 primaryAuthor: node.primary_author.slug,
-                primaryTag: node.primary_tag.slug
+                primaryTag: node.primary_tag.slug,
+                series: node.series
             },
         })
     })

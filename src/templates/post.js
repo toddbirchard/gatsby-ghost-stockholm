@@ -14,7 +14,6 @@ import { MetaData } from '../components/common/meta'
 import { RecentPosts, RelatedPosts, PostAuthor } from '../components/common/posts'
 
 
-
 import '../styles/nord.less'
 /**
 * Single post view (/:slug)
@@ -24,9 +23,10 @@ import '../styles/nord.less'
 */
 library.add(faUserEdit, faGlobe, faHome)
 
-const Post = ({ data, location }) => {
+const Post = ({ data, location, pageContext }) => {
     const post = data.ghostPost
     const tags = data.ghostPost.tags
+    const series = pageContext.series
     const author = data.ghostAuthor
     const relatedPosts = data.allGhostPost
     const readingTime = readingTimeHelper(post)
@@ -50,6 +50,7 @@ const Post = ({ data, location }) => {
                     <div className="post-wrapper">
                     <article className="post">
                         <section className="post-content">
+                            {pageContext.series}
                             <h1 className="post-title">{post.title}</h1>
                             <div className="post-meta">
                                 <div className="meta-item author"> <Link to="/about"><FontAwesomeIcon icon="user-edit" /><span>{post.primary_author.name}</span> </Link></div>
