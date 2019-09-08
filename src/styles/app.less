@@ -127,8 +127,6 @@ video {
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
-    font-size: 100%;
     vertical-align: baseline;
 }
 
@@ -355,6 +353,9 @@ dd {
     grid-gap: 30px;
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
+    @media(max-width: @mobile-breakpoint) {
+      grid-gap: 20px;
+    }
 }
 
 
@@ -408,13 +409,7 @@ dd {
     color: white;
 }
 
-.post-footer {
-    max-width: 800px;
-    margin: 0 auto;
-    @media (max-width: 800px) {
-            max-width: 80%;
-    }
-}
+
 
 .post-tags a {
     display: inline-block;

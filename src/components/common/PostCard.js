@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { faTag, faEye, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import { faTag, faEye, faPencilAlt, faUserEdit } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-library.add(faTag, faEye, faPencilAlt)
+library.add(faTag, faEye, faPencilAlt, faUserEdit)
 
 const PostCard = ({ post }) => {
     const url = `/${ post.slug }/`

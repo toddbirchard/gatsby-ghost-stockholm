@@ -50,7 +50,7 @@ const Post = ({ data, location, pageContext }) => {
                     <div className="post-wrapper">
                     <article className="post">
                         <section className="post-content">
-                            {pageContext.series}
+                            {/*{pageContext.series}*/}
                             <h1 className="post-title">{post.title}</h1>
                             <div className="post-meta">
                                 <div className="meta-item author"> <Link to="/about"><FontAwesomeIcon icon="user-edit" /><span>{post.primary_author.name}</span> </Link></div>
