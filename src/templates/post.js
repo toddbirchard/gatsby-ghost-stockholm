@@ -64,10 +64,14 @@ const Post = ({ data, location, pageContext }) => {
                                 className="content-body load-external-scripts"
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
+                            <div className="post-tags">
+                                {/* {tags.map(( slug, name ) => (
+                                    <Link to={`tag/${slug}`} className="tag">{name}</Link>
+                                  ))} */}
+                                <Tags post={post} visibility="public" autolink={true} />
+                            </div>
                         </section>
-                        <div className="post-tags">
-                            <Tags post={post} visibility="public" autolink={true} />
-                        </div>
+
                     </article>
 
                     </div>
@@ -86,7 +90,10 @@ Post.propTypes = {
             title: PropTypes.string.isRequired,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
-            tags: PropTypes.object.isRequired,
+            tags: PropTypes.shape({
+              slug: PropTypes.string.isRequired,
+              name: PropTypes.string.isRequired,
+            }),
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
         allGhostPost: PropTypes.object.isRequired,

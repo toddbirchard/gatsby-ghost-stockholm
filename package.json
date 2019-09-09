@@ -1,22 +1,24 @@
 {
-  "name": "tokyo",
+  "name": "stockholm",
   "description": "A starter template to build lightning fast websites with Ghost and Gatsby",
   "version": "1.0.0",
   "author": "Todd Birchard",
-  "homepage": "https://docs.ghost.org/api/gatsby/",
+  "homepage": "https://github.com/toddbirchard/stockholm/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tryghost/gatsby-starter-ghost.git"
+    "url": "git+https://github.com/toddbirchard/stockholm.git"
   },
   "engines": {
     "node": ">= 8.9.0"
   },
   "bugs": {
-    "url": "https://github.com/tryghost/gatsby-starter-ghost/issues"
+    "url": "https://github.com/toddbirchard/stockholm/issues"
   },
   "keywords": [
     "gatsby",
-    "ghost"
+    "ghost",
+    "blog",
+    "theme"
   ],
   "main": "n/a",
   "scripts": {

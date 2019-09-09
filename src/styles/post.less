@@ -85,7 +85,7 @@
             text-transform: capitalize;
             line-height: 1;
             @media(max-width: @mobile-breakpoint) {
-                margin: 0 15px;
+                margin: 0 10px;
             }
 
             * {
@@ -284,6 +284,9 @@
 /* Post content styles */
 .post-content {
     position: relative;
+    @media(max-width: @tablet-breakpoint) {
+        padding: 0 30px;
+    }
 
     h2 {
         margin: 40px 0 5px;
@@ -584,7 +587,11 @@
             text-shadow: unset;
             font-size: 0.8em;
             font-family: 'dm', sans-serif;
-            border: 1px solid #e8cfbb;
+
+        }
+
+        & > code {
+          border: 1px solid #e8cfbb;
         }
 
         pre {
