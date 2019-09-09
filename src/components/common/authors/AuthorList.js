@@ -5,7 +5,7 @@ import { StaticQuery, Link, graphql } from 'gatsby'
 import { faUserEdit, faGlobe, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { PostAuthor } from '../posts'
+import { AuthorCard } from './'
 
 
 library.add(faUserEdit, faGlobe, faHome)
@@ -19,7 +19,7 @@ const AuthorCards = ({ allAuthors }) => {
           <div className="author-card-list">
             <h2 className="author-list">Authors</h2>
             {authors.map(({ node }) => (
-                <PostAuthor author={node} />
+                <AuthorCard author={node} />
               ))}
             </div>
       </>

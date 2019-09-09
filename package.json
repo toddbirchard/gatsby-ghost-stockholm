@@ -45,7 +45,7 @@
     "cheerio": "1.0.0-rc.3",
     "gatsby": "2.15.9",
     "gatsby-awesome-pagination": "0.3.4",
-    "gatsby-cli": "^2.7.44",
+    "gatsby-cli": "^2.7.45",
     "gatsby-image": "2.2.17",
     "gatsby-plugin-advanced-sitemap": "^1.4.1",
     "gatsby-plugin-altair-graphql": "^2.3.1",

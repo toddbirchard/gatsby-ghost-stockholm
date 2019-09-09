@@ -11,7 +11,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RecentPosts, RelatedPosts, PostAuthor } from '../components/common/posts'
+import { RecentPosts, RelatedPosts } from '../components/common/posts'
+import { AuthorCard } from '../components/common/authors'
 
 
 import '../styles/nord.less'
@@ -43,12 +44,12 @@ const Post = ({ data, location, pageContext }) => {
                     <style type="text/css">{`${post.codeinjection_styles}`}</style>
                 </Helmet>
                 <Layout template="post-template">
-                { post.feature_image ?
-                    <figure className="post-image">
-                        <img src={ post.feature_image } alt={ post.title } />
-                    </figure> : null }
                     <div className="post-wrapper">
                     <article className="post">
+                    { post.feature_image ?
+                        <figure className="post-image">
+                            <img src={ post.feature_image } alt={ post.title } />
+                        </figure> : null }
                         <section className="post-content">
                             {/*{pageContext.series}*/}
                             <h1 className="post-title">{post.title}</h1>
@@ -72,7 +73,7 @@ const Post = ({ data, location, pageContext }) => {
                     </div>
                     <section className="post-footer">
                         <RelatedPosts data={data} />
-                        <PostAuthor author={author} />
+                        <AuthorCard author={author} />
                     </section>
                 </Layout>
             </>

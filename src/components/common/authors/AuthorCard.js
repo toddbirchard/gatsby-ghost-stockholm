@@ -7,7 +7,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { Link } from 'gatsby'
 
 
-const PostAuthor = ({ author }) => {
+const AuthorCard = ({ author }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
     const authorFacebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
 
@@ -33,7 +33,7 @@ const PostAuthor = ({ author }) => {
     )
 }
 
-PostAuthor.propTypes = {
+AuthorCard.propTypes = {
     author: PropTypes.shape({
         name: PropTypes.string.isRequired,
         bio: PropTypes.string.isRequired,
@@ -45,4 +45,4 @@ PostAuthor.propTypes = {
     }).isRequired,
 }
 
-export default PostAuthor
+export default AuthorCard

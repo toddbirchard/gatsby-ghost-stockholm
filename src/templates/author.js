@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import { Layout, PostCard, Pagination } from '../components/common'
-import { PostAuthor } from '../components/common/posts'
+import { AuthorCard } from '../components/common/authors'
 
 import { MetaData } from '../components/common/meta'
 
@@ -35,7 +35,7 @@ const Author = ({ data, location, pageContext }) => {
                             </figure> : null }
                         <div className="post-full-content">
                             {/* <h1 className="content-title">{author.name}</h1> */}
-                            <PostAuthor author={author} />
+                            <AuthorCard author={author} />
                             <section className="post-feed">
                                 {posts.map(({ node }) => (
                                     // The tag below includes the markup for each post - components/common/PostCard.js

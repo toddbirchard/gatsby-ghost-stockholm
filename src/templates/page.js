@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { Layout } from '../components/common'
-import { AuthorCards } from '../components/common/authors'
+import { AuthorList } from '../components/common/authors'
 import { MetaData } from '../components/common/meta'
 
 /**
@@ -13,7 +13,7 @@ import { MetaData } from '../components/common/meta'
 * This file renders a single page and loads all the content.
 *
 */
-const Page = ({ data, location }) => {
+const Page = ({ data, location, pageContext }) => {
     const page = data.ghostPage
 
     return (
@@ -38,7 +38,7 @@ const Page = ({ data, location }) => {
                             className="content-body load-external-scripts"
                             dangerouslySetInnerHTML={{ __html: page.html }}
                         />
-                         <AuthorCards />
+                        { pageContext.slug == 'about' ? <AuthorList /> : null }
                 </article>
             </Layout>
         </>

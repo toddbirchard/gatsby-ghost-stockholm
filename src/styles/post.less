@@ -28,11 +28,10 @@
     }
 
     .post-image {
-        max-height: 600px;
-        height: 50vw;
         background-size: cover !important;
         background-position-y: center !important;
         overflow: hidden;
+        margin-bottom: 60px;
         @media(max-width: @tablet-breakpoint) {
             max-height: unset;
             height: unset;
@@ -143,20 +142,15 @@
         margin: 0 auto 40px;
         position: relative;
         overflow: hidden;
-        padding: 60px;
         @media(max-width: @tablet-breakpoint) {
             margin: -10px 0 0;
-            padding: 40px;
             width: auto;
         }
         @media(max-width: @mobile-breakpoint) {
-            padding: 40px 30px;
             margin: 0;
         }
 
         .post-image {
-            max-height: 45vw;
-            height: 45vw;
             background-size: cover !important;
             @media(max-width: @tablet-breakpoint) {
                 height: unset;
@@ -251,7 +245,7 @@
             max-width: 100%;
             border-top: 2px dotted #f3f3f3;
             border-style: dotted none none;
-            padding-top: 40px;
+            padding: 40px 0;
 
             * {
                 display: none;
