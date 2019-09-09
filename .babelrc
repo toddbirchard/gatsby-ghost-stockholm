@@ -16,7 +16,7 @@
                     "java",
                     "groovy",
                     "html",
-                    "yaml",
+                    "yaml"
                 ],
                 "plugins": ["line-numbers"],
                 "theme": "default",

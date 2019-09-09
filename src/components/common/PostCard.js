@@ -13,15 +13,15 @@ const PostCard = ({ post }) => {
     const url = `/${ post.slug }/`
     const readingTime = readingTimeHelper(post)
 
-    return (<Link to={url} className="post-card">
+    return (<div className="post-card">
         {
-            post.feature_image && <div className="post-card-image" style={{
+            post.feature_image && <Link to={url}><div className="post-card-image" style={{
                 backgroundImage: `url(${post.feature_image})`
-            }}></div>
+            }}></div></Link>
         }
         {post.featured && <span>Featured</span>}
         <div className="post-card-detail">
-            <h2 className="post-card-title">{post.title}</h2>
+            <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
             <section className="post-card-excerpt">{post.excerpt}</section>
             <footer className="post-card-footer">
                 <div className="post-card-footer-left">
@@ -35,9 +35,9 @@ const PostCard = ({ post }) => {
                 </div>
             </footer>
         </div>
-    </Link>)
+    </div>)
 }
-
+/*
 PostCard.propTypes = {
     post: PropTypes.shape({
         slug: PropTypes.string.isRequired,
@@ -52,5 +52,5 @@ PostCard.propTypes = {
             profile_image: PropTypes.string }).isRequired
     }).isRequired
 }
-
+*/
 export default PostCard

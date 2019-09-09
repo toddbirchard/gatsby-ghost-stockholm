@@ -1,3 +1,4 @@
+@import 'variables.less';
 
 pre[class*="language-"] {
     display: block;
@@ -11,6 +12,9 @@ pre[class*="language-"] {
     overflow-x: hidden;
     border-radius: 5px;
     margin: 30px auto;
+    @media(max-width: @mobile-breakpoint) {
+      border-radius: 0;
+    }
 
     code {
         color: #dfe3ea !important;

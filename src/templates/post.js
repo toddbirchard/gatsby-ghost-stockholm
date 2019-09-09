@@ -90,10 +90,7 @@ Post.propTypes = {
             title: PropTypes.string.isRequired,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
-            tags: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
-              name: PropTypes.string.isRequired,
-            }),
+            tags: PropTypes.object.isRequired,
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
         allGhostPost: PropTypes.object.isRequired,

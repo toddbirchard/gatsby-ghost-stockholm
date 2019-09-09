@@ -26,17 +26,17 @@ const Author = ({ data, location, pageContext }) => {
                 location={location}
                 type="profile"
             />
-            <Layout template="page-template" hasSidebar={true}>
+            <Layout template="page-template author-template" hasSidebar={true}>
                 <div className="container">
                     <article className="content">
                         { author.cover_image ?
-                            <figure className="post-feature-image">
+                            <figure className="author-feature-image">
                                 <img src={ author.cover_image } alt={ author.name } />
                             </figure> : null }
                         <div className="post-full-content">
                             {/* <h1 className="content-title">{author.name}</h1> */}
-                            <AuthorCard author={author} />
                             <section className="post-feed">
+                                <AuthorCard author={author} />
                                 {posts.map(({ node }) => (
                                     // The tag below includes the markup for each post - components/common/PostCard.js
                                     <PostCard key={node.id} post={node} />
@@ -44,9 +44,7 @@ const Author = ({ data, location, pageContext }) => {
                                 <Pagination pageContext={pageContext} />
                             </section>
                         </div>
-
                     </article>
-
                 </div>
             </Layout>
         </>

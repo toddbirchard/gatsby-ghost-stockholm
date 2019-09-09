@@ -8,11 +8,6 @@
     margin: 0 auto;
 }
 
-.home-template .viewport,
-.tag-template .viewport {
-    max-width: 90%;
-}
-
 .home-container,
 .tag-container {
     max-width: 1020px;
@@ -20,12 +15,8 @@
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 2fr 1fr;
-}
-
-@media (max-width: 800px) {
-    .home-container,
-    .tag-container {
-      max-width: 100%;
+    max-width: 90%;
+    @media(max-width: @tablet-breakpoint) {
       display: block;
     }
 }

@@ -1,4 +1,4 @@
-.post-author {
+.author-card {
   display: flex;
   margin: 20px 0 50px;
   background: white;
@@ -12,12 +12,12 @@
   }
 }
 
-.post-author .post-author-content {
+.author-card .author-card-content {
     margin-left: 20px;
     width: -webkit-fill-available;
 }
 
-.post-author-name {
+.author-card-name {
     margin: 0 0 .5em 0;
     font-size: 1.5em;
     font-family: @sub-header-font;
@@ -25,12 +25,12 @@
     color: #7c8a90;
 }
 
-.post-author-bio {
+.author-card-bio {
     margin: 0 0 1em 0;
     line-height: 1.4em;
 }
 
-.post-author-image {
+.author-card-image {
     width: 80px;
     height: 80px;
     min-width: 80px;
@@ -49,12 +49,12 @@
 }
 
 
-.post-author-meta {
+.author-card-meta {
   margin: 10px 0;
 }
 
 
-.post-author-item {
+.author-card-item {
     color: @secondary-font-color;
     opacity: .7;
     margin-right: 20px;
@@ -66,7 +66,16 @@
     }
 }
 
-.post-author-item svg {
+.author-card-item svg {
     margin-right: 5px;
     font-size: .9em;
+}
+
+.author-feature-image {
+  width: -webkit-fill-available;
+  overflow: hidden;
+
+    img {
+      width: 100%;
+    }
 }

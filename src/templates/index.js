@@ -29,7 +29,6 @@ const Index = ({ data, location, pageContext }) => {
                         <Pagination pageContext={pageContext} />
                     </section>
                 </main>
-
             </Layout>
         </>
     )

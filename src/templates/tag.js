@@ -24,7 +24,7 @@ const Tag = ({ data, location, pageContext }) => {
             />
             <Layout template="tag-template page-template" hasSidebar={true}>
                     <section className="post-feed">
-                        <header className="tag-header">
+                        <header className="tag-header header-card">
                             <h1 className="tag-title">{tag.name}</h1>
                             {tag.description ? <p className="tag-description">{tag.description}</p> : null }
                         </header>
