@@ -15,6 +15,7 @@ import { MetaData } from '../components/common/meta'
 */
 const Page = ({ data, location }) => {
     const page = data.ghostPage
+    const isAbout =
 
     return (
         <>
@@ -38,7 +39,7 @@ const Page = ({ data, location }) => {
                             className="content-body load-external-scripts"
                             dangerouslySetInnerHTML={{ __html: page.html }}
                         />
-                         <AuthorCards />
+                         { page.feature_image ? <AuthorCards />
                 </article>
             </Layout>
         </>
