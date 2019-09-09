@@ -26,7 +26,7 @@ const Author = ({ data, location, pageContext }) => {
                 location={location}
                 type="profile"
             />
-            <Layout template="post-template page-template">
+            <Layout template="page-template" hasSidebar={true}>
                 <div className="container">
                     <article className="content">
                         { author.cover_image ?
@@ -41,8 +41,8 @@ const Author = ({ data, location, pageContext }) => {
                                     // The tag below includes the markup for each post - components/common/PostCard.js
                                     <PostCard key={node.id} post={node} />
                                 ))}
+                                <Pagination pageContext={pageContext} />
                             </section>
-                            <Pagination pageContext={pageContext} />
                         </div>
 
                     </article>

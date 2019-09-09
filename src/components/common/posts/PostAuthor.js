@@ -28,7 +28,6 @@ const PostAuthor = ({ author }) => {
                       </div>
                       {author.bio && <p className="post-author-bio">{author.bio}</p>}
                   </div>
-
               </div>
             </>
     )

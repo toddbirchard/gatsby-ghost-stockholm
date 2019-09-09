@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { Layout } from '../components/common'
+import { AuthorCards } from '../components/common/authors'
 import { MetaData } from '../components/common/meta'
 
 /**
@@ -37,6 +38,7 @@ const Page = ({ data, location }) => {
                             className="content-body load-external-scripts"
                             dangerouslySetInnerHTML={{ __html: page.html }}
                         />
+                         <AuthorCards />
                 </article>
             </Layout>
         </>
