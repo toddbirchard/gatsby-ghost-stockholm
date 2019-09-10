@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 const RelatedPosts = ({ data }) => {
-    const related = data.allGhostPost.edges
+    const related = data.edges
 
     return (
       <>

@@ -32,7 +32,6 @@ exports.createPages = async ({ graphql, actions }) => {
                 edges {
                     node {
                         slug
-                        url
                         postCount
                     }
                 }
@@ -240,11 +239,11 @@ exports.createPages = async ({ graphql, actions }) => {
         // This part here defines, that our posts will use
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
-        let series = null;
+        node.series = null;
         node.tags.forEach(function(element) {
           if (element.visibility == 'internal') {
             console.log(node.slug + " = " + element.slug);
-            series = element.slug
+            node.series = element.slug
           }
           // console.log(node.slug + " = " + node.series)
         });

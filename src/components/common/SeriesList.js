@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 
-const SeriesList = ({ data }) => {
-  const series = data.allGhostTag.edges
+const SeriesList = ({ seriesPosts }) => {
+
   return (
     <>
-        {series.map((slug, url, postCount, feature_image, description, name) => {
-              <p>name</p>
-        })}
+      <h2>TEST</h2>
+      {seriesPosts.map(({ node }) => (
+          <span>{node.title}</span>
+      ))}
     </>
   )
 }

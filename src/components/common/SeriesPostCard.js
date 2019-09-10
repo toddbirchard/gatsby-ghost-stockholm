@@ -12,7 +12,7 @@ const SeriesPostCard = ({ post, count }) => {
             post.feature_image && <Link to={url} className="series-post-card-image"><img src={post.feature_image} /></Link>
         }
         <div className="series-post-card-detail">
-            <div className="series-post"><span>Post</span> {postNumber}</div>
+            <div className="series-post-card-count"><span>Post</span> {postNumber}</div>
             <Link to={url}><h2 className="series-post-card-title">{post.title}</h2></Link>
             <section className="series-post-card-excerpt">{post.excerpt}</section>
         </div>

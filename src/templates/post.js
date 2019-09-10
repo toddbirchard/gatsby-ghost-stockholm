@@ -11,7 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RecentPosts, RelatedPosts } from '../components/common/posts'
+import { RecentPosts, RelatedPosts, SeriesWidget } from '../components/common/posts'
 import { AuthorCard } from '../components/common/authors'
 
 
@@ -29,9 +29,11 @@ const Post = ({ data, location, pageContext }) => {
     const tags = data.ghostPost.tags
     const series = pageContext.series
     const author = data.ghostAuthor
-    const relatedPosts = data.allGhostPost
+    const relatedPosts = data.relatedPosts
     const readingTime = readingTimeHelper(post)
+    const seriesPosts = data.seriesPosts
     const authorUrl = post.primary_author.slug ? `author/${post.primary_author.slug}` : null
+    console.log('seriesPosts = ' + seriesPosts)
 
     return (
             <>
@@ -50,6 +52,7 @@ const Post = ({ data, location, pageContext }) => {
                         <figure className="post-image">
                             <img src={ post.feature_image } alt={ post.title } />
                         </figure> : null }
+                    { seriesPosts ? <SeriesWidget seriesTitle={pageContext.series} seriesPosts={seriesPosts.edges} /> : null }
                         <section className="post-content">
                             {/*{pageContext.series}*/}
                             <h1 className="post-title">{post.title}</h1>
@@ -73,7 +76,7 @@ const Post = ({ data, location, pageContext }) => {
 
                     </div>
                     <section className="post-footer">
-                        <RelatedPosts data={data} />
+                        <RelatedPosts data={relatedPosts} />
                         <AuthorCard author={author} />
                     </section>
                 </Layout>
@@ -90,7 +93,8 @@ Post.propTypes = {
             tags: PropTypes.object.isRequired,
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
-        allGhostPost: PropTypes.object.isRequired,
+        relatedPosts: PropTypes.object.isRequired,
+        seriesPosts: PropTypes.object,
     }).isRequired,
     location: PropTypes.object.isRequired,
 }
@@ -98,7 +102,7 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-query($slug: String!, $primaryTag: String!, $primaryAuthor: String!) {
+query($slug: String!, $primaryTag: String!, $primaryAuthor: String!, $series: String) {
     ghostPost(slug: { eq: $slug }) {
         ...GhostPostFields
     }
@@ -114,7 +118,7 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!) {
       website
       profile_image
     }
-    allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}, slug: {ne: $slug}}) {
+    relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}, slug: {ne: $slug}}) {
       edges {
         node {
           url
@@ -122,6 +126,15 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!) {
           title
           slug
           custom_excerpt
+        }
+      }
+    }
+    seriesPosts: allGhostPost(filter: {tags: {elemMatch: {slug: {eq: $series}}}}) {
+      edges {
+        node {
+          slug
+          excerpt
+          title
         }
       }
     }
