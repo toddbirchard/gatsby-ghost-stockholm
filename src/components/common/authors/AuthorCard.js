@@ -13,7 +13,7 @@ const AuthorCard = ({ author }) => {
 
     return (
             <>
-              <div className="author-card header-card">
+              <div className="author-card">
                 <div className="author-card-image">
                     {author.profile_image ? <img src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" /> }
                 </div>

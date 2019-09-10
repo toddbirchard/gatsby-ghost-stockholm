@@ -10,13 +10,31 @@
 
 .home-container,
 .tag-container {
-    max-width: 1020px;
+    width: 1020px;
+    max-width: 95%;
     margin: 0 auto;
     display: grid;
     grid-gap: 30px;
     grid-template-columns: 2fr 1fr;
-    max-width: 90%;
     @media(max-width: @tablet-breakpoint) {
-      display: block;
+      grid-template-columns: 1fr;
+      max-width: unset;
+      width: 100%;
+    }
+    @media(max-width: @mobile-breakpoint) {
+
+
+    }
+}
+
+.post-feed {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    @media(max-width: @tablet-breakpoint) {
+      max-width: 90%;
+      grid-gap: 20px;
+      margin: 0 auto;
     }
 }

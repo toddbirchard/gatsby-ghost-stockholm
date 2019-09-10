@@ -15,7 +15,7 @@ import { Hamburger, NavigationLinks } from '.'
 *
 */
 
-const Navigation = ({ data, navClass, logo, isHome }) => (
+const Navigation = ({ data, navClass, logo }) => (
     <>
         <nav className="navigation">
             <Link to="/" className="nav-logo"><img src={logo} alt="logo" /></Link>
@@ -23,8 +23,6 @@ const Navigation = ({ data, navClass, logo, isHome }) => (
                 <NavigationLinks data={data} navClass={navClass} />
             </div>
         </nav>
-        { isHome ? null : <Hamburger right data={data} navClass={navClass} />}
-
     </>
 )
 
