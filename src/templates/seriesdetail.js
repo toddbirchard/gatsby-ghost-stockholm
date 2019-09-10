@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Layout, PostCard, Pagination, Sidebar } from '../components/common'
+import { Layout, SeriesPostCard, Sidebar } from '../components/common'
 import { MetaData } from '../components/common/meta'
+
+import '../styles/seriesdetail.less'
 
 /**
 * Tag page (/tag/:slug)
@@ -23,21 +25,18 @@ const SeriesDetail = ({ data, location, pageContext }) => {
                 type="series"
             />
             <Layout template="tag-template" hasSidebar={true}>
-                <div className="tag-container">
-                    <section className="post-feed">
-                        <header className="tag-header">
-                            <h1>{tag.name}</h1>
-                            {tag.description ? <p>{tag.description}</p> : null }
-                        </header>
-                        {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
-                            <PostCard key={node.id} post={node} />
-                        ))}
-                        <Pagination pageContext={pageContext} />
-                    </section>
-
+              <div className="series-container">
+                <header className="tag-header">
+                    <h1>{tag.name}</h1>
+                    {tag.description ? <p>{tag.description}</p> : null }
+                </header>
+                <section className="post-feed">
+                    {posts.map(({ node }, index) => (
+                        // The tag below includes the markup for each post - components/common/PostCard.js
+                        <SeriesPostCard key={node.id} post={node} count={index}/>
+                    ))}
+                </section>
                 </div>
-
             </Layout>
         </>
     )
@@ -61,15 +60,13 @@ SeriesDetail.propTypes = {
 export default SeriesDetail
 
 export const pageQuery = graphql`
-    query GhostSeriesQuery($slug: String!, $limit: Int!, $skip: Int!) {
+    query GhostSeriesQuery($slug: String!) {
         ghostTag(slug: { eq: $slug }) {
             ...GhostTagFields
         }
         allGhostPost(
             sort: { order: DESC, fields: [published_at] },
             filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
-            limit: $limit,
-            skip: $skip
         ) {
             edges {
                 node {

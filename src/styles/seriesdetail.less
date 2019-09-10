@@ -1,0 +1,35 @@
+@import 'variables.less';
+
+.series-container {
+    background: white;
+
+    .post-feed {
+      padding: 0 40px;
+    }
+
+    .series-post-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .series-post-card-image {
+          min-width: 180px;
+          width: 180px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .series-post-card-detail {
+            margin: 20px;
+
+            .series-post-card-title {
+              font-family: @sub-header-font;
+              margin-bottom: 10px;
+              font-size: 1.3em;
+              color: #3c484e;
+            }
+        }
+    }
+}
