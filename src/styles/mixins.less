@@ -6,10 +6,21 @@
 }
 
 .header-card() {
-		margin: 0;
+		margin: 0 !important;
 		background: white;
 		padding: 30px;
 		@media (max-width: @mobile-breakpoint) {
 				.mobile-full-width();
+
+				h1 {
+					width: 90%;
+					margin: 0 auto 15px;
+				}
+
+				p {
+					 font-size: 1em !important;
+						width: 90%;
+						margin: auto;
+				 }
 		}
 	}

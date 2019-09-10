@@ -1,7 +1,7 @@
 .post-footer {
     width: 800px;
     max-width: 90%;
-    margin: auto;
+    margin: 40px auto;
 
     .post-social {
         display: flex;
@@ -54,7 +54,6 @@
             padding: 0;
             max-width: none;
             width: auto;
-            margin: 15px auto 35px;
 
             .date {
                 display: none !important;
@@ -179,7 +178,6 @@
             font-size: 3em;
             letter-spacing: 0;
             line-height: 1;
-            margin-top: 10px;
             color: @h1-color;
             text-align: center;
             @media(max-width: @tablet-breakpoint) {
@@ -190,7 +188,7 @@
                 max-width: auto;
                 letter-spacing: 0;
                 line-height: 1.1;
-                margin: unset calc(-40vw + 40%) !important;
+                .mobile-full-width()
             }
         }
 

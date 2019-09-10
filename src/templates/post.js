@@ -65,10 +65,7 @@ const Post = ({ data, location, pageContext }) => {
                                 dangerouslySetInnerHTML={{ __html: post.html }}
                             />
                             <div className="post-tags">
-                                {/* {tags.map(( slug, name ) => (
-                                    <Link to={`tag/${slug}`} className="tag">{name}</Link>
-                                  ))} */}
-                                <Tags post={post} visibility="public" autolink={true} />
+                                <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} />
                             </div>
                         </section>
 

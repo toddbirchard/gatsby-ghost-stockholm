@@ -13,7 +13,7 @@ const AuthorCard = ({ author }) => {
 
     return (
             <>
-              <div className="author-card">
+              <header className="author-card info-card">
                 <div className="author-card-image">
                     {author.profile_image ? <img src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" /> }
                 </div>
@@ -28,7 +28,7 @@ const AuthorCard = ({ author }) => {
                       </div>
                       {author.bio && <p className="author-card-bio">{author.bio}</p>}
                   </div>
-              </div>
+              </header>
             </>
     )
 }
