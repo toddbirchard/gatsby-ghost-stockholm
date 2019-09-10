@@ -114,7 +114,7 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!) {
       website
       profile_image
     }
-    allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}}) {
+    allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}, slug: {ne: $slug}}) {
       edges {
         node {
           url
@@ -125,5 +125,5 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!) {
         }
       }
     }
-}
+  }
 `

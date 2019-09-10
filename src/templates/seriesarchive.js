@@ -28,7 +28,7 @@ const SeriesArchive = ({ data, location, pageContext }) => {
                         {page.plaintext ? <p>{page.plaintext}</p> : null }
                         <div className="series-grid">
                         {tags.map(({ node }) => (
-                            <Link to={`/tag/${node.slug}`} className="series-card" key={node.id}>
+                            <Link to={`/series/${node.slug}`} className="series-card" key={node.id}>
                                 {
                                     node.feature_image && <div className="series-card-image" style={{
                                         backgroundImage: `url(${node.feature_image})`
