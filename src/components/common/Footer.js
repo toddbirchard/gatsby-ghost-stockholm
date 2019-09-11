@@ -21,6 +21,8 @@ const Footer = ({ data, tags }) => {
   const pageLinks = data.allGhostPage.edges
   const authorLinks = data.allGhostAuthor.edges
   const topTags = data.allGhostTag.edges
+  const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
+  const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
 
     return (
     <>
@@ -33,12 +35,13 @@ const Footer = ({ data, tags }) => {
                 </Link>
                 <p className="description">Community of hackers obsessed with data science, data engineering, and analysis. Openly pushing a pro-robot agenda.</p>
                 <div className="social-btns">
-                  <a href="temp" className="twitter" key="twitter"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
-                  <a href="https://angel.co/todd-birchard?public_profile=1" className="angellist" key="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
-                  <a href="https://www.linkedin.com/in/toddbirchard/" className="linkedin" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
-                  <a href="https://github.com/toddbirchard" className="github" key="github"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
-                  <a href="https://www.quora.com/profile/Todd-Birchard" className="quora" key="quora"><FontAwesomeIcon icon={[`fab`, `quora`]} /></a>
-                  <a href="/rss/" className="rss" key="rss"><FontAwesomeIcon icon="rss" /></a>
+                  <a href={ twitterUrl } className="twitter" key="twitter-footer"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
+                  <a href={ facebookUrl } className="facebook" key="facebook-footer"><FontAwesomeIcon icon={[`fab`, `facebook`]} /></a>
+                  <a href="https://angel.co/company/hackers-and-slackers/" className="angellist-footer" key="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
+                  <a href="https://www.linkedin.com/company/hackers-and-slackers/" className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
+                  <a href="https://github.com/hackersandslackers" className="github" key="github-footer"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
+                  <a href="https://hackersandslackers.blog" className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} /></a>
+                  <a href="/rss/" className="rss" key="rss"><FontAwesomeIcon icon="rss-footer" /></a>
                 </div>
                 <p className="copyright">©2019 Hackers and Slackers, All Rights Reserved.</p>
               </div>

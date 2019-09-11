@@ -22,6 +22,7 @@ library.add(fab, faRss, faTag)
 const Sidebar = ({ site, tags }) => {
     // const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
+    const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
 
     return (
     <>
@@ -34,12 +35,12 @@ const Sidebar = ({ site, tags }) => {
             </div>
 
             <div className="widget social">
-                <a href={ twitterUrl } className="twitter"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
-                <a href="https://angel.co/todd-birchard?public_profile=1" className="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
-                <a href="https://www.linkedin.com/in/hackersandslackers/" className="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
-                <a href="https://github.com/hackersandslackers" className="github"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
-                <a href="https://www.quora.com/profile/Todd-Birchard" className="quora"><FontAwesomeIcon icon={[`fab`, `quora`]} /></a>
-                <a href="/rss/" className="rss"><FontAwesomeIcon icon="rss" /></a>
+                <a href={ twitterUrl } className="twitter" key="twitter-sidebar"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
+                <a href="https://angel.co/company/hackers-and-slackers/" className="angellist" key="angellist-sidebar"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
+                <a href="https://www.linkedin.com/in/hackersandslackers/" className="linkedin" key="linkedin-sidebar"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
+                <a href="https://github.com/hackersandslackers" className="github" key="github-sidebar"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
+                <a href={ facebookUrl } className="facebook" key="facebook-sidebar"><FontAwesomeIcon icon={[`fab`, `facebook`]} /></a>
+                <a href="/rss/" className="rss" key="rss-sidebar"><FontAwesomeIcon icon="rss" /></a>
             </div>
 
             <div className="widget tags">
