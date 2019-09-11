@@ -33,10 +33,10 @@ const Author = ({ data, location, pageContext }) => {
                             <figure className="author-feature-image">
                                 <img src={ author.cover_image } alt={ author.name } />
                             </figure> : null }
+                        <AuthorCard author={author} />
                         <div className="post-full-content">
                             {/* <h1 className="content-title">{author.name}</h1> */}
                             <section className="post-feed">
-                                <AuthorCard author={author} />
                                 {posts.map(({ node }) => (
                                     // The tag below includes the markup for each post - components/common/PostCard.js
                                     <PostCard key={node.id} post={node} />

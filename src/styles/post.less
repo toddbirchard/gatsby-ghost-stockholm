@@ -53,6 +53,7 @@
             padding: 0;
             max-width: none;
             width: auto;
+            margin: 10px auto 20px;
 
             .date {
                 display: none !important;
@@ -64,14 +65,6 @@
             border-radius: 3px;
             color: white;
             font-size: 0.95em;
-
-            &.codesnippetcorner {
-                i {
-                    @media(max-width: @mobile-breakpoint) {
-                        display: none;
-                    }
-                }
-            }
         }
 
         .meta-item {
@@ -102,6 +95,12 @@
 
             &.desktop {
                 display: flex;
+            }
+
+            &.reading-time {
+              @media(max-width: @mobile-breakpoint) {
+                display: none;
+              }
             }
 
             i {
@@ -150,13 +149,14 @@
 
         .post-image {
             background-size: cover !important;
-            @media(max-width: @tablet-breakpoint) {
-                height: unset;
-            }
             @media (max-width: @tablet-breakpoint) {
                 margin-left: calc(-50vw + 50%) !important;
                 margin-right: calc(-50vw + 50%) !important;
                 order: 0;
+                height: unset;
+            }
+            @media(max-width: @mobile-breakpoint) {
+                margin-bottom: 40px;
             }
 
             img {
@@ -178,6 +178,7 @@
             letter-spacing: 0;
             line-height: 1;
             color: @h1-color;
+            font-weight: 100;
             @media(max-width: @tablet-breakpoint) {
                 font-size: 2.5em;
             }

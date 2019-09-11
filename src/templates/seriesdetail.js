@@ -29,7 +29,7 @@ const SeriesDetail = ({ data, location, pageContext }) => {
               <div className="series-container">
                 <header className="tag-header">
                     <h1 className="tag-title">{tag.name.replace('#', '')}</h1>
-                    {tag.description ? <p>{tag.description}</p> : null }
+                    {tag.description ? <p className="tag-description">{tag.description}</p> : null }
                 </header>
                 <section className="post-feed">
                     {posts.map(({ node }, index) => (

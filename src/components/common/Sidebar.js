@@ -36,8 +36,8 @@ const Sidebar = ({ site, tags }) => {
             <div className="widget social">
                 <a href={ twitterUrl } className="twitter"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
                 <a href="https://angel.co/todd-birchard?public_profile=1" className="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
-                <a href="https://www.linkedin.com/in/toddbirchard/" className="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
-                <a href="https://github.com/toddbirchard" className="github"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
+                <a href="https://www.linkedin.com/in/hackersandslackers/" className="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
+                <a href="https://github.com/hackersandslackers" className="github"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
                 <a href="https://www.quora.com/profile/Todd-Birchard" className="quora"><FontAwesomeIcon icon={[`fab`, `quora`]} /></a>
                 <a href="/rss/" className="rss"><FontAwesomeIcon icon="rss" /></a>
             </div>
@@ -53,7 +53,7 @@ const Sidebar = ({ site, tags }) => {
                     <TwitterTimelineEmbed
                         sourceType="profile"
                         options={{ height: 500 }}
-                        screenName="ToddRBirchard"
+                        screenName="HackersSlackers"
                         transparent
                         noScrollbar
                         noHeader

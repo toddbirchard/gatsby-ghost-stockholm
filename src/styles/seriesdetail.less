@@ -5,16 +5,29 @@
 
     .post-feed {
       padding: 0 40px;
+      grid-gap: 40px;
+      @media(max-width: @mobile-breakpoint) {
+        padding: 0 0 20px;
+        grid-gap: 30px;
+      }
     }
 
     .series-post-card {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @media(max-width: @mobile-breakpoint) {
+           flex-direction: column;
+           border: 1px solid #e0e0e0;
+        }
 
         .series-post-card-image {
           min-width: 180px;
           width: 180px;
+          @media(max-width: @mobile-breakpoint) {
+            min-width: unset;
+            width: 100%;
+          }
 
             img {
                 width: 100%;
@@ -23,6 +36,7 @@
 
         .series-post-card-detail {
             margin: 20px;
+            width: -webkit-fill-available;
 
             .series-post-card-count {
               margin-bottom: 10px;
@@ -34,6 +48,11 @@
               margin-bottom: 10px;
               font-size: 1.3em;
               color: #3c484e;
+              transition: @transition;
+
+              &:hover {
+                color: @secondary-color;
+              }
             }
         }
     }
