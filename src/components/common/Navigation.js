@@ -25,7 +25,7 @@ const Navigation = ({ data, navClass, logo }) => (
                   <NavigationLinks data={data} navClass={navClass} />
               </div>
               <div className="right-links">
-                  <a href="https://www.patreon.com/hackersandslackers" className="donate-btn">Donate</a>
+                  <a href="https://patreon.com/hackersandslackers" className="donate-btn">Donate</a>
               </div>
               </div>
               </div>
