@@ -11,7 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RecentPosts, RelatedPosts, SeriesWidget } from '../components/common/posts'
+import { RecentPosts, RelatedPosts, SeriesTOC } from '../components/common/posts'
 import { AuthorCard } from '../components/common/authors'
 
 
@@ -33,7 +33,6 @@ const Post = ({ data, location, pageContext }) => {
     const readingTime = readingTimeHelper(post)
     const seriesPosts = data.seriesPosts
     const authorUrl = post.primary_author.slug ? `author/${post.primary_author.slug}` : null
-    console.log('seriesPosts = ' + seriesPosts)
 
     return (
             <>
@@ -47,33 +46,32 @@ const Post = ({ data, location, pageContext }) => {
                 </Helmet>
                 <Layout template="post-template">
                     <div className="post-wrapper">
-                    <article className="post">
-                    { post.feature_image ?
-                        <figure className="post-image">
-                            <img src={ post.feature_image } alt={ post.title } />
-                        </figure> : null }
-                    { seriesPosts ? <SeriesWidget seriesTitle={pageContext.series} seriesPosts={seriesPosts.edges} /> : null }
-                        <section className="post-content">
-                            {/*{pageContext.series}*/}
-                            <h1 className="post-title">{post.title}</h1>
-                            <div className="post-meta">
-                                <div className="meta-item author"> <Link to="/about"><FontAwesomeIcon icon="user-edit" /><span>{post.primary_author.name}</span> </Link></div>
-                                <div className="meta-item tag"> <FontAwesomeIcon icon="tag" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
-                                <div className="meta-item reading-time"> <FontAwesomeIcon icon="eye" /><span> {readingTime}</span> </div>
-                                <div className="meta-item date"> <FontAwesomeIcon icon="eye" />{post.published_at_pretty} </div>
-                            </div>
-                            {/* The main post content */ }
-                            <section
-                                className="content-body load-external-scripts"
-                                dangerouslySetInnerHTML={{ __html: post.html }}
-                            />
-                            <div className="post-tags">
-                                <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} />
-                            </div>
-                        </section>
-
-                    </article>
-
+                      <article className="post">
+                        { post.feature_image ?
+                            <figure className="post-image">
+                                <img src={ post.feature_image } alt={ post.title } />
+                            </figure> : null }
+                          <section className="post-content">
+                              <h1 className="post-title">{post.title}</h1>
+                              <div className="post-meta">
+                                  <div className="meta-item author"> <Link to="/about"><FontAwesomeIcon icon="user-edit" /><span>{post.primary_author.name}</span> </Link></div>
+                                  <div className="meta-item tag"> <FontAwesomeIcon icon="tag" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
+                                  <div className="meta-item reading-time"> <FontAwesomeIcon icon="eye" /><span> {readingTime}</span> </div>
+                                  <div className="meta-item date"> <FontAwesomeIcon icon="eye" />{post.published_at_pretty} </div>
+                              </div>
+                              { seriesPosts ?
+                                <SeriesTOC seriesTitle={pageContext.seriesTitle} seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount}/>
+                              : null }
+                              {/* The main post content */ }
+                              <section
+                                  className="content-body load-external-scripts"
+                                  dangerouslySetInnerHTML={{ __html: post.html }}
+                              />
+                              <div className="post-tags">
+                                  <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} />
+                              </div>
+                          </section>
+                      </article>
                     </div>
                     <section className="post-footer">
                         <RelatedPosts data={relatedPosts} />
@@ -102,7 +100,7 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-query($slug: String!, $primaryTag: String!, $primaryAuthor: String!, $series: String) {
+query($slug: String!, $primaryTag: String!, $primaryAuthor: String!, $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
         ...GhostPostFields
     }
@@ -129,7 +127,7 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!, $series: St
         }
       }
     }
-    seriesPosts: allGhostPost(filter: {tags: {elemMatch: {slug: {eq: $series}}}}) {
+    seriesPosts: allGhostPost(filter: {tags: {elemMatch: {slug: {eq: $seriesSlug}}}}) {
       edges {
         node {
           slug
@@ -137,6 +135,7 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!, $series: St
           title
         }
       }
+      totalCount
     }
   }
 `

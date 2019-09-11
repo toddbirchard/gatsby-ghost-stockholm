@@ -1,0 +1,109 @@
+@import 'variables.less';
+
+.series-posts {
+    padding: 0;
+    position: relative;
+    /* overflow-x: hidden; */
+    width: 100%;
+    margin: -30px 0 60px;
+    @media(max-width: @tablet-breakpoint) {
+        padding: 0 0 20px;
+        margin-bottom: 30px;
+    }
+
+    .series-title {
+        font-size: 1.2em;
+        color: #687f99 !important;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+        padding: 0;
+        margin-top: 0;
+        line-height: 1;
+    }
+
+    ol {
+        list-style-type: upper-roman !important;
+        margin: 0;
+        padding: 0;
+        @media(max-width: @mobile-breakpoint) {
+            margin: 0;
+            max-width: unset;
+        }
+
+        li {
+            margin: 12px 0;
+            opacity: 0.7;
+            counter-increment: li -1;
+            color: #687f99;
+            font-size: 1em;
+            padding-left: 0;
+            line-height: 1;
+            display: flex;
+            justify-content: flex-start;
+            @media(max-width: @mobile-breakpoint) {
+                line-height: 1.4;
+                margin: 5px 0;
+                padding-left: 0;
+            }
+
+            a {
+                font-family: @body-font;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            * {
+                transition: @transition;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:hover {
+                * {
+                    color: @hover-color;
+                }
+            }
+
+            &::before {
+                content: "Part " counter(li, upper-roman) "." !important;
+                color: #687f99;
+                font-weight: 600;
+                margin-right: 8px;
+                font-size: 1em;
+                white-space: nowrap;
+                @media(max-width: @mobile-breakpoint) {
+                    min-width: 54px;
+                    margin-right: 2px;
+                    font-weight: normal;
+                    font-size: 0.9em;
+                }
+            }
+
+            a {
+                color: #687f99;
+                @media(max-width: @mobile-breakpoint) {
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+
+    .currentPost {
+        opacity: 1 !important;
+        margin-left: 0;
+
+        &::before {
+            margin-left: 0;
+            font-weight: 600;
+        }
+    }
+}

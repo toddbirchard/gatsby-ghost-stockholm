@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         }
                         tags {
                           slug
+                          name
                           visibility
                         }
                     }
@@ -58,6 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 node {
                   slug
                   url
+                  name
                   postCount
                 }
               }
@@ -240,12 +242,14 @@ exports.createPages = async ({ graphql, actions }) => {
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
         node.series = null;
+        node.name = null;
         node.tags.forEach(function(element) {
           if (element.visibility == 'internal') {
-            console.log(node.slug + " = " + element.slug);
-            node.series = element.slug
+            node.series = element.slug;
+            node.name = element.name;
+            console.log(element.slug);
+            console.log(element.name);
           }
-          // console.log(node.slug + " = " + node.series)
         });
 
         createPage({
@@ -257,7 +261,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug: node.slug,
                 primaryAuthor: node.primary_author.slug,
                 primaryTag: node.primary_tag.slug,
-                series: node.series
+                seriesSlug: node.series,
+                seriesTitle: node.name
             },
         })
     })
