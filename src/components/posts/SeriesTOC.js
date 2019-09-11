@@ -9,13 +9,13 @@ const SeriesTOC = ({ seriesPosts, postCount }) => {
 
   return (
     <>
-    <div className="series-posts">
+    { postCount ? <div className="series-posts">
         <ol className="series-posts" style={listStyle}>
           {seriesPosts.map(({ node }) => (
               <li key={node.slug}><Link to={node.slug}>{node.title}</Link></li>
           ))}
         </ol>
-      </div>
+      </div> : null }
     </>
   )
 }

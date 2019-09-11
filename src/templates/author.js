@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import { Layout, PostCard, Pagination } from '../components/common'
-import { AuthorCard } from '../components/common/authors'
+import { AuthorCard } from '../components/authors'
 
 import { MetaData } from '../components/common/meta'
 

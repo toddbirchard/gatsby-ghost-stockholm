@@ -11,11 +11,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC } from '../components/common/posts'
-import { AuthorCard } from '../components/common/authors'
+import { RelatedPosts, SeriesTOC } from '../components/posts'
+import { AuthorCard } from '../components/authors'
 
 
-import '../styles/nord.less'
+import '../styles/posts/index.less'
 /**
 * Single post view (/:slug)
 *

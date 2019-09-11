@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Hamburger, NavigationLinks } from '.'
+import { NavigationLinks } from '.'
 
 
 /**
@@ -18,10 +18,17 @@ import { Hamburger, NavigationLinks } from '.'
 const Navigation = ({ data, navClass, logo }) => (
     <>
         <nav className="navigation">
-            <Link to="/" className="nav-logo"><img src={logo} alt="logo" /></Link>
-            <div className="navigation-links">
-                <NavigationLinks data={data} navClass={navClass} />
-            </div>
+          <div className="nav-wrapper">
+            <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
+              <div className="nav-links">
+                <div className="left-links">
+                    <NavigationLinks data={data} navClass={navClass} />
+                </div>
+                <div className="right-links">
+                    <a href="https://patreon.com/hackersandslackers" className="donate-btn">Donate</a>
+                </div>
+              </div>
+           </div>
         </nav>
     </>
 )
@@ -29,18 +36,6 @@ const Navigation = ({ data, navClass, logo }) => (
 Navigation.defaultProps = {
     navClass: `site-nav-item`,
     navType: `home-nav`,
-}
-
-Navigation.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-        }).isRequired,
-    ).isRequired,
-    logo: PropTypes.string.isRequired,
-    navClass: PropTypes.string,
-    navType: PropTypes.string,
 }
 
 export default Navigation

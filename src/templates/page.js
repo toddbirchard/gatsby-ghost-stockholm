@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { Layout } from '../components/common'
-import { AuthorList } from '../components/common/authors'
+import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
 /**

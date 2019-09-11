@@ -5,7 +5,9 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 
 import Img from 'gatsby-image'
 
-import { Navigation, Sidebar, Footer } from '.'
+import { Navigation } from './navigation'
+
+import { Sidebar, Footer } from '.'
 import config from '../../utils/siteConfig'
 
 // Styles
