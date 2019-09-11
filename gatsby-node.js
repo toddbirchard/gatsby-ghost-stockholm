@@ -247,8 +247,6 @@ exports.createPages = async ({ graphql, actions }) => {
           if (element.visibility == 'internal') {
             node.series = element.slug;
             node.name = element.name;
-            console.log(element.slug);
-            console.log(element.name);
           }
         });
 
