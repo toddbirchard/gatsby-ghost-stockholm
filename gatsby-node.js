@@ -245,8 +245,8 @@ exports.createPages = async ({ graphql, actions }) => {
         node.name = null
         node.tags.forEach(function(element) {
           if (element.visibility == 'internal') {
-            node.series = element.slug;
-            node.name = element.name;
+            node.series = element.slug
+            node.name = element.name
           }
         })
 

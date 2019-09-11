@@ -1,6 +1,5 @@
 /* eslint-disable */
 import Prism from 'prismjs';
-import 'lazysizes'
 
 /**
  * Trust All Scripts
