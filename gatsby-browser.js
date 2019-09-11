@@ -43,6 +43,7 @@ export const onRouteUpdate = () => {
     Prism.highlightAll();
 };
 
-export const onInitialClientRender = () => {
+/*export const onInitialClientRender = () => {
     Prism.highlightAll();
 }
+*/

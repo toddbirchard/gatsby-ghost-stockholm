@@ -74,7 +74,6 @@ module.exports = {
         /**
          *  Utility Plugins
          */
-         `gatsby-plugin-altair-graphql`,
         {
             resolve: `gatsby-transformer-remark`,
             options: {
@@ -84,7 +83,6 @@ module.exports = {
                             withWebp: true,
                         },
                     },
-                    `gatsby-remark-lazy-load`,
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {

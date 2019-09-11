@@ -11,7 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RecentPosts, RelatedPosts, SeriesTOC } from '../components/common/posts'
+import { RelatedPosts, SeriesTOC } from '../components/common/posts'
 import { AuthorCard } from '../components/common/authors'
 
 
@@ -60,7 +60,7 @@ const Post = ({ data, location, pageContext }) => {
                                   <div className="meta-item date"> <FontAwesomeIcon icon="eye" />{post.published_at_pretty} </div>
                               </div>
                               { seriesPosts ?
-                                <SeriesTOC seriesTitle={pageContext.seriesTitle} seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount}/>
+                                <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount}/>
                               : null }
                               {/* The main post content */ }
                               <section

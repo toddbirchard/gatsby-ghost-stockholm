@@ -1,11 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
-import '../../../styles/seriestoc.less'
-
-const SeriesTOC = ({ seriesPosts, seriesTitle, postCount }) => {
-  const title = seriesTitle.replace('#', '')
+const SeriesTOC = ({ seriesPosts, postCount }) => {
   const numberOfPosts = postCount + 1
   const listStyle = {
     counterReset: `li ${numberOfPosts}`
@@ -13,8 +9,7 @@ const SeriesTOC = ({ seriesPosts, seriesTitle, postCount }) => {
 
   return (
     <>
-      <div className="series-posts">
-        {/*<h5 className="series-title">{ title }</h5>*/}
+    <div className="series-posts">
         <ol className="series-posts" style={listStyle}>
           {seriesPosts.map(({ node }) => (
               <li key={node.slug}><Link to={`/series/${node.slug}`}>{node.title}</Link></li>
