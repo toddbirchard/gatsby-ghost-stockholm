@@ -12,7 +12,7 @@ const SeriesTOC = ({ seriesPosts, postCount }) => {
     <div className="series-posts">
         <ol className="series-posts" style={listStyle}>
           {seriesPosts.map(({ node }) => (
-              <li key={node.slug}><Link to={`/series/${node.slug}`}>{node.title}</Link></li>
+              <li key={node.slug}><Link to={node.slug}>{node.title}</Link></li>
           ))}
         </ol>
       </div>
