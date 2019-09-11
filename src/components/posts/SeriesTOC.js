@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const SeriesTOC = ({ seriesPosts, postCount }) => {
+const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
   const numberOfPosts = postCount + 1
   const listStyle = {
     counterReset: `li ${numberOfPosts}`
@@ -12,7 +12,7 @@ const SeriesTOC = ({ seriesPosts, postCount }) => {
     { postCount ? <div className="series-posts">
         <ol className="series-posts" style={listStyle}>
           {seriesPosts.map(({ node }) => (
-              <li key={node.slug}><Link to={node.slug}>{node.title}</Link></li>
+              <li key={node.slug} className={node.slug}><Link to={node.slug}>{node.title}</Link></li>
           ))}
         </ol>
       </div> : null }

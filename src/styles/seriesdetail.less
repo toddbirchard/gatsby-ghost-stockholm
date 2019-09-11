@@ -2,14 +2,37 @@
 
 .series-container {
     background: white;
+    background: white;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    @media(max-width: @tablet-breakpoint) {
+      margin: 0;
+    }
+
+    .series-feature-image {
+        width: -webkit-fill-available;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .series-header {
+        padding: 40px;
+
+        .series-description {
+          line-height: 1.2;
+        }
+    }
 
     .post-feed {
-      padding: 0 40px;
-      grid-gap: 40px;
-      @media(max-width: @mobile-breakpoint) {
-        padding: 0 0 20px;
-        grid-gap: 30px;
-      }
+        padding: 0 40px 40px;
+        grid-gap: 40px;
+        @media(max-width: @mobile-breakpoint) {
+            padding: 0 40px 40px;
+            grid-gap: 30px;
+        }
     }
 
     .series-post-card {
@@ -17,17 +40,15 @@
         justify-content: space-between;
         align-items: center;
         @media(max-width: @mobile-breakpoint) {
-           flex-direction: column;
-           border: 1px solid #e0e0e0;
+            flex-direction: column;
         }
 
         .series-post-card-image {
-          min-width: 180px;
-          width: 180px;
-          @media(max-width: @mobile-breakpoint) {
-            min-width: unset;
-            width: 100%;
-          }
+            min-width: 180px;
+            width: 180px;
+            @media(max-width: @mobile-breakpoint) {
+                display: none;
+            }
 
             img {
                 width: 100%;
@@ -37,22 +58,49 @@
         .series-post-card-detail {
             margin: 20px;
             width: -webkit-fill-available;
+            @media(max-width: @mobile-breakpoint) {
+                margin: 0;
+                display: flex;
+                justify-content: space-between;
+            }
 
             .series-post-card-count {
-              margin-bottom: 10px;
+                margin-bottom: 10px;
+                color: #718fbd;
+                @media(max-width: @mobile-breakpoint) {
+                    min-width: 50px;
+                    font-weight: 600;
+                    margin-right: 10px;
+                }
             }
 
             .series-post-card-title {
-              font-family: @sub-header-font;
-              font-weight: 500;
-              margin-bottom: 10px;
-              font-size: 1.3em;
-              color: #3c484e;
-              transition: @transition;
+                font-family: @sub-header-font;
+                font-weight: 500;
+                margin-bottom: 10px;
+                font-size: 1.3em;
+                color: #3c484e;
+                transition: @transition;
+                @media(max-width: @mobile-breakpoint) {
+                    margin: 0;
+                    font-weight: 300;
+                    font-size: 1.1em;
+                    width: 100%;
+                }
 
-              &:hover {
-                color: @secondary-color;
-              }
+                a {
+                    color: #3c484e;
+
+                    &:hover {
+                        color: @secondary-color;
+                    }
+                }
+            }
+
+            .series-post-card-excerpt {
+                @media(max-width: @mobile-breakpoint) {
+                    display: none;
+                }
             }
         }
     }

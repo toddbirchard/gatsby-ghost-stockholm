@@ -60,7 +60,7 @@ const Post = ({ data, location, pageContext }) => {
                                   <div className="meta-item date"> <FontAwesomeIcon icon="eye" />{post.published_at_pretty} </div>
                               </div>
                               { seriesPosts ?
-                                <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount}/>
+                                <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
                               : null }
                               {/* The main post content */ }
                               <section

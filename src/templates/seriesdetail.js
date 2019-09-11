@@ -15,6 +15,7 @@ import '../styles/seriesdetail.less'
 */
 const SeriesDetail = ({ data, location, pageContext }) => {
     const tag = data.ghostTag
+    const tagName = tag.name.replace('#', '')
     const posts = data.allGhostPost.edges
     // const title = data.title
 
@@ -25,11 +26,15 @@ const SeriesDetail = ({ data, location, pageContext }) => {
                 location={location}
                 type="series"
             />
-            <Layout template="tag-template page-template" hasSidebar={true}>
+          <Layout template="tag-template page-template" hasSidebar={false}>
               <div className="series-container">
-                <header className="tag-header">
-                    <h1 className="tag-title">{tag.name.replace('#', '')}</h1>
-                    {tag.description ? <p className="tag-description">{tag.description}</p> : null }
+                { tag.feature_image ?
+                    <figure className="series-feature-image">
+                        <img src={ tag.feature_image } alt={ tag.name } />
+                    </figure> : null }
+                <header className="series-header">
+                    <h1>{ tagName }</h1>
+                    {tag.description ? <p className="series-description">{tag.description}</p> : null }
                 </header>
                 <section className="post-feed">
                     {posts.map(({ node }, index) => (

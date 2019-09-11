@@ -13,7 +13,7 @@ const SeriesPostCard = ({ post, count }) => {
         }
         <div className="series-post-card-detail">
             <div className="series-post-card-count"><span>Post</span> {postNumber}</div>
-            <Link to={url}><h2 className="series-post-card-title">{post.title}</h2></Link>
+            <h2 className="series-post-card-title"><Link to={url}>{post.title}</Link></h2>
             <section className="series-post-card-excerpt">{post.excerpt}</section>
         </div>
     </div>)
