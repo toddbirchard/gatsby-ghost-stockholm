@@ -15,9 +15,7 @@ const PostCard = ({ post }) => {
 
     return (<div className="post-card">
         {
-            post.feature_image && <Link to={url}><div className="post-card-image" style={{
-                backgroundImage: `url(${post.feature_image})`
-            }}></div></Link>
+            post.feature_image && <Link to={url}><img className="post-card-image" src={post.feature_image} /></Link>
         }
         {post.featured && <span>Featured</span>}
         <div className="post-card-detail">

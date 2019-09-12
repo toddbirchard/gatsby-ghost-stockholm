@@ -48,7 +48,7 @@ const Page = ({ data, location, pageContext }) => {
 Page.propTypes = {
     data: PropTypes.shape({
         ghostPage: PropTypes.shape({
-            title: PropTypes.string.isRequired,
+            title: PropTypes.string,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
         }).isRequired,
