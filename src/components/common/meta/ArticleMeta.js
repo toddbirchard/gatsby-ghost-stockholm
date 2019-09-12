@@ -125,11 +125,7 @@ ArticleMetaGhost.propTypes = {
         meta_description: PropTypes.string,
         primary_author: PropTypes.object.isRequired,
         feature_image: PropTypes.string,
-        tags: PropTypes.shape({
-                name: PropTypes.string,
-                slug: PropTypes.string,
-                visibility: PropTypes.string,
-        }),
+        tags: PropTypes.object,
         primaryTag: PropTypes.shape({
             name: PropTypes.string,
         }),

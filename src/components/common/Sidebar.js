@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRss, faTag } from '@fortawesome/free-solid-svg-icons'
+import { faRss, faTag } from '@fortawesome/pro-regular-svg-icons'
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 /**
@@ -40,7 +40,7 @@ const Sidebar = ({ site, tags }) => {
                 <a href="https://www.linkedin.com/in/hackersandslackers/" className="linkedin" key="linkedin-sidebar"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
                 <a href="https://github.com/hackersandslackers" className="github" key="github-sidebar"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
                 <a href={ facebookUrl } className="facebook" key="facebook-sidebar"><FontAwesomeIcon icon={[`fab`, `facebook`]} /></a>
-                <a href="/rss/" className="rss" key="rss-sidebar"><FontAwesomeIcon icon="rss" /></a>
+                <a href="/rss/" className="rss" key="rss-sidebar"><FontAwesomeIcon icon={[`far`, `rss`]} /></a>
             </div>
 
             <div className="widget tags">
@@ -60,7 +60,7 @@ const Sidebar = ({ site, tags }) => {
                         noHeader
                         noFooter
                         noBorders
-                        linkColor="#b15d5d"
+                        linkColor="#067bff"
                         className="widget twitter"
                     />
                 </div> : null }

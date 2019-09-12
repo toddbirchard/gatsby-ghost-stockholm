@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, Link, graphql } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
-import { faUserEdit, faGlobe, faHome } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserEdit, faGlobe, faHome } from '@fortawesome/pro-regular-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { AuthorCard } from './'
 
@@ -17,11 +16,11 @@ const AuthorCards = ({ allAuthors }) => {
     return (
       <>
           <div className="author-card-list">
-            <h2 className="author-list">Authors</h2>
-            {authors.map(({ node }) => (
-                <AuthorCard author={node} />
+              <h2 className="author-list">Authors</h2>
+              {authors.map(({ node }) => (
+                  <AuthorCard author={node} />
               ))}
-            </div>
+          </div>
       </>
     )
 }

@@ -30,6 +30,7 @@ NavigationLinks.propTypes = {
     ).isRequired,
     navClass: PropTypes.string,
     navType: PropTypes.string,
+    logo: PropTypes.string,
 }
 
 export default NavigationLinks

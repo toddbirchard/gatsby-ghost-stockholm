@@ -44,6 +44,17 @@
   padding: 20px;
   background: white;
   transition: @transition;
+
+  .tag {
+    color: #757d8c;
+    opacity: .8;
+    font-size: .9em;
+
+    svg {
+      margin-right: 8px;
+    }
+  }
+
 }
 
 .related-post-title,
@@ -54,15 +65,4 @@
     line-height: 1.2;
     color: @body-color;
     font-weight: 600;
-}
-
-.related-post-excerpt {
-  color: #8e91a2;
-  margin: 0;
-  line-height: 1.1;
-  -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    text-overflow: ellipsis;
-    overflow: hidden;
 }

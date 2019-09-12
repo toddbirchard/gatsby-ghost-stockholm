@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-
 const SeriesPostCard = ({ post, count }) => {
     const url = `/${ post.slug }/`
-    const postNumber = count + 1;
+    const postNumber = count + 1
 
     return (<div className="series-post-card">
         {
@@ -17,6 +16,17 @@ const SeriesPostCard = ({ post, count }) => {
             <section className="series-post-card-excerpt">{post.excerpt}</section>
         </div>
     </div>)
+}
+
+SeriesPostCard.propTypes = {
+    post: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        feature_image: PropTypes.string,
+        excerpt: PropTypes.string.isRequired,
+        published_at: PropTypes.string.isRequired,
+    }).isRequired,
+    count: PropTypes.number,
 }
 
 export default SeriesPostCard

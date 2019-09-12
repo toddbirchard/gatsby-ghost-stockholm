@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { faTag, faEye, faPencilAlt, faUserEdit } from '@fortawesome/free-solid-svg-icons'
+import { faTag, faEye, faPencilAlt, faUserEdit } from '@fortawesome/pro-regular-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -26,18 +26,18 @@ const PostCard = ({ post }) => {
             <footer className="post-card-footer">
                 <div className="post-card-footer-left">
                     <div className="meta-item tag">
-                        <FontAwesomeIcon icon="tag" />
+                        <FontAwesomeIcon icon={[`far`, `tag`]} />
                         {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>}
                     </div>
-                    <div className="meta-item reading-item"> <FontAwesomeIcon icon="eye" /> <span>{readingTime}</span> </div>
-                    <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon="user-edit" /><span>{post.primary_author.name}</span> </Link></div>
-                    <div className="meta-item date"> <FontAwesomeIcon icon="eye" /> <span>{post.published_at_pretty}</span> </div>
+                    <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
+                    <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} /><span>{post.primary_author.name}</span> </Link></div>
+                    <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
                 </div>
             </footer>
         </div>
     </div>)
 }
-/*
+
 PostCard.propTypes = {
     post: PropTypes.shape({
         slug: PropTypes.string.isRequired,
@@ -46,11 +46,12 @@ PostCard.propTypes = {
         featured: PropTypes.bool,
         tags: PropTypes.object.isRequired,
         excerpt: PropTypes.string.isRequired,
-        published_at: PropTypes.string.isRequired,
-        primary_author: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            profile_image: PropTypes.string }).isRequired
-    }).isRequired
+        published_at_pretty: PropTypes.string.isRequired,
+        primary_author: PropTypes.shape(
+            { name: PropTypes.string.isRequired,
+                slug: PropTypes.string.isRequired,
+                profile_image: PropTypes.string }).isRequired,
+    }).isRequired,
 }
-*/
+
 export default PostCard

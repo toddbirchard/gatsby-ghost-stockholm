@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-// import { faUserEdit, faGlobe, fa } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { Link } from 'gatsby'
 
 
@@ -20,9 +17,9 @@ const AuthorCard = ({ author }) => {
                   <div className="author-card-content">
                       <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
                       <div className="author-card-meta">
-                          {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`fas`, `pencil-alt`]} />{author.postCount} Posts</span>}
-                          {author.location && <span className="author-card-item"><FontAwesomeIcon icon={[`fas`, `home`]} />{author.location}</span>}
-                          {author.website && <a href="author-card-item" className="author-card-item" to={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fas`, `globe`]} />Website</a>}
+                          {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `pencil-alt`]} />{author.postCount} Posts</span>}
+                          {author.location && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `home`]} />{author.location}</span>}
+                          {author.website && <a href="author-card-item" className="author-card-item" to={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} />Website</a>}
                           {authorTwitterUrl && <a href="author-card-item" className="author-card-item" to={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} />Twitter</a>}
                           {authorFacebookUrl && <a href="author-card-item" className="author-card-item" to={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} />Facebook</a>}
                       </div>

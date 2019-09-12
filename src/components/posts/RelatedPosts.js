@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { Tags } from '@tryghost/helpers-gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 
 const RelatedPosts = ({ data }) => {
     const related = data.edges
@@ -14,8 +17,8 @@ const RelatedPosts = ({ data }) => {
                   <Link to={ node.slug } className="related-post-card" key={ node.slug }>
                       <img className="related-post-image" src={ node.feature_image } alt={ node.slug }/>
                       <div className="related-post-info">
-                        <h5 className="related-post-title"> { node.title } </h5>
-                        <p className="related-post-excerpt"> { node.custom_excerpt } </p>
+                          <h5 className="related-post-title"> { node.title } </h5>
+                          <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={3} visibility="public" autolink={false}/> </div>
                       </div>
                   </Link>
               ))}
@@ -25,9 +28,7 @@ const RelatedPosts = ({ data }) => {
 }
 
 RelatedPosts.propTypes = {
-    data: PropTypes.shape({
-        allGhostPost: PropTypes.object.isRequired,
-    }).isRequired,
+    data: PropTypes.object,
 }
 
 export default RelatedPosts
