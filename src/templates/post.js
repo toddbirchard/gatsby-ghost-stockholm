@@ -22,10 +22,9 @@ import '../styles/posts/index.less'
 */
 library.add(faUserEdit, faGlobe, faHome, faCalendar)
 
-const Post = ({ data, location, pageContext }) => {
+const Post = ({ data, location }) => {
     const post = data.ghostPost
     const tags = data.ghostPost.tags
-    const series = pageContext.series
     const author = data.ghostAuthor
     const relatedPosts = data.relatedPosts
     const readingTime = readingTimeHelper(post)
@@ -45,18 +44,22 @@ const Post = ({ data, location, pageContext }) => {
                 <Layout template="post-template">
                     <div className="post-wrapper">
                         <article className="post">
+
                             { post.feature_image ?
                                 <figure className="post-image">
                                     <img src={ post.feature_image } alt={ post.title } />
                                 </figure> : null }
-                            <section className="post-content">
-                                <h1 className="post-title">{post.title}</h1>
-                                <div className="post-meta">
-                                    <div className="meta-item author"> <Link to="/about"><FontAwesomeIcon icon={[`far`, `user-edit`]} /> <span>{post.primary_author.name}</span> </Link></div>
-                                    <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
-                                    <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
-                                    <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
+                                <div className="post-head">
+                                    <div className="post-meta">
+                                        <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} /> <span>{post.primary_author.name}</span> </Link></div>
+                                        <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
+                                        <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
+                                        <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
+                                    </div>
+                                    <h1 className="post-title">{post.title}</h1>
                                 </div>
+                            <section className="post-content">
+
                                 { seriesPosts ?
                                     <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
                                     : null }

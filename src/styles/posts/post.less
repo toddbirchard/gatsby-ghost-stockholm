@@ -31,7 +31,7 @@
         background-size: cover !important;
         background-position-y: center !important;
         overflow: hidden;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         @media(max-width: @tablet-breakpoint) {
             max-height: unset;
             height: unset;
@@ -43,17 +43,18 @@
     }
 
     .post-meta {
-        margin: 10px auto 60px;
+        margin: 0 auto 10px;
         color: @text-color-light;
         font-size: 12px;
         display: flex;
         width: auto;
         align-items: center;
+        justify-content: center;
         @media(max-width: @mobile-breakpoint) {
             padding: 0;
             max-width: none;
             width: auto;
-            margin: 20px auto;
+            margin: 0 10px 10px;
 
             .date {
                 display: none !important;
@@ -147,6 +148,10 @@
             margin: 0;
         }
 
+        .post-head {
+           margin: 60px 0;
+        }
+
         .post-image {
             background-size: cover !important;
             @media (max-width: @tablet-breakpoint) {
@@ -154,9 +159,6 @@
                 margin-right: calc(-50vw + 50%) !important;
                 order: 0;
                 height: unset;
-            }
-            @media(max-width: @mobile-breakpoint) {
-                margin-bottom: 40px;
             }
 
             img {
@@ -179,6 +181,7 @@
             line-height: 1;
             color: @h1-color;
             font-weight: 100;
+            text-align: center;
             @media(max-width: @tablet-breakpoint) {
                 font-size: 2.5em;
             }
@@ -644,9 +647,8 @@
 
         * {
             font-style: italic;
-            font-weight: 600;
+            font-weight: 400;
             line-height: 1.5;
-            font-size: 1.2em;
             color: #a9abae;
         }
     }
