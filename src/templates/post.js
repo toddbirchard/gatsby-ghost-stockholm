@@ -49,15 +49,15 @@ const Post = ({ data, location }) => {
                                 <figure className="post-image">
                                     <img src={ post.feature_image } alt={ post.title } />
                                 </figure> : null }
-                                <div className="post-head">
-                                    <div className="post-meta">
-                                        <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} /> <span>{post.primary_author.name}</span> </Link></div>
-                                        <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
-                                        <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
-                                        <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
-                                    </div>
-                                    <h1 className="post-title">{post.title}</h1>
+                            <div className="post-head">
+                                <div className="post-meta">
+                                    <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} /> <span>{post.primary_author.name}</span> </Link></div>
+                                    <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} />{tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>} </div>
+                                    <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
+                                    <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
                                 </div>
+                                <h1 className="post-title">{post.title}</h1>
+                            </div>
                             <section className="post-content">
 
                                 { seriesPosts ?

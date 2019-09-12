@@ -6,9 +6,7 @@ import { faUserEdit, faGlobe, faHome } from '@fortawesome/pro-regular-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { AuthorCard } from './'
 
-
 library.add(faUserEdit, faGlobe, faHome)
-
 
 const AuthorCards = ({ allAuthors }) => {
     const authors = allAuthors.allGhostAuthor.edges
@@ -16,9 +14,9 @@ const AuthorCards = ({ allAuthors }) => {
     return (
       <>
           <div className="author-card-list">
-              <h2 className="author-list">Authors</h2>
+              <h2 className="author-list-title">Authors</h2>
               {authors.map(({ node }) => (
-                  <AuthorCard author={node} />
+                  <AuthorCard author={node} key={node.id}/>
               ))}
           </div>
       </>

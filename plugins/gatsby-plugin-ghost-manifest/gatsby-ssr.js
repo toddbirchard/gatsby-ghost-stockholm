@@ -54,8 +54,8 @@ exports.onRenderBody = function (_ref, pluginOptions) {
         href: (0, _gatsby.withPrefix)("" + icon.src)
       });
     });
-    // headComponents = [].concat(headComponents, iconLinkTags);
+    headComponents = [].concat(headComponents, iconLinkTags);
   }
 
-  // setHeadComponents(headComponents);
+  setHeadComponents(headComponents);
 };
