@@ -18,6 +18,8 @@ var Promise = require("bluebird");
 
 var sharp = require("sharp");
 
+var Prism = require('prismjs');
+
 var _require = require("./common.js"),
     defaultIcons = _require.defaultIcons,
     doesIconExist = _require.doesIconExist;
@@ -35,17 +37,17 @@ function generateIcons(icons, srcIcon) {
 exports.onPostBuild =
 /*#__PURE__*/
 function () {
-  var _ref2 = (0, _asyncToGenerator2.default)(
+  var _ref2 = (0, _asyncToGenerator2["default"])(
   /*#__PURE__*/
-  _regenerator.default.mark(function _callee(_ref, pluginOptions) {
+  _regenerator["default"].mark(function _callee(_ref, pluginOptions) {
     var graphql, icon, manifest, _ref3, data, siteTitle, iconPath;
 
-    return _regenerator.default.wrap(function _callee$(_context) {
+    return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             graphql = _ref.graphql;
-            icon = pluginOptions.icon, manifest = (0, _objectWithoutPropertiesLoose2.default)(pluginOptions, ["icon"]);
+            icon = pluginOptions.icon, manifest = (0, _objectWithoutPropertiesLoose2["default"])(pluginOptions, ["icon"]);
             _context.next = 4;
             return graphql(pluginOptions.query);
 
@@ -53,10 +55,10 @@ function () {
             _ref3 = _context.sent;
             data = _ref3.data;
             siteTitle = data.allGhostSettings.edges[0].node.title || "No Title";
-            manifest = (0, _extends2.default)({}, manifest, {
-              name: siteTitle // Delete options we won't pass to the manifest.webmanifest.
+            manifest = (0, _extends2["default"])({}, manifest, {
+              name: siteTitle
+            }); // Delete options we won't pass to the manifest.webmanifest.
 
-            });
             delete manifest.plugins;
             delete manifest.legacy;
             delete manifest.theme_color_in_head;
@@ -95,7 +97,7 @@ function () {
             return _context.stop();
         }
       }
-    }, _callee, this);
+    }, _callee);
   }));
 
   return function (_x, _x2) {
