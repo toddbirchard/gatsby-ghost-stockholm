@@ -14,11 +14,17 @@ pre[class*="language-"] {
     margin: 30px auto;
     @media(max-width: @mobile-breakpoint) {
       border-radius: 0;
+      .mobile-horizontal-scroll();
     }
 
     code {
         color: #f3f6fa !important;
         text-shadow: unset !important;
+
+        @media(max-width: @mobile-breakpoint) {
+          border-radius: 0;
+          .mobile-horizontal-scroll-child();
+        }
 
         .namespace {
           opacity: .9;

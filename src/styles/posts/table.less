@@ -5,8 +5,10 @@
     border: 1px solid #d3dadd;
     margin: 30px 0;
     max-height: 539px;
+
     @media(max-width: @mobile-breakpoint) {
-      .mobile-full-width() 
+      .mobile-full-width();
+      .mobile-horizontal-scroll();
     }
 
     table {
@@ -15,6 +17,9 @@
       margin-bottom: 0;
       background-color: #fff;
       border-spacing: 0;
+      @media(max-width: @mobile-breakpoint) {
+        .mobile-horizontal-scroll-child();
+      }
 
       tr {
         text-align: left;

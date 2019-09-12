@@ -19,7 +19,8 @@
     transition: all .2s ease-out;
     @media(max-width: @mobile-breakpoint) {
       margin-bottom: 20px;
-      display: block;
+      display: flex;
+
       width: 100%;
     }
 
@@ -37,6 +38,11 @@
 
     img {
       max-width: 100%;
+
+      @media(max-width: @mobile-breakpoint) {
+        height: 110px;
+        max-width: unset;
+      }
     }
 }
 
@@ -44,6 +50,10 @@
   padding: 20px;
   background: white;
   transition: @transition;
+  @media(max-width: @mobile-breakpoint) {
+    width: -webkit-fill-available;
+    overflow: hidden;
+  }
 
   .tag {
     color: #757d8c;
@@ -68,8 +78,8 @@
 .recent-post-title {
     margin: 0 0 10px 0;
     width: -webkit-fill-available;
-    font-size: 1.8rem;
+    font-size: 1.1em;
     line-height: 1.2;
     color: @body-color;
-    font-weight: 600;
+    font-weight: 500;
 }

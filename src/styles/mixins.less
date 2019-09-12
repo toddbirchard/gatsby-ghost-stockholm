@@ -5,6 +5,21 @@
 	border-left: 0;
 }
 
+.mobile-horizontal-scroll() {
+	white-space: nowrap;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+.mobile-horizontal-scroll-child() {
+	display: inline;
+
+	&:hover {
+		cursor: grab;
+	}
+}
+
 .header-card() {
 		margin: 0 !important;
 		background: white;
