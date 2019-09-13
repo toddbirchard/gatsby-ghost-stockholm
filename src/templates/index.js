@@ -43,8 +43,8 @@ Index.propTypes = {
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
             tags: PropTypes.shape({
-                slug: PropTypes.string.isRequired,
-                name: PropTypes.string.isRequired,
+              slug: PropTypes.string.isRequired,
+              name: PropTypes.string.isRequired,
             }),
             published_at_pretty: PropTypes.string,
         }).isRequired,

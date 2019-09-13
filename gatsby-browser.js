@@ -1,6 +1,5 @@
 /* eslint-disable */
 import Prism from 'prismjs';
-import ScrollBooster from 'scrollbooster'
 
 /**
  * Trust All Scripts

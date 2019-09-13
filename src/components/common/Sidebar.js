@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Link } from 'gatsby'
+import { StaticQuery, Link, graphql } from 'gatsby'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -65,8 +65,30 @@ const Sidebar = ({ site, tags }) => {
 }
 
 Sidebar.propTypes = {
-    site: PropTypes.object.isRequired,
-    tags: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        allGhostTag: PropTypes.object.isRequired,
+    }).isRequired,
 }
 
-export default Sidebar
+
+const SidebarQuery = props => (
+    <StaticQuery
+        query={graphql`
+            query GhostTags {
+                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}}) {
+                  edges {
+                    node {
+                      name
+                      slug
+                      url
+                      postCount
+                    }
+                  }
+                }
+            }
+        `}
+        render={data => <Sidebar data={data} {...props} />}
+    />
+)
+
+export default SidebarQuery
