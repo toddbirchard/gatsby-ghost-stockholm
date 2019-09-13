@@ -70,9 +70,10 @@
         }
     }
 
-    .post-card-footer-left {
+    .post-card-footer {
         display: flex;
         align-items: center;
+        margin: 20px 0 0;
 
         .meta-item {
             margin-right: 30px;
@@ -95,11 +96,16 @@
                 font-size: 0.9em;
             }
 
-            &.date,
             &.reading-item {
                 @media(max-width: 800px) {
                     display: none;
                 }
+            }
+
+            &.date {
+              @media(max-width: @mobile-breakpoint) {
+                  display: none;
+              }
             }
 
             &.author:hover {

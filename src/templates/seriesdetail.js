@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Layout, SeriesPostCard, Sidebar } from '../components/common'
+import { Layout, SeriesPostCard } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/seriesdetail.less'
@@ -13,9 +13,9 @@ import '../styles/seriesdetail.less'
 * Loads all posts for the requested tag incl. pagination.
 *
 */
-const SeriesDetail = ({ data, location, pageContext }) => {
+const SeriesDetail = ({ data, location }) => {
     const tag = data.ghostTag
-    const tagName = tag.name.replace('#', '')
+    const tagName = tag.name.replace(`#`, ``)
     const posts = data.allGhostPost.edges
     // const title = data.title
 
@@ -26,24 +26,24 @@ const SeriesDetail = ({ data, location, pageContext }) => {
                 location={location}
                 type="series"
             />
-          <Layout template="tag-template page-template" hasSidebar={false}>
+          <Layout template="tag-template page-template series-template" hasSidebar={false}>
               <div className="series-container">
-                { tag.feature_image ?
-                    <figure className="series-feature-image">
-                        <img src={ tag.feature_image } alt={ tag.name } />
-                    </figure> : null }
-                <header className="series-header">
-                    <h1>{ tagName }</h1>
-                    {tag.description ? <p className="series-description">{tag.description}</p> : null }
-                </header>
-                <section className="post-feed">
-                    {posts.map(({ node }, index) => (
-                        // The tag below includes the markup for each post - components/common/PostCard.js
-                        <SeriesPostCard key={node.id} post={node} count={index}/>
-                    ))}
-                </section>
-                </div>
-            </Layout>
+                  { tag.feature_image ?
+                      <figure className="series-feature-image">
+                          <img src={ tag.feature_image } alt={ tag.name } />
+                      </figure> : null }
+                  <header className="series-header">
+                      <h1>{ tagName }</h1>
+                      {tag.description ? <p className="series-description">{tag.description}</p> : null }
+                  </header>
+                  <section className="post-feed">
+                      {posts.map(({ node }, index) => (
+                          // The tag below includes the markup for each post - components/common/PostCard.js
+                          <SeriesPostCard key={node.id} post={node} count={index}/>
+                      ))}
+                  </section>
+              </div>
+          </Layout>
         </>
     )
 }
@@ -53,6 +53,7 @@ SeriesDetail.propTypes = {
         ghostTag: PropTypes.shape({
             name: PropTypes.string.isRequired,
             description: PropTypes.string,
+            feature_image: PropTypes.string,
         }),
         allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
