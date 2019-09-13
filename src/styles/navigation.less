@@ -3,7 +3,10 @@
     background: #ffffff;
     height: 80px;
     border-bottom: 1px solid #dbe0e5;
-    margin-bottom: 30px !important;
+    margin-bottom: 30px;
+    @media(max-width: @tablet-breakpoint) {
+      margin-bottom: 0;
+    }
     @media(max-width: @mobile-breakpoint) {
         height: 60px;
     }
