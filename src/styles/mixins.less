@@ -3,6 +3,7 @@
 	margin-right: calc(~"-50vw + 50%") !important;
 	border-right: 0;
 	border-left: 0;
+	min-width: 100%;
 }
 
 .mobile-horizontal-scroll() {
@@ -10,14 +11,14 @@
 	overflow-y: hidden;
 	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch;
-}
-
-.mobile-horizontal-scroll-child() {
-	display: inline;
 
 	&:hover {
 		cursor: grab;
 	}
+}
+
+.mobile-horizontal-scroll-child() {
+	display: inline;
 }
 
 .header-card() {
