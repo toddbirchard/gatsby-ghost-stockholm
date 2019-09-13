@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 
 
 const RelatedPosts = ({ data }) => {
@@ -18,7 +16,7 @@ const RelatedPosts = ({ data }) => {
                       <img className="related-post-image" src={ node.feature_image } alt={ node.slug }/>
                       <div className="related-post-info">
                           <h5 className="related-post-title"> { node.title } </h5>
-                          <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={3} visibility="public" autolink={false}/> </div>
+                          <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={2} visibility="public" autolink={false} from={1} separatorClasses={node.id}/> </div>
                       </div>
                   </Link>
               ))}

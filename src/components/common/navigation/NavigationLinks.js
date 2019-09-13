@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-
-
 const NavigationLinks = ({ data, navClass }) => (
     <>
         {data.map((navItem, i) => {

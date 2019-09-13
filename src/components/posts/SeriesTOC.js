@@ -8,15 +8,15 @@ const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
     }
 
     return (
-    <>
-    { postCount ? <div className="series-posts">
-        <ol style={listStyle}>
-            {seriesPosts.map(({ node }) => (
-                <li key={node.slug} className={ currentPost === node.slug ? `current-post` : null }><Link to={node.slug}>{node.title}</Link></li>
-            ))}
-        </ol>
-    </div> : null }
-    </>
+      <>
+      { postCount ? <div className="series-posts">
+          <ol style={listStyle}>
+              {seriesPosts.map(({ node }) => (
+                  <li key={node.slug} className={ currentPost === node.slug ? `current-post` : null }><Link to={node.slug}>{node.title}</Link></li>
+              ))}
+          </ol>
+      </div> : null }
+      </>
     )
 }
 

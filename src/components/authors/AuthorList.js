@@ -24,7 +24,7 @@ const AuthorCards = ({ allAuthors }) => {
 }
 
 AuthorCards.propTypes = {
-    data: PropTypes.shape({
+    allAuthors: PropTypes.shape({
         allGhostAuthor: PropTypes.object.isRequired,
     }).isRequired,
 }
@@ -54,6 +54,5 @@ const AuthorCardsQuery = props => (
         render={data => <AuthorCards allAuthors={data} {...props} />}
     />
 )
-
 
 export default AuthorCardsQuery

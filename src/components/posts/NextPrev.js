@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 
 
@@ -27,8 +26,8 @@ const NextPrevQuery = props => (
               }
             }
           }`}
-          render={data => <NextPrevQuery data={data} {...props} />}
-      />
-  )
+        render={data => <NextPrevQuery data={data} {...props} />}
+    />
+)
 
-  export default NextPrevQuery
+export default NextPrevQuery

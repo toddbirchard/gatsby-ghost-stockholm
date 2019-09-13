@@ -2,7 +2,6 @@
     border-spacing: 0;
     overflow: hidden;
     border-radius: 3px;
-    border: 1px solid #d3dadd;
     margin: 30px 0;
     max-height: 539px;
 
@@ -36,24 +35,25 @@
 
       thead {
         tr {
-          background: #f6f8fb;
+          background: none;
           padding: 15px 10px;
           vertical-align: top;
           font-size: 1em;
 
-          th {
+          td, th {
             font-weight: 600;
-            padding: 15px 10px;
+            padding: 10px !important;
+            text-align: left;
           }
         }
       }
 
       tbody {
-        tr:nth-child(even) {
+        tr:nth-child(odd) {
           background: #f6f8fb;
         }
 
-        td {
+        td, th {
           text-align: left;
           padding: 10px;
           vertical-align: top;

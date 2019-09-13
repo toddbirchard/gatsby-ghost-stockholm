@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import ReactPlayer from 'react-player'
 
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
@@ -33,6 +34,11 @@ const Page = ({ data, location, pageContext }) => {
                             <img src={ page.feature_image } alt={ page.title } />
                         </figure> : null }
                     <h1 className="content-title">{page.title}</h1>
+                    { page.slug === `about` ?
+                        <div className="about-video-wrapper">
+                            <ReactPlayer url="https://vimeo.com/265866802" width="100%" height="100%" className="about-video" />
+                        </div>
+                        : null }
                     {/* The main page content */}
                     <section
                         className="content-body load-external-scripts"
@@ -48,11 +54,15 @@ const Page = ({ data, location, pageContext }) => {
 Page.propTypes = {
     data: PropTypes.shape({
         ghostPage: PropTypes.shape({
+            slug: PropTypes.string.isRequired,
             title: PropTypes.string,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
         }).isRequired,
     }).isRequired,
+    pageContext: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+    }),
     location: PropTypes.object.isRequired,
 }
 

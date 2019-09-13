@@ -19,8 +19,7 @@ import '../../styles/app.less'
 *
 */
 
-
-const DefaultLayout = ({ data, children, bodyClass, hasSidebar, template }) => {
+const DefaultLayout = ({ data, children, hasSidebar, template }) => {
     const site = data.allGhostSettings.edges[0].node
     const tags = data.allGhostTag.edges
 

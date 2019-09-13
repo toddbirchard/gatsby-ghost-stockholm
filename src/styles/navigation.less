@@ -3,7 +3,10 @@
     background: #ffffff;
     height: 80px;
     border-bottom: 1px solid #dbe0e5;
-    margin-bottom: 30px !important;
+    margin-bottom: 30px;
+    @media(max-width: @tablet-breakpoint) {
+      margin-bottom: 0;
+    }
     @media(max-width: @mobile-breakpoint) {
         height: 60px;
     }
@@ -25,7 +28,7 @@
 
         .logo {
             transition: all 0.2s ease-out;
-            margin-right: 30px;
+            margin-right: 40px;
             height: 40px;
             width: 40px;
             @media(max-width: @mobile-breakpoint) {
@@ -73,26 +76,29 @@
                 color: #626573;
                 border: none;
                 padding: 0;
-                margin-right: 25px;
-                font-size: 1.1em;
+                margin-right: 30px;
+                font-size: 1.2em;
                 outline: none;
                 transition: @transition;
                 display: flex;
                 justify-content: center;
                 font-weight: normal;
+                font-weight: 500;
+                font-family: @sub-header-font;
                 @media(max-width: @mobile-breakpoint) {
                     margin: 0 0 0 20px;
                 }
             }
 
             .donate-btn {
-                font-family: 'proxima-nova', sans-serif !important;
-                font-size: 1em;
+                font-family: @sub-header-font;
+                font-size: 1.1em;
                 -webkit-appearance: none !important;
                 color: #626573;
                 border: 1px solid #d3d6e1;
                 background: none;
-                padding: 7px 12px;
+                padding: 9px 14px;
+                font-weight: 500;
                 line-height: 1;
                 outline: none;
                 font-weight: normal;
@@ -104,6 +110,55 @@
                     color: white !important;
                 }
             }
+        }
+    }
+}
+
+@media(max-width: 800px) {
+    .home-template .navigation-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+
+/* Pagination
+/* ---------------------------------------------------------- */
+.pagination {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 30px;
+    background: none;
+
+    .pagination-location {
+        position: absolute;
+        left: 50%;
+        width: 100px;
+        margin-left: -50px;
+        text-align: center;
+        color: var(--color-secondary);
+        font-size: 1.3rem;
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 15px;
+        border: var(--color-border) 1px solid;
+        color: var(--color-secondary);
+        text-decoration: none;
+        font-size: 1.4rem;
+        line-height: 1em;
+        border-radius: var(--radius);
+        transition: @transition;
+
+        &:hover {
+            background: @secondary-color;
+            border-color: @secondary-color;
+            color: white !important;
         }
     }
 }

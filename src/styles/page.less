@@ -6,11 +6,29 @@
       }
   }
 
+
+
+  .about-video-wrapper {
+    margin-bottom: 40px;
+    position: relative;
+    padding-top: 56.25%;
+    @media(max-width: @mobile-breakpoint) {
+      /* .mobile-full-width();
+      padding-top: 70%; */ 
+    }
+
+    .about-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
   /* Intro cards such as tag & author cards */
   .header-card {
       margin: 0;
       background: white;
-      padding: 30px;
+      padding: 40px;
       @media (max-width: @mobile-breakpoint) {
           .mobile-full-width();
       }

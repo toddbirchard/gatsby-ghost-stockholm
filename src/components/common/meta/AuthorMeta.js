@@ -71,6 +71,8 @@ AuthorMeta.propTypes = {
         allGhostSettings: PropTypes.object.isRequired,
         twitter: PropTypes.string,
         facebook: PropTypes.string,
+        title: PropTypes.string,
+        description: PropTypes.string,
     }).isRequired,
     canonical: PropTypes.string.isRequired,
 }
