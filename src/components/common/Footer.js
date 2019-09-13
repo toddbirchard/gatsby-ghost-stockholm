@@ -32,13 +32,13 @@ const Footer = ({ data }) => {
                     </Link>
                     <p className="description">Community of hackers obsessed with data science, data engineering, and analysis. Openly pushing a pro-robot agenda.</p>
                     <div className="social-btns">
-                        <a href={ twitterUrl } className="twitter" key="twitter-footer"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
-                        <a href={ facebookUrl } className="facebook" key="facebook-footer"><FontAwesomeIcon icon={[`fab`, `facebook`]} /></a>
-                        <a href="https://angel.co/company/hackers-and-slackers/" className="angellist-footer" key="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
-                        <a href="https://www.linkedin.com/company/hackers-and-slackers/" className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
-                        <a href="https://github.com/hackersandslackers" className="github" key="github-footer"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
-                        <a href="https://hackersandslackers.blog" className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} /></a>
-                        <a href="/rss/" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} /></a>
+                        <a href={ twitterUrl } className="twitter" key="twitter-footer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="sm" /></a>
+                        <a href={ facebookUrl } className="facebook" key="facebook-footer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="sm" /></a>
+                        <a href="https://angel.co/company/hackers-and-slackers/" className="angellist-footer" key="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} size="sm" /></a>
+                        <a href="https://www.linkedin.com/company/hackers-and-slackers/" className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>
+                        <a href="https://github.com/hackersandslackers" className="github" key="github-footer"><FontAwesomeIcon icon={[`fab`, `github`]} size="sm" /></a>
+                        <a href="https://hackersandslackers.blog" className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} size="sm" /></a>
+                        <a href="/rss/" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></a>
                     </div>
                     <p className="copyright">©2019 Hackers and Slackers, All Rights Reserved.</p>
                 </div>

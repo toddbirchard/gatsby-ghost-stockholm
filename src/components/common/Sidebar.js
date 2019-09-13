@@ -30,12 +30,12 @@ const Sidebar = ({ site, tags }) => {
             </div>
 
             <div className="widget social">
-                <a href={ twitterUrl } className="twitter" key="twitter-sidebar"><FontAwesomeIcon icon={[`fab`, `twitter`]} /></a>
-                <a href="https://angel.co/company/hackers-and-slackers/" className="angellist" key="angellist-sidebar"><FontAwesomeIcon icon={[`fab`, `angellist`]} /></a>
-                <a href="https://www.linkedin.com/in/hackersandslackers/" className="linkedin" key="linkedin-sidebar"><FontAwesomeIcon icon={[`fab`, `linkedin`]} /></a>
-                <a href="https://github.com/hackersandslackers" className="github" key="github-sidebar"><FontAwesomeIcon icon={[`fab`, `github`]} /></a>
-                <a href={ facebookUrl } className="facebook" key="facebook-sidebar"><FontAwesomeIcon icon={[`fab`, `facebook`]} /></a>
-                <a href="/rss/" className="rss" key="rss-sidebar"><FontAwesomeIcon icon={[`far`, `rss`]} /></a>
+                <a href={ twitterUrl } className="twitter" key="twitter-sidebar"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="sm" /></a>
+                <a href="https://angel.co/company/hackers-and-slackers/" className="angellist" key="angellist-sidebar"><FontAwesomeIcon icon={[`fab`, `angellist`]} size="sm" /></a>
+                <a href="https://www.linkedin.com/in/hackersandslackers/" className="linkedin" key="linkedin-sidebar"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>
+                <a href="https://github.com/hackersandslackers" className="github" key="github-sidebar"><FontAwesomeIcon icon={[`fab`, `github`]} size="sm" /></a>
+                <a href={ facebookUrl } className="facebook" key="facebook-sidebar"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="sm" /></a>
+                <a href="/rss/" className="rss" key="rss-sidebar"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></a>
             </div>
 
             <div className="widget tags">

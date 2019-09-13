@@ -1,12 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-
-import { faUserEdit, faGlobe, faHome } from '@fortawesome/pro-regular-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { AuthorCard } from './'
 
-library.add(faUserEdit, faGlobe, faHome)
 
 const AuthorCards = ({ allAuthors }) => {
     const authors = allAuthors.allGhostAuthor.edges

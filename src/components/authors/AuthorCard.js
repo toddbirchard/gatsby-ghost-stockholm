@@ -11,16 +11,16 @@ const AuthorCard = ({ author }) => {
             <>
               <header className="author-card info-card">
                   <div className="author-card-image">
-                      {author.profile_image ? <img src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" /> }
+                      {author.profile_image ? <img src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" size="sm" /> }
                   </div>
                   <div className="author-card-content">
                       <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
                       <div className="author-card-meta">
-                          {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `pencil-alt`]} />{author.postCount} Posts</span>}
-                          {author.location && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `home`]} />{author.location}</span>}
-                          {author.website && <a href="author-card-item" className="author-card-item" to={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} />Website</a>}
-                          {authorTwitterUrl && <a href="author-card-item" className="author-card-item" to={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} />Twitter</a>}
-                          {authorFacebookUrl && <a href="author-card-item" className="author-card-item" to={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} />Facebook</a>}
+                          {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `pencil-alt`]} size="sm" />{author.postCount} Posts</span>}
+                          {author.location && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `home`]} size="sm" />{author.location}</span>}
+                          {author.website && <a href="author-card-item" className="author-card-item" to={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} size="sm" />Website</a>}
+                          {authorTwitterUrl && <a href="author-card-item" className="author-card-item" to={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="sm" />Twitter</a>}
+                          {authorFacebookUrl && <a href="author-card-item" className="author-card-item" to={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="sm" />Facebook</a>}
                       </div>
                       {author.bio && <p className="author-card-bio">{author.bio}</p>}
                   </div>

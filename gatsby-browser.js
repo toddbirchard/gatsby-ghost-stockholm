@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Prism from 'prismjs';
+import ScrollBooster from 'scrollbooster'
 
 /**
  * Trust All Scripts
@@ -41,7 +42,7 @@ var trustAllScripts = function() {
 export const onRouteUpdate = () => {
     trustAllScripts();
     Prism.highlightAll();
-};
+  }
 
 /*export const onInitialClientRender = () => {
     Prism.highlightAll();

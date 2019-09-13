@@ -24,12 +24,12 @@ const PostCard = ({ post }) => {
             <section className="post-card-excerpt">{post.excerpt}</section>
             <footer className="post-card-footer">
                 <div className="meta-item tag">
-                    <FontAwesomeIcon icon={[`far`, `tag`]} />
+                    <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />
                     {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} />}
                 </div>
-                <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
-                <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} /><span>{authorFirstName}</span> </Link></div>
-                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
+                <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
+                <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /><span>{authorFirstName}</span> </Link></div>
+                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
             </footer>
         </div>
     </div>)
