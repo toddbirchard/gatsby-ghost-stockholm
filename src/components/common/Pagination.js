@@ -7,7 +7,7 @@ const Pagination = ({ pageContext }) => {
 
     return (
         <nav className="pagination" role="navigation">
-            <div>
+            <div className="pagination-button">
                 {previousPagePath && (
                     <Link to={previousPagePath} rel="prev">
                             Previous
@@ -15,7 +15,7 @@ const Pagination = ({ pageContext }) => {
                 )}
             </div>
             {numberOfPages > 1 && <div className="pagination-location">Page {humanPageNumber} of {numberOfPages}</div>}
-            <div>
+            <div className="pagination-button">
                 {nextPagePath && (
                     <Link to={nextPagePath} rel="next">
                             Next

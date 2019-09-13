@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,12 +9,7 @@ import { faRss, faTag } from '@fortawesome/pro-regular-svg-icons'
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
 
 /**
-* Main layout component
-*
-* The Layout component wraps around each page and template.
-* It also provides the header, footer as well as the main
-* styles, and meta data for each page.
-*
+* Sidebar component
 */
 
 library.add(fab, faRss, faTag)
@@ -25,7 +20,7 @@ const Sidebar = ({ site, tags }) => {
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
 
     return (
-    <>
+      <>
         <aside className="sidebar">
             <div className="widget about">
                 <Link to="/" className="about-logo-link">
@@ -67,6 +62,11 @@ const Sidebar = ({ site, tags }) => {
         </aside>
     </>
     )
+}
+
+Sidebar.propTypes = {
+    site: PropTypes.object.isRequired,
+    tags: PropTypes.object.isRequired,
 }
 
 export default Sidebar

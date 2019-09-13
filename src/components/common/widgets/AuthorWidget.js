@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import { Link, StaticQuery, graphql } from 'gatsby'
-
+import { Link } from 'gatsby'
 
 const AuthorWidget = ({ data }) => {
     const site = data.allGhostSettings.edges[0].node
@@ -17,6 +15,17 @@ const AuthorWidget = ({ data }) => {
         </div>
     </>
     )
+}
+
+AuthorWidget.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            description: PropTypes.string,
+            logo: PropTypes.string,
+        }).isRequired,
+    ).isRequired,
 }
 
 export default AuthorWidget

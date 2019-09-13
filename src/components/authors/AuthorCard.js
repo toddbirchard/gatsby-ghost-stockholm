@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
 
-
 const AuthorCard = ({ author }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
     const authorFacebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
@@ -11,9 +10,9 @@ const AuthorCard = ({ author }) => {
     return (
             <>
               <header className="author-card info-card">
-                <div className="author-card-image">
-                    {author.profile_image ? <img src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" /> }
-                </div>
+                  <div className="author-card-image">
+                      {author.profile_image ? <img src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" /> }
+                  </div>
                   <div className="author-card-content">
                       <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
                       <div className="author-card-meta">
@@ -39,6 +38,8 @@ AuthorCard.propTypes = {
         twitter: PropTypes.string,
         facebook: PropTypes.string,
         postCount: PropTypes.number,
+        location: PropTypes.string,
+        slug: PropTypes.string,
     }).isRequired,
 }
 

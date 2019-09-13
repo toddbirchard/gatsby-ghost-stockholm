@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { NavigationLinks } from '.'
 
-
 /**
 * Navigation component
 *

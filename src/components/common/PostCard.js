@@ -12,6 +12,7 @@ library.add(faTag, faEye, faPencilAlt, faUserEdit, faCalendar)
 const PostCard = ({ post }) => {
     const url = `/${ post.slug }/`
     const readingTime = readingTimeHelper(post)
+    const authorFirstName = post.primary_author.name.split(` `)[0]
 
     return (<div className="post-card">
         {
@@ -22,15 +23,13 @@ const PostCard = ({ post }) => {
             <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
             <section className="post-card-excerpt">{post.excerpt}</section>
             <footer className="post-card-footer">
-                <div className="post-card-footer-left">
-                    <div className="meta-item tag">
-                        <FontAwesomeIcon icon={[`far`, `tag`]} />
-                        {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false}/>}
-                    </div>
-                    <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
-                    <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} /><span>{post.primary_author.name}</span> </Link></div>
-                    <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
+                <div className="meta-item tag">
+                    <FontAwesomeIcon icon={[`far`, `tag`]} />
+                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} />}
                 </div>
+                <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} /> <span>{readingTime}</span> </div>
+                <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} /><span>{authorFirstName}</span> </Link></div>
+                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} /> <span>{post.published_at_pretty}</span> </div>
             </footer>
         </div>
     </div>)
