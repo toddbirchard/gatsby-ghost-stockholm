@@ -2,10 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import { Layout, PostCard, Pagination, Sidebar } from '../components/common'
+import { Layout, PostCard, Pagination } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTag } from '@fortawesome/pro-regular-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+library.add(faTag)
 /**
 * Tag page (/tag/:slug)
 *
@@ -24,17 +28,17 @@ const Tag = ({ data, location, pageContext }) => {
                 type="series"
             />
             <Layout template="tag-template page-template" hasSidebar={true}>
-                    <section className="post-feed">
-                        <header className="tag-header info-card">
-                            <h1 className="tag-title"><FontAwesomeIcon icon="tag" /> {tag.name}</h1>
-                            {tag.description ? <p className="tag-description">{tag.description}</p> : null }
-                        </header>
-                        {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
-                            <PostCard key={node.id} post={node} />
-                        ))}
-                        <Pagination pageContext={pageContext} />
-                    </section>
+                <section className="post-feed">
+                    <header className="tag-header info-card">
+                        <h1 className="tag-title"><FontAwesomeIcon icon={[`far`, `tag`]} /> {tag.name}</h1>
+                        {tag.description ? <p className="tag-description">{tag.description}</p> : null }
+                    </header>
+                    {posts.map(({ node }) => (
+                        // The tag below includes the markup for each post - components/common/PostCard.js
+                        <PostCard key={node.id} post={node} />
+                    ))}
+                    <Pagination pageContext={pageContext} />
+                </section>
             </Layout>
         </>
     )

@@ -25,7 +25,7 @@
 
         .logo {
             transition: all 0.2s ease-out;
-            margin-right: 30px;
+            margin-right: 40px;
             height: 40px;
             width: 40px;
             @media(max-width: @mobile-breakpoint) {
@@ -73,26 +73,29 @@
                 color: #626573;
                 border: none;
                 padding: 0;
-                margin-right: 25px;
-                font-size: 1.1em;
+                margin-right: 30px;
+                font-size: 1.2em;
                 outline: none;
                 transition: @transition;
                 display: flex;
                 justify-content: center;
                 font-weight: normal;
+                font-weight: 500;
+                font-family: @sub-header-font;
                 @media(max-width: @mobile-breakpoint) {
                     margin: 0 0 0 20px;
                 }
             }
 
             .donate-btn {
-                font-family: 'proxima-nova', sans-serif !important;
-                font-size: 1em;
+                font-family: @sub-header-font;
+                font-size: 1.1em;
                 -webkit-appearance: none !important;
                 color: #626573;
                 border: 1px solid #d3d6e1;
                 background: none;
-                padding: 7px 12px;
+                padding: 9px 14px;
+                font-weight: 500;
                 line-height: 1;
                 outline: none;
                 font-weight: normal;
