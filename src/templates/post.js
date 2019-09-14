@@ -12,8 +12,10 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC } from '../components/posts'
 import { AuthorCard } from '../components/authors'
+import { Commento } from '../components/posts'
 
 import '../styles/posts/index.less'
+import '../styles/posts/comments.less'
 /**
 * Single post view (/:slug)
 *
@@ -71,6 +73,7 @@ const Post = ({ data, location }) => {
                                 <div className="post-tags">
                                     <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} />
                                 </div>
+                                <Commento id={post.id} data-css-override="../styles/posts/comments.less" />
                             </section>
                         </article>
                     </div>

@@ -1,0 +1,101 @@
+@import "../variables.less";
+
+.commento-root {
+    padding: 30px 0 0;
+    overflow-x: visible !important;
+    padding-bottom: 80px !important;
+
+    * {
+        position: relative;
+        font-family: @body-font;
+    }
+
+    .commento-name {
+      font-family: @sub-header-font;
+      font-size: 1.1em !important;
+      line-height: 1;
+    }
+
+    #commento-logged-container {
+        display: none;
+        /* text-align: unset;
+        position: relative;
+        height: unset;
+        display: flex;
+        margin: 16px 0;
+        flex-direction: column;
+        align-items: flex-end;*/
+
+        .commento-logout {
+            position: relative;
+            color: #adb5bd;
+        }
+    }
+
+    .commento-main-area {
+        transition: filter .2s;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-flow: column-reverse !important;
+    }
+
+    .commento-button-margin {
+        padding-top: 40px !important;
+    }
+
+    .commento-submit-button {
+        float: right;
+        background: none !important;
+        color: #80abc5 !important;
+        border: 1px solid #b8cedb !important;
+        text-transform: uppercase !important;
+        font-size: 1em !important;
+        margin-top: 15px !important;
+        padding: 12px 15px !important;
+        line-height: 1 !important;
+        font-family: 'HarmoniaSansPro-Regular', sans-serif !important;
+        box-shadow: none !important;
+        box-shadow: 0 !important;
+        transition: @transition;
+
+        &:hover {
+            background: @hover-color !important;
+            border-color: @hover-color !important;
+            color: white !important;
+        }
+    }
+
+    .commento-login-text {
+        text-align: right;
+        margin: 16px;
+        height: unset;
+        color: #868e96;
+        font-weight: 700;
+        cursor: pointer;
+        display: block;
+    }
+}
+
+textarea {
+  min-height: 100px !important;
+  box-shadow: 0 0 6px #dddddd;
+  overflow: hidden !important;
+  padding: 15px !important;
+  border: 0;
+  border-radius: 0;
+
+  &::placeholder {
+    color: #ddd !important;
+    font-size: .9em !important;
+    text-transform: uppercase;
+    font-family: @body-font;
+  }
+}
+
+.commento-submit-button {
+    background: @theme-color !important;
+}
+
+.commento-logo-text {
+    display: none !important;
+}

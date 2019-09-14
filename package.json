@@ -52,6 +52,7 @@
     "gatsby-plugin-advanced-sitemap": "^1.4.1",
     "gatsby-plugin-feed": "2.3.12",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
+    "gatsby-plugin-just-comments": "^0.2.3",
     "gatsby-plugin-less": "^3.0.6",
     "gatsby-plugin-manifest": "2.2.16",
     "gatsby-plugin-offline": "3.0.6",
