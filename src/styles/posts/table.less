@@ -4,22 +4,21 @@
     border-radius: 3px;
     margin: 30px 0;
     max-height: 539px;
-
     @media(max-width: @mobile-breakpoint) {
-      .mobile-full-width();
-      .mobile-horizontal-scroll();
+        .mobile-full-width();
+        .mobile-horizontal-scroll();
     }
+}
 
-    table {
-      width: 100%;
-      margin-bottom: 0;
-      background-color: #fff;
-      border-spacing: 0;
-      /*@media(max-width: @mobile-breakpoint) {
-        .mobile-horizontal-scroll-child();
-      }*/
-
-      tr {
+table {
+    width: 100%;
+    margin-bottom: 0;
+    background-color: #fff;
+    border-spacing: 0;
+    /*@media(max-width: @mobile-breakpoint) {
+      .mobile-horizontal-scroll-child();
+    }*/
+    tr {
         text-align: left;
         padding: 10px;
         vertical-align: top;
@@ -30,41 +29,42 @@
         max-width: 150px;
         text-overflow: ellipsis;
         border-bottom: 0;
-      }
+    }
 
-      thead {
+    thead {
         tr {
-          background: none;
-          padding: 15px 10px;
-          vertical-align: top;
-          font-size: 1em;
+            background: none;
+            padding: 15px 10px;
+            vertical-align: top;
+            font-size: 1em;
 
-          td, th {
-            font-weight: 600;
-            padding: 10px !important;
-            text-align: left;
-          }
+            td,
+            th {
+                font-weight: 600;
+                padding: 10px !important;
+                text-align: left;
+            }
         }
-      }
+    }
 
-      tbody {
+    tbody {
         tr:nth-child(odd) {
-          background: #f6f8fb;
+            background: #f6f8fb;
         }
 
-        td, th {
-          text-align: left;
-          padding: 10px;
-          vertical-align: top;
-          border-top: 0;
-          transition: all 0.3s ease-out;
-          overflow: hidden;
-          white-space: nowrap;
-          max-width: 150px;
-          text-overflow: ellipsis;
-          border-bottom: 0;
-          font-size: 0.9em;
+        td,
+        th {
+            text-align: left;
+            padding: 10px;
+            vertical-align: top;
+            border-top: 0;
+            transition: all 0.3s ease-out;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 150px;
+            text-overflow: ellipsis;
+            border-bottom: 0;
+            font-size: 0.9em;
         }
-      }
     }
 }

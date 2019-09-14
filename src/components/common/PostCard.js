@@ -15,10 +15,8 @@ const PostCard = ({ post }) => {
     const authorFirstName = post.primary_author.name.split(` `)[0]
 
     return (<div className="post-card">
-        {
-            post.feature_image && <Link to={url}><img className="post-card-image" src={post.feature_image} /></Link>
-        }
-        {post.featured && <span>Featured</span>}
+        { post.feature_image && <Link to={url}><img className="post-card-image" src={post.feature_image} /></Link> }
+        { post.featured && <span>Featured</span> }
         <div className="post-card-detail">
             <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
             <section className="post-card-excerpt">{post.excerpt}</section>

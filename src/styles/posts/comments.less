@@ -78,6 +78,15 @@
 
     .commento-button-margin {
         padding-top: 0 !important;
+
+        &:hover {
+          .commento-submit-button {
+            opacity: 1;
+            background: #8fc0d5 !important;
+            border: 1px solid #8fc0d5 !important;
+            color: white !important;
+          }
+        }
     }
 
     .commento-comments{
@@ -97,6 +106,18 @@
             margin-top: 20px !important;
             border-left: none !important;
             box-shadow: none !important;
+        }
+
+        .commento-markdown-button {
+          display: none;
+        }
+
+        textarea {
+          margin: 20px 0 0 20px;
+        }
+
+        .commento-submit-button {
+           top: 115px !important;
         }
 
         p {
@@ -129,11 +150,11 @@
         margin: 0 !important;
         z-index: 10;
         background: white !important;
+        opacity: 0;
 
         &:hover {
             background: white !important;
             color: @theme-color !important;
-
         }
     }
 
@@ -159,12 +180,13 @@
         }
     }
 
-    textarea {
+    textarea,
+    #commento-textarea-root {
         /*box-shadow: 0 0 6px #dddddd;*/
         overflow: hidden !important;
         padding: 15px !important;
-        border: 0;
         border-radius: 0;
+        border-top: 1px solid rgba(50,50,93,.1) !important;
         height: 110px;
         min-height: unset !important;
         position: relative;
@@ -173,8 +195,17 @@
         font-size: 1.3em;
         transition: @transition;
 
+        &:hover {
+          background: lighten(@theme-color, 30%) !important;
+          border: 1px solid @theme-color !important;
+          &::placeholder {
+            opacity: 0;
+          }
+        }
+
         &:focus {
             border: 1px solid @theme-color !important;
+            background: white !important;
         }
 
         &::before{
@@ -186,6 +217,7 @@
             text-transform: uppercase;
             font-family: @body-font;
             padding-bottom: 50px !important;
+            transition: @transition;
         }
 
         ::-webkit-input-placeholder { /* WebKit browsers */
