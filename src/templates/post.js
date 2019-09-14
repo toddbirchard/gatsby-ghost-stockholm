@@ -73,12 +73,14 @@ const Post = ({ data, location }) => {
                                 </div>
 
                             </section>
+                            <AuthorCard author={author} />
                         </article>
+
                     </div>
                     <section className="post-footer">
                         <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
                         <RelatedPosts data={relatedPosts} />
-                        <AuthorCard author={author} />
+
                     </section>
                 </Layout>
             </>
