@@ -178,9 +178,12 @@
         margin: 0 !important;
         z-index: 10;
         opacity: 0;
-        height: fit-content;
+        height: 35px;
         @media(max-width: @mobile-breakpoint) {
-          top: 80px!important;
+          top: 77px!important;
+          right: 23px !important;
+          padding: 6px 8px !important;
+          height: 30px !important;
         }
 
         &:hover {
@@ -232,7 +235,7 @@
         width: 90%;
         @media(max-width: @mobile-breakpoint) {
           width: 85%;
-          padding: 15px !important;
+          padding: 3% !important;
         }
 
         &:hover {
@@ -260,6 +263,9 @@
             padding-bottom: 50px !important;
             transition: @transition;
             opacity: .7;
+            @media(max-width: @mobile-breakpoint) {
+              font-size: .9em;
+            }
         }
 
         ::-webkit-input-placeholder {
