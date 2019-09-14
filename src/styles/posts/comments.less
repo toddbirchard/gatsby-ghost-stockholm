@@ -113,25 +113,26 @@
         background: none !important;
         color: #80abc5 !important;
         text-transform: uppercase !important;
-        font-size: 1em !important;
-        margin-top: 15px !important;
-        padding: 8px 10px !important;
+        font-size: .9em !important;
+        padding: 10px 12px !important;
         line-height: 1 !important;
         font-family: @sub-header-font !important;
         box-shadow: none !important;
         line-height: 1 !important;
         transition: @transition;
         position: absolute !important;
-        top: 51px !important;
-        right: 6px !important;
+        top: 95px !important;
+        border: 1px solid #9eb9cb !important;
+        right: 15px !important;
         display: block !important;
-        font-size: 1em !important;
         margin: 0 !important;
         z-index: 10;
         background: white !important;
 
         &:hover {
-            color: @hover-color !important;
+            background: white !important;
+            color: @theme-color !important;
+
         }
     }
 
@@ -150,7 +151,7 @@
     }
 
     .commento-markdown-button {
-      top: 61px !important;
+      bottom: 4px !important;
       line-height: 1 !important;
         @media(max-width: @mobile-breakpoint) {
             display: none;
@@ -163,30 +164,42 @@
         padding: 15px !important;
         border: 0;
         border-radius: 0;
-        height: 60px;
+        height: 110px;
         min-height: unset !important;
         position: relative;
         -webkit-appearance: none !important;
-        max-height: 60px;
+        max-height: 110px;
         font-size: 1.3em;
+        transition: @transition;
 
         &:focus {
             border: 1px solid @theme-color !important;
         }
 
+        &::before{
+          content: "Hello"
+        }
+
         &::placeholder {
             color: #aeb1bd !important;
-            font-size: 0em !important;
             text-transform: uppercase;
             font-family: @body-font;
-            display: none !important;
             padding-bottom: 50px !important;
+        }
+
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            position:0 0 !important;
+            height: 100px !important;
+            width:400px !important;
         }
     }
 
     .commento-markdown-button {
         position: absolute;
-        top: 53px;
+        top: 110px;
         height: 30px;
     }
 
@@ -204,4 +217,10 @@
     .commento-logo-text {
         display: none !important;
     }
+}
+
+.commento-textarea-super-container-root {
+  &:focus {
+      opacity: 0;
+  }
 }
