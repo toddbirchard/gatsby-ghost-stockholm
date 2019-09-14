@@ -73,11 +73,12 @@ const Post = ({ data, location }) => {
                                 <div className="post-tags">
                                     <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} />
                                 </div>
-                                <Commento id={post.id} data-css-override="../styles/posts/comments.less" />
+
                             </section>
                         </article>
                     </div>
                     <section className="post-footer">
+                        <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
                         <RelatedPosts data={relatedPosts} />
                         <AuthorCard author={author} />
                     </section>

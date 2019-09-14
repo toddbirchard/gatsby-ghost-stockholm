@@ -3,10 +3,6 @@
 .commento-root {
     padding: 30px 0 0;
     overflow-x: visible !important;
-    padding-bottom: 80px !important;
-    @media(max-width: @mobile-breakpoint) {
-        padding-bottom: 20px !important;
-    }
 
     * {
         position: relative;
@@ -14,9 +10,45 @@
     }
 
     .commento-name {
-      font-family: @sub-header-font;
-      font-size: 1.1em !important;
-      line-height: 1;
+        font-family: @sub-header-font;
+        font-size: 1.1em !important;
+        line-height: 1 !important;
+        font-size: 1em !important;
+        font-weight: 500 !important;
+        margin-left: 43px;
+    }
+
+    .commento-subtitle {
+        margin-left: 43px;
+
+        * {
+            line-height: 1;
+        }
+    }
+
+    .commento-avatar-img {
+        width: 35px;
+        height: 35px;
+        margin-right: 5px;
+    }
+
+    .commento-options {
+        margin-top: -10px;
+    }
+
+    .commento-error-box {
+        width: -webkit-fill-available !important;
+        border-radius: 4px;
+        height: auto !important;
+        font-family: @sub-header-font;
+        text-align: center;
+        color: #d76b6b !important;
+        font-weight: 700;
+        background: #fed0d842;
+        margin-bottom: 20px;
+        line-height: 1 !important;
+        padding: 20px;
+        border: 1px solid #e1b2b1 !important;
     }
 
     #commento-logged-container {
@@ -28,7 +60,6 @@
         margin: 16px 0;
         flex-direction: column;
         align-items: flex-end;*/
-
         .commento-logout {
             position: relative;
             color: #adb5bd;
@@ -36,52 +67,81 @@
     }
 
     .commento-main-area {
-        transition: filter .2s;
+        transition: filter 0.2s;
         display: flex !important;
         flex-direction: column !important;
         flex-flow: column-reverse !important;
     }
 
     .commento-button-margin {
-        padding-top: 40px !important;
+        padding-top: 10px !important;
+    }
+
+    .commento-comments {
+        box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
     }
 
     .commento-card {
-      padding: 20px 0 0 20px !important;
+        padding: 20px !important;
+        border-left: none !important;
+        background: white;
+        margin-top: 0 !important;
+        border-left: none !important;
 
-      .commento-body {
-        font-size: .9em !important
-      }
+        .commento-card {
+            margin-left: 40px !important;
+            margin-top: 20px !important;
+            border-left: none !important;
+            box-shadow: none !important;
+        }
+
+        p {
+            margin: 15px 0 0 !important;
+            font-size: 1.2em !important;
+        }
+
+        .commento-body {
+            font-size: 0.9em !important;
+        }
     }
 
     .commento-submit-button {
         float: right;
         background: none !important;
         color: #80abc5 !important;
-        border: 1px solid #b8cedb !important;
         text-transform: uppercase !important;
         font-size: 1em !important;
         margin-top: 15px !important;
-        padding: 12px 15px !important;
+        padding: 8px 10px !important;
         line-height: 1 !important;
         font-family: 'HarmoniaSansPro-Regular', sans-serif !important;
         box-shadow: none !important;
         box-shadow: 0 !important;
         line-height: 1 !important;
         transition: @transition;
+        position: absolute !important;
+        top: 63px !important;
+        right: 6px !important;
+        display: block !important;
+        font-size: 0.9em !important;
+        margin: 0 !important;
+        z-index: 10;
+        background: white !important;
         @media(max-width: @mobile-breakpoint) {
-          font-size: 0.9em !important;
-          margin-top: 20px !important;
-          font-weight: 600 !important;
-          border: 2px solid #b8cedb !important;
-          height: 39px !important;
+            /*font-size: 0.9em !important;
+            margin-top: 20px !important;
+            font-weight: 600 !important;
+            border: 2px solid #b8cedb !important;
+            height: 39px !important;*/
         }
 
         &:hover {
-            background: @hover-color !important;
-            border-color: @hover-color !important;
-            color: white !important;
+            color: @hover-color !important;
         }
+    }
+
+    .commento-footer {
+        display: none;
     }
 
     .commento-login-text {
@@ -95,34 +155,55 @@
     }
 
     .commento-markdown-button {
-      @media(max-width: @mobile-breakpoint) {
-          display: none;
-      }
+        @media(max-width: @mobile-breakpoint) {
+            display: none;
+        }
     }
-}
 
-textarea {
-  min-height: 100px !important;
-  box-shadow: 0 0 6px #dddddd;
-  overflow: hidden !important;
-  padding: 15px !important;
-  border: 0;
-  border-radius: 0;
+    textarea {
+        box-shadow: 0 0 6px #dddddd;
+        overflow: hidden !important;
+        padding: 15px !important;
+        border: 0;
+        border-radius: 0;
+        height: 60px;
+        min-height: unset !important;
+        position: relative;
+        -webkit-appearance: none !important;
+        max-height: 60px;
+        font-size: 1.3em;
 
-  &::placeholder {
-    color: #aeb1bd !important;
-    font-size: .9em !important;
-    text-transform: uppercase;
-    font-family: @body-font;
-    height: 80px !important;
-    -webkit-appearance: none !important;
-  }
-}
+        &:focus {
+            border: 1px solid @theme-color !important;
+        }
 
-.commento-submit-button {
-    background: @theme-color !important;
-}
+        &::placeholder {
+            color: #aeb1bd !important;
+            font-size: 0.9em !important;
+            text-transform: uppercase;
+            font-family: @body-font;
+            display: none !important;
+        }
+    }
 
-.commento-logo-text {
-    display: none !important;
+    .commento-markdown-button {
+        position: absolute;
+        top: 53px;
+        height: 30px;
+    }
+
+    .commento-markdown-help {
+        padding: 15px;
+        width: 100%;
+        background: rgba(255, 255, 255, .5);
+        @media(max-width: @mobile-breakpoint) {
+            td {
+                font-size: 10px;
+            }
+        }
+    }
+
+    .commento-logo-text {
+        display: none !important;
+    }
 }
