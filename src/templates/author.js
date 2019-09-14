@@ -4,8 +4,9 @@ import { graphql } from 'gatsby'
 
 import { Layout, PostCard, Pagination } from '../components/common'
 import { AuthorCard } from '../components/authors'
-
 import { MetaData } from '../components/common/meta'
+
+import '../styles/about.less'
 
 /**
 * Author page (/author/:slug)
@@ -29,11 +30,13 @@ const Author = ({ data, location, pageContext }) => {
             <Layout template="page-template author-template" hasSidebar={true}>
                 <div className="container">
                     <article className="content">
-                        { author.cover_image ?
-                            <figure className="author-feature-image">
-                                <img src={ author.cover_image } alt={ author.name } />
-                            </figure> : null }
-                        <AuthorCard author={author} />
+                        <div className="author-page-header">
+                            { author.cover_image ?
+                                <figure className="author-feature-image">
+                                    <img src={ author.cover_image } alt={ author.name } />
+                                </figure> : null }
+                            <AuthorCard author={author} />
+                        </div>
                         <div className="post-full-content">
                             {/* <h1 className="content-title">{author.name}</h1> */}
                             <section className="post-feed">

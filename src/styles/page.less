@@ -6,18 +6,6 @@
       }
   }
 
-  .about-video-wrapper {
-    margin-bottom: 40px;
-    position: relative;
-    padding-top: 56.25%;
-
-    .about-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-  }
-
   /* Intro cards such as tag & author cards */
   .header-card {
       margin: 0;
@@ -40,18 +28,6 @@
   h1 {
     font-family: @sub-header-font;
     font-size: 2em;
-  }
-
-  iframe {
-    @media(max-width: @tablet-breakpoint) {
-      width: 100%;
-    }
-  }
-
-  .kg-card {
-    margin-bottom: 30px;
-    border-radius: 5px;
-    overflow: hidden;
   }
 
   fieldset {
@@ -85,23 +61,13 @@
     color: #505050;
   }
 
-  .split-fields {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    @media(max-width: @mobile-breakpoint) {
-      display: block;
-    }
-  }
-
   .input-field-group {
     text-align: left;
   }
 
   input,
   textarea {
-    font-family: "TTNormsPro-Light", sans-serif;
+    font-family: @body-font;
     outline: 0;
     background: #f2f2f2;
     width: 100%;
@@ -166,36 +132,6 @@
   .home-container {
     margin-bottom: 30px;
   }
-
-  /* Author list overrides on `About` page */
-  .author-card-list{
-    padding: 20px;
-    margin-bottom: 20px;
-    @media(max-width: @mobile-breakpoint) {
-      padding: 20px 0;
-    }
-
-      .author-list-title {
-        font-size: 2em;
-        margin-bottom: 40px;
-        padding-bottom: 5px;
-        border-bottom: 1px solid #f0f0f0;
-      }
-    }
-
-    .author-card {
-      box-shadow: unset;
-      padding: 0;
-      margin: 0 0 50px;
-
-      a {
-        color: #969fa4;
-      }
-
-      p {
-        font-size: 1em;
-      }
-    }
 
   .post-feed .info-card {
     .header-card()

@@ -1,0 +1,42 @@
+@import 'variables.less';
+
+.about-video-wrapper {
+    margin-bottom: 40px;
+    position: relative;
+    padding-top: 56.25%;
+
+    .about-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.author-card-list {
+    padding: 20px;
+    @media(max-width: @mobile-breakpoint) {
+        padding: 20px 0;
+    }
+
+    .author-list-title {
+        font-size: 2em;
+        margin-bottom: 40px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #f0f0f0;
+        font-weight: 500;
+    }
+
+    .author-card {
+        box-shadow: unset;
+        margin: 0 0 50px;
+        padding: 0;
+
+        a {
+            color: #969fa4;
+        }
+
+        p {
+            font-size: 1em;
+        }
+    }
+}
