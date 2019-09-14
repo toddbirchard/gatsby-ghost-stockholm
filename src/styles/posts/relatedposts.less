@@ -20,6 +20,8 @@
             flex-direction: row;
         }
 
+
+
         &:hover {
           background: @theme-color;
 
@@ -43,6 +45,10 @@
             @media(max-width: @mobile-breakpoint) {
               width: unset;
               height: 110px;
+            }
+
+            @media(max-width: 500px) {
+                display: none;
             }
         }
 

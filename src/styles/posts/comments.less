@@ -4,6 +4,9 @@
     padding: 30px 0 0;
     overflow-x: visible !important;
     padding-bottom: 80px !important;
+    @media(max-width: @mobile-breakpoint) {
+        padding-bottom: 20px !important;
+    }
 
     * {
         position: relative;
@@ -43,6 +46,10 @@
         padding-top: 40px !important;
     }
 
+    .commento-card {
+      padding: 20px 0 0 20px !important;
+    }
+
     .commento-submit-button {
         float: right;
         background: none !important;
@@ -56,7 +63,12 @@
         font-family: 'HarmoniaSansPro-Regular', sans-serif !important;
         box-shadow: none !important;
         box-shadow: 0 !important;
+        line-height: 1 !important;
         transition: @transition;
+        @media(max-width: @mobile-breakpoint) {
+            font-size: .8em !important;
+            margin-top: 20px !important;
+        }
 
         &:hover {
             background: @hover-color !important;
@@ -74,6 +86,12 @@
         cursor: pointer;
         display: block;
     }
+
+    .commento-markdown-button {
+      @media(max-width: @mobile-breakpoint) {
+          display: none;
+      }
+    }
 }
 
 textarea {
@@ -85,7 +103,7 @@ textarea {
   border-radius: 0;
 
   &::placeholder {
-    color: #ddd !important;
+    color: #aeb1bd !important;
     font-size: .9em !important;
     text-transform: uppercase;
     font-family: @body-font;
