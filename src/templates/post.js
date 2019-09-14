@@ -46,7 +46,6 @@ const Post = ({ data, location }) => {
                 <Layout template="post-template">
                     <div className="post-wrapper">
                         <article className="post">
-
                             { post.feature_image ?
                                 <figure className="post-image">
                                     <img src={ post.feature_image } alt={ post.title } />
@@ -60,11 +59,10 @@ const Post = ({ data, location }) => {
                                 </div>
                                 <h1 className="post-title">{post.title}</h1>
                             </div>
+                            { seriesPosts ?
+                                <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
+                                : null }
                             <section className="post-content">
-
-                                { seriesPosts ?
-                                    <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-                                    : null }
                                 {/* The main post content */ }
                                 <section
                                     className="content-body load-external-scripts"

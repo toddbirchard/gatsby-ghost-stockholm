@@ -20,9 +20,14 @@ pre[class*="language-"],
       .mobile-horizontal-scroll();
     }
 
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+
     code {
         color: #f3f6fa !important;
         text-shadow: unset !important;
+        white-space: pre !important;
 
         @media(max-width: @mobile-breakpoint) {
           border-radius: 0;

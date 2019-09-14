@@ -22,20 +22,33 @@
 }
 
 .header-card() {
-		margin: 0 !important;
-		background: white;
-		padding: 40px;
-		@media (max-width: @mobile-breakpoint) {
-				.mobile-full-width();
-				 padding: 30px 20px;
+	margin: 0 !important;
+	background: white;
+	padding: 40px;
+	@media (max-width: @mobile-breakpoint) {
+		.mobile-full-width();
+		padding: 30px 20px;
 
-				h1 {
-					margin: 0 auto 15px;
-				}
+		h1 {
+			margin: 0 auto 15px;
+		}
 
-				p {
-					 font-size: 1em !important;
-						margin: auto;
-				 }
+		p {
+			font-size: 1em !important;
+			margin: auto;
 		}
 	}
+}
+
+.body-font() {
+	text-align: left;
+	color: @body-color;
+	font-family: @body-font;
+	-webkit-font-smoothing: auto;
+	font-size: 1.1em;
+	margin: 0 0 15px;
+	line-height: 1.5em;
+	@media(max-width: @mobile-breakpoint) {
+		font-size: 1em;
+	}
+}

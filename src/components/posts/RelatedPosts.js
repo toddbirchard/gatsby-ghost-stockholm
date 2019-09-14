@@ -10,17 +10,18 @@ const RelatedPosts = ({ data }) => {
 
     return (
       <>
-          <div className="related-posts">
-              {related.map(({ node }) => (
-                  <Link to={ node.slug } className="related-post-card" key={ node.slug }>
-                      <img className="related-post-image" src={ node.feature_image } alt={ node.slug }/>
-                      <div className="related-post-info">
-                          <h5 className="related-post-title"> { node.title } </h5>
-                          <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" /><Tags post={node} limit={2} visibility="public" autolink={false} from={1} separatorClasses={node.id}/> </div>
-                      </div>
-                  </Link>
-              ))}
-          </div>
+          {data.edges > 0 ?
+              <div className="related-posts">
+                  {related.map(({ node }) => (
+                      <Link to={ node.slug } className="related-post-card" key={ node.slug }>
+                          <img className="related-post-image" src={ node.feature_image } alt={ node.slug }/>
+                          <div className="related-post-info">
+                              <h5 className="related-post-title"> { node.title } </h5>
+                              <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" /><Tags post={node} limit={2} visibility="public" autolink={false} from={1} separatorClasses={node.id}/> </div>
+                          </div>
+                      </Link>
+                  ))}
+              </div> : null }
       </>
     )
 }

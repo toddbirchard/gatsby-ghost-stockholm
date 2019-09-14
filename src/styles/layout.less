@@ -21,17 +21,13 @@
       max-width: unset;
       width: 100%;
     }
-    @media(max-width: @mobile-breakpoint) {
-
-
-    }
 }
 
 .post-feed {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr;
-    grid-template-rows: min-content;
+    grid-auto-rows: min-content;
     @media(max-width: @tablet-breakpoint) {
       width: 90%;
       grid-gap: 20px;
