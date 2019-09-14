@@ -65,9 +65,14 @@ const Sidebar = ({ site, tags }) => {
 }
 
 Sidebar.propTypes = {
-    data: PropTypes.shape({
-        allGhostTag: PropTypes.object.isRequired,
+    site: PropTypes.shape({
+        logo: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        twitter: PropTypes.string,
+        facebook: PropTypes.string,
     }).isRequired,
+    tags: PropTypes.object.isRequired,
 }
 
 

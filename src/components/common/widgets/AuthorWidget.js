@@ -18,14 +18,9 @@ const AuthorWidget = ({ data }) => {
 }
 
 AuthorWidget.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-            description: PropTypes.string,
-            logo: PropTypes.string,
-        }).isRequired,
-    ).isRequired,
+    data: PropTypes.shape({
+        allGhostSettings: PropTypes.object.isRequired,
+    }).isRequired,
 }
 
 export default AuthorWidget

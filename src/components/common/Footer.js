@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faRss, faTag } from '@fortawesome/pro-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
 import Img from 'gatsby-image'
 import {
     Link,
@@ -11,7 +10,7 @@ import {
     graphql,
 } from 'gatsby'
 
-library.add(fab, faRss, faTag)
+library.add(faRss, faTag)
 
 const Footer = ({ data }) => {
     const site = data.allGhostSettings.edges[0].node
