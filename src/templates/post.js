@@ -75,12 +75,10 @@ const Post = ({ data, location }) => {
                             </section>
                             <AuthorCard author={author} />
                         </article>
-
                     </div>
                     <section className="post-footer">
                         <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
                         <RelatedPosts data={relatedPosts} />
-
                     </section>
                 </Layout>
             </>
@@ -99,9 +97,14 @@ Post.propTypes = {
             published_at_pretty: PropTypes.string,
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
-        relatedPosts: PropTypes.shape({
-            edges: PropTypes.object,
-        }),
+        relatedPosts: PropTypes.arrayOf(
+            PropTypes.shape({
+                feature_image: PropTypes.string,
+                url: PropTypes.string.isRequired,
+                slug: PropTypes.string.isRequired,
+                tags: PropTypes.object.isRequired,
+            }).isRequired,
+        ).isRequired,
         seriesPosts: PropTypes.object,
     }).isRequired,
     location: PropTypes.object.isRequired,

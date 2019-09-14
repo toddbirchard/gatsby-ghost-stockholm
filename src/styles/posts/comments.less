@@ -4,7 +4,7 @@
     padding: 30px 0 0;
     overflow-x: visible !important;
     margin-bottom: 20px;
-    box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
+
 
     * {
         position: relative;
@@ -22,6 +22,20 @@
 
     .commento-subtitle {
         margin-left: 43px;
+        @media(max-width: @mobile-breakpoint) {
+            div {
+                display: block !important;
+            }
+
+            .commento-timeago,
+            .commento-score {
+                margin-top: 3px;
+
+                &::before {
+                    display: none !important;
+                }
+            }
+        }
 
         * {
             line-height: 1;
@@ -33,29 +47,43 @@
         width: 35px;
         height: 35px;
         margin-right: 5px;
+        @media(max-width: @mobile-breakpoint) {
+          width: 43px;
+          height: 43px;
+        }
     }
 
     .commento-options {
-        margin-top: 0px;
+        margin-top: 0;
+        height: 20px! important;
+        width: 150px !important;
+        display: flex;
+        align-items: center;
 
         button {
-          margin: 0 6px !important;
+            margin: 0 !important;
+
+            &.commento-option-reply{
+              height: 20px !important;
+              width: 20px !important;
+            }
+
         }
     }
 
     .commento-error-box {
-        width: -webkit-fill-available !important;
-        border-radius: 4px;
-        height: auto !important;
-        font-family: @sub-header-font;
-        text-align: center;
-        color: #d76b6b !important;
-        font-weight: 700;
-        background: #fed0d842;
-        margin-bottom: 20px;
-        line-height: 1 !important;
-        padding: 20px;
-        border: 1px solid #e1b2b1 !important;
+      width: -webkit-fill-available !important;
+      border-radius: 4px;
+      height: auto !important;
+      font-family: 'HarmoniaSansPro-Regular', sans-serif;
+      text-align: center;
+      color: #b07575 !important;
+      font-weight: 700;
+      background: #ead1d5c4;
+      margin-bottom: 20px;
+      line-height: 1 !important;
+      padding: 20px;
+      border: 1px solid #d5babe !important;
     }
 
     #commento-logged-container {
@@ -78,50 +106,53 @@
         display: flex !important;
         flex-direction: column !important;
         flex-flow: column-reverse !important;
+        box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
     }
 
     .commento-button-margin {
         padding-top: 0 !important;
 
         &:hover {
-          .commento-submit-button {
-            opacity: 1;
-            background: #8fc0d5 !important;
-            border: 1px solid #8fc0d5 !important;
-            color: white !important;
-          }
+            .commento-submit-button {
+                opacity: 1;
+                background: #8fc0d5 !important;
+                border: 1px solid #8fc0d5 !important;
+                color: white !important;
+            }
         }
     }
 
-    .commento-comments{
-      box-shadow: 0 !important
+    .commento-comments {
+        box-shadow: 0 !important;
+
+        & > div > .commento-card {
+          border-left: none !important;
+        }
     }
 
     .commento-card {
         padding: 20px !important;
-        border-left: none !important;
         background: white;
         margin-top: 0 !important;
-        border-left: none !important;
+
         box-shadow: none !important;
 
         .commento-card {
             margin-left: 40px !important;
             margin-top: 20px !important;
-            border-left: none !important;
             box-shadow: none !important;
         }
 
         .commento-markdown-button {
-          display: none;
+            display: none;
         }
 
         textarea {
-          margin: 20px 0 0 20px;
+            margin: 20px 0 0 20px;
         }
 
         .commento-submit-button {
-           top: 115px !important;
+            top: 115px !important;
         }
 
         p {
@@ -139,7 +170,7 @@
         background: none !important;
         color: #80abc5 !important;
         text-transform: uppercase !important;
-        font-size: .9em !important;
+        font-size: 0.9em !important;
         padding: 10px 12px !important;
         line-height: 1 !important;
         font-family: @sub-header-font !important;
@@ -177,15 +208,15 @@
     }
 
     .commento-markdown-button {
-      bottom: 4px !important;
-      line-height: 1 !important;
+        bottom: 4px !important;
+        line-height: 1 !important;
         @media(max-width: @mobile-breakpoint) {
             display: none;
         }
     }
 
-    textarea,
-    #commento-textarea-root {
+    #commento-textarea-root,
+    textarea {
         /*box-shadow: 0 0 6px #dddddd;*/
         overflow: hidden !important;
         padding: 15px !important;
@@ -200,11 +231,12 @@
         transition: @transition;
 
         &:hover {
-          background: lighten(@theme-color, 30%) !important;
-          border: 1px solid @theme-color !important;
-          &::placeholder {
-            opacity: 0;
-          }
+            background: lighten(@theme-color, 30%) !important;
+            border: 1px solid @theme-color !important;
+
+            &::placeholder {
+                opacity: 0;
+            }
         }
 
         &:focus {
@@ -212,8 +244,8 @@
             background: white !important;
         }
 
-        &::before{
-          content: "Hello"
+        &::before {
+            content: "Hello";
         }
 
         &::placeholder {
@@ -224,13 +256,14 @@
             transition: @transition;
         }
 
-        ::-webkit-input-placeholder { /* WebKit browsers */
+        ::-webkit-input-placeholder {
+            /* WebKit browsers */
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
-            position:0 0 !important;
+            position: 0 0 !important;
             height: 100px !important;
-            width:400px !important;
+            width: 400px !important;
         }
     }
 
@@ -257,7 +290,7 @@
 }
 
 .commento-textarea-super-container-root {
-  &:focus {
-      opacity: 0;
-  }
+    &:focus {
+        opacity: 0;
+    }
 }
