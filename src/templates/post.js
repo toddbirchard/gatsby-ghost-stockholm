@@ -88,6 +88,7 @@ const Post = ({ data, location }) => {
 Post.propTypes = {
     data: PropTypes.shape({
         ghostPost: PropTypes.shape({
+            id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             slug: PropTypes.string.isRequired,
             primary_author: PropTypes.object.isRequired,
