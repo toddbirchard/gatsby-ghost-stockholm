@@ -48,6 +48,10 @@
 
     .commento-card {
       padding: 20px 0 0 20px !important;
+
+      .commento-body {
+        font-size: .9em !important
+      }
     }
 
     .commento-submit-button {
@@ -66,8 +70,11 @@
         line-height: 1 !important;
         transition: @transition;
         @media(max-width: @mobile-breakpoint) {
-            font-size: .8em !important;
-            margin-top: 20px !important;
+          font-size: 0.9em !important;
+          margin-top: 20px !important;
+          font-weight: 600 !important;
+          border: 2px solid #b8cedb !important;
+          height: 39px !important;
         }
 
         &:hover {
@@ -107,6 +114,8 @@ textarea {
     font-size: .9em !important;
     text-transform: uppercase;
     font-family: @body-font;
+    height: 80px !important;
+    -webkit-appearance: none !important;
   }
 }
 
