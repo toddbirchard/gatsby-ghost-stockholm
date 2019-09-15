@@ -258,7 +258,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 // in page queries as GraphQL variables.
                 slug: node.slug,
                 primaryAuthor: node.primary_author.slug,
-                primaryTag: node.primary_tag.slug,
+                // primaryTag: node.primary_tag.slug,
                 seriesSlug: node.series,
                 seriesTitle: node.name
             },
