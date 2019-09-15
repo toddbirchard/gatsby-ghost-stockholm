@@ -16,12 +16,12 @@
         line-height: 1 !important;
         font-size: 1em !important;
         font-weight: 500 !important;
-        margin-left: 43px;
+        margin-left: 0 !important;
     }
 
     .commento-subtitle {
-        margin-left: 43px;
-        @media(max-width: @mobile-breakpoint) {
+        margin-left: 0 !important;
+        /*@media(max-width: @mobile-breakpoint) {
             div {
                 display: block !important;
             }
@@ -34,7 +34,7 @@
                     display: none !important;
                 }
             }
-        }
+        }*/
 
         * {
             line-height: 1;
@@ -42,14 +42,9 @@
         }
     }
 
-    .commento-avatar-img {
-        width: 35px;
-        height: 35px;
-        margin-right: 5px;
-        @media(max-width: @mobile-breakpoint) {
-            width: 43px;
-            height: 43px;
-        }
+    .commento-avatar-img,
+    .commento-avatar {
+        display: none !important;
     }
 
     .commento-options {
@@ -58,6 +53,8 @@
         width: 150px !important;
         display: flex;
         align-items: center;
+        position: absolute;
+        right: 0;
 
         button {
             margin: 0 !important;
@@ -104,38 +101,44 @@
         display: flex !important;
         flex-direction: column !important;
         flex-flow: column-reverse !important;
-        box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
+
+        .commento-comments {
+          box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
+          margin-bottom: 10px;
+
+          & > div > .commento-card {
+              border-left: none !important;
+          }
+        }
     }
 
     .commento-button-margin {
         padding-top: 0 !important;
+        box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
 
         &:hover {
             .commento-submit-button {
                 opacity: 1;
-                /**/
             }
         }
     }
 
-    .commento-comments {
-        box-shadow: 0 !important;
-
-        & > div > .commento-card {
-            border-left: none !important;
-        }
-    }
-
     .commento-card {
-        padding: 20px !important;
+        padding: 30px !important;
         background: white;
         margin-top: 0 !important;
         box-shadow: none !important;
+        @media(max-width: @mobile-breakpoint) {
+          padding: 20px !important;
+        }
 
         .commento-card {
             margin-left: 40px !important;
             margin-top: 20px !important;
             box-shadow: none !important;
+            @media(max-width: @mobile-breakpoint) {
+              margin-left: 20px !important;
+            }
         }
 
         .commento-markdown-button {
@@ -151,7 +154,7 @@
         }
 
         p {
-            margin: 15px 0 0 !important;
+            margin: 10px 0 0 !important;
         }
 
         .commento-body {
@@ -169,22 +172,21 @@
         box-shadow: none !important;
         transition: @transition;
         position: absolute !important;
-        top: 86px!important;
+        top: 87px!important;
         background: #8fc0d5 !important;
         border: 1px solid #8fc0d5 !important;
-        color: white !important;
-        right: 31px!important;
+        right: 15px!important;
         display: block !important;
         margin: 0 !important;
         z-index: 10;
         opacity: 0;
         height: 35px;
-        @media(max-width: @mobile-breakpoint) {
+        /*@media(max-width: @mobile-breakpoint) {
           top: 77px!important;
           right: 23px !important;
           padding: 6px 8px !important;
           height: 30px !important;
-        }
+        }*/
 
         &:hover {
             background: white !important;
@@ -215,10 +217,6 @@
         }
     }
 
-    .commento-textarea-container {
-      background: white;
-    }
-
     #commento-textarea-root,
     textarea {
         overflow: hidden!important;
@@ -231,12 +229,6 @@
         max-height: 93px;
         -webkit-transition: all 0.2s ease-out;
         transition: all 0.2s ease-out;
-        margin-bottom: 20px;
-        width: 90%;
-        @media(max-width: @mobile-breakpoint) {
-          width: 85%;
-          padding: 3% !important;
-        }
 
         &:hover {
             background: lighten(@theme-color, 30%) !important;
@@ -281,8 +273,8 @@
 
     .commento-markdown-button {
         position: absolute;
-        top: 101px;
-        left: 35px;
+        top: 105px;
+        left: 20px;
         margin: 0 !important;
         background: none;
         height: fit-content;
