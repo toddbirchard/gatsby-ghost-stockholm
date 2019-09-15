@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { AuthorCard } from './'
 
-
 const AuthorCards = ({ allAuthors }) => {
     const authors = allAuthors.allGhostAuthor.edges
 

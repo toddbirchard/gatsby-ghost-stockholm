@@ -18,6 +18,7 @@ const Sidebar = ({ site, tags }) => {
     // const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
+    const newsletterCopy = `Are you into data to the point where it's almost embarrasing? Toss us your email and we'll promise to only give you the good stuff.`
 
     return (
       <>
@@ -42,6 +43,14 @@ const Sidebar = ({ site, tags }) => {
                 {tags.map(({ node }) => (
                     <Link to={`/tag/${ node.slug }`} className="tag" key={ node.name }>{ node.name }</Link>
                 ))}
+            </div>
+
+            <div className="widget newsletter">
+                <p className="newsletter-description">{newsletterCopy}</p>
+                <form name="contact" netlify>
+                    <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" />
+                    <button type="submit">Send</button>
+                </form>
             </div>
 
             {site.twitter ?
@@ -74,7 +83,6 @@ Sidebar.propTypes = {
     }).isRequired,
     tags: PropTypes.object.isRequired,
 }
-
 
 const SidebarQuery = props => (
     <StaticQuery

@@ -29,7 +29,7 @@ const SeriesDetail = ({ data, location }) => {
               <div className="series-container">
                   { tag.feature_image ?
                       <figure className="series-feature-image">
-                          <img src={ tag.feature_image } alt={ tag.name } />
+                          <img className="lazyload" data-src={ tag.feature_image } alt={ tag.name } />
                       </figure> : null }
                   <header className="series-header">
                       <h1>{ tagName }</h1>

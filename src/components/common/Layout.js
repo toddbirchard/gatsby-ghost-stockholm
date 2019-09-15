@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Navigation } from './navigation'
-
 import { Sidebar, Footer } from '.'
 
 // Styles
@@ -27,6 +26,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
         <Helmet>
             <html lang={site.lang} />
             <style type="text/css">{`${site.codeinjection_styles}`}</style>
+            <link rel="preconnect" href="https://storage.googleapis.com" />
             <body className={ template } />
         </Helmet>
 

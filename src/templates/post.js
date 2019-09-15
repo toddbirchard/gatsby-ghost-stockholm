@@ -15,7 +15,7 @@ import { AuthorCard } from '../components/authors'
 import { Commento } from '../components/posts'
 
 import '../styles/posts/index.less'
-import '../styles/posts/comments.less'
+
 /**
 * Single post view (/:slug)
 *
@@ -48,7 +48,7 @@ const Post = ({ data, location }) => {
                         <article className="post">
                             { post.feature_image ?
                                 <figure className="post-image">
-                                    <img src={ post.feature_image } alt={ post.title } />
+                                    <img data-src={ post.feature_image } className="lazyload" alt={ post.title } />
                                 </figure> : null }
                             <div className="post-head">
                                 <div className="post-meta">

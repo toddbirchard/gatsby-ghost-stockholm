@@ -6,7 +6,7 @@ import { Layout, PostCard, Pagination } from '../components/common'
 import { AuthorCard } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
-import '../styles/about.less'
+import '../styles/pages/index.less'
 
 /**
 * Author page (/author/:slug)
@@ -25,29 +25,27 @@ const Author = ({ data, location, pageContext }) => {
                 location={location}
                 type="profile"
             />
-            <Layout template="page-template author-template" hasSidebar={true}>
-                <div className="container">
-                    <article className="content">
-                        <div className="author-page-header">
-                            { author.cover_image ?
-                                <figure className="author-feature-image">
-                                    <img src={ author.cover_image } alt={ author.name } />
-                                </figure> : null }
-                            <AuthorCard author={author} />
-                        </div>
-                        <div className="post-full-content">
-                            {/* <h1 className="content-title">{author.name}</h1> */}
-                            <section className="post-feed">
-                                {posts.map(({ node }) => (
-                                    // The tag below includes the markup for each post - components/common/PostCard.js
-                                    <PostCard key={node.id} post={node} />
-                                ))}
-                                <Pagination pageContext={pageContext} />
-                            </section>
-                        </div>
-                    </article>
-                </div>
-            </Layout>
+          <Layout template="page-template author-template" hasSidebar={true}>
+              <article className="content">
+                  <div className="author-page-header">
+                      { author.cover_image ?
+                          <figure className="author-feature-image">
+                              <img src={ author.cover_image } alt={ author.name } />
+                          </figure> : null }
+                      <AuthorCard author={author} headerClass={true} />
+                  </div>
+                  <div className="post-full-content">
+                      {/* <h1 className="content-title">{author.name}</h1> */}
+                      <section className="post-feed">
+                          {posts.map(({ node }) => (
+                              // The tag below includes the markup for each post - components/common/PostCard.js
+                              <PostCard key={node.id} post={node} />
+                          ))}
+                          <Pagination pageContext={pageContext} />
+                      </section>
+                  </div>
+              </article>
+          </Layout>
         </>
     )
 }
