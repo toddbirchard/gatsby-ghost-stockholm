@@ -57,14 +57,17 @@ module.exports = {
                 name: `images`,
             },
         },
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
+        /**
+         *  Style Plugins
+         */
         {
             resolve: `gatsby-plugin-less`,
             options: {
                 javascriptEnabled: true,
             }
         },
-        `gatsby-plugin-sharp`,
-        `gatsby-transformer-sharp`,
         {
             resolve: `gatsby-source-ghost`,
             options: process.env.NODE_ENV === `development` ?
@@ -83,6 +86,7 @@ module.exports = {
                             withWebp: true,
                         },
                     },
+                    `gatsby-remark-lazy-load`,
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {
