@@ -23,7 +23,7 @@ const PostCard = ({ post }) => {
             <footer className="post-card-footer">
                 <div className="meta-item tag">
                     <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />
-                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} />}
+                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} classes={post.id} />}
                 </div>
                 <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                 <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /><span>{authorFirstName}</span> </Link></div>
@@ -35,6 +35,7 @@ const PostCard = ({ post }) => {
 
 PostCard.propTypes = {
     post: PropTypes.shape({
+        id: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         feature_image: PropTypes.string,

@@ -25,7 +25,7 @@ const RelatedPosts = ({ data }) => {
 }
 
 RelatedPosts.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.object.isRequired,
 }
 
 export default RelatedPosts

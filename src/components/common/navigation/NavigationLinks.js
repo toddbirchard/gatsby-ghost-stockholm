@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-const NavigationLinks = ({ data, navClass }) => (
+const NavigationLinks = ({ data, navClass }) => {
+  return (
     <>
         {data.map((navItem, i) => {
             if (navItem.url.match(/^\s?http(s?)/gi)) {
@@ -13,6 +14,7 @@ const NavigationLinks = ({ data, navClass }) => (
         })}
     </>
 )
+}
 
 NavigationLinks.defaultProps = {
     navClass: `site-nav-item`,

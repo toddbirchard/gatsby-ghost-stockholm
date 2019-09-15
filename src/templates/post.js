@@ -53,7 +53,7 @@ const Post = ({ data, location }) => {
                             <div className="post-head">
                                 <div className="post-meta">
                                     <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{post.primary_author.name}</span> </Link></div>
-                                    <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} />} </div>
+                                    <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} classes={tags.index} />} </div>
                                     <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                                     <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
                                 </div>
@@ -69,9 +69,8 @@ const Post = ({ data, location }) => {
                                     dangerouslySetInnerHTML={{ __html: post.html }}
                                 />
                                 <div className="post-tags">
-                                    <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} />
+                                    <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes={post.id} />
                                 </div>
-
                             </section>
                             <AuthorCard author={author} />
                         </article>
@@ -79,6 +78,9 @@ const Post = ({ data, location }) => {
                     <section className="post-footer">
                         <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
                         <RelatedPosts data={relatedPosts} />
+                        {/* seriesPosts ?
+                            <NextPrev post={post} />
+                            : null */}
                     </section>
                 </Layout>
             </>
@@ -94,19 +96,35 @@ Post.propTypes = {
             primary_author: PropTypes.object.isRequired,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
-            tags: PropTypes.object.isRequired,
+            tags: PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.string.isRequired,
+                    slug: PropTypes.string.isRequired,
+                })
+            ).isRequired,
             published_at_pretty: PropTypes.string,
+            codeinjection_styles: PropTypes.string,
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
         relatedPosts: PropTypes.arrayOf(
             PropTypes.shape({
                 feature_image: PropTypes.string,
-                url: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
                 slug: PropTypes.string.isRequired,
-                tags: PropTypes.object.isRequired,
-            }).isRequired,
-        ).isRequired,
-        seriesPosts: PropTypes.object,
+                tags: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        name: PropTypes.string,
+                        slug: PropTypes.string,
+                    })
+                ),
+            }),
+        ),
+        seriesPosts: PropTypes.arrayOf(
+            PropTypes.shape({
+                next: PropTypes.object,
+                previous: PropTypes.object,
+            }),
+        ),
     }).isRequired,
     location: PropTypes.object.isRequired,
 }
@@ -133,13 +151,11 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!, $seriesSlug
     relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}, slug: {ne: $slug}}) {
       edges {
         node {
-          url
           feature_image
           title
           slug
           tags {
             name
-            slug
           }
         }
       }
@@ -149,6 +165,14 @@ query($slug: String!, $primaryTag: String!, $primaryAuthor: String!, $seriesSlug
         node {
           slug
           excerpt
+          title
+        }
+        previous {
+          slug
+          title
+        }
+        next {
+          slug
           title
         }
       }
