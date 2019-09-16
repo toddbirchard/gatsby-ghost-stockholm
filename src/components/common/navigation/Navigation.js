@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { NavigationLinks } from '.'
+import { Link, StaticQuery, graphql } from 'gatsby'
 
 /**
 * Navigation component
@@ -14,14 +13,19 @@ import { NavigationLinks } from '.'
 *
 */
 
-const Navigation = ({ navClass, logo }) => (
-    <>
+const Navigation = ({ data, navClass, logo }) => {
+    const pageLinks = data.allGhostPage.edges
+
+    return (
+      <>
         <nav className="navigation">
             <div className="nav-wrapper">
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
                 <div className="nav-links">
                     <div className="left-links">
-                        <NavigationLinks navClass={navClass} />
+                        {pageLinks.map(({ node }) => (
+                            <Link to={ `/${ node.slug }` } className={navClass} key={ node.slug }>{ node.title }</Link>
+                        ))}
                     </div>
                     <div className="right-links">
                         <a href="https://patreon.com/hackersandslackers" className="donate-btn">Donate</a>
@@ -30,11 +34,38 @@ const Navigation = ({ navClass, logo }) => (
             </div>
         </nav>
     </>
-)
+    )
+}
 
 Navigation.defaultProps = {
     navClass: `site-nav-item`,
     navType: `home-nav`,
 }
 
-export default Navigation
+Navigation.propTypes = {
+    data: PropTypes.shape({
+        allGhostPage: PropTypes.object.isRequired,
+    }).isRequired,
+    navClass: PropTypes.string,
+    logo: PropTypes.string,
+}
+
+const NavigationQuery = props => (
+    <StaticQuery query = {
+        graphql `
+            query NavQuery {
+              allGhostPage(sort: {order: ASC, fields: published_at}) {
+                edges {
+                  node {
+                    title
+                    slug
+                  }
+                }
+              }
+            }
+        `}
+    render={data => <Navigation data={data} {...props} />}
+    />
+)
+
+export default NavigationQuery

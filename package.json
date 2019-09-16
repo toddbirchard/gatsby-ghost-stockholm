@@ -1,6 +1,6 @@
 {
   "name": "stockholm",
-  "description": "A starter template to build lightning fast websites with Ghost and Gatsby",
+  "description": "GatsbyJS theme sourced from Ghost admin.",
   "version": "1.0.0",
   "author": "Todd Birchard",
   "homepage": "https://github.com/toddbirchard/stockholm/",
@@ -18,7 +18,8 @@
     "gatsby",
     "ghost",
     "blog",
-    "theme"
+    "theme",
+    "JAMStack"
   ],
   "main": "n/a",
   "scripts": {

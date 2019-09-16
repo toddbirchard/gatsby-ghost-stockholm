@@ -38,102 +38,50 @@
             display: flex;
             justify-content: space-between;
 
+            a {
+                transition: @transition;
+
+                &:hover {
+                    -webkit-transform: scale(1.2);
+                    transform: scale(1.2);
+                }
+            }
+
             svg {
                 font-size: 1.5em;
             }
 
-            .medium {
-                svg {
-                    color: lighten(@medium-color, 10%);
-                }
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
+            .medium svg {
+                color: lighten(@medium-color, 10%);
             }
 
-            .facebook {
-                svg {
-                    color: lighten(@facebook-color, 20%);
-                }
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
+            .facebook svg {
+                color: lighten(@facebook-color, 20%);
             }
 
-            .twitter {
-                svg {
-                    color: lighten(@twitter-color, 10%);
-                }
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
+            .twitter svg {
+                color: lighten(@twitter-color, 10%);
             }
 
             .angellist,
-            .github {
-                svg {
-                    color: lighten(@github-color, 10%);
-                }
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
+            .github svg {
+                color: lighten(@github-color, 10%);
             }
 
-            .tumblr {
-                svg {
-                    color: lighten(@tumblr-color, 20%);
-                }
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
+            .tumblr svg {
+                color: lighten(@tumblr-color, 20%);
             }
 
-            .rss {
-                svg {
-                    color: lighten(@rss-color, 20%);
-                }
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
+            .rss svg {
+                color: lighten(@rss-color, 20%);
             }
 
             .pocket svg {
                 color: lighten(#f14861, 10%);
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
-            }
-
-            .quora svg {
-                color: lighten(#b92b27, 10%);
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
             }
 
             .linkedin svg {
                 color: lighten(@linkedin-color, 10%);
-
-                &:hover {
-                    -webkit-transform: scale(1.1);
-                    transform: scale(1.1);
-                }
             }
         }
 
@@ -170,68 +118,63 @@
         }
 
         &.newsletter {
+            input[type="text"],
+            input[type="email"] {
+                border: 1px solid #d5dbe6 !important;
+                width: -webkit-fill-available;
+                width: -moz-fill-available;
+                padding: 10px;
+                background: #fff;
+                font-size: 13px;
+                letter-spacing: 1px;
+                border: 1px solid #d5dbe6;
+                transition: @transition;
+                margin: 10px 0;
 
-          .newsletter-description {
-            font-size: .9em;
-          }
+                &::placeholder {
+                    opacity: 1;
+                    color: #828294;
+                }
 
-          input[type="text"],
-          input[type="email"] {
-            border: 1px solid #d5dbe6 !important;
-            width: -webkit-fill-available;
-            width: -moz-fill-available;
-            padding: 10px;
-            background: #fff;
-            font-size: 13px;
-            letter-spacing: 1px;
-            border: 1px solid #d5dbe6;
-            transition: @transition;
-            margin: 10px 0;
+                &:hover {
+                    background: rgba(64, 206, 199, 0.16) !important;
+                    border-color: #82d3d0 !important;
+                    cursor: text !important;
 
-            &::placeholder {
-              opacity: 1;
-              color: #828294;
+                    &::placeholder {
+                        color: #72859d !important;
+                    }
+                }
+
+                &:focus {
+                    background: white !important;
+                }
             }
 
-            &:hover {
-              background: rgba(64, 206, 199, 0.16) !important;
-              border-color: #82d3d0 !important;
-              cursor: text !important;
+            button {
+                width: -webkit-fill-available !important;
+                width: -moz-available !important;
+                background: @theme-color;
+                padding: 10px;
+                font-size: 1em;
+                color: white;
+                border: 1px solid @theme-color;
+                text-transform: Uppercase;
+                outline: none;
+                transition: @transition;
+                margin-top: 0;
 
-              &::placeholder {
-                color: #72859d !important;
-              }
+                span {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                }
+
+                &:hover {
+                    background: white;
+                    color: @theme-color;
+                    cursor: pointer;
+                }
             }
-
-            &:focus {
-              background: white !important;
-            }
-          }
-
-          button {
-            width: -webkit-fill-available !important;
-            width: -moz-available !important;
-            background: @theme-color;
-            padding: 10px;
-            font-size: 1em;
-            color: white;
-            border: 1px solid @theme-color;
-            text-transform: Uppercase;
-            outline: none;
-            transition: @transition;
-            margin-top: 0;
-
-            span {
-              font-size: 14px;
-              text-transform: uppercase;
-            }
-
-            &:hover {
-              background: white;
-              color: @theme-color;
-              cursor: pointer;
-            }
-          }
         }
     }
 }

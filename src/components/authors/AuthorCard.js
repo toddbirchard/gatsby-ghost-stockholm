@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserEdit, faGlobe, faHome, faCalendar } from '@fortawesome/pro-regular-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
 import { Link } from 'gatsby'
+
+library.add(faUserEdit, faGlobe, faHome, faCalendar)
 
 const AuthorCard = ({ author, headerClass }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
@@ -19,9 +23,9 @@ const AuthorCard = ({ author, headerClass }) => {
                       <div className="author-card-meta">
                           {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `pencil-alt`]} size="sm" />{author.postCount} Posts</span>}
                           {author.location && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `home`]} size="sm" />{author.location}</span>}
-                          {author.website && <a href="author-card-item" className="author-card-item" to={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} size="sm" />Website</a>}
-                          {authorTwitterUrl && <a href="author-card-item" className="author-card-item" to={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="sm" />Twitter</a>}
-                          {authorFacebookUrl && <a href="author-card-item" className="author-card-item" to={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="sm" />Facebook</a>}
+                          {author.website && <a className="author-card-item" href={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} size="sm" />Website</a>}
+                          {authorTwitterUrl && <a className="author-card-item" href={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="sm" />Twitter</a>}
+                          {authorFacebookUrl && <a className="author-card-item" href={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="sm" />Facebook</a>}
                       </div>
                       {author.bio && <p className="author-card-bio">{author.bio}</p>}
                   </div>
