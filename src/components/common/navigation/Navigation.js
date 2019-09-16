@@ -37,17 +37,4 @@ Navigation.defaultProps = {
     navType: `home-nav`,
 }
 
-Navigation.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-        }).isRequired,
-    ).isRequired,
-    navClass: PropTypes.string,
-    navType: PropTypes.string,
-    logo: PropTypes.string,
-}
-
 export default Navigation

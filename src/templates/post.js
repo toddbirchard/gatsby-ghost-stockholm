@@ -79,9 +79,6 @@ const Post = ({ data, location }) => {
                     <section className="post-footer">
                         <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
                         <RelatedPosts data={relatedPosts} />
-                        {/* seriesPosts ?
-                            <NextPrev post={post} />
-                            : null */}
                     </section>
                 </Layout>
             </>
@@ -107,19 +104,17 @@ Post.propTypes = {
             codeinjection_styles: PropTypes.string,
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
-        relatedPosts: PropTypes.arrayOf(
-            PropTypes.shape({
-                feature_image: PropTypes.string,
-                title: PropTypes.string.isRequired,
-                slug: PropTypes.string.isRequired,
-                tags: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        name: PropTypes.string,
-                        slug: PropTypes.string,
-                    })
-                ),
-            }),
-        ),
+        relatedPosts: PropTypes.shape({
+            feature_image: PropTypes.string,
+            title: PropTypes.string.isRequired,
+            slug: PropTypes.string.isRequired,
+            tags: PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.string,
+                    slug: PropTypes.string,
+                }),
+            ),
+        }),
         seriesPosts: PropTypes.arrayOf(
             PropTypes.shape({
                 next: PropTypes.object,

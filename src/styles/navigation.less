@@ -4,6 +4,9 @@
     height: 80px;
     border-bottom: 1px solid #dbe0e5;
     margin-bottom: 30px;
+    @media(max-width: @tablet-breakpoint) {
+        margin-bottom: 0;
+    }
     @media(max-width: @mobile-breakpoint) {
         height: 70px;
     }
@@ -29,8 +32,8 @@
             height: 40px;
             width: 40px;
             @media(max-width: @mobile-breakpoint) {
-              height: 35px;
-              width: 35px;
+                height: 35px;
+                width: 35px;
             }
 
             &:hover {
@@ -55,9 +58,9 @@
         }
 
         .right-links {
-          @media(max-width: @mobile-breakpoint) {
-              display: none !important;
-          }
+            @media(max-width: @mobile-breakpoint) {
+                display: none !important;
+            }
         }
 
         .left-links,
@@ -113,15 +116,19 @@
 }
 
 @media(max-width: 800px) {
-    .home-template .navigation-links {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+    .home-template {
+        .navigation {
+            margin-bottom: 30px !important;
+        }
+
+        .navigation-links {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
     }
 }
-
-
 /* Pagination
 /* ---------------------------------------------------------- */
 .pagination {
@@ -132,7 +139,7 @@
     margin: 0;
     background: none;
     @media(max-width: @mobile-breakpoint) {
-      margin: 0 0 20px;
+        margin: 0 0 20px;
     }
 
     .pagination-location {
