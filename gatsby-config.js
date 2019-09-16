@@ -218,16 +218,5 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
-        /**
-         *  Analytics Plugins
-         */
-        {
-          resolve: 'gatsby-plugin-segment-js',
-          options: {
-            prodKey: process.env.SEGMENT_WRITE_KEY_DEV,
-            writeKey: ghostConfig.development.segmentWriteKey,
-            trackPage: true
-          }
-        },
     ],
 }

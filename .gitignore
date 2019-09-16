@@ -73,6 +73,3 @@ typings/
 public
 yarn-error.log
 .netlify/
-
-# Config
-.env
