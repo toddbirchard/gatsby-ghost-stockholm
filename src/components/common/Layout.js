@@ -30,12 +30,11 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             <body className={ template } />
         </Helmet>
 
-        <Navigation data={site.navigation} navClass="site-nav-item" navType="home-nav" logo={site.icon} url={site.url} />
+        <Navigation navClass="site-nav-item" navType="home-nav" logo={site.icon} url={site.url} />
         <div className="viewport">
 
             <div className={ hasSidebar ? `home-container` : `container` }>
                 {/* All the main content gets inserted here, index.js, post.js */}
-
                 {children}
                 { hasSidebar ? <Sidebar site={site} tags={tags} /> : null}
             </div>
@@ -75,16 +74,16 @@ const DefaultLayoutSettingsQuery = props => (
                         }
                     }
                 }
-                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}}) {
-                edges {
-                  node {
-                    name
-                    slug
-                    url
-                    postCount
+                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, postCount: {gt: 1}, slug: {nin: "roundup"}}) {
+                  edges {
+                    node {
+                      name
+                      slug
+                      url
+                      postCount
+                    }
                   }
                 }
-              }
             }
         `}
         render={data => <DefaultLayout data={data} {...props} />}

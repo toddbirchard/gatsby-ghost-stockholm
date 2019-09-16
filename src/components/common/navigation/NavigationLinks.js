@@ -1,19 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 
 const NavigationLinks = ({ data, navClass }) => {
-  return (
+    const pageLinks = data.allGhostPage.edges
+
+    return (
     <>
-        {data.map((navItem, i) => {
-            if (navItem.url.match(/^\s?http(s?)/gi)) {
-                return <Link className={navClass} to={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</Link>
-            } else {
-                return <Link className={navClass} to={navItem.url} key={i}>{navItem.label}</Link>
-            }
-        })}
+      {pageLinks.map(({ node }) => (
+          <Link to={ `/${ node.slug }` } className={navClass} key={ node.slug }>{ node.title }</Link>
+      ))}
     </>
-)
+    )
 }
 
 NavigationLinks.defaultProps = {
@@ -22,15 +20,28 @@ NavigationLinks.defaultProps = {
 }
 
 NavigationLinks.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-        }).isRequired,
-    ).isRequired,
-    navClass: PropTypes.string,
-    navType: PropTypes.string,
-    logo: PropTypes.string,
+    data: PropTypes.shape({
+        allGhostPage: PropTypes.object.isRequired,
+    }).isRequired,
+    navClass: PropTypes.string.isRequired,
 }
 
-export default NavigationLinks
+const NavigationLinksQuery = props => (
+    <StaticQuery query = {
+        graphql `
+            query NavQuery {
+              allGhostPage {
+                edges {
+                  node {
+                    title
+                    slug
+                  }
+                }
+              }
+            }
+        `}
+    render={data => <NavigationLinks data={data} {...props} />}
+    />
+)
+
+export default NavigationLinksQuery

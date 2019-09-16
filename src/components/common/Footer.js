@@ -22,7 +22,7 @@ const Footer = ({ data }) => {
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
 
     return (
-    <>
+      <>
         {/* The footer at the very bottom of the screen */}
         <footer className="site-footer">
             <div className="footer-wrapper">
@@ -94,7 +94,7 @@ const FooterQuery = props => (
                   }
                 }
               }
-              allGhostTag(limit: 10, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}}) {
+              allGhostTag(limit: 10, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: "roundup"}}) {
                 edges {
                   node {
                     name

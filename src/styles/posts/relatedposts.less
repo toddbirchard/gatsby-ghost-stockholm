@@ -20,8 +20,6 @@
             flex-direction: row;
         }
 
-
-
         &:hover {
           background: @theme-color;
 
@@ -39,18 +37,25 @@
             }
         }
 
-        img {
-            max-width: 100%;
+        .related-post-image-wrapper{
+          width: 100%;
+          @media(max-width: @mobile-breakpoint) {
+            width: 185px;
+            max-width: 185px;
+            height: 103px;
+            overflow: hidden;
+          }
 
-            @media(max-width: @mobile-breakpoint) {
-              width: unset;
-              height: 110px;
-            }
-
-            @media(max-width: 500px) {
-                display: none;
-            }
+          img {
+            width: 100%;
+              @media(max-width: @mobile-breakpoint) {
+                width: unset;
+                height: 100%;
+              }
+          }
         }
+
+
 
         .related-post-info {
             padding: 20px;

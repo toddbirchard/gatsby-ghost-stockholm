@@ -14,14 +14,14 @@ import { NavigationLinks } from '.'
 *
 */
 
-const Navigation = ({ data, navClass, logo }) => (
+const Navigation = ({ navClass, logo }) => (
     <>
         <nav className="navigation">
             <div className="nav-wrapper">
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
                 <div className="nav-links">
                     <div className="left-links">
-                        <NavigationLinks data={data} navClass={navClass} />
+                        <NavigationLinks navClass={navClass} />
                     </div>
                     <div className="right-links">
                         <a href="https://patreon.com/hackersandslackers" className="donate-btn">Donate</a>
@@ -42,6 +42,7 @@ Navigation.propTypes = {
         PropTypes.shape({
             label: PropTypes.string.isRequired,
             url: PropTypes.string.isRequired,
+            slug: PropTypes.string.isRequired,
         }).isRequired,
     ).isRequired,
     navClass: PropTypes.string,

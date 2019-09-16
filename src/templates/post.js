@@ -32,6 +32,7 @@ const Post = ({ data, location }) => {
     const readingTime = readingTimeHelper(post)
     const seriesPosts = data.seriesPosts
     const authorUrl = post.primary_author.slug ? `author/${post.primary_author.slug}` : null
+    const authorFirstName = author.name.split(` `)[0]
 
     return (
             <>
@@ -52,7 +53,7 @@ const Post = ({ data, location }) => {
                                 </figure> : null }
                             <div className="post-head">
                                 <div className="post-meta">
-                                    <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{post.primary_author.name}</span> </Link></div>
+                                    <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{authorFirstName}</span> </Link></div>
                                     <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} classes={tags.index} />} </div>
                                     <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                                     <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
@@ -165,14 +166,6 @@ query($slug: String!, $primaryTag: String, $primaryAuthor: String!, $seriesSlug:
         node {
           slug
           excerpt
-          title
-        }
-        previous {
-          slug
-          title
-        }
-        next {
-          slug
           title
         }
       }

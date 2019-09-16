@@ -4,11 +4,8 @@
     height: 80px;
     border-bottom: 1px solid #dbe0e5;
     margin-bottom: 30px;
-    @media(max-width: @tablet-breakpoint) {
-      /* margin-bottom: 0; */
-    }
     @media(max-width: @mobile-breakpoint) {
-        height: 60px;
+        height: 70px;
     }
 
     .nav-wrapper {
@@ -132,8 +129,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 0 30px;
+    margin: 0;
     background: none;
+    @media(max-width: @mobile-breakpoint) {
+      margin: 0 0 20px;
+    }
 
     .pagination-location {
         position: absolute;
