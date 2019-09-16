@@ -222,13 +222,13 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
-        /*{
+        {
           resolve: 'gatsby-plugin-segment-js',
           options: {
-            prodKey: process.env.SEGMENT_WRITE_KEY_DEV,
+            prodKey: process.env.SEGMENT_WRITE_KEY,
             writeKey: ghostConfig.development.segmentWriteKey,
             trackPage: true
           }
-        },*/
+        },
     ],
 }
