@@ -150,16 +150,16 @@ module.exports = {
             options: {
                 query: `
                 {
-                    allGhostPost {
-                        edges {
-                            node {
-                                id
-                                slug
-                                updated_at
-                                created_at
-                                feature_image
-                            }
+                  allGhostPost(filter: {tags: {elemMatch: {slug: {nin: "roundup"}}}}) {
+                      edges {
+                        node {
+                          id
+                          slug
+                          updated_at
+                          created_at
+                          feature_image
                         }
+                      }
                     }
                     allGhostPage {
                         edges {
@@ -218,5 +218,13 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
+        /*{
+          resolve: 'gatsby-plugin-segment-js',
+          options: {
+            prodKey: process.env.SEGMENT_WRITE_KEY_DEV,
+            writeKey: ghostConfig.development.segmentWriteKey,
+            trackPage: true
+          }
+        },*/
     ],
 }
