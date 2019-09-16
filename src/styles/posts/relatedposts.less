@@ -55,8 +55,6 @@
           }
         }
 
-
-
         .related-post-info {
             padding: 20px;
             transition: @transition;
@@ -65,11 +63,16 @@
 
             .related-post-title {
                 margin: 0 0 10px;
-                width: -webkit-fill-available;
                 font-size: 1.1em;
                 line-height: 1.2;
                 color: @body-color;
                 font-weight: 500;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: -webkit-fill-available;
             }
 
             .tag {
