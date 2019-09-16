@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import { Layout, PostCard, Pagination } from '../components/common'
+import { Layout, PostCard } from '../components/common'
+import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,7 +28,7 @@ const Tag = ({ data, location, pageContext }) => {
                 location={location}
                 type="series"
             />
-            <Layout template="tag-template page-template" hasSidebar={true}>
+            <Layout template="tag-template" hasSidebar={true}>
                 <section className="post-feed">
                     <header className="tag-header info-card">
                         <h1 className="tag-title"><FontAwesomeIcon icon={[`far`, `tag`]} size="md" /> {tag.name}</h1>

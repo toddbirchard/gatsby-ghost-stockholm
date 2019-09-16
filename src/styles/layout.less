@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: space-between;
     /* min-height: 100vh; */
-    margin: 0 auto;
+    margin: 0 auto 30px;
 }
 
 .home-container,
@@ -23,11 +23,18 @@
     }
 }
 
+.page-template .viewport {
+  @media(max-width: @mobile-breakpoint){
+    margin: 0 auto !important;
+  }
+}
+
 .post-feed {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
+    margin: 0;
     @media(max-width: @tablet-breakpoint) {
       width: 90%;
       grid-gap: 20px;

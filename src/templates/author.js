@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import { Layout, PostCard, Pagination } from '../components/common'
+import { Layout, PostCard } from '../components/common'
+import { Pagination } from '../components/navigation'
 import { AuthorCard } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
@@ -25,7 +26,7 @@ const Author = ({ data, location, pageContext }) => {
                 location={location}
                 type="profile"
             />
-          <Layout template="page-template author-template" hasSidebar={true}>
+          <Layout template="author-template" hasSidebar={true}>
               <article className="content">
                   <div className="author-page-header">
                       { author.cover_image ?

@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { Navigation } from './navigation'
-import { Sidebar, Footer } from '.'
+import { Navigation, Footer } from '../navigation'
+import { Sidebar } from '.'
 
 // Styles
 import '../../styles/app.less'

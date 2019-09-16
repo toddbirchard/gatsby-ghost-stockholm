@@ -35,7 +35,9 @@ try {
  */
 module.exports = {
     siteMetadata: {
+        title: config.shortTitle,
         siteUrl: config.siteUrl,
+        description: config.siteDescriptionMeta,
     },
     plugins: [
         /**

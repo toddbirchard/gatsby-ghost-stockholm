@@ -1,7 +1,5 @@
 export { default as Layout } from './Layout'
 export { default as PostCard } from './PostCard'
-export { default as Pagination } from './Pagination'
 export { default as Links } from './Links'
 export { default as Sidebar } from './Sidebar'
-export { default as Footer } from './Footer'
 export { default as SeriesPostCard } from './SeriesPostCard'

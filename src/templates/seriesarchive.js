@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Layout, Pagination, Sidebar } from '../components/common'
+import { Layout, Sidebar } from '../components/common'
+import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
 
 /**
