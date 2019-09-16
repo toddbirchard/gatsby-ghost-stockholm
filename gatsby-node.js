@@ -243,7 +243,11 @@ exports.createPages = async ({ graphql, actions }) => {
         node.url = `/${node.slug}/`
         node.series = null
         node.name = null
-        node.tags.forEach(function(element) {
+        node.primary_tag = null
+        node.tags.forEach(function(element, index) {
+          if (index == 0 ) {
+            node.primary_tag = element.slug
+          }
           if (element.visibility == 'internal') {
             node.series = element.slug
             node.name = element.name
@@ -258,6 +262,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 // in page queries as GraphQL variables.
                 slug: node.slug,
                 primaryAuthor: node.primary_author.slug,
+                primaryTag: node.primary_tag,
                 seriesSlug: node.series,
                 seriesTitle: node.name
             },

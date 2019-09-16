@@ -118,9 +118,10 @@
                 a {
                     display: flex;
                     align-items: center;
+                    transition: @transition;
 
                     &:hover {
-                        color: @hover-color;
+                        color: @hover-color !important;
                     }
                 }
 
@@ -547,19 +548,16 @@
                     }
                 }
 
-                code {
+                & > code {
                     border-radius: 3px;
                     white-space: normal;
                     background: #ffe5cb;
                     padding: 3px 5px;
                     color: #8b572b;
+                    border: 1px solid #e8cfbb;
                     text-shadow: unset;
                     font-size: 0.8em;
                     font-family: 'dm', sans-serif;
-                }
-
-                & > code {
-                    border: 1px solid #e8cfbb;
                 }
 
                 pre {

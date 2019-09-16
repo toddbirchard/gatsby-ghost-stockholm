@@ -54,7 +54,7 @@ const Post = ({ data, location }) => {
                             <div className="post-head">
                                 <div className="post-meta">
                                     <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{authorFirstName}</span> </Link></div>
-                                    <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} classes={tags.index} />} </div>
+                                    <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.index} />} </div>
                                     <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                                     <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
                                 </div>
@@ -104,23 +104,8 @@ Post.propTypes = {
             codeinjection_styles: PropTypes.string,
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
-        relatedPosts: PropTypes.shape({
-            feature_image: PropTypes.string,
-            title: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string,
-                    slug: PropTypes.string,
-                }),
-            ),
-        }),
-        seriesPosts: PropTypes.arrayOf(
-            PropTypes.shape({
-                next: PropTypes.object,
-                previous: PropTypes.object,
-            }),
-        ),
+        relatedPosts: PropTypes.object,
+        seriesPosts: PropTypes.object,
     }).isRequired,
     location: PropTypes.object.isRequired,
 }
