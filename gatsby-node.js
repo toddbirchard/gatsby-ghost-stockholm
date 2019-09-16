@@ -87,7 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const seriesArchive = path.resolve(`./src/templates/seriesarchive.js`)
     const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
-
+    const confirmationPage = path.resolve(`./src/pages/confirmation.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
@@ -287,6 +287,16 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
         path: `/series/`,
         component: seriesArchive,
+        context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: `series`,
+        },
+    })
+
+    createPage({
+        path: `/confirmation/`,
+        component: confirmationPage,
         context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.

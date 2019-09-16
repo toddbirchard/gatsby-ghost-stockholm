@@ -212,6 +212,8 @@ module.exports = {
                     `/404`,
                     `/404.html`,
                     `/offline-plugin-app-shell-fallback`,
+                    `/confirmed`,
+                    `/roundup`,
                 ],
                 createLinkInHead: true,
                 addUncaughtPages: true,
