@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { React } from 'react'
 import { Link } from 'gatsby'
 import { Layout } from '../components/common'
 
@@ -12,13 +12,13 @@ const NotFoundPage = () => (
                 <Link to="/" className="home-button" target="_blank">GO BACK HOME</Link>
             </div>
             <div className="objects">
-                <img className="object_rocket" src="http://salehriaz.com/404Page/img/rocket.svg" width="40px" />
+                <img className="object_rocket" src="https://storage.cloud.google.com/hackersandslackers-cdn/404/rocket_1.svg" width="40px" />
                 <div className="earth-moon">
-                    <img className="object_earth" src="http://salehriaz.com/404Page/img/earth.svg" width="100px" />
-                    <img className="object_moon" src="http://salehriaz.com/404Page/img/moon.svg" width="80px" />
+                    <img className="object_earth" src="https://storage.cloud.google.com/hackersandslackers-cdn/404/earth.svg" width="100px" />
+                    <img className="object_moon" src="https://storage.cloud.google.com/hackersandslackers-cdn/404/moon_1.svg" width="80px" />
                 </div>
                 <div className="box_astronaut">
-                    <img className="object_astronaut" src="http://salehriaz.com/404Page/img/astronaut.svg" width="140px" />
+                    <img className="object_astronaut" src="https://storage.cloud.google.com/hackersandslackers-cdn/404/astronaut_1.svg" width="140px" />
                 </div>
             </div>
             <div className="glowing_stars">

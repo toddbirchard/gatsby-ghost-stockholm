@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Layout } from '../components/common'
 
-const title = "Subscribed"
-const description = "You're all set to start receiving our newsletter! We try to only send things worth reading, so we won't be bothering you too often."
+const title = `Subscribed`
+const description = `You're all set to start receiving our newsletter! We try to only send things worth reading, so we won't be bothering you too often.`
 
 const Confirmation = () => (
     <Layout template="page-template" hasSidebar={false}>
