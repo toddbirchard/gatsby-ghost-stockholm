@@ -27,11 +27,13 @@
     }
 
     .series-header {
-        padding: 60px;
-        @media(max-width: @tablet-breakpoint) {
-          padding: 40px 0;
-          margin: 0 30px;
-        }
+      margin: 60px 60px 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #d6d6d6;
+      @media(max-width: @tablet-breakpoint) {
+        margin: 40px;
+        padding-bottom: 30px;
+      }
 
         .series-description {
           line-height: 1.3;
@@ -44,11 +46,11 @@
         grid-gap: 40px;
         @media(max-width: @tablet-breakpoint) {
           width: auto;
-          margin: 0 30px;
+          margin: 0 40px;
+          padding: 0 0 60px;
         }
         @media(max-width: @mobile-breakpoint) {
             grid-gap: 30px;
-            padding: 20px 0 40px;
         }
     }
 
@@ -63,6 +65,7 @@
         .series-post-card-image {
             min-width: 100px;
             width: 100px;
+            height: 80px;
             border-radius: 2px;
             overflow: hidden;
             @media(max-width: @mobile-breakpoint) {

@@ -85,8 +85,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const authorTemplate = path.resolve(`./src/templates/author.js`)
     const pageTemplate = path.resolve(`./src/templates/page.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
-    const seriesArchive = path.resolve(`./src/templates/seriesarchive.js`)
     const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
+    const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
     const confirmationPage = path.resolve(`./src/pages/confirmation.js`)
 
     // Create tag pages
@@ -300,7 +300,7 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
-            slug: `series`,
+            slug: `confirmation`,
         },
     })
 }
