@@ -78,7 +78,7 @@ const Post = ({ data, location }) => {
                     </div>
                     <section className="post-footer">
                         <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
-                        <RelatedPosts data={relatedPosts} />
+                        { relatedPosts.length ? <RelatedPosts data={relatedPosts} /> : null }
                     </section>
                 </Layout>
             </>

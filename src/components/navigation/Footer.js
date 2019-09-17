@@ -48,14 +48,7 @@ const Footer = ({ data }) => {
                         {pageLinks.map(({ node }) => (
                             <li key={ node.title }><Link to={ `/${ node.slug }` } key={ node.slug }>{ node.title }</Link></li>
                         ))}
-                    </ul>
-                </div>
-                <div className="widget authors">
-                    <h5 className="footer-widget-title">Authors</h5>
-                    <ul>
-                        {authorLinks.map(({ node }) => (
-                            <li key={ node.name }><Link to={`/author/${ node.slug }`} >{ node.name }</Link></li>
-                        ))}
+                        <li><Link to={ `/rss` }>RSS</Link></li>
                     </ul>
                 </div>
                 <div className="widget tags">
@@ -63,6 +56,14 @@ const Footer = ({ data }) => {
                     <ul>
                         {topTags.map(({ node }) => (
                             <li key={ node.slug }><Link to={`/tag/${ node.slug }`}>{ node.name }</Link></li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="widget authors">
+                    <h5 className="footer-widget-title">Authors</h5>
+                    <ul>
+                        {authorLinks.map(({ node }) => (
+                            <li key={ node.name }><Link to={`/author/${ node.slug }`} >{ node.name }</Link></li>
                         ))}
                     </ul>
                 </div>
