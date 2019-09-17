@@ -22,12 +22,10 @@ const Navigation = ({ data, navClass, logo }) => {
             <div className="nav-wrapper">
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
                 <div className="nav-links">
-                    <div className="left-links">
-                        {pageLinks.map(({ node }) => (
-                            <Link to={ `/${ node.slug }` } className={navClass} key={ node.slug }>{ node.title }</Link>
-                        ))}
-                        <a href="https://patreon.com/hackersandslackers" className={navClass}>Donate</a>
-                    </div>
+                    {pageLinks.map(({ node }) => (
+                        <Link to={ `/${ node.slug }` } className={navClass} key={ node.slug }>{ node.title }</Link>
+                    ))}
+                    <a className={`${navClass} donate-btn`} href="https://patreon.com/hackersandslackers" >Donate</a>
                 </div>
             </div>
         </nav>

@@ -366,23 +366,7 @@
                 }
             }
 
-            ol {
-                counter-reset: my-awesome-counter;
 
-                li {
-                    counter-increment: my-awesome-counter;
-
-                    &::before {
-                        content: counter(my-awesome-counter) ". ";
-                        color: darken(@theme-color, 20%);
-                        font-family: @body-font;
-                        font-size: 15px;
-                        font-weight: bold;
-                        display: inline-block;
-                        margin-right: 8px;
-                    }
-                }
-            }
 
             li > code,
             p > code {

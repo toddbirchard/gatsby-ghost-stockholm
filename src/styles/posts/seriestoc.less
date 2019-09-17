@@ -25,6 +25,24 @@
     }
 
     ol {
+        counter-reset: my-awesome-counter;
+
+        li {
+            counter-increment: my-awesome-counter;
+
+            &::before {
+                content: counter(my-awesome-counter) ". ";
+                color: darken(@theme-color, 20%);
+                font-family: @body-font;
+                font-size: 15px;
+                font-weight: bold;
+                display: inline-block;
+                margin-right: 8px;
+            }
+        }
+    }
+
+    ol {
         list-style-type: upper-roman !important;
         margin: 0;
         padding: 0;
@@ -41,7 +59,7 @@
             font-size: 1em;
             padding-left: 0;
             line-height: 1;
-            display: flex;
+            display: block;
             justify-content: flex-start;
             @media(max-width: @mobile-breakpoint) {
                 line-height: 1.4;

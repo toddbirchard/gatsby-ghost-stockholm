@@ -47,8 +47,9 @@ const Sidebar = ({ site, tags }) => {
 
             <div className="widget newsletter">
                 <p className="newsletter-description">{newsletterCopy}</p>
-                <form name="newsletter" method="POST" data-netlify="true" action="/confirmation" >
-                    <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" />
+                <form name="newsletter" method="POST" netlify data-netlify="true" netlify-honeypot="phone-number" action="/confirmation" >
+                    <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
+                    <input className="phone-number" type="phone" name="phone" placeholder="Your phone number" style={{ display: `none` }} />
                     <button type="submit">Send</button>
                 </form>
             </div>

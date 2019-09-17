@@ -70,6 +70,16 @@
                 line-height: 1.2;
                 color: @body-color;
                 font-weight: 500;
+                @media(max-width: @mobile-breakpoint) {
+                  -webkit-line-clamp: 2;
+                  font-size: 1em;
+                  -webkit-box-orient: vertical;
+                  display: -webkit-box;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  width: -webkit-fill-available;
+                  width: -moz-available;
+                }
             }
 
             .tag {

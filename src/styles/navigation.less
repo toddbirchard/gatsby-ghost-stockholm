@@ -34,6 +34,7 @@
             @media(max-width: @mobile-breakpoint) {
                 height: 35px;
                 width: 35px;
+                min-width: 35px;
             }
 
             &:hover {
@@ -47,23 +48,12 @@
         }
 
         .nav-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            @media(max-width: @mobile-breakpoint) {
-                display: block;
-                width: auto;
-            }
-        }
-
-        .left-links {
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            @media(max-width: @mobile-breakpoint) {
-                justify-content: inherit;
-            }
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          @media(max-width: @mobile-breakpoint) {
+              justify-content: right;
+          }
 
             .site-nav-item {
                 color: #626573;
@@ -78,13 +68,22 @@
                 font-weight: normal;
                 font-weight: 500;
                 font-family: @sub-header-font;
-                @media(max-width: @mobile-breakpoint) {
+                @media(max-width: @tablet-breakpoint) {
                     margin: 0 0 0 20px;
+                }
+
+                &.donate-btn {
+                  @media(max-width: @mobile-breakpoint) {
+                      display: none;
+                  }
                 }
             }
         }
     }
 }
+
+/* Page-specific navigation hacks
+/* ---------------------------------------------------------- */
 
 @media(max-width: 800px) {
     .home-template {
@@ -100,6 +99,7 @@
         }
     }
 }
+
 /* Pagination
 /* ---------------------------------------------------------- */
 .pagination {
