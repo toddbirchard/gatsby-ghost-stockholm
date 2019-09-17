@@ -38,7 +38,7 @@ const Footer = ({ data }) => {
                         <a href="https://www.linkedin.com/company/hackers-and-slackers/" className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>
                         <a href="https://github.com/hackersandslackers" className="github" key="github-footer"><FontAwesomeIcon icon={[`fab`, `github`]} size="sm" /></a>
                         <a href="https://hackersandslackers.blog" className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} size="sm" /></a>
-                        <a href="/rss/" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></a>
+                        <a href="/rss" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></a>
                     </div>
                     <p className="copyright">©2019 Hackers and Slackers, All Rights Reserved.</p>
                 </div>
