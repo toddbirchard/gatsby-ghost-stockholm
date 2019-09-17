@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StaticQuery, Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,7 +15,6 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed'
 library.add(fab, faRss, faTag)
 
 const Sidebar = ({ site, tags }) => {
-    // const site = data.allGhostSettings.edges[0].node
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
     const newsletterCopy = `Are you into data to the point where it's almost embarrasing? Toss us your email and we'll promise to only give you the good stuff.`
@@ -84,9 +83,9 @@ Sidebar.propTypes = {
     }).isRequired,
     tags: PropTypes.arrayOf(
         PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-            postCount: PropTypes.number.isRequired,
+            name: PropTypes.string,
+            slug: PropTypes.string,
+            postCount: PropTypes.number,
         })
     ).isRequired,
 }

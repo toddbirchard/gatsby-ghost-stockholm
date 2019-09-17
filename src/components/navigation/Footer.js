@@ -36,31 +36,32 @@ const Footer = ({ navigation, site, data }) => {
                         <a href="https://www.linkedin.com/company/hackers-and-slackers/" className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>
                         <a href="https://github.com/hackersandslackers" className="github" key="github-footer"><FontAwesomeIcon icon={[`fab`, `github`]} size="sm" /></a>
                         <a href="https://hackersandslackers.blog" className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} size="sm" /></a>
-                        <a href="/rss" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></a>
+                        <Link to="/rss" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></Link>
                     </div>
                     <p className="copyright">©2019 Hackers and Slackers, All Rights Reserved.</p>
                 </div>
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
-                        {navigation.map((navItem, i) => {
-                            if (navItem.url.match(/^\s?http(s?)/gi)) {
-                                return <a href={ navItem.url } key={i} target="_blank" rel="noopener noreferrer">{ navItem.label }</a>
-                            } else {
-                                return <Link to={ navItem.url } key={i}>{ navItem.label }</Link>
-                            }
-                        })}
+                    {navigation.map((navItem, i) => {
+                        if (navItem.url.match(/^\s?http(s?)/gi)) {
+                            return <a href={ navItem.url } key={i} target="_blank" rel="noopener noreferrer">{ navItem.label }</a>
+                        } else {
+                            return <Link to={ navItem.url } key={i}>{ navItem.label }</Link>
+                        }
+                    })}
+                    <Link to="/sitemap.xml" className="sitemap" key="sitemap">Sitemap</Link>
                 </div>
                 <div className="widget tags">
                     <h5 className="footer-widget-title">Tags</h5>
-                        {topTags.map(({ node }) => (
-                            <Link to={`/tag/${ node.slug }`} key={ node.slug }>{ node.name }</Link>
-                        ))}
+                    {topTags.map(({ node }) => (
+                        <Link to={`/tag/${ node.slug }`} key={ node.slug }>{ node.name }</Link>
+                    ))}
                 </div>
                 <div className="widget authors">
                     <h5 className="footer-widget-title">Authors</h5>
-                        {authorLinks.map(({ node }) => (
-                            <Link to={`/author/${ node.slug }`} key={ node.name } >{ node.name }</Link>
-                        ))}
+                    {authorLinks.map(({ node }) => (
+                        <Link to={`/author/${ node.slug }`} key={ node.name } >{ node.name }</Link>
+                    ))}
                 </div>
             </div>
         </footer>
@@ -73,6 +74,18 @@ Footer.propTypes = {
         allGhostAuthor: PropTypes.object.isRequired,
         allGhostTag: PropTypes.object,
     }).isRequired,
+    site: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        logo: PropTypes.string.isRequired,
+        twitter: PropTypes.string,
+        facebook: PropTypes.string,
+    }),
+    navigation: PropTypes.arrayOf(
+        PropTypes.shape({
+            slug: PropTypes.string,
+            name: PropTypes.string,
+        })
+    ).isRequired,
 }
 
 const FooterQuery = props => (

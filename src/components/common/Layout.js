@@ -47,7 +47,6 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
 
 DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired,
-    bodyClass: PropTypes.string,
     hasSidebar: PropTypes.bool,
     template: PropTypes.string,
     data: PropTypes.shape({
