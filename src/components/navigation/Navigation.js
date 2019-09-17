@@ -26,7 +26,7 @@ const Navigation = ({ data, navClass, logo }) => {
                         {pageLinks.map(({ node }) => (
                             <Link to={ `/${ node.slug }` } className={navClass} key={ node.slug }>{ node.title }</Link>
                         ))}
-                        <Link to={ `/rss` } className={navClass}>RSS</Link>
+                        <Link to={ `/rss/` } className={navClass}>RSS</Link>
                     </div>
                     <div className="right-links">
                         <a href="https://patreon.com/hackersandslackers" className="donate-btn">Donate</a>

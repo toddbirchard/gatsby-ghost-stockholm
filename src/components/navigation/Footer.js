@@ -48,7 +48,7 @@ const Footer = ({ data }) => {
                         {pageLinks.map(({ node }) => (
                             <li key={ node.title }><Link to={ `/${ node.slug }` } key={ node.slug }>{ node.title }</Link></li>
                         ))}
-                        <li><Link to={ `/rss` }>RSS</Link></li>
+                        <li><Link to={ `/rss/` }>RSS</Link></li>
                     </ul>
                 </div>
                 <div className="widget tags">
