@@ -5,7 +5,7 @@ import { Layout } from '../components/common'
 import '../styles/pages/404.less'
 
 const NotFoundPage = () => (
-    <Layout template="error-template">
+    <Layout template={`error-template`}>
         <div className="stars">
             <div className="central-body">
                 <h1 className="error-title">404</h1>
