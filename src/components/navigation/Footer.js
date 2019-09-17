@@ -13,9 +13,7 @@ import {
 
 library.add(fab, faRss, faTag)
 
-const Footer = ({ data }) => {
-    const site = data.allGhostSettings.edges[0].node
-    const pageLinks = data.allGhostPage.edges
+const Footer = ({ navigation, site, data }) => {
     const authorLinks = data.allGhostAuthor.edges
     const topTags = data.allGhostTag.edges
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
@@ -44,28 +42,25 @@ const Footer = ({ data }) => {
                 </div>
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
-                    <ul>
-                        {pageLinks.map(({ node }) => (
-                            <li key={ node.title }><Link to={ `/${ node.slug }` } key={ node.slug }>{ node.title }</Link></li>
-                        ))}
-                        <li><Link to={ `/rss/` }>RSS</Link></li>
-                    </ul>
+                        {navigation.map((navItem, i) => {
+                            if (navItem.url.match(/^\s?http(s?)/gi)) {
+                                return <a href={ navItem.url } key={i} target="_blank" rel="noopener noreferrer">{ navItem.label }</a>
+                            } else {
+                                return <Link to={ navItem.url } key={i}>{ navItem.label }</Link>
+                            }
+                        })}
                 </div>
                 <div className="widget tags">
                     <h5 className="footer-widget-title">Tags</h5>
-                    <ul>
                         {topTags.map(({ node }) => (
-                            <li key={ node.slug }><Link to={`/tag/${ node.slug }`}>{ node.name }</Link></li>
+                            <Link to={`/tag/${ node.slug }`} key={ node.slug }>{ node.name }</Link>
                         ))}
-                    </ul>
                 </div>
                 <div className="widget authors">
                     <h5 className="footer-widget-title">Authors</h5>
-                    <ul>
                         {authorLinks.map(({ node }) => (
-                            <li key={ node.name }><Link to={`/author/${ node.slug }`} >{ node.name }</Link></li>
+                            <Link to={`/author/${ node.slug }`} key={ node.name } >{ node.name }</Link>
                         ))}
-                    </ul>
                 </div>
             </div>
         </footer>
@@ -77,7 +72,6 @@ Footer.propTypes = {
     data: PropTypes.shape({
         allGhostAuthor: PropTypes.object.isRequired,
         allGhostTag: PropTypes.object,
-        allGhostPage: PropTypes.object.isRequired,
         allGhostSettings: PropTypes.object.isRequired,
     }).isRequired,
 }
@@ -100,25 +94,6 @@ const FooterQuery = props => (
                   node {
                     name
                     slug
-                  }
-                }
-              }
-              allGhostPage {
-                edges {
-                  node {
-                    url
-                    title
-                    slug
-                  }
-                }
-              }
-              allGhostSettings {
-                edges {
-                  node {
-                    logo
-                    title
-                    description
-                    icon
                   }
                 }
               }

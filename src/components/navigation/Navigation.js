@@ -13,55 +13,40 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 *
 */
 
-const Navigation = ({ data, navClass, logo }) => {
-    const pageLinks = data.allGhostPage.edges
 
-    return (
-      <>
-        <nav className="navigation">
-            <div className="nav-wrapper">
-                <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
-                <div className="nav-links">
-                    {pageLinks.map(({ node }) => (
-                        <Link to={ `/${ node.slug }` } className={navClass} key={ node.slug }>{ node.title }</Link>
-                    ))}
-                    <a className={`${navClass} donate-btn`} href="https://patreon.com/hackersandslackers" >Donate</a>
-                </div>
+const Navigation = ({ data, navClass, logo }) => (
+    <>
+    <nav className="navigation">
+        <div className="nav-wrapper">
+            <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
+              <div className="nav-links">
+                {data.map((navItem, i) => {
+                    if (navItem.url.match(/^\s?http(s?)/gi)) {
+                        return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
+                    } else {
+                        return <Link className={`${navClass} ${navItem.label}`} to={navItem.url} key={i}>{navItem.label}</Link>
+                    }
+                })}
             </div>
-        </nav>
+        </div>
+      </nav>
+
     </>
-    )
-}
+)
 
 Navigation.defaultProps = {
     navClass: `site-nav-item`,
-    navType: `home-nav`,
 }
 
 Navigation.propTypes = {
-    data: PropTypes.shape({
-        allGhostPage: PropTypes.object.isRequired,
-    }).isRequired,
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+        }).isRequired,
+    ).isRequired,
     navClass: PropTypes.string,
     logo: PropTypes.string,
 }
 
-const NavigationQuery = props => (
-    <StaticQuery query = {
-        graphql `
-            query NavQuery {
-              allGhostPage(sort: {order: ASC, fields: published_at}) {
-                edges {
-                  node {
-                    title
-                    slug
-                  }
-                }
-              }
-            }
-        `}
-    render={data => <Navigation data={data} {...props} />}
-    />
-)
-
-export default NavigationQuery
+export default Navigation

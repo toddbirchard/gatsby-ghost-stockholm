@@ -30,7 +30,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             <body className={ template } />
         </Helmet>
 
-        <Navigation navClass="site-nav-item" navType="home-nav" logo={site.icon} url={site.url} />
+        <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} />
         <div className="viewport">
 
             <div className={ hasSidebar ? `home-container` : `container` }>
@@ -40,7 +40,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             </div>
         </div>
         {/* The footer at the very bottom of the screen */}
-        <Footer />
+        <Footer navigation={site.navigation} site={site}/>
     </>
     )
 }
