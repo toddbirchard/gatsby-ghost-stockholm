@@ -95,7 +95,7 @@ const FooterQuery = props => (
                   }
                 }
               }
-              allGhostTag(limit: 10, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: "roundup"}}) {
+              allGhostTag(limit: 8, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
                 edges {
                   node {
                     name
