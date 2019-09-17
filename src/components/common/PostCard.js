@@ -40,7 +40,12 @@ PostCard.propTypes = {
         title: PropTypes.string.isRequired,
         feature_image: PropTypes.string,
         featured: PropTypes.bool,
-        tags: PropTypes.object.isRequired,
+        tags: PropTypes.arrayOf(
+          PropTypes.shape({
+              name: PropTypes.string.isRequired,
+              slug: PropTypes.string.isRequired,
+          }),
+        ),
         excerpt: PropTypes.string,
         published_at_pretty: PropTypes.string.isRequired,
         primary_author: PropTypes.shape(

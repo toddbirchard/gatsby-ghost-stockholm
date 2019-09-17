@@ -82,27 +82,13 @@ Sidebar.propTypes = {
         twitter: PropTypes.string,
         facebook: PropTypes.string,
     }).isRequired,
-    tags: PropTypes.object.isRequired,
+    tags: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            slug: PropTypes.string.isRequired,
+            postCount: PropTypes.number.isRequired,
+        })
+    ).isRequired,
 }
 
-const SidebarQuery = props => (
-    <StaticQuery
-        query={graphql`
-            query GhostTags {
-                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}}) {
-                  edges {
-                    node {
-                      name
-                      slug
-                      url
-                      postCount
-                    }
-                  }
-                }
-            }
-        `}
-        render={data => <Sidebar data={data} {...props} />}
-    />
-)
-
-export default SidebarQuery
+export default Sidebar

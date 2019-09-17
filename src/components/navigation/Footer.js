@@ -72,7 +72,6 @@ Footer.propTypes = {
     data: PropTypes.shape({
         allGhostAuthor: PropTypes.object.isRequired,
         allGhostTag: PropTypes.object,
-        allGhostSettings: PropTypes.object.isRequired,
     }).isRequired,
 }
 
