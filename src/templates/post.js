@@ -46,20 +46,22 @@ const Post = ({ data, location }) => {
                 </Helmet>
                 <Layout template="post-template">
                     <div className="post-wrapper">
-                        <article className="post">
-                            { post.feature_image ?
-                                <figure className="post-image">
-                                    <img data-src={ post.feature_image } className="lazyload" alt={ post.title } />
-                                </figure> : null }
-                            <div className="post-head">
-                                <div className="post-meta">
-                                    <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{authorFirstName}</span> </Link></div>
-                                    <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.index} />} </div>
-                                    <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
-                                    <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
-                                </div>
-                                <h1 className="post-title">{post.title}</h1>
+                        <div className="post-head">
+                            <div className="post-meta">
+                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{authorFirstName}</span> </Link></div>
+                                <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.index} />} </div>
+                                <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
+                                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
                             </div>
+                            <h1 className="post-title">{post.title}</h1>
+                        </div>
+                        { post.feature_image ?
+                            <figure className="post-image">
+                                <img data-src={ post.feature_image } className="lazyload" alt={ post.title } />
+                            </figure> : null }
+                        <article className="post">
+
+
                             { seriesPosts ?
                                 <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
                                 : null }
