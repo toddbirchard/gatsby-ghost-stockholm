@@ -23,7 +23,7 @@ const removeScript = (id, parentElement) => {
 const Commento = ({ id }) => {
     useEffect(() => {
     // If there's no window there's nothing to do for us
-        if (! window) {
+        if (!window) {
             return;
         }
         const document = window.document

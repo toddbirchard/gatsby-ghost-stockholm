@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
 /**
 * Navigation component
@@ -13,13 +13,12 @@ import { Link, StaticQuery, graphql } from 'gatsby'
 *
 */
 
-
 const Navigation = ({ data, navClass, logo }) => (
     <>
     <nav className="navigation">
         <div className="nav-wrapper">
             <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
-              <div className="nav-links">
+            <div className="nav-links">
                 {data.map((navItem, i) => {
                     if (navItem.url.match(/^\s?http(s?)/gi)) {
                         return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
@@ -29,8 +28,7 @@ const Navigation = ({ data, navClass, logo }) => (
                 })}
             </div>
         </div>
-      </nav>
-
+    </nav>
     </>
 )
 
