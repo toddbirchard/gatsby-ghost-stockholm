@@ -68,6 +68,7 @@
     "gatsby-remark-prismjs": "^3.3.13",
     "gatsby-source-filesystem": "2.1.22",
     "gatsby-source-ghost": "3.4.5",
+    "gatsby-source-github": "0.0.2",
     "gatsby-transformer-remark": "^2.6.22",
     "gatsby-transformer-sharp": "2.2.14",
     "lazysizes": "^5.1.1",

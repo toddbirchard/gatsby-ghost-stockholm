@@ -50,6 +50,35 @@ module.exports = {
                 name: `pages`,
             },
         },
+        {
+          resolve: 'gatsby-source-github',
+          options: {
+            headers: {
+              Authorization: process.env.GITHUB_ACCESS_TOKEN
+            },
+            queries: [
+              `{
+                repository(owner: "toddbirchard", name: "stockholm") {
+                  issues(last: 20, states: OPEN) {
+                    edges {
+                      node {
+                        id
+                        author {
+                          avatarUrl
+                          login
+                          url
+                        }
+                        bodyHTML
+                        title
+                        url
+                      }
+                    }
+                  }
+                }
+              }`,
+            ],
+          },
+        },
         // Setup for optimised images.
         // See https://www.gatsbyjs.org/packages/gatsby-image/
         {

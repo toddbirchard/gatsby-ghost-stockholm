@@ -246,9 +246,15 @@ exports.createPages = async ({ graphql, actions }) => {
         node.primary = null
         node.tags.forEach(function(element, index) {
           if (index == 0) {
+            // get primary node
             node.primary = element.slug
+            if (element.slug == 'roundup') {
+              // different url for lynx posts
+              node.url = `/roundup/${node.slug}/`
+            }
           }
           if (element.visibility == 'internal') {
+            // determine if post is in series
             node.series = element.slug
             node.name = element.name
           }
