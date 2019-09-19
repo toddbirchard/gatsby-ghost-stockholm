@@ -24,16 +24,16 @@
         padding: 0;
         font-size: 2em;
         color: #44495e;
-        font-weight: 200;
+        font-weight: 500;
         letter-spacing: 0;
-        font-family: @header-font;
+        font-family: @header-semi-bold;
         transition: @transition;
         @media(max-width: @mobile-breakpoint) {
-            font-size: 1.6em;
+            font-size: 1.7em;
         }
 
         &:hover {
-            color: @secondary-color;
+            color: @hover-color;
         }
     }
 
@@ -56,7 +56,7 @@
             line-height: 1.2;
             font-family: @sub-header-font;
             transition: all 0.2s ease-out;
-            color: #475165;
+            color: @header-color;
             font-size: 1.3em;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -84,7 +84,7 @@
             align-items: center;
 
             a {
-                color: var(--secondary-color);
+                color: @secondary-font-color;
             }
 
             span {
@@ -109,7 +109,7 @@
             }
 
             &.author:hover {
-                color: @secondary-color;
+                color: @hover-color;
             }
         }
     }

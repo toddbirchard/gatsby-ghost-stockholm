@@ -22,6 +22,10 @@
                 margin-bottom: 50px;
             }
 
+            &:last-of-type {
+              margin: 0;
+            }
+
             .footer-widget-title {
                 font-family: @header-semi-bold;
                 font-size: 1.5em;
@@ -30,13 +34,13 @@
                 color: #56656c;
             }
 
-            a {
+            .footer-link {
                 margin: 0 0 10px;
                 display: block;
                 padding-left: 0;
                 line-height: 1em;
                 color: #576979;
-                font-family: 'proxima-nova', sans-serif;
+                font-family: @body-font;
             }
 
             &.about {
@@ -62,13 +66,18 @@
 
                 .description {
                     line-height: 1.5;
+                    @media(max-width: @mobile-breakpoint) {
+                      line-height: 1.4;
+                      font-size: .95em;
+                      text-align: justify;
+                    }
                 }
 
                 .social-btns {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin: 20px 0 30px;
+                    margin: 20px 0;
 
                     svg {
                         font-size: 1.5em;

@@ -15,7 +15,7 @@ const RelatedPosts = ({ data }) => {
                       <div className="related-post-image-wrapper"><img className="related-post-image lazyload" data-src={ node.feature_image } alt={ node.slug }/></div>
                       <div className="related-post-info">
                           <h5 className="related-post-title"> { node.title } </h5>
-                          <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={2} visibility="public" autolink={false}/> </div>
+                          <div className="meta-item related-post-tags"> <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={2} visibility="public" autolink={false} classes="tag" separatorClasses="tag-separator"/> </div>
                       </div>
                   </Link>
               ))}

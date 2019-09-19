@@ -44,23 +44,23 @@ const Footer = ({ navigation, site, data }) => {
                     <h5 className="footer-widget-title">Links</h5>
                     {navigation.map((navItem, i) => {
                         if (navItem.url.match(/^\s?http(s?)/gi)) {
-                            return <a href={ navItem.url } key={i} target="_blank" rel="noopener noreferrer">{ navItem.label }</a>
+                            return <a href={ navItem.url } className="footer-link" key={i} target="_blank" rel="noopener noreferrer">{ navItem.label }</a>
                         } else {
-                            return <Link to={ navItem.url } key={i}>{ navItem.label }</Link>
+                            return <Link to={ navItem.url } className="footer-link" key={i}>{ navItem.label }</Link>
                         }
                     })}
-                    <Link to="/sitemap.xml" className="sitemap" key="sitemap">Sitemap</Link>
+                    <Link to="/sitemap.xml" className="sitemap footer-link" key="sitemap">Sitemap</Link>
                 </div>
                 <div className="widget tags">
                     <h5 className="footer-widget-title">Tags</h5>
                     {topTags.map(({ node }) => (
-                        <Link to={`/tag/${ node.slug }`} key={ node.slug }>{ node.name }</Link>
+                        <Link to={`/tag/${ node.slug }`} className="footer-link" key={ node.slug }>{ node.name }</Link>
                     ))}
                 </div>
                 <div className="widget authors">
                     <h5 className="footer-widget-title">Authors</h5>
                     {authorLinks.map(({ node }) => (
-                        <Link to={`/author/${ node.slug }`} key={ node.name } >{ node.name }</Link>
+                        <Link to={`/author/${ node.slug }`} className="footer-link" key={ node.name } >{ node.name }</Link>
                     ))}
                 </div>
             </div>

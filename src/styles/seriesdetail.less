@@ -28,6 +28,7 @@
     .series-header {
       margin: 60px 60px 40px;
       padding-bottom: 40px;
+      color: @header-color;
       border-bottom: 1px solid #d6d6d6;
       @media(max-width: @tablet-breakpoint) {
         margin: 40px;
@@ -101,11 +102,11 @@
             }
 
             .series-post-card-title {
-                font-family: @header-semi-bold;
+                font-family: @sub-header-font;
                 font-weight: normal;
                 font-size: 1.4em;
                 line-height: 1.2;
-                color: #3c484e;
+                color: @header-color;
                 @media(max-width: @mobile-breakpoint) {
                     margin: 0;
                     font-weight: 300;
@@ -118,7 +119,7 @@
                     transition: @transition;
 
                     &:hover {
-                        color: @secondary-color;
+                        color: @hover-color;
                     }
                 }
             }

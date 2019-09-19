@@ -2,7 +2,7 @@
     position: relative;
     background: #ffffff;
     height: 80px;
-    border-bottom: 1px solid #dbe0e5;
+    box-shadow: @box-shadow;
     margin-bottom: 30px;
     @media(max-width: @tablet-breakpoint) {
         margin-bottom: 0;
@@ -117,15 +117,15 @@
         width: 100px;
         margin-left: -50px;
         text-align: center;
-        color: var(--color-secondary);
+        color: @secondary-font-color;
         font-size: 1.3rem;
     }
 
     a {
         display: inline-block;
         padding: 10px 15px;
-        border: var(--color-border) 1px solid;
-        color: var(--color-secondary);
+        border: #c7d5d8 1px solid;
+        color: @secondary-font-color;
         text-decoration: none;
         font-size: 1.4rem;
         line-height: 1em;
@@ -133,8 +133,8 @@
         transition: @transition;
 
         &:hover {
-            background: @secondary-color;
-            border-color: @secondary-color;
+            background: @hover-color;
+            border-color: @hover-color;
             color: white !important;
         }
     }

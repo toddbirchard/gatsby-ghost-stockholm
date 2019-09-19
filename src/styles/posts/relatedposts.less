@@ -64,12 +64,11 @@
             overflow: hidden;
 
             .related-post-title {
-                margin: 0 0 10px;
+                margin: 0 0 15px;
                 width: -webkit-fill-available; width: -moz-available;
                 font-size: 1.1em;
                 line-height: 1.2;
                 color: @body-color;
-                font-weight: 500;
                 @media(max-width: @mobile-breakpoint) {
                   -webkit-line-clamp: 2;
                   font-size: 1em;
@@ -82,19 +81,28 @@
                 }
             }
 
-            .tag {
+            .related-post-tags {
                 color: #757d8c;
-                opacity: 0.8;
+                opacity: 0.9;
                 font-size: 0.9em;
                 white-space: nowrap;
                 overflow: hidden;
                 -webkit-line-clamp: 1;
                 -webkit-box-orient: vertical;
-                display: -webkit-box;
+                display: flex;
+                align-items: center;
                 text-overflow: ellipsis;
                 overflow: hidden;
                 svg {
                     margin-right: 8px;
+                }
+
+                .tag-separator {
+                  margin-right: 5px;
+                }
+
+                .tag {
+                  font-family: @body-font-bold;
                 }
             }
         }
