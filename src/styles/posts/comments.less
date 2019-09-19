@@ -21,29 +21,15 @@
 
     .commento-subtitle {
         margin-left: 0 !important;
-        /*@media(max-width: @mobile-breakpoint) {
-            div {
-                display: block !important;
-            }
-
-            .commento-score,
-            .commento-timeago {
-                margin-top: 3px;
-
-                &::before {
-                    display: none !important;
-                }
-            }
-        }*/
-
+        
         * {
             line-height: 1;
             color: #7c8a8f !important;
         }
     }
 
-    .commento-avatar-img,
-    .commento-avatar {
+    .commento-avatar,
+    .commento-avatar-img {
         display: none !important;
     }
 
@@ -103,12 +89,12 @@
         flex-flow: column-reverse !important;
 
         .commento-comments {
-          box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
-          margin-bottom: 10px;
+            box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
+            margin-bottom: 10px;
 
-          & > div > .commento-card {
-              border-left: none !important;
-          }
+            & > div > .commento-card {
+                border-left: none !important;
+            }
         }
     }
 
@@ -129,7 +115,7 @@
         margin-top: 0 !important;
         box-shadow: none !important;
         @media(max-width: @mobile-breakpoint) {
-          padding: 20px !important;
+            padding: 20px !important;
         }
 
         .commento-card {
@@ -137,7 +123,7 @@
             margin-top: 20px !important;
             box-shadow: none !important;
             @media(max-width: @mobile-breakpoint) {
-              margin-left: 20px !important;
+                margin-left: 20px !important;
             }
         }
 
@@ -187,7 +173,6 @@
           padding: 6px 8px !important;
           height: 30px !important;
         }*/
-
         &:hover {
             background: white !important;
             color: @theme-color !important;
@@ -248,9 +233,9 @@
             font-family: @body-font;
             padding-bottom: 50px !important;
             transition: @transition;
-            opacity: .7;
+            opacity: 0.7;
             @media(max-width: @mobile-breakpoint) {
-              font-size: .9em;
+                font-size: 0.9em;
             }
         }
 
@@ -301,22 +286,22 @@
 }
 
 .commento-login-text {
-  display: none;
+    display: none;
 }
 
 .commento-login-box {
-  width: 90%;
-  max-width: 500px;
-  min-height: 100px;
-  background: #f1f3f5;
-  z-index: 100;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  height: fit-content;
-  margin: auto;
-  padding: 16px;
-  opacity: 1;
-  transition: opacity .2s;
-  box-shadow: 0 0 20px #969696;
+    width: 90%;
+    max-width: 500px;
+    min-height: 100px;
+    background: #f1f3f5;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: fit-content;
+    margin: auto;
+    padding: 16px;
+    opacity: 1;
+    transition: opacity 0.2s;
+    box-shadow: 0 0 20px #969696;
 }

@@ -1,7 +1,7 @@
 .related-posts {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0 20px;
+    margin: 20px 0;
     @media(max-width: 600px) {
         display: block;
     }
@@ -21,7 +21,7 @@
         }
 
         &:hover {
-          background: @theme-color;
+            background: @theme-color;
 
             .related-post-info {
                 color: white !important;
@@ -37,47 +37,47 @@
             }
         }
 
-        .related-post-image-wrapper{
-          width: 100%;
-          @media(max-width: @mobile-breakpoint) {
-            width: 185px;
-            max-width: 185px;
-            height: 103px;
-            overflow: hidden;
-          }
-
-          img {
+        .related-post-image-wrapper {
             width: 100%;
-              @media(max-width: @mobile-breakpoint) {
-                width: unset;
-                height: 100%;
-              }
-          }
+            @media(max-width: @mobile-breakpoint) {
+                width: 185px;
+                max-width: 185px;
+                height: 103px;
+                overflow: hidden;
+            }
+
+            img {
+                width: 100%;
+                @media(max-width: @mobile-breakpoint) {
+                    width: unset;
+                    height: 100%;
+                }
+            }
         }
-
-
 
         .related-post-info {
             padding: 20px;
             transition: @transition;
-            width: -webkit-fill-available; width: -moz-available;
+            width: -webkit-fill-available;
+            width: -moz-available;
             overflow: hidden;
 
             .related-post-title {
                 margin: 0 0 15px;
-                width: -webkit-fill-available; width: -moz-available;
+                width: -webkit-fill-available;
+                width: -moz-available;
                 font-size: 1.1em;
                 line-height: 1.2;
                 color: @body-color;
                 @media(max-width: @mobile-breakpoint) {
-                  -webkit-line-clamp: 2;
-                  font-size: 1em;
-                  -webkit-box-orient: vertical;
-                  display: -webkit-box;
-                  text-overflow: ellipsis;
-                  overflow: hidden;
-                  width: -webkit-fill-available;
-                  width: -moz-available;
+                    -webkit-line-clamp: 2;
+                    font-size: 1em;
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    width: -webkit-fill-available;
+                    width: -moz-available;
                 }
             }
 
@@ -93,16 +93,17 @@
                 align-items: center;
                 text-overflow: ellipsis;
                 overflow: hidden;
+
                 svg {
                     margin-right: 8px;
                 }
 
                 .tag-separator {
-                  margin-right: 5px;
+                    margin-right: 5px;
                 }
 
                 .tag {
-                  font-family: @body-font-bold;
+                    font-family: @body-font-bold;
                 }
             }
         }
