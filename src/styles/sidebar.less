@@ -118,10 +118,15 @@
         }
 
         &.newsletter {
+            .newsletter-description {
+                font-size: 1em;
+            }
+
             input[type="text"],
             input[type="email"] {
                 border: 1px solid #d5dbe6 !important;
-                width: -webkit-fill-available; width: -moz-available;
+                width: -webkit-fill-available;
+                width: -moz-available;
                 width: -moz-available;
                 padding: 10px;
                 background: #fff;
@@ -138,7 +143,7 @@
 
                 &:hover {
                     background: rgba(64, 206, 199, 0.16) !important;
-                    border-color: #82d3d0 !important;
+                    border-color: @theme-color !important;
                     cursor: text !important;
 
                     &::placeholder {
@@ -171,10 +176,19 @@
 
                 &:hover {
                     background: white;
-                    color: @theme-color;
+                    color: @theme-color !important;
                     cursor: pointer;
                 }
             }
+        }
+
+        &.twitter {
+          height: 600px;
+          overflow: hidden;
+
+          * {
+            overflow: hidden;
+          }
         }
     }
 }

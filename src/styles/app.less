@@ -9,12 +9,7 @@
 @import './mixins.less';
 @import './seriesarchive.less';
 
-/* Variables
-/* ---------------------------------------------------------- */
-:root {
-    /* Colours */
 
-}
 /* Reset
 /* ---------------------------------------------------------- */
 a,
@@ -103,7 +98,7 @@ video {
 a {
     text-decoration: none;
     transition: @transition;
-    
+
     &:hover {
         color: @hover-color !important;
     }
@@ -147,10 +142,6 @@ textarea {
     overflow: auto;
 }
 
-td,
-th {
-    padding: 0;
-}
 /* Defaults
 /* ---------------------------------------------------------- */
 html {
@@ -273,4 +264,6 @@ dd {
 button {
     outline-color: transparent;
     outline-style: none;
+
+    .button-styles();
 }

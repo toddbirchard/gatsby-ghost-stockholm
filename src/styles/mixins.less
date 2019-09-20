@@ -60,3 +60,40 @@
 		font-size: 1em;
 	}
 }
+
+.input-field-interactions() {
+	-webkit-appearance: none;
+	transition: @transition;
+	&::placeholder {
+			opacity: 1;
+			color: #b6bbcd;
+	}
+
+	&:hover {
+			background: rgba(64, 206, 199, 0.16) !important;
+			border-color: #82d3d0 !important;
+			cursor: text !important;
+
+			&::placeholder {
+					color: #72859d !important;
+			}
+	}
+
+	&:focus {
+			background: white !important;
+	}
+}
+
+.button-styles() {
+	-webkit-appearance: none;
+	background: @theme-color;
+	color: white;
+	transition: @transition;
+
+	&:hover {
+			background: white !important;
+			border-color: @theme-color !important;
+			color: @theme-color !important;
+			cursor: pointer !important;
+	}
+}

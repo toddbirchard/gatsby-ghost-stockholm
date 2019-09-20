@@ -82,8 +82,9 @@ const Post = ({ data, location }) => {
                     <section className="post-footer">
                         <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
                         { relatedPosts && <RelatedPosts data={relatedPosts} /> }
-                        <NewsletterWidget />
+
                     </section>
+                    <NewsletterWidget />
                 </Layout>
             </>
     )

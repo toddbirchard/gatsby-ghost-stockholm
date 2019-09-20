@@ -12,22 +12,21 @@ const TwitterWidget = ({ twitterUrl }) => (
             <div className="widget twitter">
                 <TwitterTimelineEmbed
                     sourceType="profile"
-                    options={{ height: 800 }}
                     screenName="HackersSlackers"
+                    autoHeight
                     transparent
                     noScrollbar
                     noHeader
                     noFooter
                     noBorders
                     linkColor="#067bff"
-                    className="widget twitter"
                 />
             </div> : null }
     </>
 )
 
 TwitterWidget.propTypes = {
-    twitterUrl: PropTypes.string,
+    twitterUrl: PropTypes.string.isRequired,
 }
 
 export default TwitterWidget

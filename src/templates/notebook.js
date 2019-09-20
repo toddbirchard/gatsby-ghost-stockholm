@@ -53,8 +53,8 @@ JupyterNotebook.propTypes = {
             json: PropTypes.shape({
                 metadata: PropTypes.shape({
                     language_info: PropTypes.shape({
-                        title: PropTypes.string.isRequired,
                         name: PropTypes.string.isRequired,
+                        version: PropTypes.string.isRequired,
                     }),
                 }),
             }),

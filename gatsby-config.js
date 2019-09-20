@@ -51,32 +51,11 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                path: path.join(__dirname, `src`, `jupyter`),
-                name: `jupyter`,
-            },
-        },
-        /*{
-          resolve: `@mosch/gatsby-source-github`,
-          options: {
-            repository: "jupyter",
-            tree: true,
-            releases: true,
-            user: "hackersandslackers",
-            secrets: {
-              token: process.env.GITHUB_ACCESS_TOKEN,
-            }
-          }
-        },*/
-        {
         resolve: `gatsby-source-git`,
         options: {
           name: `jupyter`,
           remote: `https://github.com/hackersandslackers/jupyter.git`,
-          // Optionally supply a branch. If none supplied, you'll get the default branch.
           branch: `master`,
-          // Tailor which files get imported eg. import the docs folder from a codebase.
           //patterns: `*.ipynb`
         }
       },
@@ -260,5 +239,27 @@ module.exports = {
             trackPage: true
           }
         },
+        /*{
+          resolve: `gatsby-source-twitter`,
+          options: {
+            credentials: {
+              consumer_key: process.env.TWITTER_CONSUMER_KEY,
+              consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+              bearer_token: process.env.TWITTER_BREARER_TOKEN,
+            },
+            queries: {
+              nameofthequery: {
+                endpoint: "statuses/user_timeline",
+                params: {
+                  screen_name: "HackersSlackers",
+                  include_rts: false,
+                  exclude_replies: true,
+                  tweet_mode: "extended",
+                  count: 3,
+                },
+              },
+            },
+          },
+        },*/
     ],
 }

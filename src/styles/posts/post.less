@@ -635,4 +635,34 @@
             }
         }
     }
+
+    .widget.newsletter {
+        padding: 50px;
+        text-align: center;
+        background: #dde6f0;
+        box-shadow: @box-shadow;
+
+        .newsletter-description {
+            line-height: 1.3;
+            margin: 0 auto 1.5em;
+            max-width: 550px;
+            font-size: 1.1em;
+            color: #5a7280;
+        }
+
+        .subscribe-input-class {
+            padding: 15px;
+            width: 350px;
+            border: 0;
+            font-size: 1em;
+            .input-field-interactions();
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 1em;
+            border: 1px inner @theme-color;
+            .button-styles();
+        }
+    }
 }

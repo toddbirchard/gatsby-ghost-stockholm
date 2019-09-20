@@ -18,7 +18,7 @@ const Sidebar = ({ site, tags }) => {
             <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
             <TagsWidget tags={tags} />
             <NewsletterWidget />
-            <TwitterWidget site={twitterUrl} />
+            <TwitterWidget twitterUrl={twitterUrl} />
         </aside>
     </>
     )
