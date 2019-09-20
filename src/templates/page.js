@@ -26,9 +26,6 @@ const Page = ({ data, location, pageContext }) => {
                 location={location}
                 type="website"
             />
-            <Helmet>
-                <style type="text/css">{`${page.codeinjection_styles}`}</style>
-            </Helmet>
             <Layout template="page-template" hasSidebar={true}>
                 <article className="post-content page-content">
                     { page.feature_image ?
