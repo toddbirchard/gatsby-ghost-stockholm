@@ -51,34 +51,36 @@ module.exports = {
             },
         },
         {
-          resolve: 'gatsby-source-github',
-          options: {
-            headers: {
-              Authorization: process.env.GITHUB_ACCESS_TOKEN
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                path: path.join(__dirname, `src`, `jupyter`),
+                name: `jupyter`,
             },
-            queries: [
-              `{
-                repository(owner: "toddbirchard", name: "stockholm") {
-                  issues(last: 20, states: OPEN) {
-                    edges {
-                      node {
-                        id
-                        author {
-                          avatarUrl
-                          login
-                          url
-                        }
-                        bodyHTML
-                        title
-                        url
-                      }
-                    }
-                  }
-                }
-              }`,
-            ],
-          },
         },
+        /*{
+          resolve: `@mosch/gatsby-source-github`,
+          options: {
+            repository: "jupyter",
+            tree: true,
+            releases: true,
+            user: "hackersandslackers",
+            secrets: {
+              token: process.env.GITHUB_ACCESS_TOKEN,
+            }
+          }
+        },*/
+        {
+        resolve: `gatsby-source-git`,
+        options: {
+          name: `jupyter`,
+          remote: `https://github.com/hackersandslackers/jupyter.git`,
+          // Optionally supply a branch. If none supplied, you'll get the default branch.
+          branch: `master`,
+          // Tailor which files get imported eg. import the docs folder from a codebase.
+          patterns: `*`
+        }
+      },
+        `@gatsby-contrib/gatsby-transformer-ipynb`,
         // Setup for optimised images.
         // See https://www.gatsbyjs.org/packages/gatsby-image/
         {

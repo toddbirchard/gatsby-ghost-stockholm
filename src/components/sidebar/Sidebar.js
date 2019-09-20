@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 
 import { AboutWidget, NewsletterWidget, SocialWidget, TagsWidget, TwitterWidget } from '.'
 
@@ -8,11 +7,9 @@ import { AboutWidget, NewsletterWidget, SocialWidget, TagsWidget, TwitterWidget 
 * Sidebar component
 */
 
-
 const Sidebar = ({ site, tags }) => {
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
-    const newsletterCopy = `Are you into data to the point where it's almost embarrasing? Toss us your email and we'll promise to only give you the good stuff.`
 
     return (
       <>
@@ -21,7 +18,7 @@ const Sidebar = ({ site, tags }) => {
             <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
             <TagsWidget tags={tags} />
             <NewsletterWidget />
-            <TwitterWidget site={site} />
+            <TwitterWidget site={twitterUrl} />
         </aside>
     </>
     )

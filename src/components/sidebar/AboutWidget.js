@@ -6,9 +6,7 @@ import { Link } from 'gatsby'
 * About widget
 */
 
-const AboutWidget = ({ site }) => {
-
-    return (
+const AboutWidget = ({ site }) => (
       <>
         <div className="widget about">
             <Link to="/" className="about-logo-link">
@@ -17,7 +15,14 @@ const AboutWidget = ({ site }) => {
             <p className="description">{site.description}</p>
         </div>
     </>
-    )
+)
+
+AboutWidget.propTypes = {
+    site: PropTypes.shape({
+        logo: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string,
+    }).isRequired,
 }
 
 export default AboutWidget

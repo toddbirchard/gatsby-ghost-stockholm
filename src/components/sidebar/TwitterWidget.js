@@ -1,18 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import { TwitterTimelineEmbed } from 'react-twitter-embed'
-
 
 /**
 * Twitter widget
 */
 
-const TwitterWidget = ({ site }) => {
-
-    return (
+const TwitterWidget = ({ twitterUrl }) => (
       <>
-        {site.twitter ?
+        {twitterUrl ?
             <div className="widget twitter">
                 <TwitterTimelineEmbed
                     sourceType="profile"
@@ -28,7 +24,10 @@ const TwitterWidget = ({ site }) => {
                 />
             </div> : null }
     </>
-    )
+)
+
+TwitterWidget.propTypes = {
+    twitterUrl: PropTypes.string,
 }
 
 export default TwitterWidget

@@ -64,6 +64,31 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
               }
             }
+            jupyter: allFile(filter: {ext: {eq: ".ipynb"}}) {
+              totalCount
+              edges {
+                node {
+                  name
+                  ext
+                  absolutePath
+                }
+              }
+            }
+            allJupyterNotebook {
+              edges {
+                node {
+                  id
+                  fileAbsolutePath
+                  html
+                  metadata {
+                    language_info {
+                      name
+                      version
+                    }
+                  }
+                }
+              }
+            }
         }
     `)
 
@@ -78,6 +103,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pages = result.data.allGhostPage.edges
     const posts = result.data.allGhostPost.edges
     const series = result.data.internalTags.edges
+    const jupyter = result.data.jupyter.edges
 
     // Load templates
     const indexTemplate = path.resolve(`./src/templates/index.js`)
@@ -86,6 +112,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pageTemplate = path.resolve(`./src/templates/page.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
+    // const jupyterTemplate = path.resolve(`./src/jupyter/notebook.js`)
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
     const confirmationPage = path.resolve(`./src/pages/confirmation.js`)
 
@@ -223,7 +250,7 @@ exports.createPages = async ({ graphql, actions }) => {
     pages.forEach(({ node }) => {
         // This part here defines, that our pages will use
         // a `/:slug/` permalink.
-        node.url = `/${node.slug}/`
+        node.slug = `/${node.slug}/`
 
         createPage({
             path: node.url,
@@ -235,6 +262,26 @@ exports.createPages = async ({ graphql, actions }) => {
             },
         })
     })
+
+    // Create jupyter
+   /*jupyter.forEach(({ node }) => {
+        // This part here defines, that our jupyter will use
+        // a `/:slug/` permalink.
+        const slug = node.fileAbsolutePath.slice(0, node.fileAbsolutePath.lastIndexOf('/') + 1).replace('.ipynb', '');
+        node.slug = `/${slug}/`
+        console.log(slug)
+
+        createPage({
+            path: node.slug,
+            component: jupyterTemplate,
+            context: {
+                // Data passed to context is available
+                // in page queries as GraphQL variables.
+                id: node.id,
+                slug: node.slug,
+            },
+        })
+    })*/
 
     // Create post pages
     posts.forEach(({ node }) => {

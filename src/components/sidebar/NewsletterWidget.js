@@ -1,13 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-
 
 /**
 * Newsletter widget
 */
 
-const NewsletterWidget = ({}) => {
+const NewsletterWidget = () => {
     const newsletterCopy = `Are you into data to the point where it's almost embarrasing? Toss us your email and we'll promise to only give you the good stuff.`
 
     return (

@@ -22,7 +22,7 @@ const AuthorSidebar = ({ author }) => {
       <>
         <aside className="sidebar">
             <div className="widget about">
-              <AuthorGithub author={author}/>
+                <AuthorGithub author={author}/>
             </div>
         </aside>
     </>
