@@ -13,4 +13,6 @@ module.exports = {
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
     backgroundColor: `#ecf1f9`, // Used for Offline Manifest
     themeColor: `#067bff`, // Used for Offline Manifest
+
+    siteGithubOrg: `https://github.com/hackersandslackers/jupyter.git`
 }

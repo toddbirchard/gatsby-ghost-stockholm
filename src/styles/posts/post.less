@@ -286,21 +286,7 @@
                 }
             }
 
-            h3 {
-                font-size: 1.4em;
-                line-height: 1.2;
-                color: @header-color;
-                margin: 40px 0 5px;
-                font-family: @sub-header-font;
-                @media(max-width: @tablet-breakpoint) {
-                    font-size: 1.3em;
-                }
-                @media(max-width: @mobile-breakpoint) {
-                    text-align: left;
-                    line-height: 1.2;
-                    margin-bottom: 5px;
-                }
-            }
+
 
             h4 {
                 margin-bottom: 0;
@@ -603,6 +589,19 @@
                 }
             }
         }
+
+        .author-card {
+              border-top: 2px dotted #f3f3f3;
+              justify-content: left;
+              @media(max-width: @tablet-breakpoint) {
+                padding: 30px 0 0;
+                margin: 0 30px;
+              }
+
+              .author-card-content {
+                max-width: 500px;
+              }
+        }
     }
 
     .post-footer {
@@ -610,7 +609,7 @@
         max-width: 90%;
         margin: 40px auto;
         @media(max-width: @mobile-breakpoint) {
-            margin: 20px auto;
+            /*margin: 20px auto;*/
         }
 
         .post-social {
@@ -618,6 +617,7 @@
             justify-content: space-between;
             align-items: center;
         }
+
     }
 
     nav {
@@ -641,6 +641,15 @@
         text-align: center;
         background: #dde6f0;
         box-shadow: @box-shadow;
+        @media(max-width: @mobile-breakpoint) {
+          padding: 40px;
+        }
+
+        form {
+          @media(max-width: @mobile-breakpoint) {
+            display: flex;
+          }
+        }
 
         .newsletter-description {
             line-height: 1.3;
@@ -648,6 +657,10 @@
             max-width: 550px;
             font-size: 1.1em;
             color: #5a7280;
+            @media(max-width: @mobile-breakpoint) {
+              font-size: 1em;
+              font-weight: 500;
+            }
         }
 
         .subscribe-input-class {
@@ -655,14 +668,23 @@
             width: 350px;
             border: 0;
             font-size: 1em;
+            border: 1px solid white !important;
             .input-field-interactions();
+            @media(max-width: @mobile-breakpoint) {
+              width: -webkit-fill-available;
+              padding: 11px 13px;
+            }
         }
 
         button {
             padding: 15px 25px;
             font-size: 1em;
-            border: 1px inner @theme-color;
+            border: 1px inner @theme-color !important;
             .button-styles();
+            @media(max-width: @mobile-breakpoint) {
+              padding: 10px 22px;
+            }
+
         }
     }
 }

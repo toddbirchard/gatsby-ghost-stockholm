@@ -178,6 +178,22 @@ strong {
     font-family: @body-font-bold;
 }
 
+h3 {
+    font-size: 1.4em;
+    line-height: 1.2;
+    color: @header-color;
+    margin: 40px 0 5px;
+    font-family: @sub-header-font;
+    @media(max-width: @tablet-breakpoint) {
+        font-size: 1.3em;
+    }
+    @media(max-width: @mobile-breakpoint) {
+        text-align: left;
+        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+}
+
 hr {
     position: relative;
     display: block;
@@ -262,8 +278,5 @@ dd {
 
 
 button {
-    outline-color: transparent;
-    outline-style: none;
-
     .button-styles();
 }

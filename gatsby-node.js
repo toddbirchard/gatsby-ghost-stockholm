@@ -261,7 +261,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // a `/:slug/` permalink.
         node.title = node.fileAbsolutePath.split('/').pop().replace('.ipynb', '')
         const slug = node.title.split(" ").join("")
-        node.slug = `/${slug}/`
+        node.slug = `/jupyter/${slug}/`
 
         createPage({
             path: node.slug,

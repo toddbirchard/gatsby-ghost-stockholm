@@ -19,7 +19,7 @@ const TwitterWidget = ({ twitterUrl }) => (
                     noHeader
                     noFooter
                     noBorders
-                    linkColor="#067bff"
+                    linkColor="#6baaf2"
                 />
             </div> : null }
     </>
