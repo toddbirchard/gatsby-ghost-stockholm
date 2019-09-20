@@ -23,7 +23,6 @@ const JupyterNotebook = ({ data, pageContext }) => {
             <>
                 <MetaData
                     data={data}
-                    location={location}
                     type="article"
                 />
                 <Layout template="jupyter-template">
