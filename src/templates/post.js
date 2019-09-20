@@ -42,9 +42,9 @@ const Post = ({ data, location }) => {
                     location={location}
                     type="article"
                 />
-                <Helmet>
+              {/*<Helmet>
                     <style type="text/css">{`${post.codeinjection_styles}`}</style>
-                </Helmet>
+                </Helmet>*/}
                 <Layout template="post-template">
                     <div className="post-wrapper">
                         <div className="post-head">
