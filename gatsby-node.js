@@ -242,7 +242,7 @@ exports.createPages = async ({ graphql, actions }) => {
     pages.forEach(({ node }) => {
         // This part here defines, that our pages will use
         // a `/:slug/` permalink.
-        node.slug = `/${node.slug}/`
+        node.url = `/${node.slug}/`
 
         createPage({
             path: node.url,
@@ -262,7 +262,6 @@ exports.createPages = async ({ graphql, actions }) => {
         node.title = node.fileAbsolutePath.split('/').pop().replace('.ipynb', '')
         const slug = node.title.split(" ").join("")
         node.slug = `/${slug}/`
-        console.log(node.slug)
 
         createPage({
             path: node.slug,
