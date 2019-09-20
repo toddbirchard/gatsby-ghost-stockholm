@@ -260,8 +260,8 @@ exports.createPages = async ({ graphql, actions }) => {
         // This part here defines, that our jupyter will use
         // a `/:slug/` permalink.
         node.title = node.fileAbsolutePath.split('/').pop().replace('.ipynb', '')
-        const slug = node.title.split(" ").join("")
-        node.slug = `/jupyter/${slug}/`
+        node.slug = `/jupyter/${node.title.split(" ").join("")}/`
+        node.primary = `Jupyter`
 
         createPage({
             path: node.slug,
@@ -272,6 +272,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 id: node.id,
                 title: node.title,
                 slug: node.slug,
+                primaryTag: node.primary,
             },
         })
     })
@@ -339,6 +340,16 @@ exports.createPages = async ({ graphql, actions }) => {
             slug: `series`,
         },
     })
+
+    /*createPage({
+        path: `/jupyter/`,
+        component: tagsTemplate,
+        context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: `jupyter`,
+        },
+    })*/
 
     createPage({
         path: `/confirmation/`,

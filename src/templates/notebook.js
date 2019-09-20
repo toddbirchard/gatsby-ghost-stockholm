@@ -79,3 +79,25 @@ export const JupyterNotebookQuery = graphql`
       }
     }
   `
+
+/*{
+  file(absolutePath: {eq: "/Users/toddbirchard/projects/hackers/content/themes/stockholm/.cache/gatsby-source-git/jupyter/Introspect Trees (Depth).ipynb"}) {
+    name
+    gitRemote {
+      full_name
+      href
+      webLink
+    }
+    modifiedTime(formatString: "DD MMMM, YYYY")
+    childJupyterNotebook {
+      id
+      metadata {
+        language_info {
+          version
+          name
+        }
+      }
+    }
+  }
+}
+*/

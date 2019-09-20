@@ -1,27 +1,6 @@
 @import '../fonts.less';
 @import '../variables.less';
-/*
-Author: Neil Panchal
-http://neil.panchal.io
 
-New colors. These are a bit darker to allow for a better contrast. I started with Solarized palette and adjusted the colors as needed.
-
-
-YELLOW      = #ba9600			[181,137,0]
-ORANGE      = #BA5400			[186,84,0]
-RED         = #D43132			[176,47,48]
-MAGENTA     = #D14187			[209,65,135]
-VIOLET      = #793ac7			[144,89,212]
-BLUE        = #007ad0			[15,134,217]
-CYAN        = #009489			[0,163,151]
-GREEN       = #688A0A			[104,138,10]
-BROWN 		= #A05200			[156,98,48]
-
-BACKGROUND  = #F8F8F8
-DARK GRAY   = #383838
-MID GRAY    = #d8d8d8
-LIGHT GRAY  = #828282
-*/
 /* GLOBALS */
 .jupyter-template {
     background: white;
@@ -31,7 +10,11 @@ LIGHT GRAY  = #828282
         margin: auto;
         background: white;
         padding: 40px;
-
+        @media(max-width: @mobile-breakpoint) {
+          width: 90%;
+          margin: 30px auto;
+          padding: 0;
+        }
         .navigation .nav-wrapper {
             max-width: 800px;
         }
@@ -75,6 +58,9 @@ LIGHT GRAY  = #828282
                 text-align: center;
                 display: block;
                 margin: 50px auto;
+                @media(max-width: @mobile-breakpoint) {
+                  width: 100%;
+                }
             }
         }
 
