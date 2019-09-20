@@ -61,8 +61,6 @@ const Post = ({ data, location }) => {
                                 <img data-src={ post.feature_image } className="lazyload" alt={ post.title } />
                             </figure> : null }
                         <article className="post">
-
-
                             { seriesPosts ?
                                 <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
                                 : null }

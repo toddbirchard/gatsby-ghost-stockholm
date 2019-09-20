@@ -43,7 +43,6 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@gatsby-contrib/gatsby-transformer-ipynb": "^0.5.8",
     "@mosch/gatsby-source-github": "^0.4.1",
-    "@nteract/gatsby-transformer-ipynb": "^3.0.4-alpha.0",
     "@tryghost/helpers": "1.1.9",
     "@tryghost/helpers-gatsby": "1.0.12",
     "babel-plugin-prismjs": "^1.1.1",
