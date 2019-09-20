@@ -1,7 +1,5 @@
 @import '../fonts.less';
 @import '../variables.less';
-
-
 /*
 Author: Neil Panchal
 http://neil.panchal.io
@@ -24,86 +22,87 @@ DARK GRAY   = #383838
 MID GRAY    = #d8d8d8
 LIGHT GRAY  = #828282
 */
-
-
 /* GLOBALS */
-
 .jupyter-template {
-  background: white;
-  .jupyter-container {
-    width: 800px;
-    margin: auto;
     background: white;
-    padding: 40px;
 
-    .navigation .nav-wrapper {
-    max-width: 800px;
-  }
+    .jupyter-container {
+        width: 800px;
+        margin: auto;
+        background: white;
+        padding: 40px;
 
-    h1 {
-      margin-bottom: 30px;
-    }
-
-    .sc-gzVnrw {
-      margin-bottom: 30px;
-      position: relative;
-
-      pre {
-        padding: 20px 20px 20px 60px !important;
-        border: 1px solid #e5e5e5 !important;
-        border-radius: 2px;
-
-        code {
-          font-size: 1em;
-          font-family: 'dm' !important;
+        .navigation .nav-wrapper {
+            max-width: 800px;
         }
-      }
 
-      .sc-bwzfXH {
-        position: absolute;
-        top: 23px;
-        left: 23px;
-        color: #a1b1bf;
-      }
+        .jupyter-meta {
+          display: flex;
+          margin: 20px 0;
+
+          span {
+            margin-right: 5px;
+          }
+        }
+
+        .sc-gzVnrw {
+            margin-bottom: 30px;
+            position: relative;
+
+            pre {
+                padding: 20px 20px 20px 60px !important;
+                border: 1px solid #e5e5e5 !important;
+                border-radius: 2px;
+
+                code {
+                    font-size: 1em;
+                    font-family: 'dm' !important;
+                }
+            }
+
+            .sc-bwzfXH {
+                position: absolute;
+                top: 23px;
+                left: 23px;
+                color: #a1b1bf;
+            }
+        }
+
+        .cell_display {
+            max-height: unset !important;
+
+            img {
+                text-align: center;
+                display: block;
+                margin: 50px auto;
+            }
+        }
+
+        table {
+            margin: 40px 0;
+        }
+
+        .nteract-display-area-traceback {
+            display: block;
+            color: unset !important;
+            overflow-x: auto;
+            padding: 2em !important;
+            background: #353c4a;
+            font-size: 0.8em;
+            font-family: 'dm' !important;
+            text-shadow: none !important;
+            overflow-x: hidden;
+            border-radius: 5px;
+            text-shadow: unset !important;
+            white-space: pre !important;
+            color: white !important;
+            border-radius: 0 0 3px 3px !important;
+            line-height: 1.3 !important;
+
+            span {
+                font-size: 1em;
+                mix-blend-mode: screen;
+            }
+        }
     }
-
-    .cell_display {
-      max-height: unset !important;
-
-      img {
-        text-align: center;
-        display: block;
-        margin: 50px auto;
-      }
-    }
-
-    table {
-      margin: 40px 0;
-    }
-
-
-
-    .nteract-display-area-traceback{
-      display: block;
-      color: unset !important;
-      overflow-x: auto;
-      padding: 2em !important;
-      background: #353c4a;
-      font-size: 0.8em;
-      font-family: 'dm' !important;
-      text-shadow: none !important;
-      overflow-x: hidden;
-      border-radius: 5px;
-      text-shadow: unset !important;
-      white-space: pre !important;
-      color: white !important;
-      border-radius: 0 0 3px 3px !important;
-      line-height: 1.3 !important;
-
-      span {
-        font-size: 1em;
-            mix-blend-mode: screen;
-      }
-    }
-  }
 }

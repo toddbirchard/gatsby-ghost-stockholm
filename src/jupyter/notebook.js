@@ -16,6 +16,8 @@ import '../styles/pages/jupyter.less'
 
 const JupyterNotebook = ({ data, pageContext }) => {
     const notebook = data.jupyterNotebook
+    const languageName = notebook.json.metadata.language_info.name
+    const languageVersion = notebook.json.metadata.language_info.version
 
     return (
             <>
@@ -27,6 +29,10 @@ const JupyterNotebook = ({ data, pageContext }) => {
                 <Layout template="jupyter-template">
                     <div className="jupyter-container">
                         <h1>{pageContext.title}</h1>
+                        <div className="jupyter-meta">
+                            <span>{languageName}</span>
+                            <span>{languageVersion}</span>
+                        </div>
                         <section
                             className="content-body load-external-scripts"
                             dangerouslySetInnerHTML={{ __html: notebook.html }}
@@ -45,9 +51,12 @@ JupyterNotebook.propTypes = {
             title: PropTypes.string,
             html: PropTypes.string,
             fileAbsolutePath: PropTypes.string.isRequired,
-            metadata: PropTypes.shape({
+            json: PropTypes.shape({
                 metadata: PropTypes.shape({
-                    title: PropTypes.string.isRequired,
+                    language_info: PropTypes.shape({
+                        title: PropTypes.string.isRequired,
+                        name: PropTypes.string.isRequired,
+                    }),
                 }),
             }),
         }).isRequired,
