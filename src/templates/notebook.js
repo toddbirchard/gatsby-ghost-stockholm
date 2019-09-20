@@ -7,16 +7,19 @@ import '../styles/posts/index.less'
 import '../styles/pages/jupyter.less'
 
 /**
-* Single post view (/:slug)
+* Single notebook view (/jupyter/:slug)
 *
-* This file renders a single post and loads all the content.
+* This file renders a single notebook and loads all the content.
 *
 */
 
 const JupyterNotebook = ({ data, pageContext }) => {
-    const notebook = data.jupyterNotebook
-    const languageName = notebook.json.metadata.language_info.name
-    const languageVersion = notebook.json.metadata.language_info.version
+    const file = data.file
+    const notebook = file.childJupyterNotebook
+    const languageName = notebook.metadata.language_info.name
+    const languageVersion = notebook.metadata.language_info.version
+    const githubLink = file.gitRemote.webLink + file.relativePath
+    const githubRepoName = file.gitRemote.full_name
 
     return (
             <>
@@ -24,8 +27,9 @@ const JupyterNotebook = ({ data, pageContext }) => {
                     <div className="jupyter-container">
                         <h1>{pageContext.title}</h1>
                         <div className="jupyter-meta">
-                            <span>{languageName}</span>
-                            <span>{languageVersion}</span>
+                            <div className="meta-item jupyter-language">{languageName} {languageVersion}</div>
+                            <div className="meta-item jupyter-origin-url"><a href={githubLink}>{githubRepoName}</a></div>
+                            <div className="meta-item jupyter-date">{file.modifiedTime}</div>
                         </div>
                         <section
                             className="content-body load-external-scripts"
@@ -39,22 +43,28 @@ const JupyterNotebook = ({ data, pageContext }) => {
 
 JupyterNotebook.propTypes = {
     data: PropTypes.shape({
-        jupyterNotebook: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            url: PropTypes.string,
-            title: PropTypes.string,
-            html: PropTypes.string,
-            fileAbsolutePath: PropTypes.string.isRequired,
-            json: PropTypes.shape({
+        file: PropTypes.shape({
+            childJupyterNotebook: PropTypes.shape({
+                id: PropTypes.string.isRequired,
+                html: PropTypes.string,
+                fileAbsolutePath: PropTypes.string.isRequired,
                 metadata: PropTypes.shape({
                     language_info: PropTypes.shape({
                         name: PropTypes.string.isRequired,
                         version: PropTypes.string.isRequired,
                     }),
                 }),
+            }).isRequired,
+            slug: PropTypes.string,
+            name: PropTypes.string.isRequired,
+            modifiedTime: PropTypes.string,
+            relativePath: PropTypes.string,
+            gitRemote: PropTypes.shape({
+                webLink: PropTypes.string,
+                full_name: PropTypes.string.isRequired,
             }),
         }).isRequired,
-    }).isRequired,
+    }),
     pageContext: PropTypes.shape({
         title: PropTypes.string.isRequired,
     }),
@@ -63,41 +73,26 @@ JupyterNotebook.propTypes = {
 export default JupyterNotebook
 
 export const JupyterNotebookQuery = graphql`
-  query($id: String!) {
-     jupyterNotebook(id: {eq: $id}) {
-       id
+  query($name: String!) {
+    file(name: {eq: $name}) {
+     childJupyterNotebook {
        fileAbsolutePath
+       id
        html
-       json {
-         metadata {
-           language_info {
-             name
-             version
-           }
+       metadata {
+         language_info {
+           name
+           version
          }
        }
-      }
-    }
-  `
-
-/*{
-  file(absolutePath: {eq: "/Users/toddbirchard/projects/hackers/content/themes/stockholm/.cache/gatsby-source-git/jupyter/Introspect Trees (Depth).ipynb"}) {
-    name
-    gitRemote {
-      full_name
-      href
-      webLink
-    }
-    modifiedTime(formatString: "DD MMMM, YYYY")
-    childJupyterNotebook {
-      id
-      metadata {
-        language_info {
-          version
-          name
-        }
-      }
-    }
-  }
-}
-*/
+     }
+     name
+     modifiedTime(formatString: "DD MMMM, YYYY")
+     gitRemote {
+       webLink
+       full_name
+     }
+     ext
+     relativePath
+   }
+ }`

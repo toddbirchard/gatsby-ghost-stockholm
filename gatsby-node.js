@@ -64,20 +64,30 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
               }
             }
-            jupyter: allJupyterNotebook {
+            jupyter: allFile(filter: {ext: {eq: ".ipynb"}}) {
               edges {
                 node {
-                  id
-                  fileAbsolutePath
-                  html
-                  json {
+                  childJupyterNotebook {
+                    fileAbsolutePath
+                    id
                     metadata {
                       language_info {
                         name
                         version
                       }
                     }
+                    html
                   }
+                  name
+                  modifiedTime(formatString: "DD MMMM, YYYY")
+                  gitRemote {
+                    organization
+                    owner
+                    name
+                    webLink
+                  }
+                  ext
+                  relativePath
                 }
               }
             }
@@ -105,6 +115,9 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
     const jupyterTemplate = path.resolve(`./src/templates/notebook.js`)
+
+    // Load Pages
+    const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
     const confirmationPage = path.resolve(`./src/pages/confirmation.js`)
 
@@ -259,17 +272,21 @@ exports.createPages = async ({ graphql, actions }) => {
    jupyter.forEach(({ node }) => {
         // This part here defines, that our jupyter will use
         // a `/:slug/` permalink.
-        node.title = node.fileAbsolutePath.split('/').pop().replace('.ipynb', '')
-        node.slug = `/jupyter/${node.title.split(" ").join("")}/`
+        node.title = node.name.split('/').pop().replace('.ipynb', '')
+        node.slug = `${node.title.split(" ").join("-").toLowerCase()}`
+        node.url = `/jupyter/${node.slug}/`
         node.primary = `Jupyter`
+        node.absolutePath = node.childJupyterNotebook.name
+        console.log(node.url)
 
         createPage({
-            path: node.slug,
+            path: node.url,
             component: jupyterTemplate,
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
-                id: node.id,
+                id: node.childJupyterNotebook.id,
+                name: node.name,
                 title: node.title,
                 slug: node.slug,
                 primaryTag: node.primary,
@@ -341,15 +358,15 @@ exports.createPages = async ({ graphql, actions }) => {
         },
     })
 
-    /*createPage({
+    createPage({
         path: `/jupyter/`,
-        component: tagsTemplate,
+        component: jupyterArchive,
         context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: `jupyter`,
         },
-    })*/
+    })
 
     createPage({
         path: `/confirmation/`,
