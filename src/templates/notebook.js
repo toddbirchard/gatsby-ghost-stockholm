@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { MetaData } from '../components/common/meta'
 import { Layout } from '../components/common'
 
 import '../styles/posts/index.less'
@@ -21,10 +20,6 @@ const JupyterNotebook = ({ data, pageContext }) => {
 
     return (
             <>
-                <MetaData
-                    data={data}
-                    type="article"
-                />
                 <Layout template="jupyter-template">
                     <div className="jupyter-container">
                         <h1>{pageContext.title}</h1>
