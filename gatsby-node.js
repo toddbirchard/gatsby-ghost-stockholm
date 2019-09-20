@@ -64,26 +64,18 @@ exports.createPages = async ({ graphql, actions }) => {
                 }
               }
             }
-            jupyter: allFile(filter: {ext: {eq: ".ipynb"}}) {
-              totalCount
-              edges {
-                node {
-                  name
-                  ext
-                  absolutePath
-                }
-              }
-            }
-            allJupyterNotebook {
+            jupyter: allJupyterNotebook {
               edges {
                 node {
                   id
                   fileAbsolutePath
                   html
-                  metadata {
-                    language_info {
-                      name
-                      version
+                  json {
+                    metadata {
+                      language_info {
+                        name
+                        version
+                      }
                     }
                   }
                 }
@@ -112,7 +104,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pageTemplate = path.resolve(`./src/templates/page.js`)
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
-    // const jupyterTemplate = path.resolve(`./src/jupyter/notebook.js`)
+    const jupyterTemplate = path.resolve(`./src/jupyter/notebook.js`)
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
     const confirmationPage = path.resolve(`./src/pages/confirmation.js`)
 
@@ -264,12 +256,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // Create jupyter
-   /*jupyter.forEach(({ node }) => {
+   jupyter.forEach(({ node }) => {
         // This part here defines, that our jupyter will use
         // a `/:slug/` permalink.
-        const slug = node.fileAbsolutePath.slice(0, node.fileAbsolutePath.lastIndexOf('/') + 1).replace('.ipynb', '');
+        node.title = node.fileAbsolutePath.split('/').pop().replace('.ipynb', '')
+        const slug = node.title.split(" ").join("")
         node.slug = `/${slug}/`
-        console.log(slug)
+        console.log(node.slug)
 
         createPage({
             path: node.slug,
@@ -278,10 +271,11 @@ exports.createPages = async ({ graphql, actions }) => {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 id: node.id,
+                title: node.title,
                 slug: node.slug,
             },
         })
-    })*/
+    })
 
     // Create post pages
     posts.forEach(({ node }) => {

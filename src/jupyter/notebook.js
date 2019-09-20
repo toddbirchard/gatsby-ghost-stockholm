@@ -1,14 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import * as fs from 'fs'
-import * as nb from "notebookjs"
-
-
+import { MetaData } from '../components/common/meta'
 import { Layout } from '../components/common'
 
 import '../styles/posts/index.less'
+import '../styles/pages/jupyter.less'
 
 /**
 * Single post view (/:slug)
@@ -17,20 +14,24 @@ import '../styles/posts/index.less'
 *
 */
 
-const JupyterNotebook = ({ data }) => {
-    const notebook = data.githubFile
-    const ipynb = JSON.parse(fs.readFileSync(`${notebook.fileAbsolutePath}`))
-    const parsedotebook = nb.parse(ipynb)
-    console.log(parsedotebook.render().outerHTML)
+const JupyterNotebook = ({ data, pageContext }) => {
+    const notebook = data.jupyterNotebook
 
     return (
             <>
-                <Helmet>
-                    <style type="text/css"></style>
-                </Helmet>
-                <Layout template="post-template">
-                    <h1>{notebook.base}</h1>
-                    <p>{parsedotebook}</p>
+                <MetaData
+                    data={data}
+                    location={location}
+                    type="article"
+                />
+                <Layout template="jupyter-template">
+                    <div className="jupyter-container">
+                        <h1>{pageContext.title}</h1>
+                        <section
+                            className="content-body load-external-scripts"
+                            dangerouslySetInnerHTML={{ __html: notebook.html }}
+                        />
+                    </div>
                 </Layout>
             </>
     )
@@ -39,12 +40,21 @@ const JupyterNotebook = ({ data }) => {
 JupyterNotebook.propTypes = {
     data: PropTypes.shape({
         jupyterNotebook: PropTypes.shape({
+            id: PropTypes.string.isRequired,
             url: PropTypes.string,
+            title: PropTypes.string,
+            html: PropTypes.string,
             fileAbsolutePath: PropTypes.string.isRequired,
-            base: PropTypes.string.isRequired,
-            content: PropTypes.string.isRequired,
+            metadata: PropTypes.shape({
+                metadata: PropTypes.shape({
+                    title: PropTypes.string.isRequired,
+                }),
+            }),
         }).isRequired,
     }).isRequired,
+    pageContext: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+    }),
 }
 
 export default JupyterNotebook
@@ -52,18 +62,17 @@ export default JupyterNotebook
 export const JupyterNotebookQuery = graphql`
   query($id: String!) {
      jupyterNotebook(id: {eq: $id}) {
-      id
-      metadata {
-        language_info {
-          file_extension
-          name
-          nbconvert_exporter
-          pygments_lexer
-          version
-        }
-      }
-      fileAbsolutePath
-      html
+       id
+       fileAbsolutePath
+       html
+       json {
+         metadata {
+           language_info {
+             name
+             version
+           }
+         }
+       }
       }
     }
   `
