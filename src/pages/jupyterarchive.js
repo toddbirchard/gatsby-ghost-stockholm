@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import { Layout } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
-
+import '../styles/jupyterarchive.less'
 /**
 * Series page (/series/)
 *
@@ -26,9 +26,11 @@ const JupyterArchive = ({ data, location, pageContext }) => {
           <Layout template="jupyter-archive-template page-template" hasSidebar={true}>
               <div className="page-content post-content">
                   {title ? <h1>{title}</h1> : null }
-                  <div className="jupyter-list">
+                  <div className="jupyter-list post-feed">
                       {notebooks.map(({ node }) => (
-                          <Link to={`jupyter/${node.name.split(` `).join(`-`).toLowerCase()}/`} classes="notebook-link" key={node.id}>{node.name}</Link>
+                          <div className="jupyter-card" key={node.id}>
+                              <Link className="jupyter-card-title" to={`jupyter/${node.name.split(` `).join(`-`).toLowerCase()}/`} classes="notebook-link">{node.name}</Link>
+                          </div>
                       ))}
                   </div>
               </div>
@@ -48,12 +50,12 @@ JupyterArchive.propTypes = {
             modifiedTime: PropTypes.string,
             gitRemote: PropTypes.shape({
                 webLink: PropTypes.string,
-            })
+            }),
         }),
     }).isRequired,
     pageContext: PropTypes.shape({
         title: PropTypes.string.isRequired,
-    })
+    }),
 }
 
 export default JupyterArchive

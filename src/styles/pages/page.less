@@ -18,13 +18,18 @@
     .page-content {
         background: white;
         padding: 40px;
+        @media (max-width: @mobile-breakpoint) {
+            padding: 30px;
+        }
+
+
     }
 
     h1 {
         font-family: @sub-header-font;
-        font-size: 2.2em;
+        font-size: 2.5em;
         font-weight: 500;
-        margin: 10px 0 20px;
+        margin: 0 0 30px;
     }
 
     fieldset {

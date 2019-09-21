@@ -67,27 +67,8 @@ exports.createPages = async ({ graphql, actions }) => {
             jupyter: allFile(filter: {ext: {eq: ".ipynb"}}) {
               edges {
                 node {
-                  childJupyterNotebook {
-                    fileAbsolutePath
-                    id
-                    metadata {
-                      language_info {
-                        name
-                        version
-                      }
-                    }
-                    html
-                  }
+                  id
                   name
-                  modifiedTime(formatString: "DD MMMM, YYYY")
-                  gitRemote {
-                    organization
-                    owner
-                    name
-                    webLink
-                  }
-                  ext
-                  relativePath
                 }
               }
             }
@@ -276,7 +257,6 @@ exports.createPages = async ({ graphql, actions }) => {
         node.slug = `${node.title.split(" ").join("-").toLowerCase()}`
         node.url = `/jupyter/${node.slug}/`
         node.primary = `Jupyter`
-        node.absolutePath = node.childJupyterNotebook.name
         console.log(node.url)
 
         createPage({
@@ -285,7 +265,7 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
-                id: node.childJupyterNotebook.id,
+                id: node.id,
                 name: node.name,
                 title: node.title,
                 slug: node.slug,

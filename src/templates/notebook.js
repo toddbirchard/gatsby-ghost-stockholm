@@ -46,7 +46,6 @@ JupyterNotebook.propTypes = {
         file: PropTypes.shape({
             childJupyterNotebook: PropTypes.shape({
                 id: PropTypes.string.isRequired,
-                html: PropTypes.string,
                 fileAbsolutePath: PropTypes.string.isRequired,
                 metadata: PropTypes.shape({
                     language_info: PropTypes.shape({
@@ -63,18 +62,20 @@ JupyterNotebook.propTypes = {
                 webLink: PropTypes.string,
                 full_name: PropTypes.string.isRequired,
             }),
+
         }).isRequired,
     }),
     pageContext: PropTypes.shape({
         title: PropTypes.string.isRequired,
     }),
+    location: PropTypes.object.isRequired,
 }
 
 export default JupyterNotebook
 
 export const JupyterNotebookQuery = graphql`
-  query($name: String!) {
-    file(name: {eq: $name}) {
+  query($id: String!) {
+    file(id: {eq: $id}) {
      childJupyterNotebook {
        fileAbsolutePath
        id
