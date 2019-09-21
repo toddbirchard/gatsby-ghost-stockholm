@@ -10,6 +10,7 @@ import {
     StaticQuery,
     graphql,
 } from 'gatsby'
+import config from '../../utils/siteConfig'
 
 library.add(fab, faRss, faTag)
 
@@ -43,10 +44,10 @@ const Footer = ({ navigation, site, data }) => {
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
                     {navigation.map((navItem, i) => {
-                        if (navItem.url.match(/^\s?http(s?)/gi)) {
-                            return <a href={ navItem.url } className="footer-link" key={i} target="_blank" rel="noopener noreferrer">{ navItem.label }</a>
+                        if (navItem.url.includes(config.siteUrl)) {
+                            return <Link className="footer-link" to={`${navItem.url.split(`/`).pop()}`} key={i} >{navItem.label}</Link>
                         } else {
-                            return <Link to={ navItem.url } className="footer-link" key={i}>{ navItem.label }</Link>
+                            return <a className="footer-link" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
                         }
                     })}
                     <Link to="/sitemap.xml" className="sitemap footer-link" key="sitemap">Sitemap</Link>

@@ -32,7 +32,7 @@ const SeriesDetail = ({ data, location }) => {
                           <img className="lazyload" data-src={ tag.feature_image } alt={ tag.name } />
                       </figure> : null }
                   <header className="series-header">
-                      <h1>{ tagName }</h1>
+                      <h1 className="series-title">{ tagName }</h1>
                       {tag.description ? <p className="series-description">{tag.description}</p> : null }
                   </header>
                   <section className="post-feed">

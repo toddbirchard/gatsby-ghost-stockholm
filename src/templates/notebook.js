@@ -47,6 +47,7 @@ JupyterNotebook.propTypes = {
             childJupyterNotebook: PropTypes.shape({
                 id: PropTypes.string.isRequired,
                 fileAbsolutePath: PropTypes.string.isRequired,
+                html: PropTypes.string.isRequired,
                 metadata: PropTypes.shape({
                     language_info: PropTypes.shape({
                         name: PropTypes.string.isRequired,
