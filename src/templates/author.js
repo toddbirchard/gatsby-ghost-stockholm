@@ -18,6 +18,7 @@ import '../styles/pages/index.less'
 const Author = ({ data, location, pageContext }) => {
     const author = data.ghostAuthor
     const posts = data.allGhostPost.edges
+    const coverHeaderClass = author.cover_image ? `author-page-header cover-header` : `author-page-header`
 
     return (
         <>
@@ -28,7 +29,7 @@ const Author = ({ data, location, pageContext }) => {
             />
           <Layout template="author-template" hasSidebar={true}>
               <article className="content">
-                  <div className="author-page-header">
+                  <div className={coverHeaderClass}>
                       { author.cover_image ?
                           <figure className="author-feature-image">
                               <img src={ author.cover_image } alt={ author.name } />
@@ -36,10 +37,8 @@ const Author = ({ data, location, pageContext }) => {
                       <AuthorCard author={author} headerClass={true} />
                   </div>
                   <div className="post-full-content">
-                      {/* <h1 className="content-title">{author.name}</h1> */}
                       <section className="post-feed">
                           {posts.map(({ node }) => (
-                              // The tag below includes the markup for each post - components/common/PostCard.js
                               <PostCard key={node.id} post={node} />
                           ))}
                           <Pagination pageContext={pageContext} />

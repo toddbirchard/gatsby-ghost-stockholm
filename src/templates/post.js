@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { faUserEdit, faGlobe, faHome, faCalendar } from '@fortawesome/pro-regular-svg-icons'
@@ -42,9 +41,6 @@ const Post = ({ data, location }) => {
                     location={location}
                     type="article"
                 />
-              {/*<Helmet>
-                    <style type="text/css">{`${post.codeinjection_styles}`}</style>
-                </Helmet>*/}
                 <Layout template="post-template">
                     <div className="post-wrapper">
                         <div className="post-head">
@@ -115,7 +111,7 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-query($slug: String!, $primaryTag: String, $primaryAuthor: String!, $seriesSlug: String) {
+query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
         ...GhostPostFields
     }
@@ -131,7 +127,7 @@ query($slug: String!, $primaryTag: String, $primaryAuthor: String!, $seriesSlug:
       website
       profile_image
     }
-    relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {tags: {elemMatch: {slug: {eq: $primaryTag}}}, slug: {ne: $slug}}) {
+    relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {in: $tags}}, slug: {ne: $slug}}) {
       edges {
         node {
           feature_image

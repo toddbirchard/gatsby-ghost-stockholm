@@ -281,8 +281,10 @@ exports.createPages = async ({ graphql, actions }) => {
         node.url = `/${node.slug}/`
         node.series = null
         node.name = null
+        node.tagSlugs = []
         node.primary = null
         node.tags.forEach(function(element, index) {
+          node.tagSlugs.push(element.slug)
           if (index == 0) {
             // get primary node
             node.primary = element.slug
@@ -305,6 +307,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 // Data passed to context is available
                 // in page queries as GraphQL variables.
                 slug: node.slug,
+                tags: node.tagSlugs,
                 primaryAuthor: node.primary_author.slug,
                 primaryTag: node.primary,
                 seriesSlug: node.series,
