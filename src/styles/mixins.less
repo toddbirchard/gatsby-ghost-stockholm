@@ -53,7 +53,7 @@
 	color: @body-color;
 	font-family: @body-font;
 	-webkit-font-smoothing: auto;
-	font-size: 1em;
+	font-size: 1.05em;
 	margin: 0 0 20px;
 	line-height: 1.5em;
 	@media(max-width: @mobile-breakpoint) {
@@ -95,5 +95,50 @@
 			border-color: @theme-color !important;
 			color: @theme-color !important;
 			cursor: pointer !important;
+	}
+}
+
+
+.social-buttons() {
+	a {
+			transition: @transition;
+
+			&:hover {
+					-webkit-transform: scale(1.2);
+					transform: scale(1.2);
+			}
+	}
+
+	.medium svg {
+			color: lighten(@medium-color, 10%);
+	}
+
+	.facebook svg {
+			color: lighten(@facebook-color, 20%);
+	}
+
+	.twitter svg {
+			color: lighten(@twitter-color, 10%);
+	}
+
+	.angellist,
+	.github svg {
+			color: lighten(@github-color, 10%);
+	}
+
+	.tumblr svg {
+			color: lighten(@tumblr-color, 20%);
+	}
+
+	.rss svg {
+			color: lighten(@rss-color, 20%);
+	}
+
+	.pocket svg {
+			color: lighten(#f14861, 10%);
+	}
+
+	.linkedin svg {
+			color: lighten(@linkedin-color, 10%);
 	}
 }

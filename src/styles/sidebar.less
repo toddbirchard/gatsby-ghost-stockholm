@@ -38,51 +38,10 @@
             display: flex;
             justify-content: space-between;
 
-            a {
-                transition: @transition;
-
-                &:hover {
-                    -webkit-transform: scale(1.2);
-                    transform: scale(1.2);
-                }
-            }
-
             svg {
                 font-size: 1.5em;
             }
-
-            .medium svg {
-                color: lighten(@medium-color, 10%);
-            }
-
-            .facebook svg {
-                color: lighten(@facebook-color, 20%);
-            }
-
-            .twitter svg {
-                color: lighten(@twitter-color, 10%);
-            }
-
-            .angellist,
-            .github svg {
-                color: lighten(@github-color, 10%);
-            }
-
-            .tumblr svg {
-                color: lighten(@tumblr-color, 20%);
-            }
-
-            .rss svg {
-                color: lighten(@rss-color, 20%);
-            }
-
-            .pocket svg {
-                color: lighten(#f14861, 10%);
-            }
-
-            .linkedin svg {
-                color: lighten(@linkedin-color, 10%);
-            }
+            .social-buttons()
         }
 
         &.tags {
