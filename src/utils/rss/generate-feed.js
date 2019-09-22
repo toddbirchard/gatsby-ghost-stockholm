@@ -3,14 +3,14 @@ const tagsHelper = require(`@tryghost/helpers`).tags
 const _ = require(`lodash`)
 
 const generateItem = function generateItem(siteUrl, post) {
-    const itemUrl = siteUrl + post.url
+    const itemUrl = siteUrl + `/` + post.url
     const html = post.html
     const htmlContent = cheerio.load(html, { decodeEntities: false, xmlMode: true })
     const item = {
         title: post.title,
         description: post.excerpt,
         guid: post.id,
-        url: siteUrl + post.slug,
+        url: siteUrl + `/` + post.slug,
         date: post.published_at,
         categories: _.map(tagsHelper(post, { visibility: `public`, fn: tag => tag }), `name`),
         author: post.primary_author ? post.primary_author.name : null,
