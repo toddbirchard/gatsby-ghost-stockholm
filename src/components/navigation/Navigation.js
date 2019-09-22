@@ -23,7 +23,7 @@ const Navigation = ({ data, navClass, logo }) => (
             <div className="nav-links">
                 {data.map((navItem, i) => {
                     if (navItem.url.includes(config.siteUrl)) {
-                        return <Link className={`${navClass} ${navItem.label}`} to={`${navItem.url.split(`/`).pop()}`} key={i} >{navItem.label}</Link>
+                        return <Link className={`${navClass} ${navItem.label}`} to={`${navItem.url.slice(0, -1).split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
                     } else {
                         return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
                     }

@@ -7,6 +7,13 @@
       padding-bottom: 40px;
       color: @header-color;
       border-bottom: 1px solid #d6d6d6;
+      @media(max-width: @tablet-breakpoint) {
+          margin: 40px;
+          padding-bottom: 30px;
+      }
+      @media(max-width: @mobile-breakpoint) {
+          padding-bottom: 20px;
+      }
 
       .series-title {
         margin: 0 0 10px;
@@ -15,10 +22,7 @@
         }
       }
 
-      @media(max-width: @tablet-breakpoint) {
-          margin: 40px;
-          padding-bottom: 30px;
-      }
+
 
       .series-description {
           line-height: 1.3;

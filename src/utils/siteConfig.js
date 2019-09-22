@@ -5,6 +5,7 @@ module.exports = {
 
     siteTitleMeta: `Hackers and Slackers`, // This allows an alternative site title for meta data for pages.
     siteDescriptionMeta: `Community of hackers obsessed with data science, data engineering, and analysis. Openly pushing a pro-robot agenda.`, // This allows an alternative site description for meta data for pages.
+    siteCopyright: `©2019 Hackers and Slackers, All Rights Reserved.`,
 
     shareImageWidth: 1000, // Change to the width of your default share image
     shareImageHeight: 523, // Change to the height of your default share image
@@ -13,6 +14,13 @@ module.exports = {
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
     backgroundColor: `#ecf1f9`, // Used for Offline Manifest
     themeColor: `#067bff`, // Used for Offline Manifest
+
+    social: {
+      github: "https://github.com/hackersandslackers",
+      linkedin: "https://www.linkedin.com/company/hackers-and-slackers/",
+      angellist: "https://angel.co/company/hackers-and-slackers/",
+      tumblr: "https://hackersandslackers.blog",
+    },
 
     siteGithubOrg: `https://github.com/hackersandslackers/jupyter.git`
 }
