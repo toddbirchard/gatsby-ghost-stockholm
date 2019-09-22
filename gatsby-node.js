@@ -237,6 +237,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // This part here defines, that our pages will use
         // a `/:slug/` permalink.
         node.url = `/${node.slug}/`
+        console.log('node.url = ' + node.url)
 
         createPage({
             path: node.url,
@@ -257,7 +258,6 @@ exports.createPages = async ({ graphql, actions }) => {
         node.slug = `${node.title.split(" ").join("-").toLowerCase()}`
         node.url = `/jupyter/${node.slug}/`
         node.primary = `Jupyter`
-        console.log(node.url)
 
         createPage({
             path: node.url,
@@ -283,18 +283,23 @@ exports.createPages = async ({ graphql, actions }) => {
         node.name = null
         node.tagSlugs = []
         node.primary = null
+
+
         node.tags.forEach(function(element, index) {
           node.tagSlugs.push(element.slug)
+
+          // get primary tag
           if (index == 0) {
-            // get primary node
             node.primary = element.slug
-            if (element.slug == 'roundup') {
-              // different url for lynx posts
-              node.url = `/roundup/${node.slug}/`
-            }
           }
+
+          // generate different url for lynx posts
+          /*if (element.slug == 'roundup') {
+            node.url = `/roundup/${element.slug}/`
+          }*/
+
+          // determine if post is in series
           if (element.visibility == 'internal') {
-            // determine if post is in series
             node.series = element.slug
             node.name = element.name
           }

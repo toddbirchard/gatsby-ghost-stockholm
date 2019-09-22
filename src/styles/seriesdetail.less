@@ -110,8 +110,9 @@
                 font-weight: 600;
                 font-size: 1em;
                 @media(max-width: @mobile-breakpoint) {
-                    font-size: 0.9em;
+                    font-size: .8em;
                     min-width: 50px;
+                    white-space: nowrap;
                     font-weight: 600;
                     margin-right: 5px;
                     margin-bottom: 0;
@@ -119,15 +120,15 @@
             }
 
             .series-post-card-title {
-                font-family: @body-font-bold;
+                font-family: @header-semi-bold;
                 font-weight: normal;
                 font-size: 1.4em;
                 line-height: 1.1;
                 color: lighten(@header-color, 2%);
                 @media(max-width: @mobile-breakpoint) {
                     margin: 0;
-                    font-weight: 300;
-                    font-size: 1.1em;
+                    font-size: 1em;
+                    line-height: 1.2;
                     width: 100%;
                 }
 
