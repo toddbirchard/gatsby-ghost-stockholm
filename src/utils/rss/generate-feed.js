@@ -2,7 +2,7 @@ const cheerio = require(`cheerio`)
 const tagsHelper = require(`@tryghost/helpers`).tags
 const _ = require(`lodash`)
 
-const generateItem = function generateItem(post) {
+const generateItem = function generateItem(siteUrl, post) {
     const itemUrl = post.url
     const html = post.html
     const htmlContent = cheerio.load(html, { decodeEntities: false, xmlMode: true })
@@ -10,7 +10,7 @@ const generateItem = function generateItem(post) {
         title: post.title,
         description: post.excerpt,
         guid: post.id,
-        url: itemUrl,
+        url: siteUrl + post.slug,
         date: post.published_at,
         categories: _.map(tagsHelper(post, { visibility: `public`, fn: tag => tag }), `name`),
         author: post.primary_author ? post.primary_author.name : null,
@@ -46,7 +46,7 @@ const generateItem = function generateItem(post) {
 
 const generateRSSFeed = function generateRSSFeed(siteConfig) {
     return {
-        serialize: ({ query: { allGhostPost } }) => allGhostPost.edges.map(edge => Object.assign({}, generateItem(edge.node))),
+        serialize: ({ query: { allGhostPost } }) => allGhostPost.edges.map(edge => Object.assign({}, generateItem(siteConfig.siteUrl, edge.node))),
         setup: ({ query: { allGhostSettings } }) => {
             const siteTitle = allGhostSettings.edges[0].node.title || `No Title`
             const siteDescription = allGhostSettings.edges[0].node.description || `No Description`

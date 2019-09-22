@@ -140,7 +140,6 @@ module.exports = {
         {
             resolve: `gatsby-plugin-feed`,
             options: {
-                title: "Hackers and Slackers RSS",
                 query: `
                 {
                     allGhostSettings {
