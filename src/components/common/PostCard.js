@@ -23,7 +23,7 @@ const PostCard = ({ post }) => {
             <footer className="post-card-footer">
                 <div className="meta-item tag">
                     <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />
-                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator="" classes={post.id} />}
+                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator="" classes={post.id} />}
                 </div>
                 <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                 <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /><span>{authorFirstName}</span> </Link></div>
