@@ -18,12 +18,12 @@
         display: flex;
         align-items: center;
         @media(max-width: 1100px) {
-            max-width: 90%;
+            max-width: 95%;
         }
         @media(max-width: 800px) {
-            max-width: 86%;
             justify-content: space-between;
             align-items: center;
+            max-width: 90%;
         }
 
         .logo {
@@ -48,18 +48,18 @@
         }
 
         .nav-links {
-          display: flex;
-          justify-content: left;
-          align-items: center;
-          @media(max-width: @mobile-breakpoint) {
-              justify-content: right;
-          }
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            @media(max-width: @mobile-breakpoint) {
+                justify-content: right;
+            }
 
             .site-nav-item {
                 color: #626573;
                 border: none;
                 padding: 0;
-                margin-right: 30px;
+                margin-right: 35px;
                 font-size: 1.1em;
                 outline: none;
                 transition: @transition;
@@ -74,18 +74,16 @@
 
                 &.Donate,
                 &.RSS {
-                  @media(max-width: @mobile-breakpoint) {
-                      display: none;
-                  }
+                    @media(max-width: @mobile-breakpoint) {
+                        display: none;
+                    }
                 }
             }
         }
     }
 }
-
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
-
 @media(max-width: 800px) {
     .home-template {
         .navigation {
@@ -100,7 +98,6 @@
         }
     }
 }
-
 /* Pagination
 /* ---------------------------------------------------------- */
 .pagination {
@@ -108,7 +105,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0 0 0;
+    margin: 10px 0 0;
     background: none;
 
     .pagination-location {
