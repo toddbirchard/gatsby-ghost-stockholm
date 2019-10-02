@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
 import { Layout } from '../components/common'
-import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
 import '../styles/jupyterarchive.less'
 /**
@@ -41,18 +39,21 @@ const JupyterArchive = ({ data, location, pageContext }) => {
 
 JupyterArchive.propTypes = {
     data: PropTypes.shape({
-        allFile: PropTypes.shape({
-            childJupyterNotebook: PropTypes.shape({
-                fileAbsolutePath: PropTypes.string.isRequired,
+        allFile: PropTypes.arrayOf(
+            PropTypes.shape({
+                childJupyterNotebook: PropTypes.shape({
+                    fileAbsolutePath: PropTypes.string.isRequired,
+                }),
+                slug: PropTypes.string.isRequired,
+                name: PropTypes.string.isRequired,
+                modifiedTime: PropTypes.string,
+                gitRemote: PropTypes.shape({
+                    webLink: PropTypes.string,
+                }),
             }),
-            slug: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            modifiedTime: PropTypes.string,
-            gitRemote: PropTypes.shape({
-                webLink: PropTypes.string,
-            }),
-        }),
+        ),
     }).isRequired,
+    location: PropTypes.object,
     pageContext: PropTypes.shape({
         title: PropTypes.string.isRequired,
     }),
@@ -84,5 +85,4 @@ export const jupyterArchiveQuery = graphql`
               }
             }
           }
-        }
-`
+        }`
