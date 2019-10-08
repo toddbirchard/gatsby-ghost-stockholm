@@ -1,32 +1,116 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TwitterTimelineEmbed } from 'react-twitter-embed'
+import { StaticQuery, graphql } from 'gatsby'
 
-/**
-* Twitter widget
-*/
+const TwitterWidget = ({ twitter }) => {
+    const tweets = twitter.allTwitterStatusesUserTimelineTweetQuery.edges
+    const user = twitter.twitterStatusesUserTimelineTweetQuery.user
 
-const TwitterWidget = ({ twitterUrl }) => (
-      <>
-        {twitterUrl ?
+    return (
+          <>
             <div className="widget twitter">
-                <TwitterTimelineEmbed
-                    sourceType="profile"
-                    screenName="HackersSlackers"
-                    autoHeight
-                    transparent
-                    noScrollbar
-                    noHeader
-                    noFooter
-                    noBorders
-                    linkColor="#6baaf2"
-                />
-            </div> : null }
-    </>
-)
+                <div className="twitter-header">
+                    <img src={user.profile_image_url} className="twitter-avatar"/>
+                    <div>
+                        <a href={user.url} className="twitter-name">{user.name}</a>
+                        <div className="twitter-user">@{user.screen_name}</div>
+                    </div>
+                </div>
+                {tweets.map(({ node }) => (
+                    <div className="tweet" key={node.favorite_count}>
+                        <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
+                        <p className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
+                            <a href={text} key={text} className="hashtag">#{text}</a>
+                        ))}</p>
+                        <div className="tweet-head">
+                            {node.entities.urls.map(({ url }) => (
+                                <a href={url} key={url} className="tweet-link">{ url }</a>
+                            ))}
+                            <span className="date">{node.created_at.split(` `, 3).join(` `)}</span>
+                        </div>
 
-TwitterWidget.propTypes = {
-    twitterUrl: PropTypes.string.isRequired,
+                    </div>
+                ))}
+            </div>
+          </>
+    )
 }
 
-export default TwitterWidget
+TwitterWidget.propTypes = {
+    twitter: PropTypes.arrayOf(
+        PropTypes.shape({
+            full_text: PropTypes.string.isRequired,
+            favorite_count: PropTypes.number.isRequired,
+            retweet_count: PropTypes.number.isRequired,
+            created_at: PropTypes.string.isRequired,
+            user: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired,
+                profile_image_url: PropTypes.string.isRequired,
+                screen_name: PropTypes.string.isRequired,
+            }).isRequired,
+            entities: PropTypes.shape({
+                urls: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        url: PropTypes.string,
+                    }),
+                ),
+                hashtags: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        text: PropTypes.string,
+                    }),
+                ),
+            }),
+        }).isRequired,
+    ),
+    user: PropTypes.shape({
+        profile_image_url: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        screen_name: PropTypes.string.isRequired,
+    }).isRequired,
+}
+
+const TwitterQuery = props => (
+    <StaticQuery
+        query={graphql`
+          query TwitterQuery {
+            allTwitterStatusesUserTimelineTweetQuery {
+              edges {
+                node {
+                  full_text
+                  favorite_count
+                  retweet_count
+                  created_at
+                  user {
+                    name
+                    url
+                    profile_image_url
+                    screen_name
+                  }
+                  entities {
+                    urls {
+                      url
+                    }
+                    hashtags {
+                      text
+                    }
+                  }
+                }
+              }
+            }
+            twitterStatusesUserTimelineTweetQuery {
+              user {
+                profile_image_url
+                name
+                url
+                screen_name
+              }
+            }
+          }`
+        }
+        render={data => <TwitterWidget twitter={data} user={data} {...props} />}
+    />
+)
+
+export default TwitterQuery

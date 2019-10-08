@@ -41,7 +41,7 @@
             svg {
                 font-size: 1.5em;
             }
-             .social-buttons();
+            .social-buttons();
         }
 
         &.tags {
@@ -78,7 +78,7 @@
 
         &.newsletter {
             .newsletter-description {
-                font-size: 0.9em;
+                font-size: 0.95em;
                 line-height: 1.4;
             }
 
@@ -127,8 +127,72 @@
             height: 600px;
             overflow: hidden;
 
-            * {
-                overflow: hidden;
+            .twitter-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .twitter-avatar {
+                    overflow: hidden;
+                    height: 40px;
+                    margin-right: 15px;
+                }
+
+                .twitter-name {
+                    color: #4b5776;
+                    font-weight: 600;
+                    font-size: 1.1em;
+                }
+
+                .twitter-user {
+                    color: #516b83;
+                    font-weight: 500;
+                    margin-top: 4px;
+                    font-weight: 400;
+                    font-size: 0.95em;
+                }
+            }
+
+            .tweet {
+                border-bottom: 1px solid #e7e7e7;
+                margin-bottom: 30px;
+                padding: 0 0 30px;
+                font-family: 'HarmoniaSansPro-Regular', sans-serif;
+
+                &:last-of-type {
+                    border-bottom: 0;
+                }
+
+                .tweet-head {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 20px 0 0;
+
+                    .date {
+                        color: #b0bdcd;
+                        font-size: 0.9em;
+                    }
+                }
+
+                .tweet-link {
+                    color: #6baaf2;
+                    font-family: 'AvenirNextLTPro-Medium', sans-serif;
+                    font-weight: 600;
+                    display: block;
+                    font-size: 0.9em;
+                }
+
+                .hashtag {
+                    color: #8592a0;
+                    font-size: 0.9em;
+                }
+
+                .tweet-content {
+                    margin: 20px 0;
+                    line-height: 1.3;
+                    font-size: 1.0em;
+                }
             }
         }
     }

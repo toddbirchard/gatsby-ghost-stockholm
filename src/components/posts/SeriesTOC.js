@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
@@ -18,6 +19,17 @@ const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
       </div> : null }
       </>
     )
+}
+
+SeriesTOC.propTypes = {
+    data: PropTypes.shape({
+        seriesPosts: PropTypes.shape({
+            slug: PropTypes.string.isRequired,
+            title: PropTypes.string,
+        }),
+        postCount: PropTypes.number,
+        currentPost: PropTypes.object,
+    }),
 }
 
 export default SeriesTOC

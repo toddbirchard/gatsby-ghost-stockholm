@@ -239,19 +239,19 @@ module.exports = {
             trackPage: true
           }
         },
-        /*{
+        {
           resolve: `gatsby-source-twitter`,
           options: {
             credentials: {
               consumer_key: process.env.TWITTER_CONSUMER_KEY,
               consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-              bearer_token: process.env.TWITTER_BREARER_TOKEN,
+              bearer_token: 'AAAAAAAAAAAAAAAAAAAAAEf98gAAAAAAtpl%2Bkvro%2BoQ9wRg77VUEpQv%2FM7I%3DxGLqD6Z2Y5qbp5JhQI4SgjG7ifwj6Zd1RDfiY7mVpLdZOofsuS',
             },
             queries: {
-              nameofthequery: {
+              TweetQuery: {
                 endpoint: "statuses/user_timeline",
                 params: {
-                  screen_name: "HackersSlackers",
+                  screen_name: "hackersslackers",
                   include_rts: false,
                   exclude_replies: true,
                   tweet_mode: "extended",
@@ -260,6 +260,6 @@ module.exports = {
               },
             },
           },
-        },*/
+        },
     ],
 }
