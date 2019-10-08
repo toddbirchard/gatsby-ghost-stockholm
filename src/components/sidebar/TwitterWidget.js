@@ -10,7 +10,7 @@ const TwitterWidget = ({ twitter }) => {
           <>
             <div className="widget twitter">
                 <div className="twitter-header">
-                    <img src={user.profile_image_url} className="twitter-avatar"/>
+                    <img src={user.profile_image_url_https} className="twitter-avatar"/>
                     <div>
                         <a href={user.url} className="twitter-name">{user.name}</a>
                         <div className="twitter-user">@{user.screen_name}</div>
@@ -37,34 +37,32 @@ const TwitterWidget = ({ twitter }) => {
 }
 
 TwitterWidget.propTypes = {
-    twitter: PropTypes.arrayOf(
-        PropTypes.shape({
-            full_text: PropTypes.string.isRequired,
-            favorite_count: PropTypes.number.isRequired,
-            retweet_count: PropTypes.number.isRequired,
-            created_at: PropTypes.string.isRequired,
-            user: PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-                profile_image_url: PropTypes.string.isRequired,
-                screen_name: PropTypes.string.isRequired,
-            }).isRequired,
-            entities: PropTypes.shape({
-                urls: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        url: PropTypes.string,
-                    }),
-                ),
-                hashtags: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        text: PropTypes.string,
-                    }),
-                ),
-            }),
+    twitter: PropTypes.shape({
+        full_text: PropTypes.string,
+        favorite_count: PropTypes.number,
+        retweet_count: PropTypes.number,
+        created_at: PropTypes.string.isRequired,
+        user: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            profile_image_url: PropTypes.string.isRequired,
+            screen_name: PropTypes.string.isRequired,
         }).isRequired,
-    ),
+        entities: PropTypes.shape({
+            urls: PropTypes.arrayOf(
+                PropTypes.shape({
+                    url: PropTypes.string,
+                }),
+            ),
+            hashtags: PropTypes.arrayOf(
+                PropTypes.shape({
+                    text: PropTypes.string,
+                }),
+            ),
+        }),
+    }).isRequired,
     user: PropTypes.shape({
-        profile_image_url: PropTypes.string.isRequired,
+        profile_image_url_https: PropTypes.string,
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         screen_name: PropTypes.string.isRequired,
@@ -101,7 +99,7 @@ const TwitterQuery = props => (
             }
             twitterStatusesUserTimelineTweetQuery {
               user {
-                profile_image_url
+                profile_image_url_https
                 name
                 url
                 screen_name

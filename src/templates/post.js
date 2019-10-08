@@ -85,22 +85,25 @@ const Post = ({ data, location }) => {
 
 Post.propTypes = {
     data: PropTypes.shape({
-        ghostPost: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-            primary_author: PropTypes.object.isRequired,
-            html: PropTypes.string.isRequired,
-            feature_image: PropTypes.string,
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string.isRequired,
-                    slug: PropTypes.string.isRequired,
-                })
-            ).isRequired,
-            published_at_pretty: PropTypes.string,
-            codeinjection_styles: PropTypes.string,
-        }).isRequired,
+        ghostPost: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
+                slug: PropTypes.string.isRequired,
+                primary_author: PropTypes.object.isRequired,
+                html: PropTypes.string.isRequired,
+                feature_image: PropTypes.string,
+                tags: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        index: PropTypes.string.isRequired,
+                        name: PropTypes.string.isRequired,
+                        slug: PropTypes.string.isRequired,
+                    })
+                ).isRequired,
+                published_at_pretty: PropTypes.string,
+                codeinjection_styles: PropTypes.string,
+            }).isRequired,
+        ),
         ghostAuthor: PropTypes.object.isRequired,
         relatedPosts: PropTypes.object,
         seriesPosts: PropTypes.object,
