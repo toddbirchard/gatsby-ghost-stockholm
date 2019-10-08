@@ -22,14 +22,12 @@ const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
 }
 
 SeriesTOC.propTypes = {
-    data: PropTypes.shape({
-        seriesPosts: PropTypes.shape({
-            slug: PropTypes.string.isRequired,
-            title: PropTypes.string,
-        }),
-        postCount: PropTypes.number,
-        currentPost: PropTypes.object,
+    seriesPosts: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+        title: PropTypes.string,
     }),
+    postCount: PropTypes.number,
+    currentPost: PropTypes.object,
 }
 
 export default SeriesTOC
