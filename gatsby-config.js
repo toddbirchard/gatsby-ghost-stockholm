@@ -245,7 +245,7 @@ module.exports = {
             credentials: {
               consumer_key: process.env.TWITTER_CONSUMER_KEY,
               consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-              bearer_token: 'AAAAAAAAAAAAAAAAAAAAAEf98gAAAAAAtpl%2Bkvro%2BoQ9wRg77VUEpQv%2FM7I%3DxGLqD6Z2Y5qbp5JhQI4SgjG7ifwj6Zd1RDfiY7mVpLdZOofsuS',
+              bearer_token: process.env.TWITTER_BREARER_TOKEN,
             },
             queries: {
               TweetQuery: {
