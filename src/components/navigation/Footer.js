@@ -34,9 +34,9 @@ const Footer = ({ navigation, site, data }) => {
                         <a href={ twitterUrl } className="twitter" key="twitter-footer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="sm" /></a>
                         <a href={ facebookUrl } className="facebook" key="facebook-footer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="sm" /></a>
                         <a href={ config.social.angellist } className="angellist-footer" key="angellist"><FontAwesomeIcon icon={[`fab`, `angellist`]} size="sm" /></a>
-                        <a href={ config.social.linkedin } className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>
+                        {/*<a href={ config.social.linkedin } className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>*/}
                         <a href={ config.social.github } className="github" key="github-footer"><FontAwesomeIcon icon={[`fab`, `github`]} size="sm" /></a>
-                        <a href={ config.social.tumblr } className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} size="sm" /></a>
+                        {/*<a href={ config.social.tumblr } className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} size="sm" /></a>*/}
                         <Link to="/rss/" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></Link>
                     </div>
                     <p className="copyright">{config.siteCopyright}</p>
