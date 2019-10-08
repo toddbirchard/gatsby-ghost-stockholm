@@ -9,7 +9,7 @@ pre[class*="language-"],
     overflow-x: hidden;
     border-radius: 5px;
     margin: 30px auto;
-    line-height: 1.3 !important;
+    line-height: 1.35 !important;
     font-size: 0.95em;
     @media(max-width: @mobile-breakpoint) {
         border-radius: 0;
@@ -262,7 +262,7 @@ pre[class*="language-"],
         }
 
         .glsl .built_in {
-            color: #88C0D0;
+            color: #EBCB8B;
         }
 
         .groovy .meta:not(:first-child) {
@@ -351,6 +351,7 @@ pre[class*="language-"],
 
             &.boolean {
                 color: #B48EAD !important;
+                font-weight: 600;
             }
 
             &.class-name {
@@ -359,10 +360,11 @@ pre[class*="language-"],
             }
 
             &.builtin {
-                color: #5E81AC !important;
+                color: #EBCB8B !important;
             }
 
             &.triple-quoted-string {
+                font-weight: 600;
                 color: #838d92 !important;
             }
         }
