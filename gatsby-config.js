@@ -1,5 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 const path = require(`path`)
-
 const config = require(`./src/utils/siteConfig`)
 const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
 
@@ -12,6 +14,10 @@ try {
         production: {
             apiUrl: process.env.GHOST_API_URL,
             contentApiKey: process.env.GHOST_CONTENT_API_KEY,
+            segmentWriteKey: process.env.SEGMENT_WRITE_KEY,
+            twitterConsumerKey: process.env.TWITTER_CONSUMER_KEY,
+            twitterConsumerScret: process.env.TWITTER_CONSUMER_SECRET,
+            twitterBearerToken: process.env.TWITTER_BREARER_TOKEN,
         },
     }
 } finally {
@@ -245,7 +251,7 @@ module.exports = {
             credentials: {
               consumer_key: process.env.TWITTER_CONSUMER_KEY,
               consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-              bearer_token: process.env.TWITTER_BREARER_TOKEN,
+              bearer_token: 'AAAAAAAAAAAAAAAAAAAAAEf98gAAAAAAtpl%2Bkvro%2BoQ9wRg77VUEpQv%2FM7I%3DxGLqD6Z2Y5qbp5JhQI4SgjG7ifwj6Zd1RDfiY7mVpLdZOofsuS',
             },
             queries: {
               TweetQuery: {
@@ -255,7 +261,7 @@ module.exports = {
                   include_rts: false,
                   exclude_replies: true,
                   tweet_mode: "extended",
-                  count: 3,
+                  count: 5,
                 },
               },
             },

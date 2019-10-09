@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 const TwitterWidget = ({ twitter }) => {
     const tweets = twitter.allTwitterStatusesUserTimelineTweetQuery.edges
     const user = twitter.twitterStatusesUserTimelineTweetQuery.user
+    // const hashtags = twitterUser.user.
 
     return (
           <>
@@ -19,16 +20,15 @@ const TwitterWidget = ({ twitter }) => {
                 {tweets.map(({ node }) => (
                     <div className="tweet" key={node.favorite_count}>
                         <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
-                        <p className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
-                            <a href={text} key={text} className="hashtag">#{text}</a>
-                        ))}</p>
+                        {node.entities.hashtags ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
+                            <a href={`https://twitter.com/hashtag/${text}`} key={text} className="hashtag">#{text}</a>
+                        ))}</div> : 0 }
                         <div className="tweet-head">
-                            {node.entities.urls.map(({ url }) => (
-                                <a href={url} key={url} className="tweet-link">{ url }</a>
+                            {node.entities.urls.map(({ display_url }) => (
+                                <a href={display_url} className="tweet-link" key="1">{ display_url }</a>
                             ))}
-                            <span className="date">{node.created_at.split(` `, 3).join(` `)}</span>
+                            {/*<span className="date">{node.created_at.split(` `, 3).join(` `)}</span>*/}
                         </div>
-
                     </div>
                 ))}
             </div>
@@ -41,7 +41,7 @@ TwitterWidget.propTypes = {
         full_text: PropTypes.string,
         favorite_count: PropTypes.number,
         retweet_count: PropTypes.number,
-        created_at: PropTypes.string.isRequired,
+        created_at: PropTypes.string,
         user: PropTypes.shape({
             name: PropTypes.string.isRequired,
             url: PropTypes.string.isRequired,
@@ -61,18 +61,20 @@ TwitterWidget.propTypes = {
             ),
         }),
     }).isRequired,
-    user: PropTypes.shape({
-        profile_image_url_https: PropTypes.string,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-        screen_name: PropTypes.string.isRequired,
-    }).isRequired,
+    twitterUser: PropTypes.shape({
+        user: PropTypes.shape({
+            profile_image_url_https: PropTypes.string,
+            name: PropTypes.string.isRequired,
+            display_url: PropTypes.string.isRequired,
+            screen_name: PropTypes.string.isRequired,
+        }).isRequired,
+    }),
 }
 
 const TwitterQuery = props => (
     <StaticQuery
         query={graphql`
-          query TwitterQuery {
+          query TweetQuery {
             allTwitterStatusesUserTimelineTweetQuery {
               edges {
                 node {
@@ -88,7 +90,7 @@ const TwitterQuery = props => (
                   }
                   entities {
                     urls {
-                      url
+                      display_url
                     }
                     hashtags {
                       text

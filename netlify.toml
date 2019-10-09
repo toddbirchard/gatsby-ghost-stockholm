@@ -4,3 +4,29 @@
 
 [template]
   incoming-hooks = ["Ghost"]
+
+[[redirects]]
+    from = "/ghost"
+    to = "https://hackersandslackers.app/ghost"
+    status = 200
+    force = true
+    conditions = {Role = ["admin", "cms"]}
+    [redirects.headers]
+      X-From = "Netlify"
+      X-Api-Key = "some-api-key-string"
+
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = "frame-ancestors https://www.facebook.com"
+
+    # Multi-key header rules are expressed with multi-line strings.
+  	cache-control = '''
+  	max-age=31557600,
+  	no-cache,
+  	no-store,
+  	must-revalidate'''

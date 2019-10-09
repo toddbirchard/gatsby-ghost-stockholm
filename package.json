@@ -49,6 +49,7 @@
     "babel-plugin-prismjs": "^1.1.1",
     "babel-preset-gatsby": "^0.2.14",
     "cheerio": "1.0.0-rc.3",
+    "dotenv": "^8.1.0",
     "gatsby": "2.15.20",
     "gatsby-awesome-pagination": "0.3.4",
     "gatsby-cli": "^2.7.54",
