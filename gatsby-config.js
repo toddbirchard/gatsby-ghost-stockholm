@@ -258,7 +258,7 @@ module.exports = {
                 endpoint: "statuses/user_timeline",
                 params: {
                   screen_name: "hackersslackers",
-                  include_rts: true,
+                  include_rts: false,
                   exclude_replies: true,
                   tweet_mode: "extended",
                   count: 6,
