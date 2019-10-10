@@ -254,14 +254,14 @@ module.exports = {
               bearer_token: 'AAAAAAAAAAAAAAAAAAAAAEf98gAAAAAAtpl%2Bkvro%2BoQ9wRg77VUEpQv%2FM7I%3DxGLqD6Z2Y5qbp5JhQI4SgjG7ifwj6Zd1RDfiY7mVpLdZOofsuS',
             },
             queries: {
-              TweetQuery: {
+              HackersTweets: {
                 endpoint: "statuses/user_timeline",
                 params: {
                   screen_name: "hackersslackers",
-                  include_rts: false,
+                  include_rts: true,
                   exclude_replies: true,
                   tweet_mode: "extended",
-                  count: 5,
+                  count: 6,
                 },
               },
             },

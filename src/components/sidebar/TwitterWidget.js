@@ -2,10 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
-const TwitterWidget = ({ twitter }) => {
-    const tweets = twitter.allTwitterStatusesUserTimelineTweetQuery.edges
-    const user = twitter.twitterStatusesUserTimelineTweetQuery.user
-    // const hashtags = twitterUser.user.
+const TwitterWidget = ({ data }) => {
+    const tweets = data.allTwitterStatusesUserTimelineHackersTweets.edges
+    const user = data.twitterStatusesUserTimelineHackersTweets.user
 
     return (
           <>
@@ -17,57 +16,61 @@ const TwitterWidget = ({ twitter }) => {
                         <div className="twitter-user">@{user.screen_name}</div>
                     </div>
                 </div>
-                {tweets.map(({ node }) => (
-                    <div className="tweet" key={node.favorite_count}>
-                        <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
-                        {node.entities.hashtags ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
-                            <a href={`https://twitter.com/hashtag/${text}`} key={text} className="hashtag">#{text}</a>
-                        ))}</div> : 0 }
-                        <div className="tweet-head">
-                            {node.entities.urls.map(({ display_url }) => (
-                                <a href={display_url} className="tweet-link" key="1">{ display_url }</a>
-                            ))}
-                            {/*<span className="date">{node.created_at.split(` `, 3).join(` `)}</span>*/}
+                <div className="tweets">
+                    {tweets.map(({ node }) => (
+                        <div className="tweet" key={node.favorite_count}>
+                            <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
+                            {node.entities.hashtags ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
+                                <a href={`https://twitter.com/hashtag/${text}`} key={text} className="hashtag">#{text}</a>
+                            ))}</div> : 0 }
+                            <div className="tweet-head">
+                                {node.entities.urls.map(({ display_url }) => (
+                                    <a href={display_url} className="tweet-link" key="1">{ display_url }</a>
+                                ))}
+                                <span className="date">{node.created_at.split(` `, 3).join(` `)}</span>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
           </>
     )
 }
 
 TwitterWidget.propTypes = {
-    twitter: PropTypes.shape({
-        full_text: PropTypes.string,
-        favorite_count: PropTypes.number,
-        retweet_count: PropTypes.number,
-        created_at: PropTypes.string,
-        user: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-            profile_image_url: PropTypes.string.isRequired,
-            screen_name: PropTypes.string.isRequired,
+    data: PropTypes.shape({
+        allTwitterStatusesUserTimelineHackersTweets: PropTypes.shape({
+            full_text: PropTypes.string,
+            favorite_count: PropTypes.number,
+            retweet_count: PropTypes.number,
+            created_at: PropTypes.string,
+            user: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired,
+                profile_image_url: PropTypes.string.isRequired,
+                screen_name: PropTypes.string.isRequired,
+            }).isRequired,
+            entities: PropTypes.shape({
+                urls: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        url: PropTypes.string,
+                    }),
+                ),
+                hashtags: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        text: PropTypes.string,
+                    }),
+                ),
+            }),
         }).isRequired,
-        entities: PropTypes.shape({
-            urls: PropTypes.arrayOf(
-                PropTypes.shape({
-                    url: PropTypes.string,
-                }),
-            ),
-            hashtags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    text: PropTypes.string,
-                }),
-            ),
+        twitterStatusesUserTimelineHackersTweets: PropTypes.shape({
+            user: PropTypes.shape({
+                profile_image_url_https: PropTypes.string,
+                name: PropTypes.string.isRequired,
+                display_url: PropTypes.string.isRequired,
+                screen_name: PropTypes.string.isRequired,
+            }).isRequired,
         }),
-    }).isRequired,
-    twitterUser: PropTypes.shape({
-        user: PropTypes.shape({
-            profile_image_url_https: PropTypes.string,
-            name: PropTypes.string.isRequired,
-            display_url: PropTypes.string.isRequired,
-            screen_name: PropTypes.string.isRequired,
-        }).isRequired,
     }),
 }
 
@@ -75,7 +78,7 @@ const TwitterQuery = props => (
     <StaticQuery
         query={graphql`
           query TweetQuery {
-            allTwitterStatusesUserTimelineTweetQuery {
+            allTwitterStatusesUserTimelineHackersTweets {
               edges {
                 node {
                   full_text
@@ -99,7 +102,7 @@ const TwitterQuery = props => (
                 }
               }
             }
-            twitterStatusesUserTimelineTweetQuery {
+            twitterStatusesUserTimelineHackersTweets {
               user {
                 profile_image_url_https
                 name
@@ -109,7 +112,7 @@ const TwitterQuery = props => (
             }
           }`
         }
-        render={data => <TwitterWidget twitter={data} user={data} {...props} />}
+        render={data => <TwitterWidget data={data} {...props} />}
     />
 )
 
