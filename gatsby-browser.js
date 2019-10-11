@@ -3,16 +3,6 @@ import Prism from 'prismjs';
 import 'lazysizes';
 
 
-/**
- * Trust All Scripts
- *
- * This is a dirty little script for iterating over script tags
- * of your Ghost posts and adding them to the document head.
- *
- * This works for any script that then injects content into the page
- * via ids/classnames etc.
- *
- */
 var trustAllScripts = function() {
     var scriptNodes = document.querySelectorAll(
         '.load-external-scripts script'
