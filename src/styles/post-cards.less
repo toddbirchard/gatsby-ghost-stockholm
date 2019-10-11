@@ -20,10 +20,10 @@
     }
 
     .post-card-title {
-        margin: 0 0 10px;
+        margin: 0;
         padding: 0;
         font-size: 2em;
-        color: #637282;
+        color: @header-color;
         letter-spacing: 0;
         font-family: @header-bold;
         transition: @transition;
@@ -50,9 +50,9 @@
         }
 
         .post-card-excerpt {
-            margin: 10px auto;
-            line-height: 1.2;
-            font-family: @sub-header-font;
+            margin: 20px auto;
+            line-height: 1.1;
+            font-family: @header-bold;
             transition: all 0.2s ease-out;
             color: @header-color;
             font-size: 1.3em;
@@ -72,7 +72,7 @@
     .post-card-footer {
         display: flex;
         align-items: center;
-        margin: 20px 0 0;
+        margin: 0;
 
         .meta-item {
             font-family: @body-font-bold;
