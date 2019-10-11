@@ -49,7 +49,7 @@ TwitterWidget.propTypes = {
                 url: PropTypes.string.isRequired,
                 profile_image_url: PropTypes.string.isRequired,
                 screen_name: PropTypes.string.isRequired,
-            }).isRequired,
+            }),
             entities: PropTypes.shape({
                 urls: PropTypes.arrayOf(
                     PropTypes.shape({
@@ -67,7 +67,7 @@ TwitterWidget.propTypes = {
             user: PropTypes.shape({
                 profile_image_url_https: PropTypes.string,
                 name: PropTypes.string.isRequired,
-                display_url: PropTypes.string.isRequired,
+                display_url: PropTypes.string,
                 screen_name: PropTypes.string.isRequired,
             }).isRequired,
         }),

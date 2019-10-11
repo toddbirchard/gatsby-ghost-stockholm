@@ -51,13 +51,7 @@ DefaultLayout.propTypes = {
     template: PropTypes.string,
     data: PropTypes.shape({
         allGhostSettings: PropTypes.object.isRequired,
-        allGhostTag: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                slug: PropTypes.string.isRequired,
-                postCount: PropTypes.number.isRequired,
-            })
-        ).isRequired,
+        allGhostTag: PropTypes.object.isRequired,
     }).isRequired,
 }
 

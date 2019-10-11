@@ -18,10 +18,10 @@ const TagsWidget = ({ tags }) => (
 TagsWidget.propTypes = {
     tags: PropTypes.arrayOf(
         PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
+            name: PropTypes.string,
+            slug: PropTypes.string,
         }),
-    ),
+    ).isRequired,
 }
 
 export default TagsWidget
