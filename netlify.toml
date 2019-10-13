@@ -10,18 +10,16 @@
     to = "https://hackersandslackers.app/ghost"
     status = 200
     force = true
-    conditions = {Role = ["admin", "cms"]}
-    [redirects.headers]
-      X-From = "Netlify"
-      X-Api-Key = "some-api-key-string"
 
 [[redirects]]
     from = "/rss/"
     to = "/rss"
+    status = 200
 
 [[redirects]]
     from = "/wp-login.php"
     to = "https://i.imgur.com/1Ia9tTG.gif"
+    status = 200
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
