@@ -1,1 +1,1 @@
-NODE_VERSION=10
+nvm -v 10
