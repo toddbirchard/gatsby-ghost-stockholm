@@ -54,7 +54,7 @@ const Post = ({ data, location }) => {
                         </div>
                         { post.feature_image ?
                             <figure className="post-image">
-                                <img data-src={ post.feature_image } className="lazyload" alt={ post.title } />
+                                <img data-src={ post.feature_image } className="lazyload" alt={ post.title } data-rjs="2" />
                             </figure> : null }
                         <article className="post">
                             { seriesPosts ?
