@@ -46,7 +46,7 @@ AuthorCard.propTypes = {
         location: PropTypes.string,
         slug: PropTypes.string,
     }).isRequired,
-    headerClass: PropTypes.boolean,
+    headerClass: PropTypes.string,
 }
 
 export default AuthorCard

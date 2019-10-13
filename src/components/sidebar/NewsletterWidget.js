@@ -11,7 +11,7 @@ const NewsletterWidget = () => {
       <>
         <div className="widget newsletter">
             <p className="newsletter-description">{newsletterCopy}</p>
-            <form name="newsletter" method="POST" netlify data-netlify="true" netlify-honeypot="phone-number" action="/confirmation" >
+            <form name="newsletter" method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/confirmation" >
                 <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
                 <input className="phone-number" type="phone" name="phone" placeholder="Your phone number" style={{ display: `none` }} />
                 <button type="submit">Send</button>

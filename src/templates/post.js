@@ -46,7 +46,7 @@ const Post = ({ data, location }) => {
                         <div className="post-head">
                             <div className="post-meta">
                                 <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{authorFirstName}</span> </Link></div>
-                                <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.index} />} </div>
+                                <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId} />} </div>
                                 <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                                 <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
                             </div>
@@ -95,6 +95,7 @@ Post.propTypes = {
                 feature_image: PropTypes.string,
                 tags: PropTypes.arrayOf(
                     PropTypes.shape({
+                        ghostId: PropTypes.string.isRequired,
                         index: PropTypes.string.isRequired,
                         name: PropTypes.string.isRequired,
                         slug: PropTypes.string.isRequired,
@@ -106,7 +107,12 @@ Post.propTypes = {
         ),
         ghostAuthor: PropTypes.object.isRequired,
         relatedPosts: PropTypes.object,
-        seriesPosts: PropTypes.object,
+        seriesPosts: PropTypes.arrayOf(
+            PropTypes.shape({
+                slug: PropTypes.string.isRequired,
+                title: PropTypes.string,
+            }),
+        ),
     }).isRequired,
     location: PropTypes.object.isRequired,
 }
@@ -133,6 +139,7 @@ query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: Str
     relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {in: $tags}}, slug: {ne: $slug}}) {
       edges {
         node {
+          ghostId
           feature_image
           title
           slug
@@ -146,7 +153,6 @@ query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: Str
       edges {
         node {
           slug
-          excerpt
           title
         }
       }

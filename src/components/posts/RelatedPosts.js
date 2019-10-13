@@ -11,12 +11,12 @@ const RelatedPosts = ({ data }) => {
       <>
           <div className="related-posts">
               {related.map(({ node }) => (
-                  <Link to={ node.slug } className="related-post-card" key={ node.slug }>
+                  <Link to={ node.slug } className="related-post-card" key={ node.ghostID }>
                       <div className="related-post-image-wrapper"><img className="related-post-image lazyload" data-src={ node.feature_image } alt={ node.slug }/></div>
                       <div className="related-post-info">
                           <h5 className="related-post-title"> { node.title } </h5>
                           <div className="meta-item related-post-tags">
-                              <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={2} visibility="public" autolink={false} classes="tag" separatorClasses="tag-separator"/>
+                              <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={2} visibility="public" autolink={false} classes="tag" separator=", " />
                           </div>
                       </div>
                   </Link>
