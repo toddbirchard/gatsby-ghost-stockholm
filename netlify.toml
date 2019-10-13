@@ -21,6 +21,11 @@
     to = "https://i.imgur.com/1Ia9tTG.gif"
     status = 200
 
+[[redirects]]
+    from = "/structuring-your-flask-app/"
+    to = "/organizing-flask-with-blueprints"
+    status = 200
+
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"
