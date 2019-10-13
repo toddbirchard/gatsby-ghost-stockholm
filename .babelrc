@@ -15,10 +15,11 @@
                     "groovy",
                     "html",
                     "yaml",
+                    "toml",
                     "jsx",
                     "graphql",
                     "sql",
-                     "jinja2"
+                    "jinja2"
                 ],
                 "plugins": ["line-numbers"],
                 "theme": "default",

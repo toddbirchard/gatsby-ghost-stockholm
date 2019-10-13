@@ -457,6 +457,9 @@
                     z-index: 10;
                     mix-blend-mode: screen;
                     color: #596271;
+                    @media(max-width: @mobile-breakpoint) {
+                      right: 20px;
+                    }
                 }
             }
             /*   Start of Protip box */
@@ -683,6 +686,7 @@
             font-size: 1em;
             border: 1px inner white !important;
             border-right: 0;
+            border-radius: 0;
             .input-field-interactions();
             @media(max-width: @mobile-breakpoint) {
                 width: -webkit-fill-available;
