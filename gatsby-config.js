@@ -238,7 +238,7 @@ module.exports = {
           resolve: 'gatsby-plugin-segment-js',
           options: {
             prodKey: process.env.SEGMENT_WRITE_KEY,
-            writeKey: ghostConfig.development.segmentWriteKey,
+            writeKey: process.env.SEGMENT_WRITE_KEY,
             trackPage: true
           }
         },

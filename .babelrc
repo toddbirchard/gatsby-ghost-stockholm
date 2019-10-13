@@ -21,7 +21,7 @@
                     "sql",
                     "jinja2"
                 ],
-                "plugins": ["line-numbers"],
+                "plugins": ["line-numbers", "normalize-whitespace"],
                 "theme": "default",
                 "css": true
             }

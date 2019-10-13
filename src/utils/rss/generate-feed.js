@@ -70,9 +70,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
         },
         query: `
         {
-            allGhostPost(
-                sort: {order: DESC, fields: published_at}
-            ) {
+            allGhostPost(sort: {order: DESC, fields: published_at}, filter: {slug: {nin: "roundup"}}) {
                 edges {
                     node {
                         # Main fields

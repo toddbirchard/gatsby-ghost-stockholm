@@ -4,17 +4,17 @@ pre[class*="language-"],
     color: unset !important;
     overflow-x: auto;
     padding: 1.5em;
-    background: #333948;
+    background: #303645;
     text-shadow: none !important;
     overflow-x: hidden;
     border-radius: 5px;
     margin: 30px auto;
     line-height: 1.3 !important;
-    font-size: .95em;
+    font-size: .9em;
     @media(max-width: @mobile-breakpoint) {
         border-radius: 0;
-        padding: 2em;
-        font-size: .9em;
+        padding: 1.5em;
+        font-size: .8em;
         .mobile-horizontal-scroll();
     }
 
@@ -27,7 +27,7 @@ pre[class*="language-"],
         text-shadow: unset !important;
         white-space: pre-wrap !important;
         font-size: .9em;
-        font-family: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+        font-family: @monospace-font;
         line-height: 1.3 !important;
         @media(max-width: @mobile-breakpoint) {
             border-radius: 0;
@@ -106,7 +106,7 @@ pre[class*="language-"],
         }
 
         .string {
-            color: #b1d096 !important;
+            color: rgb(195, 232, 141) !important;
         }
 
         .title {
@@ -336,6 +336,15 @@ pre[class*="language-"],
                 background: none !important;
             }
 
+            &.punctuation {
+              color: #d9b9ef;
+            }
+
+            &.class-name {
+              color: #ffde86 !important;
+              font-weight: 600;
+            }
+
             &.constant {
                 color: #ffd96e !important;
             }
@@ -352,13 +361,8 @@ pre[class*="language-"],
             }
 
             &.boolean {
-                color: #B48EAD !important;
+                color: rgb(255, 88, 116) !important;
                 font-weight: 600;
-            }
-
-            &.class-name {
-                color: #8FBCBB;
-                font-weight: 900 !important;
             }
 
             &.builtin {
@@ -367,7 +371,7 @@ pre[class*="language-"],
 
             &.triple-quoted-string {
                 font-weight: 600;
-                color: #838d92 !important;
+                color: rgb(105, 112, 152) !important;
             }
         }
     }
