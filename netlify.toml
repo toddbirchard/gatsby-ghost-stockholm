@@ -15,6 +15,14 @@
       X-From = "Netlify"
       X-Api-Key = "some-api-key-string"
 
+[[redirects]]
+    from = "/rss/"
+    to = "/rss"
+
+[[redirects]]
+    from = "/wp-login.php"
+    to = "https://i.imgur.com/1Ia9tTG.gif"
+
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"
