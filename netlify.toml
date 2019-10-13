@@ -7,7 +7,7 @@
 
 [[redirects]]
     from = "/ghost"
-    to = "https://hackersandslackers.com/ghost"
+    to = "https://hackersandslackers.app/ghost"
     status = 200
     force = true
     conditions = {Role = ["admin", "cms"]}
