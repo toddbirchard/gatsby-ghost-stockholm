@@ -50,14 +50,17 @@
     from = "/pivoting-not-just-for-startups-anymore-adventures-in-excel/"
     to = "/the-art-of-excel-pivot-tables/"
     status = 301
+
 [[redirects]]
     from = "/powering-up-your-pivot/"
     to = "/powering-up-your-excel-pivot-tables/"
     status = 301
+
 [[redirects]]
     from = "/roll-on-through-create-an-expanding-list-without-vba/"
     to = "/create-an-iterative-list-in-excel/"
     status = 301
+
 [[redirects]]
     from = "/dynamic-tension-creating-and-using-dynamic-named-ranges/"
     to = "/dynamic-named-ranges-in-excel/"
@@ -190,11 +193,10 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "frame-ancestors https://www.facebook.com"
 
     # Multi-key header rules are expressed with multi-line strings.
-  	cache-control = '''
-  	max-age=31557600,
-  	no-cache,
-  	no-store,
-  	must-revalidate'''
+    cache-control = '''
+      max-age=31557600,
+      no-cache,
+      no-store,
+      must-revalidate'''
