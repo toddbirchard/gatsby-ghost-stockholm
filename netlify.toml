@@ -21,6 +21,168 @@
     to = "/organizing-flask-with-blueprints"
     status = 301
 
+[[redirects]]
+    from = "/liberating-data-from-pdfs-with-tabula-and-pandas/"
+    to = "/liberating-data-from-pdfs-with-tabula-and-pandas/"
+    status = 301
+
+[[redirects]]
+    from = "/lets-start-with-perhaps-the-most-useful-vb-script-youll-ever-run-out-of-excel/"
+    to = "/excel-data-manipulation-for-everyone/"
+    status = 301
+
+[[redirects]]
+    from = "/how-i-learned-to-stop-worry/"
+    to = "/learning-to-love-excel-formulas/"
+    status = 301
+
+[[redirects]]
+    from = "/index-match-vs-the-lookups-an-excel-soujurn/"
+    to = "/excel-index-match-vs-lookups/"
+    status = 301
+
+[[redirects]]
+    from = "/the-one-formula-to-rule-them-all-adventures-in-excel/"
+    to = "/the-one-excel-formula-to-rule-them-all/"
+    status = 301
+
+[[redirects]]
+    from = "/pivoting-not-just-for-startups-anymore-adventures-in-excel/"
+    to = "/the-art-of-excel-pivot-tables/"
+    status = 301
+[[redirects]]
+    from = "/powering-up-your-pivot/"
+    to = "/powering-up-your-excel-pivot-tables/"
+    status = 301
+[[redirects]]
+    from = "/roll-on-through-create-an-expanding-list-without-vba/"
+    to = "/create-an-iterative-list-in-excel/"
+    status = 301
+[[redirects]]
+    from = "/dynamic-tension-creating-and-using-dynamic-named-ranges/"
+    to = "/dynamic-named-ranges-in-excel/"
+    status = 301
+
+[[redirects]]
+    from = "/named-ranges-and-the-active-xs-who-love-them/"
+    to = "/excel-named-ranges-and-the-active-xs-who-love-them/"
+    status = 301
+
+[[redirects]]
+    from = "/pivot-party-adventures-in-excel/"
+    to = "/excel-pivot-table-party/"
+    status = 301
+
+[[redirects]]
+    from = "/the-way-of-the-knife/"
+    to = "/slicing-excel-the-way-of-the-knife/"
+    status = 301
+
+[[redirects]]
+    from = "/yes-and-if-or-adventures-in-excel/"
+    to = "/excels-mighty-if-statement/"
+    status = 301
+
+[[redirects]]
+    from = "/getting-if-fy-with-it-adventures-in-excel/"
+    to = "/dirty-data-in-excel-part-2/"
+    status = 301
+
+[[redirects]]
+    from = "/dealing-with-dirty-data-adventures-in-excel-2/"
+    to = "/dealing-with-dirty-data-in-excel/"
+    status = 301
+
+[[redirects]]
+    from = "/dealing-with-dirty-data-adventures-in-excel/"
+    to = "/doing-the-excel-data-dance/"
+    status = 301
+
+[[redirects]]
+    from = "/powering-up-your-pivot/"
+    to = "/powering-up-your-excel-pivot-tables/"
+    status = 301
+
+[[redirects]]
+    from = "/creating-endpoints-with-lambda/"
+    to = "/create-a-rest-api-endpoint-using-aws-lambda/"
+    status = 301
+
+[[redirects]]
+    from = "/tag/aws-api/"
+    to = "/series/create-an-aws-api/"
+    status = 301
+
+[[redirects]]
+    from = "/hacking-linux-tableu-server/"
+    to = "/hacking-linux-tableau-server/"
+    status = 301
+
+[[redirects]]
+    from = "/products/mongodb-enterprise-advanced/"
+    to = "/series/mongodb-cloud/"
+    status = 301
+
+[[redirects]]
+    from = "/starting-a-flask-project-with-heroku/"
+    to = "/starting-a-python-web-app-with-heroku/"
+    status = 301
+
+[[redirects]]
+    from = "/data-could-solve-humanitys-greatest-problems-if-it-werent-for-humanity/"
+    to = "/data-could-save-humanity/"
+    status = 301
+
+[[redirects]]
+    from = "/tuning-random-forests-hyperparameters-with-binary-search-part-iii-min_samples_leaf/"
+    to = "/random-forests-hyperparameters-min_samples_leaf/"
+    status = 301
+
+[[redirects]]
+    from = "/using-random-forests-for-feature-selection-with-categorical-features/"
+    to = "/random-forests-for-feature-selection/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-getting-conda-envs-and-environment-variables-to-play-nicely-with-cron/"
+    to = "/conda-environments-and-cron/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-tuning-machine-learning-hyperparameters-with-binary-search/"
+    to = "/tuning-machine-learning-hyperparameters-with-binary-search/"
+    status = 301
+
+[[redirects]]
+    from = "/api/handlebars-themes/"
+    to = "/handlebars-templating-in-expressjs"
+    status = 301
+
+[[redirects]]
+    from = "/tag/aws-api/"
+    to = "/series/create-an-aws-api/"
+    status = 301
+
+[[redirects]]
+    from = "/creating-endpoints-with-lambda/"
+    to = "/create-a-rest-api-endpoint-using-aws-lambda/"
+    status = 301
+
+[[redirects]]
+    from = "/pipenv-etc-tracking-your-projects-dependancies/"
+    to = "/pipenv-python-environment-management/"
+    status = 301
+
+[[redirects]]
+    from = "/demystifying-flasks-application-context/"
+    to = "/demystifying-flask-application-factory/"
+    status = 301
+
+[[redirects]]
+    from = "/structuring-your-flask-app/"
+    to = "/demystifying-flask-application-factory/"
+    status = 301
+
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"
