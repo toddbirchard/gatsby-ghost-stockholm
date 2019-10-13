@@ -2,17 +2,11 @@
   "name": "stockholm",
   "description": "GatsbyJS theme sourced from Ghost admin.",
   "version": "1.0.0",
-  "author": "Todd Birchard",
   "homepage": "https://github.com/toddbirchard/stockholm/",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/toddbirchard/stockholm.git"
-  },
-  "engines": {
-    "node": ">= 8.9.0"
-  },
-  "bugs": {
-    "url": "https://github.com/toddbirchard/stockholm/issues"
+  "author": {
+    "name": "Todd Birchard",
+    "email": "toddbirchard@gmail.com",
+    "url": "https://toddbirchard.com"
   },
   "keywords": [
     "gatsby",
@@ -21,6 +15,16 @@
     "theme",
     "JAMStack"
   ],
+  "engines": {
+    "node": ">= 10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toddbirchard/stockholm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toddbirchard/stockholm/issues"
+  },
   "main": "n/a",
   "scripts": {
     "serve": "gatsby build && NODE_ENV=production gatsby serve",
@@ -33,7 +37,8 @@
     "babel-preset-gatsby": "^0.2.18",
     "eslint": "^6.5.1",
     "eslint-plugin-ghost": "^0.5.0",
-    "eslint-plugin-react": "^7.16.0"
+    "eslint-plugin-react": "^7.16.0",
+    "less": "^3.10.3"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -78,7 +83,6 @@
     "gatsby-transformer-remark": "^2.6.28",
     "gatsby-transformer-sharp": "2.2.21",
     "lazysizes": "^5.1.2",
-    "less": "^3.10.3",
     "lodash": "4.17.15",
     "net": "^1.0.2",
     "npm-check-updates": "^3.1.24",

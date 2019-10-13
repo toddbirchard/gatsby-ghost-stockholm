@@ -12,19 +12,14 @@
     force = true
 
 [[redirects]]
-    from = "/rss/"
-    to = "/rss"
-    status = 200
-
-[[redirects]]
     from = "/wp-login.php"
     to = "https://i.imgur.com/1Ia9tTG.gif"
-    status = 200
+    status = 301
 
 [[redirects]]
     from = "/structuring-your-flask-app/"
     to = "/organizing-flask-with-blueprints"
-    status = 200
+    status = 301
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.

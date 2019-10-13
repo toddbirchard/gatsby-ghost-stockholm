@@ -3,3 +3,5 @@
 
 https://gatsby-starter-ghost.netlify.com/*      https://gatsby.ghost.org/:splat    301!
 http://gatsby-starter-ghost.netlify.com/*       https://gatsby.ghost.org/:splat    301!
+/ghost             https://hackersandslackers.app/ghost                            301!
+/wp-login.php      https://i.imgur.com/1Ia9tTG.gif                                 301!
