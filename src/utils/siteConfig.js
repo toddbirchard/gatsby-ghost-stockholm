@@ -23,8 +23,4 @@ module.exports = {
     },
 
     siteGithubOrg: `https://github.com/hackersandslackers/jupyter.git`,
-    TWITTER_CONSUMER_KEY: 'vXVKzle81KZqLPaWaFGKltSI0',
-    TWITTER_CONSUMER_SECRET: 'CzC9oL7Izxi5TXHRMhI7s5PrT6Mj8V1MO9BGQERQ9mu4yrcrtn',
-    TWITTER_BREARER_TOKEN: 'AAAAAAAAAAAAAAAAAAAAAEf98gAAAAAAtpl%2Bkvro%2BoQ9wRg77VUEpQv%2FM7I%3DxGLqD6Z2Y5qbp5JhQI4SgjG7ifwj6Zd1RDfiY7mVpLdZOofsuS',
-
 }
