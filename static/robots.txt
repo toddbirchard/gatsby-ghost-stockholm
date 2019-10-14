@@ -1,2 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /ghost/
+Disallow: /p/
+Disallow: /roundup/*
+Sitemap: https://hackersandslackers.com/sitemap.xml
