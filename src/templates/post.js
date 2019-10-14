@@ -51,11 +51,12 @@ const Post = ({ data, location }) => {
                                 <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
                             </div>
                             <h1 className="post-title">{post.title}</h1>
+                            { post.feature_image ?
+                                <figure className="post-image">
+                                    <img data-src={ post.feature_image } className="lazyload" alt={ post.title } data-rjs="2" />
+                                </figure> : null }
                         </div>
-                        { post.feature_image ?
-                            <figure className="post-image">
-                                <img data-src={ post.feature_image } className="lazyload" alt={ post.title } data-rjs="2" />
-                            </figure> : null }
+
                         <article className="post">
                             { seriesPosts ?
                                 <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>

@@ -37,7 +37,7 @@
             }
 
             .footer-link {
-                margin: 0 0 10px;
+                margin: 0 0 12px;
                 display: block;
                 padding-left: 0;
                 line-height: 1em;
@@ -87,7 +87,7 @@
                     margin: 20px 0;
 
                     svg {
-                        font-size: 1.5em;
+                        font-size: 1.6em;
                         color: #8f9fa8;
                     }
                 }
@@ -100,6 +100,15 @@
                         font-size: 0.8em;
                     }
                 }
+            }
+
+            &.authors {
+              @media(max-width: @tablet-breakpoint) {
+                  display: none;
+              }
+              @media(max-width: @mobile-breakpoint) {
+                  display: block;
+              }
             }
         }
     }

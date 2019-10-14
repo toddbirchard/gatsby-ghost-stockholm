@@ -183,7 +183,8 @@ pre[class*="language-"],
         }
 
         .tag {
-            color: #81A1C1 !important;
+            /*color: #81A1C1 !important;*/
+            color: #b48ead !important;
         }
 
         .variable {
@@ -334,6 +335,14 @@ pre[class*="language-"],
         .token {
             & * {
                 background: none !important;
+            }
+
+            &.attr-value {
+              color: #c3e88d !important;
+            }
+
+            &.attr-name {
+              color: white !important;
             }
 
             &.punctuation {
