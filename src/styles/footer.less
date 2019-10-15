@@ -11,14 +11,18 @@
         padding: 50px 0;
         max-width: 900px;
         margin: auto;
+        width: 760px;
+        max-width: 90%;
         @media(max-width: @mobile-breakpoint) {
             display: block;
             padding: 50px;
             max-width: unset;
+            width: unset;
         }
 
         .widget {
             width: 16%;
+            overflow: hidden;
             @media(max-width: @mobile-breakpoint) {
                 max-width: unset;
                 margin-bottom: 50px;
@@ -47,6 +51,8 @@
                 line-height: 1em;
                 color: #576979;
                 font-family: @body-font;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
 
             &.about {
@@ -107,28 +113,20 @@
                 }
             }
 
-            &.authors {
-                @media(max-width: @tablet-breakpoint) {
-                    display: none;
-                }
-                @media(max-width: @mobile-breakpoint) {
-                    display: block;
-                }
-            }
         }
     }
-}
 
-.copyright {
-    text-align: center;
-    color: white;
-    background-color: #333c47;
-    border-top: 1px solid #dbe3e7;
-    padding: 30px;
+    .copyright {
+        background-color: #333c47;
+        border-top: 1px solid #dbe3e7;
+        padding: 30px;
 
-    p {
-      margin: 0;
-      font-size: .8em;
-      opacity: .8;
+        p {
+          color: white;
+          margin: 0;
+          font-size: .8em;
+          opacity: .8;
+          text-align: center;
+        }
     }
 }

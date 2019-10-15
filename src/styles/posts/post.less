@@ -31,7 +31,7 @@
                 margin: 0 auto 60px;
                 @media(max-width: @tablet-breakpoint) {
                     font-size: 2.3em;
-                    margin: 0 auto 60px;
+                    margin: 0 30px 60px;
                 }
                 @media(max-width: @mobile-breakpoint) {
                     font-size: 1.8em;
@@ -181,7 +181,6 @@
         max-width: 720px;
         margin: 60px auto 40px;
         position: relative;
-        padding-bottom: 30px;
         @media(max-width: @tablet-breakpoint) {
             width: auto;
         }
@@ -379,12 +378,10 @@
                 max-width: 99%;
                 margin: 30px auto;
                 overflow: visible;
-                border: 1px solid rgba(206, 206, 206, 0.42);
                 border-radius: 3px;
-                overflow: hidden;
                 max-height: 600px !important;
                 @media(max-width: @mobile-breakpoint) {
-                    .mobile-full-width();
+                    /*.mobile-full-width();*/
                     width: auto !important;
                     max-width: none;
                     margin-top: 25px;
@@ -404,6 +401,7 @@
                     max-width: 100%;
                     margin: 0 auto;
                     display: block;
+                    border: 1px solid rgba(206, 206, 206, 0.42);
                     @media(max-width: @mobile-breakpoint) {
                         margin-bottom: -5px !important;
                     }
@@ -418,14 +416,12 @@
                     width: -moz-available;
                     width: -moz-available;
                     margin: 0 auto;
-                    padding: 10px;
-                    background-color: rgba(33,69,138,.04);
-                    color: #5e6167;
-                    font-size: 0.9em;
+                    padding: 6px;
+                    color: #8b8e96;
+                    font-size: 0.8em;
                     text-align: center;
                     white-space: normal;
                     line-height: 1.5;
-                    border-top: 1px solid #e0e1e4;
                     @media(max-width: @mobile-breakpoint) {
                         display: block;
                         width: auto !important;
@@ -597,6 +593,8 @@
                     margin: 0 !important;
                 }
 
+                >
+
                 * {
                     font-style: italic;
                     font-weight: 400;
@@ -616,8 +614,8 @@
         .author-card {
             border-top: 2px dotted #f3f3f3;
             justify-content: left;
+            padding: 40px 0;
             @media(max-width: @tablet-breakpoint) {
-                padding: 30px 0 0;
                 margin: 0 30px;
             }
 
