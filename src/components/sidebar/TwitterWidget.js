@@ -18,7 +18,7 @@ const TwitterWidget = ({ data }) => {
                 </div>
                 <div className="tweets">
                     {tweets.map(({ node }) => (
-                        <div className="tweet" key={node.favorite_count}>
+                        <div className="tweet" key={node.id}>
                             <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
                             {node.entities.hashtags ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
                                 <a href={`https://twitter.com/hashtag/${text}`} key={text} className="hashtag">#{text}</a>
@@ -44,6 +44,7 @@ TwitterWidget.propTypes = {
             favorite_count: PropTypes.number,
             retweet_count: PropTypes.number,
             created_at: PropTypes.string,
+            id: PropTypes.string,
             user: PropTypes.shape({
                 name: PropTypes.string.isRequired,
                 url: PropTypes.string.isRequired,
@@ -86,6 +87,7 @@ const TwitterQuery = props => (
                   favorite_count
                   retweet_count
                   created_at
+                  id
                   user {
                     name
                     url
