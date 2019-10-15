@@ -264,7 +264,7 @@ module.exports = {
                   include_rts: false,
                   exclude_replies: true,
                   tweet_mode: "extended",
-                  count: 8,
+                  count: 7,
                 },
               },
             },
