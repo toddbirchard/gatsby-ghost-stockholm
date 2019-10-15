@@ -39,7 +39,7 @@ const Footer = ({ navigation, site, data }) => {
                         {/*<a href={ config.social.tumblr } className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} size="sm" /></a>*/}
                         <Link to="/rss/" className="rss" key="rss"><FontAwesomeIcon icon={[`far`, `rss`]} size="sm" /></Link>
                     </div>
-                    <p className="copyright">{config.siteCopyright}</p>
+
                 </div>
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
@@ -65,7 +65,11 @@ const Footer = ({ navigation, site, data }) => {
                     ))}
                 </div>
             </div>
+            <div className="copyright">
+                <p className="copyright-txt">{config.siteCopyright}</p>
+            </div>
         </footer>
+
     </>
     )
 }
