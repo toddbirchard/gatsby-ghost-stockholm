@@ -231,7 +231,12 @@ module.exports = {
                 addUncaughtPages: true,
             },
         },
-        'gatsby-plugin-netlify-cache',
+        {
+          resolve: "gatsby-plugin-netlify-cache",
+          options: {
+            cachePublic: true
+          }
+        },
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
