@@ -19,10 +19,11 @@ const Navigation = ({ data, navClass, logo }) => (
     <nav className="navigation">
         <div className="nav-wrapper">
             <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
-            <p></p>
             <div className="nav-links">
                 {data.map((navItem, i) => {
-                    if (navItem.url.includes(config.siteUrl)) {
+                    if (navItem.url.includes(`rss`) || navItem.url.includes(`sitemap`)) {
+                        return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
+                    } else if (navItem.url.includes(config.siteUrl)) {
                         return <Link className={`${navClass} ${navItem.label}`} to={`${navItem.url.split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
                     } else {
                         return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
