@@ -11,10 +11,13 @@
         padding: 50px 0;
         max-width: 900px;
         margin: auto;
+        width: 760px;
+        max-width: 90%;
         @media(max-width: @mobile-breakpoint) {
             display: block;
             padding: 50px;
             max-width: unset;
+            width: unset;
         }
 
         .widget {
@@ -110,14 +113,6 @@
                 }
             }
 
-            &.authors {
-                @media(max-width: @tablet-breakpoint) {
-                    display: none;
-                }
-                @media(max-width: @mobile-breakpoint) {
-                    display: block;
-                }
-            }
         }
     }
 
