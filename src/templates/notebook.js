@@ -18,7 +18,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
     const notebook = file.childJupyterNotebook
     const languageName = notebook.metadata.language_info.name
     const languageVersion = notebook.metadata.language_info.version
-    const githubLink = file.gitRemote.webLink + file.relativePath
+    const githubLink = file.gitRemote.webLink
     const githubRepoName = file.gitRemote.full_name
 
     return (

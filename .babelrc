@@ -19,7 +19,8 @@
                     "jsx",
                     "graphql",
                     "sql",
-                    "jinja2"
+                    "jinja2",
+                    "handlebars"
                 ],
                 "plugins": ["line-numbers", "normalize-whitespace"],
                 "theme": "default",

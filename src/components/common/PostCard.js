@@ -15,7 +15,7 @@ const PostCard = ({ post }) => {
     const authorFirstName = post.primary_author.name.split(` `)[0]
 
     return (<div className="post-card">
-        { post.feature_image && <Link to={url}><img className="post-card-image lazyload" data-src={post.feature_image} data-rjs="2" alt={post.title} /></Link> }
+        { post.feature_image && <Link to={url}><img className="post-card-image lazyload" data-src={post.feature_image} /></Link> }
         { post.featured && <span>Featured</span> }
         <div className="post-card-detail">
             <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
@@ -23,7 +23,7 @@ const PostCard = ({ post }) => {
             <footer className="post-card-footer">
                 <div className="meta-item tag">
                     <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />
-                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator="" classes={post.id} />}
+                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={false} separator={null} classes={post.id} />}
                 </div>
                 <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                 <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /><span>{authorFirstName}</span> </Link></div>
