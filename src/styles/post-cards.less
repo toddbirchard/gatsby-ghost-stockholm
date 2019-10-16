@@ -25,7 +25,7 @@
         font-size: 2em;
         color: @header-color;
         letter-spacing: 0;
-        font-family: @header-bold;
+        font-family: @header-font;
         transition: @transition;
         @media(max-width: @mobile-breakpoint) {
             font-size: 1.7em;
@@ -54,7 +54,7 @@
             line-height: 1.1;
             font-family: @header-font;
             transition: all 0.2s ease-out;
-            color: @header-color;
+            color: lighten(@header-color, 10%);
             font-size: 1.3em;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;

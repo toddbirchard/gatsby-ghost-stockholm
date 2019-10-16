@@ -20,9 +20,9 @@ const TwitterWidget = ({ data }) => {
                     {tweets.map(({ node }) => (
                         <div className="tweet" key={node.id}>
                             <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
-                            {node.entities.hashtags ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
+                            {node.entities.hashtags.length > 0 ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
                                 <a href={`https://twitter.com/hashtag/${text}`} key={text} className="hashtag">#{text}</a>
-                            ))}</div> : 0 }
+                            ))}</div> : null }
                             <div className="tweet-head">
                                 {node.entities.urls.map(({ display_url }) => (
                                     <a href={display_url} className="tweet-link" key="1">{ display_url }</a>
