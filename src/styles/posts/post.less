@@ -25,7 +25,8 @@
                 font-size: 2.8em;
                 letter-spacing: 0;
                 line-height: 1.1;
-                color: @header-color;
+                color: #3a444f;
+                font-weight: 500;
                 text-align: center;
                 max-width: 720px;
                 margin: 0 auto 60px;
@@ -303,7 +304,6 @@
             }
 
             li {
-                font-size: 0.98em;
                 text-align: left;
                 color: @body-color;
                 font-family: @body-font;
@@ -578,7 +578,6 @@
                 overflow: hidden;
                 margin: 30px auto;
                 max-width: 85%;
-                font-style: italic;
                 border-left: 0.4em solid #DDDFE2;
                 background: #f6f6f6;
 
@@ -586,22 +585,20 @@
                     margin: 20px auto;
                 }
 
-                & > p {
+                 p {
                     margin: 0 0 20px !important;
-                    color: #858e94;
-                    font-style: italic;
-                    -webkit-font-smoothing: antialiased;
-                }
 
-                & > p:last-child {
-                    margin: 0 !important;
+                    &:last-child {
+                        margin: 0 !important;
+                    }
                 }
 
                 * {
-                    font-style: italic;
                     font-weight: 400;
                     line-height: 1.5;
+                    font-size: .95em;
                     color: #858e94;
+                    -webkit-font-smoothing: antialiased;
                     font-family: @body-font-bold;
                 }
 
@@ -651,8 +648,8 @@
         margin-bottom: 0 !important;
 
         .nav-wrapper {
-            max-width: 950px;
-            @media(max-width: 950px) {
+            max-width: 900px;
+            @media(max-width: 900px) {
                 max-width: 88%;
             }
             @media(max-width: @mobile-breakpoint) {
