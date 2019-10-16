@@ -16,9 +16,9 @@ import '../styles/pages/jupyter.less'
 const JupyterNotebook = ({ data, pageContext }) => {
     const file = data.file
     const notebook = file.childJupyterNotebook
-    const languageName = notebook.metadata.language_info.name
-    const languageVersion = notebook.metadata.language_info.version
-    const githubLink = file.gitRemote.webLink
+    const languageName = notebook.metadata ? notebook.metadata.language_info.name : null
+    const languageVersion = notebook.metadata ? notebook.metadata.language_info.version : null
+    const githubLink = file.gitRemote.webLink + file.relativePath
     const githubRepoName = file.gitRemote.full_name
 
     return (
