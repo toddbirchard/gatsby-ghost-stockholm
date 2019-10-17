@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faArrowLeft, faArrowRight } from '@fortawesome/pro-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(faArrowLeft, faArrowRight)
 
 const Pagination = ({ pageContext }) => {
     const { previousPagePath, nextPagePath, humanPageNumber, numberOfPages } = pageContext
@@ -10,18 +15,16 @@ const Pagination = ({ pageContext }) => {
             <div className="pagination-button">
                 {previousPagePath && (
                     <Link to={previousPagePath} rel="prev">
-                            Previous
+                        <FontAwesomeIcon icon={[`far`, `arrow-left`]} size="sm" /> Previous
                     </Link>
                 )}
             </div>
             {numberOfPages > 1 && <div className="pagination-location">Page {humanPageNumber} of {numberOfPages}</div>}
-            <div className="pagination-button">
-                {nextPagePath && (
-                    <Link to={nextPagePath} rel="next">
-                            Next
-                    </Link>
-                )}
-            </div>
+]                 {nextPagePath && (
+                <Link to={nextPagePath} rel="next">
+                         Next <FontAwesomeIcon icon={[`far`, `arrow-right`]} size="sm" />
+                </Link>
+            )}
         </nav>
     )
 }

@@ -10,7 +10,7 @@ const TwitterWidget = ({ data }) => {
           <>
             <div className="widget twitter">
                 <div className="twitter-header">
-                    <img src={user.profile_image_url_https} className="twitter-avatar"/>
+                    <img src={user.profile_image_url_https} className="twitter-avatar" alt="twitter-avatar"/>
                     <div>
                         <a href={user.url} className="twitter-name">{user.name}</a>
                         <div className="twitter-user">@{user.screen_name}</div>

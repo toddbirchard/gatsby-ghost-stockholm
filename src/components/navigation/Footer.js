@@ -1,17 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faRss, faTag } from '@fortawesome/pro-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import Img from 'gatsby-image'
+
 import {
     Link,
     StaticQuery,
     graphql,
 } from 'gatsby'
 import config from '../../utils/siteConfig'
-
-library.add(fab, faRss, faTag)
 
 const Footer = ({ navigation, site, data }) => {
     const authorLinks = data.allGhostAuthor.edges
