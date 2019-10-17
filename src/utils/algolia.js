@@ -9,6 +9,10 @@ const postQuery = `{
         }
         feature_image
         excerpt
+        tags {
+          name
+          description
+        }
       }
     }
   }
