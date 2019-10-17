@@ -23,19 +23,21 @@ const Navigation = ({ data, navClass, logo }) => (
     <>
     <nav className="navigation">
         <div className="nav-wrapper">
-            <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
-            <div className="nav-links">
-                {data.map((navItem, i) => {
-                    if (navItem.url.includes(`rss`) || navItem.url.includes(`sitemap`)) {
-                        return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                    } else if (navItem.url.includes(config.siteUrl)) {
-                        return <Link className={`${navClass} ${navItem.label}`} to={`${navItem.url.split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
-                    } else {
-                        return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                    }
-                })}
+            <div className="nav-left">
+                <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
+                <div className="nav-links">
+                    {data.map((navItem, i) => {
+                        if (navItem.url.includes(`rss`) || navItem.url.includes(`sitemap`)) {
+                            return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
+                        } else if (navItem.url.includes(config.siteUrl)) {
+                            return <Link className={`${navClass} ${navItem.label}`} to={`${navItem.url.split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
+                        } else {
+                            return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
+                        }
+                    })}
+                </div>
             </div>
-            <Search collapse indices={searchIndices} />
+            <Search collapse indices={searchIndices} className="search-widget" />
         </div>
     </nav>
     </>

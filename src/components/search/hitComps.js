@@ -8,7 +8,7 @@ export const PostHit = clickHandler => ({ hit }) => (
         <Link to={`/blog` + hit.slug} onClick={clickHandler}>
             <h4> <Highlight attribute="title" hit={hit} tagName="mark" /> </h4>
         </Link>
-        <div className="tag"> <Tags size="1em" />   {hit.primary_tag} </div>
+        <div className="tag"> <Tags size="1em" />   {hit.primary_tag.name} </div>
         <Snippet attribute="excerpt" hit={hit} tagName="mark" />
     </div>
 )
