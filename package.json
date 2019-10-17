@@ -60,6 +60,7 @@
     "gatsby-cli": "^2.8.1",
     "gatsby-image": "2.2.29",
     "gatsby-plugin-advanced-sitemap": "^1.4.4",
+    "gatsby-plugin-algolia": "^0.3.4",
     "gatsby-plugin-feed": "2.3.18",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
     "gatsby-plugin-less": "^3.0.12",
