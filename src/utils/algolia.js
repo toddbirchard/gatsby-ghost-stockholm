@@ -1,0 +1,34 @@
+const postQuery = `{
+  posts: allGhostPost(filter: {slug: {nin: "roundup"}}) {
+    edges {
+      node {
+        slug
+        title
+        primary_tag {
+          name
+        }
+        feature_image
+        excerpt
+      }
+    }
+  }
+}`
+
+const flatten = arr => arr.map(({ node: { frontmatter, ...rest } }) => {
+    return {
+        ...frontmatter,
+        ...rest,
+    }
+})
+const settings = { attributesToSnippet: [`excerpt:20`] }
+
+const queries = [
+    {
+        query: postQuery,
+        transformer: ({ data }) => flatten(data.posts.edges),
+        indexName: `Posts`,
+        settings,
+    },
+]
+
+module.exports = queries

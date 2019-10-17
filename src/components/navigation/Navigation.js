@@ -2,7 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import config from '../../utils/siteConfig'
+import Search from "../Search"
+import { Container, Logo } from "../search/searchStyles"
 
+const searchIndices = [
+    { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
+]
 /**
 * Navigation component
 *
@@ -30,6 +35,7 @@ const Navigation = ({ data, navClass, logo }) => (
                     }
                 })}
             </div>
+            <Search collapse indices={searchIndices} />
         </div>
     </nav>
     </>
