@@ -51,7 +51,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
             onSearchStateChange={({ query }) => setQuery(query)}
             root={{ Root, props: { ref } }}
-            className="TEST"
         >
             <SearchInput onFocus={() => setFocus(true)} {...{ collapse, focus }} />
             <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
