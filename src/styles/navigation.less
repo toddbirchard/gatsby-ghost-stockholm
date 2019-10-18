@@ -102,18 +102,15 @@
                     &:focus,
                     &:hover {
                         background: #e1edf6;
-                    }
-                }
 
-                &::placeholder {
-                  &:focus,
-                  &:hover {
-                        color: #95aaba;
-                    }
-                }
+                        &::placeholder {
+                            color: #95aaba;
+                        }
 
-                &:enabled {
-                  border: 1px solid blue;
+                        svg {
+                            color: #95aaba;
+                        }
+                    }
                 }
 
                 svg {
@@ -127,23 +124,15 @@
                     margin: auto;
                     color: #b1b1b1;
                 }
-
-                &:focus,
-                &:hover {
-                      svg {
-                          color: #95aaba;
-                      }
-                  }
             }
 
             & > div > div {
-              overflow: hidden;
-              box-shadow: none;
-              border: 1px solid #d6d6d6;
+                overflow: hidden;
+                box-shadow: none;
+                border: 1px solid #d6d6d6;
             }
-
             @media(max-width: @mobile-breakpoint) {
-              display: none;
+                display: none;
             }
         }
     }
