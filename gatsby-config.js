@@ -273,9 +273,8 @@ module.exports = {
           options: {
             appId: process.env.GATSBY_ALGOLIA_APP_ID,
             apiKey: process.env.GATSBY_ALGOLIA_ADMIN_KEY,
-            indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
             queries,
-            chunkSize: 1000,
+            chunkSize: 1000, // default: 1000
           },
         },
         `gatsby-plugin-styled-components`,
