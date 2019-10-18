@@ -7,7 +7,7 @@ import {
 } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 
-import { Root, HitsWrapper } from "./searchStyles"
+import { Root, HitsWrapper } from "./SearchStyles"
 import Input from "./SearchForm"
 import * as hitComps from "./HitComps"
 
