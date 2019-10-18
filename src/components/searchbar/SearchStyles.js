@@ -50,17 +50,6 @@ const expand = css`
   }
 `
 
-export const Input = styled.input`
-  outline: none;
-  border: none;
-  font-size: 1em;
-  background: transparent;
-  transition: ${props => props.theme.shortTrans};
-  border-radius: ${props => props.theme.smallBorderRadius};
-  {highlight-next-line}
-  ${props => (props.collapse ? collapse : expand)};
-`
-
 export const Form = styled.form`
   display: flex;
   flex-direction: row-reverse;

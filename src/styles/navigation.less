@@ -87,10 +87,54 @@
             }
         }
 
-        .search-widget {
-          form {
-            background: grey;
-          }
+        .nav-right {
+            form {
+                input {
+                    line-height: normal;
+                    background: #efefef;
+                    width: 200px;
+                    border: 0;
+                    padding: 12px 17px;
+                    font-size: 1em;
+                    border-radius: 3px;
+                    transition: @transition;
+
+                    &:focus,
+                    &:hover {
+                        background: #e1edf6;
+                    }
+                }
+
+                &::placeholder {
+                  &:focus,
+                  &:hover {
+                        color: #95aaba;
+                    }
+                }
+
+                &:enabled {
+                  border: 1px solid blue;
+                }
+
+                svg {
+                    width: 1.3em;
+                    font-size: 1.2em;
+                    pointer-events: none;
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    color: #b1b1b1;
+                }
+
+                &:focus,
+                &:hover {
+                      svg {
+                          color: #95aaba;
+                      }
+                  }
+            }
         }
     }
 }
