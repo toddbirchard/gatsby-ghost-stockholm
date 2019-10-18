@@ -1,10 +1,5 @@
 import React, { useState, useEffect, createRef } from "react"
-import {
-    InstantSearch,
-    Index,
-    Hits,
-    connectStateResults,
-} from "react-instantsearch-dom"
+import { InstantSearch, Index, Hits, connectStateResults } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 import { Root, SearchBox, HitsWrapper } from "./SearchStyles"
 import Input from "./SearchInput"
@@ -39,15 +34,15 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     const [query, setQuery] = useState(``)
     const [focus, setFocus] = useState(false)
     const searchClient = algoliasearch(
-        process.env.GATSBY_ALGOLIA_APP_ID,
-        process.env.GATSBY_ALGOLIA_SEARCH_KEY
+        process.env.ALGOLIA_APP_ID,
+        process.env.ALGOLIA_SEARCH_KEY
     )
     useClickOutside(ref, () => setFocus(false))
     return (
         <InstantSearch
             searchClient={searchClient}
             indexName={indices[0].name}
-            onSearchStateChange={({ query }) => setQuery(query)}
+            onSearchStateChange={({ query }) => setQuery(`query`)}
             root={{ Root, props: { ref } }}
         >
             <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />

@@ -135,9 +135,13 @@
                       }
                   }
             }
-            & > div {
 
+            & > div > div {
+              overflow: hidden;
+              box-shadow: none;
+              border: 1px solid #d6d6d6;
             }
+
             @media(max-width: @mobile-breakpoint) {
               display: none;
             }
