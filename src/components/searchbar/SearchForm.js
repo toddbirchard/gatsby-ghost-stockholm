@@ -20,7 +20,7 @@ export default connectSearchBox(({ refine, ...rest }) => (
     </form>
 ))
 
-export const Input = styled.input`
+export const SearchInput = styled.input`
   outline: none;
   border: none;
   font-size: 1em;

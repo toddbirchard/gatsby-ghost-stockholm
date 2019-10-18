@@ -8,7 +8,7 @@ import {
 import algoliasearch from "algoliasearch/lite"
 
 import { Root, HitsWrapper } from "./SearchStyles"
-import Input from "./SearchForm"
+import SearchInput from "./SearchForm"
 import * as hitComps from "./HitComps"
 
 const Results = connectStateResults(
@@ -48,12 +48,12 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     return (
         <InstantSearch
             searchClient={searchClient}
-            indexName={indices[0].slug}
+            indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME}
             onSearchStateChange={({ query }) => setQuery(query)}
             root={{ Root, props: { ref } }}
             className="TEST"
         >
-            <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
+            <SearchInput onFocus={() => setFocus(true)} {...{ collapse, focus }} />
             <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
                 {indices.map(({ slug, title, hitComp }) => (
                     <Index key={slug} indexName={slug}>
