@@ -20,8 +20,12 @@ const postQuery = `{
 
 const flatten = arr => arr.map(({ node: { frontmatter, ...rest } }) => {
     return {
-        ...frontmatter,
-        ...rest,
+      slug,
+      title,
+      primary_tag,
+      feature_image,
+      excerpt,
+      tags,
     }
 })
 const settings = { attributesToSnippet: [`excerpt:20`] }
