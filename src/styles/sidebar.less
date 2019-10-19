@@ -21,11 +21,13 @@
 
         &.about {
             .site-headline {
-                color: @header-color;
-                text-transform: uppercase;
-                text-align: justify;
-                font-size: 149%;
-                white-space: nowrap;
+              color: #6d7a87;
+              text-transform: uppercase;
+              font-size: 136%;
+              display: block;
+              width: 100%;
+              text-align: justify;
+              white-space: nowrap;
             }
 
             .description {
@@ -164,6 +166,45 @@
                   }
                 }
             }
+        }
+
+        &.trending {
+          .trending-page{
+            display: block;
+            color: lighten(@header-color, 15%);
+            padding: 10px 0 15px;
+            margin: 10px 0;
+            border-bottom: 1px solid #e7e7e7;
+            font-weight: 600;
+            font-size: .9em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &:first-of-type {
+              padding: 0 0 15px;
+              margin: 0 0 10px;
+            }
+
+            &:last-of-type {
+              padding: 10px 0 0;
+              margin: 10px 0 0;
+              border-bottom: 0 solid #e7e7e7;
+            }
+          }
+
+          .trending-widget-footer {
+            color: #349459;
+            font-weight: bold;
+            opacity: .6;
+            font-size: .9em;
+            margin-top: 35px;
+
+            svg {
+              margin-right: 3px;
+              font-size: 1.1em;
+            }
+          }
         }
 
         &.twitter {

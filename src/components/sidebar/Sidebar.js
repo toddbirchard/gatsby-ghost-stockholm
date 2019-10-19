@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { AboutWidget, NewsletterWidget, SocialWidget, TagsWidget, SeriesWidget, TwitterWidget } from '.'
+import { AboutWidget, NewsletterWidget, SocialWidget, TagsWidget, SeriesWidget, TwitterWidget, TrendingWidget } from '.'
 
 /**
 * Sidebar component
@@ -18,6 +18,7 @@ const Sidebar = ({ site, tags }) => {
             <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
             <TagsWidget tags={tags} />
             <SeriesWidget />
+            <TrendingWidget />
             <NewsletterWidget />
             <TwitterWidget />
         </aside>

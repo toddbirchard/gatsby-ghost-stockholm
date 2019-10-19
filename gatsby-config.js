@@ -267,14 +267,14 @@ module.exports = {
             },
           },
         },
-        /*{
+        {
           resolve: "gatsby-source-pg",
           options: {
             connectionString: process.env.POSTGRES_CONNECTION_STRING,
             schema: process.env.POSTGRES_SCHEMA,
             refetchInterval: 600, // Refetch data every 60 seconds
           },
-        },*/
+        },
         /* Search */
         {
           resolve: `gatsby-plugin-algolia`,
