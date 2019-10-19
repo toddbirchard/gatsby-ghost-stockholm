@@ -107,7 +107,14 @@ Post.propTypes = {
             }).isRequired,
         ),
         ghostAuthor: PropTypes.object.isRequired,
-        relatedPosts: PropTypes.object,
+        relatedPosts: PropTypes.arrayOf(
+            PropTypes.shape({
+                ghostId: PropTypes.string,
+                feature_image: PropTypes.string,
+                title: PropTypes.string,
+                slug: PropTypes.string,
+            }),
+        ),
         seriesPosts: PropTypes.arrayOf(
             PropTypes.shape({
                 slug: PropTypes.string.isRequired,

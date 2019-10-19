@@ -21,11 +21,11 @@
 
         &.about {
             .site-headline {
-              color: @header-color;
-              text-transform: uppercase;
-              text-align: justify;
-              font-size: 149%;
-              white-space: nowrap;
+                color: @header-color;
+                text-transform: uppercase;
+                text-align: justify;
+                font-size: 149%;
+                white-space: nowrap;
             }
 
             .description {
@@ -125,6 +125,47 @@
             }
         }
 
+        &.series {
+            padding: 0;
+
+            img {
+                width: 100%;
+            }
+
+            .series-widget-detail {
+                padding: 30px;
+
+                .series-widget-title {
+                    margin: 0 0 10px;
+                    font-family: @header-font;
+                }
+
+                .series-widget-description {
+                  line-height: 1.1;
+                  margin-bottom: 20px;
+                }
+
+                .series-widget-footer {
+                  text-align: right;
+                  opacity: .6;
+                  font-size: .9em;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  .series-widget-trending {
+                    color: #349459;
+                    font-weight: bold;
+
+                    svg {
+                      margin-right: 3px;
+                      font-size: 1.1em;
+                    }
+                  }
+                }
+            }
+        }
+
         &.twitter {
             overflow: hidden;
 
@@ -156,7 +197,7 @@
 
             .tweet {
                 border-bottom: 1px solid #e7e7e7;
-                padding: 30px 0 30px;
+                padding: 30px 0;
                 font-family: 'HarmoniaSansPro-Regular', sans-serif;
 
                 &:last-of-type {
@@ -190,7 +231,6 @@
                     overflow: hidden;
                     max-width: 70%;
                     text-overflow: ellipsis;
-
                 }
 
                 .tweet-hastags {

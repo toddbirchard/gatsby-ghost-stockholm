@@ -30,6 +30,10 @@
         .nav-left {
             display: flex;
             align-items: center;
+            @media(max-width: @tablet-breakpoint) {
+                width: 100%;
+                justify-content: space-between;
+            }
 
             .logo {
                 transition: all 0.2s ease-out;
@@ -106,16 +110,19 @@
                         &::placeholder {
                             color: #95aaba;
                         }
-
-                        svg {
-                            color: #95aaba;
-                        }
                     }
+                }
+
+                &:focus,
+                &:hover {
+                  svg {
+                      color: #95aaba;
+                  }
                 }
 
                 svg {
                     width: 1.3em;
-                    font-size: 1.2em;
+                    font-size: 1em;
                     pointer-events: none;
                     position: absolute;
                     right: 10px;
@@ -130,13 +137,15 @@
                 overflow: hidden;
                 box-shadow: none;
                 border: 1px solid #d6d6d6;
+                display: none;
             }
-            @media(max-width: @mobile-breakpoint) {
+            @media(max-width: @tablet-breakpoint) {
                 display: none;
             }
         }
     }
 }
+
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
 @media(max-width: 800px) {

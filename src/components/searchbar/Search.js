@@ -41,7 +41,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     return (
         <InstantSearch
             searchClient={searchClient}
-            indexName={indices[0].name}
+            indexName="Posts"
             onSearchStateChange={({ query }) => setQuery(`query`)}
             root={{ Root, props: { ref } }}
         >
