@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createRef } from "react"
 import { InstantSearch, Index, Hits, connectStateResults } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
-import { Root, SearchBox, HitsWrapper } from "./SearchStyles"
+import { Root, HitsWrapper } from "./SearchStyles"
 import Input from "./SearchInput"
 import * as hitComps from "./HitComps"
 
