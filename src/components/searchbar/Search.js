@@ -4,6 +4,7 @@ import algoliasearch from "algoliasearch/lite"
 import { Root, HitsWrapper } from "./SearchStyles"
 import Input from "./SearchInput"
 import * as hitComps from "./HitComps"
+import { dotenv } from 'dotenv'
 
 const Results = connectStateResults(
     ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : `No results for ${state.query}`)
