@@ -20,7 +20,7 @@ const Pagination = ({ pageContext }) => {
                 )}
             </div>
             {numberOfPages > 1 && <div className="pagination-location">Page {humanPageNumber} of {numberOfPages}</div>}
-]                 {nextPagePath && (
+            {nextPagePath && (
                 <Link to={nextPagePath} rel="next">
                          Next <FontAwesomeIcon icon={[`far`, `arrow-right`]} size="sm" />
                 </Link>

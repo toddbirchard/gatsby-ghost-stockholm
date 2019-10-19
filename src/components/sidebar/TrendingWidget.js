@@ -7,18 +7,36 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 library.add(faChartLine)
 
-
 const TrendingWidget = ({ data }) => {
-  const topPages = data.postgres.allTopPages.edges
+    const topPages = data.postgres.allTopPages.edges
 
     return (
         <div className="widget trending">
-          {topPages.map(({ node }) => (
-              <Link to={ node.path } className="trending-page" key={ node.title }>{`${node.title.split(' | ')[0]}`}</Link>
-          ))}
-          <div className="trending-widget-footer"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="sm" /> <span>Top Posts This Week</span></div>
+            <div className="widget-trending-header">
+                <div className="trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="sm" /> <span>Trending</span></div>
+                <div className="trend-type">Top Posts This Week</div>
+            </div>
+            <div className="widget-trending-pages">
+                {topPages.map(({ node }) => (
+                    <Link to={ node.path } className="trending-page" key={ node.title }>{`${node.title.split(` | `)[0]}`}</Link>
+                ))}
+            </div>
         </div>
     )
+}
+
+TrendingWidget.propTypes = {
+    data: PropTypes.shape({
+        postgres: PropTypes.shape({
+            allTopPages: PropTypes.arrayOf(
+                PropTypes.shape({
+                    title: PropTypes.string.isRequired,
+                    path: PropTypes.string.isRequired,
+                    count: PropTypes.number.isRequired,
+                }),
+            ),
+        }).isRequired,
+    }).isRequired,
 }
 
 const TrendingWidgetQuery = props => (

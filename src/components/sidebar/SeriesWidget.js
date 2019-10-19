@@ -15,11 +15,17 @@ const SeriesWidget = ({ data }) => {
 
     return (
         <div className="widget series">
-            { series.feature_image && <Link to={url}><img className="series-widget-image lazyload" data-src={series.feature_image} alt={series.name}/></Link> }
-            <div className="series-widget-detail">
-                <Link to={url}><h3 className="series-widget-title">{title}</h3></Link>
-                <section className="series-widget-description">{series.description}</section>
-                <div className="series-widget-footer"><div className="series-widget-trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="sm" /> <span>Trending Series</span></div> <div className="post-count">{series.postCount} <span>posts</span></div></div>
+            <div className="widget-trending-header">
+                <div className="trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="sm" /> <span>Trending</span></div>
+                <div className="trend-type">Top Series This Week</div>
+            </div>
+            <div className="widget-series-featured">
+                { series.feature_image && <Link to={url}><img className="series-widget-image lazyload" data-src={series.feature_image} alt={series.name}/></Link> }
+                <div className="series-widget-detail">
+                    <Link to={url}><h3 className="series-widget-title">{title}</h3></Link>
+                    <section className="series-widget-description">{series.description}</section>
+                    <div className="series-widget-count"> {series.postCount} <span>posts</span></div>
+                </div>
             </div>
         </div>
     )

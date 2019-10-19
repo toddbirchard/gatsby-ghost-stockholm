@@ -66,7 +66,6 @@ const Footer = ({ navigation, site, data }) => {
                 <p className="copyright-txt">{config.siteCopyright}</p>
             </div>
         </footer>
-
     </>
     )
 }

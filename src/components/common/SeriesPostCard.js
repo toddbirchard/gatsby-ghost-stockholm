@@ -13,6 +13,7 @@ const SeriesPostCard = ({ post, count }) => {
         <div className="series-post-card-detail">
             <div className="series-post-card-count"><span>Post</span> {postNumber}</div>
             <h2 className="series-post-card-title"><Link to={url}>{post.title}</Link></h2>
+            <section className="series-post-card-excerpt">{post.excerpt}</section>
         </div>
     </div>)
 }
@@ -21,6 +22,7 @@ SeriesPostCard.propTypes = {
     post: PropTypes.shape({
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        excerpt: PropTypes.string.isRequired,
         feature_image: PropTypes.string,
         published_at: PropTypes.string.isRequired,
     }).isRequired,

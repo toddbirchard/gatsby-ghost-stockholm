@@ -22,7 +22,7 @@
         }
 
         .series-description {
-            line-height: 1.3;
+            line-height: 1.1;
             margin: 5px 0;
         }
     }
@@ -55,7 +55,7 @@
 
     .post-feed {
         padding: 0 60px 60px;
-        grid-gap: 40px;
+        grid-gap: 50px;
         @media(max-width: @tablet-breakpoint) {
             width: auto;
             margin: 0 40px;
@@ -75,9 +75,9 @@
         }
 
         .series-post-card-image {
-            min-width: 100px;
-            width: 100px;
-            height: 70px;
+          min-width: 120px;
+          width: 120px;
+          height: 80px;
             border-radius: 2px;
             overflow: hidden;
             @media(max-width: @mobile-breakpoint) {
@@ -104,7 +104,7 @@
                 margin-bottom: 5px;
                 color: #76879f;
                 font-weight: 600;
-                font-size: 1em;
+                font-size: .8em;
                 @media(max-width: @mobile-breakpoint) {
                     font-size: 0.8em;
                     min-width: 50px;
@@ -118,9 +118,10 @@
             .series-post-card-title {
                 font-family: @header-bold;
                 font-weight: normal;
-                font-size: 1.4em;
+                font-size: 1.3em;
                 line-height: 1.1;
                 color: lighten(@header-color, 2%);
+                margin-bottom: 5px;
                 @media(max-width: @mobile-breakpoint) {
                     margin: 0;
                     font-size: 1em;
@@ -139,6 +140,8 @@
             }
 
             .series-post-card-excerpt {
+              font-size: 1.1em;
+              opacity: .8;
                 @media(max-width: @mobile-breakpoint) {
                     display: none;
                 }
