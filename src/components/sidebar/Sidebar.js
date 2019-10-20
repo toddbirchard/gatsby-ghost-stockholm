@@ -7,14 +7,14 @@ import { AboutWidget, NewsletterWidget, SocialWidget, TagsWidget, SeriesWidget, 
 * Sidebar component
 */
 
-const Sidebar = ({ site, tags }) => {
+const Sidebar = ({ site, tags, template }) => {
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
 
     return (
       <>
         <aside className="sidebar">
-            <AboutWidget site={site} />
+            {template === `home-template` ? <AboutWidget site={site} /> : null }
             <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
             <TagsWidget tags={tags} />
             <SeriesWidget />
@@ -41,6 +41,7 @@ Sidebar.propTypes = {
             postCount: PropTypes.number,
         })
     ).isRequired,
+    template: PropTypes.string.isRequired,
 }
 
 export default Sidebar
