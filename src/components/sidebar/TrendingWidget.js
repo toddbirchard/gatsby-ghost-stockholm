@@ -18,7 +18,7 @@ const TrendingWidget = ({ data }) => {
             </div>
             <div className="widget-trending-pages">
                 {topPages.map(({ node }) => (
-                    <Link to={ node.path } className="trending-page" key={ node.title }>{`${node.title.split(` | `)[0]}`}</Link>
+                    <Link to={ node.path } className="trending-page" key={ node.title }>{`${node.title.split(` | `)[0].split(` - `)[0]}`}</Link>
                 ))}
             </div>
         </div>

@@ -272,7 +272,7 @@ module.exports = {
           options: {
             connectionString: process.env.POSTGRES_CONNECTION_STRING,
             schema: process.env.POSTGRES_SCHEMA,
-            refetchInterval: 600, // Refetch data every 60 seconds
+            refetchInterval: 6000, // Refetch data every 60 seconds
           },
         },
         /* Search */
