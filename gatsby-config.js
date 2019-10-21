@@ -96,29 +96,6 @@ module.exports = {
          *  Utility Plugins
          */
         {
-            resolve: `gatsby-transformer-remark`,
-            options: {
-                plugins: [{
-                        resolve: `gatsby-remark-images`,
-                        options: {
-                            withWebp: true,
-                        },
-                    },
-                    `gatsby-remark-lazy-load`,
-                    {
-                        resolve: `gatsby-remark-prismjs`,
-                        options: {
-                            classPrefix: "language-",
-                            inlineCodeMarker: null,
-                            aliases: {},
-                            showLineNumbers: false,
-                            noInlineHighlight: false,
-                        },
-                    },
-                ],
-            },
-        },
-        {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
                 short_name: config.shortTitle,

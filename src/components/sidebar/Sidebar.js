@@ -16,9 +16,9 @@ const Sidebar = ({ site, tags, template }) => {
         <aside className="sidebar">
             {template === `home-template` ? <AboutWidget site={site} /> : null }
             <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
+            <TrendingWidget />
             <TagsWidget tags={tags} />
             <SeriesWidget />
-            <TrendingWidget />
             <NewsletterWidget />
             <TwitterWidget />
         </aside>
