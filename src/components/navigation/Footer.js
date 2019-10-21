@@ -31,7 +31,9 @@ const Footer = ({ navigation, site, data }) => {
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
                     {navigation.map((navItem, i) => {
-                        if (navItem.url.includes(config.siteUrl)) {
+                        if (navItem.url.includes(`rss`) || navItem.url.includes(`sitemap`)) {
+                            return <a className="footer-link" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
+                        } else if (navItem.url.includes(config.siteUrl)) {
                             return <Link className="footer-link" to={`${navItem.url.split(`/`).pop()}`} key={i} >{navItem.label}</Link>
                         } else {
                             return <a className="footer-link" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
