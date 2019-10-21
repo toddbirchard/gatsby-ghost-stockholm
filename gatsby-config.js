@@ -1,8 +1,7 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+require(`dotenv`).config({
+    path: `.env.${process.env.NODE_ENV}`,
 })
-const queries = require("./src/utils/algolia")
-
+const queries = require(`./src/utils/algolia`)
 
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
@@ -56,14 +55,14 @@ module.exports = {
             },
         },
         {
-        resolve: `gatsby-source-git`,
-        options: {
-          name: `jupyter`,
-          remote: `https://github.com/hackersandslackers/jupyter`,
-          branch: `master`,
-          //patterns: `*.ipynb`
-        }
-      },
+            resolve: `gatsby-source-git`,
+            options: {
+                name: `jupyter`,
+                remote: `https://github.com/hackersandslackers/jupyter`,
+                branch: `master`,
+                //patterns: `*.ipynb`
+            }
+        },
         `@gatsby-contrib/gatsby-transformer-ipynb`,
         // Setup for optimised images.
         // See https://www.gatsbyjs.org/packages/gatsby-image/
@@ -215,7 +214,7 @@ module.exports = {
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
         {
-          resolve: 'gatsby-plugin-segment-js',
+          resolve: `gatsby-plugin-segment-js`,
           options: {
             prodKey: process.env.SEGMENT_WRITE_KEY,
             writeKey: process.env.SEGMENT_WRITE_KEY,
@@ -232,12 +231,12 @@ module.exports = {
             },
             queries: {
               HackersTweets: {
-                endpoint: "statuses/user_timeline",
+                endpoint: `statuses/user_timeline`,
                 params: {
-                  screen_name: "hackersslackers",
+                  screen_name: `hackersslackers`,
                   include_rts: false,
                   exclude_replies: true,
-                  tweet_mode: "extended",
+                  tweet_mode: `extended`,
                   count: 7,
                 },
               },
@@ -245,7 +244,7 @@ module.exports = {
           },
         },
         {
-          resolve: "gatsby-source-pg",
+          resolve: `gatsby-source-pg`,
           options: {
             connectionString: process.env.POSTGRES_CONNECTION_STRING,
             schema: process.env.POSTGRES_SCHEMA,

@@ -46,12 +46,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
         >
             <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
             <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-                {indices.map(({ name, title, hitComp }) => (
+                {indices.map(({ name, hitComp }) => (
                     <Index key={name} indexName={name}>
-                        <header>
-                            <h3>{title}</h3>
-                            <Stats />
-                        </header>
                         <Results>
                             <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
                         </Results>
