@@ -10,19 +10,14 @@ const postQuery = `{
         }
         feature_image
         excerpt
-        tags {
-          name
-          description
-        }
       }
     }
   }
 }`
 
 const flatten = arr =>
-  arr.map(({ node: { primary_tag, tags, ...rest } }) => ({
+  arr.map(({ node: { primary_tag, ...rest } }) => ({
     ...primary_tag,
-    ...tags,
     ...rest,
   }))
 const settings = { attributesToSnippet: [`excerpt:20`] }
