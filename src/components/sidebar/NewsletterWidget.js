@@ -1,4 +1,9 @@
 import React from 'react'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faArrowRight } from '@fortawesome/pro-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(faArrowRight)
 
 /**
 * Newsletter widget
@@ -12,9 +17,10 @@ const NewsletterWidget = () => {
         <div className="widget newsletter">
             <p className="newsletter-description">{newsletterCopy}</p>
             <form name="newsletter" method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/confirmation" >
+                <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
                 <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
                 <input className="phone-number" type="phone" name="phone-number" placeholder="Your phone number" style={{ display: `none` }} />
-                <button type="submit">Send</button>
+                <button type="submit">Sign Up <FontAwesomeIcon icon={[`far`, `arrow-right`]} size="sm" /></button>
             </form>
         </div>
     </>

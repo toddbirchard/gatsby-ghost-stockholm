@@ -29,11 +29,11 @@
               color: #3fa77a;
               font-weight: bold;
               opacity: 0.7;
-              font-size: 1em;
+              font-size: .95em;
 
                 svg {
                     margin: 0 3px 0 0;
-                    font-size: 1.1em;
+                    font-size: 1em;
                 }
             }
 
@@ -106,46 +106,44 @@
 
         &.newsletter {
             .newsletter-description {
-                font-size: 1em;
-                line-height: 1.3;
+              font-size: .95em;
+              line-height: 1.2;
+              margin-bottom: 10px;
             }
 
-            input[type="text"],
-            input[type="email"] {
+            input {
                 width: -webkit-fill-available;
                 width: -moz-available;
                 width: -moz-available;
-                padding: 13px 10px;
+                padding: 10px;
                 background: white;
                 font-size: 0.9em;
                 letter-spacing: 1px;
                 border: 1px solid #d5dbe6;
                 transition: @transition;
-                margin: 10px 0;
+                margin: 10px 0 0;
                 .input-field-interactions();
             }
 
             button {
-                width: -webkit-fill-available !important;
-                width: -moz-available !important;
-                background: @theme-color;
-                padding: 10px;
                 font-size: 1em;
-                color: white;
-                border: 1px solid @theme-color;
-                text-transform: Uppercase;
-                outline: none;
+                color: @theme-color;
+                border: 0;
                 transition: @transition;
-                margin-top: 0;
+                margin-top: 10px;
+                background: none;
+                text-align: right;
+                width: 100%;
+                font-weight: 500;
+                outline: none;
+                padding: 0;
 
-                span {
-                    font-size: 14px;
-                    text-transform: uppercase;
+                svg {
+                  margin-left: 3px;
                 }
 
                 &:hover {
-                    background: white;
-                    color: @theme-color !important;
+                    color: @hover-color !important;
                     cursor: pointer;
                 }
             }
@@ -249,7 +247,7 @@
                 .twitter-name {
                     color: #4b5776;
                     font-weight: 600;
-                    font-size: 1.2em;
+                    font-size: 1.3em;
                 }
 
                 .twitter-user {
@@ -257,22 +255,22 @@
                     font-weight: 500;
                     margin-top: 4px;
                     font-weight: 400;
-                    font-size: 1em;
+                    font-size: 1.1em;
                 }
             }
 
             .tweet {
                 border-bottom: 1px solid #e7e7e7;
-                padding: 30px 0;
+                padding: 35px 0;
                 font-family: 'HarmoniaSansPro-Regular', sans-serif;
 
                 &:last-of-type {
                     border-bottom: 0;
-                    padding: 30px 0 0;
+                    padding: 35px 0 0;
                 }
 
                 &:first-of-type {
-                    padding: 0 0 30px;
+                    padding: 0 0 35px;
                 }
 
                 .tweet-head {

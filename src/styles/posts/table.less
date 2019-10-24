@@ -6,7 +6,7 @@
     max-height: 539px;
     border: 1px solid #e3ecf3;
     @media(max-width: @mobile-breakpoint) {
-        .mobile-full-width();
+        /*.mobile-full-width();*/
         .mobile-horizontal-scroll();
     }
 }
@@ -48,6 +48,11 @@ table {
               font-size: 0.8em;
               color: #303134;
               border-bottom: 1px solid #e3ecf3;
+
+              @media(max-width: @mobile-breakpoint) {
+                font-size: .8em;
+                padding: 12px 8px;
+              }
             }
         }
     }
@@ -67,6 +72,11 @@ table {
             border-bottom: 0;
             font-size: 0.85em;
             border-bottom: 1px solid #e8eef2;
+
+            @media(max-width: @mobile-breakpoint) {
+              font-size: .8em;
+              padding: 12px 8px;
+            }
         }
 
         tr:last-of-type td {
