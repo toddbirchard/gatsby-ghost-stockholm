@@ -16,7 +16,6 @@ const SeriesDetail = ({ data, location }) => {
     const tag = data.ghostTag
     const tagName = tag.name.replace(`#`, ``)
     const posts = data.allGhostPost.edges
-    // const title = data.title
 
     return (
         <>

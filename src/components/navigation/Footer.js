@@ -49,7 +49,6 @@ const Footer = ({ navigation, site, data }) => {
                     <a href={ twitterUrl } className="twitter footer-link" key="twitter-footer">Twitter</a>
                     <a href={ facebookUrl } className="facebook footer-link" key="facebook-footer">Facebook</a>
                     <a href={ config.social.angellist } className="angellist-footer footer-link" key="angellist">Angellist</a>
-                    {/*<a href={ config.social.linkedin } className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>*/}
                     <a href={ config.social.github } className="github footer-link" key="github-footer">Github</a>
                     <a href="/rss" className="rss footer-link" key="rss">RSS</a>
                 </div>

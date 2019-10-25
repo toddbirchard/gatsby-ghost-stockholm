@@ -36,7 +36,7 @@
   "devDependencies": {
     "babel-preset-gatsby": "^0.2.20",
     "eslint": "^6.5.1",
-    "eslint-plugin-ghost": "^0.5.0",
+    "eslint-plugin-ghost": "^0.6.0",
     "eslint-plugin-react": "^7.16.0",
     "less": "^3.10.3"
   },
@@ -54,7 +54,7 @@
     "babel-plugin-prismjs": "^1.1.1",
     "cheerio": "1.0.0-rc.3",
     "dotenv": "^8.2.0",
-    "gatsby": "2.17.2",
+    "gatsby": "2.17.4",
     "gatsby-awesome-pagination": "0.3.4",
     "gatsby-image": "2.2.29",
     "gatsby-plugin-advanced-sitemap": "^1.4.5",
@@ -72,7 +72,7 @@
     "gatsby-plugin-styled-components": "^3.1.11",
     "gatsby-plugin-twitter": "^2.1.12",
     "gatsby-source-filesystem": "2.1.33",
-    "gatsby-source-ghost": "4.0.0",
+    "gatsby-source-ghost": "4.0.1",
     "gatsby-source-git": "^1.0.2",
     "gatsby-source-pg": "^0.1.4",
     "gatsby-source-twitter": "^3.0.0",
@@ -86,7 +86,6 @@
     "react-highlight": "^0.12.0",
     "react-instantsearch-dom": "^5.7.0",
     "react-player": "^1.13.0",
-    "styled-components": "^4.4.0",
-    "styled-icons": "^8.6.0"
+    "styled-components": "^4.4.0"
   }
 }
