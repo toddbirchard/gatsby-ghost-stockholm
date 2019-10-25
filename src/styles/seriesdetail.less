@@ -3,9 +3,7 @@
 .series-template {
     .series-header {
         margin: 50px 60px;
-        padding-bottom: 40px;
         color: @header-color;
-        border-bottom: 1px solid #d6d6d6;
         @media(max-width: @tablet-breakpoint) {
             margin: 40px;
             padding-bottom: 30px;
@@ -24,6 +22,7 @@
         .series-description {
             line-height: 1.1;
             margin: 5px 0;
+            font-size: 1.2em;
         }
     }
 }
@@ -55,7 +54,7 @@
 
     .post-feed {
         padding: 0 60px 60px;
-        grid-gap: 50px;
+        grid-gap: 20px;
         @media(max-width: @tablet-breakpoint) {
             width: auto;
             margin: 0 40px;
@@ -70,28 +69,41 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border: 1px solid #e6e6e6;
+        border-radius: 2px;
+        overflow: hidden;
+        transition: @transition;
         @media(max-width: @mobile-breakpoint) {
             flex-direction: column;
         }
 
+        &:hover {
+            background: @hover-color;
+            border: 1px solid @hover-color;
+            cursor: pointer;
+
+            * {
+                color: white !important;
+            }
+        }
+
         .series-post-card-image {
-          min-width: 120px;
-          width: 120px;
-          height: 80px;
-            border-radius: 2px;
+            min-width: 158px;
+            width: 120px;
+            height: 116px;
             overflow: hidden;
             @media(max-width: @mobile-breakpoint) {
                 display: none;
             }
 
             img {
-                width: 200%;
+                width: 150%;
                 margin-left: -36px;
             }
         }
 
         .series-post-card-detail {
-            margin: 0 20px;
+            padding: 20px;
             width: -webkit-fill-available;
             width: -moz-available;
             @media(max-width: @mobile-breakpoint) {
@@ -101,10 +113,11 @@
             }
 
             .series-post-card-count {
-                margin-bottom: 5px;
+                margin-bottom: 10px;
                 color: #76879f;
                 font-weight: 600;
-                font-size: .8em;
+                font-size: 0.8em;
+                transition: @transition;
                 @media(max-width: @mobile-breakpoint) {
                     font-size: 0.8em;
                     min-width: 50px;
@@ -118,7 +131,7 @@
             .series-post-card-title {
                 font-family: @header-bold;
                 font-weight: normal;
-                font-size: 1.3em;
+                font-size: 1.2em;
                 line-height: 1.1;
                 color: lighten(@header-color, 2%);
                 margin-bottom: 5px;
@@ -140,8 +153,9 @@
             }
 
             .series-post-card-excerpt {
-              font-size: 1.1em;
-              opacity: .8;
+                font-size: 1em;
+                opacity: 0.8;
+                transition: @transition;
                 @media(max-width: @mobile-breakpoint) {
                     display: none;
                 }
