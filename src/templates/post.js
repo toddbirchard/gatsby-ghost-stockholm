@@ -45,7 +45,7 @@ const Post = ({ data, location }) => {
                     <div className="post-wrapper">
                         <div className="post-head">
                             <div className="post-meta">
-                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> <span>{authorFirstName}</span> </Link></div>
+                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> {authorFirstName} </Link></div>
                                 <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId} />} </div>
                                 <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
                                 <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>

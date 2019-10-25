@@ -30,10 +30,6 @@ const Author = ({ data, location, pageContext }) => {
           <Layout template="author-template" hasSidebar={true}>
               <article className="content">
                   <div className={coverHeaderClass}>
-                      { author.cover_image ?
-                          <figure className="author-feature-image">
-                              <img src={ author.cover_image } alt={ author.name } />
-                          </figure> : null }
                       <AuthorCard author={author} headerClass={true} />
                   </div>
                   <div className="post-full-content">
