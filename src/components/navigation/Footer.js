@@ -19,15 +19,6 @@ const Footer = ({ navigation, site, data }) => {
         {/* The footer at the very bottom of the screen */}
         <footer className="site-footer">
             <div className="footer-wrapper">
-                {/*<div className="widget about">
-                    <Link to="/" alt="/">
-                        {site.logo ? <img className="logo" src="/light-logo-small-2.png" alt={site.title} /> : <Img className="logo" fixed={site.logo} alt={site.title} loading="lazy" /> }
-                    </Link>
-                    <p className="description">{config.description}</p>
-                    <div className="social-btns">
-
-                    </div>
-                </div>*/}
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
                     {navigation.map((navItem, i) => {
@@ -39,7 +30,7 @@ const Footer = ({ navigation, site, data }) => {
                             return <a className="footer-link" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
                         }
                     })}
-                    <Link to="/sitemap.xml" className="sitemap footer-link" key="sitemap">Sitemap</Link>
+                    <a href="/sitemap.xml" className="sitemap footer-link" key="sitemap">Sitemap</a>
                 </div>
                 <div className="widget tags">
                     <h5 className="footer-widget-title">Tags</h5>
@@ -60,8 +51,7 @@ const Footer = ({ navigation, site, data }) => {
                     <a href={ config.social.angellist } className="angellist-footer footer-link" key="angellist">Angellist</a>
                     {/*<a href={ config.social.linkedin } className="linkedin-footer" key="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="sm" /></a>*/}
                     <a href={ config.social.github } className="github footer-link" key="github-footer">Github</a>
-                    {/*<a href={ config.social.tumblr } className="tumblr" key="tumblr-footer"><FontAwesomeIcon icon={[`fab`, `tumblr`]} size="sm" /></a>*/}
-                    <Link to="/rss/" className="rss footer-link" key="rss">RSS</Link>
+                    <a href="/rss" className="rss footer-link" key="rss">RSS</a>
                 </div>
             </div>
             <div className="copyright">

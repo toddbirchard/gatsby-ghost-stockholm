@@ -103,6 +103,10 @@
                     border-radius: 3px;
                     transition: @transition;
 
+                    &::placeholder {
+                        color: #9ca7b0;
+                    }
+
                     &:focus,
                     &:hover {
                         background: #e1edf6;
@@ -115,9 +119,9 @@
 
                 &:focus,
                 &:hover {
-                  svg {
-                      color: #95aaba;
-                  }
+                    svg {
+                        color: #95aaba;
+                    }
                 }
 
                 svg {
@@ -150,7 +154,6 @@
         }
     }
 }
-
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
 @media(max-width: 800px) {
@@ -198,6 +201,6 @@
 
         &:hover {
             color: @hover-color;
-          }
+        }
     }
 }

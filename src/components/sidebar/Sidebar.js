@@ -18,7 +18,7 @@ const Sidebar = ({ site, tags, template }) => {
             <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
             <TrendingWidget />
             <TagsWidget tags={tags} />
-            <SeriesWidget />
+            {/*<SeriesWidget />*/}
             <NewsletterWidget />
             <TwitterWidget />
         </aside>
