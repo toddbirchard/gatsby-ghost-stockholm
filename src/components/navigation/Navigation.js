@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import config from '../../utils/siteConfig'
 import Search from '../searchbar/Search'
+import NavLinks from './NavLinks'
 
 const searchIndices = [
     { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
@@ -18,22 +18,14 @@ const searchIndices = [
 *
 */
 
-const Navigation = ({ data, navClass, logo }) => (
+const Navigation = ({ data, logo }) => (
     <>
     <nav className="navigation">
         <div className="nav-wrapper">
             <div className="nav-left">
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
                 <div className="nav-links">
-                    {data.map((navItem, i) => {
-                        if (navItem.url.includes(`rss`) || navItem.url.includes(`sitemap`)) {
-                            return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                        } else if (navItem.url.includes(config.siteUrl)) {
-                            return <Link className={`${navClass} ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`} key={i}>{navItem.label}</Link>
-                        } else {
-                            return <a className={`${navClass} ${navItem.label}`} href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                        }
-                    })}
+                    <NavLinks navigation={data} />
                 </div>
             </div>
             <div className="nav-right">
@@ -44,10 +36,6 @@ const Navigation = ({ data, navClass, logo }) => (
     </>
 )
 
-Navigation.defaultProps = {
-    navClass: `site-nav-item`,
-}
-
 Navigation.propTypes = {
     data: PropTypes.arrayOf(
         PropTypes.shape({
@@ -55,7 +43,6 @@ Navigation.propTypes = {
             url: PropTypes.string.isRequired,
         }).isRequired,
     ).isRequired,
-    navClass: PropTypes.string,
     logo: PropTypes.string,
 }
 

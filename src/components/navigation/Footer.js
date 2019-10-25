@@ -7,6 +7,7 @@ import {
     graphql,
 } from 'gatsby'
 import config from '../../utils/siteConfig'
+import NavLinks from './NavLinks'
 
 const Footer = ({ navigation, site, data }) => {
     const authorLinks = data.allGhostAuthor.edges
@@ -21,36 +22,28 @@ const Footer = ({ navigation, site, data }) => {
             <div className="footer-wrapper">
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
-                    {navigation.map((navItem, i) => {
-                        if (navItem.url.includes(`rss`) || navItem.url.includes(`sitemap`)) {
-                            return <a className="footer-link" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                        } else if (navItem.url.includes(config.siteUrl)) {
-                            return <Link className="footer-link" to={`${navItem.url.split(`/`).pop()}`} key={i} >{navItem.label}</Link>
-                        } else {
-                            return <a className="footer-link" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                        }
-                    })}
-                    <a href="/sitemap.xml" className="sitemap footer-link" key="sitemap">Sitemap</a>
+                    <NavLinks navigation={navigation} />
+                    <a href="/sitemap.xml" className="sitemap navigation-link" key="sitemap">Sitemap</a>
                 </div>
                 <div className="widget tags">
                     <h5 className="footer-widget-title">Tags</h5>
                     {topTags.map(({ node }) => (
-                        <Link to={`/tag/${ node.slug }`} className="footer-link" key={ node.slug }>{ node.name }</Link>
+                        <Link to={`/tag/${ node.slug }`} className="navigation-link" key={ node.slug }>{ node.name }</Link>
                     ))}
                 </div>
                 <div className="widget authors">
                     <h5 className="footer-widget-title">Authors</h5>
                     {authorLinks.map(({ node }) => (
-                        <Link to={`/author/${ node.slug }`} className="footer-link" key={ node.name } >{ node.name }</Link>
+                        <Link to={`/author/${ node.slug }`} className="navigation-link" key={ node.name } >{ node.name }</Link>
                     ))}
                 </div>
                 <div className="widget social">
                     <h5 className="footer-widget-title">Social</h5>
-                    <a href={ twitterUrl } className="twitter footer-link" key="twitter-footer">Twitter</a>
-                    <a href={ facebookUrl } className="facebook footer-link" key="facebook-footer">Facebook</a>
-                    <a href={ config.social.angellist } className="angellist-footer footer-link" key="angellist">Angellist</a>
-                    <a href={ config.social.github } className="github footer-link" key="github-footer">Github</a>
-                    <a href="/rss" className="rss footer-link" key="rss">RSS</a>
+                    <a href={ twitterUrl } className="twitter navigation-link" key="twitter-footer">Twitter</a>
+                    <a href={ facebookUrl } className="facebook navigation-link" key="facebook-footer">Facebook</a>
+                    <a href={ config.social.angellist } className="angellist-footer navigation-link" key="angellist">Angellist</a>
+                    <a href={ config.social.github } className="github navigation-link" key="github-footer">Github</a>
+                    <a href="/rss" className="rss navigation-link" key="rss">RSS</a>
                 </div>
             </div>
             <div className="copyright">
