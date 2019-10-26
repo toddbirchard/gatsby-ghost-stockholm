@@ -95,7 +95,7 @@ module.exports = {
           options: {
             custom: {
               families: ['HarmoniaSansPro-Regular', 'HarmoniaSansPro-SemiBd', 'AvenirNextLTPro-Medium', 'AvenirNextLTPro-Regular'],
-               urls: ['src/styles/fonts.less']
+               urls: ['fonts.css']
             }
           }
         },
