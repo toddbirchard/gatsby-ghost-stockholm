@@ -22,7 +22,7 @@
     .post-card-title {
         margin: 0;
         padding: 0;
-        font-size: 1.8em;
+        font-size: 1.7em;
         line-height: 1.1;
         color: @header-color;
         letter-spacing: 0;
@@ -34,6 +34,7 @@
 
         &:hover {
             color: @hover-color;
+            cursor: pointer;
         }
     }
 
@@ -42,6 +43,10 @@
         background: @text-color-light no-repeat center center;
         background-size: cover;
         transition: opacity 0.2s ease-out;
+
+        &:hover {
+          cursor: pointer;
+        }
     }
 
     .post-card-detail {
