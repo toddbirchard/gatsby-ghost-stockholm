@@ -12,3 +12,5 @@ GatsbyJS theme sourcing content from Ghost.
 [![GitHub issues](https://img.shields.io/github/issues/toddbirchard/stockholm.svg?style=flat-square&colorB=ebcb8b&colorA=4c566a&logo=GitHub)](https://github.com/toddbirchard/stockholm/issues)
 [![GitHub stars](https://img.shields.io/github/stars/toddbirchard/stockholm.svg?style=flat-square&colorB=ebcb8b&colorA=4c566a&logo=GitHub)](https://github.com/toddbirchard/stockholm/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/toddbirchard/stockholm.svg?style=flat-square&colorA=4c566a&colorB=ebcb8b&logo=GitHub)](https://github.com/toddbirchard/stockholm/network)
+
+![Stockholm Github Preview](https://storage.cloud.google.com/hackersandslackers-cdn/social/stockholm-github.jpg)

@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "babel-preset-gatsby": "^0.2.20",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-plugin-ghost": "^0.6.0",
     "eslint-plugin-react": "^7.16.0",
     "less": "^3.10.3"
