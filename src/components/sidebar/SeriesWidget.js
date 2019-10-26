@@ -16,7 +16,7 @@ const SeriesWidget = ({ data }) => {
     return (
         <div className="widget series">
             <div className="widget-trending-header">
-                <div className="trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="sm" /> <span>Trending</span></div>
+                <div className="trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="xs" /> <span>Trending</span></div>
                 <div className="trend-type">Top Series This Week</div>
             </div>
             <div className="widget-series-featured">

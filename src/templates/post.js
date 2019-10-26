@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
-import { faUserEdit, faGlobe, faHome, faCalendar } from '@fortawesome/pro-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC } from '../components/posts'
@@ -22,7 +19,6 @@ import '../styles/posts/index.less'
 * This file renders a single post and loads all the content.
 *
 */
-library.add(faUserEdit, faGlobe, faHome, faCalendar)
 
 const Post = ({ data, location }) => {
     const post = data.ghostPost
@@ -45,10 +41,10 @@ const Post = ({ data, location }) => {
                     <div className="post-wrapper">
                         <div className="post-head">
                             <div className="post-meta">
-                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /> {authorFirstName} </Link></div>
-                                <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId} />} </div>
-                                <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
-                                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
+                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs" /> {authorFirstName} </Link></div>
+                                <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="xs" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId} />} </div>
+                                <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="xs" /> <span>{readingTime}</span> </div>
+                                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs" /> <span>{post.published_at_pretty}</span> </div>
                             </div>
                             <h1 className="post-title">{post.title}</h1>
                             { post.feature_image ?

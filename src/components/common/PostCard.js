@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { faTag, faEye, faPencilAlt, faUserEdit, faCalendar } from '@fortawesome/pro-regular-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-library.add(faTag, faEye, faPencilAlt, faUserEdit, faCalendar)
 
 const PostCard = ({ post }) => {
     const url = `/${ post.slug }/`
@@ -22,12 +18,12 @@ const PostCard = ({ post }) => {
             <section className="post-card-excerpt">{post.excerpt}</section>
             <footer className="post-card-footer">
                 <div className="meta-item tag">
-                    <FontAwesomeIcon icon={[`far`, `tag`]} size="sm" />
+                    <FontAwesomeIcon icon={[`far`, `tag`]} size="xs" />
                     {post.tags && <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id} />}
                 </div>
-                <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} size="sm" /> <span>{readingTime}</span> </div>
-                <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="sm" /><span>{authorFirstName}</span> </Link></div>
-                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="sm" /> <span>{post.published_at_pretty}</span> </div>
+                <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} size="xs" /> <span>{readingTime}</span> </div>
+                <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs" /><span>{authorFirstName}</span> </Link></div>
+                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs" /> <span>{post.published_at_pretty}</span> </div>
             </footer>
         </div>
     </div>)

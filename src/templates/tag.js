@@ -1,16 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
 import { Layout, PostCard } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTag } from '@fortawesome/pro-regular-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
 
-library.add(faTag)
 /**
 * Tag page (/tag/:slug)
 *
