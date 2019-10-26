@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import config from '../../utils/siteConfig'
@@ -17,7 +16,7 @@ const SocialWidget = ({ twitterUrl, facebookUrl }) => (
             <a href={ config.social.linkedin } className="linkedin" key="linkedin-sidebar"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="xs" /></a>
             <a href={ config.social.github } className="github" key="github-sidebar"><FontAwesomeIcon icon={[`fab`, `github`]} size="xs" /></a>
             <a href={ facebookUrl } className="facebook" key="facebook-sidebar"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" /></a>
-            <Link to="/rss" className="rss" key="rss-sidebar"><FontAwesomeIcon icon={[`far`, `rss`]} size="xs" /></Link>
+            <a href="/rss" className="rss" key="rss-sidebar"><FontAwesomeIcon icon={[`far`, `rss`]} size="xs" /></a>
         </div>
     </>
 )
