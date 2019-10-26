@@ -17,4 +17,13 @@ const NavLinks = ({ navigation }) => (
   </>
 )
 
+NavLinks.propTypes = {
+    navigation: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+        }).isRequired,
+    ).isRequired,
+}
+
 export default NavLinks
