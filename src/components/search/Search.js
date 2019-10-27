@@ -49,8 +49,8 @@ export default function Search({ collapse, hitsAsGrid }) {
             <SearchBox onFocus={() => setFocus(true)} {...{ collapse, focus }} />
             <FontAwesomeIcon icon={[`far`, `search`]} size="xs" />
             <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-              <Results>
-                  <Hits hitComponent={PostHit} />
+                <Results>
+                    <Hits hitComponent={PostHit} />
                 </Results>
             </HitsWrapper>
         </InstantSearch>
