@@ -1,5 +1,5 @@
 const postQuery = `{
-  posts: allGhostPost(filter: {slug: {nin: "roundup"}}) {
+  allGhostPost(filter: {primary_tag: {slug: {ne: "roundup"}}}){
     edges {
       node {
         objectID: slug
@@ -24,7 +24,7 @@ const settings = { attributesToSnippet: [`excerpt:20`] }
 const queries = [
   {
     query: postQuery,
-    transformer: ({ data }) => flatten(data.posts.edges),
+    transformer: ({ data }) => flatten(data.edges),
     indexName: "Posts",
     settings,
   },

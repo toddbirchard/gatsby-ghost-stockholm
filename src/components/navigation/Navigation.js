@@ -29,7 +29,7 @@ const Navigation = ({ data, logo }) => (
                 </div>
             </div>
             <div className="nav-right">
-                <Search collapse indices={searchIndices} className="search-widget" />
+                <Search collapse className="search-widget" />
             </div>
         </div>
     </nav>
