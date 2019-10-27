@@ -253,12 +253,22 @@ module.exports = {
           },
         },
         {
-          resolve: `gatsby-source-pg`,
+          resolve: `gatsby-source-mysql`,
           options: {
-            connectionString: process.env.POSTGRES_CONNECTION_STRING,
-            schema: process.env.POSTGRES_SCHEMA,
-            refetchInterval: 60000, // Refetch data every 60 seconds
-          },
+            connectionDetails: {
+              host: process.env.MYSQL_HOST,
+              user: process.env.MYSQL_USERNAME,
+              password: process.env.MYSQL_PASSWORD,
+              database: process.env.MYSQL_DATABASE_NAME,
+            },
+            queries: [
+              {
+                statement: 'SELECT * FROM analytics',
+                idFieldName: 'id',
+                name: 'analytics'
+              }
+            ]
+          }
         },
         /* Search */
         {

@@ -1,7 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { AboutWidget, NewsletterWidget, SocialWidget, TagsWidget, SeriesWidget, TwitterWidget, TrendingWidget } from '.'
+import { AboutWidget,
+    NewsletterWidget,
+    SocialWidget,
+    TagsWidget,
+    TrendingWidget,
+    TwitterWidget } from '.'
 
 /**
 * Sidebar component

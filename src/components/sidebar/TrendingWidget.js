@@ -4,7 +4,7 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const TrendingWidget = ({ data }) => {
-    const topPages = data.postgres.allTopPages.edges
+    const topPages = data.allMysqlAnalytics.edges
 
     return (
         <div className="widget trending">
@@ -23,15 +23,13 @@ const TrendingWidget = ({ data }) => {
 
 TrendingWidget.propTypes = {
     data: PropTypes.shape({
-        postgres: PropTypes.shape({
-            allTopPages: PropTypes.arrayOf(
-                PropTypes.shape({
-                    title: PropTypes.string.isRequired,
-                    path: PropTypes.string.isRequired,
-                    count: PropTypes.number.isRequired,
-                }),
-            ),
-        }).isRequired,
+        allMysqlAnalytics: PropTypes.arrayOf(
+            PropTypes.shape({
+                title: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired,
+                views: PropTypes.number.isRequired,
+            }),
+        ),
     }).isRequired,
 }
 
@@ -39,14 +37,12 @@ const TrendingWidgetQuery = props => (
     <StaticQuery
         query={graphql`
           query TrendingPages {
-            postgres {
-              allTopPages(orderBy: COUNT_DESC) {
-                edges {
-                  node {
-                    title
-                    path
-                    count
-                  }
+            allMysqlAnalytics {
+              edges {
+                node {
+                  title
+                  url
+                  views
                 }
               }
             }

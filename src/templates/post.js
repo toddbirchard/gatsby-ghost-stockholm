@@ -47,6 +47,7 @@ const Post = ({ data, location }) => {
                                 <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs" /> <span>{post.published_at_pretty}</span> </div>
                             </div>
                             <h1 className="post-title">{post.title}</h1>
+                            { post.excerpt && <span className="post-excerpt">{post.excerpt}</span> }
                             { post.feature_image ?
                                 <figure className="post-image">
                                     <img data-src={ post.feature_image } className="lazyload" alt={ post.title } data-rjs="2" />
@@ -85,6 +86,7 @@ Post.propTypes = {
         ghostPost: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
+            excerpt: PropTypes.string.isRequired,
             slug: PropTypes.string.isRequired,
             primary_author: PropTypes.object.isRequired,
             html: PropTypes.string.isRequired,
