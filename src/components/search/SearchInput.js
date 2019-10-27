@@ -1,7 +1,8 @@
 import React from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
-
 import { Form, Input } from "./SearchStyles"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 export default connectSearchBox(({ refine, ...rest }) => (
     <Form>
@@ -12,5 +13,6 @@ export default connectSearchBox(({ refine, ...rest }) => (
             onChange={e => refine(e.target.value)}
             {...rest}
         />
+        
     </Form>
 ))

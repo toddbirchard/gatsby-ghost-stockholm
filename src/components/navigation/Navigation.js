@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Search from '../searchbar/Search'
+import Search from '../search/Search'
 import NavLinks from './NavLinks'
 
 const searchIndices = [

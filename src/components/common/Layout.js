@@ -16,12 +16,13 @@ import { faTag,
     faGlobe,
     faHome,
     faChartLine,
-    faRss } from '@fortawesome/pro-regular-svg-icons'
+    faRss,
+    faSearch } from '@fortawesome/pro-regular-svg-icons'
 
 // Styles
 import '../../styles/app.less'
 
-library.add(faTag, faEye, faPencilAlt, faUserEdit, faCalendar, faArrowLeft, faArrowRight, faGlobe, faHome, faChartLine, fab, faRss)
+library.add(faTag, faEye, faPencilAlt, faUserEdit, faCalendar, faArrowLeft, faArrowRight, faGlobe, faHome, faChartLine, fab, faRss, faSearch)
 
 /**
 * Main layout component

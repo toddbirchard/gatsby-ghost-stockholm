@@ -88,6 +88,7 @@
     "react-highlight": "^0.12.0",
     "react-instantsearch-dom": "^5.7.0",
     "react-player": "^1.13.0",
-    "styled-components": "^4.4.0"
+    "styled-components": "^4.4.0",
+    "styled-icons": "^8.6.0"
   }
 }

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, createRef } from "react"
-import { InstantSearch, Index, Hits, connectStateResults } from "react-instantsearch-dom"
+import { InstantSearch, Index, Hits, connectStateResults, SearchBox, Configure } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
 import { Root, HitsWrapper } from "./SearchStyles"
 import Input from "./SearchInput"
-import * as hitComps from "./HitComps"
+import PostHit from "./HitComps"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Results = connectStateResults(
     ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : `No results for '${state.query}'`)
@@ -40,19 +41,17 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     return (
         <InstantSearch
             searchClient={searchClient}
-            indexName={indices[0].name}
+            indexName="Posts"
             onSearchStateChange={({ query }) => setQuery(query)}
             root={{ Root, props: { ref } }}
         >
-            <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
+            <Configure hitsPerPage={5} />
+            <SearchBox onFocus={() => setFocus(true)} {...{ collapse, focus }} />
+            <FontAwesomeIcon icon={[`far`, `search`]} size="xs" />
             <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-                {indices.map(({ name, hitComp }) => (
-                    <Index key={name} indexName={name}>
-                        <Results>
-                            <Hits hitComponent={hitComps[hitComp](() => setFocus(false))} />
-                        </Results>
-                    </Index>
-                ))}
+              <Results>
+                  <Hits hitComponent={PostHit} />
+                </Results>
             </HitsWrapper>
         </InstantSearch>
     )
