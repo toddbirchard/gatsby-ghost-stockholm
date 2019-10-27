@@ -27,16 +27,14 @@ const RelatedPosts = ({ data }) => {
 }
 
 RelatedPosts.propTypes = {
-    data: PropTypes.shape({
-        relatedPosts: PropTypes.arrayOf(
-            PropTypes.shape({
-                ghostId: PropTypes.string,
-                feature_image: PropTypes.string,
-                title: PropTypes.string,
-                slug: PropTypes.string,
-            }),
-        ),
-    }).isRequired,
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            ghostId: PropTypes.string,
+            feature_image: PropTypes.string,
+            title: PropTypes.string,
+            slug: PropTypes.string,
+        }),
+    ).isRequired,
 }
 
 export default RelatedPosts

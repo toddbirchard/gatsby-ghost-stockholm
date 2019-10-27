@@ -69,15 +69,16 @@
                 font-size: 1.1em;
                 line-height: 1.2;
                 color: @body-color;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: -webkit-fill-available;
+                width: -moz-available;
                 @media(max-width: @mobile-breakpoint) {
-                    -webkit-line-clamp: 2;
                     font-size: 1em;
-                    -webkit-box-orient: vertical;
-                    display: -webkit-box;
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    width: -webkit-fill-available;
-                    width: -moz-available;
+                    margin: 0 0 12px;         
                 }
             }
 

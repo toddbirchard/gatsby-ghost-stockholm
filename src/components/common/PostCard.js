@@ -17,10 +17,10 @@ const PostCard = ({ post }) => {
             <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
             <section className="post-card-excerpt">{post.excerpt}</section>
             <footer className="post-card-footer">
-                <div className="meta-item tag">
+                {post.tags ? <div className="meta-item tag">
                     <FontAwesomeIcon icon={[`far`, `tag`]} size="xs" />
-                    {post.tags && <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id} />}
-                </div>
+                    <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id} />
+                </div> : null }
                 <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`far`, `eye`]} size="xs" /> <span>{readingTime}</span> </div>
                 <div className="meta-item author"> <Link to={`/author/${post.primary_author.slug}`}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs" /><span>{authorFirstName}</span> </Link></div>
                 <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs" /> <span>{post.published_at_pretty}</span> </div>
