@@ -1,4 +1,4 @@
-ghmodule.exports = {
+module.exports = {
     siteUrl: `https://hackersandslackers.com`, // Site domain. Do not include a trailing slash!
 
     postsPerPage: 8, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
