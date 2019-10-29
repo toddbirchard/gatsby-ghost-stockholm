@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-
+import { AuthorTwitterWidget } from '../components/sidebar/authors'
 import { Layout, PostCard } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { AuthorCard } from '../components/authors'
 import { MetaData } from '../components/common/meta'
+
 
 import '../styles/pages/index.less'
 
@@ -19,6 +20,8 @@ const Author = ({ data, location, pageContext }) => {
     const author = data.ghostAuthor
     const posts = data.allGhostPost.edges
     const coverHeaderClass = author.cover_image ? `author-page-header cover-header` : `author-page-header`
+    const authorTweets = data.authorTweets.edges
+    const authorTwitterUser = data.authorTwitterProfile.user
 
     return (
         <>
@@ -39,6 +42,7 @@ const Author = ({ data, location, pageContext }) => {
                           ))}
                           <Pagination pageContext={pageContext} />
                       </section>
+                      {/*<AuthorTwitterWidget authorTweets={authorTweets} authorProfile={authorTwitterUser} />*/}
                   </div>
               </article>
           </Layout>
@@ -74,6 +78,40 @@ Author.propTypes = {
                 published_at_pretty: PropTypes.string,
             }).isRequired,
         ),
+        authorTweets: PropTypes.shape({
+            full_text: PropTypes.string,
+            favorite_count: PropTypes.number,
+            retweet_count: PropTypes.number,
+            created_at: PropTypes.string,
+            id: PropTypes.string,
+            user: PropTypes.shape({
+                name: PropTypes.string.isRequired,
+                url: PropTypes.string.isRequired,
+                profile_image_url: PropTypes.string.isRequired,
+                screen_name: PropTypes.string.isRequired,
+            }),
+            entities: PropTypes.shape({
+                urls: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        url: PropTypes.string,
+                    }),
+                ),
+                hashtags: PropTypes.arrayOf(
+                    PropTypes.shape({
+                        text: PropTypes.string,
+                    }),
+                ),
+            }),
+        }).isRequired,
+        authorTwitterProfile: PropTypes.shape({
+            user: PropTypes.shape({
+                profile_image_url_https: PropTypes.string,
+                name: PropTypes.string.isRequired,
+                url: PropTypes.string,
+                display_url: PropTypes.string,
+                screen_name: PropTypes.string.isRequired,
+            }).isRequired,
+        }),
     }).isRequired,
     location: PropTypes.shape({
         pathname: PropTypes.string.isRequired,
@@ -100,5 +138,29 @@ export const pageQuery = graphql`
                 }
             }
         }
+        authorTweets: allTwitterStatusesUserTimelineHackersTweets(limit: 3) {
+          edges {
+            node {
+              full_text
+              created_at
+              entities {
+                hashtags {
+                  text
+                }
+                urls {
+                  url
+                }
+              }
+            }
+          }
+        }
+        authorTwitterProfile: twitterStatusesUserTimelineHackersTweets {
+          user {
+            profile_image_url_https
+            name
+            url
+            screen_name
+          }
+       }
     }
 `

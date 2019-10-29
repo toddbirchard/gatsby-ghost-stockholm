@@ -1,32 +1,34 @@
 const postQuery = `{
-  posts: allGhostPost(filter: {primary_tag: {slug: {ne: "roundup"}}}){
+  posts: allGhostPost(filter: {primary_tag: {slug: {nin: ["roundup", null]}, visibility: {eq: "public"}}}) {
     edges {
       node {
-        objectID: slug
+        objectID: ghostId
         slug
         title
-        primary_tag {
-          name
-        }
         feature_image
         excerpt
+        tags {
+          name
+        }
       }
     }
   }
-}`
+}
+`
 
 const flatten = arr =>
-  arr.map(({ node: { primary_tag, ...rest } }) => ({
-    ...primary_tag,
+  arr.map(({ node: { tags, ...rest } }) => ({
+    ...tags,
     ...rest,
   }))
-const settings = { attributesToSnippet: [`excerpt:20`] }
+
+//const settings = { attributesToSnippet: [`excerpt:20`] }
+
 const queries = [
   {
     query: postQuery,
     transformer: ({ data }) => flatten(data.posts.edges),
-    indexName: "Posts",
-    settings,
+    indexName: `Posts`,
   },
 ]
 module.exports = queries
