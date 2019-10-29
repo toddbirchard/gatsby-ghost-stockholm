@@ -87,12 +87,9 @@
                 padding: 0;
                 max-width: none;
                 width: auto;
-                margin: 10px 20px 0;
+                margin: 15px 20px 0;
                 order: 2;
-
-                /*.date {
-                    display: none !important;
-                }*/
+                justify-content: left;
             }
 
             .tags {
@@ -114,7 +111,7 @@
                 text-transform: capitalize;
                 line-height: 1;
                 @media(max-width: @mobile-breakpoint) {
-                    margin: 0 0 0 0;
+                    margin: 0 20px 0 0;
                     line-height: 1.5;
                 }
 
@@ -125,10 +122,17 @@
 
                 }
 
+                span {
+                  @media(max-width: @mobile-breakpoint) {
+                    font-size: 0.9em;
+                  }
+                }
+
                 * {
                     padding: 0;
                     white-space: nowrap;
                     font-family: @body-font-bold;
+                    line-height: 1;
                 }
 
                 a {
@@ -149,15 +153,10 @@
                     display: flex;
                 }
 
-                &.reading-time,
                 &.date {
                     @media(max-width: @mobile-breakpoint) {
                         display: none;
                     }
-                }
-
-                svg {
-                    margin-right: 8px;
                 }
 
                 a {

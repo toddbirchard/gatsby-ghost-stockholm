@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
+import NotebookRender from "@nteract/notebook-render"
+import NotebookPreview from '@nteract/notebook-preview'
 
 import '../styles/posts/index.less'
 import '../styles/pages/jupyter.less'
@@ -35,6 +37,8 @@ const JupyterNotebook = ({ data, pageContext }) => {
                             className="content-body load-external-scripts"
                             dangerouslySetInnerHTML={{ __html: notebook.html }}
                         />
+                      {/*<NotebookRender notebook={file.fileAbsolutePath.childJupyterNotebook} />
+                      <NotebookPreview notebook={ notebook.html } />*/}
                     </div>
                 </Layout>
             </>
@@ -48,6 +52,9 @@ JupyterNotebook.propTypes = {
                 id: PropTypes.string.isRequired,
                 fileAbsolutePath: PropTypes.string.isRequired,
                 html: PropTypes.string.isRequired,
+                internal: PropTypes.shape({
+                    content: PropTypes.object.isRequired,
+                }),
                 metadata: PropTypes.shape({
                     language_info: PropTypes.shape({
                         name: PropTypes.string.isRequired,
@@ -81,6 +88,9 @@ export const JupyterNotebookQuery = graphql`
        fileAbsolutePath
        id
        html
+       internal {
+        content
+      }
        metadata {
          language_info {
            name

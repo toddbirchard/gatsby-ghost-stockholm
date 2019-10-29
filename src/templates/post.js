@@ -52,7 +52,7 @@ const Post = ({ data, location }) => {
 
                         <article className="post">
                             <div className="post-meta">
-                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs" /> {authorFirstName} </Link></div>
+                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs" /> <span>{authorFirstName}</span> </Link></div>
                                 <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="xs" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId} />} </div>
                                 <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="xs" /> <span>{readingTime}</span> </div>
                                 <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs" /> <span>{post.published_at_pretty}</span> </div>
