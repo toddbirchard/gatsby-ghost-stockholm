@@ -8,7 +8,7 @@
 [[redirects]]
     from = "/ghost"
     to = "https://hackersandslackers.app/ghost"
-    status = 200
+    status = 301
     force = true
 
 [[redirects]]
