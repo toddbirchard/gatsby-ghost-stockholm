@@ -1,7 +1,8 @@
-import React from 'react'
+import { React, ReactDOMServer } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
+import NotebookRender from "@nteract/notebook-render"
 
 import '../styles/posts/index.less'
 import '../styles/pages/jupyter.less'
@@ -16,6 +17,8 @@ import '../styles/pages/jupyter.less'
 const JupyterNotebook = ({ data, pageContext }) => {
     const file = data.file
     const notebook = file.childJupyterNotebook
+    const notebookContent = file.childJupyterNotebook.internal.content
+    const notebookHTML = ReactDOMServer.renderToStaticMarkup({ notebookContent })
     const languageName = notebook.metadata ? notebook.metadata.language_info.name : null
     const languageVersion = notebook.metadata ? notebook.metadata.language_info.version : null
     const githubLink = file.gitRemote.webLink + file.relativePath
@@ -33,8 +36,9 @@ const JupyterNotebook = ({ data, pageContext }) => {
                         </div>
                         <section
                             className="content-body load-external-scripts"
-                            dangerouslySetInnerHTML={{ __html: notebook.html }}
+                            dangerouslySetInnerHTML={{ __html: notebookHTML }}
                         />
+
                     </div>
                 </Layout>
             </>
@@ -72,7 +76,7 @@ JupyterNotebook.propTypes = {
     location: PropTypes.object.isRequired,
 }
 
-export default JupyterNotebook
+// export default JupyterNotebook
 
 export const JupyterNotebookQuery = graphql`
   query($id: String!) {
@@ -87,6 +91,9 @@ export const JupyterNotebookQuery = graphql`
            version
          }
        }
+       internal {
+            content
+          }
      }
      name
      modifiedTime(formatString: "DD MMMM, YYYY")
