@@ -17,8 +17,8 @@ import '../styles/pages/jupyter.less'
 const JupyterNotebook = ({ data, pageContext }) => {
     const file = data.file
     const notebook = file.childJupyterNotebook
-    const notebookContent = file.childJupyterNotebook.internal.content
-    const notebookHTML = ReactDOMServer.renderToStaticMarkup({ notebookContent })
+    // const notebookContent = file.childJupyterNotebook.internal.content
+    // const notebookHTML = ReactDOMServer.renderToStaticMarkup({ notebookContent })
     const languageName = notebook.metadata ? notebook.metadata.language_info.name : null
     const languageVersion = notebook.metadata ? notebook.metadata.language_info.version : null
     const githubLink = file.gitRemote.webLink + file.relativePath
@@ -36,7 +36,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
                         </div>
                         <section
                             className="content-body load-external-scripts"
-                            dangerouslySetInnerHTML={{ __html: notebookHTML }}
+                            dangerouslySetInnerHTML={{ __html: notebook.html }}
                         />
 
                     </div>

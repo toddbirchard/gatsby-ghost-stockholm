@@ -146,7 +146,6 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-
     // Create series pages
     series.forEach(({ node }) => {
         const totalPosts = node.postCount !== null ? node.postCount : 0
@@ -251,11 +250,11 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // Create Jupyter Notebook posts
-   jupyter.forEach(({ node }) => {
+    jupyter.forEach(({ node }) => {
         // This part here defines, that our jupyter will use
         // a `/:slug/` permalink.
-        node.title = node.name.split('/').pop().replace('.ipynb', '')
-        node.slug = `${node.title.split(" ").join("-").toLowerCase()}`
+        node.title = node.name.split(`/`).pop().replace(`.ipynb`, ``)
+        node.slug = `${node.title.split(` `).join(`-`).toLowerCase()}`
         node.url = `/jupyter/${node.slug}/`
         node.primary = `Jupyter`
 
@@ -284,25 +283,24 @@ exports.createPages = async ({ graphql, actions }) => {
         node.tagSlugs = []
         node.primary = null
 
+        node.tags.forEach(function (element, index) {
+            node.tagSlugs.push(element.slug)
 
-        node.tags.forEach(function(element, index) {
-          node.tagSlugs.push(element.slug)
+            // get primary tag
+            if (index === 0) {
+                node.primary = element.slug
+            }
 
-          // get primary tag
-          if (index == 0) {
-            node.primary = element.slug
-          }
-
-          // generate different url for lynx posts
-          /*if (element.slug == 'roundup') {
+            // generate different url for lynx posts
+            /*if (element.slug == 'roundup') {
             node.url = `/roundup/${element.slug}/`
           }*/
 
-          // determine if post is in series
-          if (element.visibility == 'internal') {
-            node.series = element.slug
-            node.name = element.name
-          }
+            // determine if post is in series
+            if (element.visibility === `internal`) {
+                node.series = element.slug
+                // node.name = element = name
+            }
         })
 
         createPage({
@@ -316,7 +314,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 primaryAuthor: node.primary_author.slug,
                 primaryTag: node.primary,
                 seriesSlug: node.series,
-                seriesTitle: node.name
+                seriesTitle: node.name,
             },
         })
     })
@@ -365,7 +363,6 @@ exports.createPages = async ({ graphql, actions }) => {
             slug: `confirmation`,
         },
     })
-
 
     createPage({
         path: `/join/`,
