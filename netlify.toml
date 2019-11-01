@@ -196,6 +196,17 @@
     to = "/sqlalchemy-data-models/"
     status = 301
 
+[[redirects]]
+    from = "/constructuing-database-queries-with-the-sqlalchemy-orm/"
+    to = "/database-queries-sqlalchemy-orm/"
+    status = 301
+
+[[redirects]]
+    from = "python-database-management-with-sqlalchemy"
+    to = "/database-queries-sqlalchemy-orm/"
+    status = 301
+
+
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"

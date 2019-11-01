@@ -35,13 +35,14 @@
                     margin-bottom: 5px;
                 }
                 @media(max-width: @mobile-breakpoint) {
-                    font-size: 1.8em;
+                    font-size: 1.7em;
                     font-family: @header-bold;
                     font-weight: normal;
                     max-width: auto;
                     letter-spacing: 0;
-                    line-height: 1.1;
+                    line-height: 1;
                     margin: 0 auto;
+                    text-align: left;
                 }
             }
         }
@@ -188,7 +189,9 @@
           max-width: 95%
       }
       @media(max-width: @mobile-breakpoint) {
-          display: none;
+        margin: 7px auto 0;
+        font-size: 1.1em;
+        text-align: left;
       }
     }
 
@@ -296,6 +299,7 @@
                     font-size: 1.9em;
                 }
                 @media(max-width: @mobile-breakpoint) {
+                    font-size: 1.8em;
                     text-align: left;
                     width: auto;
                     line-height: 1.2;
