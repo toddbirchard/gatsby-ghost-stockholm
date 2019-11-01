@@ -4,12 +4,10 @@
     width: -webkit-fill-available;
     width: -moz-available;
     margin: 0 0 30px;
-    padding: 0 0 20px;
+    padding: 20px 0 20px;
     border-bottom: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
     @media(max-width: @tablet-breakpoint) {
-        margin: 0 30px 30px;
-    }
-    @media(max-width: @mobile-breakpoint) {
         margin: 30px;
     }
 
@@ -96,7 +94,7 @@
 
             &::before {
                 content: "Part " counter(li, upper-roman) "." !important;
-                color: #687f99;
+                color: #7f8a97;
                 font-weight: 600;
                 margin-right: 8px;
                 font-size: 1em;
@@ -110,7 +108,7 @@
             }
 
             a {
-                color: #687f99;
+                color: #7f8a97;
                 @media(max-width: @mobile-breakpoint) {
                     font-size: 0.9em;
                 }

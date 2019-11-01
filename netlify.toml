@@ -191,6 +191,10 @@
     to = "/accessing-mysql-externally/"
     status = 301
 
+[[redirects]]
+    from = "/sqlalchemy-managing-relationships-data-models/"
+    to = "/sqlalchemy-data-models/"
+    status = 301
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
