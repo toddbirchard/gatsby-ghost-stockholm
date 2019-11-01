@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faAngellist, faTwitter, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faTag,
     faEye,
     faPencilAlt,
@@ -22,7 +22,19 @@ import { faTag,
 // Styles
 import '../../styles/app.less'
 
-library.add(faTag, faEye, faPencilAlt, faUserEdit, faCalendar, faArrowLeft, faArrowRight, faGlobe, faHome, faChartLine, fab, faRss, faSearch)
+library.add(faTag,
+    faEye,
+    faPencilAlt,
+    faUserEdit,
+    faCalendar,
+    faArrowLeft,
+    faArrowRight,
+    faGlobe,
+    faHome,
+    faChartLine,
+    faRss,
+    faSearch,
+    faLinkedin, faAngellist, faTwitter, faGithub, faFacebook)
 
 /**
 * Main layout component

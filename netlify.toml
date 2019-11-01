@@ -202,8 +202,13 @@
     status = 301
 
 [[redirects]]
-    from = "python-database-management-with-sqlalchemy"
-    to = "/database-queries-sqlalchemy-orm/"
+    from = "/python-database-management-with-sqlalchemy/"
+    to = "/python-database-management-with-sqlalchemy/"
+    status = 301
+
+[[redirects]]
+    from = "/comparing-rows-between-two-pandas-dataframes/"
+    to = "/compare-rows-pandas-dataframes/"
     status = 301
 
 
