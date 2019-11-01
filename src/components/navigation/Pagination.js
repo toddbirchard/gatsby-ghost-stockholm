@@ -11,14 +11,14 @@ const Pagination = ({ pageContext }) => {
             <div className="pagination-button">
                 {previousPagePath && (
                     <Link to={previousPagePath} rel="prev">
-                        <FontAwesomeIcon icon={[`far`, `arrow-left`]} size="xs" /> Previous
+                        <FontAwesomeIcon icon={[`far`, `arrow-left`]} size="xs" /> <span>Previous</span>
                     </Link>
                 )}
             </div>
             {numberOfPages > 1 && <div className="pagination-location">Page {humanPageNumber} of {numberOfPages}</div>}
             {nextPagePath && (
                 <Link to={nextPagePath} rel="next">
-                         Next <FontAwesomeIcon icon={[`far`, `arrow-right`]} size="xs" />
+                    <span>Next</span> <FontAwesomeIcon icon={[`far`, `arrow-right`]} size="xs" />
                 </Link>
             )}
         </nav>
