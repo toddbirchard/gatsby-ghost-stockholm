@@ -11,6 +11,12 @@ const postQuery = `{
         tags {
           name
         }
+        primary_tag {
+          name
+        }
+        primary_author {
+          slug
+        }
       }
     }
   }

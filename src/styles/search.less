@@ -1,26 +1,71 @@
-.search-result {
-    display: flex;
-    justify-content: space-between;
+.search-results {
+    margin: 0;
+    box-shadow: 4px 4px 10px rgba(45, 47, 55, 0.2);
 
-    .search-result-details {
-        width: 230px;
+    header {
+        align-items: center;
+        margin: 0;
+        border-bottom: 1px solid #f3f3f3;
+        padding-bottom: 15px;
+        margin-bottom: 10px !important;
+    }
 
-        .search-result-title {
-            margin-bottom: 5px;
-            color: @header-color;
-            font-family: @header-bold;
-            line-height: 1.1 !important;
-            font-size: 1.2em;
-            display: block;
-        }
+    .search-results-count {
+        font-size: 0.8em;
+        opacity: 0.9;
+    }
 
-        .search-result-excerpt {
-            line-height: 1.2;
+    .ais-Hits-list {
+        margin: 0;
+    }
+
+    .ais-Hits-item {
+        margin-bottom: 15px;
+
+        &:last-of-type {
+            margin-bottom: 0;
         }
     }
 
-    .search-result-image {
-        max-width: 100px;
-        height: 66px;
+    .search-result {
+        display: flex;
+        justify-content: space-between;
+
+        .search-result-details {
+            width: 230px;
+
+            .search-result-title {
+                margin-bottom: 5px;
+                color: @header-color;
+                font-family: @header-bold;
+                line-height: 1.1 !important;
+                font-size: 1.1em;
+                display: block;
+                opacity: .9;
+            }
+
+            .search-result-tag {
+                display: block;
+                font-size: 0.8em;
+                font-weight: 600;
+                opacity: 0.6;
+
+                svg {
+                    position: relative !important;
+                    right: unset;
+                    width: unset;
+                    color: #606060;
+                }
+            }
+
+            .search-result-excerpt {
+                line-height: 1.1;
+            }
+        }
+
+        .search-result-image {
+            max-width: 100px;
+            height: 66px;
+        }
     }
 }

@@ -4,7 +4,9 @@ import {
     Index,
     Hits,
     connectStateResults,
+    Configure,
 } from 'react-instantsearch-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
 import { Root, HitsWrapper } from './styles'
@@ -28,7 +30,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             <img src={hit.feature_image} alt={hit.slug} className="search-result-image" />
             <div className="search-result-details">
                 <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
-                <p className="search-result-excerpt">{hit.excerpt}</p>
+                <div className="search-result-tag"><FontAwesomeIcon icon={[`far`, `tag`]} size="xs" /> <span>{hit.primary_tag.name}</span> </div>
+                {/*<p className="search-result-excerpt">{hit.excerpt}</p>*/}
             </div>
         </div>
     )
@@ -50,13 +53,14 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 indexName={indices[0].name}
                 onSearchStateChange={({ query }) => setQuery(query)}
             >
+                <Configure hitsPerPage={5} />
                 <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results">
                     {indices.map(({ name, title, hitComp }) => (
                         <Index key={name} indexName={name}>
                             <header>
-                                <h3>{title}</h3>
-                                <Stats />
+                                <h4 className="search-results-title">Search results</h4>
+                                <div className="search-results-count"><Stats /></div>
                             </header>
                             <Results>
                                 <Hits hitComponent={PostHit(() => setFocus(false))} />
