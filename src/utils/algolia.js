@@ -22,7 +22,6 @@ const pageQuery = `{
         objectID: ghostId
         slug
         title
-        feature_image
         excerpt
       }
     }
@@ -32,7 +31,7 @@ const pageQuery = `{
 const queries = [
   {
     query: postQuery,
-    transformer: ({ data }) => flatten(data.posts.edges),
+    transformer: ({ data }) => data.posts.edges.map(({ node }) => node), // optional
   },
   {
     query: pageQuery,
