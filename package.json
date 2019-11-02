@@ -69,6 +69,7 @@
     "gatsby-plugin-manifest": "2.2.26",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-offline": "3.0.17",
+    "gatsby-plugin-preload-fonts": "^1.0.15",
     "gatsby-plugin-preload-link-crossorigin": "^1.0.2",
     "gatsby-plugin-react-helmet": "3.1.13",
     "gatsby-plugin-remote-images": "^1.0.7",

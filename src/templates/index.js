@@ -37,22 +37,7 @@ const Index = ({ data, location, pageContext }) => {
 
 Index.propTypes = {
     data: PropTypes.shape({
-        allGhostPost: PropTypes.arrayOf(
-            PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                slug: PropTypes.string.isRequired,
-                primary_author: PropTypes.object.isRequired,
-                html: PropTypes.string.isRequired,
-                feature_image: PropTypes.string,
-                tags: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        name: PropTypes.string.isRequired,
-                        slug: PropTypes.string.isRequired,
-                    })
-                ).isRequired,
-                published_at_pretty: PropTypes.string,
-            }).isRequired,
-        ),
+        allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.shape({
         pathname: PropTypes.string.isRequired,

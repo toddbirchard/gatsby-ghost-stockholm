@@ -91,14 +91,15 @@ module.exports = {
             }
         },
         {
-          resolve: 'gatsby-plugin-web-font-loader',
+          resolve: `gatsby-plugin-web-font-loader`,
           options: {
             custom: {
-              families: ['HarmoniaSansPro-Regular', 'HarmoniaSansPro-SemiBd', 'AvenirNextLTPro-Medium', 'AvenirNextLTPro-Regular'],
-              urls: ['/fonts.css']
+              families: [`HarmoniaSansPro-Regular`, `HarmoniaSansPro-SemiBd`, `AvenirNextLTPro-Medium`, `AvenirNextLTPro-Regular`],
+              urls: [`/fonts.css`]
             }
           }
         },
+        `gatsby-plugin-preload-fonts`,
         /**
          *  Utility Plugins
          */
@@ -262,9 +263,9 @@ module.exports = {
             },
             queries: [
               {
-                statement: 'SELECT * FROM analytics',
-                idFieldName: 'id',
-                name: 'analytics'
+                statement: `SELECT * FROM analytics`,
+                idFieldName: `id`,
+                name: `analytics`
               }
             ]
           }

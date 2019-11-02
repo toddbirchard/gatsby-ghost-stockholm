@@ -24,13 +24,7 @@ const TrendingWidget = ({ data }) => {
 
 TrendingWidget.propTypes = {
     data: PropTypes.shape({
-        allMysqlAnalytics: PropTypes.arrayOf(
-            PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-                views: PropTypes.number.isRequired,
-            }),
-        ),
+        allMysqlAnalytics: PropTypes.object.isRequired,
     }).isRequired,
 }
 

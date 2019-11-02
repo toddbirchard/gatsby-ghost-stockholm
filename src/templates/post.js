@@ -27,7 +27,7 @@ const Post = ({ data, location }) => {
     const relatedPosts = data.relatedPosts
     const readingTime = readingTimeHelper(post)
     const seriesPosts = data.seriesPosts
-    const authorUrl = post.primary_author.slug ? `author/${post.primary_author.slug}` : null
+    const authorUrl = post.primary_author.slug ? `/author/${post.primary_author.slug}/` : null
     const authorFirstName = author.name.split(` `)[0]
 
     return (
@@ -103,20 +103,8 @@ Post.propTypes = {
             codeinjection_styles: PropTypes.string,
         }).isRequired,
         ghostAuthor: PropTypes.object.isRequired,
-        relatedPosts: PropTypes.arrayOf(
-            PropTypes.shape({
-                ghostId: PropTypes.string,
-                feature_image: PropTypes.string,
-                title: PropTypes.string,
-                slug: PropTypes.string,
-            }),
-        ),
-        seriesPosts: PropTypes.arrayOf(
-            PropTypes.shape({
-                slug: PropTypes.string.isRequired,
-                title: PropTypes.string,
-            }),
-        ),
+        relatedPosts: PropTypes.object.isRequired,
+        seriesPosts: PropTypes.object,
     }).isRequired,
     location: PropTypes.object.isRequired,
 }

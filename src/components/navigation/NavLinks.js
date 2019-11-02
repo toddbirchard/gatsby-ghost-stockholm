@@ -9,7 +9,7 @@ const NavLinks = ({ navigation }) => (
           if (navItem.url.includes(`rss`) || navItem.url.includes(`sitemap`)) {
               return <a className="navigation-link rss" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
           } else if (navItem.url.includes(config.siteUrl)) {
-              return <Link className="navigation-link" to={`${navItem.url.split(`/`).pop()}`} key={i} >{navItem.label}</Link>
+              return <Link className="navigation-link" to={`/${navItem.url.split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
           } else {
               return <a className="navigation-link donate" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
           }

@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
     const numberOfPosts = postCount + 1
     const listStyle = {
-        counterReset: `li ${numberOfPosts}`
+        counterReset: `li ${numberOfPosts}`,
     }
 
     return (
@@ -24,7 +24,7 @@ const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
 SeriesTOC.propTypes = {
     seriesPosts: PropTypes.arrayOf(
         PropTypes.shape({
-            slug: PropTypes.string.isRequired,
+            slug: PropTypes.string,
             title: PropTypes.string,
         }),
     ),

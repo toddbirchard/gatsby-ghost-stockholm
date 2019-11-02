@@ -28,7 +28,7 @@ const queries = [
   {
     query: postQuery,
     transformer: ({ data }) => flatten(data.posts.edges),
-    indexName: `Posts`,
+    indexName: `hackers_posts`,
   },
 ]
 module.exports = queries

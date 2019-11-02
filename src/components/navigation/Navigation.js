@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Search from '../search/Search'
+import Search from '../search'
 import NavLinks from './NavLinks'
 
 /**
@@ -15,6 +15,10 @@ import NavLinks from './NavLinks'
 *
 */
 
+const searchIndices = [
+    { name: `Posts`, title: `Blog`, hitComp: `PostHit` },
+]
+
 const Navigation = ({ data, logo }) => (
     <>
     <nav className="navigation">
@@ -26,7 +30,7 @@ const Navigation = ({ data, logo }) => (
                 </div>
             </div>
             <div className="nav-right">
-                <Search collapse className="search-widget" />
+                <Search collapse indices={searchIndices} className="search-widget" />
             </div>
         </div>
     </nav>
