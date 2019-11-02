@@ -23,6 +23,15 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     const ref = createRef()
     const [query, setQuery] = useState(``)
     const [focus, setFocus] = useState(false)
+    const PostHit = clickHandler => ({ hit }) => (
+        <div className="search-result">
+            <img src={hit.feature_image} alt={hit.slug} className="search-result-image" />
+            <div className="search-result-details">
+                <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
+                <p className="search-result-excerpt">{hit.excerpt}</p>
+            </div>
+        </div>
+    )
 
     const appId = process.env.GATSBY_ALGOLIA_APP_ID
     const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
@@ -50,7 +59,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                                 <Stats />
                             </header>
                             <Results>
-                                <Hits hitComponent={hitComps[hitComp](focusFalse)} />
+                                <Hits hitComponent={PostHit(() => setFocus(false))} />
                             </Results>
                         </Index>
                     ))}
