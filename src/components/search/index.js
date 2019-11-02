@@ -10,7 +10,6 @@ import { useClickOutside } from '../../utils/hooks'
 import { Root, HitsWrapper } from './styles'
 import Input from './Input'
 import { PostHit } from './hitComps'
-export { default as hitComps } from './hitComps'
 
 const Results = connectStateResults(
     ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : `No results for '${state.query}'`)
