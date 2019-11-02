@@ -40,7 +40,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
     <Root ref={ref}>
       <InstantSearch
         searchClient={searchClient}
-        indexName="hackers_posts"
+        indexName={indices[0].name}
         onSearchStateChange={({ query }) => setQuery(query)}
       >
         <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />

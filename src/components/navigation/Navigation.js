@@ -16,7 +16,8 @@ import NavLinks from './NavLinks'
 */
 
 const searchIndices = [
-    { name: `Posts`, title: `Blog`, hitComp: `PostHit` },
+    { name: `hackers_posts`, title: `Blog`, hitComp: `PostHit` },
+    { name: `hackers_pages`, title: `Blog`, hitComp: `PostHit` },
 ]
 
 const Navigation = ({ data, logo }) => (
