@@ -261,6 +261,26 @@
             must-revalidate'''
     set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
+[[headers]]
+    for = "http://cdn.segment.com/*"
+    [headers.values]
+    cache-control = '''
+            max-age=31557600,
+            no-cache,
+            no-store,
+            must-revalidate'''
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+  [[headers]]
+        for = "http://storage.googleapis.com/*"
+        [headers.values]
+        cache-control = '''
+                max-age=31557600,
+                no-cache,
+                no-store,
+                must-revalidate'''
+        set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
 [build.processing]
   skip_processing = false
 [build.processing.css]
