@@ -10,6 +10,10 @@
         font-family: @body-font;
     }
 
+    .commento-button-margin {
+      box-shadow: 0 !important;
+    }
+
     .commento-root-font * {
         font-family: @body-font;
     }
@@ -43,8 +47,9 @@
         width: 150px !important;
         display: flex;
         align-items: center;
-        position: absolute;
+        position: absolute !important;
         right: 0;
+        top: 0;
 
         button {
             margin: 0 !important;
@@ -118,6 +123,7 @@
         background: white;
         margin-top: 0 !important;
         box-shadow: none !important;
+        position: relative;
         @media(max-width: @mobile-breakpoint) {
             padding: 20px !important;
         }
@@ -128,19 +134,24 @@
             box-shadow: none !important;
             @media(max-width: @mobile-breakpoint) {
                 margin-left: 20px !important;
+                padding-bottom: 0 !important;
             }
+        }
+
+        & > div:nth-of-type(2){
+            margin: 20px 0 0 20px;
+        }
+
+        .commento-button-margin {
+          box-shadow: 0 !important;
         }
 
         .commento-markdown-button {
             display: none;
         }
 
-        textarea {
-            margin: 20px 0 0 20px;
-        }
-
         .commento-submit-button {
-            top: 115px !important;
+            top: 85px !important;
         }
 
         p {

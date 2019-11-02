@@ -184,21 +184,45 @@
         width: 100px;
         margin-left: -50px;
         text-align: center;
-        color: #333b40;
+        color: #586268;
         font-size: 0.9em;
     }
 
     a {
         display: inline-block;
-        color: #333b40;
+        color: #586268;
         font-family: @body-font;
         text-decoration: none;
         font-size: 1em;
         line-height: 1em;
+        border: 1px solid #c5c5c5;
+        padding: 8px 12px;
+        border-radius: 3px;
         transition: @transition;
 
         &:hover {
-            color: @hover-color;
+            background: @hover-color;
+            border: 1px solid @hover-color;
+            * {
+              color: white;
+            }
+
+        }
+
+        &.prev {
+          svg {
+            margin-right: 5px;
+          }
+        }
+
+        &.next {
+          svg {
+            margin-left: 5px;
+          }
+        }
+
+        span {
+          line-height: 1;
         }
     }
 }

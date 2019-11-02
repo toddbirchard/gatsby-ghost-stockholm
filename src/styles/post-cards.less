@@ -52,7 +52,7 @@
     .post-card-detail {
         padding: 30px;
         @media(max-width: @mobile-breakpoint) {
-            padding: 20px;
+            padding: 25px;
         }
 
         .post-card-excerpt {
@@ -70,7 +70,8 @@
             width: -webkit-fill-available;
             width: -moz-available;
             @media(max-width: @mobile-breakpoint) {
-                font-size: 1.1em;
+                font-size: 1em;
+                margin: 5px auto 20px;
             }
         }
     }
@@ -88,6 +89,9 @@
             font-weight: normal;
             display: flex;
             align-items: center;
+            @media(max-width: @mobile-breakpoint) {
+              font-size: 0.9em;
+            }
 
             a {
                 color: @secondary-font-color;
