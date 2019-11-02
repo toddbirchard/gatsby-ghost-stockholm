@@ -4,9 +4,6 @@ import { Link } from 'gatsby'
 import Search from '../search/Search'
 import NavLinks from './NavLinks'
 
-const searchIndices = [
-    { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
-]
 /**
 * Navigation component
 *

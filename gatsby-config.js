@@ -90,7 +90,6 @@ module.exports = {
                 javascriptEnabled: true,
             }
         },
-        `gatsby-plugin-preload-link-crossorigin`,
         {
           resolve: 'gatsby-plugin-web-font-loader',
           options: {

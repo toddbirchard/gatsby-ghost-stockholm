@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import config from '../../utils/siteConfig'
 
 const TrendingWidget = ({ data }) => {
     const topPages = data.allMysqlAnalytics.edges
@@ -14,7 +15,7 @@ const TrendingWidget = ({ data }) => {
             </div>
             <div className="widget-trending-pages">
                 {topPages.map(({ node }) => (
-                    <Link to={ node.path } className="trending-page" key={ node.title }>{`${node.title.split(` | `)[0].split(` - `)[0]}`}</Link>
+                    <Link to={`${node.url.split(config.siteUrl).pop()}`} className="trending-page" key={ node.title }>{`${node.title.split(` | `)[0].split(` - `)[0]}`}</Link>
                 ))}
             </div>
         </div>
@@ -47,7 +48,6 @@ const TrendingWidgetQuery = props => (
               }
             }
           }
-
         `}
         render={data => <TrendingWidget data={data} {...props} />}
     />
