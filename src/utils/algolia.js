@@ -7,6 +7,7 @@ const postQuery = `{
         title
         feature_image
         excerpt
+        meta_description
         tags {
           name
         }
@@ -31,10 +32,6 @@ const pageQuery = `{
 const queries = [
   {
     query: postQuery,
-    transformer: ({ data }) => data.posts.edges.map(({ node }) => node), // optional
-  },
-  {
-    query: pageQuery,
     transformer: ({ data }) => data.posts.edges.map(({ node }) => node), // optional
   },
 ];

@@ -6,7 +6,6 @@ import {
     connectStateResults,
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch/lite'
-
 import { useClickOutside } from '../../utils/hooks'
 import { Root, HitsWrapper } from './styles'
 import Input from './Input'
