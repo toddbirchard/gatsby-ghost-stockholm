@@ -9,7 +9,8 @@ import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
 import { Root, HitsWrapper } from './styles'
 import Input from './Input'
-import * as hitComps from './hitComps'
+import { PostHit } from './hitComps'
+export { default as hitComps } from './hitComps'
 
 const Results = connectStateResults(
     ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : `No results for '${state.query}'`)
@@ -43,14 +44,14 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             >
                 <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
                 <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
-                    {indices.map(({ name, title, hitComp }) => (
+                    {indices.map(({ name, title, PostHit }) => (
                         <Index key={name} indexName={name}>
                             <header>
                                 <h3>{title}</h3>
                                 <Stats />
                             </header>
                             <Results>
-                                <Hits hitComponent={hitComps[hitComp](focusFalse)} />
+                                <Hits hitComponent={PostHit(focusFalse)} />
                             </Results>
                         </Index>
                     ))}
