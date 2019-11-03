@@ -28,9 +28,9 @@ const Navigation = ({ data, logo }) => (
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
                 <div className="nav-links">
                     <NavLinks navigation={data} />
-                    <Menu>
+                    {/*<Menu>
                         <NavLinks navigation={data} />
-                    </Menu>
+                    </Menu>*/}
                 </div>
             </div>
             <div className="nav-right">
