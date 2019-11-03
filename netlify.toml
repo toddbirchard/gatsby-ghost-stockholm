@@ -228,7 +228,6 @@
       must-revalidate'''
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
-
 [[headers]]
     for = "http://gaug.es/*"
     [headers.values]
@@ -238,7 +237,6 @@
         no-store,
         must-revalidate'''
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
-
 
 [[headers]]
     for = "http://cloudinary.com/*"
@@ -252,7 +250,17 @@
 
 
 [[headers]]
-    for = "http://cloudinary.com/"
+    for = "http://res-1.cloudinary.com/"
+    [headers.values]
+    cache-control = '''
+            max-age=31557600,
+            no-cache,
+            no-store,
+            must-revalidate'''
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+[[headers]]
+    for = "http://res-2.cloudinary.com/"
     [headers.values]
     cache-control = '''
             max-age=31557600,
@@ -271,15 +279,15 @@
             must-revalidate'''
     set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
-  [[headers]]
-        for = "http://storage.googleapis.com/*"
-        [headers.values]
-        cache-control = '''
-                max-age=31557600,
-                no-cache,
-                no-store,
-                must-revalidate'''
-        set-cookie = "HttpOnly;Secure;SameSite=Strict"
+[[headers]]
+      for = "http://storage.googleapis.com/*"
+      [headers.values]
+      cache-control = '''
+              max-age=31557600,
+              no-cache,
+              no-store,
+              must-revalidate'''
+      set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [build.processing]
   skip_processing = false
