@@ -95,11 +95,10 @@ module.exports = {
           options: {
             custom: {
               families: [`HarmoniaSansPro-Regular`, `HarmoniaSansPro-SemiBd`, `AvenirNextLTPro-Medium`, `AvenirNextLTPro-Regular`],
-              urls: [`fonts.css`]
+              urls: [`/fonts.css`]
             }
           }
         },
-        `gatsby-plugin-preload-fonts`,
         `gatsby-plugin-preload-link-crossorigin`,
         /**
          *  Utility Plugins

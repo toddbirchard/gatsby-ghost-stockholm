@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Search from '../search'
 import NavLinks from './NavLinks'
+import { stack as Menu } from 'react-burger-menu'
 
 /**
 * Navigation component
@@ -27,6 +28,9 @@ const Navigation = ({ data, logo }) => (
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
                 <div className="nav-links">
                     <NavLinks navigation={data} />
+                    <Menu>
+                        <NavLinks navigation={data} />
+                    </Menu>
                 </div>
             </div>
             <div className="nav-right">
