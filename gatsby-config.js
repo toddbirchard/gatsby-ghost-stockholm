@@ -100,6 +100,7 @@ module.exports = {
           }
         },
         `gatsby-plugin-preload-fonts`,
+        `gatsby-plugin-preload-link-crossorigin`,
         /**
          *  Utility Plugins
          */
