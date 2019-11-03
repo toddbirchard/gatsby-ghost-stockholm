@@ -229,7 +229,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "http://gaug.es/*"
+    for = "https://gaug.es/*"
     [headers.values]
       cache-control = '''
         max-age=31557600,
@@ -239,7 +239,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "http://cloudinary.com/*"
+    for = "https://cloudinary.com/*"
     [headers.values]
     cache-control = '''
         max-age=31557600,
@@ -250,7 +250,7 @@
 
 
 [[headers]]
-    for = "http://res-1.cloudinary.com/"
+    for = "https://res-1.cloudinary.com/"
     [headers.values]
     cache-control = '''
             max-age=31557600,
@@ -260,7 +260,7 @@
     set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "http://res-2.cloudinary.com/"
+    for = "https://res-2.cloudinary.com/"
     [headers.values]
     cache-control = '''
             max-age=31557600,
@@ -270,7 +270,7 @@
     set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "http://cdn.segment.com/*"
+    for = "https://cdn.segment.com/*"
     [headers.values]
     cache-control = '''
             max-age=31557600,
@@ -280,7 +280,7 @@
     set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-      for = "http://storage.googleapis.com/*"
+      for = "https://storage.googleapis.com/*"
       [headers.values]
       cache-control = '''
               max-age=31557600,
