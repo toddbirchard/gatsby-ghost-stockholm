@@ -28,14 +28,14 @@ const Navigation = ({ data, logo }) => (
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
                 <div className="nav-links">
                     <NavLinks navigation={data} />
-                    {/*<Menu>
-                        <NavLinks navigation={data} />
-                    </Menu>*/}
                 </div>
             </div>
             <div className="nav-right">
                 <Search collapse indices={searchIndices} className="search-widget" />
             </div>
+            <Menu right width={ `100%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` }>
+                <NavLinks navigation={data} />
+            </Menu>
         </div>
     </nav>
     </>
