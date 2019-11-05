@@ -102,6 +102,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
     const joinPage = path.resolve(`./src/pages/join.js`)
     const confirmationPage = path.resolve(`./src/pages/confirmation.js`)
+    const postArchivePage = path.resolve(`./src/pages/posts.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
@@ -371,6 +372,16 @@ exports.createPages = async ({ graphql, actions }) => {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: `join`,
+        },
+    })
+
+    createPage({
+        path: `/posts/`,
+        component: postArchivePage,
+        context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: `posts`,
         },
     })
 }
