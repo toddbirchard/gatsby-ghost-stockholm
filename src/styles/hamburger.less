@@ -8,6 +8,10 @@
         display: block;
     }
 
+    button {
+      outline: none !important;
+    }
+
     .bm-burger-bars {
         background: grey;
         height: 15% !important;
@@ -24,6 +28,8 @@
     background: #373a47;
     height: 15% !important;
     transition: @transition;
+    outline: none !important;
+    -webkit-appearance: none !important;
 
     &:hover {
         background: @hover-color !important;
@@ -39,6 +45,7 @@
     height: 30px !important;
     right: 16px !important;
     top: 12px !important;
+    -webkit-appearance: none !important;
 
     &:hover {
       .hamburger-cross-bar {
@@ -51,6 +58,8 @@
     }
 
     button {
+      -webkit-appearance: none !important;
+      outline: none !important;
         &:hover {
             background: unset !important;
         }
@@ -97,7 +106,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
     flex-direction: column;
     justify-content: space-between;
     max-height: 300px;
-    margin: auto;
+    margin: auto !important;
     text-align: center;
     position: absolute;
     left: 0;

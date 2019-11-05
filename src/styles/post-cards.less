@@ -80,6 +80,11 @@
         display: flex;
         align-items: center;
         margin: 0;
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: -webkit-fill-available;
 
         .meta-item {
             font-family: @body-font-bold;
