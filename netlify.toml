@@ -229,7 +229,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "https://gaug.es/"
+    for = "https://gaug.es/*"
     [headers.values]
       cache-control = '''
         max-age=31557600,
@@ -239,7 +239,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "http://secure.gaug.es/"
+    for = "http://secure.gaug.es/*"
     [headers.values]
       cache-control = '''
         max-age=31557600,
@@ -249,7 +249,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "http://get.gaug.es/"
+    for = "http://get.gaug.es/*"
     [headers.values]
       cache-control = '''
         max-age=31557600,
@@ -259,7 +259,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "https://cloudinary.com/"
+    for = "https://cloudinary.com/*"
     [headers.values]
     cache-control = '''
         max-age=31557600,
@@ -270,17 +270,7 @@
 
 
 [[headers]]
-    for = "https://res-1.cloudinary.com/"
-    [headers.values]
-    cache-control = '''
-            max-age=31557600,
-            no-cache,
-            no-store,
-            must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
-
-[[headers]]
-    for = "https://res-2.cloudinary.com/"
+    for = "https://res-1.cloudinary.com/*"
     [headers.values]
     cache-control = '''
             max-age=31557600,
@@ -290,7 +280,17 @@
     set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "https://segment.com/"
+    for = "https://res-2.cloudinary.com/*"
+    [headers.values]
+    cache-control = '''
+            max-age=31557600,
+            no-cache,
+            no-store,
+            must-revalidate'''
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+[[headers]]
+    for = "https://segment.com/*"
     [headers.values]
     cache-control = '''
             max-age=31557600,
@@ -330,7 +330,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
-    for = "https://hello.myfonts.net/"
+    for = "https://hello.myfonts.net/*"
     [headers.values]
     cache-control = '''
         max-age=31557600,
