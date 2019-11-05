@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import { Highlight, Snippet } from 'react-instantsearch-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const PageHit = clickHandler => ({ hit }) => (
     <div>

@@ -41,7 +41,7 @@
                 line-height: 1.1 !important;
                 font-size: 1.1em;
                 display: block;
-                opacity: .9;
+                opacity: 0.9;
             }
 
             .search-result-tag {
@@ -67,5 +67,51 @@
             max-width: 100px;
             height: 66px;
         }
+    }
+}
+
+.search-form {
+    input {
+        line-height: normal;
+        background: #efefef;
+        width: 250px;
+        border: 0;
+        padding: 12px 17px;
+        font-size: 1em;
+        border-radius: 3px;
+        transition: @transition;
+        margin: 0;
+
+        &::placeholder {
+            color: #9ca7b0;
+        }
+
+        &:focus,
+        &:hover {
+            background: #e1edf6;
+
+            &::placeholder {
+                color: #95aaba;
+            }
+        }
+
+        svg {
+            transition: @transition;
+        }
+    }
+
+    .ais-SearchBox-reset {
+        display: none;
+    }
+
+    &:focus,
+    &:hover {
+        svg {
+            color: #95aaba;
+        }
+    }
+
+    button {
+        display: none;
     }
 }
