@@ -151,6 +151,13 @@
                 display: none;
             }
         }
+
+        & > div:last-of-type{
+          display: none;
+          @media(max-width: @mobile-breakpoint) {
+            display: block;
+          }
+        }
     }
 }
 /* Page-specific navigation hacks
