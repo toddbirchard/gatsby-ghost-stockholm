@@ -20,12 +20,13 @@ const searchIndices = [
     { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
 ]
 
-const Navigation = ({ data, logo }) => (
+const Navigation = ({ data, logo, mobileLogo }) => (
     <>
     <nav className="navigation">
         <div className="nav-wrapper">
             <div className="nav-left">
                 <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
+                <Link to="/" className="mobile-logo"><img src={mobileLogo} alt="logo" /></Link>
                 <div className="nav-links">
                     <NavLinks navigation={data} />
                 </div>
@@ -49,6 +50,7 @@ Navigation.propTypes = {
         }).isRequired,
     ).isRequired,
     logo: PropTypes.string,
+    mobileLogo: PropTypes.string,
 }
 
 export default Navigation

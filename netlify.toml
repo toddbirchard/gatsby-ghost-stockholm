@@ -231,8 +231,15 @@
     to = "/join-aggregate-pyspark-dataframes/"
     status = 301
 
+[[redirects]]
+    from = "/manage-s3-assests-with-boto3-python-sdk/"
+    to = "/s3-boto3-python-sdk/"
+    status = 301
 
-
+[[redirects]]
+    from = "/reading-and-writing-to-csvs-in-python/"
+    to = "/read-write-csv-python/"
+    status = 301
 
 
 [[headers]]

@@ -37,13 +37,14 @@
 
             .logo {
                 transition: all 0.2s ease-out;
-                margin-right: 40px;
+                margin-right: 35px;
                 height: 40px;
                 width: 40px;
+                @media(max-width: 920px) {
+                    margin-right: 30px;
+                }
                 @media(max-width: @mobile-breakpoint) {
-                    height: 35px;
-                    width: 35px;
-                    min-width: 35px;
+                    display: none;
                 }
 
                 &:hover {
@@ -53,6 +54,20 @@
 
                 img {
                     width: 100%;
+                }
+            }
+
+            .mobile-logo {
+                display: none;
+                @media(max-width: @mobile-breakpoint) {
+                    display: block;
+                    height: 35px;
+                    width: unset;
+                    min-width: 35px;
+                }
+
+                img {
+                    height: 100%;
                 }
             }
 
@@ -78,6 +93,9 @@
                     font-weight: normal;
                     font-weight: 500;
                     font-family: @header-font;
+                    @media(max-width: 920px) {
+                        margin-right: 30px;
+                    }
                     @media(max-width: @tablet-breakpoint) {
                         margin: 0 0 0 25px;
                     }
@@ -93,8 +111,7 @@
         }
 
         .nav-right {
-          position: relative;
-
+            position: relative;
 
             svg {
                 width: 1.3em;
@@ -112,11 +129,11 @@
             }
         }
 
-        & > div:last-of-type{
-          display: none;
-          @media(max-width: @mobile-breakpoint) {
-            display: block;
-          }
+        & > div:last-of-type {
+            display: none;
+            @media(max-width: @mobile-breakpoint) {
+                display: block;
+            }
         }
     }
 }
@@ -157,7 +174,8 @@
     }
 
     a {
-        display: inline-block;
+        display: flex;
+        align-items: center;
         color: #80868f;
         font-family: @body-font;
         text-decoration: none;
@@ -171,26 +189,26 @@
         &:hover {
             background: @hover-color;
             border: 1px solid @hover-color;
-            * {
-              color: white;
-            }
 
+            * {
+                color: white;
+            }
         }
 
         &.prev {
-          svg {
-            margin-right: 5px;
-          }
+            svg {
+                margin-right: 5px;
+            }
         }
 
         &.next {
-          svg {
-            margin-left: 5px;
-          }
+            svg {
+                margin-left: 5px;
+            }
         }
 
         span {
-          line-height: 1;
+            line-height: 1;
         }
     }
 }

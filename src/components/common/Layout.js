@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
+import config from '../../utils/siteConfig'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedin, faAngellist, faTwitter, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { faTag,
@@ -58,7 +59,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             <body className={ template } />
         </Helmet>
 
-        <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} />
+        <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} />
         <div className="viewport">
 
             <div className={ hasSidebar ? `home-container` : `container` }>
