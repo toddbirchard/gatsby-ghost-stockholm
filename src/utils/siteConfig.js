@@ -11,7 +11,7 @@ module.exports = {
     shortTitle: `Hackers and Slackers`, // Used for App manifest e.g. Mobile Home Screen
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
     backgroundColor: `#ecf1f9`, // Used for Offline Manifest
-    themeColor: `#067bff`, // Used for Offline Manifest
+    themeColor: `#0297f6`, // Used for Offline Manifest
     mobileLogo: `/images/logo-mobile.png`,
 
     social: {

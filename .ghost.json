@@ -1,10 +1,10 @@
 {
   "development": {
     "apiUrl": "https://hackersandslackers.app",
-    "contentApiKey": "4466ce62c3066b6c4a6ec8a092"
+    "contentApiKey": "320a07dae430b9d6083b3149fe"
   },
   "production": {
     "apiUrl": "https://hackersandslackers.app",
-    "contentApiKey": "4466ce62c3066b6c4a6ec8a092"
+    "contentApiKey": "320a07dae430b9d6083b3149fe"
   }
 }
