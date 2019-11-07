@@ -22,5 +22,9 @@ module.exports = {
       tumblr: "https://hackersandslackers.blog",
     },
 
+    appIDs: {
+      facebook: "2459570624150585",
+    },
+
     siteGithubOrg: `https://github.com/hackersandslackers/jupyter.git`,
 }

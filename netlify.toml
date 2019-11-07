@@ -211,6 +211,29 @@
     to = "/compare-rows-pandas-dataframes/"
     status = 301
 
+[[redirects]]
+    from = "/dataframe-transformations-in-pyspark-continued/"
+    to = "/transforming-pyspark-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/basic-dataframe-transformations-in-pyspark/"
+    to = "/transforming-pyspark-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/selecting-data-from-pyspark-dataframes/"
+    to = "/transforming-pyspark-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/pyspark-macro-dataframe-methods-join-and-groupby/"
+    to = "/join-aggregate-pyspark-dataframes/"
+    status = 301
+
+
+
+
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
