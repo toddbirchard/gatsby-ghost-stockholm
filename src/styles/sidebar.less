@@ -26,10 +26,10 @@
             margin-bottom: 20px;
 
             .trending {
-              color: #3fa77a;
-              font-weight: bold;
-              opacity: 0.7;
-              font-size: .95em;
+                color: #3fa77a;
+                font-weight: bold;
+                opacity: 0.7;
+                font-size: 0.95em;
 
                 svg {
                     margin: 0 3px 0 0;
@@ -106,9 +106,9 @@
 
         &.newsletter {
             .newsletter-description {
-              font-size: .95em;
-              line-height: 1.2;
-              margin-bottom: 10px;
+                font-size: 0.95em;
+                line-height: 1.2;
+                margin-bottom: 10px;
             }
 
             input {
@@ -138,7 +138,7 @@
                 padding: 0;
 
                 svg {
-                  margin-left: 3px;
+                    margin-left: 3px;
                 }
 
                 &:hover {
@@ -149,53 +149,51 @@
         }
 
         &.series {
-
-          .widget-series-featured {
-
-            img {
-                width: 100%;
-                transition: @transition;
-            }
-
-            .series-widget-detail {
-                padding: 15px;
-                border: 1px solid #d7dee7;
-
-                .series-widget-title {
-                    margin: 0 0 10px;
-                    font-family: @header-font;
-                }
-
-                .series-widget-description {
-                    line-height: 1.1;
-                    margin-bottom: 10px;
+            .widget-series-featured {
+                img {
+                    width: 100%;
                     transition: @transition;
                 }
 
-                .series-widget-count {
-                    text-align: right;
-                    opacity: 0.6;
-                    font-size: 0.9em;
+                .series-widget-detail {
+                    padding: 15px;
+                    border: 1px solid #d7dee7;
+
+                    .series-widget-title {
+                        margin: 0 0 10px;
+                        font-family: @header-font;
+                    }
+
+                    .series-widget-description {
+                        line-height: 1.1;
+                        margin-bottom: 10px;
+                        transition: @transition;
+                    }
+
+                    .series-widget-count {
+                        text-align: right;
+                        opacity: 0.6;
+                        font-size: 0.9em;
+                    }
+                }
+
+                &:hover {
+                    cursor: pointer;
+
+                    img {
+                        opacity: 0.7;
+                    }
+
+                    .series-widget-detail {
+                        background: lighten(@hover-color, 10%);
+                        border: 1px solid lighten(@hover-color, 10%);
+
+                        * {
+                            color: white;
+                        }
+                    }
                 }
             }
-
-            &:hover {
-              cursor: pointer;
-
-              img {
-                opacity: .7;
-              }
-
-              .series-widget-detail {
-                background: lighten(@hover-color, 10%);
-                border: 1px solid lighten(@hover-color, 10%);
-
-                * {
-                  color: white;
-                }
-              }
-            }
-          }
         }
 
         &.trending {
@@ -225,7 +223,7 @@
             }
 
             .widget-trending-pages {
-              margin-top: 30px;
+                margin-top: 30px;
             }
         }
 
