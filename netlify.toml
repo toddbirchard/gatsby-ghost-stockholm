@@ -241,6 +241,11 @@
     to = "/read-write-csv-python/"
     status = 301
 
+[[redirects]]
+    from = "/guide-to-building-forms-in-flask/"
+    to = "/forms-in-flask-wtforms/"
+    status = 301
+
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
