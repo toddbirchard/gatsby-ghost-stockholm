@@ -246,6 +246,11 @@
     to = "/forms-in-flask-wtforms/"
     status = 301
 
+[[redirects]]
+    from = "manage-database-models-with-flask-sqlalchemy"
+    to = "database-models-with-flask-sqlalchemy"
+    status = 301
+
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.

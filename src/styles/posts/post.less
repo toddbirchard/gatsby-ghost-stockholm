@@ -441,13 +441,12 @@
                 ol,
                 ul {
                     margin: 20px 20px 0;
+                    @media(max-width: @mobile-breakpoint) {
+                        margin: 10px 10px 0;
+                    }
 
                     li {
                         color: #4c3100;
-                    }
-
-                    li::before {
-                        color: #dc9e5f;
                     }
                 }
 
