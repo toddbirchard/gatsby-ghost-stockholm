@@ -10,7 +10,7 @@ const generateItem = function generateItem(siteUrl, post) {
         title: post.title,
         description: post.excerpt,
         guid: post.id,
-        url: siteUrl + `/` + post.slug,
+        url: itemUrl,
         date: post.published_at,
         categories: _.map(tagsHelper(post, { visibility: `public`, fn: tag => tag }), `name`),
         author: post.primary_author ? post.primary_author.name : null,
