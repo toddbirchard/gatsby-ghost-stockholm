@@ -111,6 +111,9 @@
                 align-items: center;
                 text-transform: capitalize;
                 line-height: 1;
+                @media(max-width: @tablet-breakpoint) {
+                    margin: 0;
+                }
                 @media(max-width: @mobile-breakpoint) {
                     margin: 0 20px 0 0;
                     line-height: 1.5;
@@ -123,7 +126,7 @@
                 }
 
                 span {
-                    @media(max-width: @mobile-breakpoint) {
+                    @media(max-width: @tablet-breakpoint) {
                         font-size: 0.9em;
                     }
                 }
@@ -199,7 +202,7 @@
     .post {
         background: white;
         max-width: 720px;
-        margin: 20px auto 40px;
+        margin: 15px auto 40px;
         position: relative;
         @media(max-width: @tablet-breakpoint) {
             width: auto;
@@ -283,10 +286,10 @@
         .post-content {
             position: relative;
             @media(max-width: @tablet-breakpoint) {
-                margin: 40px;
+                margin: 30px;
             }
             @media(max-width: @mobile-breakpoint) {
-                margin: 40px 20px 30px;
+                margin: 30px 20px;
             }
 
             h2 {
