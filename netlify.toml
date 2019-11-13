@@ -246,6 +246,74 @@
     to = "/forms-in-flask-wtforms/"
     status = 301
 
+#----------------------------------------------------------------------------------------------
+
+[[redirects]]
+    from = "/deploy-app-containters-with-gcp-app-engine/"
+    to = "/google-cloud-app-engine/"
+    status = 301
+
+[[redirects]]
+    from = "/simple-image-size-optimization-using-imagemin-and-gulp/"
+    to = "/image-optimization-imagemin-and-gulp/"
+    status = 301
+
+[[redirects]]
+    from = "/aws-adventures-why-cant-i-ssh-into-my-damn-ec2-instance/"
+    to = "/troubleshooting-ec2-ssh-connections/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-a-dirty-way-of-cleaning-data-ft-pandas-sql/"
+    to = "/dirty-data-cleaning-pandas-sql/"
+    status = 301
+
+[[redirects]]
+    from = "/organizing-flask-with-blueprints/"
+    to = "/organize-flask-with-blueprints/"
+    status = 301
+
+[[redirects]]
+    from = "/configuring-your-flask-application/"
+    to = "/configuring-flask-applications/"
+    status = 301
+
+[[redirects]]
+    from = "/serve-docker-containers-with-custom-dns-and-ssl/"
+    to = "/caddy-webserver-for-docker-etc/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-removing-duplicate-columns-in-pandas/"
+    to = "/removing-duplicate-columns-in-pandas/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-recasting-low-cardinality-columns-as-categoricals/"
+    to = "/recasting-low-cardinality-columns-as-categoricals/"
+    status = 301
+
+[[redirects]]
+    from = "/gaining-full-control-over-plotly-dash/"
+    to = "/use-plotly-dash-with-flask/"
+    status = 301
+
+[[redirects]]
+    from = "/trash-pandas/"
+    to = "/messy-pandas-database-operations/"
+    status = 301
+
+[[redirects]]
+    from = "/poetic-python-project-packaging/"
+    to = "/python-poetry/"
+    status = 301
+
+[[redirects]]
+    from = "/creating-your-first-gatsby-theme/"
+    to = "/create-your-first-gatsby-theme/"
+    status = 301
+
+#----------------------------------------------------------------------------------------------
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
