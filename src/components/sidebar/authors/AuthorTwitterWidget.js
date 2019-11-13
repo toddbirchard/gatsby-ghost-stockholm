@@ -12,7 +12,7 @@ const AuthorTwitterWidget = ({ authorTweets, authorProfile }) => {
                 <div className="twitter-header">
                     <img src={user.profile_image_url_https} className="twitter-avatar" alt="twitter-avatar"/>
                     <div>
-                        <a href={user.url} className="twitter-name">{user.name}</a>
+                        <a href={user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{user.name}</a>
                         <div className="twitter-user">@{user.screen_name}</div>
                     </div>
                 </div>

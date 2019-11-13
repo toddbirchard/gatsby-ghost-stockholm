@@ -23,27 +23,27 @@ const Footer = ({ navigation, site, data }) => {
                 <div className="widget links">
                     <h5 className="footer-widget-title">Links</h5>
                     <NavLinks navigation={navigation} />
-                    <a href="/sitemap.xml" className="sitemap navigation-link" key="sitemap">Sitemap</a>
+                    <a href="/sitemap.xml" className="sitemap navigation-link">Sitemap</a>
                 </div>
                 <div className="widget tags">
                     <h5 className="footer-widget-title">Tags</h5>
                     {topTags.map(({ node }) => (
-                        <Link to={`/tag/${ node.slug }`} className="navigation-link" key={ node.slug }>{ node.name }</Link>
+                        <Link to={`/tag/${ node.slug }`} className="navigation-link" key={`${ node.slug }-footer-link`}>{ node.name }</Link>
                     ))}
                 </div>
                 <div className="widget authors">
                     <h5 className="footer-widget-title">Authors</h5>
                     {authorLinks.map(({ node }) => (
-                        <Link to={`/author/${ node.slug }`} className="navigation-link" key={ node.name } >{ node.name }</Link>
+                        <Link to={`/author/${ node.slug }`} className="navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</Link>
                     ))}
                 </div>
                 <div className="widget social">
                     <h5 className="footer-widget-title">Social</h5>
-                    <a href={ twitterUrl } className="twitter navigation-link" key="twitter-footer">Twitter</a>
-                    <a href={ facebookUrl } className="facebook navigation-link" key="facebook-footer">Facebook</a>
-                    <a href={ config.social.angellist } className="angellist-footer navigation-link" key="angellist">Angellist</a>
-                    <a href={ config.social.github } className="github navigation-link" key="github-footer">Github</a>
-                    <a href="/rss" className="rss navigation-link" key="rss">RSS</a>
+                    <a href={ twitterUrl } className="twitter navigation-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    <a href={ facebookUrl } className="facebook navigation-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href={ config.social.angellist } className="angellist-footer navigation-link" target="_blank" rel="noopener noreferrer">Angellist</a>
+                    <a href={ config.social.github } className="github navigation-link" target="_blank" rel="noopener noreferrer">Github</a>
+                    <a href="/rss" className="rss navigation-link">RSS</a>
                 </div>
             </div>
             <div className="copyright">
