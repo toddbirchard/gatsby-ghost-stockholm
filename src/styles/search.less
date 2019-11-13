@@ -71,6 +71,13 @@
 }
 
 .search-form {
+    &:focus,
+    &:hover {
+        svg {
+            color: #95aaba !important;
+        }
+    }
+
     input {
         line-height: normal;
         background: #efefef;
@@ -90,7 +97,7 @@
         &:hover {
             background: #e1edf6;
 
-            &::placeholder {
+            &::placeholder{
                 color: #95aaba;
             }
         }

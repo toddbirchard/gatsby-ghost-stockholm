@@ -73,37 +73,18 @@
         font-family: @body-font;
         outline: 0;
         background: #f2f2f2;
+        border: 1px solid #f3f3f3;
         width: 100%;
-        border: 0 solid;
         margin: 5px 0 15px;
         padding: 15px;
         box-sizing: border-box;
         font-size: 14px;
         transition: @transition;
-
-        &:hover {
-            background: rgba(64, 206, 199, 0.16);
-
-            &::placeholder {
-                color: #72859d;
-                opacity: 0.4;
-                font-family: @body-font !important;
-            }
-
-            &::after {
-                color: #8aafb8;
-            }
-        }
+        .input-field-interactions();
     }
 
     textarea {
         height: 200px;
-    }
-
-    .next:active,
-    .next:focus,
-    .next:hover {
-        background: @hover-color;
     }
 
     .message {
