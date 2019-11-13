@@ -18,7 +18,7 @@
 
 [[redirects]]
     from = "/structuring-your-flask-app/"
-    to = "/organizing-flask-with-blueprints"
+    to = "/organizing-flask-with-blueprints/"
     status = 301
 
 [[redirects]]
@@ -114,11 +114,6 @@
 [[redirects]]
     from = "/tag/aws-api/"
     to = "/series/create-an-aws-api/"
-    status = 301
-
-[[redirects]]
-    from = "/hacking-linux-tableu-server/"
-    to = "/hacking-linux-tableau-server/"
     status = 301
 
 [[redirects]]
