@@ -19,8 +19,6 @@
                     "jsx",
                     "graphql",
                     "sql",
-                    "vim",
-                    "nginx",
                     "jinja2",
                     "handlebars"
                 ],

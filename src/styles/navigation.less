@@ -21,10 +21,13 @@
         @media(max-width: 1100px) {
             max-width: 95%;
         }
-        @media(max-width: 800px) {
+        @media(max-width: @tablet-breakpoint) {
             justify-content: space-between;
             align-items: center;
             max-width: 90%;
+        }
+        @media(max-width: @mobile-breakpoint) {
+            max-width: 88%;
         }
 
         .nav-left {
@@ -145,7 +148,7 @@
 }
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
-@media(max-width: 800px) {
+@media(max-width: @tablet-breakpoint) {
     .home-template {
         .navigation {
             margin-bottom: 30px !important;

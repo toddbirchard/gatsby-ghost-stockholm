@@ -192,13 +192,13 @@
     status = 301
 
 [[redirects]]
-    from = "/constructuing-database-queries-with-the-sqlalchemy-orm/"
-    to = "/database-queries-sqlalchemy-orm/"
+    from = "/pythonic-database-management-with-sqlalchemy/"
+    to = "/python-database-management-sqlalchemy/"
     status = 301
 
 [[redirects]]
-    from = "/python-database-management-with-sqlalchemy/"
-    to = "/python-database-management-with-sqlalchemy/"
+    from = "/constructuing-database-queries-with-the-sqlalchemy-orm/"
+    to = "/database-queries-sqlalchemy-orm/"
     status = 301
 
 [[redirects]]
