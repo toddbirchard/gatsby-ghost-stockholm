@@ -21,11 +21,11 @@
                 width: -webkit-fill-available;
                 width: -moz-available;
                 display: block;
-                font-family: @header-bold;
+                font-family: @header-font;
                 font-size: 2em;
                 letter-spacing: 0;
                 line-height: 1;
-                color: #3a444f;
+                color: @header-color;
                 font-weight: 500;
                 text-align: center;
                 max-width: 720px;
@@ -36,12 +36,30 @@
                 }
                 @media(max-width: @mobile-breakpoint) {
                     font-size: 1.7em;
-                    font-family: @header-bold;
+                    font-family: @header-font;
                     font-weight: normal;
                     max-width: auto;
                     letter-spacing: 0;
                     line-height: 1.1;
                     margin: 0 auto;
+                    text-align: left;
+                }
+            }
+
+            .post-excerpt {
+                margin: 7px auto 60px;
+                font-size: 1.1em;
+                line-height: 1.3;
+                font-weight: 600;
+                text-align: center;
+                max-width: 720px;
+                color: #82848c;
+                @media(max-width: @tablet-breakpoint) {
+                    max-width: 95%;
+                }
+                @media(max-width: @mobile-breakpoint) {
+                    margin: 7px auto 0;
+                    font-size: 1.1em;
                     text-align: left;
                 }
             }
@@ -181,23 +199,7 @@
         }
     }
 
-    .post-excerpt {
-        margin: 7px auto 60px;
-        font-size: 1.1em;
-        line-height: 1.2;
-        font-weight: 600;
-        text-align: center;
-        max-width: 720px;
-        color: #82848c;
-        @media(max-width: @tablet-breakpoint) {
-            max-width: 95%;
-        }
-        @media(max-width: @mobile-breakpoint) {
-            margin: 7px auto 0;
-            font-size: 1.1em;
-            text-align: left;
-        }
-    }
+
 
     .post {
         background: white;
