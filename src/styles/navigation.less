@@ -46,7 +46,7 @@
                 @media(max-width: 920px) {
                     margin-right: 30px;
                 }
-                @media(max-width: @mobile-breakpoint) {
+                @media(max-width: @tablet-breakpoint) {
                     display: none;
                 }
 
@@ -63,11 +63,14 @@
             .mobile-logo {
                 display: none;
                 transition: @transition;
-                @media(max-width: @mobile-breakpoint) {
+                @media(max-width: @tablet-breakpoint) {
                     display: block;
-                    height: 35px;
+                    height: 40px;
                     width: unset;
                     min-width: 35px;
+                }
+                @media(max-width: @mobile-breakpoint) {
+                  height: 35px;
                 }
 
                 &:hover {
