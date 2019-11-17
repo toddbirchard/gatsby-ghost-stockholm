@@ -94,7 +94,7 @@ module.exports = {
           resolve: `gatsby-plugin-web-font-loader`,
           options: {
             custom: {
-              families: [`HarmoniaSansPro-Bold`, `AvenirNextLTPro-Medium`, `AvenirNextLTPro-Regular`],
+              families: [`HarmoniaSansPro-Bold`, `HarmoniaSansPro-Regular`, `AvenirNextLTPro-Medium`, `AvenirNextLTPro-Regular`],
               urls: [`/fonts.css`]
             }
           }
