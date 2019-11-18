@@ -29,8 +29,11 @@
 .page-template {
     .container {
         width: 1020px;
-        max-width: 100%;
+        max-width: 95%;
         margin: auto;
+        @media(max-width: @mobile-breakpoint) {
+            max-width: 100%;
+        }
 
         .page-content {
             padding: 60px;

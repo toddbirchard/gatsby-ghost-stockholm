@@ -244,17 +244,14 @@
             background: white !important;
         }
 
-        &::before {
-            content: "Hello";
-        }
-
         &::placeholder {
             color: #aeb1bd !important;
             text-transform: uppercase;
             font-family: @body-font;
             padding-bottom: 50px !important;
             transition: @transition;
-            opacity: 0.7;
+            opacity: 0.8;
+            font-size: 1.1em;
             @media(max-width: @mobile-breakpoint) {
                 font-size: 0.9em;
             }
@@ -292,6 +289,18 @@
             td {
                 font-size: 10px;
             }
+        }
+
+        * {
+          font-size: 0.95em !important;
+        }
+
+        tr td {
+          padding: 0 6px 4px !important;
+
+          &:last-of-type {
+            padding: 0 6px 0 !important;
+          }
         }
     }
 

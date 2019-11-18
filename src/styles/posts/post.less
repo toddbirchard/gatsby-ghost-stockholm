@@ -48,7 +48,7 @@
 
             .post-excerpt {
                 margin: 7px auto 60px;
-                font-size: 1.1em;
+                font-size: 1.2em;
                 line-height: 1.4;
                 font-weight: 600;
                 text-align: center;
@@ -575,12 +575,15 @@
         .nav-wrapper {
             max-width: 900px;
             @media(max-width: 920px) {
-                max-width: 88%;
+              max-width: 88%;
+            }
+            @media(max-width: @tablet-breakpoint) {
+              max-width: unset;
+              margin: auto 30px;
             }
             @media(max-width: @mobile-breakpoint) {
                 width: auto;
                 margin: auto 30px;
-                max-width: unset;
             }
         }
     }
