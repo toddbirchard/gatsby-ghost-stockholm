@@ -313,6 +313,12 @@
     to = "/create-your-first-gatsby-theme/"
     status = 301
 
+[[redirects]]
+    from = "/accessing-private-s3-objects-with-node/"
+    to = "/node-aws-sdk-s3/"
+    status = 301
+
+
 #----------------------------------------------------------------------------------------------
 
 [[headers]]
