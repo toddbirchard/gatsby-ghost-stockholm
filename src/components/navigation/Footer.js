@@ -9,7 +9,7 @@ import {
 import config from '../../utils/siteConfig'
 import NavLinks from './NavLinks'
 
-const Footer = ({ navigation, site, data }) => {
+const Footer = ({ navigation, site, data, template }) => {
     const authorLinks = data.allGhostAuthor.edges
     const seriesLinks = data.series.edges
     const topTags = data.tags.edges
