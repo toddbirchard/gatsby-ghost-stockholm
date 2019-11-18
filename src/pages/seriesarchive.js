@@ -57,7 +57,7 @@ SeriesArchive.propTypes = {
 
 export default SeriesArchive
 
-export const pageQuery = graphql`
+export const seriesQuery = graphql`
     query GhostSeriesArchiveQuery($slug: String) {
         allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}}) {
           edges {
@@ -76,5 +76,4 @@ export const pageQuery = graphql`
         ghostPage(slug: {eq: $slug}) {
           ...GhostPageFields
         }
-    }
-`
+    }`

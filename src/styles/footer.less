@@ -1,26 +1,70 @@
 .site-footer {
-    background: white;
+    background: #15212a;
     box-shadow: 0 1px 8px rgba(39, 44, 49, 0.1);
     z-index: 2;
     position: relative;
 
     .footer-wrapper {
-        display: flex;
-        justify-content: space-between;
-        background: white;
-        padding: 50px 0;
         width: 1000px;
         max-width: 90%;
         margin: auto;
         @media(max-width: @mobile-breakpoint) {
+            max-width: 100%;
+        }
+
+        .footer-row {
+            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+            border-bottom: 1px solid #20303b;
+            @media(max-width: @mobile-breakpoint) {
+              display: block;
+              padding: 40px 0;
+              margin: 0 40px;
+              width: -webkit-fill-available;
+              overflow: hidden;
+            }
+
+            .site-headline {
+                color: white;
+                text-transform: uppercase;
+                font-size: 1.5em;
+                font-family: @header-font;
+                font-weight: 500;
+                @media(max-width: @mobile-breakpoint) {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .navigation-link {
+                color: white;
+                font-family: @body-font-bold;
+                margin-left: 30px;
+                font-size: 1.1em;
+                @media(max-width: @mobile-breakpoint) {
+                    margin-left: 0;
+                    margin-right: 20px;
+                    font-size: 1em;
+                    font-family: @body-font;
+                }
+            }
+        }
+    }
+
+    .footer-widgets {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 0;
+        @media(max-width: @mobile-breakpoint) {
             display: block;
-            padding: 50px;
+            padding: 40px;
             max-width: unset;
             width: unset;
         }
 
         .widget {
-            width: 19%;
             overflow: hidden;
             @media(max-width: @mobile-breakpoint) {
                 max-width: unset;
@@ -34,24 +78,27 @@
 
             .footer-widget-title {
                 font-family: @header-font;
-                font-size: 1.1em;
+                font-size: 1.3em;
                 font-weight: normal;
                 margin-bottom: 20px;
-                color: @header-color;
-                border-bottom: 1px solid rgb(219, 227, 231);
-                padding-bottom: 10px;
+                color: white;
             }
 
             .navigation-link {
-                font-size: 0.95em;
-                margin: 0 0 15px;
+                font-size: 1em;
+                margin: 0 0 20px;
                 display: block;
                 padding-left: 0;
                 line-height: 1em;
-                color: #576979;
+                color: #738a94;
                 font-family: @body-font;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+                transition: @transition;
+
+                &:hover {
+                    color: white;
+                }
             }
 
             &.about {
@@ -102,16 +149,19 @@
     }
 
     .copyright {
-        background-color: #333c47;
-        border-top: 1px solid #dbe3e7;
+        background-color: #121d25;
         padding: 30px;
+        @media(max-width: @mobile-breakpoint) {
+          text-align: center;
+          line-height: 1.2;
+        }
 
         p {
             color: white;
             margin: 0;
-            font-size: 0.9em;
-            opacity: 0.8;
-            text-align: center;
+            width: 1000px;
+            max-width: 90%;
+            margin: auto;
         }
     }
 }
