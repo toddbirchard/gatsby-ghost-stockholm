@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import { AboutWidget,
     NewsletterWidget,
     SocialWidget,
     TagsWidget,
     TrendingWidget,
     TwitterWidget } from '.'
-
+import { AuthorPocketWidget } from './authors'
 /**
 * Sidebar component
 */

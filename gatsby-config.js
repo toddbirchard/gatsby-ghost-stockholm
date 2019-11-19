@@ -79,6 +79,25 @@ module.exports = {
                 ghostConfig.development :
                 ghostConfig.production,
         },
+        {
+          resolve: `gatsby-source-pocket`,
+          options: {
+            consumerKey: process.env.POCKET_CONSUMER_KEY,
+            accessToken: process.env.POCKET_ACCESS_TOKEN,
+            weeksOfHistory: 10,
+            apiMaxRecordsToReturn: 10,
+            getCurrentWeekOnly: `y`,
+            stateFilterString: "all",
+            tagFilter: false,
+            tagFilterString: "_untagged_",
+            favouriteFilter: false,
+            favouriteFilterValue: 0,
+            searchFilter: false,
+            searchFilterString: "These 21 things",
+            domainFilter: false,
+            domainFilterString: "buzzfeed.com"
+          }
+        },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         /**
