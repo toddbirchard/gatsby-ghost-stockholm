@@ -1,18 +1,30 @@
 .search-results {
     margin: 0;
+    padding: 0 !important;
     box-shadow: 4px 4px 10px rgba(45, 47, 55, 0.2);
+    max-height: unset !important;
+    width: 380px;
 
     header {
         align-items: center;
         margin: 0;
         border-bottom: 1px solid #f3f3f3;
         padding-bottom: 15px;
-        margin-bottom: 10px !important;
+        margin: 20px 20px 10px 20px;
+
+        .search-results-title {
+          margin: 0;
+        }
     }
 
     .search-results-count {
         font-size: 0.8em;
         opacity: 0.9;
+        max-height: unset;
+    }
+
+    .ais-Hits {
+      padding: 0 !important;
     }
 
     .ais-Hits-list {
@@ -20,10 +32,19 @@
     }
 
     .ais-Hits-item {
-        margin-bottom: 15px;
+        padding: 0.8em;
 
         &:last-of-type {
             margin-bottom: 0;
+        }
+
+        &:hover {
+          background: @hover-color;
+          color: white;
+
+          * {
+            color: white !important;
+          }
         }
     }
 
@@ -32,7 +53,7 @@
         justify-content: space-between;
 
         .search-result-details {
-            width: 230px;
+            width: 240px;
 
             .search-result-title {
                 margin-bottom: 5px;
