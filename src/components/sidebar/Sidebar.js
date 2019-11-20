@@ -20,9 +20,10 @@ const Sidebar = ({ site, tags, template }) => {
         <aside className="sidebar">
             {template === `home-template` ? <AboutWidget site={site} /> : null }
             <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
+            {template === `author-template` ? <AuthorPocketWidget /> : null }
             <TrendingWidget />
             <TagsWidget tags={tags} />
-            {/*<SeriesWidget />*/}
+            {/* <SeriesWidget />*/}
             <NewsletterWidget />
             <TwitterWidget />
         </aside>

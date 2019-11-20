@@ -18,14 +18,13 @@
             line-height: 1;
         }
 
-        .widget-trending-header {
+        .widget-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
 
-            .trending {
-                color: #3fa77a;
+            .label {
                 font-weight: bold;
                 opacity: 0.7;
                 font-size: 0.95em;
@@ -34,6 +33,14 @@
                     margin: 0 3px 0 0;
                     font-size: 1em;
                 }
+            }
+
+            .trending {
+              color: #3fa77a;
+            }
+
+            .pocket {
+              color: @pocket-color;
             }
 
             .trend-type {
@@ -192,8 +199,9 @@
             }
         }
 
-        &.trending {
-            .trending-page {
+        &.trending,
+        &.pocket {
+            .link {
                 display: block;
                 color: lighten(@header-color, 15%);
                 padding: 10px 0 15px;
@@ -216,9 +224,13 @@
                     margin: 10px 0 0;
                     border-bottom: 0 solid #e7e7e7;
                 }
+
+                .favicon {
+                  margin-right: 5px;
+                }
             }
 
-            .widget-trending-pages {
+            .widget-content {
                 margin-top: 30px;
             }
         }

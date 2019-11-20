@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql, Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const AuthorPocketWidget = ({ data }) => {
@@ -8,13 +8,13 @@ const AuthorPocketWidget = ({ data }) => {
 
     return (
         <div className="widget pocket">
-            <div className="widget-pocket-header">
-                <div className="trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="xs" /> <span>Trending</span></div>
-                <div className="trend-type">Top Posts This Week</div>
+            <div className="widget-header">
+                <div className="label pocket"><FontAwesomeIcon icon={[`fab`, `get-pocket`]} size="xs" /> <span>Recommended Reads</span></div>
+                {/*<div className="trend-type">Top Posts This Week</div>*/}
             </div>
-            <div className="widget-pocket-links">
+            <div className="widget-content">
                 {pocketLinks.map(({ node }) => (
-                    <a href={node.url} className="pocket-link" key={ node.id } target="_blank" rel="noopener noreferrer">{node.title}</a>
+                    <a href={node.url} className="link" key={ node.id } target="_blank" rel="noopener noreferrer"><img src={node.domainFavicon} alt={node.title} className="favicon" /> {node.title}</a>
                 ))}
             </div>
         </div>
@@ -31,7 +31,7 @@ const AuthorPocketQuery = props => (
     <StaticQuery
         query={graphql`
           query AuthorPocketQuery {
-            allPocketArticle(sort: {fields: readDay, order: DESC}) {
+            allPocketArticle(sort: {fields: readDay, order: DESC}, filter: {title: {nin: [null, ""]}}) {
               edges {
                 node {
                   id
@@ -54,7 +54,6 @@ const AuthorPocketQuery = props => (
               }
             }
           }
-
         `}
         render={data => <AuthorPocketWidget data={data} {...props} />}
     />

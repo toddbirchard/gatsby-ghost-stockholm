@@ -6,7 +6,12 @@ import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import config from '../../utils/siteConfig'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faLinkedin, faAngellist, faTwitter, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin,
+    faAngellist,
+    faTwitter,
+    faGithub,
+    faFacebook,
+    faGetPocket } from '@fortawesome/free-brands-svg-icons'
 import { faTag,
     faEye,
     faPencilAlt,
@@ -35,7 +40,12 @@ library.add(faTag,
     faChartLine,
     faRss,
     faSearch,
-    faLinkedin, faAngellist, faTwitter, faGithub, faFacebook)
+    faLinkedin,
+    faAngellist,
+    faTwitter,
+    faGithub,
+    faFacebook,
+    faGetPocket)
 
 /**
 * Main layout component
