@@ -109,6 +109,15 @@ module.exports = {
                 javascriptEnabled: true,
             }
         },
+        {
+          resolve: `gatsby-plugin-web-font-loader`,
+          options: {
+            custom: {
+              families: [`HarmoniaSansPro-Bold`, `HarmoniaSansPro-Regular`, `Whitney SSm A`, `Whitney SSm B`],
+              urls: [`/fonts.css`]
+            }
+          }
+        },
         /**
          *  Utility Plugins
          */
