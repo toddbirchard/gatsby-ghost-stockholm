@@ -109,15 +109,7 @@ module.exports = {
                 javascriptEnabled: true,
             }
         },
-        {
-          resolve: `gatsby-plugin-web-font-loader`,
-          options: {
-            custom: {
-              families: [`HarmoniaSansPro-Bold`, `HarmoniaSansPro-Regular`, `AvenirNextLTPro-Medium`, `AvenirNextLTPro-Regular`],
-              urls: [`/fonts.css`]
-            }
-          }
-        },
+        `gatsby-plugin-preload-fonts`,
         /**
          *  Utility Plugins
          */
