@@ -3,13 +3,13 @@
 @font-face {
     font-family: 'HarmoniaSansPro-Regular';
     font-display: swap;
-    src: url('webfonts/3A97AF_0_0.eot');
-    src: url('webfonts/3A97AF_0_0.eot?#iefix') format('embedded-opentype'), url('webfonts/3A97AF_0_0.woff2') format('woff2'), url('webfonts/3A97AF_0_0.woff') format('woff'), url('webfonts/3A97AF_0_0.ttf') format('truetype');
+    src: url('fonts/3A97AF_0_0.eot');
+    src: url('fonts/3A97AF_0_0.eot?#iefix') format('embedded-opentype'), url('fonts/3A97AF_0_0.woff2') format('woff2'), url('fonts/3A97AF_0_0.woff') format('woff'), url('fonts/3A97AF_0_0.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'HarmoniaSansPro-Bold';
     font-display: swap;
-    src: url('webfonts/3A97AF_1_0.eot');
-    src: url('webfonts/3A97AF_1_0.eot?#iefix') format('embedded-opentype'), url('webfonts/3A97AF_1_0.woff2') format('woff2'), url('webfonts/3A97AF_1_0.woff') format('woff'), url('webfonts/3A97AF_1_0.ttf') format('truetype');
+    src: url('fonts/3A97AF_1_0.eot');
+    src: url('fonts/3A97AF_1_0.eot?#iefix') format('embedded-opentype'), url('fonts/3A97AF_1_0.woff2') format('woff2'), url('fonts/3A97AF_1_0.woff') format('woff'), url('fonts/3A97AF_1_0.ttf') format('truetype');
 }
