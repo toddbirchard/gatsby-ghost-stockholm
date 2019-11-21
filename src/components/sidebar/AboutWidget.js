@@ -5,14 +5,18 @@ import PropTypes from 'prop-types'
 * About widget
 */
 
-const AboutWidget = ({ site }) => (
+const AboutWidget = ({ site }) => {
+    const logo = site.logo
+
+    return (
       <>
         <div className="widget about">
-            <h1 className="site-headline">{site.title} </h1>
+            { logo ? <img className="widget-logo lazyload" src={logo} alt={site.title}/> : <h1 className="site-headline">{site.title} </h1>}
             <p className="description">{site.description}</p>
         </div>
     </>
-)
+    )
+}
 
 AboutWidget.propTypes = {
     site: PropTypes.shape({

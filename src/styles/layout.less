@@ -14,7 +14,7 @@
     margin: 0 auto;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.4fr 1fr;
     @media(max-width: @tablet-breakpoint) {
         grid-template-columns: 1fr;
         max-width: unset;
@@ -26,9 +26,27 @@
     margin: 0 auto;
 }
 
-.page-template .viewport {
-    @media(max-width: @mobile-breakpoint) {
-        margin: 0 auto !important;
+.page-template {
+    .container {
+        width: 1020px;
+        max-width: 95%;
+        margin: auto;
+        @media(max-width: @mobile-breakpoint) {
+            max-width: 100%;
+        }
+
+        .page-content {
+            padding: 60px;
+            @media(max-width: @tablet-breakpoint) {
+                padding: 40px;
+            }
+        }
+    }
+
+    .viewport {
+        @media(max-width: @mobile-breakpoint) {
+            margin: 0 auto !important;
+        }
     }
 }
 

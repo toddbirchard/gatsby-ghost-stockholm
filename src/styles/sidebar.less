@@ -3,14 +3,13 @@
     grid-gap: 20px;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
-    @media(max-width: 800px) {
+    @media(max-width: @tablet-breakpoint) {
         display: none;
     }
 
     .widget {
         padding: 25px;
         background: #fff 50%;
-        background-size: cover;
         box-shadow: @box-shadow;
         transition: all 0.5s ease;
 
@@ -19,14 +18,13 @@
             line-height: 1;
         }
 
-        .widget-trending-header {
+        .widget-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
 
-            .trending {
-                color: #3fa77a;
+            .label {
                 font-weight: bold;
                 opacity: 0.7;
                 font-size: 0.95em;
@@ -37,6 +35,14 @@
                 }
             }
 
+            .trending {
+              color: #3fa77a;
+            }
+
+            .pocket {
+              color: @pocket-color;
+            }
+
             .trend-type {
                 opacity: 0.6;
                 font-size: 0.9em;
@@ -44,20 +50,17 @@
         }
 
         &.about {
-            .site-headline {
-                color: #5c6772;
-                text-transform: uppercase;
-                font-size: 136%;
-                display: block;
-                width: 100%;
-                text-align: justify;
-                white-space: nowrap;
-            }
+
+          .widget-logo {
+            width: 230px;
+            margin: auto;
+            display: block;
+          }
 
             .description {
                 margin: 15px 0 0;
-                line-height: 1.2;
-                text-align: justify;
+                line-height: 1.3;
+                text-align: center;
                 font-size: 1em;
             }
         }
@@ -107,7 +110,7 @@
         &.newsletter {
             .newsletter-description {
                 font-size: 0.95em;
-                line-height: 1.2;
+                line-height: 1.3;
                 margin-bottom: 10px;
             }
 
@@ -115,12 +118,12 @@
                 width: -webkit-fill-available;
                 width: -moz-available;
                 width: -moz-available;
-                padding: 10px;
+                padding: 12px;
                 background: white;
                 font-size: 0.9em;
                 border: 1px solid #d5dbe6;
                 transition: @transition;
-                margin: 10px 0 0;
+                margin: 8px 0 0;
                 .input-field-interactions();
             }
 
@@ -129,7 +132,7 @@
                 color: @theme-color;
                 border: 0;
                 transition: @transition;
-                margin-top: 15px;
+                margin-top: 10px;
                 background: none;
                 text-align: right;
                 width: 100%;
@@ -196,8 +199,9 @@
             }
         }
 
-        &.trending {
-            .trending-page {
+        &.trending,
+        &.pocket {
+            .link {
                 display: block;
                 color: lighten(@header-color, 15%);
                 padding: 10px 0 15px;
@@ -208,7 +212,7 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                width: 283px;
+                width: 250px;
 
                 &:first-of-type {
                     padding: 0 0 15px;
@@ -220,15 +224,19 @@
                     margin: 10px 0 0;
                     border-bottom: 0 solid #e7e7e7;
                 }
+
+                .favicon {
+                  margin-right: 5px;
+                }
             }
 
-            .widget-trending-pages {
+            .widget-content {
                 margin-top: 30px;
             }
         }
 
         &.twitter {
-            overflow: hidden;
+          overflow: hidden;
 
             .twitter-header {
                 display: flex;
@@ -271,9 +279,6 @@
                 }
 
                 .tweet-head {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
                     margin-top: 15px;
 
                     .date {
@@ -290,25 +295,23 @@
                     font-size: 0.8em;
                     white-space: nowrap;
                     overflow: hidden;
-                    max-width: 70%;
                     text-overflow: ellipsis;
                 }
 
                 .tweet-hastags {
-                    overflow: hidden;
                     width: 100%;
                     margin: 15px 0;
 
                     .hashtag {
                         color: #6a849f;
                         font-size: 0.9em;
-                        margin: 0 5px 5px 3px;
-                        float: left;
+                        margin: 0 8px 5px 0;
+                        display: inline-block;
                     }
                 }
 
                 .tweet-content {
-                    margin: 0;
+                    margin: 0 0 15px;
                     line-height: 1.3;
                     font-size: 1.0em;
                 }

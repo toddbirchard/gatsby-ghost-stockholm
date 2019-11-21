@@ -20,9 +20,9 @@
         }
 
         .series-description {
-            line-height: 1.1;
-            margin: 5px 0;
-            font-size: 1.2em;
+          line-height: 1.2;
+          margin: 5px 0;
+          font-size: 1.1em;
             @media(max-width: @mobile-breakpoint) {
                 line-height: 1.2;
                 font-size: 1.1em;
@@ -33,7 +33,7 @@
 
 .series-container {
     background: white;
-    max-width: 800px;
+    max-width: @tablet-breakpoint;
     margin: 0 auto 40px;
     @media(max-width: @tablet-breakpoint) {
         margin: 0;
@@ -144,7 +144,7 @@
             }
 
             .series-post-card-title {
-                font-family: @header-bold;
+                font-family: @header-font;
                 font-weight: normal;
                 font-size: 1.2em;
                 line-height: 1.1;
@@ -188,7 +188,7 @@
 
 .series-template {
     .nav-wrapper {
-        max-width: 800px;
+        max-width: @tablet-breakpoint;
         @media(max-width: @tablet-breakpoint) {
             max-width: 86%;
         }

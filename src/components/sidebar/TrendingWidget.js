@@ -9,13 +9,13 @@ const TrendingWidget = ({ data }) => {
 
     return (
         <div className="widget trending">
-            <div className="widget-trending-header">
-                <div className="trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="xs" /> <span>Trending</span></div>
+            <div className="widget-header">
+                <div className="label trending"><FontAwesomeIcon icon={[`far`, `chart-line`]} size="xs" /> <span>Trending</span></div>
                 <div className="trend-type">Top Posts This Week</div>
             </div>
-            <div className="widget-trending-pages">
+            <div className="widget-content">
                 {topPages.map(({ node }) => (
-                    <Link to={`${node.url.split(config.siteUrl).pop()}`} className="trending-page" key={ node.title }>{`${node.title.split(` | `)[0].split(` - `)[0]}`}</Link>
+                    <Link to={`${node.url.split(config.siteUrl).pop()}`} className="link" key={ node.title }>{`${node.title.split(` | `)[0].split(` - `)[0]}`}</Link>
                 ))}
             </div>
         </div>

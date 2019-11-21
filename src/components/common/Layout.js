@@ -6,7 +6,12 @@ import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import config from '../../utils/siteConfig'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faLinkedin, faAngellist, faTwitter, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin,
+    faAngellist,
+    faTwitter,
+    faGithub,
+    faFacebook,
+    faGetPocket } from '@fortawesome/free-brands-svg-icons'
 import { faTag,
     faEye,
     faPencilAlt,
@@ -35,7 +40,12 @@ library.add(faTag,
     faChartLine,
     faRss,
     faSearch,
-    faLinkedin, faAngellist, faTwitter, faGithub, faFacebook)
+    faLinkedin,
+    faAngellist,
+    faTwitter,
+    faGithub,
+    faFacebook,
+    faGetPocket)
 
 /**
 * Main layout component
@@ -56,6 +66,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             <html lang={site.lang} />
             <style type="text/css">{`${site.codeinjection_styles}`}</style>
             <link rel="preconnect" href="https://storage.googleapis.com" />
+            <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7899256/6788012/css/fonts.css" />
             <body className={ template } />
         </Helmet>
 
@@ -69,7 +80,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             </div>
         </div>
         {/* The footer at the very bottom of the screen */}
-        <Footer navigation={site.navigation} site={site} />
+        <Footer navigation={site.navigation} site={site} template={template} />
     </>
     )
 }

@@ -21,14 +21,13 @@ try {
 } finally {
     const {
         apiUrl,
-        contentApiKey
+        contentApiKey,
     } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
 
     if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
         throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`) // eslint-disable-line
     }
 }
-
 
 /**
  * This is the place where you can tell Gatsby which plugins to use
@@ -61,7 +60,7 @@ module.exports = {
                 remote: `https://github.com/hackersandslackers/jupyter`,
                 branch: `master`,
                 //patterns: `*.ipynb`
-            }
+            },
         },
         `@gatsby-contrib/gatsby-transformer-ipynb`,
         // Setup for optimised images.
@@ -79,6 +78,25 @@ module.exports = {
                 ghostConfig.development :
                 ghostConfig.production,
         },
+        {
+            resolve: `gatsby-source-pocket`,
+            options: {
+                consumerKey: process.env.POCKET_CONSUMER_KEY,
+                accessToken: process.env.POCKET_ACCESS_TOKEN,
+                weeksOfHistory: 10,
+                apiMaxRecordsToReturn: 10,
+                getCurrentWeekOnly: `y`,
+                stateFilterString: `all`,
+                tagFilter: false,
+                tagFilterString: `_untagged_`,
+                favouriteFilter: false,
+                favouriteFilterValue: 0,
+                searchFilter: false,
+                searchFilterString: `These 21 things`,
+                domainFilter: false,
+                domainFilterString: `buzzfeed.com`,
+            },
+        },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         /**
@@ -88,18 +106,17 @@ module.exports = {
             resolve: `gatsby-plugin-less`,
             options: {
                 javascriptEnabled: true,
-            }
+            },
         },
         {
-          resolve: `gatsby-plugin-web-font-loader`,
-          options: {
-            custom: {
-              families: [`HarmoniaSansPro-Regular`, `HarmoniaSansPro-SemiBd`, `AvenirNextLTPro-Medium`, `AvenirNextLTPro-Regular`],
-              urls: [`/fonts.css`]
-            }
-          }
+            resolve: `gatsby-plugin-web-font-loader`,
+            options: {
+                custom: {
+                    families: [`HarmoniaSansPro-Bold`, `HarmoniaSansPro-Regular`],
+                    urls: [`/fonts.css`],
+                },
+            },
         },
-        `gatsby-plugin-preload-link-crossorigin`,
         /**
          *  Utility Plugins
          */
@@ -223,64 +240,64 @@ module.exports = {
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
         {
-          resolve: `gatsby-plugin-segment-js`,
-          options: {
-            prodKey: process.env.SEGMENT_WRITE_KEY,
-            writeKey: process.env.SEGMENT_WRITE_KEY,
-            trackPage: true
-          }
+            resolve: `gatsby-plugin-segment-js`,
+            options: {
+                prodKey: process.env.SEGMENT_WRITE_KEY,
+                writeKey: process.env.SEGMENT_WRITE_KEY,
+                trackPage: true,
+            },
         },
         {
-          resolve: `gatsby-source-twitter`,
-          options: {
-            credentials: {
-              consumer_key: process.env.TWITTER_CONSUMER_KEY,
-              consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-              bearer_token: process.env.TWITTER_BEARER_TOKEN,
-            },
-            queries: {
-              HackersTweets: {
-                endpoint: `statuses/user_timeline`,
-                params: {
-                  screen_name: `hackersslackers`,
-                  include_rts: false,
-                  exclude_replies: true,
-                  tweet_mode: `extended`,
-                  count: 7,
+            resolve: `gatsby-source-twitter`,
+            options: {
+                credentials: {
+                    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+                    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+                    bearer_token: process.env.TWITTER_BEARER_TOKEN,
                 },
-              },
+                queries: {
+                    HackersTweets: {
+                        endpoint: `statuses/user_timeline`,
+                        params: {
+                            screen_name: `hackersslackers`,
+                            include_rts: false,
+                            exclude_replies: true,
+                            tweet_mode: `extended`,
+                            count: 4,
+                        },
+                    },
+                },
             },
-          },
         },
         {
-          resolve: `gatsby-source-mysql`,
-          options: {
-            connectionDetails: {
-              host: process.env.MYSQL_HOST,
-              port: process.env.MYSQL_PORT,
-              user: process.env.MYSQL_USERNAME,
-              password: process.env.MYSQL_PASSWORD,
-              database: process.env.MYSQL_DATABASE_NAME,
+            resolve: `gatsby-source-mysql`,
+            options: {
+                connectionDetails: {
+                    host: process.env.MYSQL_HOST,
+                    port: process.env.MYSQL_PORT,
+                    user: process.env.MYSQL_USERNAME,
+                    password: process.env.MYSQL_PASSWORD,
+                    database: process.env.MYSQL_DATABASE_NAME,
+                },
+                queries: [
+                    {
+                        statement: `SELECT * FROM hackers`,
+                        idFieldName: `id`,
+                        name: `analytics`,
+                    },
+                ],
             },
-            queries: [
-              {
-                statement: `SELECT * FROM hackers`,
-                idFieldName: `id`,
-                name: `analytics`
-              }
-            ]
-          }
         },
         /* Search */
         {
-          resolve: `gatsby-plugin-algolia`,
-          options: {
-            appId: process.env.GATSBY_ALGOLIA_APP_ID,
-            apiKey: process.env.ALGOLIA_ADMIN_KEY,
-            indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-            queries,
-            chunkSize: 1000, // default: 1000
-          },
+            resolve: `gatsby-plugin-algolia`,
+            options: {
+                appId: process.env.GATSBY_ALGOLIA_APP_ID,
+                apiKey: process.env.ALGOLIA_ADMIN_KEY,
+                indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+                queries,
+                chunkSize: 1000, // default: 1000
+            },
         },
         `gatsby-plugin-styled-components`,
     ],

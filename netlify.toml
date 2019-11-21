@@ -313,7 +313,10 @@
     to = "/create-your-first-gatsby-theme/"
     status = 301
 
-#----------------------------------------------------------------------------------------------
+[[redirects]]
+    from = "/accessing-private-s3-objects-with-node/"
+    to = "/node-aws-sdk-s3/"
+    status = 301
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
@@ -444,6 +447,48 @@
 
 [[headers]]
     for = "https://myfonts.net/*"
+    [headers.values]
+    cache-control = '''
+        max-age=31557600,
+        no-cache,
+        no-store,
+        must-revalidate'''
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+
+[[headers]]
+    for = "https://commento.io/*"
+    [headers.values]
+    cache-control = '''
+        max-age=31557600,
+        no-cache,
+        no-store,
+        must-revalidate'''
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+[[headers]]
+    for = "http://commento.io/*"
+    [headers.values]
+    cache-control = '''
+        max-age=31557600,
+        no-cache,
+        no-store,
+        must-revalidate'''
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+
+[[headers]]
+    for = "http://typography.com/*"
+    [headers.values]
+    cache-control = '''
+        max-age=31557600,
+        no-cache,
+        no-store,
+        must-revalidate'''
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+[[headers]]
+    for = "https://typography.com/*"
     [headers.values]
     cache-control = '''
         max-age=31557600,

@@ -5,131 +5,115 @@
             border-bottom: 1px solid #ebebeb;
         }
     }
-    /* Intro cards such as tag & author cards */
-    .header-card {
-        margin: 0;
-        background: white;
-        padding: 40px;
-        @media (max-width: @mobile-breakpoint) {
-            .mobile-full-width();
-        }
-    }
 
-    .page-content {
-        background: white;
-        padding: 40px;
-        box-shadow: 0 1px 4px rgba(39,44,49,.07);
-        @media (max-width: @mobile-breakpoint) {
-            padding: 30px;
-        }
-    }
-
-    h1 {
-        font-family: @header-font;
-        font-size: 2.5em;
-        font-weight: 500;
-        margin: 0 0 20px;
-    }
-
-    fieldset {
-        border: none;
-        display: block;
-        background: white;
-        padding-left: 0;
-        padding-right: 0;
-        margin-top: 40px;
-
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-    }
-
-    .active {
-        display: block;
-    }
-
-    li,
-    p {
-        text-align: left;
-        .body-font();
-    }
-
-    hr {
-        margin: 1.8em 0 0;
-    }
-
-    label {
-        font-family: @body-font;
-        font-size: 14px;
-        color: #505050;
-    }
-
-    .input-field-group {
-        text-align: left;
-    }
-
-    input,
-    textarea {
-        font-family: @body-font;
-        outline: 0;
-        background: #f2f2f2;
-        width: 100%;
-        border: 0 solid;
-        margin: 5px 0 15px;
-        padding: 15px;
-        box-sizing: border-box;
-        font-size: 14px;
-        transition: @transition;
-
-        &:hover {
-            background: rgba(64, 206, 199, 0.16);
-
-            &::placeholder {
-                color: #72859d;
-                opacity: 0.4;
-                font-family: @body-font !important;
-            }
-
-            &::after {
-                color: #8aafb8;
+    .viewport {
+        /* Intro cards such as tag & author cards */
+        .header-card {
+            margin: 0;
+            background: white;
+            padding: 40px;
+            @media (max-width: @mobile-breakpoint) {
+                .mobile-full-width();
             }
         }
+
+        .page-content {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 1px 4px rgba(39,44,49,.07);
+            @media (max-width: @mobile-breakpoint) {
+                padding: 30px;
+            }
+        }
+
+        h1 {
+            font-family: @secondary-header-font;
+            font-size: 2.5em;
+            font-weight: 500;
+            margin: 0 0 20px;
+        }
+
+        fieldset {
+            border: none;
+            display: block;
+            background: white;
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 40px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .active {
+            display: block;
+        }
+
+        li,
+        p {
+            text-align: left;
+            .body-font();
+        }
+
+        hr {
+            margin: 1.8em 0 0;
+        }
+
+        label {
+            font-family: @body-font;
+            font-size: 14px;
+            color: #505050;
+        }
+
+        .input-field-group {
+            text-align: left;
+        }
+
+        input,
+        textarea {
+            font-family: @body-font;
+            outline: 0;
+            background: #f2f2f2;
+            border: 1px solid #f3f3f3;
+            width: 100%;
+            margin: 5px 0 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 14px;
+            transition: @transition;
+            .input-field-interactions();
+        }
+
+        textarea {
+            height: 200px;
+        }
+
+        .message {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
+
+        .message a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        button {
+            text-transform: uppercase;
+            outline: 0;
+            width: 100%;
+            border: 0;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 20px;
+            .button-styles();
+        }
     }
 
-    textarea {
-        height: 200px;
+    .info-card {
+        .header-card();
+        min-width: unset !important;
     }
-
-    .next:active,
-    .next:focus,
-    .next:hover {
-        background: @hover-color;
-    }
-
-    .message {
-        margin: 15px 0 0;
-        color: #b3b3b3;
-        font-size: 12px;
-    }
-
-    .message a {
-        color: #4CAF50;
-        text-decoration: none;
-    }
-
-    button {
-        text-transform: uppercase;
-        outline: 0;
-        width: 100%;
-        border: 0;
-        padding: 15px;
-        font-size: 14px;
-        margin-top: 20px;
-        .button-styles();
-    }
-}
-
-.info-card {
-    .header-card();
-    min-width: unset !important;
 }

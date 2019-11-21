@@ -67,13 +67,13 @@
         height: auto !important;
         font-family: 'HarmoniaSansPro-Regular', sans-serif;
         text-align: center;
-        color: #b07575 !important;
+        color: #bc8e8e !important;
         font-weight: 700;
-        background: #ead1d5c4;
-        margin-bottom: 20px;
+        background: #efe2e4;
+        margin-bottom: 10px;
         line-height: 1 !important;
         padding: 20px;
-        border: 1px solid #d5babe !important;
+        border: 1px solid #dccacd !important;
     }
 
     #commento-logged-container {
@@ -109,17 +109,21 @@
 
     .commento-button-margin {
         padding-top: 0 !important;
-        box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);
+        /*box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);*/
 
         &:hover {
             .commento-submit-button {
                 opacity: 1;
             }
         }
+
+        textarea {
+          margin-top: 13px;
+        }
     }
 
     .commento-card {
-        padding: 30px !important;
+        padding: 30px!important;
         background: white;
         margin-top: 0 !important;
         box-shadow: none !important;
@@ -129,9 +133,10 @@
         }
 
         .commento-card {
-            margin-left: 40px !important;
-            margin-top: 20px !important;
+            margin-left: 20px !important;
+            margin-top: 30px !important;
             box-shadow: none !important;
+            padding: 30px 0 0 30px!important;
             @media(max-width: @mobile-breakpoint) {
                 margin-left: 20px !important;
                 padding-bottom: 0 !important;
@@ -139,7 +144,7 @@
         }
 
         & > div:nth-of-type(2) {
-            margin: 20px 0 0 20px;
+            margin: 0;
         }
 
         .commento-button-margin {
@@ -151,7 +156,7 @@
         }
 
         .commento-submit-button {
-            top: 85px !important;
+            top: 90px !important;
         }
 
         p {
@@ -215,7 +220,7 @@
     #commento-textarea-root,
     textarea {
         overflow: hidden!important;
-        padding: 20px !important;
+        padding: 15px !important;
         border-radius: 0;
         height: 100px;
         min-height: unset!important;
@@ -239,17 +244,14 @@
             background: white !important;
         }
 
-        &::before {
-            content: "Hello";
-        }
-
         &::placeholder {
             color: #aeb1bd !important;
             text-transform: uppercase;
             font-family: @body-font;
             padding-bottom: 50px !important;
             transition: @transition;
-            opacity: 0.7;
+            opacity: 0.8;
+            font-size: 1.1em;
             @media(max-width: @mobile-breakpoint) {
                 font-size: 0.9em;
             }
@@ -288,6 +290,18 @@
                 font-size: 10px;
             }
         }
+
+        * {
+          font-size: 0.95em !important;
+        }
+
+        tr td {
+          padding: 0 6px 4px !important;
+
+          &:last-of-type {
+            padding: 0 6px 0 !important;
+          }
+        }
     }
 
     .commento-logo-text {
@@ -311,8 +325,7 @@
     min-height: 100px;
     background: #f1f3f5;
     z-index: 100;
-    position: fixed;
-    position: fixed;
+    position: fixed !important;
     top: 0;
     bottom: 0;
     left: 0;
@@ -323,5 +336,5 @@
     padding: 16px;
     opacity: 1;
     transition: opacity 0.2s;
-    box-shadow: 0 0 20px #969696;
+    box-shadow: 0 0 200px #576280;
 }

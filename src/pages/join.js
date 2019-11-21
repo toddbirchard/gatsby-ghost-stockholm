@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout } from '../components/common'
 
 const JoinUs = () => (
-    <Layout template="page-template" hasSidebar={true}>
+    <Layout template="page-template" hasSidebar={false}>
 
         <article className="post-content page-content">
             <h1>{`Join Us`}</h1>

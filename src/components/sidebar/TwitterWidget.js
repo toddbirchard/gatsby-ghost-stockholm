@@ -12,7 +12,7 @@ const TwitterWidget = ({ data }) => {
                 <div className="twitter-header">
                     <img src={user.profile_image_url_https} className="twitter-avatar" alt="twitter-avatar"/>
                     <div>
-                        <a href={user.url} className="twitter-name">{user.name}</a>
+                        <a href={user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{user.name}</a>
                         <div className="twitter-user">@{user.screen_name}</div>
                     </div>
                 </div>
@@ -20,13 +20,13 @@ const TwitterWidget = ({ data }) => {
                     {tweets.map(({ node }) => (
                         <div className="tweet" key={node.id}>
                             <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
+                            {node.entities.urls.map(({ display_url, expanded_url }) => (
+                                <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
+                            ))}
                             {node.entities.hashtags.length > 0 ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
-                                <a href={`https://twitter.com/hashtag/${text}`} key={text} className="hashtag">#{text}</a>
+                                <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
                             ))}</div> : null }
                             <div className="tweet-head">
-                                {node.entities.urls.map(({ display_url }) => (
-                                    <a href={display_url} className="tweet-link" key="1">{ display_url }</a>
-                                ))}
                                 <span className="date">{node.created_at.split(` `, 3).join(` `)}</span>
                             </div>
                         </div>
@@ -97,6 +97,7 @@ const TwitterQuery = props => (
                   entities {
                     urls {
                       display_url
+                      expanded_url
                     }
                     hashtags {
                       text

@@ -9,9 +9,11 @@ import {
 import config from '../../utils/siteConfig'
 import NavLinks from './NavLinks'
 
-const Footer = ({ navigation, site, data }) => {
+const Footer = ({ navigation, site, data, template }) => {
     const authorLinks = data.allGhostAuthor.edges
-    const topTags = data.allGhostTag.edges
+    const seriesLinks = data.series.edges
+    const topTags = data.tags.edges
+    const siteTitle = site.title
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
 
@@ -20,30 +22,40 @@ const Footer = ({ navigation, site, data }) => {
         {/* The footer at the very bottom of the screen */}
         <footer className="site-footer">
             <div className="footer-wrapper">
-                <div className="widget links">
-                    <h5 className="footer-widget-title">Links</h5>
-                    <NavLinks navigation={navigation} />
-                    <a href="/sitemap.xml" className="sitemap navigation-link" key="sitemap">Sitemap</a>
+                <div className="footer-row">
+                    { siteTitle && <h1 className="site-headline">{site.title} </h1> }
+                    <div className="footer-links">
+                        <NavLinks navigation={navigation} />
+                        {/*<a href="/sitemap.xml" className="sitemap navigation-link">Sitemap</a>*/}
+                    </div>
                 </div>
-                <div className="widget tags">
-                    <h5 className="footer-widget-title">Tags</h5>
-                    {topTags.map(({ node }) => (
-                        <Link to={`/tag/${ node.slug }`} className="navigation-link" key={ node.slug }>{ node.name }</Link>
-                    ))}
-                </div>
-                <div className="widget authors">
-                    <h5 className="footer-widget-title">Authors</h5>
-                    {authorLinks.map(({ node }) => (
-                        <Link to={`/author/${ node.slug }`} className="navigation-link" key={ node.name } >{ node.name }</Link>
-                    ))}
-                </div>
-                <div className="widget social">
-                    <h5 className="footer-widget-title">Social</h5>
-                    <a href={ twitterUrl } className="twitter navigation-link" key="twitter-footer">Twitter</a>
-                    <a href={ facebookUrl } className="facebook navigation-link" key="facebook-footer">Facebook</a>
-                    <a href={ config.social.angellist } className="angellist-footer navigation-link" key="angellist">Angellist</a>
-                    <a href={ config.social.github } className="github navigation-link" key="github-footer">Github</a>
-                    <a href="/rss" className="rss navigation-link" key="rss">RSS</a>
+                <div className="footer-widgets">
+                    <div className="widget tags">
+                        <h5 className="footer-widget-title">Tags</h5>
+                        {topTags.map(({ node }) => (
+                            <Link to={`/tag/${ node.slug }`} className="navigation-link" key={`${ node.slug }-footer-link`}>{ node.name }</Link>
+                        ))}
+                    </div>
+                    <div className="widget series">
+                        <h5 className="footer-widget-title">Series</h5>
+                        {seriesLinks.map(({ node }) => (
+                            <Link to={`/series/${ node.slug}`} className="navigation-link" key={`${ node.slug }-footer-link`}>{ node.meta_title }</Link>
+                        ))}
+                    </div>
+                    <div className="widget authors">
+                        <h5 className="footer-widget-title">Authors</h5>
+                        {authorLinks.map(({ node }) => (
+                            <Link to={`/author/${ node.slug }`} className="navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</Link>
+                        ))}
+                    </div>
+                    <div className="widget social">
+                        <h5 className="footer-widget-title">Social</h5>
+                        <a href={ twitterUrl } className="twitter navigation-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        <a href={ facebookUrl } className="facebook navigation-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href={ config.social.angellist } className="angellist-footer navigation-link" target="_blank" rel="noopener noreferrer">Angellist</a>
+                        <a href={ config.social.github } className="github navigation-link" target="_blank" rel="noopener noreferrer">Github</a>
+                        <a href="/rss" className="rss navigation-link">RSS</a>
+                    </div>
                 </div>
             </div>
             <div className="copyright">
@@ -57,7 +69,8 @@ const Footer = ({ navigation, site, data }) => {
 Footer.propTypes = {
     data: PropTypes.shape({
         allGhostAuthor: PropTypes.object.isRequired,
-        allGhostTag: PropTypes.object,
+        tags: PropTypes.object,
+        series: PropTypes.object,
     }).isRequired,
     site: PropTypes.shape({
         title: PropTypes.string.isRequired,
@@ -86,7 +99,7 @@ const FooterQuery = props => (
                   }
                 }
               }
-              allGhostTag(limit: 8, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
+              tags: allGhostTag(limit: 8, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
                 edges {
                   node {
                     name
@@ -94,8 +107,17 @@ const FooterQuery = props => (
                   }
                 }
               }
-            }
-        `}
+              series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 4}, slug: {nin: "adventures-in-excel"}}) {
+                edges {
+                  node {
+                    slug
+                    name
+                    meta_title
+                  }
+                }
+              }
+            }`
+    }
     render={data => <Footer data={data} {...props} />}
     />
 )
