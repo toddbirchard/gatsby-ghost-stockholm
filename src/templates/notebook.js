@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
-// import NotebookRender from "@nteract/notebook-render"
-// import NotebookPreview from '@nteract/notebook-preview'
 
 import '../styles/posts/index.less'
 import '../styles/pages/jupyter.less'
@@ -20,7 +18,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
     const notebook = file.childJupyterNotebook
     const languageName = notebook.metadata ? notebook.metadata.language_info.name : null
     const languageVersion = notebook.metadata ? notebook.metadata.language_info.version : null
-    const githubLink = file.gitRemote.webLink + file.relativePath
+    const githubLink = file.gitRemote.href + file.relativePath
     const githubRepoName = file.gitRemote.full_name
 
     return (
@@ -37,8 +35,6 @@ const JupyterNotebook = ({ data, pageContext }) => {
                             className="content-body load-external-scripts"
                             dangerouslySetInnerHTML={{ __html: notebook.html }}
                         />
-                        {/*<NotebookRender notebook={file.fileAbsolutePath.childJupyterNotebook} />
-                      <NotebookPreview notebook={ notebook.html } />*/}
                     </div>
                 </Layout>
             </>
@@ -67,7 +63,7 @@ JupyterNotebook.propTypes = {
             modifiedTime: PropTypes.string,
             relativePath: PropTypes.string,
             gitRemote: PropTypes.shape({
-                webLink: PropTypes.string,
+                href: PropTypes.string,
                 full_name: PropTypes.string.isRequired,
             }),
 
@@ -101,7 +97,7 @@ export const JupyterNotebookQuery = graphql`
      name
      modifiedTime(formatString: "DD MMMM, YYYY")
      gitRemote {
-       webLink
+       href
        full_name
      }
      ext

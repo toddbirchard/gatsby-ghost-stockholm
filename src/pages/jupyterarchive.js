@@ -49,7 +49,7 @@ JupyterArchive.propTypes = {
                 name: PropTypes.string.isRequired,
                 modifiedTime: PropTypes.string,
                 gitRemote: PropTypes.shape({
-                    webLink: PropTypes.string,
+                    href: PropTypes.string,
                 }),
             }),
         ),
@@ -79,7 +79,7 @@ export const jupyterArchiveQuery = graphql`
                 name
                 modifiedTime(formatString: "DD MMMM, YYYY")
                 gitRemote {
-                  webLink
+                  href
                 }
                 ext
                 relativePath
