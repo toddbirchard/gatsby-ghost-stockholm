@@ -27,60 +27,71 @@ const Post = ({ data, location }) => {
     const relatedPosts = data.relatedPosts
     const readingTime = readingTimeHelper(post)
     const seriesPosts = data.seriesPosts
-    const authorUrl = post.primary_author.slug ? `/author/${post.primary_author.slug}/` : null
+    const authorUrl = post.primary_author.slug
+        ? `/author/${post.primary_author.slug}/`
+        : null
     const authorFirstName = author.name.split(` `)[0]
 
-    return (
-            <>
-                <MetaData
-                    data={data}
-                    location={location}
-                    type="article"
-                />
-                <Layout template="post-template">
-                    <div className="post-wrapper">
-                        <div className="post-head">
+    return (<> < MetaData data = {
+        data
+    }
+    location = {
+        location
+    }
+    type = "article" /> <Layout template="post-template">
+        <div className="post-wrapper">
+            <div className="post-head">
 
-                            <h1 className="post-title">{post.title}</h1>
-                            { post.excerpt && <div className="post-excerpt">{post.excerpt}</div> }
-                            { post.feature_image ?
-                                <figure className="post-image">
-                                    <img data-src={ post.feature_image } className="lazyload" alt={ post.title } data-rjs="2" />
-                                </figure> : null }
+                <h1 className="post-title">{post.title}</h1>
+                {post.excerpt && <div className="post-excerpt">{post.excerpt}</div>}
+                {
+                    post.feature_image
+                        ? <figure className="post-image">
+                            <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2"/>
+                        </figure>
+                        : null
+                }
 
-                        </div>
+            </div>
 
-                        <article className="post">
-                            <div className="post-meta">
-                                <div className="meta-item author"> <Link to={ authorUrl }><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs" /> <span>{authorFirstName}</span> </Link></div>
-                                <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="xs" />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId} />} </div>
-                                <div className="meta-item reading-time"> <FontAwesomeIcon icon={[`far`, `eye`]} size="xs" /> <span>{readingTime}</span> </div>
-                                <div className="meta-item date"> <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs" /> <span>{post.published_at_pretty}</span> </div>
-                            </div>
-                            { seriesPosts ?
-                                <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-                                : null }
-                            <section className="post-content">
-                                {/* The main post content */ }
-                                <section
-                                    className="content-body load-external-scripts"
-                                    dangerouslySetInnerHTML={{ __html: post.html }}
-                                />
-                                <div className="post-tags">
-                                    <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes={post.id} />
-                                </div>
-                            </section>
-                            <AuthorCard author={author} />
-                        </article>
+            <article className="post">
+                <div className="post-meta">
+                    <div className="meta-item author">
+                        <Link to={authorUrl}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs"/>
+                            <span>{authorFirstName}</span>
+                        </Link>
                     </div>
-                    <section className="post-footer">
-                        <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true} />
-                        { relatedPosts && <RelatedPosts data={relatedPosts} /> }
-                    </section>
-                    <NewsletterWidget />
-                </Layout>
-            </>
-    )
+                    <div className="meta-item tag">
+                        <FontAwesomeIcon icon={[`far`, `tag`]} size="xs"/>{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
+                    </div>
+                    <div className="meta-item reading-time">
+                        <FontAwesomeIcon icon={[`far`, `eye`]} size="xs"/>
+                        <span>{readingTime}</span>
+                    </div>
+                    <div className="meta-item date">
+                        <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs"/>
+                        <span>{post.published_at_pretty}</span>
+                    </div>
+                </div>
+                {
+                    seriesPosts
+                        ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
+                        : null
+                }
+                {/* The main post content */}
+                <section className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></section>
+                <div className="post-tags">
+                    <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes={post.id}/>
+                </div>
+                <AuthorCard author={author}/>
+            </article>
+        </div>
+        <section className="post-footer">
+            <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true}/> {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+        </section>
+        <NewsletterWidget/>
+    </Layout>
+</>)
 }
 
 Post.propTypes = {
@@ -93,12 +104,7 @@ Post.propTypes = {
             primary_author: PropTypes.object.isRequired,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
-            tags: PropTypes.arrayOf(
-                PropTypes.shape({
-                    name: PropTypes.string.isRequired,
-                    slug: PropTypes.string.isRequired,
-                })
-            ),
+            tags: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired })),
             published_at_pretty: PropTypes.string,
             codeinjection_styles: PropTypes.string,
         }).isRequired,
@@ -111,7 +117,7 @@ Post.propTypes = {
 
 export default Post
 
-export const postQuery = graphql`
+export const postQuery = graphql `
 query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
         ...GhostPostFields

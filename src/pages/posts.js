@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Layout, PostCard } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
@@ -13,7 +13,6 @@ import { MetaData } from '../components/common/meta'
 */
 const PostArchive = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
-    const page = data.ghostPage
 
     return (
         <>
@@ -25,12 +24,12 @@ const PostArchive = ({ data, location, pageContext }) => {
             <Layout template="postarchive-template page-template" hasSidebar={false}>
                 <div className="page-content post-content">
                     <h1>All Posts</h1>
-                      <div className="posts-grid">
-                      {posts.map(({ node }) => (
-                          // The tag below includes the markup for each post - components/common/PostCard.js
-                          <PostCard key={node.id} post={node} />
-                      ))}
-                      <Pagination pageContext={pageContext} />
+                    <div className="posts-grid">
+                        {posts.map(({ node }) => (
+                            // The tag below includes the markup for each post - components/common/PostCard.js
+                            <PostCard key={node.id} post={node} />
+                        ))}
+                        <Pagination pageContext={pageContext} />
                     </div>
                 </div>
             </Layout>
