@@ -79,7 +79,7 @@ const Post = ({ data, location }) => {
                         : null
                 }
                 {/* The main post content */}
-                <section className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></section>
+                <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
                 <div className="post-tags">
                     <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
                 </div>
