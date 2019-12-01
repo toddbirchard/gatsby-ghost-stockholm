@@ -81,7 +81,7 @@ const Post = ({ data, location }) => {
                 {/* The main post content */}
                 <section className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></section>
                 <div className="post-tags">
-                    <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes={post.id}/>
+                    <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
                 </div>
                 <AuthorCard author={author}/>
             </article>
