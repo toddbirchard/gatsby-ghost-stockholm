@@ -11,7 +11,8 @@ import { faLinkedin,
     faTwitter,
     faGithub,
     faFacebook,
-    faGetPocket } from '@fortawesome/free-brands-svg-icons'
+    faGetPocket,
+    faMedium } from '@fortawesome/free-brands-svg-icons'
 import { faTag,
     faEye,
     faPencilAlt,
@@ -45,7 +46,8 @@ library.add(faTag,
     faTwitter,
     faGithub,
     faFacebook,
-    faGetPocket)
+    faGetPocket,
+    faMedium)
 
 /**
 * Main layout component

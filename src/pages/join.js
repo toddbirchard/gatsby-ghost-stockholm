@@ -1,5 +1,6 @@
 import React from 'react'
 import { Layout } from '../components/common'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const JoinUs = () => (
     <Layout template="page-template" hasSidebar={false}>
@@ -16,7 +17,7 @@ const JoinUs = () => (
                 <li>{`We’ll do the work of dressing up your posts for you! We provide artwork for all posts, and even build custom modules for posts which need extra love.`}</li>
                 <li>{`You’re safe here. No topic is too small to cover, and you’ll never have to worry about creating content that’s “good enough” here (some of our most popular posts are about basic topics)! No matter what happens, we’re all here to make each other better with input.`}</li>
             </ul>
-            <form className="needs-validation" id="msform" acceptCharset="UTF-8" action="https://getform.io/f/ce75696d-0ee2-4475-8a8f-a26da6267917" method="POST" netlify="true">
+            <form method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/confirmation">
                 <fieldset className="active">
                     <h3>The Boring Stuff</h3>
                     <p>Tell us about yourself by letting your browser auto-fill these obligatory fields.</p>
@@ -36,6 +37,7 @@ const JoinUs = () => (
                         <label htmlFor="application_expertise">{`What are your areas of expertise? (required)`}</label>
                         <input id="application_expertise" placeholder="Java, ASP, Perl" className="form-control" maxLength="100" name="expertise" type="text" required="" onBlur="" />
                     </div>
+                    <input className="phone-number" type="phone" name="phone-number" placeholder="Your phone number" style={{ display: `none` }} autoComplete="off" />
                 </fieldset>
 
                 <fieldset>
@@ -51,19 +53,19 @@ const JoinUs = () => (
                     <h3>{`The Blow-Our-Minds Stuff (Optional)`}</h3>
                     <p id="application_notes">{`If youd like to provide any of the information below to sweeten the deal, have it!`}</p>
                     <div className="input-field-group">
-                        <label htmlFor="application_website">{`Website`}</label>
+                        <label htmlFor="application_website"><FontAwesomeIcon icon={[`far`, `globe`]} size="xs" /> {`Website`}</label>
                         <input className="form-control" placeholder="http://yoursite.com" id="application_website" maxLength="40" name="website" type="text" onBlur="" />
                     </div>
                     <div className="input-field-group">
-                        <label htmlFor="application_blog">{`Blog`}</label>
+                        <label htmlFor="application_blog"><FontAwesomeIcon icon={[`fab`, `medium`]} size="xs" /> {`Blog`}</label>
                         <input className="form-control" id="application_blog" placeholder="https://medium.com/You" maxLength="40" name="blog" type="text" onBlur="" />
                     </div>
                     <div className="input-field-group">
-                        <label htmlFor="application_github">{`Github`}</label>
+                        <label htmlFor="application_github"><FontAwesomeIcon icon={[`fab`, `github`]} size="xs" /> {`Github`}</label>
                         <input className="form-control" id="application_github" placeholder="https://github.com/nerdinator" maxLength="40" name="github" type="text" onBlur="" />
                     </div>
                     <div className="input-field-group">
-                        <label htmlFor="application_twitter">{`Twitter`}</label>
+                        <label htmlFor="application_twitter"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /> {`Twitter`}</label>
                         <input className="form-control" id="application_twitter" placeholder="https://twitter.com/YourHandle" maxLength="40" name="twitter" type="text" onBlur="" />
                     </div>
                 </fieldset>
