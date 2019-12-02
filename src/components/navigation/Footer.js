@@ -16,53 +16,53 @@ const Footer = ({ navigation, site, data, template }) => {
     const siteTitle = site.title
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
+    const isHome = template === `home-template`
 
     return (
-      <>
-        {/* The footer at the very bottom of the screen */}
-        <footer className="site-footer">
-            <div className="footer-wrapper">
-                <div className="footer-row">
-                    { siteTitle && <h1 className="site-headline">{site.title} </h1> }
-                    <div className="footer-links">
-                        <NavLinks navigation={navigation} />
-                        {/*<a href="/sitemap.xml" className="sitemap navigation-link">Sitemap</a>*/}
+        <>
+            {/* The footer at the very bottom of the screen */}
+            <footer className="site-footer">
+                <div className="footer-wrapper">
+                    <div className="footer-row">
+                        {isHome ? <h1 className="site-headline">{siteTitle} </h1> : <h4 className="site-headline">{siteTitle} </h4>}
+                        <div className="footer-links">
+                            <NavLinks navigation={navigation} />
+                        </div>
+                    </div>
+                    <div className="footer-widgets">
+                        <div className="widget tags">
+                            <h5 className="footer-widget-title">Tags</h5>
+                            {topTags.map(({ node }) => (
+                                <Link to={`/tag/${ node.slug }`} className="navigation-link" key={`${ node.slug }-footer-link`}>{ node.name }</Link>
+                            ))}
+                        </div>
+                        <div className="widget series">
+                            <h5 className="footer-widget-title">Series</h5>
+                            {seriesLinks.map(({ node }) => (
+                                <Link to={`/series/${ node.slug}`} className="navigation-link" key={`${ node.slug }-footer-link`}>{ node.meta_title }</Link>
+                            ))}
+                        </div>
+                        <div className="widget authors">
+                            <h5 className="footer-widget-title">Authors</h5>
+                            {authorLinks.map(({ node }) => (
+                                <Link to={`/author/${ node.slug }`} className="navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</Link>
+                            ))}
+                        </div>
+                        <div className="widget social">
+                            <h5 className="footer-widget-title">Social</h5>
+                            <a href={ twitterUrl } className="twitter navigation-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                            <a href={ facebookUrl } className="facebook navigation-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+                            <a href={ config.social.angellist } className="angellist-footer navigation-link" target="_blank" rel="noopener noreferrer">Angellist</a>
+                            <a href={ config.social.github } className="github navigation-link" target="_blank" rel="noopener noreferrer">Github</a>
+                            <a href="/rss" className="rss navigation-link">RSS</a>
+                        </div>
                     </div>
                 </div>
-                <div className="footer-widgets">
-                    <div className="widget tags">
-                        <h5 className="footer-widget-title">Tags</h5>
-                        {topTags.map(({ node }) => (
-                            <Link to={`/tag/${ node.slug }`} className="navigation-link" key={`${ node.slug }-footer-link`}>{ node.name }</Link>
-                        ))}
-                    </div>
-                    <div className="widget series">
-                        <h5 className="footer-widget-title">Series</h5>
-                        {seriesLinks.map(({ node }) => (
-                            <Link to={`/series/${ node.slug}`} className="navigation-link" key={`${ node.slug }-footer-link`}>{ node.meta_title }</Link>
-                        ))}
-                    </div>
-                    <div className="widget authors">
-                        <h5 className="footer-widget-title">Authors</h5>
-                        {authorLinks.map(({ node }) => (
-                            <Link to={`/author/${ node.slug }`} className="navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</Link>
-                        ))}
-                    </div>
-                    <div className="widget social">
-                        <h5 className="footer-widget-title">Social</h5>
-                        <a href={ twitterUrl } className="twitter navigation-link" target="_blank" rel="noopener noreferrer">Twitter</a>
-                        <a href={ facebookUrl } className="facebook navigation-link" target="_blank" rel="noopener noreferrer">Facebook</a>
-                        <a href={ config.social.angellist } className="angellist-footer navigation-link" target="_blank" rel="noopener noreferrer">Angellist</a>
-                        <a href={ config.social.github } className="github navigation-link" target="_blank" rel="noopener noreferrer">Github</a>
-                        <a href="/rss" className="rss navigation-link">RSS</a>
-                    </div>
+                <div className="copyright">
+                    <p className="copyright-txt">{config.siteCopyright}</p>
                 </div>
-            </div>
-            <div className="copyright">
-                <p className="copyright-txt">{config.siteCopyright}</p>
-            </div>
-        </footer>
-    </>
+            </footer>
+        </>
     )
 }
 
@@ -84,6 +84,7 @@ Footer.propTypes = {
             name: PropTypes.string,
         })
     ).isRequired,
+    template: PropTypes.string,
 }
 
 const FooterQuery = props => (

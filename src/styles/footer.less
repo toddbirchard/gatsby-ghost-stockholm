@@ -12,6 +12,18 @@
             max-width: 100%;
         }
 
+        .footer-links {
+          @media(max-width: @mobile-breakpoint) {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+
+            .navigation-link {
+              margin: 0;
+            }
+          }
+        }
+
         .footer-row {
             padding: 40px 0;
             display: flex;
@@ -34,7 +46,7 @@
                 font-family: @header-font;
                 font-weight: 500;
                 @media(max-width: @mobile-breakpoint) {
-                    margin-bottom: 20px;
+                    margin-bottom: 30px;
                 }
             }
 
