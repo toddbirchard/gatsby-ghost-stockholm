@@ -128,7 +128,7 @@
 
 [[redirects]]
     from = "/starting-a-flask-project-with-heroku/"
-    to = "/starting-a-python-web-app-with-heroku/"
+    to = "/flask-app-heroku/"
     status = 301
 
 [[redirects]]
@@ -297,6 +297,16 @@
 [[redirects]]
     from = "/authenticating-users-with-flask-login/"
     to = "/flask-login-user-authentication/"
+    status = 301
+
+[[redirects]]
+    from = "/becoming-familiar-with-apache-kafka/"
+    to = "/apache-kafka/"
+    status = 301
+
+[[redirects]]
+    from = "/managing-data-pipelines-with-apache-airflow/"
+    to = "/data-pipelines-apache-airflow/"
     status = 301
 
 
