@@ -11,20 +11,23 @@ const AuthorCard = ({ author, headerClass }) => {
     return (
             <>
               <header className={classes}>
-                  <div className="author-card-image">
-                      {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" size="xs" /> }
-                  </div>
-                  <div className="author-card-content">
-                      <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
-                      <div className="author-card-meta">
-                          {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `pencil-alt`]} size="xs" />{author.postCount} Posts</span>}
-                          {author.location && <span className="author-card-item location"><FontAwesomeIcon icon={[`far`, `home`]} size="xs" />{author.location}</span>}
-                          {author.website && <a className="author-card-item" href={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} size="xs" />Website</a>}
-                          {authorTwitterUrl && <a className="author-card-item" href={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" />Twitter</a>}
-                          {authorFacebookUrl && <a className="author-card-item" href={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" />Facebook</a>}
+                  <div className="author-card-head">
+                      <div className="author-card-image">
+                          {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" size="xs" /> }
                       </div>
-                      {author.bio && <p className="author-card-bio">{author.bio}</p>}
+                      <div className="author-card-content">
+                          <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
+                          <div className="author-card-meta">
+                              {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `pencil-alt`]} size="xs" />{author.postCount} Posts</span>}
+                              {author.location && <span className="author-card-item location"><FontAwesomeIcon icon={[`far`, `home`]} size="xs" />{author.location}</span>}
+                              {author.website && <a className="author-card-item" href={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} size="xs" />Website</a>}
+                              {authorTwitterUrl && <a className="author-card-item" href={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" />Twitter</a>}
+                              {authorFacebookUrl && <a className="author-card-item" href={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" />Facebook</a>}
+                          </div>
+                          {author.bio && <p className="author-card-bio">{author.bio}</p>}
+                      </div>
                   </div>
+                  {author.bio && <p className="author-card-bio-mobile">{author.bio}</p>}
               </header>
             </>
     )

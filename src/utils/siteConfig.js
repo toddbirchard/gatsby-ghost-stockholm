@@ -13,6 +13,7 @@ module.exports = {
     backgroundColor: `#ecf1f9`, // Used for Offline Manifest
     themeColor: `#0297f6`, // Used for Offline Manifest
     mobileLogo: `/images/logo-mobile.png`,
+    introVideo: `https://vimeo.com/265866802`,
 
     social: {
       github: "https://github.com/hackersandslackers",

@@ -7,6 +7,7 @@ import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
+import config from '../utils/siteConfig'
 import '../styles/pages/index.less'
 
 /**
@@ -17,6 +18,7 @@ import '../styles/pages/index.less'
 */
 const Page = ({ data, location, pageContext }) => {
     const page = data.ghostPage
+    const introVideo = config.introVideo
 
     return (
         <>
@@ -34,7 +36,7 @@ const Page = ({ data, location, pageContext }) => {
                     <h1 className="content-title">{page.title}</h1>
                     { page.slug === `about` ?
                         <div className="about-video-wrapper">
-                            <ReactPlayer url="https://vimeo.com/265866802" width="100%" height="100%" className="about-video" />
+                            <ReactPlayer url={introVideo} width="100%" height="100%" className="about-video" />
                         </div>
                         : null }
                     {/* The main page content */}
