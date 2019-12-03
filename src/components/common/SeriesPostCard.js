@@ -8,7 +8,7 @@ const SeriesPostCard = ({ post, count }) => {
 
     return (<div className="series-post-card">
         {
-            post.feature_image && <Link to={url} className="series-post-card-image"><img src={post.feature_image} alt={post.title}/></Link>
+            post.feature_image && <Link to={url} className="series-post-card-image"><img className="lazyload" data-src={post.feature_image} alt={post.title}/></Link>
         }
         <div className="series-post-card-detail">
             <div className="series-post-card-count"><span>Post</span> {postNumber}</div>

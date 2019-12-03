@@ -7,10 +7,10 @@ const AuthorTwitterWidget = ({ authorTweets, authorProfile }) => {
     const user = authorProfile.user
 
     return (
-          <>
+        <>
             <div className="widget twitter author">
                 <div className="twitter-header">
-                    <img src={user.profile_image_url_https} className="twitter-avatar" alt="twitter-avatar"/>
+                    <img className="twitter-avatar lazyload" data-src={user.profile_image_url_https} alt="twitter-avatar"/>
                     <div>
                         <a href={user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{user.name}</a>
                         <div className="twitter-user">@{user.screen_name}</div>
@@ -33,7 +33,7 @@ const AuthorTwitterWidget = ({ authorTweets, authorProfile }) => {
                     ))}
                 </div>
             </div>
-          </>
+        </>
     )
 }
 

@@ -31,7 +31,7 @@ const Page = ({ data, location, pageContext }) => {
                 <article className="post-content page-content">
                     { page.feature_image ?
                         <figure className="post-feature-image">
-                            <img src={ page.feature_image } alt={ page.title } />
+                            <img className="lazyload" data-src={ page.feature_image } alt={ page.title } />
                         </figure> : null }
                     <h1 className="content-title">{page.title}</h1>
                     { page.slug === `about` ?

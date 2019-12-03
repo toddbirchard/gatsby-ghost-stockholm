@@ -16,7 +16,7 @@ export const PageHit = clickHandler => ({ hit }) => (
 
 export const PostHit = clickHandler => ({ hit }) => (
     <div className="search-result">
-        <img src={hit.feature_image} alt={hit.slug} className="search-result-image" />
+        <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload" />
         <div className="search-result-details">
             <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
             <div className="meta-item tag"> <FontAwesomeIcon icon={[`far`, `tag`]} size="xs" /> {hit.primary_tag.name} </div>

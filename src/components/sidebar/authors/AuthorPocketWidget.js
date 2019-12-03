@@ -14,7 +14,7 @@ const AuthorPocketWidget = ({ data }) => {
             </div>
             <div className="widget-content">
                 {pocketLinks.map(({ node }) => (
-                    <a href={node.url} className="link" key={ node.id } target="_blank" rel="noopener noreferrer"><img src={node.domainFavicon} alt={node.title} className="favicon" /> {node.title}</a>
+                    <a href={node.url} className="link" key={ node.id } target="_blank" rel="noopener noreferrer"><img className="favicon lazyload" data-src={node.domainFavicon} alt={node.title} /> {node.title}</a>
                 ))}
             </div>
         </div>

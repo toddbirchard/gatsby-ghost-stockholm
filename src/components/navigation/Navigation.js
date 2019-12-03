@@ -22,23 +22,23 @@ const searchIndices = [
 
 const Navigation = ({ data, logo, mobileLogo }) => (
     <>
-    <nav className="navigation">
-        <div className="nav-wrapper">
-            <div className="nav-left">
-                <Link to="/" className="logo"><img src={logo} alt="logo" /></Link>
-                <Link to="/" className="mobile-logo"><img src={mobileLogo} alt="logo" /></Link>
-                <div className="nav-links">
-                    <NavLinks navigation={data} />
+        <nav className="navigation">
+            <div className="nav-wrapper">
+                <div className="nav-left">
+                    <Link to="/" className="logo"><img className="lazyload" data-src={logo} alt="logo" /></Link>
+                    <Link to="/" className="mobile-logo"><img className="lazyload" data-src={mobileLogo} alt="logo" /></Link>
+                    <div className="nav-links">
+                        <NavLinks navigation={data} />
+                    </div>
                 </div>
+                <div className="nav-right">
+                    <Search collapse indices={searchIndices} className="search-widget" />
+                </div>
+                <Menu right width={ `100%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` }>
+                    <NavLinks navigation={data} />
+                </Menu>
             </div>
-            <div className="nav-right">
-                <Search collapse indices={searchIndices} className="search-widget" />
-            </div>
-            <Menu right width={ `100%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` }>
-                <NavLinks navigation={data} />
-            </Menu>
-        </div>
-    </nav>
+        </nav>
     </>
 )
 
