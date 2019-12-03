@@ -7,15 +7,13 @@ const description = `You're all set to start receiving our newsletter! We try to
 
 const Subscribed = () => (
     <Layout template="page-template" hasSidebar={false}>
-        <div className="container">
-            <article className="confirmation-card">
-                <h1 className="content-title">{title}</h1>
-                <section className="content-body">
-                    <p>{description}</p>
-                    <Link to="/" className="back-button">Back Home</Link>
-                </section>
-            </article>
-        </div>
+        <section className="confirmation-card">
+            <h1 className="content-title">{title}</h1>
+            <div className="content-body">
+                <p>{description}</p>
+                <Link to="/" className="back-button">Back Home</Link>
+            </div>
+        </section>
     </Layout>
 )
 
