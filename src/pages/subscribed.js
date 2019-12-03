@@ -5,7 +5,7 @@ import { Layout } from '../components/common'
 const title = `Subscribed`
 const description = `You're all set to start receiving our newsletter! We try to only send things worth reading, so we won't be bothering you too often.`
 
-const Confirmation = () => (
+const Subscribed = () => (
     <Layout template="page-template" hasSidebar={false}>
         <div className="container">
             <article className="confirmation-card">
@@ -19,4 +19,4 @@ const Confirmation = () => (
     </Layout>
 )
 
-export default Confirmation
+export default Subscribed

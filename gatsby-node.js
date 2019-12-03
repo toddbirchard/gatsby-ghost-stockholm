@@ -101,7 +101,8 @@ exports.createPages = async ({ graphql, actions }) => {
     const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
     const joinPage = path.resolve(`./src/pages/join.js`)
-    const confirmationPage = path.resolve(`./src/pages/confirmation.js`)
+    const subscribedPage = path.resolve(`./src/pages/subscribed.js`)
+    const appliedPage = path.resolve(`./src/pages/applied.js`)
     const postArchivePage = path.resolve(`./src/pages/posts.js`)
 
     // Create tag pages
@@ -356,12 +357,22 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     createPage({
-        path: `/confirmation/`,
-        component: confirmationPage,
+        path: `/subscribed/`,
+        component: subscribedPage,
         context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
-            slug: `confirmation`,
+            slug: `subscribed`,
+        },
+    })
+
+    createPage({
+        path: `/applied/`,
+        component: appliedPage,
+        context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: `applied`,
         },
     })
 
