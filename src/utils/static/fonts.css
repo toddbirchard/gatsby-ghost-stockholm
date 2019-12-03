@@ -1,26 +1,8 @@
-@import url("//hello.myfonts.net/count/3a531d");
+@import url("//hello.myfonts.net/count/3aa5e1");
 
 @font-face {
-    font-family: 'HarmoniaSansPro-Regular';
+    font-family: 'Gilroy-SemiBold';
     font-display: swap;
-    src: url("./fonts/3A531D_0_0.eot");
-    src: url("./fonts/3A531D_0_0.eot?#iefix") format('embedded-opentype'),url('./fonts/3A531D_0_0.woff2') format('woff2'),url('./fonts/3A531D_0_0.woff') format('woff'),url('./fonts/3A531D_0_0.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'HarmoniaSansPro-SemiBd';
-    font-display: swap;
-    src: url("./fonts/3A531D_1_0.eot");
-    src: url("./fonts/3A531D_1_0.eot?#iefix") format('embedded-opentype'),url('./fonts/3A531D_1_0.woff2') format('woff2'),url('./fonts/3A531D_1_0.woff') format('woff'),url('./fonts/3A531D_1_0.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'AvenirNextLTPro-Medium';
-    font-display: swap;
-    src: url("./fonts/3A531D_2_0.eot");
-    src: url("./fonts/3A531D_2_0.eot?#iefix") format('embedded-opentype'),url('./fonts/3A531D_2_0.woff2') format('woff2'),url('./fonts/3A531D_2_0.woff') format('woff'),url('./fonts/3A531D_2_0.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'AvenirNextLTPro-Regular';
-    font-display: swap;
-    src: url("./fonts/3A531D_3_0.eot");
-    src: url("./fonts/3A531D_3_0.eot?#iefix") format('embedded-opentype'),url('./fonts/3A531D_3_0.woff2') format('woff2'),url('./fonts/3A531D_3_0.woff') format('woff'),url('./fonts/3A531D_3_0.ttf') format('truetype');
+    src: url('fonts/3AA5E1_0_0.eot');
+    src: url('fonts/3AA5E1_0_0.eot?#iefix') format('embedded-opentype'), url('fonts/3AA5E1_0_0.woff2') format('woff2'), url('fonts/3AA5E1_0_0.woff') format('woff'), url('fonts/3AA5E1_0_0.ttf') format('truetype');
 }
