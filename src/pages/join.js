@@ -17,7 +17,7 @@ const JoinUs = () => (
                 <li>{`We’ll do the work of dressing up your posts for you! We provide artwork for all posts, and even build custom modules for posts which need extra love.`}</li>
                 <li>{`You’re safe here. No topic is too small to cover, and you’ll never have to worry about creating content that’s “good enough” here (some of our most popular posts are about basic topics)! No matter what happens, we’re all here to make each other better with input.`}</li>
             </ul>
-            <form method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/applied">
+            <form name="applications" method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/applied">
                 <fieldset className="active">
                     <h3>The Boring Stuff</h3>
                     <p>Tell us about yourself by letting your browser auto-fill these obligatory fields.</p>
