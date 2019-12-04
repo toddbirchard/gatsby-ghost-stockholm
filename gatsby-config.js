@@ -112,7 +112,7 @@ module.exports = {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
                 custom: {
-                    families: [`HarmoniaSansPro-Bold`, `HarmoniaSansPro-Regular`],
+                    families: [`Gilroy-SemiBold`, `Gilroy-Regular`],
                     urls: [`/fonts.css`],
                 },
             },
