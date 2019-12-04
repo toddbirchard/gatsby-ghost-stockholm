@@ -309,6 +309,35 @@
     to = "/data-pipelines-apache-airflow/"
     status = 301
 
+[[redirects]]
+    from = "setting-up-dns-with-google-cloud-platform"
+    to = "/google-cloud-compute-engine/"
+    status = 301
+
+[[redirects]]
+    from = "/setting-up-mysql-on-aws/"
+    to = "/mysql-aws-rds/"
+    status = 301
+
+[[redirects]]
+    from = "/building-an-api-using-aws/"
+    to = "/build-api-aws/"
+    status = 301
+
+[[redirects]]
+    from = "/custom-widgets-for-ghost-blogs/"
+    to = "/ghost-blog-custom-widgets/"
+    status = 301
+
+[[redirects]]
+    from = "/dealing-with-xml-in-python/"
+    to = "/xml-in-python/"
+    status = 301
+
+[[redirects]]
+    from = "/handlebars-templating-in-expressjs/"
+    to = "/handlebars-templates-expressjs/"
+    status = 301
 
 #----------------------------------------------------------------------------------------------
 
