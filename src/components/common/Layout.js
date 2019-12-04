@@ -6,6 +6,7 @@ import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import config from '../../utils/siteConfig'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import 'lazysizes'
 import { faLinkedin,
     faAngellist,
     faTwitter,
@@ -68,7 +69,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             <html lang={site.lang} />
             <style type="text/css">{`${site.codeinjection_styles}`}</style>
             <link rel="preconnect" href="https://storage.googleapis.com" />
-            <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7899256/6788012/css/fonts.css" />
+            {/*<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7899256/6788012/css/fonts.css" />*/}
             <body className={ template } />
         </Helmet>
 

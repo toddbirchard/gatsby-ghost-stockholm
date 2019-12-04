@@ -245,6 +245,10 @@
             margin: 40px 0 20px;
             width: 100%;
             max-width: 100%;
+            @media(max-width: @tablet-breakpoint) {
+              margin: 40px 30px 20px;
+              width: auto;
+            }
 
             * {
                 display: none;
@@ -546,8 +550,8 @@
                 margin: 0 30px;
             }
 
-            .author-card-content {
-                max-width: 500px;
+            .author-card-meta {
+              margin: 10px 0;
             }
         }
     }

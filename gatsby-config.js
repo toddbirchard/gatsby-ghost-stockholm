@@ -62,16 +62,6 @@ module.exports = {
                 //patterns: `*.ipynb`
             },
         },
-        `@gatsby-contrib/gatsby-transformer-ipynb`,
-        // Setup for optimised images.
-        // See https://www.gatsbyjs.org/packages/gatsby-image/
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                path: path.join(__dirname, `src`, `images`),
-                name: `images`,
-            },
-        },
         {
             resolve: `gatsby-source-ghost`,
             options: process.env.NODE_ENV === `development` ?
@@ -97,6 +87,47 @@ module.exports = {
                 domainFilterString: `buzzfeed.com`,
             },
         },
+        {
+            resolve: `gatsby-source-twitter`,
+            options: {
+                credentials: {
+                    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+                    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+                    bearer_token: process.env.TWITTER_BEARER_TOKEN,
+                },
+                queries: {
+                    HackersTweets: {
+                        endpoint: `statuses/user_timeline`,
+                        params: {
+                            screen_name: `hackersslackers`,
+                            include_rts: false,
+                            exclude_replies: true,
+                            tweet_mode: `extended`,
+                            count: 4,
+                        },
+                    },
+                },
+            },
+        },
+        {
+            resolve: `gatsby-source-mysql`,
+            options: {
+                connectionDetails: {
+                    host: process.env.MYSQL_HOST,
+                    port: process.env.MYSQL_PORT,
+                    user: process.env.MYSQL_USERNAME,
+                    password: process.env.MYSQL_PASSWORD,
+                    database: process.env.MYSQL_DATABASE_NAME,
+                },
+                queries: [
+                    {
+                        statement: `SELECT * FROM hackers`,
+                        idFieldName: `id`,
+                        name: `analytics`,
+                    },
+                ],
+            },
+        },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         /**
@@ -120,6 +151,7 @@ module.exports = {
         /**
          *  Utility Plugins
          */
+         `@gatsby-contrib/gatsby-transformer-ipynb`,
         {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
@@ -246,47 +278,6 @@ module.exports = {
                 prodKey: process.env.SEGMENT_WRITE_KEY,
                 writeKey: process.env.SEGMENT_WRITE_KEY,
                 trackPage: true,
-            },
-        },
-        {
-            resolve: `gatsby-source-twitter`,
-            options: {
-                credentials: {
-                    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-                    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-                    bearer_token: process.env.TWITTER_BEARER_TOKEN,
-                },
-                queries: {
-                    HackersTweets: {
-                        endpoint: `statuses/user_timeline`,
-                        params: {
-                            screen_name: `hackersslackers`,
-                            include_rts: false,
-                            exclude_replies: true,
-                            tweet_mode: `extended`,
-                            count: 4,
-                        },
-                    },
-                },
-            },
-        },
-        {
-            resolve: `gatsby-source-mysql`,
-            options: {
-                connectionDetails: {
-                    host: process.env.MYSQL_HOST,
-                    port: process.env.MYSQL_PORT,
-                    user: process.env.MYSQL_USERNAME,
-                    password: process.env.MYSQL_PASSWORD,
-                    database: process.env.MYSQL_DATABASE_NAME,
-                },
-                queries: [
-                    {
-                        statement: `SELECT * FROM hackers`,
-                        idFieldName: `id`,
-                        name: `analytics`,
-                    },
-                ],
             },
         },
         /* Search */

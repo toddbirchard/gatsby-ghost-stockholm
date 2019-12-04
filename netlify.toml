@@ -448,6 +448,16 @@
       set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
+    for = "http://secure.gaug.es/track.js"
+    [headers.values]
+      cache-control = '''
+        max-age=31557600,
+        no-cache,
+        no-store,
+        must-revalidate'''
+      set-cookie = "HttpOnly;Secure;SameSite=Strict"
+
+[[headers]]
     for = "http://get.gaug.es/*"
     [headers.values]
       cache-control = '''
