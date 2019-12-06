@@ -7,9 +7,9 @@
 
     header {
         align-items: center;
-        margin: 0;
+        margin: 0 !important;
         border-bottom: 1px solid #f3f3f3;
-        padding: 20px;
+        padding: 0 0 20px;
 
         .search-results-title {
             margin: 0;
@@ -28,12 +28,12 @@
     }
 
     .ais-Hits-list {
-        margin: 0 20px 10px;
+        margin: 0;
     }
 
     .ais-Hits-item {
         padding: 15px 0;
-        border-bottom: 1px solid #dbdbdb;
+        border-bottom: 1px solid #eaeaea;
         margin: 0;
         width: -webkit-fill-available;
 
@@ -55,7 +55,7 @@
         .search-result {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: left;
         }
     }
 
@@ -67,12 +67,12 @@
             width: 220px;
 
             .search-result-title {
-                margin-bottom: 5px;
+                margin-bottom: 7px;
                 color: @header-color;
                 font-weight: 600;
                 font-family: @secondary-header-font;
                 line-height: 1.2 !important;
-                font-size: 1em;
+                    font-size: .95em;
                 display: block;
                 opacity: 0.9;
             }
@@ -100,6 +100,7 @@
         .search-result-image {
             max-width: 100px;
             height: 66px;
+            margin-right: 12px;
         }
     }
 }
