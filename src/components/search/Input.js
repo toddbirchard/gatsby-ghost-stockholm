@@ -3,8 +3,6 @@ import { connectSearchBox } from 'react-instantsearch-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SearchBox } from 'react-instantsearch-dom'
 
-import { InputContainer } from './styles'
-
 export default connectSearchBox(({ refine, ...rest }) => (
     <div>
         <SearchBox
