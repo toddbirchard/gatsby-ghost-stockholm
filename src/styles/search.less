@@ -9,10 +9,11 @@
         align-items: center;
         margin: 0;
         border-bottom: 1px solid #f3f3f3;
-        padding-bottom: 15px;
+        padding: 20px;
 
         .search-results-title {
-          margin: 0;
+            margin: 0;
+            font-weight: 400;
         }
     }
 
@@ -23,27 +24,38 @@
     }
 
     .ais-Hits {
-      padding: 0 !important;
+        padding: 0 !important;
     }
 
     .ais-Hits-list {
-        margin: 0;
+        margin: 0 20px 10px;
     }
 
     .ais-Hits-item {
-        padding: 0.8em;
+        padding: 15px 0;
+        border-bottom: 1px solid #dbdbdb;
+        margin: 0;
+        width: -webkit-fill-available;
 
         &:last-of-type {
             margin-bottom: 0;
+            border-bottom: 0;
         }
 
         &:hover {
-          background: @hover-color;
-          color: white;
+            background: @hover-color;
+            color: white;
+            cursor: pointer;
 
-          * {
-            color: white !important;
-          }
+            * {
+                color: white !important;
+            }
+        }
+
+        .search-result {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
     }
 
@@ -52,7 +64,7 @@
         justify-content: space-between;
 
         .search-result-details {
-            width: 210px;
+            width: 220px;
 
             .search-result-title {
                 margin-bottom: 5px;
@@ -92,7 +104,7 @@
     }
 }
 
-.search-form {
+.ais-SearchBox-form {
     &:focus,
     &:hover {
         svg {
@@ -119,7 +131,7 @@
         &:hover {
             background: #e1edf6;
 
-            &::placeholder{
+            &::placeholder {
                 color: #95aaba;
             }
         }

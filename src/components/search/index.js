@@ -6,6 +6,8 @@ import {
     connectStateResults,
     Configure,
 } from 'react-instantsearch-dom'
+import PropTypes from 'prop-types'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'

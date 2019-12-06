@@ -38,7 +38,7 @@ export const Input = styled.input`
   ${props => (props.collapse ? collapse : expand)};
 `
 
-export const Form = styled.form`
+export const InputContainer = styled.form`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
