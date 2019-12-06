@@ -68,8 +68,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
         <Helmet>
             <html lang={site.lang} />
             <style type="text/css">{`${site.codeinjection_styles}`}</style>
-            <link rel="preconnect" href="https://storage.googleapis.com" />
-            <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7899256/7532012/css/fonts.css" />
+            <link rel="preload" type="text/css" href="https://cloud.typography.com/7899256/7532012/css/fonts.css" />
             <body className={ template } />
         </Helmet>
 

@@ -271,13 +271,13 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
-        `gatsby-plugin-preload-link-crossorigin`,
         {
             resolve: `gatsby-plugin-segment-js`,
             options: {
                 prodKey: process.env.SEGMENT_WRITE_KEY,
                 writeKey: process.env.SEGMENT_WRITE_KEY,
                 trackPage: true,
+                delayLoad: true,
             },
         },
         /* Search */
