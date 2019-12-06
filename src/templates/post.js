@@ -32,65 +32,57 @@ const Post = ({ data, location }) => {
         : null
     const authorFirstName = author.name.split(` `)[0]
 
-    return (<> < MetaData data = {
-        data
-    }
-    location = {
-        location
-    }
-    type = "article" /> <Layout template="post-template">
-        <div className="post-wrapper">
-            <div className="post-head">
+    return (
+      <>
+      < MetaData data = { data } location = { location } type = "article" />
+      <Layout template="post-template">
+          <div className="post-wrapper">
+              <div className="post-head">
+                  <h1 className="post-title">{post.title}</h1>
+                  { post.feature_image ?
+                      <figure className="post-image">
+                          <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2"/>
+                      </figure>
+                      : null }
+              </div>
 
-                <h1 className="post-title">{post.title}</h1>
-                {post.excerpt && <div className="post-excerpt">{post.excerpt}</div>}
-                {
-                    post.feature_image
-                        ? <figure className="post-image">
-                            <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2"/>
-                        </figure>
-                        : null
-                }
-
-            </div>
-
-            <article className="post">
-                <div className="post-meta">
-                    <div className="meta-item author">
-                        <Link to={authorUrl}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs"/>
-                            <span>{authorFirstName}</span>
-                        </Link>
-                    </div>
-                    <div className="meta-item tag">
-                        <FontAwesomeIcon icon={[`far`, `tag`]} size="xs"/>{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
-                    </div>
-                    <div className="meta-item reading-time">
-                        <FontAwesomeIcon icon={[`far`, `eye`]} size="xs"/>
-                        <span>{readingTime}</span>
-                    </div>
-                    <div className="meta-item date">
-                        <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs"/>
-                        <span>{post.published_at_pretty}</span>
-                    </div>
-                </div>
-                {
-                    seriesPosts
-                        ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-                        : null
-                }
-                {/* The main post content */}
-                <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
-                <div className="post-tags">
-                    <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
-                </div>
-                <AuthorCard author={author}/>
-            </article>
-        </div>
-        <section className="post-footer">
-            <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true}/> {relatedPosts && <RelatedPosts data={relatedPosts}/>}
-        </section>
-        <NewsletterWidget/>
-    </Layout>
+              <article className="post">
+                  <div className="post-meta">
+                      <div className="meta-item author">
+                          <Link to={authorUrl}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs"/>
+                              <span>{authorFirstName}</span>
+                          </Link>
+                      </div>
+                      <div className="meta-item tag">
+                          <FontAwesomeIcon icon={[`far`, `tag`]} size="xs"/>{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
+                      </div>
+                      <div className="meta-item reading-time">
+                          <FontAwesomeIcon icon={[`far`, `eye`]} size="xs"/>
+                          <span>{readingTime}</span>
+                      </div>
+                      <div className="meta-item date">
+                          <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs"/>
+                          <span>{post.published_at_pretty}</span>
+                      </div>
+                  </div>
+                  {
+                      seriesPosts
+                          ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
+                          : null
+                  }
+                  {/* The main post content */}
+                  <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
+                  <div className="post-tags">
+                      <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
+                  </div>
+                  <AuthorCard author={author}/>
+              </article>
+          </div>
+          <section className="post-footer">
+              <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true}/> {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+          </section>
+          <NewsletterWidget/>
+      </Layout>
 </>)
 }
 

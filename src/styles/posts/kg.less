@@ -69,13 +69,13 @@
                 font-weight: 300;
                 line-height: 1.4;
                 max-width: 475px;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                overflow: hidden;
                 @media(max-width: @tablet-breakpoint) {
-                      margin: 10px 0;
-                  -webkit-line-clamp: 2;
-                  -webkit-box-orient: vertical;
-                  display: -webkit-box;
-                  text-overflow: ellipsis;
-                  overflow: hidden;
+                  margin: 10px 0;
                   width: -webkit-fill-available;
                 }
             }
@@ -177,7 +177,7 @@
         margin: 0 auto;
         padding: 6px;
         color: #8e9097;
-        font-size: 0.8em;
+        font-size: 0.9em;
         text-align: center;
         white-space: normal;
         line-height: 1.5;
