@@ -271,7 +271,7 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
-        'gatsby-plugin-preload-link-crossorigin',
+        `gatsby-plugin-preload-link-crossorigin`,
         {
           resolve: `gatsby-plugin-netlify`,
           options: {
