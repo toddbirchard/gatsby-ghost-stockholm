@@ -31,6 +31,7 @@ const Post = ({ data, location }) => {
         ? `/author/${post.primary_author.slug}/`
         : null
     const authorFirstName = author.name.split(` `)[0]
+    // const retinaFeatureImage = post.feature_image ? post.feature_image.replace(`q_auto:best`, `f_auto,w_700,dpr_2.0`) : null
 
     return (
       <>

@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
     const url = `/${ post.slug }/`
     const readingTime = readingTimeHelper(post)
     const authorFirstName = post.primary_author.name.split(` `)[0]
-    const retinaFeatureImage = post.feature_image ? post.feature_image.replace(`q_auto:best`, `c_fill,w_700,dpr_2.0`) : null
+    const retinaFeatureImage = post.feature_image ? post.feature_image.replace(`q_auto:best`, `f_auto,w_700,dpr_2.0`) : null
 
     return (<div className="post-card">
         { post.feature_image && <Link to={url}><img className="post-card-image lazyload" data-src={retinaFeatureImage} alt={post.title}/></Link> }

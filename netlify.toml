@@ -425,7 +425,7 @@
       no-cache,
       no-store,
       must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=Strict"
+      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://gaug.es/*"
@@ -435,7 +435,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=Strict"
+      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "http://secure.gaug.es/*"
@@ -445,7 +445,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=Strict"
+      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "http://secure.gaug.es/track.js"
@@ -455,7 +455,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=Strict"
+      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "http://get.gaug.es/*"
@@ -465,7 +465,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=Strict"
+      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://cloudinary.com/*"
@@ -475,7 +475,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 
 [[headers]]
@@ -486,7 +486,7 @@
             no-cache,
             no-store,
             must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://res-2.cloudinary.com/*"
@@ -496,7 +496,7 @@
             no-cache,
             no-store,
             must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://segment.com/*"
@@ -506,7 +506,7 @@
             no-cache,
             no-store,
             must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://app.segment.com/"
@@ -516,7 +516,7 @@
             no-cache,
             no-store,
             must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://cdn.segment.com/*"
@@ -526,7 +526,7 @@
             no-cache,
             no-store,
             must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
       for = "https://storage.googleapis.com/*"
@@ -536,7 +536,7 @@
               no-cache,
               no-store,
               must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=Strict"
+      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://hello.myfonts.net/*"
@@ -546,7 +546,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://myfonts.net/*"
@@ -556,7 +556,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 
 [[headers]]
@@ -567,7 +567,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "http://commento.io/*"
@@ -577,7 +577,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 
 [[headers]]
@@ -588,7 +588,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://typography.com/*"
@@ -598,7 +598,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=Strict"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 
 [build.processing]
