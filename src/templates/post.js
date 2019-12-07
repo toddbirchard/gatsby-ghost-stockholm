@@ -39,14 +39,6 @@ const Post = ({ data, location }) => {
           <div className="post-wrapper">
               <div className="post-head">
                   <h1 className="post-title">{post.title}</h1>
-                  { post.feature_image ?
-                      <figure className="post-image">
-                          <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2"/>
-                      </figure>
-                      : null }
-              </div>
-
-              <article className="post">
                   <div className="post-meta">
                       <div className="meta-item author">
                           <Link to={authorUrl}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs"/>
@@ -65,6 +57,15 @@ const Post = ({ data, location }) => {
                           <span>{post.published_at_pretty}</span>
                       </div>
                   </div>
+                  { post.feature_image ?
+                      <figure className="post-image">
+                          <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2"/>
+                      </figure>
+                      : null }
+              </div>
+
+              <article className="post">
+
                   {
                       seriesPosts
                           ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>

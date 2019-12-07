@@ -12,7 +12,7 @@
             padding-top: 60px;
             max-width: 900px;
             @media(max-width: @mobile-breakpoint) {
-                padding: 40px 20px 0;
+                padding: 50px 20px 0;
                 display: flex;
                 flex-direction: column;
             }
@@ -28,16 +28,16 @@
                 color: @header-color;
                 text-align: center;
                 max-width: 720px;
-                margin: 0 auto 60px;
+                margin: 0 auto 20px;
                 @media(max-width: @tablet-breakpoint) {
                     max-width: 95%;
                 }
                 @media(max-width: @mobile-breakpoint) {
-                    font-size: 1.7em;
-                    font-weight: normal;
+                    font-size: 1.5em;
                     max-width: unset;
                     letter-spacing: 0;
                     line-height: 1.1;
+                    margin: 0 auto;
                 }
             }
         }
@@ -55,7 +55,7 @@
             }
             @media(max-width: @mobile-breakpoint) {
                 order: 3;
-                margin: 40px 0 0;
+                margin: 50px 0 0;
             }
 
             img {
@@ -69,23 +69,21 @@
         }
 
         .post-meta {
-            margin: 0 auto 30px;
+            margin: 0 auto 60px;
             color: #494e59;
             font-size: 12px;
             display: flex;
-            width: auto;
-            align-items: center;
-            justify-content: space-between;
-            @media(max-width: @tablet-breakpoint) {
-                margin: 0 40px;
-            }
+            max-width: 720px;
+            width: fit-content;
+            margin: 0 auto 60px;
+            justify-content: center;
+
             @media(max-width: @mobile-breakpoint) {
                 padding: 0;
                 max-width: none;
                 width: auto;
-                margin: 15px 20px 0;
+                margin: 10px 20px 0;
                 order: 2;
-                justify-content: left;
             }
 
             .tags {
@@ -96,7 +94,7 @@
             }
 
             .meta-item {
-                margin-right: 30px;
+                margin: 0 10px;
                 font-size: 0.8em;
                 opacity: 0.6;
                 font-family: @body-font-bold;
@@ -106,11 +104,7 @@
                 align-items: center;
                 text-transform: capitalize;
                 line-height: 1;
-                @media(max-width: @tablet-breakpoint) {
-                    margin: 0;
-                }
                 @media(max-width: @mobile-breakpoint) {
-                    margin: 0 25px 0 0;
                     line-height: 1.5;
                 }
 
@@ -166,10 +160,6 @@
                         }
                     }
                 }
-
-                &:last-child {
-                    margin: 0;
-                }
             }
         }
     }
@@ -199,6 +189,9 @@
           line-height: 1.4;
           text-align: right;
           width: 80%;
+          @media(max-width: @mobile-breakpoint) {
+              width: 90%;
+          }
         }
 
         .handscroller {

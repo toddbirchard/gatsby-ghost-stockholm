@@ -57,7 +57,7 @@ module.exports = {
             resolve: `gatsby-source-git`,
             options: {
                 name: `jupyter`,
-                remote: `https://github.com/hackersandslackers/jupyter`,
+                remote: `https://github.com/mattalhonte/code_for_blog_posts`,
                 branch: `master`,
                 //patterns: `*.ipynb`
             },
