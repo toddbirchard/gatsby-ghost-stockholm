@@ -346,7 +346,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
     })
 
-    createPage({
+    /*createPage({
         path: `/jupyter/`,
         component: jupyterArchive,
         context: {
@@ -354,7 +354,7 @@ exports.createPages = async ({ graphql, actions }) => {
             // in page queries as GraphQL variables.
             slug: `jupyter`,
         },
-    })
+    })*/
 
     createPage({
         path: `/subscribed/`,

@@ -43,13 +43,13 @@
     "less": "^3.10.3"
   },
   "dependencies": {
-    "@babel/core": "^7.7.4",
+    "@babel/core": "^7.7.5",
     "@babel/highlight": "^7.5.0",
-    "@babel/runtime": "^7.7.4",
+    "@babel/runtime": "^7.7.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/pro-regular-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "@gatsby-contrib/gatsby-transformer-ipynb": "^0.5.8",
     "@nteract/notebook-preview": "^11.0.4-alpha.0",
     "@nteract/notebook-render": "^5.0.4-alpha.0",
