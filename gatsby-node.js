@@ -252,7 +252,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     // Create Jupyter Notebook posts
-    jupyter.forEach(({ node }) => {
+    /*jupyter.forEach(({ node }) => {
         // This part here defines, that our jupyter will use
         // a `/:slug/` permalink.
         node.title = node.name.split(`/`).pop().replace(`.ipynb`, ``)
@@ -273,7 +273,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 primaryTag: node.primary,
             },
         })
-    })
+    })*/
 
     // Create post pages
     posts.forEach(({ node }) => {
