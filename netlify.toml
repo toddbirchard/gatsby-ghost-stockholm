@@ -588,7 +588,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 [[headers]]
     for = "https://typography.com/*"
@@ -598,7 +598,7 @@
         no-cache,
         no-store,
         must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
+    set-cookie = "HttpOnly;Secure;SameSite=Strict"
 
 
 [build.processing]
