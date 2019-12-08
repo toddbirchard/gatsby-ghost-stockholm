@@ -148,6 +148,15 @@ module.exports = {
                 },
             },
         },
+        {
+          resolve: `gatsby-plugin-preload-fonts`,
+          options: {
+            crossOrigin: `use-credentials`,
+            // OR
+            crossOrigin: pathname =>
+              pathname.match(/^\/elevated/) ? `use-credentials` : `anonymous`,
+          },
+        },
         /**
          *  Utility Plugins
          */
@@ -271,7 +280,6 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
-        `gatsby-plugin-preload-link-crossorigin`,
         {
           resolve: `gatsby-plugin-netlify`,
           options: {
