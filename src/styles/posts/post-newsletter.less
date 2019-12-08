@@ -1,14 +1,18 @@
 .post-template {
     .widget.newsletter {
-        padding: 60px;
-        text-align: center;
-        background: #d9e3ee;
-        box-shadow: @box-shadow;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
+      position: relative;
+      z-index: 1;
+      background: white;
+      width: -webkit-fill-available;
+      margin: 20px auto 80px;
 
         .newsletter-description {
             line-height: 1.3;
             margin: 0 auto 1.5em;
-            max-width: 400px;
+            max-width: 300px;
             color: #6e767e;
             @media(max-width: @mobile-breakpoint) {
                 font-size: 1em;
@@ -17,18 +21,13 @@
         }
 
         .subscribe-input-class {
+            border: 1px solid #d5dbe6;
             padding: 10px;
-            width: 400px;
-            border: 0 !important;
-            border: 1px inner white !important;
-            border-right: 0;
-            border-radius: 0;
+            width: 300px;
             display: block;
             margin: 0 auto 10px;
+            font-size: .9em;
             .input-field-interactions();
-            @media(max-width: @tablet-breakpoint) {
-                width: 350px;
-            }
             @media(max-width: @mobile-breakpoint) {
                 width: -webkit-fill-available;
                 padding: 11px 13px;
@@ -42,7 +41,8 @@
             border: 0;
             text-align: right;
             outline: none;
-            width: 421px;
+            width: 320px;
+            font-weight: 500;
             padding: 0;
             @media(max-width: @tablet-breakpoint) {
                 width: 382px;

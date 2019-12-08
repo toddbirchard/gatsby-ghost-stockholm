@@ -6,6 +6,7 @@
     .post-wrapper {
         background: white;
         box-shadow: @box-shadow;
+        position: relative;
 
         .post-head {
             margin: 0 auto;
@@ -169,6 +170,7 @@
         max-width: 720px;
         margin: 30px auto 40px;
         position: relative;
+        padding-bottom: 40px;
         @media(max-width: @tablet-breakpoint) {
             width: auto;
         }
@@ -511,9 +513,11 @@
         }
 
         .author-card {
-            border-top: 2px dotted #f3f3f3;
-            justify-content: left;
-            padding: 50px 0;
+          border-top: 2px dotted #f3f3f3;
+          border-bottom: 2px dotted #f3f3f3;
+          justify-content: left;
+          padding: 40px 0;
+          margin: 60px auto 20px;
             @media(max-width: @tablet-breakpoint) {
                 margin: 0 30px;
             }

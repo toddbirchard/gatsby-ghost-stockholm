@@ -82,6 +82,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             </div>
         </div>
         {/* The footer at the very bottom of the screen */}
+        
         <Footer navigation={site.navigation} site={site} template={template} />
     </>
     )

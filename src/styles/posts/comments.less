@@ -2,8 +2,12 @@
 
 .commento-root {
     padding: 30px 0 0;
+    width: -webkit-fill-available !important;
     overflow-x: visible !important;
     margin-bottom: 20px;
+    @media (max-width: 800px) {
+        margin: 0 30px;
+    }
 
     * {
         position: relative;
@@ -110,7 +114,6 @@
     .commento-button-margin {
         padding-top: 0 !important;
         /*box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);*/
-
         &:hover {
             .commento-submit-button {
                 opacity: 1;
@@ -118,12 +121,12 @@
         }
 
         textarea {
-          margin-top: 13px;
+            margin-top: 13px;
         }
     }
 
     .commento-card {
-        padding: 30px!important;
+        padding: 30px!important !important;
         background: white;
         margin-top: 0 !important;
         box-shadow: none !important;
@@ -136,7 +139,7 @@
             margin-left: 20px !important;
             margin-top: 30px !important;
             box-shadow: none !important;
-            padding: 30px 0 0 30px!important;
+            padding: 30px 0 0 30px!important !important;
             @media(max-width: @mobile-breakpoint) {
                 margin-left: 20px !important;
                 padding-bottom: 0 !important;
@@ -292,15 +295,15 @@
         }
 
         * {
-          font-size: 0.95em !important;
+            font-size: 0.95em !important;
         }
 
         tr td {
-          padding: 0 6px 4px !important;
+            padding: 0 6px 4px !important;
 
-          &:last-of-type {
-            padding: 0 6px 0 !important;
-          }
+            &:last-of-type {
+                padding: 0 6px 0 !important;
+            }
         }
     }
 
