@@ -67,7 +67,7 @@
     "gatsby-plugin-feed": "2.3.23",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
     "gatsby-plugin-less": "^3.0.15",
-    "gatsby-plugin-manifest": "2.2.31",
+    "gatsby-plugin-manifest": "^2.2.31",
     "gatsby-plugin-netlify": "^2.1.27",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-offline": "3.0.27",
