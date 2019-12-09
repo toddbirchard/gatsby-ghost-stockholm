@@ -13,7 +13,7 @@ const AuthorCard = ({ author, headerClass }) => {
               <header className={classes}>
                   <div className="author-card-head">
                       <div className="author-card-image">
-                          {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={author.name} /> : <FontAwesomeIcon icon="user-edit" size="xs" /> }
+                          {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={author.name} /> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} />}
                       </div>
                       <div className="author-card-content">
                           <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
