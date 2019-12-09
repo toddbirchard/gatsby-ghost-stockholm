@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 /**
 * About widget
@@ -11,7 +12,9 @@ const AboutWidget = ({ site }) => {
     return (
         <>
             <div className="widget about">
-                { logo ? <img className="widget-logo lazyload" data-src={logo} alt={site.title}/> : <h1 className="site-headline">{site.title} </h1>}
+                <Link to="/" >
+                    { logo ? <img className="widget-logo lazyload" data-src={logo} alt={site.title}/> : <h1 className="site-headline">{site.title} </h1> }
+                </Link>
                 <p className="description">{site.description}</p>
             </div>
         </>
