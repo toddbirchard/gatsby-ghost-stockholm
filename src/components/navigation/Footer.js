@@ -24,7 +24,9 @@ const Footer = ({ navigation, site, data, template }) => {
             <footer className="site-footer">
                 <div className="footer-wrapper">
                     <div className="footer-row">
-                        {isHome ? <h1 className="site-headline">{siteTitle} </h1> : <h4 className="site-headline">{siteTitle} </h4>}
+                        <Link to="/" >
+                            {isHome ? <h1 className="site-headline">{siteTitle} </h1> : <h4 className="site-headline">{siteTitle} </h4>}
+                        </Link>
                         <div className="footer-links">
                             <NavLinks navigation={navigation} />
                         </div>
