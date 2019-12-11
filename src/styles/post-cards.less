@@ -46,6 +46,9 @@
         background: @text-color-light no-repeat center center;
         background-size: cover;
         transition: opacity 0.2s ease-out;
+        @media(max-width:1040px) {
+          height: auto !important;
+        }
 
         &:hover {
             cursor: pointer;
