@@ -290,7 +290,7 @@ module.exports = {
             headers: {
               "/static/fonts.css" : [
                 'referer: https://hackersandslackers.com/',
-                ':scheme: https',
+                'scheme: https',
                 'origin: https://hackersandslackers.com'
                 ]}, // option to add more headers. `Link` headers are transformed by the below criteria
             allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria

@@ -60,6 +60,7 @@ Author.propTypes = {
             location: PropTypes.string,
             facebook: PropTypes.string,
             twitter: PropTypes.string,
+            postCount: PropTypes.number.isRequired,
         }),
         allGhostPost: PropTypes.arrayOf(
             PropTypes.shape({
