@@ -139,15 +139,6 @@ module.exports = {
                 javascriptEnabled: true,
             },
         },
-        {
-            resolve: `gatsby-plugin-web-font-loader`,
-            options: {
-                custom: {
-                    families: [`Gilroy-SemiBold`, `Gilroy-Regular`],
-                    urls: [`/fonts.css`],
-                },
-            },
-        },
         `gatsby-plugin-preload-fonts`,
         /**
          *  Utility Plugins
