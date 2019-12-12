@@ -434,8 +434,13 @@
     for = "/fonts/*"
     [headers.values]
     Referrer-Policy = "no-referrer-when-downgrade"
-    Access-Control-Allow-Origin = '*'
+    Access-Control-Allow-Origin = "*"
     Expect-CT = "enforce,max-age=604800"
+    Accept-Encoding = "gzip, deflate, br"
+    Accept = "text/css,*/*;q=0.1"
+    Referer = "https://hackersandslackers.com/"
+    Sec-Fetch-Site = "cross-site"
+    Host = "cloud.typography.com"
 
 [[headers]]
     for = "https://gaug.es/*"
