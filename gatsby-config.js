@@ -139,7 +139,22 @@ module.exports = {
                 javascriptEnabled: true,
             },
         },
-        `gatsby-plugin-preload-fonts`,
+        {
+          resolve: `gatsby-plugin-netlify`,
+          options: {
+            headers: {"/*": [
+                            `Referrer-Policy: no-referrer-when-downgrade`,
+                            `Access-Control-Allow-Origin: *`,
+                            `Expect-CT: enforce,max-age=604800`
+                          ]}, // option to add more headers. `Link` headers are transformed by the below criteria
+            allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+            mergeSecurityHeaders: true, // boolean to turn off the default security headers
+            mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+            mergeCachingHeaders: true, // boolean to turn off the default caching headers
+            transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+            generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+          },
+        },
         /**
          *  Utility Plugins
          */
