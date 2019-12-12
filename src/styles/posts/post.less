@@ -30,6 +30,7 @@
                 text-align: center;
                 max-width: 720px;
                 margin: 0 auto 20px;
+                letter-spacing: -1px !important;
                 @media(max-width: @tablet-breakpoint) {
                     max-width: 95%;
                 }
@@ -96,7 +97,8 @@
                 margin: 0 15px;
                 font-size: 0.8em;
                 opacity: 0.6;
-                font-family: @body-font-bold;
+                font-family: @header-font;
+                letter-spacing: -1px;
                 font-size: 1.2em;
                 color: #434a4d;
                 display: flex;
@@ -181,9 +183,9 @@
         }
 
         .subtext {
-            color: #797979;
+            color: #a6a6a6;
             font-style: italic;
-            font-weight: 300;
+            font-weight: 400;
             margin: 25px 0 0 auto;
             display: block;
             line-height: 1.4;
@@ -270,6 +272,7 @@
                 font-weight: 100!important;
                 font-size: 2em;
                 width: 100%;
+                letter-spacing: -1px;
                 @media(max-width: @tablet-breakpoint) {
                     font-size: 1.9em;
                 }
@@ -282,6 +285,10 @@
                     border: none;
                     margin-bottom: 5px;
                 }
+            }
+
+            h3 {
+              letter-spacing: -1px;
             }
 
             h4 {
@@ -358,7 +365,7 @@
                 color: #5d94b7;
                 padding: 3px 4px;
                 border-radius: 3px;
-                font-size: 0.8em;
+                font-size: 0.85em;
                 font-weight: 400;
                 font-family: @monospace-font;
                 white-space: nowrap;
@@ -511,8 +518,8 @@
         }
 
         .author-card {
-            border-top: 2px dotted #f3f3f3;
-            border-bottom: 2px dotted #f3f3f3;
+            border-top: 2px dotted #eaeaea;
+            border-bottom: 2px dotted #eaeaea;
             justify-content: left;
             padding: 40px 0;
             margin: 60px auto 20px;
