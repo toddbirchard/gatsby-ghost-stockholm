@@ -42,12 +42,17 @@
             .site-headline {
                 color: #0297f6;
                 text-transform: uppercase;
-                font-size: 1.5em;
+                font-size: 1.4em;
                 font-family: @header-font;
                 font-weight: 800;
                 letter-spacing: -1px;
+                transition: @transition;
                 @media(max-width: @mobile-breakpoint) {
                     margin-bottom: 30px;
+                }
+
+                &:hover {
+                  opacity: .6;
                 }
             }
 
@@ -59,7 +64,6 @@
                 @media(max-width: @mobile-breakpoint) {
                     margin-left: 0;
                     margin-right: 20px;
-                    font-size: 1em;
                     font-family: @body-font;
                     font-weight: 500;
                 }
@@ -96,15 +100,16 @@
                 font-weight: normal;
                 margin-bottom: 20px;
                 color: #6c7c89;
+                font-weight: 600;
             }
 
             .navigation-link {
-                font-size: 0.95em;
-                margin: 0 0 20px;
+                font-size: 0.9em;
+                margin: 0 0 15px;
                 display: block;
                 padding-left: 0;
                 line-height: 0.9em;
-                color: #8aa5b1;
+                color: #657884;
                 font-family: @body-font;
                 white-space: nowrap;
                 text-overflow: ellipsis;
@@ -177,7 +182,7 @@
             width: 1000px;
             max-width: 90%;
             margin: auto;
-            font-size: 0.8em;
+            font-size: 0.9em;
         }
     }
 }

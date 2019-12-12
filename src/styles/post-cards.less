@@ -22,7 +22,7 @@
     .post-card-title {
         margin: 0;
         padding: 0;
-        font-size: 1.7em;
+        font-size: 1.8em;
         line-height: 1.1;
         font-weight: 500;
         letter-spacing: -1px;
@@ -31,11 +31,15 @@
         font-family: @header-font;
         transition: @transition;
         font-weight: 600;
-        @media(max-width: @tablet-breakpoint) {
-            font-size: 1.7em;
+        @media(max-width: 1000px) {
+            font-size: 1.6em;
         }
         @media(max-width: @mobile-breakpoint) {
-            font-size: 1.5em;
+          font-size: 1.4em;
+          margin-bottom: 15px;
+        }
+        @media(max-width: 450px) {
+          font-size: 1.25em;
         }
 
         &:hover {
@@ -79,8 +83,12 @@
             overflow: hidden;
             width: -webkit-fill-available;
             width: -moz-available;
+            @media(max-width: @tablet-breakpoint) {
+              margin: 12px auto 20px;
+              font-size: 1.1em;
+            }
             @media(max-width: @mobile-breakpoint) {
-                margin: 10px auto 20px;
+              font-size: 1em;
             }
         }
     }
@@ -98,18 +106,19 @@
         .meta-item {
             font-family: @header-font;
             margin-right: 30px;
-            color: #2c3134;
-            font-size: 0.9em;
-            font-weight: normal;
+            color: #8b96a5;
+            font-size: 0.95em;
             display: flex;
             align-items: center;
-            opacity: 0.8;
-            @media(max-width: @mobile-breakpoint) {
+            font-weight: 600;
+            opacity: .9;
+            @media(max-width: @tablet-breakpoint) {
                 font-size: 0.9em;
+                margin-right: 25px;
             }
 
             a {
-                color: #2c3134;
+                color: #8b96a5;
             }
 
             span {
@@ -128,7 +137,7 @@
             }
 
             &.date {
-                @media(max-width: 900px) {
+                @media(max-width: 1000px) {
                     display: none;
                 }
             }

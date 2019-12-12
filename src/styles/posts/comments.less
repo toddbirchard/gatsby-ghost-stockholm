@@ -121,7 +121,6 @@
 
     .commento-button-margin {
         padding-top: 0 !important;
-        /*box-shadow: 1px 3px 8px rgba(39, 44, 49, 0.07);*/
         &:hover {
             .commento-submit-button {
                 opacity: 1;
@@ -182,7 +181,7 @@
     .commento-submit-button {
         color: white !important;
         text-transform: uppercase !important;
-        font-size: 0.8em !important;
+        font-size: 0.7em !important;
         padding: 10px 12px !important;
         line-height: 1 !important;
         font-family: @header-font !important;
@@ -199,12 +198,10 @@
         z-index: 10;
         opacity: 0;
         height: 35px;
-        /*@media(max-width: @mobile-breakpoint) {
-          top: 77px!important;
-          right: 23px !important;
-          padding: 6px 8px !important;
-          height: 30px !important;
-        }*/
+        @media(max-width: @mobile-breakpoint) {
+          right: 10px !important;
+           top: 94px !important;
+        }
         &:hover {
             background: white !important;
             color: @theme-color !important;
@@ -234,12 +231,13 @@
         padding: 15px !important;
         border-radius: 0;
         height: 100px;
-        min-height: unset!important;
+        min-height: unset !important;
         position: relative;
-        -webkit-appearance: none!important;
+        -webkit-appearance: none !important;
         max-height: 93px;
         -webkit-transition: all 0.2s ease-out;
         transition: all 0.2s ease-out;
+        border: 1px solid rgba(50,50,93,.2) !important;
 
         &:hover {
             background: lighten(@theme-color, 30%) !important;

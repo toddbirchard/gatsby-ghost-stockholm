@@ -25,7 +25,7 @@
             margin-bottom: 20px;
 
             .label {
-                font-weight: bold;
+                font-weight: 500;
                 opacity: 0.7;
                 font-size: 0.95em;
 
@@ -55,6 +55,11 @@
             width: 230px;
             margin: auto;
             display: block;
+            transition: @transition;
+
+            &:hover {
+              opacity: .6;
+            }
           }
 
             .description {
@@ -208,7 +213,6 @@
                 margin: 10px 0;
                 border-bottom: 1px solid #e7e7e7;
                 font-weight: 500;
-                font-family: @header-font;
                 font-size: 0.9em;
                 white-space: nowrap;
                 overflow: hidden;
@@ -252,7 +256,7 @@
 
                 .twitter-name {
                     color: #4b5776;
-                    font-weight: 600;
+                    font-weight: 500;
                     font-size: 1.1em;
                 }
 
@@ -290,10 +294,10 @@
 
                 .tweet-link {
                     color: #6baaf2;
-                    font-family: 'AvenirNextLTPro-Medium', sans-serif;
+                    font-family: @body-font;
                     font-weight: 600;
                     display: block;
-                    font-size: 0.8em;
+                    font-size: 0.82em;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -308,6 +312,7 @@
                         font-size: 0.9em;
                         margin: 0 8px 5px 0;
                         display: inline-block;
+                        font-weight: 500;
                     }
                 }
 

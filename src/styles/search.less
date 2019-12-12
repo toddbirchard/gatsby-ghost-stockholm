@@ -9,11 +9,13 @@
         align-items: center;
         margin: 0 !important;
         border-bottom: 1px solid #f3f3f3;
-        padding: 0 0 20px;
+        padding: 20px;
+        font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
 
         .search-results-title {
             margin: 0;
-            font-weight: 400;
+            font-weight: 600;
+            color: #585f6d;
         }
     }
 
@@ -24,7 +26,7 @@
     }
 
     .ais-Hits {
-        padding: 0 !important;
+        padding: 0 20px 10px !important;
     }
 
     .ais-Hits-list {
@@ -63,24 +65,29 @@
         display: flex;
         justify-content: space-between;
 
+        h4 {
+          font-weight: 600;
+          color: #585f6d;
+        }
+
         .search-result-details {
             width: 220px;
 
             .search-result-title {
-                margin-bottom: 7px;
-                color: @header-color;
+                margin-bottom: 10px;
                 font-weight: 600;
+                color: #585f6d;
+                font-size: .95em;
                 font-family: @secondary-header-font;
                 line-height: 1.2 !important;
-                    font-size: .95em;
                 display: block;
-                opacity: 0.9;
+                opacity: 0.8;
             }
 
             .search-result-tag {
                 display: block;
                 font-size: 0.8em;
-                font-weight: 600;
+                font-weight: 500;
                 opacity: 0.6;
                 line-height: 1;
 
@@ -101,6 +108,7 @@
             max-width: 100px;
             height: 66px;
             margin-right: 12px;
+            border-radius: 2px;
         }
     }
 }
@@ -116,16 +124,16 @@
     input {
         line-height: normal;
         background: #efefef;
-        width: 250px !important;
+        width: 263px !important;
         border: 0;
-        padding: 12px 17px;
+        padding: 13px 17px;
         font-size: 1em;
-        border-radius: 3px;
+        border-radius: 4px;
         transition: @transition;
         margin: 0;
 
         &::placeholder {
-            color: #9ca7b0;
+            color: grey;
         }
 
         &:focus,
@@ -133,7 +141,8 @@
             background: #e1edf6;
 
             &::placeholder {
-                color: #95aaba;
+                color: lighten(#95aaba, 10%);
+                transition: @transition;
             }
         }
 
