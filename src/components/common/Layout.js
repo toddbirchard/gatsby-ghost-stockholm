@@ -69,7 +69,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
             <html lang={site.lang} />
             <style type="text/css">{`${site.codeinjection_styles}`}</style>
             <meta name="referrer" content="origin" />
-            <link rel="preload" type="style" href="https://cloud.typography.com/7899256/7992012/css/fonts.css" />
+            <link rel="preload" as="style" href="https://cloud.typography.com/7899256/7992012/css/fonts.css" crossorigin="anonymous" />
             {/*<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7899256/7992012/css/fonts.css" />*/}
             <body className={ template } />
         </Helmet>

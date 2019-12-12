@@ -145,7 +145,7 @@ module.exports = {
             headers: {"/*": [
                             `Referrer-Policy: no-referrer-when-downgrade`,
                             `Access-Control-Allow-Origin: *`,
-                            `Expect-CT: enforce,max-age=604800`
+                            `Expect-CT: enforce,max-age=604800`,
                           ]}, // option to add more headers. `Link` headers are transformed by the below criteria
             allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
             mergeSecurityHeaders: true, // boolean to turn off the default security headers
