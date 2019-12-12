@@ -419,7 +419,6 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer-when-downgrade"
-    Access-Control-Allow-Origin = "*"
     Link = "${Font}>; rel=preload; as=font; type=font/woff2 crossorigin=anonymous"
 
     # Multi-key header rules are expressed with multi-line strings.
@@ -434,7 +433,6 @@
     for = "/fonts/*"
     [headers.values]
     Referrer-Policy = "no-referrer-when-downgrade"
-    Access-Control-Allow-Origin = "*"
     Expect-CT = "enforce,max-age=604800"
     Accept-Encoding = "gzip, deflate, br"
     Accept = "text/css,*/*;q=0.1"
@@ -598,7 +596,6 @@
     for = "https://cloud.typography.com/*"
     [headers.values]
     Referrer-Policy = "no-referrer-when-downgrade"
-    Access-Control-Allow-Origin = '*'
     Expect-CT = "enforce,max-age=604800"
     Link = "${Font}>; rel=preload; as=font; type=font/woff2 crossorigin=anonymous"
 
