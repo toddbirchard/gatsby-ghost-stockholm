@@ -1,10 +1,23 @@
-- name: Run Lighthouse and test budgets
-  uses: treosh/lighthouse-ci-action@v2
-  with:
-    urls: |
-      https://pr-$PR_NUMBER.staging-example.com/
-      https://pr-$PR_NUMBER.staging-example.com/blog
-    budgetPath: ./budgets.json
-    temporaryPublicStorage: true
-    env:
-      PR_NUMBER: ${{ github.event.pull_request.number }}
+name: Lighthouse
+on: push
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          urls: |
+            https://hackersandslackers.com/
+            https://hackersandslackers.com/
+            https://hackersandslackers.com/
+            https://hackersandslackers.com/
+            https://hackersandslackers.com/
+            https://hackersandslackers.com/
+            https://hackersandslackers.com/
+      - name: Save results
+        uses: actions/upload-artifact@v1
+        with:
+          name: lighthouse-results
+          path: '.lighthouseci' # This will save the Lighthouse results as .json files
