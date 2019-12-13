@@ -5,8 +5,8 @@
         "http://hackersandslackers.com/",
         "http://hackersandslackers.com/about/",
         "http://hackersandslackers.com/series/",
-        "http://hackersandslackers.com/author/todd",
-        "http://hackersandslackers.com/series/data-analysis-pandas",
+        "http://hackersandslackers.com/author/todd/",
+        "http://hackersandslackers.com/series/data-analysis-pandas/",
         "http://hackersandslackers.com/getting-started-django/"
       ],
       "numberOfRuns": 2,
