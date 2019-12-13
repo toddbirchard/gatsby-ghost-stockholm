@@ -130,6 +130,17 @@ module.exports = {
         },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {
+              plugins: [
+                {
+                  resolve: `gatsby-remark-images`,
+                },
+                `gatsby-remark-lazy-load`,
+              ]
+            }
+          },
         /**
          *  Style Plugins
          */
