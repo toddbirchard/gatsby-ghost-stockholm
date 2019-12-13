@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v2
+        uses: ./
         with:
           urls: |
             https://hackersandslackers.com/
