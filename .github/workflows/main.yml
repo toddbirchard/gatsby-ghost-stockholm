@@ -1,0 +1,22 @@
+name: Lighthouse
+on: push
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          urls: |
+            https://hackersandslackers.com/
+            https://hackersandslackers.com/about/
+            https://hackersandslackers.com/series/
+            https://hackersandslackers.com/author/todd
+            https://hackersandslackers.com/series/data-analysis-pandas
+            https://hackersandslackers.com/getting-started-django
+      - name: Save results
+        uses: actions/upload-artifact@v1
+        with:
+          name: lighthouse-results
+          path: '.lighthouseci' # This will save the Lighthouse results as .json files
