@@ -2,12 +2,12 @@
   "ci": {
     "collect": {
       "url": [
-        "/",
-        "/about/",
-        "/series/",
-        "/author/todd",
-        "/series/data-analysis-pandas",
-        "/getting-started-django/"
+        "http://hackersandslackers.com/",
+        "http://hackersandslackers.com/about/",
+        "http://hackersandslackers.com/series/",
+        "http://hackersandslackers.com/author/todd",
+        "http://hackersandslackers.com/series/data-analysis-pandas",
+        "http://hackersandslackers.com/getting-started-django/"
       ],
       "numberOfRuns": 2,
       "staticDistDir": "./public"
