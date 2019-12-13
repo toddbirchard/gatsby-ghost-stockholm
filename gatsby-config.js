@@ -140,6 +140,12 @@ module.exports = {
             },
         },
         {
+          resolve: `gatsby-plugin-postcss`,
+          options: {
+            postCssPlugins: [require(`autoprefixer`)()],
+          },
+        },
+        {
           resolve: `gatsby-plugin-netlify`,
           options: {
             headers: {"/*": [
