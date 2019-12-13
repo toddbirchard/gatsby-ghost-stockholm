@@ -12,9 +12,9 @@ jobs:
             https://hackersandslackers.com/
             https://hackersandslackers.com/about/
             https://hackersandslackers.com/series/
-            https://hackersandslackers.com/author/todd
-            https://hackersandslackers.com/series/data-analysis-pandas
-            https://hackersandslackers.com/getting-started-django
+            https://hackersandslackers.com/author/todd/
+            https://hackersandslackers.com/series/data-analysis-pandas/
+            https://hackersandslackers.com/getting-started-django/
       - name: Save results
         uses: actions/upload-artifact@v1
         with:
