@@ -119,6 +119,7 @@
 
 .commento-root .commento-button-margin {
     padding-top: 0 !important;
+    position: relative;
 }
 
 .commento-root .commento-button-margin:hover .commento-submit-button {
@@ -127,6 +128,10 @@
 
 .commento-root .commento-button-margin textarea {
     margin-top: 13px;
+}
+
+.commento-anonymous-checkbox-container {
+  display: none;
 }
 
 .commento-root .commento-card {
