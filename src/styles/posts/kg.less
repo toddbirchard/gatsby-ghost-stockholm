@@ -57,10 +57,11 @@
             padding: 20px;
 
             .kg-bookmark-title {
-                font-weight: 600;
                 text-decoration: none;
                 line-height: 1.2;
                 font-size: 1.1em;
+                color: @header-color;
+                font-family: @secondary-header-font;
             }
 
             .kg-bookmark-description {
@@ -119,6 +120,7 @@
                 object-fit: cover;
                 width: 100%;
                 margin-bottom: 0 !important;
+                min-height: 100%;
                 @media(max-width: @mobile-breakpoint) {
                     width: unset;
                     min-width: 100%;
