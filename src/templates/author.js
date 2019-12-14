@@ -18,7 +18,6 @@ import '../styles/pages/index.less'
 const Author = ({ data, location, pageContext }) => {
     const author = data.ghostAuthor
     const posts = data.allGhostPost.edges
-    const coverHeaderClass = author.cover_image ? `author-page-header cover-header` : `author-page-header`
     // const authorTweets = data.authorTweets.edges
     // const authorTwitterUser = data.authorTwitterProfile.user
 
@@ -31,9 +30,7 @@ const Author = ({ data, location, pageContext }) => {
             />
           <Layout template="author-template" hasSidebar={true}>
               <article className="content">
-                  <div className={coverHeaderClass}>
-                      <AuthorCard author={author} headerClass={true} page={`author`}/>
-                  </div>
+                  <AuthorCard author={author} headerClass={false} page={`author`}/>
                   <div className="post-full-content">
                       <section className="post-feed">
                           {posts.map(({ node }) => (
@@ -128,7 +125,7 @@ export const pageQuery = graphql`
         }
         allGhostPost(
             sort: { order: DESC, fields: [published_at] },
-            filter: {authors: {elemMatch: {slug: {eq: $slug}}}},
+            filter: {tags: {elemMatch: {slug: {ne: "hash-newsletter"}}}, authors: {elemMatch: {slug: {eq: $slug}}}},
             limit: $limit,
             skip: $skip
         ) {
