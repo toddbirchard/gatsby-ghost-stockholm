@@ -141,6 +141,16 @@ module.exports = {
               ]
             }
           },
+
+          {
+            resolve: `gatsby-plugin-web-font-loader`,
+            options: {
+              custom: {
+                families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Medium`, `TTNormsPro-Bold`],
+                urls: ['/fonts.css']
+              }
+            }
+          },
         /**
          *  Style Plugins
          */
@@ -153,7 +163,9 @@ module.exports = {
         {
           resolve: `gatsby-plugin-postcss`,
           options: {
-            postCssPlugins: [require(`autoprefixer`)()],
+            postCssPlugins: [require(`autoprefixer`)(),
+                             require(`postcss-at2x`)(),
+                             require(`stylelint`)()],
           },
         },
         {

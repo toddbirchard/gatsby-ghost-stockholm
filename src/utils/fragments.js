@@ -122,7 +122,6 @@ export const ghostPostFields = graphql`
         uuid
         page
         codeinjection_foot
-        codeinjection_head
         codeinjection_styles
         comment_id
     }
@@ -210,7 +209,6 @@ export const ghostPageFields = graphql`
         uuid
         page
         codeinjection_foot
-        codeinjection_head
         codeinjection_styles
         comment_id
     }
@@ -228,7 +226,6 @@ export const ghostSettingsFields = graphql`
         twitter
         lang
         timezone
-        codeinjection_head
         codeinjection_foot
         codeinjection_styles
         navigation {

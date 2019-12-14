@@ -26,7 +26,6 @@ body {
     font-family: @body-font;
     font-size: 1.5rem;
     line-height: 1.6em;
-    font-weight: 400;
     font-style: normal;
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
@@ -140,11 +139,13 @@ a {
 
 strong {
     font-family: @body-font-bold;
+    font-weight: normal;
 }
 
 h2 {
     color: @light-header-color;
     font-family: @header-font;
+    font-weight: normal;
 }
 
 h3 {
@@ -152,12 +153,12 @@ h3 {
     line-height: 1.2;
     color: @light-header-color;
     margin: 40px 0 5px;
-    font-family: @header-font;
+    font-family: @secondary-header-font;
+    font-weight: normal;
     @media(max-width: @tablet-breakpoint) {
         font-size: 1.3em;
     }
     @media(max-width: @mobile-breakpoint) {
-        text-align: left;
         line-height: 1.2;
         margin-bottom: 5px;
     }

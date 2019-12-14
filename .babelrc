@@ -22,9 +22,9 @@
                     "jinja2",
                     "handlebars"
                 ],
-                "plugins": ["line-numbers", "normalize-whitespace"],
+                "plugins": ["normalize-whitespace"],
                 "theme": "default",
-                "css": true
+                "css": false
             }
         ]
     ],
