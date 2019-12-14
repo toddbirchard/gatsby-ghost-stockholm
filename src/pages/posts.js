@@ -27,7 +27,7 @@ const PostArchive = ({ data, location, pageContext }) => {
                     <div className="posts-grid">
                         {posts.map(({ node }) => (
                             // The tag below includes the markup for each post - components/common/PostCard.js
-                            <PostCard key={node.id} post={node} />
+                            <PostCard key={node.id} post={node} page={`about`} />
                         ))}
                         <Pagination pageContext={pageContext} />
                     </div>

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
 
-const AuthorCard = ({ author, headerClass }) => {
+const AuthorCard = ({ author, headerClass, page }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
     const authorFacebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
     const classes = headerClass ? `author-card info-card` : `author-card`
 
     return (
             <>
-              <header className={classes}>
+              <div className={`${classes} ${page}`}>
                   <div className="author-card-head">
                       <div className="author-card-image">
                           {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={author.name} /> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} />}
@@ -28,7 +28,7 @@ const AuthorCard = ({ author, headerClass }) => {
                       </div>
                   </div>
                   {author.bio && <p className="author-card-bio-mobile">{author.bio}</p>}
-              </header>
+              </div>
             </>
     )
 }
@@ -46,6 +46,7 @@ AuthorCard.propTypes = {
         slug: PropTypes.string,
     }).isRequired,
     headerClass: PropTypes.string,
+    page: PropTypes.string.isRequired,
 }
 
 export default AuthorCard

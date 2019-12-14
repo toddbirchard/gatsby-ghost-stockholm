@@ -10,6 +10,7 @@ import { RelatedPosts, SeriesTOC } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { Commento } from '../components/posts'
 import { NewsletterWidget } from '../components/sidebar'
+import Helmet from 'react-helmet'
 
 import '../styles/posts/index.less'
 
@@ -35,6 +36,14 @@ const Post = ({ data, location }) => {
 
     return (
       <>
+      <Helmet>
+          <script
+              defer
+              src="https://cdn.commento.io/js/commento.js"
+              data-css-override="/comments.css"
+              data-no-fonts={true}
+          />
+      </Helmet>
       < MetaData data = { data } location = { location } type = "article" />
       <Layout template="post-template">
           <div className="post-wrapper">
@@ -67,22 +76,22 @@ const Post = ({ data, location }) => {
 
               <article className="post">
 
-                  {
-                      seriesPosts
-                          ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-                          : null
+                  { seriesPosts
+                      ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
+                      : null
                   }
                   {/* The main post content */}
                   <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
                   <div className="post-tags">
                       <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
                   </div>
-                  <AuthorCard author={author}/>
-                  <Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true}/>
+                  <AuthorCard author={author} page={`post`} />
               </article>
-
           </div>
+
           <section className="post-footer">
+              {/*<Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true}/>*/}
+              <div id="commento"></div>
               {relatedPosts && <RelatedPosts data={relatedPosts}/>}
               <NewsletterWidget/>
           </section>

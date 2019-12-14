@@ -9,11 +9,6 @@
         margin: 30px 30px 0;
     }
 
-    * {
-        position: relative;
-        font-family: @body-font !important;
-    }
-
     p {
        font-size: 13px !important;
     }
@@ -91,13 +86,6 @@
 
     #commento-logged-container {
         display: none;
-        /* text-align: unset;
-        position: relative;
-        height: unset;
-        display: flex;
-        margin: 16px 0;
-        flex-direction: column;
-        align-items: flex-end;*/
         .commento-logout {
             position: relative;
             color: #adb5bd;
@@ -115,6 +103,9 @@
 
             & > div > .commento-card {
                 border-left: none !important;
+                padding: 30px!important;
+                border-radius: 2px !important;
+                box-shadow: @box-shadow;
             }
         }
     }
@@ -133,10 +124,8 @@
     }
 
     .commento-card {
-        padding: 20px 0 0 15px !important;
         background: white;
         margin-top: 0 !important;
-        box-shadow: none !important;
         position: relative;
         @media(max-width: @mobile-breakpoint) {
             padding: 20px !important;
@@ -188,11 +177,11 @@
         box-shadow: none !important;
         transition: @transition;
         position: absolute !important;
-        top: 92px !important;
+        top: 81px !important;
         background: @theme-color !important;
         border: 1px solid @theme-color !important;
         border-radius: 0 !important;
-        right: 15px!important;
+        right: 12px!important;
         display: block !important;
         margin: 0 !important;
         z-index: 10;
@@ -229,7 +218,7 @@
     textarea {
         overflow: hidden!important;
         padding: 15px !important;
-        border-radius: 0;
+        border-radius: 2px;
         height: 100px;
         min-height: unset !important;
         position: relative;
@@ -237,8 +226,9 @@
         max-height: 97px;
         -webkit-transition: all 0.2s ease-out;
         transition: all 0.2s ease-out;
-        border: 1px solid rgba(50,50,93,.2) !important;
+      /*   border: 1px solid rgba(50,50,93,.2) !important; */
         margin-top: 0 !important;
+        box-shadow: @box-shadow;
 
         &:hover {
             background: lighten(@theme-color, 30%) !important;

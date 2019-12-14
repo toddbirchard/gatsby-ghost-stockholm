@@ -32,7 +32,7 @@ const Author = ({ data, location, pageContext }) => {
           <Layout template="author-template" hasSidebar={true}>
               <article className="content">
                   <div className={coverHeaderClass}>
-                      <AuthorCard author={author} headerClass={true} />
+                      <AuthorCard author={author} headerClass={true} page={`author`}/>
                   </div>
                   <div className="post-full-content">
                       <section className="post-feed">

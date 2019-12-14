@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 const TwitterWidget = ({ data }) => {
     const tweets = data.allTwitterStatusesUserTimelineHackersTweets.edges
     const user = data.twitterStatusesUserTimelineHackersTweets.user
+    const twitterUrl = data.twitterStatusesUserTimelineHackersTweets.url
 
     return (
         <>
@@ -13,7 +14,7 @@ const TwitterWidget = ({ data }) => {
                     <img className="twitter-avatar lazyload" data-src={user.profile_image_url_https} alt="twitter-avatar"/>
                     <div>
                         <a href={user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{user.name}</a>
-                        <div className="twitter-user">@{user.screen_name}</div>
+                        <a href={twitterUrl} className="twitter-user" rel="nofollow noreferrer">@{user.screen_name}</a>
                     </div>
                 </div>
                 <div className="tweets">

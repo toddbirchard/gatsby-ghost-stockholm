@@ -44,8 +44,11 @@
                 font-size: 1.5em;
                 font-family: @secondary-header-font;
                 transition: @transition;
+                font-weight: normal;
                 @media(max-width: @mobile-breakpoint) {
                     margin-bottom: 30px;
+                    font-size: 1.4em;
+                    text-align: justify;
                 }
 
                 &:hover {
@@ -59,8 +62,7 @@
                 margin-left: 30px;
                 font-size: 1.1em;
                 @media(max-width: @mobile-breakpoint) {
-                    margin-left: 0;
-                    margin-right: 20px;
+                    margin: 0;
                     font-family: @body-font;
                     font-weight: 500;
                 }
@@ -168,7 +170,6 @@
         border-top: 1px solid #eeeeee;
         @media(max-width: @mobile-breakpoint) {
             text-align: center;
-            line-height: 1.2;
         }
 
         p {
@@ -178,6 +179,7 @@
             max-width: 90%;
             margin: auto;
             font-size: 0.9em;
+            line-height: 1.3;
         }
     }
 }

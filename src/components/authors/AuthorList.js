@@ -11,7 +11,7 @@ const AuthorCards = ({ allAuthors }) => {
           <div className="author-card-list">
               <h2 className="author-list-title">Authors</h2>
               {authors.map(({ node }) => (
-                  <AuthorCard author={node} key={node.id}/>
+                  <AuthorCard author={node} key={node.id} page={`about`} />
               ))}
           </div>
       </>
