@@ -141,13 +141,12 @@ module.exports = {
               ]
             }
           },
-
           {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
               custom: {
                 families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Medium`, `TTNormsPro-Bold`],
-                urls: ['/fonts.css']
+                urls: ['fonts.css']
               }
             }
           },
