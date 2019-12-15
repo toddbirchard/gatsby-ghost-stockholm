@@ -8,7 +8,6 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC } from '../components/posts'
 import { AuthorCard } from '../components/authors'
-import { Commento } from '../components/posts'
 import { NewsletterWidget } from '../components/sidebar'
 import Helmet from 'react-helmet'
 
@@ -90,7 +89,6 @@ const Post = ({ data, location }) => {
           </div>
 
           <section className="post-footer">
-              {/*<Commento id={post.id} data-css-override="../styles/posts/comments.less" data-no-fonts={true}/>*/}
               <div id="commento"></div>
               {relatedPosts && <RelatedPosts data={relatedPosts}/>}
               <NewsletterWidget/>
