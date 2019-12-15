@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout, SeriesPostCard } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
-import '../styles/seriesdetail.less'
+import '../styles/series/seriesdetail.less'
 
 /**
 * Tag page (/tag/:slug)
