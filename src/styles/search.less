@@ -1,21 +1,22 @@
 .search-results {
     margin: 0;
-    padding: 0 !important;
+    padding: 20px !important;
     box-shadow: 4px 4px 10px rgba(45, 47, 55, 0.2);
     max-height: unset !important;
-    width: 380px;
+    width: 340px;
 
     header {
         align-items: center;
         margin: 0 !important;
         border-bottom: 1px solid #f3f3f3;
-        padding: 20px;
-        font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+        padding: 5px 0 15px;
 
         .search-results-title {
             margin: 0;
-            font-weight: 600;
-            color: #585f6d;
+            color: #90949b;
+            font-family: @secondary-header-font;
+            font-weight: normal;
+            font-size: 1.1em;
         }
     }
 
@@ -26,11 +27,11 @@
     }
 
     .ais-Hits {
-        padding: 0 20px 10px !important;
+      padding-top: 0 !important;
     }
 
     .ais-Hits-list {
-        margin: 0;
+        margin: 0 !important;
     }
 
     .ais-Hits-item {
@@ -42,6 +43,7 @@
         &:last-of-type {
             margin-bottom: 0;
             border-bottom: 0;
+            padding-bottom: 0;
         }
 
         &:hover {
@@ -75,13 +77,14 @@
 
             .search-result-title {
                 margin-bottom: 10px;
-                font-weight: 600;
                 color: #585f6d;
                 font-size: .95em;
-                font-family: @secondary-header-font;
+                font-family: @header-font;
                 line-height: 1.2 !important;
                 display: block;
-                opacity: 0.8;
+                opacity: 0.85;
+                font-weight: normal;
+                letter-spacing: -.5px;
             }
 
             .search-result-tag {
