@@ -12,6 +12,11 @@
     }
 }
 
+.commento-root * {
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+}
+
 .commento-root p,
 .commento-root a, {
     font-size: 13px !important;
@@ -25,14 +30,15 @@
     font-family: 'Genera-Regular', sans-serif;
 }
 
-.commento-root .commento-name {
+.commento-root .commento-card .commento-name {
     font-family: 'TTNormsPro-Medium', sans-serif;
-    font-size: 1.1em !important;
+    font-weight: normal !important;
+    font-size: 16px !important;
     line-height: 1 !important;
-    font-size: 1em !important;
     margin-left: 0 !important;
     color: #6b6e73 !important;
     margin: 0 0 3px 0 !important;
+
 }
 
 .commento-root .commento-subtitle {
@@ -177,7 +183,7 @@
 
 .commento-root .commento-card .commento-card {
     margin-left: 20px !important;
-    margin-top: 30px !important;
+    margin-top: 25px !important;
     box-shadow: none !important;
     padding: 30px 0 0 30px !important !important;
     overflow: hidden;
@@ -209,6 +215,7 @@
 
 .commento-root .commento-card p {
     margin: 10px 0 0 !important;
+    line-height: 1.3 !important;
 }
 
 .commento-root .commento-card .commento-body {
