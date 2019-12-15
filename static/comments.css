@@ -12,7 +12,8 @@
     }
 }
 
-.commento-root p {
+.commento-root p,
+.commento-root a, {
     font-size: 13px !important;
 }
 
@@ -62,9 +63,30 @@
     width: 150px !important;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: absolute !important;
     right: 0;
     top: 0;
+    float: unset;
+}
+
+@media(max-width: 600px) {
+  .commento-root .commento-options {
+    width: 120px !important;
+  }
+}
+
+.commento-options-clearfix {
+  display: none;
+}
+
+.commento-options-mobile {
+  margin: 20px !important;
+}
+
+.commento-options .commento-option-button {
+  right: unset !important;
+  position: relative !important
 }
 
 .commento-root .commento-options button {
@@ -115,6 +137,13 @@
     padding: 30px !important;
     border-radius: 2px !important;
     box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
+
+}
+
+@media(max-width: 600px) {
+  .commento-root .commento-main-area .commento-comments>div>.commento-card {
+    padding: 20px !important;
+  }
 }
 
 .commento-root .commento-button-margin {
@@ -151,11 +180,13 @@
     margin-top: 30px !important;
     box-shadow: none !important;
     padding: 30px 0 0 30px !important !important;
+    overflow: hidden;
 }
 
 @media (max-width: 600px) {
     .commento-root .commento-card .commento-card {
-        margin-left: 20px !important;
+        margin-left: 10px !important;
+        margin-top: 20px !important;
         padding-bottom: 0 !important;
     }
 }
@@ -209,7 +240,7 @@
 @media (max-width: 600px) {
     .commento-root .commento-submit-button {
         right: 10px !important;
-        top: 94px !important;
+        top: 82px !important;
     }
 }
 

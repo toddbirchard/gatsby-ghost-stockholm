@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
     const retinaFeatureImage = post.feature_image ? post.feature_image.replace(`q_auto:best`, `f_auto,w_700,dpr_2.0`) : null
 
     return (<div className="post-card">
-        { post.feature_image && <Link to={url}><img className="post-card-image lazyload" data-src={retinaFeatureImage} alt={post.title} width="700" height="400" /></Link> }
+        { post.feature_image && <Link to={url}><img className="post-card-image lazyload" data-src={retinaFeatureImage} alt={post.title} /></Link> }
         { post.featured && <span>Featured</span> }
         <div className="post-card-detail">
             <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>

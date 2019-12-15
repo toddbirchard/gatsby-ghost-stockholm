@@ -31,12 +31,12 @@
                 max-width: 720px;
                 margin: 0 auto 20px;
                 letter-spacing: -1px !important;
-                font-weight: 500;
+                font-weight: normal;
                 @media(max-width: @tablet-breakpoint) {
                     max-width: 95%;
                 }
                 @media(max-width: @mobile-breakpoint) {
-                    font-size: 1.6em;
+                    font-size: 1.8em;
                     max-width: unset;
                     letter-spacing: 0;
                     line-height: 1.1;
@@ -151,6 +151,10 @@
                     }
                 }
 
+                &.author * {
+                  transition: @transition;
+                }
+
                 a {
                     text-decoration: none;
 
@@ -214,7 +218,7 @@
             height: -webkit-fit-content;
             height: -moz-fit-content;
             height: fit-content;
-            margin: 40px 0 20px;
+            margin-top: 40px;
             width: 100%;
             max-width: 100%;
             @media(max-width: @tablet-breakpoint) {
@@ -303,7 +307,6 @@
                 -webkit-font-smoothing: auto;
                 margin: 0 0 20px;
                 line-height: 1.5em;
-                font-weight: 300;
 
                 &:last-of-type {
                     margin-bottom: 0;

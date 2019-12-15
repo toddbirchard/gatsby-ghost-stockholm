@@ -63,6 +63,11 @@
                 color: @header-color;
                 font-weight: normal;
                 font-family: @secondary-header-font;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
 
             .kg-bookmark-description {
@@ -171,6 +176,10 @@
 
 .kg-code-card,
 .kg-image-card {
+    pre {
+      margin: 0;
+    }
+
     figcaption {
         width: -webkit-fill-available;
         width: -moz-available;
