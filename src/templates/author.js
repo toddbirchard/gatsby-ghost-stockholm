@@ -141,9 +141,6 @@ export const pageQuery = graphql`
               full_text
               created_at
               entities {
-                hashtags {
-                  text
-                }
                 urls {
                   url
                 }

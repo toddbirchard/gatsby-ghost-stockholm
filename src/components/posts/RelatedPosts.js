@@ -16,7 +16,7 @@ const RelatedPosts = ({ data }) => {
                       <div className="related-post-info">
                           <h5 className="related-post-title"> { node.title } </h5>
                           <div className="related-post-tags">
-                              <FontAwesomeIcon icon={[`far`, `tag`]} /><Tags post={node} limit={2} visibility="public" autolink={false} classes="tag" separator=", " separatorClasses={`${node.ghostId} tag-separator`}/>
+                              <FontAwesomeIcon icon={[`fad`, `tag`]} /><Tags post={node} limit={2} visibility="public" autolink={false} classes="tag" separator=", " separatorClasses={`${node.ghostId} tag-separator`}/>
                           </div>
                       </div>
                   </Link>

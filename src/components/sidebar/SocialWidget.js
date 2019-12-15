@@ -16,7 +16,7 @@ const SocialWidget = ({ twitterUrl, facebookUrl }) => (
             <a href={ config.social.linkedin } className="linkedin" key="linkedin-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="xs" /></a>
             <a href={ config.social.github } className="github" key="github-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `github`]} size="xs" /></a>
             <a href={ facebookUrl } className="facebook" key="facebook-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" /></a>
-            <a href="/rss" className="rss" key="rss-sidebar"><FontAwesomeIcon icon={[`far`, `rss`]} size="xs" /></a>
+            <a href="/rss" className="rss" key="rss-sidebar"><FontAwesomeIcon icon={[`fad`, `rss`]} size="xs" /></a>
         </div>
     </>
 )

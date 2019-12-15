@@ -12,6 +12,6 @@ export default connectSearchBox(({ refine, ...rest }) => (
             onChange={e => refine(e.target.value)}
             {...rest}
         />
-        <FontAwesomeIcon icon={[`far`, `search`]} size="xs" />
+        <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
     </div>
 ))

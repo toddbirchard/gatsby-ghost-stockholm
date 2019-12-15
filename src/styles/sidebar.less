@@ -26,7 +26,7 @@
 
             .label {
                 font-weight: 500;
-                opacity: 0.7;
+                opacity: 0.85;
                 font-size: 0.95em;
 
                 svg {
@@ -36,11 +36,11 @@
             }
 
             .trending {
-              color: #3fa77a;
+                color: #3fa77a;
             }
 
             .pocket {
-              color: @pocket-color;
+                color: @pocket-color;
             }
 
             .trend-type {
@@ -50,23 +50,22 @@
         }
 
         &.about {
+            .widget-logo {
+                width: 230px;
+                margin: auto;
+                display: block;
+                transition: @transition;
 
-          .widget-logo {
-            width: 230px;
-            margin: auto;
-            display: block;
-            transition: @transition;
-
-            &:hover {
-              opacity: .6;
+                &:hover {
+                    opacity: 0.6;
+                }
             }
-          }
 
             .description {
                 margin: 15px 0 0;
                 line-height: 1.35;
                 text-align: center;
-                font-size: .95em;
+                font-size: 0.95em;
             }
         }
 
@@ -205,8 +204,8 @@
             }
         }
 
-        &.trending,
-        &.pocket {
+        &.pocket,
+        &.trending {
             .link {
                 display: block;
                 color: lighten(@header-color, 15%);
@@ -232,7 +231,7 @@
                 }
 
                 .favicon {
-                  margin-right: 5px;
+                    margin-right: 5px;
                 }
             }
 
@@ -242,17 +241,39 @@
         }
 
         &.twitter {
-          overflow: hidden;
+            overflow: hidden;
+            padding: 25px 25px 45px;
+
+            .retweeted-header {
+                color: #8b9db7;
+                margin: 0 0 15px;
+
+                svg {
+                    margin-right: 3px;
+                }
+
+                span {
+                    font-family: @body-font;
+                    font-size: 0.9em;
+                }
+            }
+
+            .retweeted-body {
+                margin-left: 5px;
+                padding-left: 20px;
+                border-left: 3px solid #e2e7ed;
+            }
 
             .twitter-header {
                 display: flex;
                 align-items: center;
-                margin-bottom: 30px;
+                margin: 0 0 15px;
 
                 .twitter-avatar {
                     overflow: hidden;
-                    height: 40px;
-                    margin-right: 15px;
+                    height: 35px;
+                    margin-right: 7px;
+                    border-radius: 505%;
                 }
 
                 .twitter-name {
@@ -263,18 +284,18 @@
                 }
 
                 .twitter-user {
-                    color: #516b83;
+                    color: #9ea6ae;
                     font-weight: 500;
-                    margin-top: 4px;
+                    margin-top: 3px;
                     font-weight: 400;
-                    font-size: .9em;
+                    font-size: 0.9em;
                     display: block;
                 }
             }
 
             .tweet {
                 border-bottom: 1px solid #e7e7e7;
-                padding: 25px 0;
+                padding: 35px 0;
                 font-family: @secondary-header-font;
 
                 &:last-of-type {
@@ -286,12 +307,42 @@
                     padding: 0 0 35px;
                 }
 
-                .tweet-head {
-                    margin-top: 10px;
+                .tweet-footer {
+                    margin: 30px 0 0;
+                    display: flex;
+                    justify-content: left;
+
+                    .meta-item {
+                        margin-right: 20px;
+                        line-height: 1;
+
+                        span {
+                            font-size: 0.8em;
+                            line-height: 1;
+                        }
+
+                        svg {
+                            margin-right: 4px;
+                            font-size: 1em;
+                        }
+                    }
+
+                    .retweets {
+                        color: #59d39e;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .favorites {
+                        color: #eb4075;
+                        display: flex;
+                        align-items: center;
+                    }
 
                     .date {
                         color: #b0bdcd;
-                        font-size: 0.9em;
+                        font-size: 0.8em;
+                        line-height: 1;
                     }
                 }
 
@@ -299,11 +350,11 @@
                     color: #6baaf2;
                     font-family: @body-font-bold;
                     display: block;
-                    font-size: 0.82em;
+                    font-size: 0.86em;
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    margin: 15px 0;
+                    margin: 15px 0 0;
                 }
 
                 .tweet-hastags {
@@ -319,9 +370,9 @@
                 }
 
                 .tweet-content {
-                    margin: 0 0 15px;
+                    margin: 0;
                     line-height: 1.4;
-                    font-size: .9em;
+                    font-size: 0.9em;
                     font-family: @body-font-book !important;
                 }
             }

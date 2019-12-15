@@ -1,35 +1,71 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const TwitterWidget = ({ data }) => {
     const tweets = data.allTwitterStatusesUserTimelineHackersTweets.edges
-    const user = data.twitterStatusesUserTimelineHackersTweets.user
-    const twitterUrl = data.twitterStatusesUserTimelineHackersTweets.url
 
     return (
         <>
             <div className="widget twitter">
-                <div className="twitter-header">
+                {/*<div className="twitter-header">
                     <img className="twitter-avatar lazyload" data-src={user.profile_image_url_https} alt="twitter-avatar"/>
                     <div>
                         <a href={user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{user.name}</a>
                         <a href={twitterUrl} className="twitter-user" rel="nofollow noreferrer">@{user.screen_name}</a>
                     </div>
-                </div>
+                </div>*/}
                 <div className="tweets">
                     {tweets.map(({ node }) => (
                         <div className="tweet" key={node.id}>
-                            <p className="tweet-content">{node.full_text.split(`#`)[0].split(`http`)[0]}</p>
-                            {node.entities.urls.map(({ display_url, expanded_url }) => (
-                                <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
-                            ))}
-                            {node.entities.hashtags.length > 0 ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
+
+                            {node.retweeted_status ?
+                                <div className="retweeted-tweet">
+
+                                    <div className="retweeted-header">
+                                        <FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity />
+                                        <span>{`${node.user.name} retweeted`}</span>
+                                    </div>
+                                    <div className="retweeted-body">
+                                        <div className="twitter-header">
+                                            <img className="twitter-avatar lazyload" data-src={node.retweeted_status.user.profile_image_url_https} alt="twitter-avatar" />
+                                            <div className="profile-details">
+                                                <a href={node.retweeted_status.user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{node.retweeted_status.user.name}</a>
+                                                <a href={node.retweeted_status.user.url} className="twitter-user" rel="nofollow noreferrer">@{node.retweeted_status.user.screen_name}</a>
+                                            </div>
+                                        </div>
+
+                                        <p className="tweet-content">{node.retweeted_status.full_text}</p>
+                                        {node.entities.urls.map(({ display_url, expanded_url }) => (
+                                            <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ expanded_url }</a>
+                                        ))}
+                                    </div>
+                                </div>
+                                :
+                                <div>
+                                    <div className="twitter-header">
+                                        <img className="twitter-avatar lazyload" data-src={node.user.profile_image_url_https} alt="twitter-avatar"/>
+                                        <div className="profile-details">
+                                            <div className="profile-details">
+                                                <a href={node.user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{node.user.name}</a>
+                                                <a href={node.user.url} className="twitter-user" rel="nofollow noreferrer">{`@${node.user.screen_name}`}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p className="tweet-content">{node.full_text}</p>
+                                    {node.entities.urls.map(({ display_url, expanded_url }) => (
+                                        <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ expanded_url }</a>
+                                    ))}
+                                </div> }
+                            {/*{node.entities.hashtags.length > 0 ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
                                 <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
-                            ))}</div> : null }
-                            <div className="tweet-head">
-                                <span className="date">{node.created_at.split(` `, 3).join(` `)}</span>
-                            </div>
+                            ))}</div> : null }*/}
+                            {node.retweeted_status ? null : <div className="tweet-footer">
+                                <div className="retweets meta-item"><FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity /> <span>{node.retweet_count}</span></div>
+                                <div className="favorites meta-item"><FontAwesomeIcon icon={[`fad`, `heartbeat`]} size="xs"/> <span>{node.favorite_count}</span></div>
+                                <div className="date meta-item"><FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" /> {node.created_at.split(` `, 3).join(` `)}</div>
+                            </div> }
                         </div>
                     ))}
                 </div>
@@ -49,7 +85,7 @@ TwitterWidget.propTypes = {
             user: PropTypes.shape({
                 name: PropTypes.string.isRequired,
                 url: PropTypes.string.isRequired,
-                profile_image_url: PropTypes.string.isRequired,
+                profile_image_url_https: PropTypes.string.isRequired,
                 screen_name: PropTypes.string.isRequired,
             }),
             entities: PropTypes.shape({
@@ -64,12 +100,20 @@ TwitterWidget.propTypes = {
                     }),
                 ),
             }),
+            retweeted_status: PropTypes.shape({
+                user: PropTypes.shape({
+                    profile_image_url_https: PropTypes.string,
+                    url: PropTypes.string,
+                    screen_name: PropTypes.string,
+                    name: PropTypes.string,
+                }),
+            }),
         }).isRequired,
         twitterStatusesUserTimelineHackersTweets: PropTypes.shape({
             user: PropTypes.shape({
                 profile_image_url_https: PropTypes.string,
                 name: PropTypes.string.isRequired,
-                url: PropTypes.string,
+                url: PropTypes.string.isRequired,
                 display_url: PropTypes.string,
                 screen_name: PropTypes.string.isRequired,
             }).isRequired,
@@ -92,27 +136,25 @@ const TwitterQuery = props => (
                   user {
                     name
                     url
-                    profile_image_url
+                    profile_image_url_https
                     screen_name
                   }
-                  entities {
+                  entities{
                     urls {
                       display_url
                       expanded_url
                     }
-                    hashtags {
-                      text
+                  }
+                  retweeted_status {
+                    user {
+                      profile_image_url_https
+                      url
+                      screen_name
+                      name
                     }
+                    full_text
                   }
                 }
-              }
-            }
-            twitterStatusesUserTimelineHackersTweets {
-              user {
-                profile_image_url_https
-                name
-                url
-                screen_name
               }
             }
           }`

@@ -18,9 +18,9 @@ const AuthorCard = ({ author, headerClass, page }) => {
                       <div className="author-card-content">
                           <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
                           <div className="author-card-meta">
-                              {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`far`, `pencil-alt`]} size="xs" />{author.postCount} Posts</span>}
-                              {author.location && <span className="author-card-item location"><FontAwesomeIcon icon={[`far`, `home`]} size="xs" />{author.location}</span>}
-                              {author.website && <a className="author-card-item" href={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`far`, `globe`]} size="xs" />Website</a>}
+                              {author.postCount && <span className="author-card-item"><FontAwesomeIcon icon={[`fad`, `pencil-alt`]} size="xs" />{author.postCount} Posts</span>}
+                              {author.location && <span className="author-card-item location"><FontAwesomeIcon icon={[`fad`, `home`]} size="xs" />{author.location}</span>}
+                              {author.website && <a className="author-card-item" href={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fad`, `globe`]} size="xs" />Website</a>}
                               {authorTwitterUrl && <a className="author-card-item" href={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" />Twitter</a>}
                               {authorFacebookUrl && <a className="author-card-item" href={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" />Facebook</a>}
                           </div>

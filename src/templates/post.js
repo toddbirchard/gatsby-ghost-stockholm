@@ -49,19 +49,19 @@ const Post = ({ data, location }) => {
                   <h1 className="post-title">{post.title}</h1>
                   <div className="post-meta">
                       <div className="meta-item author">
-                          <Link to={authorUrl}><FontAwesomeIcon icon={[`far`, `user-edit`]} size="xs"/>
+                          <Link to={authorUrl}><FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs"/>
                               <span>{authorFirstName}</span>
                           </Link>
                       </div>
                       <div className="meta-item tag">
-                          <FontAwesomeIcon icon={[`far`, `tag`]} size="xs"/>{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
+                          <FontAwesomeIcon icon={[`fad`, `tag`]} size="xs"/>{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
                       </div>
                       <div className="meta-item reading-time">
-                          <FontAwesomeIcon icon={[`far`, `eye`]} size="xs"/>
+                          <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs"/>
                           <span>{readingTime}</span>
                       </div>
                       <div className="meta-item date">
-                          <FontAwesomeIcon icon={[`far`, `calendar`]} size="xs"/>
+                          <FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs"/>
                           <span>{post.published_at_pretty}</span>
                       </div>
                   </div>

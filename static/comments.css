@@ -279,7 +279,11 @@
 .commento-root .commento-markdown-button {
     bottom: 4px !important;
     line-height: 1 !important;
-        font-size: .8em !important;
+    font-size: .75em !important;
+}
+
+.commento-root .commento-markdown-button b {
+    font-size: .9em !important;
 }
 
 @media (max-width: 600px) {

@@ -53,7 +53,7 @@ const JoinUs = () => (
                     <h3>{`The Blow-Our-Minds Stuff (Optional)`}</h3>
                     <p id="application_notes">{`If youd like to provide any of the information below to sweeten the deal, have it!`}</p>
                     <div className="input-field-group">
-                        <label htmlFor="application_website"><FontAwesomeIcon icon={[`far`, `globe`]} size="xs" /> {`Website`}</label>
+                        <label htmlFor="application_website"><FontAwesomeIcon icon={[`fad`, `globe`]} size="xs" /> {`Website`}</label>
                         <input className="form-control" placeholder="http://yoursite.com" id="application_website" maxLength="40" name="website" type="text" onBlur="" />
                     </div>
                     <div className="input-field-group">
