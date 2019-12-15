@@ -31,7 +31,6 @@ const Post = ({ data, location }) => {
         ? `/author/${post.primary_author.slug}/`
         : null
     const authorFirstName = author.name.split(` `)[0]
-    // const retinaFeatureImage = post.feature_image ? post.feature_image.replace(`q_auto:best`, `f_auto,w_700,dpr_2.0`) : null
 
     return (
       <>
@@ -39,7 +38,7 @@ const Post = ({ data, location }) => {
           <script
               defer
               src="https://cdn.commento.io/js/commento.js"
-              data-css-override="/comments.css"
+              data-css-override="https://hackersandslackers.com/comments.css"
               data-no-fonts={true}
           />
       </Helmet>
@@ -68,7 +67,7 @@ const Post = ({ data, location }) => {
                   </div>
                   { post.feature_image ?
                       <figure className="post-image">
-                          <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2" width="900" height="518" />
+                          <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2" />
                       </figure>
                       : null }
               </div>
