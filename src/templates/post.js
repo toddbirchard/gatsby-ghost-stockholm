@@ -49,7 +49,8 @@ const Post = ({ data, location }) => {
                   <h1 className="post-title">{post.title}</h1>
                   <div className="post-meta">
                       <div className="meta-item author">
-                          <Link to={authorUrl}><FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs"/>
+                          <Link to={authorUrl}>
+                              <FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs"/>
                               <span>{authorFirstName}</span>
                           </Link>
                       </div>

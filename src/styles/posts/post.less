@@ -111,12 +111,7 @@
 
                 svg {
                     margin-right: 5px;
-                    font-size: 0.8em;
                     color: #7e8da3 !important;
-                }
-
-                span {
-                    font-size: 0.9em;
                 }
 
                 * {
@@ -148,8 +143,17 @@
                     }
                 }
 
-                &.author * {
-                  transition: @transition;
+                &.author {
+                  img {
+                    border-radius: 50%;
+                    overflow: hidden;
+                    height: 25px;
+                    width: 25px;
+                    margin-right: 3px;
+                  }
+                  a {
+                    transition: @transition;
+                  }
                 }
 
                 a {
