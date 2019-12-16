@@ -7,19 +7,27 @@
 
 @media (max-width: 800px) {
     .commento-root {
-      margin: 0;
-      padding: 0;
+        margin: 0;
+        padding: 0;
     }
 }
 
 .commento-root * {
-  font-size: 14px !important;
-  line-height: 1.25 !important;
+    font-size: 14px !important;
+    line-height: 1.25 !important;
 }
 
 .commento-root p,
 .commento-root a, {
     font-size: 13px !important;
+}
+
+.commento-root code {
+    background: rgba(145, 176, 211, .15) !important;
+    color: #5d94b7 !important;
+    padding: 3px 4px !important;
+    font-size: .9em !important;
+    border-radius: 3px !important;
 }
 
 .commento-root .commento-button-margin {
@@ -41,13 +49,13 @@
 }
 
 .commento-card .commento-timeago {
-      font-size: 11px !important;
+    font-size: 11px !important;
 }
 
 .commento-card .commento-score {
-  font-weight: normal !important;
-  font-family: 'Genera-Regular', sans-serif !important;
-  font-size: 13px !important;
+    font-weight: normal !important;
+    font-family: 'Genera-Regular', sans-serif !important;
+    font-size: 13px !important;
 }
 
 .commento-root .commento-subtitle {
@@ -69,7 +77,7 @@
 }
 
 .commento-header {
-  position: relative;
+    position: relative;
 }
 
 .commento-root .commento-options {
@@ -80,28 +88,28 @@
     align-items: center;
     justify-content: space-between;
     position: absolute !important;
-    right: 0;
-    top: 0;
+    right: -10px;
+    top: -10px;
     float: unset;
 }
 
 @media(max-width: 600px) {
-  .commento-root .commento-options {
-    width: 120px !important;
-  }
+    .commento-root .commento-options {
+        width: 120px !important;
+    }
 }
 
 .commento-options-clearfix {
-  display: none;
+    display: none;
 }
 
 .commento-options-mobile {
-  margin: 20px !important;
+    margin: 20px !important;
 }
 
 .commento-options .commento-option-button {
-  right: unset !important;
-  position: relative !important
+    right: unset !important;
+    position: relative !important
 }
 
 .commento-root .commento-options button {
@@ -109,8 +117,15 @@
 }
 
 .commento-root .commento-options button.commento-option-reply {
-    height: 20px !important;
-    width: 20px !important;
+    height: 25px !important;
+    width: 25px !important;
+}
+
+.commento-root .commento-card .commento-option-downvote,
+.commento-root .commento-card .commento-option-upvote,
+.commento-root .commento-card .commento-option-collapse {
+    height: 17px !important;
+    width: 17px !important;
 }
 
 .commento-root .commento-error-box {
@@ -152,13 +167,12 @@
     padding: 30px !important;
     border-radius: 2px !important;
     box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
-
 }
 
 @media(max-width: 600px) {
-  .commento-root .commento-main-area .commento-comments>div>.commento-card {
-    padding: 20px !important;
-  }
+    .commento-root .commento-main-area .commento-comments>div>.commento-card {
+        padding: 20px !important;
+    }
 }
 
 .commento-root .commento-button-margin {
@@ -175,7 +189,7 @@
 }
 
 .commento-anonymous-checkbox-container {
-  display: none;
+    display: none;
 }
 
 .commento-root .commento-card {
@@ -213,7 +227,6 @@
 .commento-root .commento-card .commento-button-margin {
     box-shadow: 0 !important;
     margin-top: 20px;
-
 }
 
 .commento-root .commento-card .commento-markdown-button {
@@ -229,8 +242,22 @@
     line-height: 1.3 !important;
 }
 
+@media(max-width: 600px) {
+    .commento-root .commento-card p {
+        margin: 10px 0 0 !important;
+        line-height: 1.3 !important;
+        font-size: .9em !important;
+    }
+}
+
 .commento-root .commento-card .commento-body {
     font-size: 0.9em !important;
+}
+
+@media(max-width: 600px) {
+    .commento-root .commento-card .commento-body {
+        margin: 15px 0;
+    }
 }
 
 .commento-root .commento-submit-button {
@@ -398,7 +425,7 @@
 }
 
 .commento-textarea-super-container-root {
-  position: relative;
+    position: relative;
 }
 
 .commento-textarea-super-container-root:focus {
@@ -429,5 +456,5 @@
 }
 
 .commento-card .commento-options-clearfix {
-  display: none !important;
+    display: none !important;
 }
