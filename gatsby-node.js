@@ -103,7 +103,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const joinPage = path.resolve(`./src/pages/join.js`)
     const subscribedPage = path.resolve(`./src/pages/subscribed.js`)
     const appliedPage = path.resolve(`./src/pages/applied.js`)
-    const postArchivePage = path.resolve(`./src/pages/posts.js`)
+    const postArchivePage = path.resolve(`./src/pages/postarchive.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
@@ -336,6 +336,8 @@ exports.createPages = async ({ graphql, actions }) => {
         },
     })
 
+
+
     createPage({
         path: `/series/`,
         component: seriesArchive,
@@ -387,12 +389,27 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     createPage({
-        path: `/posts/`,
+        path: `/postarchive/`,
         component: postArchivePage,
         context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
-            slug: `posts`,
+            slug: `postarchive`,
         },
     })
+
+    paginate({
+        createPage,
+        items: posts,
+        itemsPerPage: 50,
+        component: postArchivePage,
+        pathPrefix: ({ pageNumber }) => {
+            if (pageNumber === 0) {
+                return `/`
+            } else {
+                return `/page`
+            }
+        },
+    })
+
 }

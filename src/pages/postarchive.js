@@ -5,6 +5,8 @@ import { Layout, PostCard } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
 
+import '../styles/pages/postarchive.less'
+
 /**
 * Series page (/series/)
 *
@@ -21,8 +23,8 @@ const PostArchive = ({ data, location, pageContext }) => {
                 location={location}
                 type="series"
             />
-            <Layout template="postarchive-template page-template" hasSidebar={false}>
-                <div className="page-content post-content">
+            <Layout template="postarchive-template" hasSidebar={false}>
+                <div className="post-archive-body">
                     <h1>All Posts</h1>
                     <div className="posts-grid">
                         {posts.map(({ node }) => (
@@ -51,16 +53,13 @@ PostArchive.propTypes = {
 export default PostArchive
 
 export const postArchiveQuery = graphql`
-    query GhostPostArchiveQuery($slug: String) {
-      allGhostPost(filter: {primary_tag: {slug: {nin: ["roundup", null]}}}, limit: 30) {
+    query GhostPostArchiveQuery {
+       allGhostPost(sort: {order: DESC, fields: [published_at]}, limit: 700, filter: {primary_tag: {slug: {ne: "roundup"}}}) {
           edges {
             node {
               ...GhostPostFields
             }
           }
-        }
-        ghostPage(slug: {eq: $slug}) {
-          ...GhostPageFields
         }
     }
 `
