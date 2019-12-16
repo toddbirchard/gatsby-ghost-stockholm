@@ -2,11 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
-import { faChartLine } from '@fortawesome/pro-regular-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-library.add(faChartLine)
 
 const SeriesWidget = ({ data }) => {
     const series = data.ghostTag
