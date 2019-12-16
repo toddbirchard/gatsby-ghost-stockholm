@@ -59,7 +59,7 @@ module.exports = {
                 name: `jupyter`,
                 remote: `https://github.com/hackersandslackers/jupyter`,
                 branch: `master`,
-                patterns: `*.ipynb`
+                patterns: `*.ipynb`,
             },
         },
         {
@@ -133,23 +133,23 @@ module.exports = {
         {
             resolve: `gatsby-transformer-remark`,
             options: {
-              plugins: [
-                {
-                  resolve: `gatsby-remark-images`,
-                },
-                `gatsby-remark-lazy-load`,
-              ]
-            }
-          },
-          {
+                plugins: [
+                    {
+                        resolve: `gatsby-remark-images`,
+                    },
+                    `gatsby-remark-lazy-load`,
+                ],
+            },
+        },
+        {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
-              custom: {
-                families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Medium`, `TTNormsPro-Bold`],
-                urls: ['/fonts.css']
-              }
-            }
-          },
+                custom: {
+                    families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Medium`, `TTNormsPro-Bold`],
+                    urls: [`/fonts.css`],
+                },
+            },
+        },
         /**
          *  Style Plugins
          */
@@ -160,32 +160,32 @@ module.exports = {
             },
         },
         {
-          resolve: `gatsby-plugin-postcss`,
-          options: {
-            postCssPlugins: [require(`autoprefixer`)(),
-                             require(`postcss-at2x`)(),
-                             require(`stylelint`)()],
-          },
+            resolve: `gatsby-plugin-postcss`,
+            options: {
+                postCssPlugins: [require(`autoprefixer`)(),
+                    require(`postcss-at2x`)(),
+                    require(`stylelint`)()],
+            },
         },
         {
-          resolve: `gatsby-plugin-netlify`,
-          options: {
-            headers: {"/*": [
-                            `Referrer-Policy: no-referrer-when-downgrade`,
-                            `Expect-CT: enforce,max-age=604800`,
-                          ]}, // option to add more headers. `Link` headers are transformed by the below criteria
-            allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-            mergeSecurityHeaders: true, // boolean to turn off the default security headers
-            mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-            mergeCachingHeaders: true, // boolean to turn off the default caching headers
-            transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-            generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
-          },
+            resolve: `gatsby-plugin-netlify`,
+            options: {
+                headers: { "/*": [
+                    `Referrer-Policy: no-referrer-when-downgrade`,
+                    `Expect-CT: enforce,max-age=604800`,
+                ] }, // option to add more headers. `Link` headers are transformed by the below criteria
+                allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+                mergeSecurityHeaders: true, // boolean to turn off the default security headers
+                mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+                mergeCachingHeaders: true, // boolean to turn off the default caching headers
+                transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+                generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+            },
         },
         /**
          *  Utility Plugins
          */
-         `@gatsby-contrib/gatsby-transformer-ipynb`,
+        `@gatsby-contrib/gatsby-transformer-ipynb`,
         {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
@@ -302,16 +302,16 @@ module.exports = {
             },
         },
         {
-          resolve: `gatsby-plugin-manifest`,
-          options: {
-            name: `Hackers and Slackers`,
-            short_name: `Hackers and Slackers`,
-            start_url: `/`,
-            background_color: `#ecf1f9`,
-            theme_color: `#0297f6`,
-            display: `standalone`,
-            icon: `static/images/logo-small@2x.png`
-          },
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `Hackers and Slackers`,
+                short_name: `Hackers and Slackers`,
+                start_url: `/`,
+                background_color: `#ecf1f9`,
+                theme_color: `#0297f6`,
+                display: `standalone`,
+                icon: `static/images/logo-small@2x.png`,
+            },
         },
         `gatsby-plugin-netlify-cache`,
         `gatsby-plugin-react-helmet`,
