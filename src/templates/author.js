@@ -29,18 +29,16 @@ const Author = ({ data, location, pageContext }) => {
                 type="profile"
             />
           <Layout template="author-template" hasSidebar={true}>
-              <article className="content">
+              <div className="content">
                   <AuthorCard author={author} headerClass={false} page={`author`}/>
-                  <div className="post-full-content">
-                      <section className="post-feed">
-                          {posts.map(({ node }) => (
-                              <PostCard key={node.id} post={node} />
-                          ))}
-                          <Pagination pageContext={pageContext} />
-                      </section>
-                      {/*<AuthorTwitterWidget authorTweets={authorTweets} authorProfile={authorTwitterUser} />*/}
-                  </div>
-              </article>
+                  <section className="post-feed">
+                      {posts.map(({ node }) => (
+                          <PostCard key={node.id} post={node} />
+                      ))}
+                      <Pagination pageContext={pageContext} />
+                  </section>
+                  {/*<AuthorTwitterWidget authorTweets={authorTweets} authorProfile={authorTwitterUser} />*/}
+              </div>
           </Layout>
         </>
     )

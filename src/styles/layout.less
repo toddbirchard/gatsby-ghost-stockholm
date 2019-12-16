@@ -1,10 +1,14 @@
 /* Layout
 /* ---------------------------------------------------------- */
-.viewport {
+/*.viewport {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: 0 auto 30px;
+}*/
+
+.viewport {
+  max-width: 100%;
 }
 
 .home-container,
@@ -63,6 +67,6 @@
     @media(max-width: @tablet-breakpoint) {
         width: 90%;
         grid-gap: 20px;
-        margin: 0 auto;
+        margin: 0 auto 30px;
     }
 }

@@ -9,13 +9,6 @@ const TwitterWidget = ({ data }) => {
     return (
         <>
             <div className="widget twitter">
-                {/*<div className="twitter-header">
-                    <img className="twitter-avatar lazyload" data-src={user.profile_image_url_https} alt="twitter-avatar"/>
-                    <div>
-                        <a href={user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{user.name}</a>
-                        <a href={twitterUrl} className="twitter-user" rel="nofollow noreferrer">@{user.screen_name}</a>
-                    </div>
-                </div>*/}
                 <div className="tweets">
                     {tweets.map(({ node }) => (
                         <div className="tweet" key={node.id}>
