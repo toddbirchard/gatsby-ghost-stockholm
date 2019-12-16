@@ -18,7 +18,7 @@ const PostCard = ({ post }) => {
             <section className="post-card-excerpt">{post.excerpt}</section>
             <footer className="post-card-footer">
                 {post.tags ? <div className="meta-item tag">
-                    <FontAwesomeIcon icon={[`fad`, `tag`]} size="xs" />
+                    <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
                     <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id} />
                 </div> : null }
                 <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" /> <span>{readingTime}</span> </div>

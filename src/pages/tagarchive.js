@@ -4,6 +4,8 @@ import { graphql, Link } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
+import '../styles/pages/tag.less'
+
 /**
 * Series page (/series/)
 *

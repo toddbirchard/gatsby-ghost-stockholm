@@ -38,7 +38,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload" />
             <div className="search-result-details">
                 <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
-                <div className="search-result-tag"><FontAwesomeIcon icon={[`fad`, `tag`]} size="xs" /> <span>{hit.primary_tag.name}</span> </div>
+                <div className="search-result-tag"><FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" /> <span>{hit.primary_tag.name}</span> </div>
                 {/*<p className="search-result-excerpt">{hit.excerpt}</p>*/}
             </div>
         </div>

@@ -354,34 +354,4 @@ exports.createPages = async ({ graphql, actions }) => {
             slug: `jupyter`,
         },
     })
-
-    /*createPage({
-        path: `/subscribed/`,
-        component: subscribedPage,
-        context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: `subscribed`,
-        },
-    })*/
-
-    /*createPage({
-        path: `/applied/`,
-        component: appliedPage,
-        context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: `applied`,
-        },
-    })*/
-
-    /*createPage({
-        path: `/join/`,
-        component: joinPage,
-        context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: `join`,
-        },
-    })*/
 }

@@ -55,10 +55,10 @@ const Post = ({ data, location }) => {
                           </Link>
                       </div>
                       <div className="meta-item tag">
-                          <FontAwesomeIcon icon={[`fad`, `tag`]} size="xs"/>{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
+                          <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
                       </div>
                       <div className="meta-item reading-time">
-                          <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs"/>
+                          <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" swapOpacity />
                           <span>{readingTime}</span>
                       </div>
                       <div className="meta-item date">

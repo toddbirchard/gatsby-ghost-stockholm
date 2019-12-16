@@ -1,12 +1,5 @@
 /* Layout
 /* ---------------------------------------------------------- */
-/*.viewport {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 auto 30px;
-}*/
-
 .viewport {
   max-width: 100%;
 }
@@ -28,6 +21,10 @@
 
 .post-template .viewport {
     margin: 0 auto;
+    padding-bottom: 60px;
+    @media(max-width: @mobile-breakpoint) {
+      padding-bottom: 30px;
+    }
 }
 
 .page-template {
@@ -63,10 +60,9 @@
     grid-gap: 20px;
     grid-template-columns: 1fr;
     grid-auto-rows: min-content;
-    margin: 0;
+    margin: 0 auto 30px;
     @media(max-width: @tablet-breakpoint) {
         width: 90%;
         grid-gap: 20px;
-        margin: 0 auto 30px;
     }
 }

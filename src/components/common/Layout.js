@@ -14,7 +14,7 @@ import { faLinkedin,
     faFacebook,
     faGetPocket,
     faMedium } from '@fortawesome/free-brands-svg-icons'
-import { faTag,
+import { faTags,
     faEye,
     faPencilAlt,
     faUserEdit,
@@ -32,7 +32,7 @@ import { faTag,
 // Styles
 import '../../styles/app.less'
 
-library.add(faTag,
+library.add(faTags,
     faEye,
     faPencilAlt,
     faUserEdit,
