@@ -24,13 +24,12 @@
                 display: block;
                 font-family: @header-font;
                 font-size: 2.2em;
-                letter-spacing: 0;
                 line-height: 1.1;
                 color: @header-color;
                 text-align: center;
                 max-width: 720px;
                 margin: 0 auto 20px;
-                letter-spacing: -1px !important;
+                letter-spacing: -1px;
                 font-weight: normal;
                 @media(max-width: @tablet-breakpoint) {
                     max-width: 95%;
@@ -113,6 +112,7 @@
                 @media(max-width: @mobile-breakpoint) {
                     line-height: 1.5;
                     margin: 0;
+                    margin-bottom: 5px;
                 }
 
                 svg {
@@ -151,7 +151,7 @@
 
                 &.tag {
                   @media(max-width: @mobile-breakpoint) {
-                    margin: 0px 17px;
+                    margin: 0px 17px 5px;
                   }
                 }
 
@@ -374,8 +374,8 @@
                 display: inline;
                 overflow-y: visible;
                 width: fit-content;
-                background: rgba(145, 176, 211, 0.15);
-                color: #5d94b7;
+                background: rgba(145, 176, 211, 0.1);
+                color: #5f8db5;
                 padding: 3px 4px;
                 border-radius: 3px;
                 font-size: 0.85em;
