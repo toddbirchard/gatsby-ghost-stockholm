@@ -148,7 +148,7 @@ module.exports = {
                     families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Medium`, `TTNormsPro-Bold`],
                     urls: [`/fonts.css`],
                 },
-                timeout: 5000
+                timeout: 5000,
             },
         },
         /**
@@ -166,6 +166,17 @@ module.exports = {
                 postCssPlugins: [require(`autoprefixer`)(),
                     require(`postcss-at2x`)(),
                     require(`stylelint`)()],
+            },
+        },
+        {
+            resolve: `gatsby-plugin-purgecss`,
+            options: {
+                printRejected: true, // Print removed selectors and processed file names
+                develop: true, // Enable while using `gatsby develop`
+                // tailwind: true, // Enable tailwindcss support
+                whitelist: [`search.less`], // Don't remove this selector
+                // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+                // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
             },
         },
         {

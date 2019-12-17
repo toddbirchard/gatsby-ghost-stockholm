@@ -470,37 +470,6 @@
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
-    for = "https://cloudinary.com/*"
-    [headers.values]
-    cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-
-[[headers]]
-    for = "https://res-1.cloudinary.com/*"
-    [headers.values]
-    cache-control = '''
-            max-age=31557600,
-            no-cache,
-            no-store,
-            must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "https://res-2.cloudinary.com/*"
-    [headers.values]
-    cache-control = '''
-            max-age=31557600,
-            no-cache,
-            no-store,
-            must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
     for = "https://segment.com/*"
     [headers.values]
     cache-control = '''
@@ -580,21 +549,6 @@
         no-store,
         must-revalidate'''
     set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "https://cloud.typography.com/*"
-    [headers.values]
-    Referrer-Policy = "no-referrer-when-downgrade"
-    Expect-CT = "enforce,max-age=604800"
-    Link = "${Font}>; rel=preload; as=font; type=font/woff2 crossorigin=anonymous"
-
-[[headers]]
-    for = "https://typography.com/*"
-    [headers.values]
-    Referrer-Policy = "no-referrer-when-downgrade"
-    Access-Control-Allow-Origin = '*'
-    Expect-CT = "enforce,max-age=604800"
-    Link = "${Font}>; rel=preload; as=font; type=font/woff2 crossorigin=anonymous"
 
 [build.processing]
   skip_processing = false
