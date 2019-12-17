@@ -7,6 +7,7 @@ const AuthorCard = ({ author, headerClass, page }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
     const authorFacebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
     const classes = headerClass ? `author-card info-card` : `author-card`
+    const postCount = author.postCount
 
     return (
             <>
