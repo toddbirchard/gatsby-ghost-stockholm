@@ -251,7 +251,6 @@
     to = "/plotting-data-seaborn-pandas/"
     status = 301
 
-
 [[redirects]]
     from = "/using-hierarchical-indexes-with-pandas/"
     to = "/hierarchical-indexes-pandas/"
@@ -412,13 +411,10 @@
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"
-
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer-when-downgrade"
-    Link = "${Font}>; rel=preload; as=font; type=font/woff2 crossorigin=anonymous"
-
     # Multi-key header rules are expressed with multi-line strings.
     cache-control = '''
       max-age=31557600,
@@ -437,16 +433,6 @@
         no-cache,
         no-store,
         must-revalidate'''
-
-[[headers]]
-    for = "https://secure.gaug.es/*"
-    [headers.values]
-      cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [build.processing]
   skip_processing = false
