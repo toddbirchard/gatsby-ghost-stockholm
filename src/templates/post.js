@@ -9,7 +9,6 @@ import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { NewsletterWidget } from '../components/sidebar'
-import Helmet from 'react-helmet'
 
 import '../styles/posts/index.less'
 
@@ -34,15 +33,7 @@ const Post = ({ data, location }) => {
 
     return (
         <>
-            <Helmet>
-                <script
-                    defer
-                    src="https://cdn.commento.io/js/commento.js"
-                    data-css-override="https://hackersandslackers.com/comments.css"
-                    data-no-fonts={true}
-                />
-            </Helmet>
-            < MetaData data = { data } location = { location } type = "article" />
+            <MetaData data={ data } location={ location } type="article" />
             <Layout template="post-template">
                 <div className="post-wrapper">
                     <div className="post-head">

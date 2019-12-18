@@ -279,9 +279,6 @@
             @media(max-width: @tablet-breakpoint) {
                 margin: 30px;
             }
-            @media(max-width: @mobile-breakpoint) {
-                margin: 30px 20px;
-            }
 
             h2 {
                 margin: 40px 0 5px;
@@ -310,7 +307,8 @@
             }
 
             p {
-                .body-font()
+                .body-font();
+                line-height: 1.8em;
             }
 
             li {
@@ -486,7 +484,7 @@
                 }
             }
 
-            blockquote {
+            & > blockquote {
                 color: #646b70;
                 padding: 20px;
                 font-size: 1em;

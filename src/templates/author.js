@@ -113,6 +113,7 @@ Author.propTypes = {
         pathname: PropTypes.string.isRequired,
     }).isRequired,
     pageContext: PropTypes.object,
+    headerClass: PropTypes.boolean,
 }
 
 export default Author
@@ -121,6 +122,7 @@ export const pageQuery = graphql`
     query GhostAuthorQuery($slug: String!, $limit: Int!, $skip: Int!) {
         ghostAuthor(slug: { eq: $slug }) {
             ...GhostAuthorFields
+            postCount
         }
         allGhostPost(
             sort: { order: DESC, fields: [published_at] },

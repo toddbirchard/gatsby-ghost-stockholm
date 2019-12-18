@@ -6,7 +6,6 @@ import {
     connectStateResults,
     Configure,
 } from 'react-instantsearch-dom'
-import PropTypes from 'prop-types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
@@ -16,7 +15,7 @@ import Input from './Input'
 import { Link } from 'gatsby'
 
 const Results = connectStateResults(
-    ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : `No results for '${state.query}'`)
+    ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div>{`No results for ${state.query}`}</div>)
 )
 
 const Stats = connectStateResults(
@@ -82,7 +81,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             >
                 <Configure hitsPerPage={8} />
                 <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results">
+                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
                     {indices.map(({ name }) => (
                         <Index key={name} indexName={name}>
                             <header>
