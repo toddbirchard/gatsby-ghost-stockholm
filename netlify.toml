@@ -339,8 +339,6 @@
     to = "/handlebars-templates-expressjs/"
     status = 301
 
-#----------------------------------------------------------------------------------------------
-
 [[redirects]]
     from = "/deploy-app-containters-with-gcp-app-engine/"
     to = "/google-cloud-app-engine/"
@@ -430,14 +428,15 @@
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
-    for = "https://gaug.es/*"
+    for = "/fonts.css"
     [headers.values]
+      crossorigin = "anonymous"
+      type = "font/woff2"
       cache-control = '''
         max-age=31557600,
         no-cache,
         no-store,
         must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
     for = "https://secure.gaug.es/*"
@@ -448,107 +447,6 @@
         no-store,
         must-revalidate'''
       set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "http://secure.gaug.es/track.js"
-    [headers.values]
-      cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "http://get.gaug.es/*"
-    [headers.values]
-      cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "https://segment.com/*"
-    [headers.values]
-    cache-control = '''
-            max-age=31557600,
-            no-cache,
-            no-store,
-            must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "https://app.segment.com/"
-    [headers.values]
-    cache-control = '''
-            max-age=31557600,
-            no-cache,
-            no-store,
-            must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "https://cdn.segment.com/*"
-    [headers.values]
-    cache-control = '''
-            max-age=31557600,
-            no-cache,
-            no-store,
-            must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-      for = "https://storage.googleapis.com/*"
-      [headers.values]
-      cache-control = '''
-              max-age=31557600,
-              no-cache,
-              no-store,
-              must-revalidate'''
-      set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "https://hello.myfonts.net/*"
-    [headers.values]
-    cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "https://myfonts.net/*"
-    [headers.values]
-    cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-
-[[headers]]
-    for = "https://commento.io/*"
-    [headers.values]
-    cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
-
-[[headers]]
-    for = "http://commento.io/*"
-    [headers.values]
-    cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
-    set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [build.processing]
   skip_processing = false
