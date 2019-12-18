@@ -2,7 +2,6 @@ require(`dotenv`).config({
     path: `.env.${process.env.NODE_ENV}`,
 })
 const queries = require(`./src/utils/algolia`)
-
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
 const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
