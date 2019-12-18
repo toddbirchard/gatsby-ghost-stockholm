@@ -38,14 +38,14 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
                 {settings.twitter && <meta name="twitter:site" content={`https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`} />}
                 {settings.twitter && <meta name="twitter:creator" content={settings.twitter} />}
                 <meta name="google-site-verification" content="SWC9VHRq1q2D7lK4vSVi8kkDd6AuEWpWz6ECAeN9di8" />
-                <link rel="icon" type="image/png" sizes="72x72" href="/images/favicons/icon-72x72.png" />
-                <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/icon-96x96.png" />
-                <link rel="icon" type="image/png" sizes="128x128" href="/images/favicons/icon-128x128.png" />
-                <link rel="icon" type="image/png" sizes="144x144" href="/images/favicons/icon-144x144.png" />
-                <link rel="icon" type="image/png" sizes="152x152" href="/images/favicons/icon-152x152.png" />
-                <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/icon-192x192.png" />
-                <link rel="icon" type="image/png" sizes="384x384" href="/images/favicons/icon-384x384.png" />
-                <link rel="icon" type="image/png" sizes="512x512" href="/images/favicons/icon-512x512.png" />
+                <link rel="icon" type="image/png" sizes="72x72" href="images/icons/icon-72x72.png" />
+                <link rel="icon" type="image/png" sizes="96x96" href="images/icons/icon-96x96.png" />
+                <link rel="icon" type="image/png" sizes="128x128" href="images/icons/icon-128x128.png" />
+                <link rel="icon" type="image/png" sizes="144x144" href="images/icons/icon-144x144.png" />
+                <link rel="icon" type="image/png" sizes="152x152" href="images/icons/icon-152x152.png" />
+                <link rel="icon" type="image/png" sizes="192x192" href="images/icons/icon-192x192.png" />
+                <link rel="icon" type="image/png" sizes="384x384" href="images/icons/icon-384x384.png" />
+                <link rel="icon" type="image/png" sizes="512x512" href="images/icons/icon-512x512.png" />
                 <link rel="manifest" href="/manifest.json" />
                 <script type="application/ld+json">{`
                     {
