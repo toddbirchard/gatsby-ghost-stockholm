@@ -7,14 +7,14 @@ const AuthorCards = ({ allAuthors }) => {
     const authors = allAuthors.allGhostAuthor.edges
 
     return (
-      <>
-          <div className="author-card-list">
-              <h2 className="author-list-title">Authors</h2>
-              {authors.map(({ node }) => (
-                  <AuthorCard author={node} key={node.id} page={`about`} />
-              ))}
-          </div>
-      </>
+        <>
+            <div className="author-card-list">
+                <h2 className="author-list-title">Authors</h2>
+                {authors.map(({ node }) => (
+                    <AuthorCard author={node} key={node.id} page={`about`} />
+                ))}
+            </div>
+        </>
     )
 }
 

@@ -16,18 +16,18 @@ const Sidebar = ({ site, tags, template }) => {
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
 
     return (
-      <>
-        <aside className="sidebar">
-            {template === `home-template` ? <AboutWidget site={site} /> : null }
-            <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
-            {template === `author-template` ? <AuthorPocketWidget /> : null }
-            <TrendingWidget />
-            <TagsWidget tags={tags} />
-            {/* <SeriesWidget />*/}
-            <NewsletterWidget />
-            <TwitterWidget />
-        </aside>
-    </>
+        <>
+            <aside className="sidebar">
+                {template === `home-template` ? <AboutWidget site={site} /> : null }
+                <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
+                {template === `author-template` ? <AuthorPocketWidget /> : null }
+                <TrendingWidget />
+                <TagsWidget tags={tags} />
+                {/* <SeriesWidget />*/}
+                <NewsletterWidget />
+                <TwitterWidget />
+            </aside>
+        </>
     )
 }
 

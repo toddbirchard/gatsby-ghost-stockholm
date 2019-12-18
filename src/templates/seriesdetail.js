@@ -24,24 +24,24 @@ const SeriesDetail = ({ data, location }) => {
                 location={location}
                 type="series"
             />
-          <Layout template="tag-template page-template series-template" hasSidebar={false}>
-              <div className="series-container">
-                  { tag.feature_image ?
-                      <figure className="series-feature-image">
-                          <img className="lazyload" data-src={ tag.feature_image } alt={ tag.name } />
-                      </figure> : null }
-                  <header className="series-header">
-                      <h1 className="series-title">{ tagName }</h1>
-                      {tag.description ? <p className="series-description">{tag.description}</p> : null }
-                  </header>
-                  <section className="post-feed">
-                      {posts.map(({ node }, index) => (
-                          // The tag below includes the markup for each post - components/common/PostCard.js
-                          <SeriesPostCard key={node.id} post={node} count={index}/>
-                      ))}
-                  </section>
-              </div>
-          </Layout>
+            <Layout template="tag-template page-template series-template" hasSidebar={false}>
+                <div className="series-container">
+                    { tag.feature_image ?
+                        <figure className="series-feature-image">
+                            <img className="lazyload" data-src={ tag.feature_image } alt={ tag.name } />
+                        </figure> : null }
+                    <header className="series-header">
+                        <h1 className="series-title">{ tagName }</h1>
+                        {tag.description ? <p className="series-description">{tag.description}</p> : null }
+                    </header>
+                    <section className="post-feed">
+                        {posts.map(({ node }, index) => (
+                            // The tag below includes the markup for each post - components/common/PostCard.js
+                            <SeriesPostCard key={node.id} post={node} count={index}/>
+                        ))}
+                    </section>
+                </div>
+            </Layout>
         </>
     )
 }

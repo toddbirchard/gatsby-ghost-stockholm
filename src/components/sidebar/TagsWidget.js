@@ -6,7 +6,7 @@ import { Link } from 'gatsby'
 * Tags widget
 */
 const TagsWidget = ({ tags }) => (
-      <>
+    <>
         <div className="widget tags">
             {tags.map(({ node }) => (
                 <Link to={`/tag/${ node.slug }`} className="tag" key={ node.name }>{ node.name }</Link>

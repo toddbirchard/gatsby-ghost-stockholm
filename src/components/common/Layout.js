@@ -68,25 +68,25 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
     const tags = data.allGhostTag.edges
 
     return (
-    <>
-        <Helmet>
-            <html lang={site.lang} />
-            <style type="text/css">{`${site.codeinjection_styles}`}</style>
-            <body className={ template } />
-        </Helmet>
+        <>
+            <Helmet>
+                <html lang={site.lang} />
+                <style type="text/css">{`${site.codeinjection_styles}`}</style>
+                <body className={ template } />
+            </Helmet>
 
-        <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} />
-        <div className="viewport">
+            <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} />
+            <div className="viewport">
 
-            <div className={ hasSidebar ? `home-container` : `container` }>
-                {/* All the main content gets inserted here, index.js, post.js */}
-                {children}
-                { hasSidebar ? <Sidebar site={site} tags={tags} template={template} /> : null}
+                <div className={ hasSidebar ? `home-container` : `container` }>
+                    {/* All the main content gets inserted here, index.js, post.js */}
+                    {children}
+                    { hasSidebar ? <Sidebar site={site} tags={tags} template={template} /> : null}
+                </div>
             </div>
-        </div>
-        {/* The footer at the very bottom of the screen */}
-        <Footer navigation={site.navigation} site={site} template={template} />
-    </>
+            {/* The footer at the very bottom of the screen */}
+            <Footer navigation={site.navigation} site={site} template={template} />
+        </>
     )
 }
 

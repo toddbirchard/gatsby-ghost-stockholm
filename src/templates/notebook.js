@@ -22,22 +22,22 @@ const JupyterNotebook = ({ data, pageContext }) => {
     const githubRepoName = file.gitRemote.full_name
 
     return (
-            <>
-                <Layout template="jupyter-template">
-                    <div className="jupyter-container">
-                        <h1>{pageContext.title}</h1>
-                        <div className="jupyter-meta">
-                            <div className="meta-item jupyter-language">{languageName} {languageVersion}</div>
-                            <div className="meta-item jupyter-origin-url"><a href={githubLink}>{githubRepoName}</a></div>
-                            <div className="meta-item jupyter-date">{file.modifiedTime}</div>
-                        </div>
-                        <section
-                            className="content-body load-external-scripts"
-                            dangerouslySetInnerHTML={{ __html: notebook.html }}
-                        />
+        <>
+            <Layout template="jupyter-template">
+                <div className="jupyter-container">
+                    <h1>{pageContext.title}</h1>
+                    <div className="jupyter-meta">
+                        <div className="meta-item jupyter-language">{languageName} {languageVersion}</div>
+                        <div className="meta-item jupyter-origin-url"><a href={githubLink}>{githubRepoName}</a></div>
+                        <div className="meta-item jupyter-date">{file.modifiedTime}</div>
                     </div>
-                </Layout>
-            </>
+                    <section
+                        className="content-body load-external-scripts"
+                        dangerouslySetInnerHTML={{ __html: notebook.html }}
+                    />
+                </div>
+            </Layout>
+        </>
     )
 }
 

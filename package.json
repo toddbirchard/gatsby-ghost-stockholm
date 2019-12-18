@@ -90,7 +90,7 @@
     "gatsby-source-twitter": "^3.0.0",
     "gatsby-transformer-remark": "^2.6.43",
     "gatsby-transformer-sharp": "^2.3.9",
-    "lazysizes": "^5.1.2",
+    "lazysizes": "^5.2.0",
     "lodash": "4.17.15",
     "prop-types": "^15.7.2",
     "react": "16.12.0",

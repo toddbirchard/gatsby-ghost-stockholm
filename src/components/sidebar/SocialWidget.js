@@ -9,7 +9,7 @@ import config from '../../utils/siteConfig'
 */
 
 const SocialWidget = ({ twitterUrl, facebookUrl }) => (
-      <>
+    <>
         <div className="widget social">
             <a href={ twitterUrl } className="twitter" key="twitter-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /></a>
             <a href={ config.social.angellist } className="angellist" key="angellist-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `angellist`]} size="xs" /></a>
