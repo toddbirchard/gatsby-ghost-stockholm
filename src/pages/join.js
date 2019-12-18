@@ -3,7 +3,7 @@ import { Layout } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const JoinUs = () => (
-    <Layout template="page-template" hasSidebar={false}>
+    <Layout template="page-template join-template" hasSidebar={false}>
 
         <article className="post-content page-content">
             <h1>{`Join Us`}</h1>

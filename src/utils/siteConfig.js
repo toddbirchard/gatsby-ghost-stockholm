@@ -12,18 +12,18 @@ module.exports = {
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
     backgroundColor: `#ecf1f9`, // Used for Offline Manifest
     themeColor: `#0297f6`, // Used for Offline Manifest
-    mobileLogo: `/images/logo-mobile.png`,
+    mobileLogo: `/images/logo-mobile@2x.png`,
     introVideo: `https://vimeo.com/265866802`,
 
     social: {
-      github: "https://github.com/hackersandslackers",
-      linkedin: "https://www.linkedin.com/company/hackers-and-slackers/",
-      angellist: "https://angel.co/company/hackers-and-slackers/",
-      tumblr: "https://hackersandslackers.blog",
+        github: `https://github.com/hackersandslackers`,
+        linkedin: `https://www.linkedin.com/company/hackers-and-slackers/`,
+        angellist: `https://angel.co/company/hackers-and-slackers/`,
+        tumblr: `https://hackersandslackers.blog`,
     },
 
     appIDs: {
-      facebook: "2459570624150585",
+        facebook: `2459570624150585`,
     },
 
     siteGithubOrg: `https://github.com/hackersandslackers/jupyter.git`,

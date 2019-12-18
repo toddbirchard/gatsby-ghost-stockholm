@@ -8,6 +8,7 @@ import { AuthorCard } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/index.less'
+import '../styles/author-card.less'
 
 /**
 * Author page (/author/:slug)
@@ -28,18 +29,18 @@ const Author = ({ data, location, pageContext }) => {
                 location={location}
                 type="profile"
             />
-          <Layout template="author-template" hasSidebar={true}>
-              <div className="content">
-                  <AuthorCard author={author} headerClass={false} page={`author`}/>
-                  <section className="post-feed">
-                      {posts.map(({ node }) => (
-                          <PostCard key={node.id} post={node} />
-                      ))}
-                      <Pagination pageContext={pageContext} />
-                  </section>
-                  {/*<AuthorTwitterWidget authorTweets={authorTweets} authorProfile={authorTwitterUser} />*/}
-              </div>
-          </Layout>
+            <Layout template="author-template" hasSidebar={true}>
+                <div className="content">
+                    <AuthorCard author={author} headerClass={false} page={`author`}/>
+                    <section className="post-feed">
+                        {posts.map(({ node }) => (
+                            <PostCard key={node.id} post={node} />
+                        ))}
+                        <Pagination pageContext={pageContext} />
+                    </section>
+                    {/*<AuthorTwitterWidget authorTweets={authorTweets} authorProfile={authorTwitterUser} />*/}
+                </div>
+            </Layout>
         </>
     )
 }

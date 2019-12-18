@@ -1,21 +1,30 @@
-.about-video-wrapper {
-    margin-bottom: 40px;
-    position: relative;
-    padding-top: 56.25%;
-
-    .about-video {
-        position: absolute;
-        top: 0;
-        left: 0;
+.page-template {
+    .navigation {
+        @media(max-width: @mobile-breakpoint) {
+            margin-bottom: 0 !important;
+            border-bottom: 1px solid #ebebeb;
+        }
     }
-}
 
-.author-card-list {
-    padding: 30px 0 0;
+    .about-video-wrapper {
+        margin-bottom: 40px;
+        position: relative;
+        padding-top: 56.25%;
 
-    .author-list-title {
-        font-size: 1.8em;
-        margin-bottom: 15px;
-        font-weight: 100;
+        .about-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .author-card-list {
+        padding: 30px 0 0;
+
+        .author-list-title {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 100;
+        }
     }
 }
