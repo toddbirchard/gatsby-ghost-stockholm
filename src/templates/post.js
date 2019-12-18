@@ -33,77 +33,77 @@ const Post = ({ data, location }) => {
     const authorFirstName = author.name.split(` `)[0]
 
     return (
-      <>
-      <Helmet>
-          <script
-              defer
-              src="https://cdn.commento.io/js/commento.js"
-              data-css-override="https://hackersandslackers.com/comments.css"
-              data-no-fonts={true}
-          />
-      </Helmet>
-      < MetaData data = { data } location = { location } type = "article" />
-      <Layout template="post-template">
-          <div className="post-wrapper">
-              <div className="post-head">
-                  <h1 className="post-title">{post.title}</h1>
-                  <div className="post-meta">
-                      <div className="meta-item author">
-                          <Link to={authorUrl}>
-                              <FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs"/>
-                              <span>{authorFirstName}</span>
-                          </Link>
-                      </div>
-                      <div className="meta-item tag">
-                          <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
-                      </div>
-                      <div className="meta-item reading-time">
-                          <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" swapOpacity />
-                          <span>{readingTime}</span>
-                      </div>
-                      <div className="meta-item date">
-                          <FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs"/>
-                          <span>{post.published_at_pretty}</span>
-                      </div>
-                  </div>
-                  { post.feature_image ?
-                      <figure className="post-image">
-                          <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2" />
-                      </figure>
-                      : null }
-              </div>
+        <>
+            <Helmet>
+                <script
+                    defer
+                    src="https://cdn.commento.io/js/commento.js"
+                    data-css-override="https://hackersandslackers.com/comments.css"
+                    data-no-fonts={true}
+                />
+            </Helmet>
+            < MetaData data = { data } location = { location } type = "article" />
+            <Layout template="post-template">
+                <div className="post-wrapper">
+                    <div className="post-head">
+                        <h1 className="post-title">{post.title}</h1>
+                        <div className="post-meta">
+                            <div className="meta-item author">
+                                <Link to={authorUrl}>
+                                    <FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs"/>
+                                    <span>{authorFirstName}</span>
+                                </Link>
+                            </div>
+                            <div className="meta-item tag">
+                                <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
+                            </div>
+                            <div className="meta-item reading-time">
+                                <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" swapOpacity />
+                                <span>{readingTime}</span>
+                            </div>
+                            <div className="meta-item date">
+                                <FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs"/>
+                                <span>{post.published_at_pretty}</span>
+                            </div>
+                        </div>
+                        { post.feature_image ?
+                            <figure className="post-image">
+                                <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2" />
+                            </figure>
+                            : null }
+                    </div>
 
-              <article className="post">
+                    <article className="post">
 
-                  { seriesPosts
-                      ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-                      : null
-                  }
-                  {/* The main post content */}
-                  <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
-                  <div className="post-tags">
-                      <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
-                  </div>
-                  <AuthorCard author={author} page={`post`} />
-              </article>
-          </div>
+                        { seriesPosts
+                            ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
+                            : null
+                        }
+                        {/* The main post content */}
+                        <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
+                        <div className="post-tags">
+                            <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
+                        </div>
+                        <AuthorCard author={author} page={`post`} />
+                    </article>
+                </div>
 
-          <section className="post-footer">
-              <div id="commento"></div>
-              {relatedPosts && <RelatedPosts data={relatedPosts}/>}
-              <NewsletterWidget/>
-          </section>
+                <section className="post-footer">
+                    <div id="commento"></div>
+                    {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+                    <NewsletterWidget/>
+                </section>
 
-          <div className="bottom-vector"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 280">
-              <g fill="#ecf2f9" >
-                  <path d="M1920 0v19.387c-211.21 136.245-517.564 173.305-919.061 111.18C679.068 80.763 345.422 103.907 0 200L-2 0h1922z"></path>
-                  <path d="M1920 0v4c-252.04 171.948-554.875 231.087-908.506 177.417C361.105 82.709-2.15 200 .254 200 1.858 200 1.106 133.333-2 0h1922z" fillOpacity=".35"></path>
-                  <path d="M1920 0v29.724c-230.661 164.917-529.816 221.768-897.464 170.553C568.815 137.072 198.92 150.114 0 269V0h1920z" fillOpacity=".17"></path>
-                  <path d="M1920 0v29.724c-223.98 145.48-526.685 188.553-908.112 129.22C630.46 99.61 293.3 122.961.407 229V0H1920z" fillOpacity=".45"></path>
-              </g>
-          </svg></div>
-      </Layout>
-</>)
+                <div className="bottom-vector"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 280">
+                    <g fill="#ecf2f9" >
+                        <path d="M1920 0v19.387c-211.21 136.245-517.564 173.305-919.061 111.18C679.068 80.763 345.422 103.907 0 200L-2 0h1922z"></path>
+                        <path d="M1920 0v4c-252.04 171.948-554.875 231.087-908.506 177.417C361.105 82.709-2.15 200 .254 200 1.858 200 1.106 133.333-2 0h1922z" fillOpacity=".35"></path>
+                        <path d="M1920 0v29.724c-230.661 164.917-529.816 221.768-897.464 170.553C568.815 137.072 198.92 150.114 0 269V0h1920z" fillOpacity=".17"></path>
+                        <path d="M1920 0v29.724c-223.98 145.48-526.685 188.553-908.112 129.22C630.46 99.61 293.3 122.961.407 229V0H1920z" fillOpacity=".45"></path>
+                    </g>
+                </svg></div>
+            </Layout>
+        </>)
 }
 
 Post.propTypes = {

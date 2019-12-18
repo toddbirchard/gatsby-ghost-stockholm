@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SearchBox } from 'react-instantsearch-dom'
 
 export default connectSearchBox(({ refine, ...rest }) => (
-    <div>
+    <div id="searchbox">
         <SearchBox
             searchAsYouType={true}
             placeholder="Search"
