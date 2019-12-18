@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 
-import '../styles/posts/index.less'
-import '../styles/pages/jupyter.less'
+import '../styles/jupyter/index.less'
 
 /**
 * Single notebook view (/jupyter/:slug)
