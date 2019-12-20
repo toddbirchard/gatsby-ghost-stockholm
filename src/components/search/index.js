@@ -22,12 +22,6 @@ const Stats = connectStateResults(
     ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
 )
 
-const createURL = state => `?${qs.stringify(state)}`
-
-const searchStateToUrl = ({ location }, searchState) => (searchState ? `${location.pathname}${createURL(searchState)}` : ``)
-
-const urlToSearchState = ({ search }) => qs.parse(search.slice(1))
-
 export default function Search({ indices, collapse, hitsAsGrid }) {
     const ref = createRef()
     const [query, setQuery] = useState(``)

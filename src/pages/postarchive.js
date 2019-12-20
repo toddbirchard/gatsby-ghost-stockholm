@@ -4,6 +4,7 @@ import {
     SearchBox,
     Configure,
     Hits,
+    Menu,
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
@@ -54,7 +55,7 @@ class PostArchive extends Component {
           <Layout template="postarchive-template" hasSidebar={false}>
               <InstantSearch
                   searchClient={searchClient}
-                  indexName="hackers_posts"
+                  indexName="hackers_posts_all"
                   createURL={createURL}
                   hitsPerPage={400}
                   analytics={true}
@@ -65,6 +66,7 @@ class PostArchive extends Component {
                   <div className="post-archive-body">
                       <h1>All Posts</h1>
                       <SearchBox className="searchbox" placeholder="Search" />
+                      <Menu attribute="tags" />
                   </div>
                   <Hits hitComponent={Hit} />
               </InstantSearch>
