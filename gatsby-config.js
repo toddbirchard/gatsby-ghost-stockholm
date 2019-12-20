@@ -315,18 +315,6 @@ module.exports = {
                 addUncaughtPages: true,
             },
         },
-        {
-            resolve: `gatsby-plugin-manifest`,
-            options: {
-                name: `Hackers and Slackers`,
-                short_name: `Hackers and Slackers`,
-                start_url: `/`,
-                background_color: `#ecf1f9`,
-                theme_color: `#0297f6`,
-                display: `standalone`,
-                icon: `static/images/logo-small@2x.png`,
-            },
-        },
         `gatsby-plugin-netlify-cache`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,

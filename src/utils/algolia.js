@@ -3,6 +3,7 @@ const postQuery = `{
     edges {
       node {
         objectID: ghostId
+        id
         slug
         title
         feature_image
@@ -10,13 +11,16 @@ const postQuery = `{
         meta_description
         tags {
           name
+          slug
         }
         primary_tag {
           name
         }
         primary_author {
           slug
+          name
         }
+        published_at(formatString: "MMMM DD")
       }
     }
   }
@@ -36,10 +40,10 @@ const pageQuery = `{
 }`
 
 const queries = [
-  {
-    query: postQuery,
-    transformer: ({ data }) => data.posts.edges.map(({ node }) => node), // optional
-  },
-];
+    {
+        query: postQuery,
+        transformer: ({ data }) => data.posts.edges.map(({ node }) => node), // optional
+    },
+]
 
 module.exports = queries

@@ -1,65 +1,99 @@
-import React from 'react'
+import React, { Component } from 'react'
+import {
+    InstantSearch,
+    SearchBox,
+    Configure,
+    Hits,
+    Pagination,
+} from 'react-instantsearch-dom'
+import algoliasearch from 'algoliasearch'
+import qs from 'qs'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 import { Layout, PostCard } from '../components/common'
-import { Pagination } from '../components/navigation'
-import { MetaData } from '../components/common/meta'
+import { queries } from '../utils/algolia'
 
 import '../styles/pages/postarchive.less'
 
-/**
-* Series page (/series/)
-*
-* Loads all posts for the requested tag incl. pagination.
-*
-*/
-const PostArchive = ({ data, location, pageContext }) => {
-    const posts = data.allGhostPost.edges
+const DEBOUNCE_TIME = 700
+const searchClient = algoliasearch(
+    process.env.GATSBY_ALGOLIA_APP_ID,
+    process.env.GATSBY_ALGOLIA_SEARCH_KEY,
+)
 
-    return (
-        <>
-            <MetaData
-                data={data}
-                location={location}
-                type="series"
-            />
-            <Layout template="postarchive-template" hasSidebar={false}>
-                <div className="post-archive-body">
-                    <h1>All Posts</h1>
-                    <div className="posts-grid">
-                        {posts.map(({ node }) => (
-                            // The tag below includes the markup for each post - components/common/PostCard.js
-                            <PostCard key={node.id} post={node} page={`about`} />
-                        ))}
-                        <Pagination pageContext={pageContext} />
-                    </div>
-                </div>
-            </Layout>
-        </>
-    )
+const createURL = state => `?${qs.stringify(state)}`
+
+const searchStateToUrl = (props, searchState) => (searchState ? `${props.location.pathname}${createURL(searchState)}` : ``)
+
+const urlToSearchState = location => qs.parse(location.search.slice(1))
+
+class PostArchive extends Component {
+  state = {
+      searchState: urlToSearchState(this.props.location),
+      lastLocation: this.props.location,
+  };
+
+  static getDerivedStateFromProps(props, state) {
+      if (props.location !== state.lastLocation) {
+          return {
+              searchState: urlToSearchState(props.location),
+              lastLocation: props.location,
+          }
+      }
+      return null
+  }
+
+  onSearchStateChange = (searchState) => {
+      clearTimeout(this.debouncedSetState)
+
+      this.debouncedSetState = setTimeout(() => {
+          this.props.history.push(
+              searchStateToUrl(this.props, searchState),
+              searchState
+          )
+      }, DEBOUNCE_TIME)
+      this.setState({ searchState })
+  };
+
+  render() {
+      return (
+
+          <Layout template="postarchive-template" hasSidebar={false}>
+              <InstantSearch
+                  searchClient={searchClient}
+                  indexName="hackers_posts"
+                  hitsPerPage={200}
+                  analytics={true}
+                  searchState={this.state.searchState}
+                  // onSearchStateChange={this.onSearchStateChange}
+                  createURL={createURL}
+              >
+                  <Configure query={queries} hitsPerPage={100} />
+                  <div className="post-archive-body">
+                      <h1>All Posts</h1>
+                      <SearchBox className="searchbox" placeholder="Search" />
+                  </div>
+                  <Hits hitComponent={Hit} />
+                  <Pagination hitsPerPage={100} showFirst={false} showPrevious={false} />
+              </InstantSearch>
+          </Layout>
+
+      )
+  }
+}
+
+const Hit = ({ hit }) => (
+    <PostCard post={hit} key={hit.objectID}/>
+)
+
+Hit.propTypes = {
+    hit: PropTypes.object.isRequired,
 }
 
 PostArchive.propTypes = {
-    data: PropTypes.shape({
-        allGhostPost: PropTypes.object.isRequired,
-        ghostPage: PropTypes.object.isRequired,
-    }).isRequired,
-    location: PropTypes.object,
-    pageContext: PropTypes.shape({
-        title: PropTypes.string.isRequired,
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired,
     }),
+    location: PropTypes.object.isRequired,
 }
 
 export default PostArchive
-
-export const postArchiveQuery = graphql`
-    query GhostPostArchiveQuery {
-       allGhostPost(sort: {order: DESC, fields: [published_at]}, limit: 700, filter: {primary_tag: {slug: {ne: "roundup"}}}) {
-          edges {
-            node {
-              ...GhostPostFields
-            }
-          }
-        }
-    }
-`

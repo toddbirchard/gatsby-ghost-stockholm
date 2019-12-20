@@ -82,7 +82,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
                     /> : null }
             </Helmet>
 
-            <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} />
+            <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} template={template} />
             <div className="viewport">
 
                 <div className={ hasSidebar ? `home-container` : `container` }>

@@ -20,7 +20,7 @@ const searchIndices = [
     { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
 ]
 
-const Navigation = ({ data, logo, mobileLogo }) => (
+const Navigation = ({ data, logo, mobileLogo, template }) => (
     <>
         <nav className="navigation">
             <div className="nav-wrapper">
@@ -31,9 +31,9 @@ const Navigation = ({ data, logo, mobileLogo }) => (
                         <NavLinks navigation={data} />
                     </div>
                 </div>
-                <div className="nav-right">
+                {template !== `postarchive-template` ? <div className="nav-right">
                     <Search collapse indices={searchIndices} className="search-widget" />
-                </div>
+                </div> : null }
                 <Menu right width={ `100%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` }>
                     <NavLinks navigation={data} />
                 </Menu>
@@ -51,6 +51,7 @@ Navigation.propTypes = {
     ).isRequired,
     logo: PropTypes.string,
     mobileLogo: PropTypes.string,
+    template: PropTypes.string,
 }
 
 export default Navigation
