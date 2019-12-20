@@ -4,7 +4,6 @@ import {
     SearchBox,
     Configure,
     Hits,
-    Pagination,
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
@@ -57,18 +56,17 @@ class PostArchive extends Component {
                   searchClient={searchClient}
                   indexName="hackers_posts"
                   createURL={createURL}
-                  hitsPerPage={200}
+                  hitsPerPage={400}
                   analytics={true}
                   searchState={this.state.searchState}
                   onSearchStateChange={this.onSearchStateChange}
               >
-                  <Configure query={queries} hitsPerPage={100} />
+                  <Configure query={queries} hitsPerPage={400} />
                   <div className="post-archive-body">
                       <h1>All Posts</h1>
                       <SearchBox className="searchbox" placeholder="Search" />
                   </div>
                   <Hits hitComponent={Hit} />
-                  <Pagination hitsPerPage={100} showFirst={false} showPrevious={false} />
               </InstantSearch>
           </Layout>
 

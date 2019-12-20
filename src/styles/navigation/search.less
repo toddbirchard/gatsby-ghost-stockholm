@@ -81,13 +81,18 @@
             .search-result-title {
                 margin-bottom: 10px;
                 color: #585f6d;
-                font-size: .95em;
-                font-family: @header-font;
-                line-height: 1.2 !important;
+                line-height: 1.1 !important;
+                font-family: @header-font-secondary;
+                opacity: 0.9;
                 display: block;
-                opacity: 0.85;
                 font-weight: normal;
                 letter-spacing: -.5px;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 100%;
             }
 
             .search-result-tag {
@@ -109,10 +114,8 @@
                 line-height: 1.1;
             }
         }
-
-
     }
-    .search-result-image {
+    img {
         max-width: 100px;
         height: 66px;
         margin-right: 12px;

@@ -81,7 +81,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             >
                 <Configure hitsPerPage={8} />
                 <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
-                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid}>
+                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results" >
                     {indices.map(({ name }) => (
                         <Index key={name} indexName={name}>
                             <header>

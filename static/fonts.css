@@ -1,31 +1,37 @@
-@import url("//hello.myfonts.net/count/3ab593");
+@import url("//hello.myfonts.net/count/3ac001");
 
 @font-face {
-    font-family: 'TTNormsPro-Medium';
+    font-family: 'TTNormsPro-Light';
     font-display: swap;
-    src: url('fonts/3AB593_0_0.woff2') format('woff2'), url('fonts/3AB593_0_0.woff') format('woff');
+    src: url('fonts/3AC001_0_0.woff2') format('woff2'), url('fonts/3AC001_0_0.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'TTNormsPro-DemiBold';
+    font-display: swap;
+    src: url('fonts/3AC001_1_0.woff2') format('woff2'), url('fonts/3AC001_1_0.woff') format('woff');
 }
 
 @font-face {
     font-family: 'TTNormsPro-Bold';
     font-display: swap;
-    src: url('fonts/3AB593_1_0.woff2') format('woff2'), url('fonts/3AB593_1_0.woff') format('woff');
+    src: url('fonts/3AC001_2_0.woff2') format('woff2'), url('fonts/3AC001_2_0.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Genera-Book';
     font-display: swap;
-    src: url('fonts/3AB593_2_0.woff2') format('woff2'), url('fonts/3AB593_2_0.woff') format('woff');
+    src: url('fonts/3AC001_3_0.woff2') format('woff2'), url('fonts/3AC001_3_0.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Genera-Regular';
     font-display: swap;
-    src: url('fonts/3AB593_3_0.eot?#iefix') format('embedded-opentype'), url('fonts/3AB593_3_0.woff2') format('woff2');
+    src: url('fonts/3AC001_4_0.woff2') format('woff2'), url('fonts/3AC001_4_0.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Genera-Medium';
     font-display: swap;
-    src: url('fonts/3AB593_4_0.woff2') format('woff2'), url('fonts/3AB593_4_0.woff') format('woff');
+    src: url('fonts/3AC001_5_0.woff2') format('woff2'), url('fonts/3AC001_5_0.woff') format('woff');
 }

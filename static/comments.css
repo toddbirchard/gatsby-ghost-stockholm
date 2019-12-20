@@ -39,7 +39,7 @@
 }
 
 .commento-root .commento-card .commento-name {
-    font-family: 'TTNormsPro-Medium', sans-serif;
+    font-family: 'TTNormsPro-DemiBold', sans-serif;
     font-weight: normal !important;
     font-size: 16px !important;
     line-height: 1 !important;
@@ -132,7 +132,7 @@
     width: -webkit-fill-available !important;
     border-radius: 4px;
     height: auto !important;
-    font-family: 'TTNormsPro-Medium', sans-serif;
+    font-family: 'TTNormsPro-DemiBold', sans-serif;
     text-align: center;
     color: #bc8e8e !important;
     background: #efe2e4;
@@ -266,7 +266,7 @@
     font-size: 0.8em !important;
     padding: 8px 12px !important;
     line-height: 1 !important;
-    font-family: 'TTNormsPro-Medium', sans-serif !important;
+    font-family: 'TTNormsPro-DemiBold', sans-serif !important;
     box-shadow: none !important;
     transition: all 0.2s ease-out;
     position: absolute !important;
