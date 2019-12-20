@@ -1,4 +1,5 @@
 @import '../variables.less';
+@import '../mixins.less';
 
 .postarchive-template {
     .container {
@@ -25,6 +26,7 @@
         font-size: 1.3em;
         max-width: -webkit-fill-available;
         box-shadow: @box-shadow;
+        .input-field-interactions();
         @media(max-width: @mobile-breakpoint) {
             padding: 17px 22px;
             font-size: 1.2em;
@@ -33,10 +35,11 @@
 
     .ais-Hits-list {
         display: grid;
-        grid-gap: 20px;
+        grid-gap: 15px;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-auto-rows: min-content;
         padding: 0;
+        list-style: none;
         @media(max-width: 1000px) {
             grid-template-columns: 1fr 1fr 1fr;
         }
@@ -74,25 +77,27 @@
                 padding: 20px;
             }
 
-            .post-card-footer {
-                display: block;
-                @media(max-width: @mobile-breakpoint) {
-                    display: flex;
-                }
+            .post-card-footer{
+              overflow: unset;
 
-                .meta-item {
-                    margin-bottom: 7px;
-                    font-size: 0.85em;
+              .meta-item {
+                  margin: 0;
+                  font-size: 0.85em;
+                  line-height: 1;
 
-                    &:last-of-type {
-                        margin-bottom: 0;
-                    }
+                  * {
+                    line-height: 1;
+                  }
 
-                    &.date,
-                    &.reading-item {
-                        display: none !important;
-                    }
-                }
+                  &:first-of-type{
+                    margin-right: 15px;
+                  }
+
+                  &.date,
+                  &.reading-item {
+                      display: none !important;
+                  }
+              }
             }
         }
     }
@@ -107,6 +112,7 @@
         justify-content: space-between;
         padding: 0;
         margin: auto;
+            list-style: none;
 
         li {
             padding-left: 0;

@@ -48,7 +48,7 @@ PostCard.propTypes = {
             }),
         ),
         excerpt: PropTypes.string,
-        published_at_pretty: PropTypes.string.isRequired,
+        published_at_pretty: PropTypes.string,
         primary_author: PropTypes.shape(
             { name: PropTypes.string.isRequired,
                 slug: PropTypes.string.isRequired,

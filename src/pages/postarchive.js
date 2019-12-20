@@ -32,14 +32,10 @@ class PostArchive extends Component {
       lastLocation: this.props.location,
   };
 
-  static getDerivedStateFromProps(props, state) {
-      if (props.location !== state.lastLocation) {
-          return {
-              searchState: urlToSearchState(props.location),
-              lastLocation: props.location,
-          }
+  componentDidUpdate(prevProps) {
+      if (prevProps.location !== this.props.location) {
+          this.setState({ searchState: urlToSearchState(this.props.location) })
       }
-      return null
   }
 
   onSearchStateChange = (searchState) => {
@@ -56,16 +52,15 @@ class PostArchive extends Component {
 
   render() {
       return (
-
           <Layout template="postarchive-template" hasSidebar={false}>
               <InstantSearch
                   searchClient={searchClient}
                   indexName="hackers_posts"
+                  createURL={createURL}
                   hitsPerPage={200}
                   analytics={true}
                   searchState={this.state.searchState}
-                  // onSearchStateChange={this.onSearchStateChange}
-                  createURL={createURL}
+                  onSearchStateChange={this.onSearchStateChange}
               >
                   <Configure query={queries} hitsPerPage={100} />
                   <div className="post-archive-body">
