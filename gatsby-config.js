@@ -144,7 +144,7 @@ module.exports = {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
                 custom: {
-                    families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Medium`, `TTNormsPro-Bold`],
+                    families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Regular`, `TTNormsPro-DemiBold`, `TTNormsPro-Bold`],
                     urls: [`/fonts.css`],
                 },
                 timeout: 7000,

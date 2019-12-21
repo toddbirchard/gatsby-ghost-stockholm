@@ -49,17 +49,28 @@
                 white-space: nowrap;
                 transition: @transition;
                 @media(max-width: @tablet-breakpoint) {
-                    font-size: 1.4em;
+                    font-size: 1.2em;
                 }
                 @media(max-width: @mobile-breakpoint) {
                   margin-bottom: 30px;
                   text-align: justify;
-                  font-size: 1.5em;
+                  font-size: 1.4em;
                 }
 
                 &:hover {
                     opacity: 0.6;
                 }
+            }
+
+            .footer-links {
+              @media(max-width: @tablet-breakpoint) {
+                width: 300px;
+                justify-content: space-between;
+                display: flex;
+              }
+              @media(max-width: @mobile-breakpoint) {
+                width: 100% !important;
+              }
             }
 
             .navigation-link {
@@ -72,8 +83,9 @@
                     margin: 0;
                     margin-left: 20px;
                 }
-                @media(max-width: @tablet-breakpoint) {
+                @media(max-width: @mobile-breakpoint) {
                     margin-left: 0;
+                    font-family: @body-font-bold;
                 }
             }
         }

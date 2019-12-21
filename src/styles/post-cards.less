@@ -41,6 +41,9 @@
           font-size: 1.5em;
           margin-bottom: 0;
         }
+        @media(max-width: 500PX) {
+          font-size: 1.3em;
+        }
 
         &:hover {
             color: @hover-color;
@@ -86,6 +89,9 @@
             @media(max-width: @tablet-breakpoint) {
               margin: 12px auto 20px;
               font-size: 1em;
+            }
+            @media(max-width: @mobile-breakpoint) {
+              font-size: .95em;
             }
         }
     }

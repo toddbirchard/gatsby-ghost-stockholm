@@ -8,6 +8,7 @@ import {
     Pagination,
     Panel,
     RefinementList,
+    SortBy,
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
@@ -68,7 +69,26 @@ class PostArchive extends Component {
                   <Configure query={queries} hitsPerPage={100} analytics={true} />
                   <Panel className="post-archive-body">
                       <h1>All Posts</h1>
-                      <SearchBox className="searchbox" placeholder="Search" />
+                      <div className="search-bar-container">
+                          <SearchBox className="searchbox" placeholder="Search" />
+                          <SortBy
+                              defaultRefinement="hackers_posts_all"
+                              items={[
+                                  { value: `hackers_posts_all`, label: `Featured` },
+                                  { value: `published_at`, label: `Published (desc)` },
+                              ]}
+                          />
+                      </div>
+                      <Menu
+                          attribute="tags"
+                          transformItems={items => items.map((item) => {
+                              return {
+                                  ...item,
+                                  label: item.name,
+                              }
+                          })
+                          }
+                      />
                       <RefinementList attribute={`tags`} />
                   </Panel>
                   <Hits hitComponent={Hit} />

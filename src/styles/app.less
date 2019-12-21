@@ -8,7 +8,6 @@
 html {
     overflow-x: hidden;
     overflow-y: scroll;
-    font-size: 62.5%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
@@ -19,7 +18,7 @@ body {
     overflow-x: hidden;
     color: #3c484e;
     font-family: @body-font;
-    font-size: 1.5rem;
+    font-size: 16px;
     line-height: 1.6em;
     font-style: normal;
     letter-spacing: 0;
@@ -263,17 +262,6 @@ input {
     }
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    height: auto;
-}
-
 input[type="search"] {
     box-sizing: content-box;
     -webkit-appearance: textfield;
@@ -287,8 +275,4 @@ input[type="search"]::-webkit-search-decoration {
 legend {
     padding: 0;
     border: 0;
-}
-
-textarea {
-    overflow: auto;
 }

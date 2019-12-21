@@ -20,7 +20,7 @@ const postQuery = `{
           slug
           name
         }
-        published_at(formatString: "MMMM DD")
+        published_at
       }
     }
   }
@@ -48,7 +48,7 @@ const allPostQuery = `{
             slug
             name
           }
-          published_at(formatString: "MMMM DD")
+          published_at
         }
       }
     }
