@@ -80,10 +80,10 @@ class PostArchive extends Component {
                           />
                       </div>
                       <Menu
-                          attribute="tags"
+                          attribute="primary_tag.name"
                       />
                       <RefinementList
-                          attribute={`tags`}
+                          attribute={`primary_tag.name`}
                       />
                   </Panel>
                   <Hits hitComponent={Hit} />
