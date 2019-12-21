@@ -18,10 +18,17 @@
       display: flex;
       justify-content: space-between;
       margin: 20px 0;
+      @media(max-width: @mobile-breakpoint) {
+           display: block;
+        }
     }
 
     .ais-SearchBox {
       width: 68%;
+      @media(max-width: @mobile-breakpoint) {
+         width: 100%;
+         margin-bottom: 7px;
+        }
     }
 
     .ais-SearchBox-form input {
@@ -45,6 +52,9 @@
     .ais-SortBy {
       width: 30%;
       position: relative;
+      @media(max-width: @mobile-breakpoint) {
+         width: 100%;
+        }
 
       &::after {
         content: '';
