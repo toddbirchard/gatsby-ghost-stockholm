@@ -82,9 +82,6 @@ class PostArchive extends Component {
                       <Menu
                           attribute="tags.name"
                       />
-                      <RefinementList
-                          attribute={`tags.name`}
-                      />
                   </Panel>
                   <Hits hitComponent={Hit} />
                   <Pagination showFirst={false} />
