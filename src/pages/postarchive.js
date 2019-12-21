@@ -5,6 +5,9 @@ import {
     Configure,
     Hits,
     Menu,
+    Pagination,
+    Panel,
+    RefinementList,
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
@@ -57,18 +60,19 @@ class PostArchive extends Component {
                   searchClient={searchClient}
                   indexName="hackers_posts_all"
                   createURL={createURL}
-                  hitsPerPage={400}
+                  hitsPerPage={100}
                   analytics={true}
                   searchState={this.state.searchState}
                   onSearchStateChange={this.onSearchStateChange}
               >
-                  <Configure query={queries} hitsPerPage={400} />
-                  <div className="post-archive-body">
+                  <Configure query={queries} hitsPerPage={100} analytics={true} />
+                  <Panel className="post-archive-body">
                       <h1>All Posts</h1>
                       <SearchBox className="searchbox" placeholder="Search" />
-                      <Menu attribute="tags" />
-                  </div>
+                      <RefinementList attribute={`tags`} />
+                  </Panel>
                   <Hits hitComponent={Hit} />
+                  <Pagination showFirst={false} />
               </InstantSearch>
           </Layout>
 

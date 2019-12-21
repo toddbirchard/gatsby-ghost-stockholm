@@ -30,7 +30,7 @@ const Author = ({ data, location, pageContext }) => {
                 type="profile"
             />
             <Layout template="author-template" hasSidebar={true}>
-                <div className="content">
+                <div className="author-container">
                     <AuthorCard author={author} headerClass={false} page={`author`}/>
                     <section className="post-feed">
                         {posts.map(({ node }) => (

@@ -34,7 +34,6 @@
             }
 
             .label {
-                font-weight: 500;
                 font-size: 0.95em;
                 font-family: @header-font-secondary;
 
@@ -45,7 +44,7 @@
             }
 
             .trending {
-                color: #3fa77a;
+                color: #5cc3a2;
             }
 
             .pocket {
@@ -297,9 +296,14 @@
 
                 .twitter-avatar {
                     overflow: hidden;
-                    height: 35px;
+                    height: 35px !important;
+                    width: 35px !important;
                     margin-right: 7px;
-                    border-radius: 505%;
+                    border-radius: 50%;
+
+                    img {
+                      width: 100%;
+                    }
                 }
 
                 .twitter-name {
@@ -313,7 +317,6 @@
                     color: #9ea6ae;
                     font-weight: 500;
                     margin-top: 3px;
-                    font-weight: 400;
                     font-size: 0.9em;
                     display: block;
                 }

@@ -22,7 +22,9 @@ const TwitterWidget = ({ data }) => {
                                     </div>
                                     <div className="retweeted-body">
                                         <div className="twitter-header">
-                                            <img className="twitter-avatar lazyload" data-src={node.retweeted_status.user.profile_image_url_https} alt="twitter-avatar" />
+                                            <div className="twitter-avatar">
+                                                <img className="lazyload" data-src={node.retweeted_status.user.profile_image_url_https} alt="twitter-avatar" />
+                                            </div>
                                             <div className="profile-details">
                                                 <a href={node.retweeted_status.user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{node.retweeted_status.user.name}</a>
                                                 <a href={node.retweeted_status.user.url} className="twitter-user" rel="nofollow noreferrer">@{node.retweeted_status.user.screen_name}</a>

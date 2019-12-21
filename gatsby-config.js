@@ -147,7 +147,7 @@ module.exports = {
                     families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Medium`, `TTNormsPro-Bold`],
                     urls: [`/fonts.css`],
                 },
-                timeout: 5000,
+                timeout: 7000,
             },
         },
         /**
