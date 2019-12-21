@@ -72,7 +72,6 @@ class PostArchive extends Component {
                       <div className="search-bar-container">
                           <SearchBox className="searchbox" placeholder="Search" />
                           <SortBy
-                              defaultRefinement="hackers_posts_all"
                               items={[
                                   { value: `hackers_posts_all`, label: `Featured` },
                                   { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
@@ -84,7 +83,7 @@ class PostArchive extends Component {
                           attribute="tags"
                       />
                       <RefinementList
-                          attribute={`tags.name`}
+                          attribute={`tags`}
                       />
                   </Panel>
                   <Hits hitComponent={Hit} />
