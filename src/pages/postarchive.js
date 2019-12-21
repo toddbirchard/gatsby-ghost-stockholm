@@ -73,17 +73,17 @@ class PostArchive extends Component {
                           <SearchBox className="searchbox" placeholder="Search" />
                           <SortBy
                               items={[
-                                  { value: `hackers_posts_all`, label: `Featured` },
+                                  { value: `hackers_posts_all`, label: `Relevance` },
                                   { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
                                   { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
                               ]}
                           />
                       </div>
                       <Menu
-                          attribute="primary_tag.name"
+                          attribute="tags.name"
                       />
                       <RefinementList
-                          attribute={`primary_tag.name`}
+                          attribute={`tags.name`}
                       />
                   </Panel>
                   <Hits hitComponent={Hit} />
