@@ -75,30 +75,16 @@ class PostArchive extends Component {
                               defaultRefinement="hackers_posts_all"
                               items={[
                                   { value: `hackers_posts_all`, label: `Featured` },
-                                  { value: `published_at_desc`, label: `Published (desc)` },
-                                  { value: `published_at_asc`, label: `Published (asc)` },
+                                  { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
+                                  { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
                               ]}
                           />
                       </div>
                       <Menu
                           attribute="tags"
-                          transformItems={items => items.map((item) => {
-                              return {
-                                  ...item,
-                                  label: item.name,
-                              }
-                          })
-                          }
                       />
                       <RefinementList
-                          attribute={`tags`}
-                          transformItems={items => items.map((item) => {
-                              return {
-                                  ...item,
-                                  label: item.name,
-                              }
-                          })
-                          }
+                          attribute={`tags.name`}
                       />
                   </Panel>
                   <Hits hitComponent={Hit} />
