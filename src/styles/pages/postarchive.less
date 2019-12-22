@@ -13,6 +13,15 @@
         font-size: 2.5em;
         margin: 0;
     }
+    
+    .ais-SortBy {
+      width: 30%;
+    }
+    
+    .ais-SortBy-select,
+    .ais-MenuSelect-select {
+        .select-dropdown();
+    }
 
     .search-bar-container {
         display: flex;
@@ -111,6 +120,8 @@
                 }
             }
         }
+        
+        
 
         .ais-Menu-item--selected {
           background: @hover-color;
@@ -146,12 +157,7 @@
             clear: both;
         }
     }
-
-    .ais-SortBy-select,
-    .ais-MenuSelect-select {
-        .select-dropdown();
-    }
-
+    
     .ais-Hits-list {
         display: grid;
         grid-gap: 15px;
@@ -265,5 +271,16 @@
                 }
             }
         }
+    }
+    
+    .ais-Menu-showMore {
+      -webkit-appearance: none;
+      background: none;
+      color: #7687a2;
+      border: 0;
+      transition: all .2s ease-out;
+      font-size: 1em;
+      text-transform: uppercase;
+      font-weight: bold;
     }
 }

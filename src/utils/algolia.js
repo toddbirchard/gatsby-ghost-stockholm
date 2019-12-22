@@ -17,7 +17,6 @@ const postQuery = `{
           name
         }
         primary_author {
-          slug
           name
         }
         published_at
@@ -44,7 +43,6 @@ const allPostQuery = `{
           name
         }
         primary_author {
-          slug
           name
         }
         published_at

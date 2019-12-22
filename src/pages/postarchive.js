@@ -59,15 +59,16 @@ class PostArchive extends Component {
           <Layout template="postarchive-template" hasSidebar={false}>
               <InstantSearch
                   searchClient={searchClient}
-                  indexName="hackers_posts_all"
+                  indexName={`hackers_posts_all`}
                   createURL={createURL}
                   hitsPerPage={100}
                   analytics={true}
                   searchState={this.state.searchState}
                   onSearchStateChange={this.onSearchStateChange}
+                  initialUiState={queries[1]}
               >
-                  <Configure query={queries} hitsPerPage={100} analytics={true} />
-                  <Panel className="post-archive-body">
+                  <Configure query={queries} hitsPerPage={100} analytics={true}/>
+                  
                       <h1>All Posts</h1>
                       <div className="search-bar-container">
                           <SearchBox className="searchbox" placeholder="Search" />
@@ -84,24 +85,27 @@ class PostArchive extends Component {
                           />*/}
                           <SortBy
                               items={[
-                                  { value: `hackers_posts_all`, label: `Most Relevant` },
+                                  { value: `hackers_posts_all`, label: `Relevance` },
                                   { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
                                   { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
                               ]}
                           />
                       </div>
-                      
-                      <div className="search-filters">
-                        <h2 className="filter-title">Tags</h2>
-                        <hr />
-                      </div>
+                      <Panel>
+                        <div className="search-filters">
+                          <h2 className="filter-title">Tags</h2>
+                          <hr />
+                        </div>
                       
                         <Menu
                             attribute="tags.name"
                             limit={30}
                             showMore={true}
                             showMoreLimit={30} />
+                      </Panel>
                       
+                      
+                      <Panel>
                       <div className="search-filters">
                         <h2 className="filter-title">Authors</h2>
                         <hr />
@@ -116,7 +120,6 @@ class PostArchive extends Component {
                   <Pagination showFirst={false} />
               </InstantSearch>
           </Layout>
-
       )
   }
 }
