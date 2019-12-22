@@ -7,7 +7,6 @@ import {
     Menu,
     Pagination,
     Panel,
-    RefinementList,
     SortBy,
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
