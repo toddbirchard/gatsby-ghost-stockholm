@@ -42,7 +42,7 @@ class PostArchive extends Component {
       } 
       /*else {
           return { query: `allPostQuery` }
-      }*/
+      }*/ 
   }
 
   onSearchStateChange = (searchState) => {
@@ -92,7 +92,6 @@ class PostArchive extends Component {
                       <div className="search-filters">
                           <Panel className="tag filter">
                               <h2 className="filter-title">Tags</h2>
-                              <hr />                      
                               <Menu
                                   attribute="tags.name"
                                   limit={30}
@@ -103,7 +102,6 @@ class PostArchive extends Component {
                       
                           <Panel className="author filter">
                               <h2 className="filter-title">Authors</h2>
-                              <hr />                        
                               <Menu
                                   attribute="primary_author.name"
                                   limit={100}

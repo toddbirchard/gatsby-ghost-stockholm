@@ -2,6 +2,9 @@
 @import '../mixins.less';
 
 .postarchive-template {
+  width: 1200px !important;
+
+  
     .container {
         width: 1200px;
         max-width: 90%;
@@ -90,19 +93,18 @@
     }
     
     .search-filters {
-        padding: 30px;
+        padding: 20px;
         background: white;
         box-shadow: @box-shadow;
+        grid-auto-rows: min-content;
         
         .filter-title {
             padding: 0 0 5px;
             font-size: 1.1em;
             font-family: @header-font-secondary;
             text-transform: uppercase;
-        }
-
-        hr {
-            margin: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #d1d8df;
         }
     }
     
@@ -188,9 +190,10 @@
 
         .post-card {
             height: 100%;
+            box-shadow: @box-shadow;
 
             .post-card-title {
-                font-size: 1.3em;
+                font-size: 1.2em;
                 line-height: 1.1;
                 letter-spacing: -.5px;
                 -webkit-line-clamp: 2;
