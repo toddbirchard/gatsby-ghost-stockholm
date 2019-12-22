@@ -84,24 +84,33 @@ class PostArchive extends Component {
                           />*/}
                           <SortBy
                               items={[
-                                  { value: `hackers_posts_all`, label: `Relevance` },
+                                  { value: `hackers_posts_all`, label: `Most Relevant` },
                                   { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
                                   { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
                               ]}
                           />
                       </div>
-                      <hr />
-                      <Menu
-                          attribute="tags.name"
-                          limit={30}
-                          showMore={true}
-                          showMoreLimit={30}
-                      />
-                      <hr />
-                      <Menu
-                          attribute="primary_author.name"
-                          limit={100}
-                      />
+                      
+                      <div className="search-filters">
+                        <h2 className="filter-title">Tags</h2>
+                        <hr />
+                      </div>
+                      
+                        <Menu
+                            attribute="tags.name"
+                            limit={30}
+                            showMore={true}
+                            showMoreLimit={30} />
+                      
+                      <div className="search-filters">
+                        <h2 className="filter-title">Authors</h2>
+                        <hr />
+                      </div>
+                      
+                    <Menu
+                        attribute="primary_author.name"
+                        limit={100}
+                    />
                   </Panel>
                   <Hits hitComponent={Hit} />
                   <Pagination showFirst={false} />
