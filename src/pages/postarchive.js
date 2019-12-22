@@ -8,6 +8,7 @@ import {
     Pagination,
     Panel,
     SortBy,
+    MenuSelect,
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
@@ -78,10 +79,15 @@ class PostArchive extends Component {
                               ]}
                           />
                       </div>
+                      <MenuSelect
+                          attribute="primary_author.name"
+                          limit={100}
+                      />
                       <Menu
                           attribute="tags.name"
                           limit={100}
                       />
+
                   </Panel>
                   <Hits hitComponent={Hit} />
                   <Pagination showFirst={false} />
