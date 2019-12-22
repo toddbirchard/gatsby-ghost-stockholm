@@ -65,7 +65,6 @@ class PostArchive extends Component {
                   analytics={true}
                   searchState={this.state.searchState}
                   onSearchStateChange={this.onSearchStateChange}
-                  initialUiState={queries.allPostQuery}
               >
                   <Configure query={queries.allPostQuery} hitsPerPage={100} analytics={true}/>
                   
