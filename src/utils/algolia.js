@@ -27,32 +27,31 @@ const postQuery = `{
 }
 `
 const allPostQuery = `{
-    posts: allGhostPost(filter: {visibility: {eq: "public"}}) {
-      edges {
-        node {
-          objectID: ghostId
-          id
-          slug
-          title
-          feature_image
-          excerpt
-          meta_description
-          tags {
-            name
-            slug
-          }
-          primary_tag {
-            name
-          }
-          primary_author {
-            slug
-            name
-          }
-          published_at
+  posts: allGhostPost(filter: {visibility: {eq: "public"}, primary_tag: {visibility: {eq: "public"}}}) {
+    edges {
+      node {
+        objectID: ghostId
+        id
+        slug
+        title
+        feature_image
+        excerpt
+        meta_description
+        tags {
+          name
         }
+        primary_tag {
+          name
+        }
+        primary_author {
+          slug
+          name
+        }
+        published_at
       }
     }
-  }`
+  }
+}`
 
 const flatten = arr => arr.map(({ node: { frontmatter, ...rest } }) => {
     return {
