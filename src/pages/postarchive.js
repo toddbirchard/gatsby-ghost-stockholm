@@ -93,11 +93,13 @@ class PostArchive extends Component {
                       <hr />
                       <Menu
                           attribute="tags.name"
-                          limit={100}
+                          limit={30}
+                          showMore={true}
+                          showMoreLimit={30}
                       />
                       <hr />
                       <Menu
-                          attribute="primary_tag.name"
+                          attribute="primary_author.name"
                           limit={100}
                       />
                   </Panel>
