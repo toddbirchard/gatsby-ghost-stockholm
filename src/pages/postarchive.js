@@ -80,6 +80,7 @@ class PostArchive extends Component {
                       </div>
                       <Menu
                           attribute="tags.name"
+                          limit={100}
                       />
                   </Panel>
                   <Hits hitComponent={Hit} />
