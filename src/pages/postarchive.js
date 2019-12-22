@@ -57,69 +57,58 @@ class PostArchive extends Component {
   render() {
       return (
           <Layout template="postarchive-template" hasSidebar={false}>
-              <InstantSearch
-                  searchClient={searchClient}
-                  indexName={`hackers_posts_all`}
-                  createURL={createURL}
-                  hitsPerPage={100}
-                  analytics={true}
-                  searchState={this.state.searchState}
-                  onSearchStateChange={this.onSearchStateChange}
-                  initialUiState={queries.allPostQuery}
-              >
-                  <Configure query={queries.allPostQuery} hitsPerPage={100} analytics={true}/>
-                  
-                      <h1>All Posts</h1>
-                      <div className="search-bar-container">
-                          <SearchBox className="searchbox" placeholder="Search" />
-                          {/*<MenuSelect
-                              attribute="primary_author.name"
-                              limit={100}
-                              transformItems={items => items.map((item) => {
-                                  return {
-                                      ...item,
-                                      label: item.label,
-                                  }
-                              })
-                              }
-                          />*/}
-                          <SortBy
-                              items={[
-                                  { value: `hackers_posts_all`, label: `Relevance` },
-                                  { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
-                                  { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
-                              ]}
-                          />
+              <div className="postarchive-container">
+                  <InstantSearch
+                      searchClient={searchClient}
+                      indexName={`hackers_posts_all`}
+                      createURL={createURL}
+                      hitsPerPage={100}
+                      analytics={true}
+                      searchState={this.state.searchState}
+                      onSearchStateChange={this.onSearchStateChange}
+                  >
+                      <Configure query={`allPostQuery`} hitsPerPage={100} analytics={true}/>
+                      <div className="search-body">
+                          <div className="postarchive-header">
+                              <h1>All Posts</h1>
+                              <div className="search-bar-container">
+                                  <SearchBox className="searchbox" placeholder="Search" />
+                                  <SortBy
+                                      items={[
+                                          { value: `hackers_posts_all`, label: `Relevance` },
+                                          { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
+                                          { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
+                                      ]}
+                                  />
+                              </div>
+                          </div>
+                          <Hits hitComponent={Hit} />
+                          <Pagination showFirst={false} />
                       </div>
-                      <Panel>
-                        <div className="search-filters">
-                          <h2 className="filter-title">Tags</h2>
-                          <hr />
-                        </div>
+                                            
+                      <div className="search-filters">
+                          <Panel className="tag filter">
+                              <h2 className="filter-title">Tags</h2>
+                              <hr />                      
+                              <Menu
+                                  attribute="tags.name"
+                                  limit={30}
+                                  showMore={true}
+                                  showMoreLimit={30} 
+                              />
+                          </Panel>
                       
-                        <Menu
-                            attribute="tags.name"
-                            limit={30}
-                            showMore={true}
-                            showMoreLimit={30} 
-                          />
-                      </Panel>
-                      
-                      
-                      <Panel>
-                        <div className="search-filters">
-                          <h2 className="filter-title">Authors</h2>
-                          <hr />
-                        </div>
-                        
-                      <Menu
-                          attribute="primary_author.name"
-                          limit={100}
-                      />
-                  </Panel>
-                  <Hits hitComponent={Hit} />
-                  <Pagination showFirst={false} />
-              </InstantSearch>
+                          <Panel className="author filter">
+                              <h2 className="filter-title">Authors</h2>
+                              <hr />                        
+                              <Menu
+                                  attribute="primary_author.name"
+                                  limit={100}
+                              />
+                          </Panel>
+                      </div>  
+                  </InstantSearch>
+              </div>
           </Layout>
       )
   }
