@@ -69,6 +69,7 @@
             white-space: nowrap;
             color: #788190;
             line-height: 1;
+            transition: @transition;
             .input-field-interactions();
 
             .ais-Menu-count {
@@ -93,6 +94,12 @@
                   margin-right: 5px;
                 }
             }
+        }
+
+        .ais-Menu-item--selected {
+          background: @hover-color;
+          border-color: @hover-color;
+          color: white;
         }
     }
 
