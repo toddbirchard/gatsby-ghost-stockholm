@@ -101,20 +101,21 @@ class PostArchive extends Component {
                             attribute="tags.name"
                             limit={30}
                             showMore={true}
-                            showMoreLimit={30} />
+                            showMoreLimit={30} 
+                          />
                       </Panel>
                       
                       
                       <Panel>
-                      <div className="search-filters">
-                        <h2 className="filter-title">Authors</h2>
-                        <hr />
-                      </div>
-                      
-                    <Menu
-                        attribute="primary_author.name"
-                        limit={100}
-                    />
+                        <div className="search-filters">
+                          <h2 className="filter-title">Authors</h2>
+                          <hr />
+                        </div>
+                        
+                      <Menu
+                          attribute="primary_author.name"
+                          limit={100}
+                      />
                   </Panel>
                   <Hits hitComponent={Hit} />
                   <Pagination showFirst={false} />
