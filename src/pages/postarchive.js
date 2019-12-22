@@ -65,9 +65,9 @@ class PostArchive extends Component {
                   analytics={true}
                   searchState={this.state.searchState}
                   onSearchStateChange={this.onSearchStateChange}
-                  initialUiState={queries[1]}
+                  initialUiState={queries.allPostQuery}
               >
-                  <Configure query={queries} hitsPerPage={100} analytics={true}/>
+                  <Configure query={queries.allPostQuery} hitsPerPage={100} analytics={true}/>
                   
                       <h1>All Posts</h1>
                       <div className="search-bar-container">

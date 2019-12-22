@@ -181,7 +181,7 @@ module.exports = {
                 // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
             },
         },*/
-        {
+        /*{
             resolve: `gatsby-plugin-netlify`,
             options: {
                 headers: { "/*": [
@@ -195,7 +195,7 @@ module.exports = {
                 transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
                 generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
             },
-        },
+        },*/
         /**
          *  Utility Plugins
          */

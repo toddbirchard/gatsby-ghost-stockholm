@@ -58,6 +58,10 @@
           color: white !important;
       }
   }
+  
+  iframe {
+    padding: 0;
+  }
 
   a {
     text-decoration: none;
@@ -174,6 +178,8 @@
             flex-basis: 15rem;
             flex-grow: 1;
             position: relative;
+            min-width: 200px;
+            max-height: -webkit-fill-available;
             @media(max-width: @mobile-breakpoint) {
                 max-height: 400px;
                 overflow: hidden;
