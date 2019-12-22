@@ -39,9 +39,10 @@ class PostArchive extends Component {
   componentDidUpdate(prevProps) {
       if (prevProps.location !== this.props.location) {
           this.setState({ searchState: urlToSearchState(this.props.location) })
-      } else {
+      } 
+      /*else {
           return { query: `allPostQuery` }
-      }
+      }*/
   }
 
   onSearchStateChange = (searchState) => {
