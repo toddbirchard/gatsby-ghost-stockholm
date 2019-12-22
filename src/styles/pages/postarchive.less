@@ -26,7 +26,7 @@
         .search-bar-container {
             display: flex;
             justify-content: space-between;
-            margin: 20px 0;
+            margin: 20px 0 0;
             @media(max-width: @mobile-breakpoint) {
                 display: block;
             }
@@ -112,18 +112,18 @@
         max-width: unset;
         list-style: none;
         display: flex;
-        justify-content: left;
+        justify-content: space-between;
         align-items: center;
         padding: 0;
         flex-wrap: wrap;
 
         .ais-Menu-item {
-            padding: 7px;
+            padding: 5px;
             margin: 0;
             display: block;
             border: 1px solid #d2d9e2;
-            font-size: 0.8em;
-            margin: 0 5px 5px 0;
+            font-size: 0.75em;
+            margin: 0;
             background: rgba(255, 255, 255, .5);
             white-space: nowrap;
             color: #788190;
@@ -170,9 +170,6 @@
         grid-auto-rows: min-content;
         padding: 0;
         list-style: none;
-        @media(max-width: 1000px) {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
         @media(max-width: @tablet-breakpoint) {
             grid-template-columns: 1fr 1fr;
         }
@@ -209,7 +206,7 @@
 
             .post-card-excerpt {
                 margin: 12px auto 30px;
-                font-size: 0.95em !important;
+                font-size: 0.85em !important;
             }
 
             .post-card-detail {
