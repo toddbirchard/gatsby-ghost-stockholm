@@ -71,6 +71,17 @@ class PostArchive extends Component {
                       <h1>All Posts</h1>
                       <div className="search-bar-container">
                           <SearchBox className="searchbox" placeholder="Search" />
+                          {/*<MenuSelect
+                              attribute="primary_author.name"
+                              limit={100}
+                              transformItems={items => items.map((item) => {
+                                  return {
+                                      ...item,
+                                      label: item.label,
+                                  }
+                              })
+                              }
+                          />*/}
                           <SortBy
                               items={[
                                   { value: `hackers_posts_all`, label: `Relevance` },
@@ -79,22 +90,16 @@ class PostArchive extends Component {
                               ]}
                           />
                       </div>
-                      <MenuSelect
-                          attribute="primary_author.name"
-                          limit={100}
-                          transformItems={items => items.map((item) => {
-                              return {
-                                  ...item,
-                                  label: item.label,
-                              }
-                          })
-                          }
-                      />
+                      <hr />
                       <Menu
                           attribute="tags.name"
                           limit={100}
                       />
-
+                      <hr />
+                      <Menu
+                          attribute="primary_tag.name"
+                          limit={100}
+                      />
                   </Panel>
                   <Hits hitComponent={Hit} />
                   <Pagination showFirst={false} />
