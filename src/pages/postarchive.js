@@ -82,6 +82,13 @@ class PostArchive extends Component {
                       <MenuSelect
                           attribute="primary_author.name"
                           limit={100}
+                          transformItems={items => items.map((item) => {
+                              return {
+                                  ...item,
+                                  label: item.label,
+                              }
+                          })
+                          }
                       />
                       <Menu
                           attribute="tags.name"
