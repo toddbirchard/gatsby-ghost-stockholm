@@ -4,7 +4,6 @@
 .postarchive-template {
   width: 1200px !important;
 
-  
     .container {
         width: 1200px;
         max-width: 90%;
@@ -22,30 +21,13 @@
             font-size: 2.5em;
             margin: 0;
         }
-
-        .search-bar-container {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0 0;
+        
+        .ais-SearchBox {
+            width: 100%;
+            margin: 20px 0;
             @media(max-width: @mobile-breakpoint) {
-                display: block;
-            }
-
-            .ais-SearchBox {
-                width: 68%;
-                @media(max-width: @mobile-breakpoint) {
-                    width: 100%;
-                    margin-bottom: 7px;
-                }
-            }
-            
-            .ais-SortBy {
-                width: 30%;
-            }
-
-            .ais-MenuSelect-select,
-            .ais-SortBy-select {
-                .select-dropdown();
+                width: 100%;
+                margin-bottom: 7px;
             }
             
             input {
@@ -65,10 +47,24 @@
                     font-size: 1.2em;
                 }
             }
+        }
+
+        .search-bar-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0 0;
+            @media(max-width: @mobile-breakpoint) {
+                display: block;
+            }
+
+            .ais-MenuSelect-select,
+            .ais-SortBy-select {
+                .select-dropdown();
+            }
             
             .ais-MenuSelect,
             .ais-SortBy {
-                width: 30%;
+                width: 32%;
                 position: relative;
                 @media(max-width: @mobile-breakpoint) {
                     width: 100%;
@@ -166,7 +162,7 @@
     .ais-Hits-list {
         display: grid;
         grid-gap: 15px;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-auto-rows: min-content;
         padding: 0;
         list-style: none;

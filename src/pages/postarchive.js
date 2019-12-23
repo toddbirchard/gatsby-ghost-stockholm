@@ -74,8 +74,22 @@ class PostArchive extends Component {
                       <div className="search-body">
                           <div className="postarchive-header">
                               <h1>All Posts</h1>
+                              
+                              <SearchBox className="searchbox" placeholder="Search" />
+                              {/*<SortBy
+                                      items={[
+                                          { value: `hackers_posts_all`, label: `Relevance` },
+                                          { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
+                                          { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
+                                      ]}
+                                  />*/}
                               <div className="search-bar-container">
-                                  <SearchBox className="searchbox" placeholder="Search" />
+                                  <MenuSelect
+                                      attribute="tags.name"
+                                  />
+                                  <MenuSelect
+                                      attribute="primary_author.name"
+                                  />
                                   <SortBy
                                       items={[
                                           { value: `hackers_posts_all`, label: `Relevance` },
@@ -89,10 +103,10 @@ class PostArchive extends Component {
                           <Pagination showFirst={false} />
                       </div>
                                             
-                      <div className="search-filters">
+                      {/*<div className="search-filters">
                           <Panel className="tag filter">
                               <h2 className="filter-title">Tags</h2>
-                              <Menu
+                              <MenuSelect
                                   attribute="tags.name"
                                   limit={30}
                                   showMore={true}
@@ -102,12 +116,12 @@ class PostArchive extends Component {
                       
                           <Panel className="author filter">
                               <h2 className="filter-title">Authors</h2>
-                              <Menu
+                              <MenuSelect
                                   attribute="primary_author.name"
                                   limit={100}
                               />
                           </Panel>
-                      </div>  
+                      </div> */} 
                   </InstantSearch>
               </div>
           </Layout>
