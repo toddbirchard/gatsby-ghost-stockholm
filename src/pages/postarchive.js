@@ -76,9 +76,9 @@ class PostArchive extends Component {
                           <div className="postarchive-header">
                               <h1>All Posts</h1>
                               
-                              <div>
-                                  <SearchBox className="searchbox" placeholder="Search" />
-                                  <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" /> 
+                              <div className="searchbar-container">
+                                  <SearchBox className="searchbox" placeholder="Search" showLoadingIndicator />
+                                  <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" /> 
                               </div>
                               {/*<SortBy
                                       items={[
@@ -92,10 +92,12 @@ class PostArchive extends Component {
                                       attribute="tags.name"
                                       limit={40}
                                       defaultRefinement=""
+                                      placeholder="Filter by tag"
                                   />
                                   <MenuSelect
                                       attribute="primary_author.name"
                                       defaultRefinement=""
+                                      placeholder="Filter by author"
                                   />
                                   <SortBy
                                       items={[

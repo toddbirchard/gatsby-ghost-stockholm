@@ -16,37 +16,57 @@
         margin-bottom: 20px;
 
         h1 {
-            font-family: @header-font-light;
-            font-size: 2.5em;
-            margin: 0;
+          font-family: @header-font-light;
+          font-size: 2.5em;
+          margin: 0;
+          font-weight: normal;
+          color: @header-color;
         }
         
-        .ais-SearchBox {
-            width: 100%;
-            margin: 20px 0;
-            @media(max-width: @mobile-breakpoint) {
-                width: 100%;
-                margin-bottom: 7px;
-            }
-            
-            input {
-                transition: all 0.2s ease-out;
-                margin: 0;
-                background: white;
-                border-radius: 0;
-                width: 100% !important;
-                line-height: normal;
-                padding: 15px;
-                font-size: 1em;
-                max-width: -webkit-fill-available;
-                border: 1px solid #dfdede;
-                .input-field-interactions();
-                @media(max-width: @mobile-breakpoint) {
-                    padding: 17px 22px;
-                    font-size: 1.2em;
-                }
-            }
+        .searchbar-container {
+          position: relative;
+          
+          svg {
+            position: absolute !important;
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            color: #606060;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            opacity: .8;
+          }
         }
+        
+        .ais-SearchBox-form {
+          width: 100%;
+              margin: 20px 0;
+              position: relative;
+              @media(max-width: @mobile-breakpoint) {
+                  width: 100%;
+                  margin-bottom: 7px;
+              }
+              
+              input {
+                  transition: all 0.2s ease-out;
+                  margin: 0;
+                  background: white;
+                  border-radius: 0;
+                  width: 100% !important;
+                  line-height: normal;
+                  padding: 15px;
+                  font-size: 1em;
+                  max-width: -webkit-fill-available;
+                  border: 1px solid #dfdede;
+                  .input-field-interactions();
+                  @media(max-width: @mobile-breakpoint) {
+                      padding: 17px 22px;
+                      font-size: 1.2em;
+                  }
+              }
+        }
+      
 
         .search-bar-container {
             display: flex;
@@ -215,8 +235,9 @@
 
                 .meta-item {
                     margin: 0;
-                    font-size: 0.85em;
+                    font-size: 0.8em;
                     line-height: 1;
+                    opacity: .8;
 
                     * {
                         line-height: 1;
