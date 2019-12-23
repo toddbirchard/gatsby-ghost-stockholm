@@ -15,6 +15,7 @@ import qs from 'qs'
 import PropTypes from 'prop-types'
 import { Layout, PostCard } from '../components/common'
 import { queries } from '../utils/algolia'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import '../styles/pages/postarchive.less'
 
@@ -75,7 +76,10 @@ class PostArchive extends Component {
                           <div className="postarchive-header">
                               <h1>All Posts</h1>
                               
-                              <SearchBox className="searchbox" placeholder="Search" />
+                              <div>
+                                  <SearchBox className="searchbox" placeholder="Search" />
+                                  <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" /> 
+                              </div>
                               {/*<SortBy
                                       items={[
                                           { value: `hackers_posts_all`, label: `Relevance` },
@@ -86,9 +90,12 @@ class PostArchive extends Component {
                               <div className="search-bar-container">
                                   <MenuSelect
                                       attribute="tags.name"
+                                      limit={40}
+                                      defaultRefinement=""
                                   />
                                   <MenuSelect
                                       attribute="primary_author.name"
+                                      defaultRefinement=""
                                   />
                                   <SortBy
                                       items={[
@@ -96,6 +103,7 @@ class PostArchive extends Component {
                                           { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
                                           { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
                                       ]}
+                                      defaultRefinement="hackers_posts_all"
                                   />
                               </div>
                           </div>
