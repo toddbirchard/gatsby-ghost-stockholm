@@ -138,6 +138,10 @@
         border-radius: 4px;
         transition: @transition;
         margin: 0;
+        @media(max-width: 900px) {
+            width: 210px !important;
+            font-size: .9em;
+        }
 
         &::placeholder {
             color: lighten(grey, 2%);
