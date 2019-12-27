@@ -7,6 +7,9 @@
         width: 1200px;
         max-width: 90%;
         margin: 50px auto 0;
+        @media(max-width: @mobile-breakpoint) {
+          margin: 0 auto;
+        }
     }
 
     .postarchive-header {
@@ -15,6 +18,10 @@
         box-shadow: @box-shadow;
         margin-bottom: 20px;
 
+        @media(max-width: @mobile-breakpoint) {
+          .mobile-full-width();
+        }
+
         h1 {
           font-family: @header-font-light;
           font-size: 2.5em;
@@ -22,10 +29,10 @@
           font-weight: normal;
           color: @header-color;
         }
-        
+
         .searchbar-container {
           position: relative;
-          
+
           svg {
             position: absolute !important;
             right: 20px;
@@ -38,7 +45,7 @@
             opacity: .8;
           }
         }
-        
+
         .ais-SearchBox-form {
           width: 100%;
               margin: 20px 0;
@@ -47,7 +54,7 @@
                   width: 100%;
                   margin-bottom: 7px;
               }
-              
+
               input {
                   transition: all 0.2s ease-out;
                   margin: 0;
@@ -61,12 +68,12 @@
                   border: 1px solid #dfdede;
                   .input-field-interactions();
                   @media(max-width: @mobile-breakpoint) {
-                      padding: 17px 22px;
-                      font-size: 1.2em;
+                    padding: 15px;
+                    font-size: 1em;
                   }
               }
         }
-      
+
 
         .search-bar-container {
             display: flex;
@@ -80,7 +87,7 @@
             .ais-SortBy-select {
                 .select-dropdown();
             }
-            
+
             .ais-MenuSelect,
             .ais-SortBy {
                 width: 32%;
@@ -102,17 +109,26 @@
                     border-right: 8px solid transparent;
                     border-top: 8px solid #c9c9c9;
                     clear: both;
+                    @media(max-width: @mobile-breakpoint) {
+                      right: 15px;
+                    }
                 }
             }
-        }  
+
+            .ais-MenuSelect {
+              @media(max-width: @mobile-breakpoint) {
+                  margin-bottom: 5px;
+              }
+            }
+        }
     }
-    
+
     .search-filters {
         padding: 20px;
         background: white;
         box-shadow: @box-shadow;
         grid-auto-rows: min-content;
-        
+
         .filter-title {
             padding: 0 0 5px;
             font-size: 1.1em;
@@ -122,7 +138,7 @@
             border-bottom: 1px solid #d1d8df;
         }
     }
-    
+
     .ais-Menu-list {
         max-width: unset;
         list-style: none;
