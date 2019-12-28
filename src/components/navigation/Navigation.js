@@ -18,7 +18,6 @@ import { stack as Menu } from 'react-burger-menu'
 
 const searchIndices = [
     { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
-    { name: `hackers_posts_all`, title: `Posts`, hitComp: `PostHit` },
 ]
 
 const Navigation = ({ data, logo, mobileLogo, template }) => (
