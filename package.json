@@ -16,7 +16,7 @@
     "JAMStack"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-ghost": "^0.6.0",
     "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-react": "^7.17.0",
     "less": "^3.10.3",
     "postcss-at2x": "^4.0.3",

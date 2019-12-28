@@ -4,9 +4,7 @@ import {
     SearchBox,
     Configure,
     Hits,
-    Menu,
     Pagination,
-    Panel,
     SortBy,
     MenuSelect,
 } from 'react-instantsearch-dom'
@@ -14,7 +12,6 @@ import algoliasearch from 'algoliasearch'
 import qs from 'qs'
 import PropTypes from 'prop-types'
 import { Layout, PostCard } from '../components/common'
-import { queries } from '../utils/algolia'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import '../styles/pages/postarchive.less'
@@ -40,10 +37,10 @@ class PostArchive extends Component {
   componentDidUpdate(prevProps) {
       if (prevProps.location !== this.props.location) {
           this.setState({ searchState: urlToSearchState(this.props.location) })
-      } 
+      }
       /*else {
           return { query: `allPostQuery` }
-      }*/ 
+      }*/
   }
 
   onSearchStateChange = (searchState) => {
@@ -75,18 +72,11 @@ class PostArchive extends Component {
                       <div className="search-body">
                           <div className="postarchive-header">
                               <h1>All Posts</h1>
-                              
+
                               <div className="searchbar-container">
                                   <SearchBox className="searchbox" placeholder="Search" showLoadingIndicator />
-                                  <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" /> 
+                                  <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
                               </div>
-                              {/*<SortBy
-                                      items={[
-                                          { value: `hackers_posts_all`, label: `Relevance` },
-                                          { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
-                                          { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
-                                      ]}
-                                  />*/}
                               <div className="search-bar-container">
                                   <MenuSelect
                                       attribute="tags.name"
@@ -112,26 +102,6 @@ class PostArchive extends Component {
                           <Hits hitComponent={Hit} />
                           <Pagination showFirst={false} />
                       </div>
-                                            
-                      {/*<div className="search-filters">
-                          <Panel className="tag filter">
-                              <h2 className="filter-title">Tags</h2>
-                              <MenuSelect
-                                  attribute="tags.name"
-                                  limit={30}
-                                  showMore={true}
-                                  showMoreLimit={30} 
-                              />
-                          </Panel>
-                      
-                          <Panel className="author filter">
-                              <h2 className="filter-title">Authors</h2>
-                              <MenuSelect
-                                  attribute="primary_author.name"
-                                  limit={100}
-                              />
-                          </Panel>
-                      </div> */} 
                   </InstantSearch>
               </div>
           </Layout>
