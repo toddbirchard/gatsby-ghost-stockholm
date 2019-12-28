@@ -408,6 +408,12 @@
     to = "/node-aws-sdk-s3/"
     status = 301
 
+[[redirects]]
+    from = "/getting-started-google-big-query-python/"
+    to = "/google-bigquery-python/"
+    status = 301
+
+
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
   for = "/*"
