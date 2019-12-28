@@ -12,8 +12,8 @@ module.exports = {
     siteIcon: `favicon.png`, // Logo in /static dir used for SEO, RSS, and App manifest
     backgroundColor: `#ecf1f9`, // Used for Offline Manifest
     themeColor: `#0297f6`, // Used for Offline Manifest
-    mobileLogo: `/images/logo-mobile@2x.png`,
-    introVideo: `https://vimeo.com/265866802`,
+    mobileLogo: `/images/logo-mobile@2x.png`, // OPTIONAL: Swap logo in header with mobile-friendly logo
+    introVideo: `https://vimeo.com/265866802`, // OPTIONAL: Video URL to be used in "about" page
 
     social: {
         github: `https://github.com/hackersandslackers`,

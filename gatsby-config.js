@@ -42,6 +42,7 @@ module.exports = {
         description: config.siteDescriptionMeta,
     },
     plugins: [
+        `gatsby-plugin-preload-link-crossorigin`,
         /**
          *  Content Plugins
          */
