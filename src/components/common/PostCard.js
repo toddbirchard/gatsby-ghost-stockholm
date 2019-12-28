@@ -21,14 +21,20 @@ const PostCard = ({ post }) => {
                     <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
                     <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id} />
                 </div> : null }
-                <div className="meta-item reading-item"> <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" /> <span>{readingTime}</span> </div>
+                <div className="meta-item reading-item">
+                    <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" />
+                    <span>{readingTime}</span>
+                </div>
                 { post.primary_author && <div className="meta-item author">
                     <Link to={`/author/${post.primary_author.slug}`}>
                         <FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs" />
                         <span>{authorFirstName}</span>
                     </Link>
                 </div>}
-                <div className="meta-item date"> <FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" /> <span>{post.published_at_pretty}</span> </div>
+                <div className="meta-item date">
+                    <FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" />
+                    <span>{post.published_at_pretty}</span>
+                </div>
             </footer>
         </div>
     </div>)

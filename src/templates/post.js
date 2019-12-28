@@ -45,9 +45,10 @@ const Post = ({ data, location }) => {
                                     <span>{authorFirstName}</span>
                                 </Link>
                             </div>
-                            <div className="meta-item tag">
-                                <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />{tags && <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>}
-                            </div>
+                            {tags && <div className="meta-item tag">
+                                <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
+                                <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>
+                            </div>}
                             <div className="meta-item reading-time">
                                 <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" swapOpacity />
                                 <span>{readingTime}</span>
@@ -65,7 +66,6 @@ const Post = ({ data, location }) => {
                     </div>
 
                     <article className="post">
-
                         { seriesPosts
                             ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
                             : null
@@ -81,7 +81,7 @@ const Post = ({ data, location }) => {
 
                 <section className="post-footer">
                     <div id="commento"></div>
-                    {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+                    {relatedPosts && <RelatedPosts data={relatedPosts} /> }
                     <NewsletterWidget/>
                 </section>
 
