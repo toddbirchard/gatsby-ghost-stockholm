@@ -35,14 +35,10 @@
         font-weight: normal;
         @media(max-width: 1000px) {
             font-size: 1.7em;
-            font-family: @header-font-secondary;
         }
         @media(max-width: @mobile-breakpoint) {
           font-size: 1.5em;
           margin-bottom: 0;
-        }
-        @media(max-width: 500PX) {
-          font-size: 1.3em;
         }
 
         &:hover {
@@ -91,7 +87,7 @@
               font-size: 1.1em;
             }
             @media(max-width: @mobile-breakpoint) {
-              font-size: .95em;
+              font-size: 1em;
             }
         }
     }
@@ -121,6 +117,7 @@
 
             a {
                 color: #7e8da3;
+                transition: @transition;
             }
 
             span {
