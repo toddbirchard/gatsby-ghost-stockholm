@@ -284,8 +284,12 @@
 
 @media (max-width: 600px) {
     .commento-root .commento-submit-button {
-        right: 10px !important;
-        top: 82px !important;
+      right: 10px !important;
+      top: 86px !important;
+      padding: 10px 10px !important;
+      line-height: 1;
+      height: unset;
+      font-size: 0.7em !important;
     }
 }
 
