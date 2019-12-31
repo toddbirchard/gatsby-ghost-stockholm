@@ -49,8 +49,13 @@
   }
 
   .EmbeddedTweet {
-    max-width: 100% !important;
+    max-width: unset !important;
     width: 100%;
+  }
+
+  .twitter-tweet {
+    width: 100% !important;
+    margin: 0 !important;
   }
 
   iframe {
@@ -169,7 +174,6 @@
             flex-grow: 1;
             position: relative;
             min-width: 200px;
-            max-height: -webkit-fill-available;
             @media(max-width: @mobile-breakpoint) {
                 max-height: 400px;
                 overflow: hidden;
