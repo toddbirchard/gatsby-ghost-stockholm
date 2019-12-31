@@ -2,13 +2,22 @@
 @import '../mixins.less';
 
 .postarchive-template {
-
     .container {
         width: 1200px;
-        max-width: 90%;
+        max-width: 95%;
         margin: 50px auto 0;
+        @media(max-width: @tablet-breakpoint) {
+            max-width: 90%;
+        }
         @media(max-width: @mobile-breakpoint) {
-          margin: 0 auto;
+            margin: 0 auto;
+        }
+    }
+
+    .nav-wrapper {
+        max-width: 1200px;
+        @media (max-width: 1200px) {
+            max-width: 95%;
         }
     }
 
@@ -17,63 +26,61 @@
         padding: 30px;
         box-shadow: @box-shadow;
         margin-bottom: 20px;
-
         @media(max-width: @mobile-breakpoint) {
-          .mobile-full-width();
+            .mobile-full-width();
         }
 
         h1 {
-          font-family: @header-font-light;
-          font-size: 2.5em;
-          margin: 0;
-          font-weight: normal;
-          color: @header-color;
+            font-family: @header-font-light;
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: normal;
+            color: @header-color;
         }
 
         .searchbar-container {
-          position: relative;
+            position: relative;
 
-          svg {
-            position: absolute !important;
-            right: 20px;
-            top: 0;
-            bottom: 0;
-            color: #606060;
-            margin: auto;
-            width: 20px;
-            height: 20px;
-            opacity: .8;
-          }
+            svg {
+                position: absolute !important;
+                right: 20px;
+                top: 0;
+                bottom: 0;
+                color: #606060;
+                margin: auto;
+                width: 20px;
+                height: 20px;
+                opacity: 0.8;
+            }
         }
 
         .ais-SearchBox-form {
-          width: 100%;
-              margin: 20px 0;
-              position: relative;
-              @media(max-width: @mobile-breakpoint) {
-                  width: 100%;
-                  margin-bottom: 7px;
-              }
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+            @media(max-width: @mobile-breakpoint) {
+                width: 100%;
+                margin-bottom: 7px;
+            }
 
-              input {
-                  transition: all 0.2s ease-out;
-                  margin: 0;
-                  background: white;
-                  border-radius: 0;
-                  width: 100% !important;
-                  line-height: normal;
-                  padding: 15px;
-                  font-size: 1em;
-                  max-width: -webkit-fill-available;
-                  border: 1px solid #dfdede;
-                  .input-field-interactions();
-                  @media(max-width: @mobile-breakpoint) {
+            input {
+                transition: all 0.2s ease-out;
+                margin: 0;
+                background: white;
+                border-radius: 0;
+                width: 100% !important;
+                line-height: normal;
+                padding: 15px;
+                font-size: 1em;
+                max-width: -webkit-fill-available;
+                border: 1px solid #dfdede;
+                .input-field-interactions();
+                @media(max-width: @mobile-breakpoint) {
                     padding: 15px;
                     font-size: 1em;
-                  }
-              }
+                }
+            }
         }
-
 
         .search-bar-container {
             display: flex;
@@ -110,15 +117,15 @@
                     border-top: 8px solid #c9c9c9;
                     clear: both;
                     @media(max-width: @mobile-breakpoint) {
-                      right: 15px;
+                        right: 15px;
                     }
                 }
             }
 
             .ais-MenuSelect {
-              @media(max-width: @mobile-breakpoint) {
-                  margin-bottom: 5px;
-              }
+                @media(max-width: @mobile-breakpoint) {
+                    margin-bottom: 5px;
+                }
             }
         }
     }
@@ -214,11 +221,11 @@
             line-height: 0;
             position: relative;
             overflow: hidden;
+            box-shadow: @box-shadow;
         }
 
         .post-card {
             height: 100%;
-            box-shadow: @box-shadow;
 
             .post-card-title {
                 font-size: 1.2em;
@@ -236,7 +243,7 @@
             }
 
             .post-card-excerpt {
-                margin: 12px auto 30px;
+                margin: 10px auto 30px;
                 font-size: 0.9em;
             }
 
@@ -253,7 +260,7 @@
                     margin: 0;
                     font-size: 0.8em;
                     line-height: 1;
-                    opacity: .8;
+                    opacity: 0.8;
 
                     * {
                         line-height: 1;
