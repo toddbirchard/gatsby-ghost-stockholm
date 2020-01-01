@@ -24,6 +24,7 @@ module.exports = {
 
     appIDs: {
         facebook: `2459570624150585`,
+        google: `SWC9VHRq1q2D7lK4vSVi8kkDd6AuEWpWz6ECAeN9di8`,
     },
 
     siteGithubOrg: `https://github.com/hackersandslackers/jupyter.git`,

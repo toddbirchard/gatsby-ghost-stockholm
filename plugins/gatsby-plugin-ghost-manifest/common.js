@@ -1,8 +1,8 @@
 "use strict";
 
-var fs = require("fs");
+var fs = require("fs"); // default icons for generating icons
 
-// default icons for generating icons
+
 exports.defaultIcons = [{
   src: "icons/icon-48x48.png",
   sizes: "48x48",

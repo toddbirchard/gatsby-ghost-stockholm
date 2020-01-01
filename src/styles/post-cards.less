@@ -40,6 +40,9 @@
           font-size: 1.5em;
           margin-bottom: 0;
         }
+        @media(max-width: 450px) {
+          font-size: 1.4em;
+        }
 
         &:hover {
             color: @hover-color;
@@ -113,6 +116,9 @@
             @media(max-width: @tablet-breakpoint) {
                 margin-right: 25px;
             }
+            @media(max-width: @mobile-breakpoint) {
+                font-size: 0.85em;
+            }
 
             a {
                 color: #7e8da3;
@@ -121,6 +127,7 @@
 
             span {
                 white-space: nowrap;
+                transition: @transition;
             }
 
             svg {

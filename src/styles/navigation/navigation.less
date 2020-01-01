@@ -195,8 +195,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0 0;
+    margin: 25px 0 0;
     background: none;
+    @media(max-width: @tablet-breakpoint) {
+      margin: 30px 0 0;
+    }
+    @media(max-width: @mobile-breakpoint) {
+      margin: 30px 0 20px;
+    }
 
     .pagination-location {
         position: absolute;
