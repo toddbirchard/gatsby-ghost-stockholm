@@ -338,12 +338,16 @@
                 margin: 0 0 20px;
             }
 
-            ol,
-            ul {
+            & > ol,
+            & > ul {
                 margin: 0 10px 30px;
                 @media(max-width:600px) {
                     margin: 20px 15px 25px;
                     padding-left: 15px;
+                }
+
+                ul {
+                  padding-left: 1em;
                 }
 
                 li {
@@ -353,8 +357,8 @@
 
                     & > ul {
                         margin: 10px 0;
-                        font-size: 0.9em;
                         margin-top: 10px;
+
 
                         li {
                             margin: 0 0 0 10px;
@@ -388,9 +392,9 @@
               overflow: hidden;
               margin: 40px auto;
               border-radius: 5px;
-              line-height: 1.45;
+              line-height: 1.5;
               position: relative;
-              color: #967f55;
+              color: #967855;
               box-shadow: -1px 1px 0 #f1ddce;
                 @media(max-width: @mobile-breakpoint) {
                     line-height: 1.6;
