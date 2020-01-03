@@ -41,7 +41,7 @@
           margin-bottom: 0;
         }
         @media(max-width: 450px) {
-          font-size: 1.4em;
+          font-size: 1.3em;
         }
 
         &:hover {
@@ -76,7 +76,8 @@
             line-height: 1.25;
             transition: all 0.2s ease-out;
             color: #616671;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            font-weight: 500;
             letter-spacing: -.5px;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -85,11 +86,13 @@
             overflow: hidden;
             width: 100%;
             font-family: @body-font;
+            font-weight: 600;
             @media(max-width: @tablet-breakpoint) {
               margin: 12px auto 20px;
+              font-weight: 500;
             }
             @media(max-width: @mobile-breakpoint) {
-              font-size: 1em;
+              font-size: 1.1em;
             }
         }
     }
@@ -106,6 +109,7 @@
 
         .meta-item {
             font-family: @body-font-bold;
+            font-weight: 600;
             margin-right: 30px;
             color: #7e8da3;
             font-size: 0.9em;

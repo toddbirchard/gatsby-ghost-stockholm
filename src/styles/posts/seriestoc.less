@@ -35,7 +35,7 @@
             &::before {
                 content: counter(my-awesome-counter) ". ";
                 color: darken(@theme-color, 20%);
-                font-family: @body-font-bold;
+                font-family: @header-font-secondary;
                 font-size: 15px;
                 display: inline-block;
                 margin-right: 8px;
@@ -70,6 +70,7 @@
 
             a {
                 font-family: @body-font;
+                font-weight: 600;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 width: 100%;
@@ -100,12 +101,11 @@
                 font-size: 1em;
                 white-space: nowrap;
                 min-width: 60px;
-                font-family: @body-font-bold;
+                font-family: @body-font;
+                font-weight: 600;
                 @media(max-width: @mobile-breakpoint) {
                     min-width: 54px;
                     margin-right: 2px;
-                    font-weight: normal;
-                    font-size: 0.9em;
                 }
             }
 

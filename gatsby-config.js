@@ -144,8 +144,11 @@ module.exports = {
         {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
+                typekit: {
+                    families: [`proxima-nova`, `canada-type-gibson`],
+                },
                 custom: {
-                    families: [`Genera-Book`, `Genera-Medium`, `Genera-Regular`, `TTNormsPro-Regular`, `TTNormsPro-Bold`],
+                    families: [`TTNormsPro-Bold`, `TTNormsPro-Regular`, `TTNormsPro-Regular`],
                     urls: [`/fonts.css`],
                 },
                 timeout: 7000,
