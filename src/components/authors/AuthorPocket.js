@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const AuthorPocketWidget = ({ data }) => {
+const AuthorPocket = ({ data }) => {
     const pocketLinks = data.allPocketArticle.edges
 
     return (
@@ -21,7 +21,7 @@ const AuthorPocketWidget = ({ data }) => {
     )
 }
 
-AuthorPocketWidget.propTypes = {
+AuthorPocket.propTypes = {
     data: PropTypes.shape({
         allPocketArticle: PropTypes.object,
     }).isRequired,
@@ -55,7 +55,7 @@ const AuthorPocketQuery = props => (
             }
           }
         `}
-        render={data => <AuthorPocketWidget data={data} {...props} />}
+        render={data => <AuthorPocket data={data} {...props} />}
     />
 )
 

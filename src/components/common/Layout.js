@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
+import { AuthorSidebar } from '../authors'
 import config from '../../utils/siteConfig'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import 'lazysizes'
@@ -63,7 +64,7 @@ library.add(faTags,
 *
 */
 
-const DefaultLayout = ({ data, children, hasSidebar, template }) => {
+const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => {
     const site = data.allGhostSettings.edges[0].node
     const tags = data.allGhostTag.edges
 
@@ -88,7 +89,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
                 <div className={ hasSidebar ? `home-container` : `container` }>
                     {/* All the main content gets inserted here, index.js, post.js */}
                     {children}
-                    { hasSidebar ? <Sidebar site={site} tags={tags} template={template} /> : null}
+                    { template === `author-template` ? <AuthorSidebar className="sidebar" authorData={authorData} /> : <Sidebar site={site} tags={tags} template={template} />}
                 </div>
             </div>
             {/* The footer at the very bottom of the screen */}
@@ -100,7 +101,9 @@ const DefaultLayout = ({ data, children, hasSidebar, template }) => {
 DefaultLayout.propTypes = {
     children: PropTypes.node.isRequired,
     hasSidebar: PropTypes.bool,
+    hasAuthorSidebar: PropTypes.bool,
     template: PropTypes.string,
+    authorTrendingPosts: PropTypes.object,
     data: PropTypes.shape({
         allGhostSettings: PropTypes.object.isRequired,
         allGhostTag: PropTypes.object.isRequired,

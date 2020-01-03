@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-// import { AuthorTwitterWidget } from '../components/sidebar/authors'
 import { Layout, PostCard } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { AuthorCard } from '../components/authors'
@@ -9,6 +8,7 @@ import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/index.less'
 import '../styles/author-card.less'
+import '../styles/sidebar.less'
 
 /**
 * Author page (/author/:slug)
@@ -19,6 +19,7 @@ import '../styles/author-card.less'
 const Author = ({ data, location, pageContext }) => {
     const author = data.ghostAuthor
     const posts = data.allGhostPost.edges
+    const authorTrendingPosts = data.authorTrendingPosts
     // const authorTweets = data.authorTweets.edges
     // const authorTwitterUser = data.authorTwitterProfile.user
 
@@ -29,7 +30,7 @@ const Author = ({ data, location, pageContext }) => {
                 location={location}
                 type="profile"
             />
-            <Layout template="author-template" hasSidebar={true}>
+            <Layout template="author-template" hasSidebar={true} authorData={data}>
                 <div className="author-container">
                     <AuthorCard author={author} headerClass={false} page={`author`}/>
                     <section className="post-feed">
@@ -108,6 +109,12 @@ Author.propTypes = {
                 screen_name: PropTypes.string.isRequired,
             }).isRequired,
         }),
+        authorTrendingPosts: PropTypes.shape({
+            title: PropTypes.string,
+            url: PropTypes.string,
+            views: PropTypes.number,
+        }),
+        authorPocket: PropTypes.object,
     }).isRequired,
     location: PropTypes.shape({
         pathname: PropTypes.string.isRequired,
@@ -157,5 +164,37 @@ export const pageQuery = graphql`
             screen_name
           }
        }
+       authorTrendingPosts: allMysqlMonthlyPageAnalytics(sort: {fields: views, order: DESC}, filter: {author_slug: {eq: $slug}, views: {gt: 10}}, limit: 10) {
+        edges {
+          node {
+            title
+            url
+            views
+            slug
+          }
+        }
+      }
+      authorPocket: allPocketArticle(sort: {fields: readDay, order: DESC}, filter: {title: {nin: [null, ""]}}) {
+        edges {
+          node {
+            id
+            url
+            title
+            excerpt
+            is_article
+            has_image
+            word_count
+            time_read
+            articleDomain
+            domainFavicon
+            image {
+              item_id
+              src
+              width
+              height
+            }
+          }
+        }
+      }
     }
 `
