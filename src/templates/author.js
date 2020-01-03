@@ -19,7 +19,7 @@ import '../styles/sidebar.less'
 const Author = ({ data, location, pageContext }) => {
     const author = data.ghostAuthor
     const posts = data.allGhostPost.edges
-    const authorTrendingPosts = data.authorTrendingPosts
+    const authorData = data
     // const authorTweets = data.authorTweets.edges
     // const authorTwitterUser = data.authorTwitterProfile.user
 
@@ -30,7 +30,7 @@ const Author = ({ data, location, pageContext }) => {
                 location={location}
                 type="profile"
             />
-            <Layout template="author-template" hasSidebar={true} authorData={data}>
+            <Layout template="author-template" hasSidebar={true} authorData={authorData}>
                 <div className="author-container">
                     <AuthorCard author={author} headerClass={false} page={`author`}/>
                     <section className="post-feed">
@@ -39,7 +39,6 @@ const Author = ({ data, location, pageContext }) => {
                         ))}
                         <Pagination pageContext={pageContext} />
                     </section>
-                    {/*<AuthorTwitterWidget authorTweets={authorTweets} authorProfile={authorTwitterUser} />*/}
                 </div>
             </Layout>
         </>

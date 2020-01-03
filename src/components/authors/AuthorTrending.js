@@ -4,8 +4,8 @@ import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import config from '../../utils/siteConfig'
 
-const TrendingAuthorWidget = ({ authorTrendingPosts }) => {
-    const topPages = authorTrendingPosts
+const TrendingAuthorWidget = ({ authorData }) => {
+    const topPages = authorData.authorTrendingPosts.edges
 
     return (
         <div className="widget trending">

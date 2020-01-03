@@ -42,7 +42,6 @@ module.exports = {
         description: config.siteDescriptionMeta,
     },
     plugins: [
-        `gatsby-plugin-preload-link-crossorigin`,
         /**
          *  Content Plugins
          */
@@ -160,7 +159,7 @@ module.exports = {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
                 typekit: {
-                    families: [`proxima-nova`, `canada-type-gibson`],
+                    families: [`proxima-nova`],
                 },
                 custom: {
                     families: [`TTNormsPro-Bold`, `TTNormsPro-Regular`, `TTNormsPro-Regular`],

@@ -6,15 +6,14 @@ import { AuthorTrending } from '.'
 */
 
 const AuthorSidebar = ({ authorData }) => {
-    //const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     // const authorTweets = authorData.authorTweets.edges
     //const authorTwitterProfile = authorData.authorTwitterProfile.edges
-    const authorTrendingPosts = authorData.authorTrendingPosts.edges
+    const authorTrendingPosts = authorData
 
     return (
         <>
             <aside className="AuthorSidebar">
-                <AuthorTrending authorTrendingPosts={authorTrendingPosts}/>
+                <AuthorTrending />
             </aside>
         </>
     )

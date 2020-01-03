@@ -4,7 +4,6 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
-import { AuthorSidebar } from '../authors'
 import config from '../../utils/siteConfig'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import 'lazysizes'
@@ -86,10 +85,11 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
             <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} template={template} />
             <div className="viewport">
 
-                <div className={ hasSidebar ? `home-container` : `container` }>
+                <div className={ hasSidebar ? `sidebar-container` : `container` }>
                     {/* All the main content gets inserted here, index.js, post.js */}
                     {children}
-                    { template === `author-template` ? <AuthorSidebar className="sidebar" authorData={authorData} /> : <Sidebar site={site} tags={tags} template={template} />}
+                    { hasSidebar }
+                    <Sidebar site={site} tags={tags} template={template} authorData={authorData} />
                 </div>
             </div>
             {/* The footer at the very bottom of the screen */}

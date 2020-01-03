@@ -6,11 +6,13 @@ import { AboutWidget,
     TagsWidget,
     TrendingWidget,
     TwitterWidget } from '.'
+import { AuthorTrending, AuthorPocket } from '../authors'
+
 /**
 * Sidebar component
 */
 
-const Sidebar = ({ site, tags, template }) => {
+const Sidebar = ({ site, tags, template, authorData }) => {
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
 
@@ -18,10 +20,10 @@ const Sidebar = ({ site, tags, template }) => {
         <>
             <aside className="sidebar">
                 {template === `home-template` ? <AboutWidget site={site} /> : null }
+                {template === `author-template` ? <AuthorTrending authorData={authorData} /> : null }
                 <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
-                <TrendingWidget />
+                {template === `home-template` ? <TrendingWidget /> : null }
                 <TagsWidget tags={tags} />
-                {/* <SeriesWidget />*/}
                 <NewsletterWidget />
                 <TwitterWidget />
             </aside>
