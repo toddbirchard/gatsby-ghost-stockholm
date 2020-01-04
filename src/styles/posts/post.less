@@ -12,8 +12,10 @@
             margin: 0 auto;
             padding-top: 60px;
             max-width: 900px;
+            display: flex;
+            flex-direction: column;
             @media(max-width: @mobile-breakpoint) {
-                padding: 60px 20px 0;
+                padding: 0 20px 0;
                 display: flex;
                 flex-direction: column;
             }
@@ -30,7 +32,8 @@
                 max-width: 720px;
                 margin: 0 auto 20px;
                 letter-spacing: -1px;
-                font-weight: normal;
+                font-weight: unset;
+                font-weight: unset;
                 @media(max-width: @tablet-breakpoint) {
                     max-width: 95%;
                     font-size: 2em;
@@ -38,9 +41,9 @@
                 @media(max-width: @mobile-breakpoint) {
                     font-size: 1.5em;
                     max-width: unset;
-                    letter-spacing: 0;
-                    line-height: 1.1;
-                    margin: 0 auto;
+                    line-height: 1.2;
+                    order: 1;
+                    margin: 40px auto 0;
                 }
 
                 @media(max-width: 450px) {
@@ -62,7 +65,8 @@
             }
             @media(max-width: @mobile-breakpoint) {
                 order: 3;
-                margin-top: 60px;
+                margin: 0;
+                order: 0;
                 .mobile-full-width();
             }
 
@@ -88,9 +92,9 @@
                 padding: 0;
                 max-width: none;
                 width: auto;
-                margin: 15px 0 6px;
-                order: 2;
+                margin: 20px 0 6px;
                 flex-wrap: wrap;
+                order: 2;
             }
 
             .tags {
@@ -113,6 +117,7 @@
                     line-height: 1.5;
                     margin: 0;
                     margin-bottom: 5px;
+                    font-size: 1em;
                 }
 
                 svg {
@@ -292,13 +297,17 @@
                     font-size: 1.9em;
                 }
                 @media(max-width: @mobile-breakpoint) {
-                    font-size: 1.7em;
+                    font-size: 1.8em;
                     text-align: left;
                     width: auto;
                     line-height: 1.2;
                     border: none;
                     margin-bottom: 5px;
                 }
+            }
+
+            h3 {
+              letter-spacing: -.5px;
             }
 
             h4 {
@@ -377,8 +386,8 @@
                 display: inline;
                 overflow-y: visible;
                 width: fit-content;
-                background: rgba(145, 176, 211, 0.1);
-                color: #5f8db5;
+                background: rgba(145, 176, 211, 0.2);
+                color: #4c84b6;
                 padding: 3px 4px;
                 border-radius: 3px;
                 font-size: 0.8em;

@@ -75,7 +75,8 @@
                     width: -webkit-fill-available;
                     width: -moz-available;
                     font-size: 1em;
-                    line-height: 1.2;
+                    letter-spacing: -.5px;
+                    line-height: 1.3;
                     color: #616f7d;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
@@ -85,7 +86,7 @@
                     font-family: @header-font-secondary;
                     font-weight: normal;
                     @media(max-width: @mobile-breakpoint) {
-                        font-size: 1em;
+                        font-size: .9em;
                         margin: 0 0 12px;
                     }
                 }
@@ -113,6 +114,7 @@
 
                     .tag {
                         font-family: @body-font-bold;
+                        font-weight: 600;
                     }
                 }
             }
@@ -136,7 +138,6 @@
             color: lighten(@body-color, 5%);
             @media(max-width: @mobile-breakpoint) {
               font-size: .9em;
-              color: #707c8a;
             }
         }
 

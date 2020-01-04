@@ -27,11 +27,19 @@
         margin-bottom: 40px;
         position: relative;
         padding-top: 56.25%;
+        @media(max-width: @mobile-breakpoint) {
+          .mobile-full-width();
+          margin-bottom: 80px;
+        }
 
         .about-video {
             position: absolute;
             top: 0;
             left: 0;
+            @media(max-width: @mobile-breakpoint) {
+              height: 120% !important;
+
+            }
         }
     }
 
