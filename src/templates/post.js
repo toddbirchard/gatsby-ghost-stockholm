@@ -30,6 +30,7 @@ const Post = ({ data, location }) => {
         ? `/author/${post.primary_author.slug}/`
         : null
     const authorFirstName = author.name.split(` `)[0]
+    const retinaImage = post.feature_image ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
 
     return (
         <>
@@ -60,7 +61,7 @@ const Post = ({ data, location }) => {
                         </div>
                         { post.feature_image ?
                             <figure className="post-image">
-                                <img data-src={post.feature_image} className="lazyload" alt={post.title} data-rjs="2" />
+                                { retinaImage ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
                             </figure>
                             : null }
                     </div>

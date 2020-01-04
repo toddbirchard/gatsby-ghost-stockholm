@@ -9,9 +9,10 @@ const PostCard = ({ post }) => {
     const url = `/${ post.slug }/`
     const readingTime = readingTimeHelper(post)
     const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
+    const retinaImage = post.feature_image ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
 
     return (<div className="post-card">
-        { post.feature_image && <Link to={url}><img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /></Link> }
+        { retinaImage ? <Link to={url}><img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /></Link> : <Link to={url}><img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /></Link> }
         { post.featured && <span>Featured</span> }
         <div className="post-card-detail">
             <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
