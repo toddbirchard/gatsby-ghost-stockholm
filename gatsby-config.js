@@ -162,7 +162,7 @@ module.exports = {
                     families: [`proxima-nova`],
                 },
                 custom: {
-                    families: [`TTNormsPro-Bold`, `TTNormsPro-Regular`, `TTNormsPro-Regular`],
+                    families: [`TTNormsPro-Bold`, `TTNormsPro-Regular`, `TTNormsPro-DemiBold`],
                     urls: [`/fonts.css`],
                 },
                 timeout: 7000,
@@ -183,7 +183,6 @@ module.exports = {
                 parser: `less`,
                 postCssPlugins: [
                     require(`autoprefixer`)(),
-                    require(`postcss-at2x`)(),
                     require(`stylelint`)()],
             },
         },
