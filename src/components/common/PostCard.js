@@ -10,11 +10,15 @@ const PostCard = ({ post }) => {
     const readingTime = readingTimeHelper(post)
     const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
     const retinaImage = post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
+    // const retinaWebpImage = retinaImage && retinaImage.replace(`.jpg`, `.webp`)
 
     return (<div className="post-card">
-        { retinaImage ?
-            <Link to={url}><img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /></Link> :
-            <Link to={url}><img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /></Link> }
+        <Link to={url}>
+            {/*{retinaWebpImage && <img className="post-card-image lazyload" data-src={retinaWebpImage} alt={post.title} /> }*/}
+            { retinaImage ?
+                <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
+                <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
+        </Link>
         { post.featured && <span>Featured</span> }
         <div className="post-card-detail">
             <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>

@@ -59,11 +59,11 @@ const Post = ({ data, location }) => {
                                 <span>{post.published_at_pretty}</span>
                             </div>
                         </div>
-                        { post.feature_image ?
-                            <figure className="post-image">
-                                { retinaImage ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
-                            </figure>
-                            : null }
+                        <figure className="post-image">
+                            { retinaImage ?
+                                <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
+                                <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
+                        </figure>
                     </div>
 
                     <article className="post">
