@@ -10,14 +10,15 @@
 
         .post-head {
             margin: 0 auto;
-            padding-top: 60px;
+            padding: 60px 0 0 0;
             max-width: 900px;
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
+            @media(max-width: @tablet-breakpoint) {
+                padding: 0;
+            }
             @media(max-width: @mobile-breakpoint) {
                 padding: 0 20px 0;
-                display: flex;
-                flex-direction: column;
             }
 
             .post-title {
@@ -30,19 +31,18 @@
                 color: @header-color;
                 text-align: center;
                 max-width: 720px;
-                margin: 0 auto 20px;
+                margin: 60px auto 20px;
                 letter-spacing: -1px;
                 font-weight: unset;
-                font-weight: unset;
+                order: 2;
                 @media(max-width: @tablet-breakpoint) {
                     max-width: 95%;
                     font-size: 2em;
                 }
                 @media(max-width: @mobile-breakpoint) {
-                    font-size: 1.5em;
+                    font-size: 1.6em;
                     max-width: unset;
-                    line-height: 1.2;
-                    order: 1;
+                    line-height: 1.1;
                     margin: 40px auto 0;
                 }
 
@@ -59,14 +59,10 @@
             margin: 0 auto;
             max-width: 950px;
             box-shadow: 0 1px 3px rgba(39, 44, 49, 0.1);
+            order: 3;
             @media (max-width: @tablet-breakpoint) {
                 box-shadow: none !important;
                 margin: 0 30px;
-            }
-            @media(max-width: @mobile-breakpoint) {
-                order: 3;
-                margin: 0;
-                order: 0;
                 .mobile-full-width();
             }
 
@@ -94,7 +90,6 @@
                 width: auto;
                 margin: 20px 0 6px;
                 flex-wrap: wrap;
-                order: 2;
             }
 
             .tags {
@@ -190,7 +185,7 @@
     .post {
         background: white;
         max-width: 720px;
-        margin: 30px auto 40px;
+        margin: 0 auto 40px;
         position: relative;
         padding-bottom: 40px;
         @media(max-width: @tablet-breakpoint) {
