@@ -88,8 +88,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
                 <div className={ hasSidebar ? `sidebar-container` : `container` }>
                     {/* All the main content gets inserted here, index.js, post.js */}
                     {children}
-                    { hasSidebar }
-                    <Sidebar site={site} tags={tags} template={template} authorData={authorData} />
+                    {hasSidebar && <Sidebar site={site} tags={tags} template={template} authorData={authorData} />}
                 </div>
             </div>
             {/* The footer at the very bottom of the screen */}
