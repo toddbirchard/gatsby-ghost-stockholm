@@ -95,6 +95,7 @@ cd contentt.kg-width-wide {
         overflow: hidden;
         color: @body-color !important;
         transition: @transition;
+        position: relative;
         @media(max-width: @mobile-breakpoint) {
             flex-direction: column-reverse;
         }
@@ -171,20 +172,18 @@ cd contentt.kg-width-wide {
 
         .kg-bookmark-thumbnail {
             flex-basis: 15rem;
-            flex-grow: 1;
             position: relative;
-            min-width: 200px;
             @media(max-width: @mobile-breakpoint) {
                 max-height: 180px;
                 overflow: hidden;
             }
 
             img {
-                vertical-align: bottom;
-                object-fit: cover;
-                width: 100%;
-                margin-bottom: 0 !important;
-                min-height: 100%;
+              width: 100%;
+              margin: auto;
+              position: absolute;
+              top: 0;
+              bottom: 0;
                 @media(max-width: @mobile-breakpoint) {
                     width: unset;
                     min-width: 100%;
