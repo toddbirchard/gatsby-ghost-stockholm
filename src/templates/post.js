@@ -30,7 +30,7 @@ const Post = ({ data, location }) => {
         ? `/author/${post.primary_author.slug}/`
         : null
     const authorFirstName = author.name.split(` `)[0]
-    const retinaImage = post.feature_image ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
+    const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
 
     return (
         <>
