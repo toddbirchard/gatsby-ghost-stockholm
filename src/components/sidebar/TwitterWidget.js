@@ -12,10 +12,8 @@ const TwitterWidget = ({ data }) => {
                 <div className="tweets">
                     {tweets.map(({ node }) => (
                         <div className="tweet" key={node.id}>
-
                             {node.retweeted_status ?
                                 <div className="retweeted-tweet">
-
                                     <div className="retweeted-header">
                                         <FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity />
                                         <span>{`${node.user.name} retweeted`}</span>
@@ -30,11 +28,18 @@ const TwitterWidget = ({ data }) => {
                                                 <a href={node.retweeted_status.user.url} className="twitter-user" rel="nofollow noreferrer">@{node.retweeted_status.user.screen_name}</a>
                                             </div>
                                         </div>
-
-                                        <p className="tweet-content">{node.retweeted_status.full_text}</p>
-                                        {node.entities.urls.map(({ display_url, expanded_url }) => (
-                                            <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ expanded_url }</a>
-                                        ))}
+                                        <p className="tweet-content">{node.retweeted_status.full_text.split(`http`)[0]}</p>
+                                        {node.entities.hashtags &&
+                                          <div className="tweet-hastags">
+                                              {node.entities.hashtags.map(({ text }) => (
+                                                  <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
+                                              ))}
+                                          </div> }
+                                        {node.entities.urls &&
+                                          node.entities.urls.map(({ display_url, expanded_url }) => (
+                                              <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
+                                          ))
+                                        }
                                     </div>
                                 </div>
                                 :
@@ -48,19 +53,24 @@ const TwitterWidget = ({ data }) => {
                                             </div>
                                         </div>
                                     </div>
-                                    <p className="tweet-content">{node.full_text}</p>
-                                    {node.entities.urls.map(({ display_url, expanded_url }) => (
-                                        <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ expanded_url }</a>
-                                    ))}
+                                    <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
+                                    {node.entities.urls &&
+                                      node.entities.urls.map(({ display_url, expanded_url }) => (
+                                          <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
+                                      ))
+                                    }
+
+                                    {node.entities.hashtags &&
+                              <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
+                                  <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
+                              ))}</div>
+                                    }
+                                    {node.retweeted_status ? null : <div className="tweet-footer">
+                                        <div className="retweets meta-item"><FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity /> <span>{node.retweet_count}</span></div>
+                                        <div className="favorites meta-item"><FontAwesomeIcon icon={[`fad`, `heartbeat`]} size="xs"/> <span>{node.favorite_count}</span></div>
+                                        <div className="date meta-item"><FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" /> {node.created_at.split(` `, 3).join(` `)}</div>
+                                    </div> }
                                 </div> }
-                            {/*{node.entities.hashtags.length > 0 ? <div className="tweet-hastags">{node.entities.hashtags.map(({ text }) => (
-                                <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
-                            ))}</div> : null }*/}
-                            {node.retweeted_status ? null : <div className="tweet-footer">
-                                <div className="retweets meta-item"><FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity /> <span>{node.retweet_count}</span></div>
-                                <div className="favorites meta-item"><FontAwesomeIcon icon={[`fad`, `heartbeat`]} size="xs"/> <span>{node.favorite_count}</span></div>
-                                <div className="date meta-item"><FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" /> {node.created_at.split(` `, 3).join(` `)}</div>
-                            </div> }
                         </div>
                     ))}
                 </div>
@@ -138,6 +148,9 @@ const TwitterQuery = props => (
                     urls {
                       display_url
                       expanded_url
+                    }
+                    hashtags {
+                      text
                     }
                   }
                   retweeted_status {
