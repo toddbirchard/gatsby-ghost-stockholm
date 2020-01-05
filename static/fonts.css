@@ -1,19 +1,13 @@
 @import url("//hello.myfonts.net/count/3ac8a4");
 
 @font-face {
-    font-family: 'TTNormsPro-Regular';
-    font-display: swap;
-    src: url('fonts/3AC8A4_0_0.woff2') format('woff2'), url('fonts/3AC8A4_0_0.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'TTNormsPro-DemiBold';
     font-display: swap;
     src:url('fonts/3AC8A4_1_0.woff2') format('woff2'), url('fonts/3AC8A4_1_0.woff') format('woff');
+    font-family: 'TTNormsPro-DemiBold';
 }
 
 @font-face {
-    font-family: 'TTNormsPro-Bold';
     font-display: swap;
     src: url('fonts/3AC8A4_2_0.woff2') format('woff2'), url('fonts/3AC8A4_2_0.woff') format('woff');
+    font-family: 'TTNormsPro-Bold';
 }

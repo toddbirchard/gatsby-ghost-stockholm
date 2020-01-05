@@ -160,9 +160,10 @@ module.exports = {
             options: {
                 typekit: {
                     families: [`proxima-nova`],
+                    urls: [`https://use.typekit.net/pgr6fet.css`],
                 },
                 custom: {
-                    families: [`TTNormsPro-Bold`, `TTNormsPro-Regular`, `TTNormsPro-DemiBold`],
+                    families: [`TTNormsPro-Bold`, `TTNormsPro-DemiBold`],
                     urls: [`/fonts.css`],
                 },
                 timeout: 7000,
