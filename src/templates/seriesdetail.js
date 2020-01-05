@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Layout, SeriesPostCard } from '../components/common'
+import { Layout } from '../components/common'
+import { SeriesPostCard } from '../components/misc'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/series/seriesdetail.less'
 
 /**
-* Tag page (/tag/:slug)
+* Series detail page (/tag/:slug)
 *
 * Loads all posts for the requested tag incl. pagination.
 *

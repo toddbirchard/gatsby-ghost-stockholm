@@ -8,7 +8,7 @@ import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
 import config from '../utils/siteConfig'
-import '../styles/pages/index.less'
+import '../styles/pages/page.less'
 
 /**
 * Single page (/:slug)

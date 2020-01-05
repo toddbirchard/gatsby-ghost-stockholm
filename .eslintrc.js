@@ -7,11 +7,12 @@ module.exports = {
             'experimentalObjectRestSpread': true
         }
     },
-    plugins: ['ghost', 'react', 'import', 'node'],
+    plugins: ['ghost', 'react', 'import', 'node', 'promise'],
     extends: [
         'plugin:ghost/node',
         'plugin:ghost/ember',
-        'plugin:react/recommended'
+        'plugin:react/recommended',
+        'plugin:promise/recommended'
     ],
     "settings": {
         "react": {
@@ -54,6 +55,6 @@ module.exports = {
             {
                 "ignore": ["children"]
             }
-        ]
+        ],
     }
 };

@@ -2,10 +2,10 @@
 @import '../mixins.less';
 
 .site-footer {
-    background: white;
-    box-shadow: 0 1px 8px rgba(39, 44, 49, 0.1);
     z-index: 2;
     position: relative;
+    background: white;
+    box-shadow: 0 1px 8px rgba(39, 44, 49, 0.1);
 
     .footer-wrapper {
         width: 1000px;
@@ -28,24 +28,24 @@
         }
 
         .footer-row {
-            padding: 30px 0;
             display: flex;
-            align-items: center;
             flex-direction: row;
+            align-items: center;
             justify-content: space-between;
+            padding: 30px 0;
             border-bottom: 1px solid #e7eaed;
             @media(max-width: @mobile-breakpoint) {
                 display: block;
-                margin: 0 40px;
                 width: -webkit-fill-available;
+                margin: 0 40px;
                 overflow: hidden;
             }
 
             .site-headline {
                 color: #0297f6;
-                text-transform: uppercase;
-                font-size: 1.5em;
                 font-family: @header-font-secondary;
+                font-size: 1.5em;
+                text-transform: uppercase;
                 white-space: nowrap;
                 transition: @transition;
                 @media(max-width: @tablet-breakpoint) {
@@ -53,8 +53,8 @@
                 }
                 @media(max-width: @mobile-breakpoint) {
                   margin-bottom: 20px;
-                  text-align: justify;
                   font-size: 1.4em;
+                  text-align: justify;
                 }
 
                 &:hover {
@@ -64,9 +64,9 @@
 
             .footer-links {
               @media(max-width: @tablet-breakpoint) {
-                width: 300px;
-                justify-content: space-between;
                 display: flex;
+                justify-content: space-between;
+                width: 300px;
               }
               @media(max-width: @mobile-breakpoint) {
                 width: 100% !important;
@@ -74,17 +74,15 @@
             }
 
             .navigation-link {
+                margin-left: 25px;
                 color: #7e94a1;
                 font-family: @header-font-secondary;
-                margin-left: 30px;
-                font-size: .9em;
                 text-transform: uppercase;
                 @media(max-width: @tablet-breakpoint) {
                     margin: 0;
                 }
                 @media(max-width: @mobile-breakpoint) {
                     margin-left: 0;
-                    font-size: .9em;
                 }
             }
         }
@@ -96,17 +94,17 @@
         padding: 50px 0;
         @media(max-width: @mobile-breakpoint) {
             display: block;
-            padding: 40px;
-            max-width: unset;
             width: unset;
+            max-width: unset;
+            padding: 40px;
         }
 
         .widget {
             overflow: hidden;
             @media(max-width: @mobile-breakpoint) {
+                width: 100%;
                 max-width: unset;
                 margin-bottom: 50px;
-                width: 100%;
             }
 
             &:last-of-type {
@@ -114,22 +112,22 @@
             }
 
             .footer-widget-title {
+                margin-bottom: 20px;
+                color: #56636e;
                 font-family: @header-font-secondary;
                 font-size: 1.3em;
                 font-weight: normal;
-                margin-bottom: 20px;
-                color: #56636e;
             }
 
             .footer-navigation-link {
-                margin: 0 0 15px;
                 display: block;
+                margin: 0 0 15px;
                 padding-left: 0;
-                line-height: 1.2;
                 color: #657884;
                 font-family: @body-font-book;
-                white-space: nowrap;
+                line-height: 1.2;
                 text-overflow: ellipsis;
+                white-space: nowrap;
                 transition: @transition;
 
 
@@ -145,8 +143,8 @@
                 }
 
                 .logo {
-                    width: 100%;
                     display: block;
+                    width: 100%;
                     margin-bottom: 10px;
                     transition: all 0.2s ease-out;
                     @media(max-width: @mobile-breakpoint) {
@@ -161,24 +159,24 @@
                 .description {
                     line-height: 1.5;
                     @media(max-width: @mobile-breakpoint) {
-                        line-height: 1.4;
                         font-size: 0.95em;
+                        line-height: 1.4;
                         text-align: justify;
                     }
                 }
 
                 .social-btns {
                     display: flex;
-                    justify-content: space-between;
                     align-items: center;
+                    justify-content: space-between;
                     margin: 20px 0;
                     @media(max-width: @mobile-breakpoint) {
                         display: none;
                     }
 
                     svg {
-                        font-size: 1.6em;
                         color: #8f9fa8;
+                        font-size: 1.6em;
                     }
                 }
             }
@@ -186,20 +184,20 @@
     }
 
     .copyright {
-        background-color: #f4f7f9;
         padding: 30px;
         border-top: 1px solid #eeeeee;
+        background-color: #f4f7f9;
         @media(max-width: @mobile-breakpoint) {
-            text-align: center;
             padding: 30px 20px;
+            text-align: center;
         }
 
         p {
-            color: #718087;
-            margin: 0;
             width: 1000px;
             max-width: 90%;
+            margin: 0;
             margin: auto;
+            color: #718087;
             font-size: 0.8em;
             line-height: 1.4;
         }
@@ -210,11 +208,11 @@
     position: relative;
 
     .bottom-vector {
-        background-image: linear-gradient(-74deg, #8edde3 0%, #5eb9e5 var(--hero-footer-bg-gradient-x, 50%), #91b0de 100%);
+        z-index: 0;
         position: absolute;
         bottom: 0;
         width: 100%;
-        z-index: 0;
         min-height: 250px;
+        background-image: linear-gradient(-74deg, #8edde3 0%, #5eb9e5 var(--hero-footer-bg-gradient-x, 50%), #91b0de 100%);
     }
 }

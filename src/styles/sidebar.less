@@ -3,10 +3,10 @@
 
 .sidebar,
 .AuthorSidebar {
-    display: grid;
     grid-gap: 20px;
-    grid-template-columns: 1fr;
+    display: grid;
     grid-auto-rows: min-content;
+    grid-template-columns: 1fr;
     @media(max-width: @tablet-breakpoint) {
         display: none;
     }
@@ -28,8 +28,8 @@
 
         .widget-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 20px;
 
 
@@ -38,8 +38,8 @@
             }
 
             .label {
-                font-size: 0.95em;
                 font-family: @header-font-secondary;
+                font-size: 0.95em;
 
                 svg {
                     margin: 0 3px 0 0;
@@ -56,8 +56,8 @@
             }
 
             .trend-type {
-                opacity: 0.6;
                 font-size: 0.8em;
+                opacity: 0.6;
                 @media(max-width: 900px) {
                   display: none;
                 }
@@ -67,9 +67,9 @@
 
         &.about {
             .widget-logo {
+                display: block;
                 width: 230px;
                 margin: auto;
-                display: block;
                 transition: @transition;
                 @media(max-width: 900px) {
                       width: 100%;
@@ -82,9 +82,9 @@
 
             .description {
                 margin: 15px 0 0;
+                font-size: 0.9em;
                 line-height: 1.35;
                 text-align: center;
-                font-size: 0.9em;
                 @media(max-width: 900px) {
                   font-size: 0.85em;
                 }
@@ -106,69 +106,69 @@
 
         &.tags {
             display: flex;
-            justify-content: space-between;
             flex-direction: row;
             flex-wrap: wrap;
+            justify-content: space-between;
 
             .tag {
-                color: #778794;
-                line-height: 1.5em;
-                display: inline-block;
-                font-size: 0.85em !important;
                 -webkit-transition: all 0.2s ease;
                 -moz-transition: all 0.2s ease;
                 -o-transition: all 0.2s ease;
-                transition: all 0.2s ease;
-                font-family: @body-font;
-                font-weight: normal;
+                display: inline-block;
                 flex-grow: 1;
-                text-align: center;
                 margin: 0 2px 4px;
                 padding: 6px 10px;
                 border: 1px solid #d7dee7;
+                color: #778794;
+                font-family: @body-font;
+                font-size: 0.85em !important;
+                font-weight: normal;
+                line-height: 1.5em;
+                text-align: center;
+                transition: all 0.2s ease;
 
                 &:hover {
-                    cursor: pointer;
-                    background: @hover-color;
                     border: 1px solid @hover-color;
+                    background: @hover-color;
                     color: white !important;
+                    cursor: pointer;
                 }
             }
         }
 
         &.newsletter {
             .newsletter-description {
-                font-size: 0.9em;
-                line-height: 1.3;
                 margin-bottom: 10px;
                 font-family: @body-font-book;
+                font-size: 0.9em;
+                line-height: 1.3;
             }
 
             input {
                 width: -webkit-fill-available;
                 width: -moz-available;
                 width: -moz-available;
+                margin: 8px 0 0;
                 padding: 12px;
+                border: 1px solid #cfd4de;
                 background: white;
                 font-size: 0.9em;
-                border: 1px solid #cfd4de;
                 transition: @transition;
-                margin: 8px 0 0;
                 .input-field-interactions();
             }
 
             button {
-                font-size: 1em;
-                color: @theme-color;
-                border: 0;
-                transition: @transition;
-                margin-top: 10px;
-                background: none;
-                text-align: right;
                 width: 100%;
-                font-weight: 500;
-                outline: none;
+                margin-top: 10px;
                 padding: 0;
+                border: 0;
+                outline: none;
+                background: none;
+                color: @theme-color;
+                font-size: 1em;
+                font-weight: 500;
+                text-align: right;
+                transition: @transition;
 
                 svg {
                     margin-left: 3px;
@@ -198,15 +198,15 @@
                     }
 
                     .series-widget-description {
-                        line-height: 1.1;
                         margin-bottom: 10px;
+                        line-height: 1.1;
                         transition: @transition;
                     }
 
                     .series-widget-count {
+                        font-size: 0.9em;
                         text-align: right;
                         opacity: 0.6;
-                        font-size: 0.9em;
                     }
                 }
 
@@ -218,8 +218,8 @@
                     }
 
                     .series-widget-detail {
-                        background: lighten(@hover-color, 10%);
                         border: 1px solid lighten(@hover-color, 10%);
+                        background: lighten(@hover-color, 10%);
 
                         * {
                             color: white;
@@ -233,29 +233,29 @@
         &.trending {
             .link {
                 display: block;
-                color: lighten(@header-color, 15%);
-                padding: 10px 0 15px;
+                max-width: 250px;
                 margin: 10px 0;
+                padding: 10px 0 15px;
+                overflow: hidden;
                 border-bottom: 1px solid #e7e7e7;
+                color: lighten(@header-color, 15%);
                 font-size: 0.9em;
                 font-weight: 600;
-                white-space: nowrap;
-                overflow: hidden;
                 text-overflow: ellipsis;
-                max-width: 250px;
+                white-space: nowrap;
                 @media(max-width: 900px) {
-                    font-size: 0.85em;
                     padding: 5px 0 10px;
+                    font-size: 0.85em;
                 }
 
                 &:first-of-type {
-                    padding: 0 0 15px;
                     margin: 0 0 10px;
+                    padding: 0 0 15px;
                 }
 
                 &:last-of-type {
-                    padding: 10px 0 0;
                     margin: 10px 0 0;
+                    padding: 10px 0 0;
                     border-bottom: 0 solid #e7e7e7;
                 }
 
@@ -270,12 +270,12 @@
         }
 
         &.twitter {
-            overflow: hidden;
             padding: 25px 25px 45px;
+            overflow: hidden;
 
             .retweeted-header {
-                color: #8b9db7;
                 margin: 0 0 15px;
+                color: #8b9db7;
                 font-weight: 600;
 
                 svg {
@@ -300,10 +300,10 @@
                 margin: 0 0 15px;
 
                 .twitter-avatar {
-                    overflow: hidden;
-                    height: 35px !important;
                     width: 35px !important;
+                    height: 35px !important;
                     margin-right: 7px;
+                    overflow: hidden;
                     border-radius: 50%;
 
                     img {
@@ -312,39 +312,39 @@
                 }
 
                 .twitter-name {
+                    display: block;
                     color: #4b5776;
                     font-family: @header-font-secondary;
                     font-size: 1.1em;
-                    display: block;
                 }
 
                 .twitter-user {
-                    color: #9ea6ae;
-                    font-weight: 500;
-                    margin-top: 3px;
-                    font-size: 0.9em;
                     display: block;
+                    margin-top: 3px;
+                    color: #9ea6ae;
+                    font-size: 0.9em;
+                    font-weight: 500;
                 }
             }
 
             .tweet {
+                padding: 25px 0;
                 border-bottom: 1px solid #e7e7e7;
-                padding: 35px 0;
                 font-family: @header-font-secondary;
 
                 &:last-of-type {
+                    padding: 25px 0 0;
                     border-bottom: 0;
-                    padding: 35px 0 0;
                 }
 
                 &:first-of-type {
-                    padding: 0 0 35px;
+                    padding: 0 0 25px;
                 }
 
                 .tweet-footer {
-                    margin: 20px 0 0;
                     display: flex;
                     justify-content: left;
+                    margin: 20px 0 0;
 
                     .meta-item {
                         margin-right: 25px;
@@ -362,15 +362,15 @@
                     }
 
                     .retweets {
-                        color: #59d39e;
                         display: flex;
                         align-items: center;
+                        color: #59d39e;
                     }
 
                     .favorites {
-                        color: #eb4075;
                         display: flex;
                         align-items: center;
+                        color: #eb4075;
                     }
 
                     .date {
@@ -381,34 +381,34 @@
                 }
 
                 .tweet-link {
+                    display: block;
+                    margin: 20px 0 8px;
+                    overflow: hidden;
                     color: #6baaf2;
                     font-family: @body-font-bold;
-                    font-weight: 600;
-                    display: block;
                     font-size: 0.86em;
-                    white-space: nowrap;
-                    overflow: hidden;
+                    font-weight: 600;
                     text-overflow: ellipsis;
-                    margin: 20px 0 8px;
+                    white-space: nowrap;
                 }
 
                 .tweet-hastags {
                     width: 100%;
 
                     .hashtag {
-                        color: #6a849f;
-                        font-size: 0.9em;
-                        margin: 0 7px 4px 0;
                         display: inline-block;
+                        margin: 0 7px 4px 0;
+                        color: #89a0b7;
+                        font-size: 0.9em;
                         font-weight: 500;
                     }
                 }
 
                 .tweet-content {
                     margin: 0;
-                    line-height: 1.4;
-                    font-size: 0.9em;
                     font-family: @body-font-book !important;
+                    font-size: 0.9em;
+                    line-height: 1.4;
                 }
             }
         }

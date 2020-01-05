@@ -1,38 +1,41 @@
+@import '../variables.less';
+@import '../mixins.less';
+
 .confirmation-card {
-    background: white;
-    padding: 40px;
-    text-align: left;
     max-width: 80%;
     margin: 20px auto 200px;
+    padding: 40px;
+    background: white;
+    text-align: left;
     @media(max-width: @mobile-breakpoint) {
       margin: 40px 20px;
       padding: 30px;
     }
 
     p {
-        line-height: 1.3;
         margin: 20px 0;
+        line-height: 1.3;
     }
 
     .back-button {
-        font-family: @header-font-secondary;
-        font-size: 1em;
+        -webkit-appearance: none !important;
+        -webkit-transition: all 0.2s ease-out;
         display: block;
         width: fit-content;
-        -webkit-appearance: none !important;
-        color: #626573;
+        padding: 9px 14px;
         border: 1px solid #d3d6e1;
         border-radius: 2px;
-        background: none;
-        padding: 9px 14px;
-        line-height: 1;
         outline: none;
-        -webkit-transition: all 0.2s ease-out;
+        background: none;
+        color: #626573;
+        font-family: @header-font-secondary;
+        font-size: 1em;
+        line-height: 1;
         transition: all 0.2s ease-out;
 
         &:hover {
-            background: @theme-color;
             border: 1px solid @theme-color;
+            background: @theme-color;
             color: white !important;
         }
     }

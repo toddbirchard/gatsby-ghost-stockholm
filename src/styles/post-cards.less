@@ -3,10 +3,10 @@
 
 
 .post-card {
-    background-color: #fff;
-    box-shadow: @box-shadow;
     width: 100%;
     overflow: hidden;
+    background-color: #fff;
+    box-shadow: @box-shadow;
     @media(max-width: @tablet-breakpoint) {
         padding: 0;
     }
@@ -26,22 +26,19 @@
     .post-card-title {
         margin: 0;
         padding: 0;
-        font-size: 1.8em;
-        line-height: 1.1;
-        letter-spacing: -1px;
         color: @header-color;
         font-family: @header-font;
-        transition: @transition;
+        font-size: 1.9em;
         font-weight: unset;
+        letter-spacing: -1px;
+        line-height: 1.1;
+        transition: @transition;
         @media(max-width: 1000px) {
             font-size: 1.7em;
         }
         @media(max-width: @mobile-breakpoint) {
-          font-size: 1.5em;
           margin-bottom: 0;
-        }
-        @media(max-width: 450px) {
-          font-size: 1.4em;
+          font-size: 1.45em;
         }
 
         &:hover {
@@ -72,50 +69,50 @@
         }
 
         .post-card-excerpt {
-            margin: 20px auto 30px;
-            line-height: 1.25;
-            transition: all 0.2s ease-out;
-            color:  #727884;
-            font-size: 1.2em;
-            font-weight: 500;
-            letter-spacing: -.5px;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             display: -webkit-box;
-            text-overflow: ellipsis;
-            overflow: hidden;
             width: 100%;
+            margin: 20px auto 30px;
+            overflow: hidden;
+            color:  #717b90;
             font-family: @body-font;
+            font-size: 1.2em;
+            font-weight: 500;
             font-weight: 600;
+            letter-spacing: -.5px;
+            line-height: 1.25;
+            text-overflow: ellipsis;
+            transition: all 0.2s ease-out;
             @media(max-width: @tablet-breakpoint) {
               margin: 12px auto 20px;
             }
             @media(max-width: @mobile-breakpoint) {
-              font-size: 1em;
+              font-size: 1.05em;
             }
         }
     }
 
     .post-card-footer {
-        display: flex;
-        align-items: center;
-        margin: 0;
         -webkit-line-clamp: 1;
+        display: flex;
         display: -webkit-box;
-        text-overflow: ellipsis;
-        overflow: hidden;
+        align-items: center;
         width: -webkit-fill-available;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         .meta-item {
-            font-family: @body-font-bold;
-            font-weight: 600;
-            margin-right: 30px;
-            color: #7e8da3;
-            font-size: 0.95em;
             display: flex;
             align-items: center;
-            transition: @transition;
+            margin-right: 30px;
+            color: #7e8da3;
+            font-family: @body-font-bold;
+            font-size: 0.95em;
+            font-weight: 600;
             letter-spacing: -.5px;
+            transition: @transition;
             @media(max-width: @tablet-breakpoint) {
                 margin-right: 25px;
             }

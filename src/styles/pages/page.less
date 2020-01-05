@@ -1,10 +1,13 @@
+@import '../variables.less';
+@import '../mixins.less';
+
 .page-template {
     h1 {
+        margin: 0 0 20px;
+        color: @header-color;
         font-family: @header-font-light;
         font-size: 2.5em;
-        margin: 0 0 20px;
         font-weight: normal;
-        color: @header-color;
     }
 
     .navigation {
@@ -18,19 +21,19 @@
         /* Intro cards such as tag & author cards */
         .header-card {
             margin: 0 !important;
-            background: white;
             padding: 40px;
+            background: white;
             @media (max-width: @mobile-breakpoint) {
                 .mobile-full-width();
             }
         }
 
         .page-content {
-            background: white;
-            padding: 40px;
-            box-shadow: 0 1px 4px rgba(39,44,49,.07);
             max-width: 800px;
             margin: 0 auto;
+            padding: 40px;
+            background: white;
+            box-shadow: 0 1px 4px rgba(39,44,49,.07);
             @media (max-width: @tablet-breakpoint) {
                 max-width: unset;
             }
@@ -46,12 +49,12 @@
         }
 
         fieldset {
-            border: none;
             display: block;
-            background: white;
-            padding-left: 0;
-            padding-right: 0;
             margin-top: 40px;
+            padding-right: 0;
+            padding-left: 0;
+            border: none;
+            background: white;
 
             &:last-of-type {
                 margin-bottom: 0;
@@ -73,9 +76,9 @@
         }
 
         label {
+            color: #64676c;
             font-family: @body-font;
             font-size: 14px;
-            color: #64676c;
         }
 
         .input-field-group {
@@ -84,14 +87,14 @@
 
         input,
         textarea {
-            font-family: @body-font;
-            outline: 0;
-            background: #f2f2f2;
-            border: 1px solid #f3f3f3;
+            box-sizing: border-box;
             width: 100%;
             margin: 5px 0 15px;
             padding: 15px;
-            box-sizing: border-box;
+            border: 1px solid #f3f3f3;
+            outline: 0;
+            background: #f2f2f2;
+            font-family: @body-font;
             font-size: 14px;
             transition: @transition;
             .input-field-interactions();
@@ -113,13 +116,13 @@
         }
 
         button {
-            text-transform: uppercase;
-            outline: 0;
             width: 100%;
-            border: 0;
-            padding: 15px;
-            font-size: 14px;
             margin-top: 20px;
+            padding: 15px;
+            border: 0;
+            outline: 0;
+            font-size: 14px;
+            text-transform: uppercase;
             .button-styles();
         }
     }
@@ -127,5 +130,61 @@
     .info-card {
         .header-card();
         min-width: unset !important;
+    }
+}
+
+.page-template {
+    .navigation {
+        @media(max-width: @mobile-breakpoint) {
+            margin-bottom: 0 !important;
+            border-bottom: 1px solid #ebebeb;
+        }
+    }
+
+    .sidebar-container {
+      @media(max-width: 900px) {
+          grid-template-columns: 1fr;
+          width: 100%;
+      }
+
+      .page-content {
+        width: 88%;
+        padding: 5%;
+        @media(max-width: 900px) {
+          max-width: 100%;
+          margin: 0;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .about-video-wrapper {
+        position: relative;
+        margin-bottom: 40px;
+        padding-top: 56.25%;
+        @media(max-width: @mobile-breakpoint) {
+          .mobile-full-width();
+          margin-bottom: 80px;
+        }
+
+        .about-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @media(max-width: @mobile-breakpoint) {
+              height: 120% !important;
+
+            }
+        }
+    }
+
+    .author-card-list {
+        padding: 30px 0 0;
+
+        .author-list-title {
+          margin-bottom: 10px;
+          font-family: @header-font-light;
+          font-size: 2.2em;
+        }
     }
 }

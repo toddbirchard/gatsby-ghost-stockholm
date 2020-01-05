@@ -1,34 +1,34 @@
 @import './variables.less';
+@import './mixins.less';
 @import './layout.less';
 @import './sidebar.less';
-@import './mixins.less';
 @import './navigation/index.less';
 
 
 html {
-    overflow-x: hidden;
-    overflow-y: scroll;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     -ms-text-size-adjust: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 body {
-    overflow-x: hidden;
-    color: #3c484e;
-    font-family: @body-font;
-    font-size: 15px;
-    line-height: 1.5em;
-    font-style: normal;
-    letter-spacing: 0;
-    text-rendering: optimizeLegibility;
-    background: #ecf1f9;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -moz-font-feature-settings: "liga";
-    line-height: 1;
+    overflow-x: hidden;
+    background: #ecf1f9;
+    color: #3c484e;
     font-family: @body-font;
+    font-family: @body-font;
+    font-size: 15px;
+    font-style: normal;
+    letter-spacing: 0;
+    line-height: 1.5em;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
 }
 /* Reset
 /* ---------------------------------------------------------- */
@@ -132,9 +132,9 @@ a {
 }
 
 strong {
+    color: @body-color;
     font-family: @body-font-bold;
     font-weight: 600;
-    color: @body-color;
 }
 
 h2 {
@@ -144,18 +144,18 @@ h2 {
 }
 
 h3 {
-    font-size: 1.3em;
-    line-height: 1.2;
-    color: @light-header-color;
     margin: 40px 0 5px;
+    color: @light-header-color;
     font-family: @header-font;
+    font-size: 1.3em;
     font-weight: normal;
+    line-height: 1.2;
     @media(max-width: @tablet-breakpoint) {
         font-size: 1.3em;
     }
     @media(max-width: @mobile-breakpoint) {
-        line-height: 1.2;
         margin-bottom: 5px;
+        line-height: 1.2;
     }
 }
 
@@ -164,12 +164,12 @@ h4 {
 }
 
 hr {
-    position: relative;
     display: block;
+    position: relative;
     width: 100%;
+    height: 1px;
     margin: 1.8em 0 2.4em;
     padding: 0;
-    height: 1px;
     border: 0;
     border-top: 2px dotted #b4bfc6;
 }
@@ -237,9 +237,9 @@ li {
 }
 
 dt {
-    float: left;
-    margin: 0 20px 0 0;
     width: 120px;
+    margin: 0 20px 0 0;
+    float: left;
     font-weight: 500;
     text-align: right;
 }
@@ -263,8 +263,8 @@ input {
 }
 
 input[type="search"] {
-    box-sizing: content-box;
     -webkit-appearance: textfield;
+    box-sizing: content-box;
 }
 
 input[type="search"]::-webkit-search-cancel-button,

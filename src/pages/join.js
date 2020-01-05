@@ -2,6 +2,8 @@ import React from 'react'
 import { Layout } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import '../styles/pages/page.less'
+
 const JoinUs = () => (
     <Layout template="page-template join-template" hasSidebar={false}>
 
