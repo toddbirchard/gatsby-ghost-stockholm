@@ -32,7 +32,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             <div className="search-result-details">
                 <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
                 <div className="search-result-tag">
-                    <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" /> 
+                    <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
                     <span>{hit.primary_tag.name}</span>
                 </div>
                 {/*<p className="search-result-excerpt">{hit.excerpt}</p>*/}
@@ -42,8 +42,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
 
     const appId = process.env.GATSBY_ALGOLIA_APP_ID
     const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
-    // useMemo prevents the searchClient from being recreated on every render.
-    // Avoids unnecessary XHR requests (see https://tinyurl.com/yyj93r2s).
+
     const algoliaClient = algoliasearch(
         appId,
         searchKey,

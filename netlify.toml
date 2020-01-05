@@ -441,6 +441,12 @@
         no-store,
         must-revalidate'''
 
+[[headers]]
+    for = "/rss"
+    [headers.values]
+      content-type = "text/xml; charset=utf-8"
+
+
 [build.processing]
   skip_processing = false
 [build.processing.css]
