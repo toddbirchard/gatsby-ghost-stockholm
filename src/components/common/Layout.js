@@ -73,6 +73,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
                 <body className={ template } />
+                <link rel="stylesheet" href="https://use.typekit.net/pgr6fet.css" />
                 {template === `post-template` ?
                     <script
                         defer

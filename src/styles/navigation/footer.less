@@ -23,6 +23,12 @@
 
                 .navigation-link {
                     margin: 0;
+
+                    &.Join {
+                      @media(max-width: @mobile-breakpoint) {
+                        display: none;
+                      }
+                    }
                 }
             }
         }
