@@ -1,4 +1,4 @@
-cd contentt.kg-width-wide {
+.kg-width-wide {
     position: relative;
     width: 85vw;
     min-width: 100%;
@@ -24,62 +24,62 @@ cd contentt.kg-width-wide {
 }
 
 .kg-embed-card {
-  width: 100% !important;
-  max-width: unset !important;
-  margin: 0 auto 30px;
-  overflow: hidden;
-  border: 1px solid #ececec;
-  border-radius: 5px;
-  box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
-  text-decoration: none;
-  transition: @transition;
-
-  .wp-embedded-content {
-    margin: 0;
-    padding: 30px;
-  }
-
-  &:hover {
-      border-color: @theme-color;
-      background-color: @theme-color;
-
-      * {
-          color: white !important;
-      }
-  }
-
-  .EmbeddedTweet {
-    width: 100%;
-    max-width: unset !important;
-  }
-
-  .twitter-tweet {
     width: 100% !important;
-    margin: 0 !important;
-  }
-
-  iframe {
-    padding: 0;
-  }
-
-  a {
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
+    max-width: unset !important;
+    margin: 0 auto 30px;
     overflow: hidden;
-    color: #4e576a !important;
-    font-family: @body-font;
-    font-size: 1.2em;
-    font-weight: normal;
-    line-height: 1.2;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
     text-decoration: none;
-    text-overflow: ellipsis;
-  }
+    transition: @transition;
+
+    .wp-embedded-content {
+        margin: 0;
+        padding: 30px;
+    }
+
+    &:hover {
+        border-color: @theme-color;
+        background-color: @theme-color;
+
+        * {
+            color: white !important;
+        }
+    }
+
+    .EmbeddedTweet {
+        width: 100%;
+        max-width: unset !important;
+    }
+
+    .twitter-tweet {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    iframe {
+        padding: 0;
+    }
+
+    a {
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+        color: #4e576a !important;
+        font-family: @body-font;
+        font-size: 1.2em;
+        font-weight: normal;
+        line-height: 1.2;
+        text-decoration: none;
+        text-overflow: ellipsis;
+    }
 }
 
-  .embedly-card-hug {
+.embedly-card-hug {
     max-width: unset !important;
-  }
+}
 
 .kg-bookmark-card {
     margin: 30px 0;
@@ -142,14 +142,14 @@ cd contentt.kg-width-wide {
                 line-height: 1.4;
                 text-overflow: ellipsis;
                 @media(max-width: @tablet-breakpoint) {
-                  width: -webkit-fill-available;
+                    width: -webkit-fill-available;
                 }
             }
 
             .kg-bookmark-metadata {
                 display: flex;
                 align-items: center;
-                font-size: .8em;
+                font-size: 0.8em;
 
                 .kg-bookmark-icon {
                     width: 18px;
@@ -163,10 +163,10 @@ cd contentt.kg-width-wide {
                     content: "•";
                 }
 
-                .kg-bookmark-publisher,
-                .kg-bookmark-author {
-                  font-family: @body-font;
-                  opacity: .8;
+                .kg-bookmark-author,
+                .kg-bookmark-publisher {
+                    font-family: @body-font;
+                    opacity: 0.8;
                 }
             }
         }
@@ -180,11 +180,12 @@ cd contentt.kg-width-wide {
             }
 
             img {
-              position: absolute;
-              top: 0;
-              bottom: 0;
-              width: 100%;
-              margin: auto;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                margin: auto;
+                object-fit: cover;
                 @media(max-width: @mobile-breakpoint) {
                     position: absolute;
                     top: 0;
@@ -219,7 +220,6 @@ cd contentt.kg-width-wide {
         display: block;
         width: 100%;
         max-width: 100%;
-        margin: 0;
         margin: 0 auto;
         border: 1px solid rgba(206, 206, 206, 0.42);
         border-right: 0;
@@ -234,7 +234,7 @@ cd contentt.kg-width-wide {
 .kg-code-card,
 .kg-image-card {
     pre {
-      margin: 0;
+        margin: 0;
     }
 
     figcaption {
@@ -271,8 +271,8 @@ cd contentt.kg-width-wide {
 }
 
 .kg-embed-card {
-  .twitter-tweet,
+    .twitter-tweet,
     div {
-    width: 100% !important;
-  }
+        width: 100% !important;
+    }
 }
