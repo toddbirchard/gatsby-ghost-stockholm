@@ -12,11 +12,11 @@ cd contentt.kg-width-wide {
 
 .kg-width-full {
     position: relative;
-    width: 100vw;
-    left: 50%;
     right: 50%;
-    margin-left: -50vw;
+    left: 50%;
+    width: 100vw;
     margin-right: -50vw;
+    margin-left: -50vw;
 
     img {
         max-width: 100vw;
@@ -24,24 +24,24 @@ cd contentt.kg-width-wide {
 }
 
 .kg-embed-card {
-  max-width: unset !important;
   width: 100% !important;
-  transition: @transition;
-  box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
-  text-decoration: none;
+  max-width: unset !important;
+  margin: 0 auto 30px;
+  overflow: hidden;
   border: 1px solid #ececec;
   border-radius: 5px;
-  overflow: hidden;
-  margin: 0 auto 30px;
+  box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
+  text-decoration: none;
+  transition: @transition;
 
   .wp-embedded-content {
-    padding: 30px;
     margin: 0;
+    padding: 30px;
   }
 
   &:hover {
-      background-color: @theme-color;
       border-color: @theme-color;
+      background-color: @theme-color;
 
       * {
           color: white !important;
@@ -49,8 +49,8 @@ cd contentt.kg-width-wide {
   }
 
   .EmbeddedTweet {
-    max-width: unset !important;
     width: 100%;
+    max-width: unset !important;
   }
 
   .twitter-tweet {
@@ -63,17 +63,17 @@ cd contentt.kg-width-wide {
   }
 
   a {
-    text-decoration: none;
-    line-height: 1.2;
-    font-size: 1.2em;
-    color: #4e576a !important;
-    font-weight: normal;
-    font-family: @body-font;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     display: -webkit-box;
-    text-overflow: ellipsis;
     overflow: hidden;
+    color: #4e576a !important;
+    font-family: @body-font;
+    font-size: 1.2em;
+    font-weight: normal;
+    line-height: 1.2;
+    text-decoration: none;
+    text-overflow: ellipsis;
   }
 }
 
@@ -82,27 +82,27 @@ cd contentt.kg-width-wide {
   }
 
 .kg-bookmark-card {
-    margin-bottom: 30px;
-    transition: @transition;
+    margin: 30px 0;
     box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
+    transition: @transition;
 
     .kg-bookmark-container {
         display: flex;
+        position: relative;
         flex-wrap: wrap;
-        text-decoration: none;
+        overflow: hidden;
         border: 1px solid #ececec;
         border-radius: 5px;
-        overflow: hidden;
         color: @body-color !important;
+        text-decoration: none;
         transition: @transition;
-        position: relative;
         @media(max-width: @mobile-breakpoint) {
             flex-direction: column-reverse;
         }
 
         &:hover {
-            background-color: @theme-color;
             border-color: @theme-color;
+            background-color: @theme-color;
 
             * {
                 color: white !important;
@@ -116,30 +116,30 @@ cd contentt.kg-width-wide {
             padding: 20px;
 
             .kg-bookmark-title {
-                text-decoration: none;
-                line-height: 1.2;
-                font-size: 1.1em;
-                color: @header-color;
-                font-family: @body-font;
-                font-weight: 700;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 display: -webkit-box;
-                text-overflow: ellipsis;
                 overflow: hidden;
+                color: @header-color;
+                font-family: @body-font;
+                font-size: 1.2em;
+                font-weight: 700;
+                line-height: 1.2;
+                text-decoration: none;
+                text-overflow: ellipsis;
             }
 
             .kg-bookmark-description {
-                margin: 15px 0;
-                font-size: 0.9em;
-                line-height: 1.4;
-                max-width: 475px;
-                font-family: @body-font-book;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 display: -webkit-box;
-                text-overflow: ellipsis;
+                max-width: 475px;
+                margin: 15px 0;
                 overflow: hidden;
+                font-family: @body-font-book;
+                font-size: 0.9em;
+                line-height: 1.4;
+                text-overflow: ellipsis;
                 @media(max-width: @tablet-breakpoint) {
                   width: -webkit-fill-available;
                 }
@@ -158,39 +158,39 @@ cd contentt.kg-width-wide {
                 }
 
                 .kg-bookmark-author:after {
-                    content: "•";
                     margin: 0 6px;
+                    content: "•";
                 }
 
                 .kg-bookmark-publisher,
                 .kg-bookmark-author {
-                  opacity: .8;
                   font-family: @body-font;
+                  opacity: .8;
                 }
             }
         }
 
         .kg-bookmark-thumbnail {
-            flex-basis: 15rem;
             position: relative;
+            flex-basis: 15rem;
             @media(max-width: @mobile-breakpoint) {
                 max-height: 180px;
                 overflow: hidden;
             }
 
             img {
-              width: 100%;
-              margin: auto;
               position: absolute;
               top: 0;
               bottom: 0;
+              width: 100%;
+              margin: auto;
                 @media(max-width: @mobile-breakpoint) {
-                    width: unset;
-                    min-width: 100%;
-                    height: 100%;
                     position: absolute;
                     top: 0;
                     bottom: 0;
+                    width: unset;
+                    min-width: 100%;
+                    height: 100%;
                     margin: auto;
                 }
             }
@@ -214,15 +214,15 @@ cd contentt.kg-width-wide {
     }
 
     img {
-        margin: 0;
+        display: block;
         display: block;
         width: 100%;
-        border-left: 0;
-        border-right: 0;
         max-width: 100%;
+        margin: 0;
         margin: 0 auto;
-        display: block;
         border: 1px solid rgba(206, 206, 206, 0.42);
+        border-right: 0;
+        border-left: 0;
     }
 
     &:hover {
@@ -244,10 +244,10 @@ cd contentt.kg-width-wide {
         padding: 5px;
         color: #7c838e;
         font-size: 0.9em;
+        font-weight: 600;
+        line-height: 1.2;
         text-align: center;
         white-space: normal;
-        line-height: 1.2;
-        font-weight: 600;
         @media(max-width: @mobile-breakpoint) {
             display: block;
             width: auto !important;
@@ -257,9 +257,9 @@ cd contentt.kg-width-wide {
 }
 
 .kg-code-card {
+    position: relative;
     width: 100%;
     margin: 30px 0;
-    position: relative;
     @media(max-width: @mobile-breakpoint) {
         width: unset;
     }

@@ -1,19 +1,21 @@
+@import "../mixins.less";
+
 pre[class*="language-"],
 .content-body > pre {
     display: block;
-    color: unset !important;
-    overflow-x: auto;
     padding: 20px;
-    background: #303645;
-    text-shadow: none !important;
+    overflow-x: auto;
     overflow-x: hidden;
     border-radius: 5px;
-    line-height: 1.5 !important;
+    background: #303645;
+    color: unset !important;
     font-size: 0.8em;
+    line-height: 1.5 !important;
+    text-shadow: none !important;
     @media(max-width: @mobile-breakpoint) {
         border-radius: 0;
-        padding: 15px;
         .mobile-horizontal-scroll();
+        .mobile-full-width();
     }
 
     &::-webkit-scrollbar {
@@ -22,10 +24,10 @@ pre[class*="language-"],
 
     code {
         color: #f3f6fa !important;
-        text-shadow: unset !important;
-        white-space: pre-wrap !important;
         font-family: @monospace-font;
         line-height: 1.3 !important;
+        text-shadow: unset !important;
+        white-space: pre-wrap !important;
         @media(max-width: @mobile-breakpoint) {
             border-radius: 0;
             white-space: pre !important;
@@ -361,8 +363,8 @@ pre[class*="language-"],
             }
 
             &.operator {
-                color: #D8DEE9 !important;
                 background: none !important;
+                color: #D8DEE9 !important;
             }
 
             &.atrule,

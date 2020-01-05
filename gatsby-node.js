@@ -100,9 +100,6 @@ exports.createPages = async ({ graphql, actions }) => {
     // Load Pages
     const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
-    // const joinPage = path.resolve(`./src/pages/join.js`)
-    // const subscribedPage = path.resolve(`./src/pages/subscribed.js`)
-    // const appliedPage = path.resolve(`./src/pages/applied.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
