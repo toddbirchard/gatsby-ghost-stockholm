@@ -2,15 +2,12 @@
 /* ---------------------------------------------------------- */
 .sidebar-container,
 .tag-container {
+    grid-gap: 20px;
+    display: grid;
+    grid-template-columns: 2.4fr 1fr;
     width: 1020px;
     max-width: 95%;
     margin: 0 auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: 2.4fr 1fr;
-    @media(max-width: 900px) {
-      grid-template-columns: 3fr 1fr;
-    }
     @media(max-width: @tablet-breakpoint) {
         grid-template-columns: 1fr;
         max-width: unset;
@@ -19,9 +16,9 @@
 }
 
 .viewport {
+    max-width: 100%;
     margin: 0 auto;
     padding-bottom: 50px;
-    max-width: 100%;
     @media(max-width: @mobile-breakpoint) {
       padding-bottom: 30px;
     }
@@ -56,13 +53,13 @@
 }
 
 .post-feed {
-    display: grid;
     grid-gap: 20px;
-    grid-template-columns: 1fr;
+    display: grid;
     grid-auto-rows: min-content;
+    grid-template-columns: 1fr;
     margin: 0 auto;
     @media(max-width: @tablet-breakpoint) {
-        width: 90%;
         grid-gap: 20px;
+        width: 90%;
     }
 }

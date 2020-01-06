@@ -36,6 +36,7 @@
             box-shadow: 0 1px 4px rgba(39,44,49,.07);
             @media (max-width: @tablet-breakpoint) {
                 max-width: unset;
+                padding: 20px 30px;
             }
             @media (max-width: @mobile-breakpoint) {
                 padding: 30px;
@@ -142,14 +143,12 @@
     }
 
     .sidebar-container {
-      @media(max-width: 900px) {
+      @media(max-width: @tablet-breakpoint) {
           grid-template-columns: 1fr;
           width: 100%;
       }
 
       .page-content {
-        width: 88%;
-        padding: 5%;
         @media(max-width: 900px) {
           max-width: 100%;
           margin: 0;

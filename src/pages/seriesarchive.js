@@ -9,7 +9,7 @@ import '../styles/series/seriesarchive.less'
 /**
 * Series page (/series/)
 *
-* Loads all posts for the requested tag incl. pagination.
+* Lists all multi-part post series.
 *
 */
 const SeriesArchive = ({ data, location }) => {
@@ -36,7 +36,7 @@ const SeriesArchive = ({ data, location }) => {
                                     }}></div>
                                 }
                                 <div className="series-card-info">
-                                    <h2 className="series-card-title">{node.meta_title}</h2>
+                                    <h2 className="series-card-title">{node.name.replace(`#`, ``)}</h2>
                                     <p className="series-card-description">{node.description}</p>
                                     <span className="series-card-count">{node.postCount} Posts</span>
                                 </div>
