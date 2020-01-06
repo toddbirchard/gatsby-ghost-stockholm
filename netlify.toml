@@ -413,6 +413,10 @@
     to = "/google-bigquery-python/"
     status = 301
 
+[[redirects]]
+    from = "/ssh-scp-in-python-with-paramiko/" 
+    to = "/automate-ssh-scp-python-paramiko/"
+    status = 301
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
