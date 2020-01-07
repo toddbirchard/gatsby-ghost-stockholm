@@ -34,21 +34,27 @@ const Footer = ({ navigation, site, data, template }) => {
                     <div className="footer-widgets">
                         <div className="widget tags">
                             <h5 className="footer-widget-title">Tags</h5>
-                            {topTags.map(({ node }) => (
-                                <Link to={`/tag/${ node.slug }`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.name }</Link>
-                            ))}
+                            <div className="link-grid">
+                                {topTags.map(({ node }) => (
+                                    <Link to={`/tag/${ node.slug }`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.name }</Link>
+                                ))}
+                            </div>
                         </div>
                         <div className="widget series">
                             <h5 className="footer-widget-title">Series</h5>
-                            {seriesLinks.map(({ node }) => (
-                                <Link to={`/series/${ node.slug}`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.meta_title }</Link>
-                            ))}
+                            <div className="link-grid">
+                                {seriesLinks.map(({ node }) => (
+                                    <Link to={`/series/${ node.slug}`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.name.replace(`#`, ``) }</Link>
+                                ))}
+                            </div>
                         </div>
                         <div className="widget authors">
                             <h5 className="footer-widget-title">Authors</h5>
-                            {authorLinks.map(({ node }) => (
-                                <Link to={`/author/${ node.slug }`} className="footer-navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</Link>
-                            ))}
+                            <div className="link-grid">
+                                {authorLinks.map(({ node }) => (
+                                    <Link to={`/author/${ node.slug }`} className="footer-navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</Link>
+                                ))}
+                            </div>
                         </div>
                         <div className="widget social">
                             <h5 className="footer-widget-title">Social</h5>
@@ -102,7 +108,7 @@ const FooterQuery = props => (
                   }
                 }
               }
-              tags: allGhostTag(limit: 8, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
+              tags: allGhostTag(limit: 12, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
                 edges {
                   node {
                     name
@@ -110,12 +116,11 @@ const FooterQuery = props => (
                   }
                 }
               }
-              series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 4}, slug: {nin: "adventures-in-excel"}}) {
+              series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 3}, slug: {nin: "adventures-in-excel"}}) {
                 edges {
                   node {
                     slug
                     name
-                    meta_title
                   }
                 }
               }

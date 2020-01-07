@@ -1,6 +1,5 @@
 @import '../variables.less';
 @import '../mixins.less';
-
 /* Tag Archives
 /* ---------------------------------------------------------- */
 .tag-template {
@@ -11,29 +10,29 @@
 
     .tag-title {
         margin: 0 0 1.5rem;
-        font-size: 1.5em;
         color: @header-color;
         font-family: @header-font-light;
+        font-size: 1.5em;
         font-weight: normal;
 
         svg {
-            font-size: 0.7em;
             margin-right: 5px;
-            opacity: .7;
+            font-size: 0.7em;
+            opacity: 0.7;
         }
     }
 
     .meta-item.tag {
-      @media(max-width: @mobile-breakpoint) {
-        display: none;
-      }
+        @media(max-width: @mobile-breakpoint) {
+            display: none;
+        }
     }
 
     .tag-description {
-        font-size: 1em;
-        line-height: 1.4em;
-        color: @body-color;
         margin: 0;
-        font-weight: 600;
-          }
+        color: @body-color;
+        font-size: 1em;
+        font-weight: 500;
+        line-height: 1.4em;
+    }
 }

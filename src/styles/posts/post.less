@@ -27,7 +27,7 @@
                 width: -webkit-fill-available;
                 width: -moz-available;
                 max-width: 720px;
-                margin: 60px auto 20px;
+                margin: 60px auto 0;
                 color: @header-color;
                 font-family: @header-font;
                 font-size: 2.2em;
@@ -42,7 +42,7 @@
                 @media(max-width: @mobile-breakpoint) {
                     max-width: unset;
                     margin: 40px auto 0;
-                    font-size: 1.6em;
+                    font-size: 1.7em;
                     line-height: 1.1;
                 }
 
@@ -81,14 +81,14 @@
             justify-content: center;
             width: fit-content;
             max-width: 720px;
-            margin: 0 auto 60px;
+            margin: 10px auto 60px;
             font-size: 12px;
             letter-spacing: -0.4px;
             @media(max-width: @mobile-breakpoint) {
                 flex-wrap: wrap;
                 width: auto;
                 max-width: none;
-                margin: 20px 0 6px;
+                margin: 10px 0 6px;
                 padding: 0;
             }
 
@@ -121,7 +121,8 @@
 
                 * {
                     padding: 0;
-                    font-family: @header-font-secondary;
+                    font-family: @body-font;
+                    font-weight: 500;
                     line-height: 1;
                     white-space: nowrap;
                 }
@@ -294,7 +295,9 @@
                     width: auto;
                     margin-bottom: 5px;
                     border: none;
-                    line-height: 1.2;
+                    font-size: 1.8em;
+                    letter-spacing: -1px;
+                    line-height: 1.1;
                     text-align: left;
                 }
             }
@@ -502,8 +505,7 @@
                 border-left: 0.4em solid #dddddd;
                 background: #f7f7f7;
                 color: #7a8186;
-                font-weight: 600;
-                line-height: 1.5;
+                line-height: 1.4;
                 @media(max-width: @mobile-breakpoint) {
                     margin: 20px auto;
                 }
@@ -529,18 +531,12 @@
                   background: #e1e8f4;
                   color: #7d8f9c;
                   font-family: @monospace-font;
-                  font-size: .8em;
+                  font-size: 0.7em;
+                  font-weight: 600;
                 }
 
                 ul {
                     margin-bottom: 0;
-                }
-            }
-
-            pre {
-                @media(max-width: @mobile-breakpoint) {
-                    /*.mobile-full-width();*/
-                    border-radius: 4px;
                 }
             }
         }

@@ -152,12 +152,12 @@ module.exports = {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
                 typekit: {
-                    families: [`proxima-nova`],
+                    id: [`pgr6fet`],
                     urls: [`https://use.typekit.net/pgr6fet.css`],
                 },
                 custom: {
-                    families: [`TTNormsPro-Bold`, `TTNormsPro-DemiBold`],
-                    urls: [`/fonts.css`],
+                    families: [`TTNormsPro-Bold`, `TTNormsPro-DemiBold`, `dm`],
+                    urls: [`/fonts.css`, `/dank.css`],
                 },
                 timeout: 7000,
             },
