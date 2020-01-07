@@ -19,6 +19,7 @@
             color: #6c727f;
             font-size: 1em;
             line-height: 1;
+            font-weight: 500;
             text-transform: uppercase;
         }
     }
@@ -125,10 +126,15 @@
 }
 
 .ais-SearchBox-form {
+
+    svg {
+        transition: @transition;
+    }
+
     &:focus,
     &:hover {
         svg {
-            color: #95aaba !important;
+            color: @theme-color !important;
         }
     }
 
@@ -136,33 +142,30 @@
         width: 263px !important;
         margin: 0;
         padding: 12px 17px;
-        border: 0;
-        border-radius: 3px;
-        background: #efefef;
+        border: 1px solid #dcdada;
+        border-radius: 2px;
         font-size: .9em;
         line-height: normal;
         transition: @transition;
         @media(max-width: 900px) {
             width: 210px !important;
-            font-size: .9em;
+            font-size: .95em;
         }
 
         &::placeholder {
-            color: lighten(grey, 2%);
+            color: lighten(grey, 15%);
+            font-size: .9em;
+            transition: @transition;
         }
 
         &:focus,
         &:hover {
-            background: #e1edf6;
+            border-color: @theme-color;
+            background-color: #e1ebf3;
 
             &::placeholder {
-                color: lighten(#95aaba, 10%);
-                transition: @transition;
+                color: #95aaba !important;
             }
-        }
-
-        svg {
-            transition: @transition;
         }
     }
 

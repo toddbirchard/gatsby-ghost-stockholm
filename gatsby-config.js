@@ -157,7 +157,7 @@ module.exports = {
                 },
                 custom: {
                     families: [`TTNormsPro-Bold`, `TTNormsPro-DemiBold`, `dm`],
-                    urls: [`/fonts.css`, `/dank.css`],
+                    urls: [`/fonts.css`],
                 },
                 timeout: 7000,
             },
