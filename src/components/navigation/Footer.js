@@ -58,11 +58,13 @@ const Footer = ({ navigation, site, data, template }) => {
                         </div>
                         <div className="widget social">
                             <h5 className="footer-widget-title">Social</h5>
-                            <a href={ twitterUrl } className="twitter footer-navigation-link" target="_blank" rel="noopener noreferrer">Twitter</a>
-                            <a href={ facebookUrl } className="facebook footer-navigation-link" target="_blank" rel="noopener noreferrer">Facebook</a>
-                            <a href={ config.social.angellist } className="angellist-footer footer-navigation-link" target="_blank" rel="noopener noreferrer">Angellist</a>
-                            <a href={ config.social.github } className="github footer-navigation-link" target="_blank" rel="noopener noreferrer">Github</a>
-                            <a href="/rss" className="rss footer-navigation-link">RSS</a>
+                            <div className="link-grid">
+                                <a href={ twitterUrl } className="twitter footer-navigation-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                                <a href={ facebookUrl } className="facebook footer-navigation-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+                                <a href={ config.social.angellist } className="angellist-footer footer-navigation-link" target="_blank" rel="noopener noreferrer">Angellist</a>
+                                <a href={ config.social.github } className="github footer-navigation-link" target="_blank" rel="noopener noreferrer">Github</a>
+                                <a href="/rss" className="rss footer-navigation-link">RSS</a>
+                            </div>
                         </div>
                     </div>
                 </div>

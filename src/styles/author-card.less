@@ -28,6 +28,7 @@
         margin: 0 0 0.5em;
         color: #666c70;
         font-size: 1.4em;
+        font-weight: 500;
     }
 
     .author-card-image {
@@ -101,7 +102,7 @@
             color: @body-color;
             font-family: @body-font-book;
             font-size: 1em;
-            line-height: 1.4em;
+            line-height: 1.3em;
             @media(max-width: @mobile-breakpoint) {
                 display: none;
             }
@@ -144,12 +145,16 @@
 }
 
 .author-card.about {
-    padding: 30px;
+    padding: 30px 0 40px;
     overflow: hidden;
-    box-shadow: 0 0 4px rgba(198, 205, 227, 0.3);
+    border-bottom: 1px solid #eaeaea;
     @media(max-width: @tablet-breakpoint) {
       margin: 0 0 20px;
       padding: 25px 20px;
+    }
+
+    &:last-of-type {
+      border-bottom: 0;
     }
 
     .author-card-bio-mobile {

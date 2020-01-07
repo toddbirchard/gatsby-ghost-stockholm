@@ -69,6 +69,9 @@
                   font-size: 1.4em;
                   text-align: justify;
                 }
+                @media(max-width: 400px) {
+                  font-size: 6.2vmin;
+                }
 
                 &:hover {
                     opacity: 0.6;
@@ -125,16 +128,19 @@
             }
 
             .footer-widget-title {
-                margin-bottom: 20px;
+                margin-bottom: 30px;
                 color: #56636e;
-                font-family: @header-font-secondary;
-                font-size: 1.3em;
-                font-weight: normal;
+                font-size: 1.1em;
+                font-weight: 600;
+                @media(max-width: @mobile-breakpoint) {
+                    margin-bottom: 15px;
+                    /*border-bottom: 1px solid #e7eaed;*/
+                }
             }
 
             .footer-navigation-link {
                 display: block;
-                margin: 0 0 15px;
+                margin: 0 0 10px;
                 padding-left: 0;
                 color: #657884;
                 font-family: @body-font-book;
