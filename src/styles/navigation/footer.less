@@ -17,19 +17,19 @@
 
         .link-grid {
           @media(max-width: @mobile-breakpoint) {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-        }
+            display: grid;
+            column-gap: 10px;
+            grid-template-columns: 1fr 1fr;
+          }
         }
 
         .footer-links {
             @media(max-width: @mobile-breakpoint) {
-                display: flex;
-                justify-content: space-between;
                 margin: 0;
 
                 .navigation-link {
                     margin: 0;
+
 
                     &.Join {
                       @media(max-width: @mobile-breakpoint) {
@@ -50,7 +50,7 @@
             @media(max-width: @mobile-breakpoint) {
                 display: block;
                 width: -webkit-fill-available;
-                margin: 0 40px;
+                margin: 0 30px;
                 overflow: hidden;
             }
 
@@ -85,6 +85,7 @@
                 width: 300px;
               }
               @media(max-width: @mobile-breakpoint) {
+                justify-content: left;
                 width: 100% !important;
               }
             }
@@ -96,9 +97,11 @@
                 text-transform: uppercase;
                 @media(max-width: @tablet-breakpoint) {
                     margin: 0;
+                    font-size: .9em;
                 }
                 @media(max-width: @mobile-breakpoint) {
                     margin-left: 0;
+                    margin-right: 20px;
                 }
             }
         }
@@ -112,7 +115,7 @@
             display: block;
             width: unset;
             max-width: unset;
-            padding: 40px;
+            padding: 30px;
         }
 
         .widget {

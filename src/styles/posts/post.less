@@ -32,7 +32,7 @@
                 font-family: @header-font;
                 font-size: 2.2em;
                 font-weight: unset;
-                letter-spacing: -1px;
+                letter-spacing: -.5px;
                 line-height: 1.1;
                 text-align: center;
                 @media(max-width: @tablet-breakpoint) {
@@ -83,7 +83,6 @@
             width: fit-content;
             max-width: 720px;
             margin: 10px auto 60px;
-            font-size: 12px;
             letter-spacing: -0.4px;
             @media(max-width: @mobile-breakpoint) {
                 flex-wrap: wrap;
@@ -105,7 +104,7 @@
                 align-items: center;
                 margin: 0 15px;
                 color: #7e8da3;
-                font-size: 1.2em;
+                font-size: 1em;
                 line-height: 1;
                 text-transform: capitalize;
                 @media(max-width: @mobile-breakpoint) {
@@ -151,7 +150,7 @@
 
                 &.tag {
                   @media(max-width: @mobile-breakpoint) {
-                    margin: 0px 17px 7px;
+                    margin: 0px 20px 7px;
                   }
                 }
 
@@ -254,14 +253,13 @@
                 border-radius: 3px;
                 color: #7a8595 !important;
                 font-family: @body-font;
-                font-size: 0.85em;
-                font-weight: 600;
+                font-size: 0.9em;
+                font-weight: 500;
                 line-height: 1;
                 transition: all 0.2s ease-out;
                 @media(max-width: @tablet-breakpoint) {
                     margin-right: 7px;
                     margin-bottom: 7px;
-                    font-size: 0.8em;
                 }
 
                 &:hover {
@@ -305,6 +303,7 @@
 
             h3 {
               letter-spacing: -.5px;
+              font-family: @header-font-secondary;
             }
 
             h4 {
