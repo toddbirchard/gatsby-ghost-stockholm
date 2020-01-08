@@ -414,7 +414,7 @@
     status = 301
 
 [[redirects]]
-    from = "/ssh-scp-in-python-with-paramiko/" 
+    from = "/ssh-scp-in-python-with-paramiko/"
     to = "/automate-ssh-scp-python-paramiko/"
     status = 301
 
@@ -434,7 +434,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
-    for = "/fonts.css"
+    for = "/fonts"
     [headers.values]
       crossorigin = "anonymous"
       type = "font/woff2"

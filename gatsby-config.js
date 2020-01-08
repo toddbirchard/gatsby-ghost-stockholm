@@ -192,13 +192,23 @@ module.exports = {
                 // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
             },
         },*/
-        /*{
+        {
             resolve: `gatsby-plugin-netlify`,
             options: {
                 headers: { "/*": [
                     `Referrer-Policy: no-referrer-when-downgrade`,
                     `Expect-CT: enforce,max-age=604800`,
-                ] }, // option to add more headers. `Link` headers are transformed by the below criteria
+                ], "/fonts": [
+                    `crossorigin: anonymous`,
+                    `type: font/woff2`,
+                    `accept: application/font-woff2`,
+                    `cache-control: '''
+                    max-age=31557600,
+                    no-cache,
+                    no-store,
+                    must-revalidate'''`,
+                ] },
+                // option to add more headers. `Link` headers are transformed by the below criteria
                 allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
                 mergeSecurityHeaders: true, // boolean to turn off the default security headers
                 mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
@@ -206,7 +216,7 @@ module.exports = {
                 transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
                 generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
             },
-        },*/
+        },
         /**
          *  Utility Plugins
          */
