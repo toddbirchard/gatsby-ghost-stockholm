@@ -4,9 +4,10 @@ import {
     Index,
     Hits,
     connectStateResults,
+    SearchBox,
     Configure,
 } from 'react-instantsearch-dom'
-
+import { connectSearchBox } from './Input'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
@@ -76,7 +77,12 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 onSearchStateChange={({ query }) => setQuery(query)}
             >
                 <Configure hitsPerPage={8} />
-                <Input onFocus={() => setFocus(true)} {...{ collapse, focus }} />
+                <SearchBox
+                    searchAsYouType={true}
+                    placeholder="Search"
+                    aria-label="Search"
+                    onFocus={() => setFocus(true)} {...{ collapse, focus }}
+                />
                 <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results" >
                     {indices.map(({ name }) => (
                         <Index key={name} indexName={name}>
