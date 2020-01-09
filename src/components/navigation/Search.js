@@ -10,7 +10,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
-import { Root, HitsWrapper } from './styles'
+import { Root, HitsWrapper } from './SearchStyles'
 import { Link } from 'gatsby'
 
 const Results = connectStateResults(

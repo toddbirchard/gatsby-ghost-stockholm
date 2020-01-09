@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Search from '../search'
+import Search from './Search'
 import NavLinks from './NavLinks'
 import { stack as Menu } from 'react-burger-menu'
 
