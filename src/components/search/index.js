@@ -7,12 +7,10 @@ import {
     SearchBox,
     Configure,
 } from 'react-instantsearch-dom'
-import { connectSearchBox } from './Input'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
 import { Root, HitsWrapper } from './styles'
-import Input from './Input'
 import { Link } from 'gatsby'
 
 const Results = connectStateResults(
@@ -83,6 +81,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                     aria-label="Search"
                     onFocus={() => setFocus(true)} {...{ collapse, focus }}
                 />
+                <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
                 <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results" >
                     {indices.map(({ name }) => (
                         <Index key={name} indexName={name}>
