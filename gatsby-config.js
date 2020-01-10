@@ -98,6 +98,36 @@ module.exports = {
                             count: 6,
                         },
                     },
+                    AuthorToddTweets: {
+                        endpoint: `statuses/user_timeline`,
+                        params: {
+                            screen_name: `toddrbirchard`,
+                            include_rts: true,
+                            exclude_replies: true,
+                            tweet_mode: `extended`,
+                            count: 6,
+                        },
+                    },
+                    AuthorMattTweets: {
+                        endpoint: `statuses/user_timeline`,
+                        params: {
+                            screen_name: `MattAlhonte`,
+                            include_rts: true,
+                            exclude_replies: true,
+                            tweet_mode: `extended`,
+                            count: 6,
+                        },
+                    },
+                    AuthorMaxTweets: {
+                        endpoint: `statuses/user_timeline`,
+                        params: {
+                            screen_name: `MaxMileaf`,
+                            include_rts: true,
+                            exclude_replies: true,
+                            tweet_mode: `extended`,
+                            count: 6,
+                        },
+                    },
                 },
             },
         },
