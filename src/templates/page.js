@@ -68,7 +68,7 @@ Page.propTypes = {
 
 export default Page
 
-export const postQuery = graphql`
+export const pageQuery = graphql`
     query($slug: String!) {
         ghostPage(slug: { eq: $slug }) {
             ...GhostPageFields
