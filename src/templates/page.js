@@ -73,5 +73,4 @@ export const pageQuery = graphql`
         ghostPage(slug: { eq: $slug }) {
             ...GhostPageFields
         }
-    }
-`
+    }`

@@ -60,7 +60,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                     }),
                 })
             }
-
             return algoliaClient.search(requests)
         },
     }

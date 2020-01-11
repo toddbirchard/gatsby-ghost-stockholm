@@ -12,6 +12,7 @@ const JoinUs = ({ data, location }) => (
         <MetaData
             data={data}
             location={location}
+            description={`Join the Hackers and Slackers community and produce content of your own.`}
             type="series"
         />
         <Layout template="page-template join-template" hasSidebar={false}>

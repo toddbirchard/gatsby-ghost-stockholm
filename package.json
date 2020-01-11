@@ -40,7 +40,7 @@
     "babel-preset-gatsby": "^0.2.27",
     "eslint": "^6.8.0",
     "eslint-plugin-ghost": "^0.6.0",
-    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",

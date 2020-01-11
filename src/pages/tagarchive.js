@@ -21,6 +21,7 @@ const TagArchive = ({ data, location }) => {
             <MetaData
                 data={data}
                 location={location}
+                description={`Explore all posts related to ${page.name}`}
                 type="series"
             />
             <Layout template="TagArchive-template page-template" hasSidebar={true}>

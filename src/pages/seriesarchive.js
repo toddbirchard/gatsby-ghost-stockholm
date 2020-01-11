@@ -21,6 +21,7 @@ const SeriesArchive = ({ data, location }) => {
             <MetaData
                 data={data}
                 location={location}
+                description={`Explore full topics in software development and data science by following our dedicated multi-part series'.`}
                 type="series"
             />
             <Layout template="seriesarchive-template page-template" hasSidebar={true}>

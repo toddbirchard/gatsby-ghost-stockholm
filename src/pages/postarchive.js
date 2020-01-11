@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import React, { useState } from 'react'
+import { PropTypes } from 'prop-types'
 
 import {
     InstantSearch,
@@ -25,97 +24,85 @@ const searchClient = algoliasearch(
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 )
-
 const createURL = state => `?${qs.stringify(state)}`
-const searchStateToUrl = (props, searchState) => (searchState ? `${props.location.pathname}${createURL(searchState)}` : ``)
+const searchStateToUrl = ({ location }, searchState) => (searchState ? `${location.pathname}${createURL(searchState)}` : ``)
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
-class PostArchive extends Component {
-  state = {
-      searchState: urlToSearchState(this.props.location),
-      lastLocation: this.props.location,
-  };
+const PostArchive = ({ data, location, history }) => {
+    const [searchState, setSearchState] = useState(urlToSearchState(location))
+    const [debouncedSetState, setDebouncedSetState] = useState(null)
+    const onSearchStateChange = (updatedSearchState) => {
+        clearTimeout(debouncedSetState)
 
-  componentDidUpdate(prevProps) {
-      if (prevProps.location !== this.props.location) {
-          this.setState({ searchState: urlToSearchState(this.props.location) })
-      }
-      /*else {
-          return { query: `allPostQuery` }
-      }*/
-  }
+        setDebouncedSetState(
+            setTimeout(() => {
+                history.push(searchStateToUrl(updatedSearchState), updatedSearchState)
+            }, DEBOUNCE_TIME)
+        )
 
-  onSearchStateChange = (searchState) => {
-      clearTimeout(this.debouncedSetState)
+        setSearchState(updatedSearchState)
+    }
 
-      this.debouncedSetState = setTimeout(() => {
-          this.props.history.push(
-              searchStateToUrl(this.props, searchState),
-              searchState
-          )
-      }, DEBOUNCE_TIME)
-      this.setState({ searchState })
-  };
-
-  render() {
-      return (
-          <>
-              {/*<MetaData
-                  data={data}
-                  location={location}
-                  type="series"
-              />*/}
-              <Layout template="postarchive-template" hasSidebar={false}>
-                  <div className="postarchive-container">
-                      <InstantSearch
-                          searchClient={searchClient}
-                          indexName={`hackers_posts_all`}
-                          createURL={createURL}
-                          hitsPerPage={100}
-                          analytics={true}
-                          searchState={this.state.searchState}
-                          onSearchStateChange={this.onSearchStateChange}
-                      >
-                          <Configure query={`allPostQuery`} hitsPerPage={100} analytics={true}/>
-                          <div className="search-body">
-                              <div className="postarchive-header">
-                                  <h1>All Posts</h1>
-
-                                  <div className="searchbar-container">
-                                      <SearchBox className="searchbox" placeholder="Search" showLoadingIndicator />
-                                      <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
-                                  </div>
-                                  <div className="search-bar-container">
-                                      <MenuSelect
-                                          attribute="tags.name"
-                                          limit={40}
-                                          defaultRefinement=""
-                                          placeholder="Filter by tag"
-                                      />
-                                      <MenuSelect
-                                          attribute="primary_author.name"
-                                          defaultRefinement=""
-                                          placeholder="Filter by author"
-                                      />
-                                      <SortBy
-                                          items={[
-                                              { value: `hackers_posts_all`, label: `Relevance` },
-                                              { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
-                                              { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
-                                          ]}
-                                          defaultRefinement="hackers_posts_all"
-                                      />
-                                  </div>
-                              </div>
-                              <Hits hitComponent={Hit} />
-                              <Pagination showFirst={false} />
-                          </div>
-                      </InstantSearch>
-                  </div>
-              </Layout>
-          </>
-      )
-  }
+    return (
+        <>
+            <MetaData
+                data={data}
+                location={location}
+                description={`Search all Hackers and Slackers posts.`}
+                type="website"
+            />
+            <Layout template="postarchive-template" hasSidebar={false}>
+                <div className="postarchive-container">
+                    <InstantSearch
+                        searchClient={searchClient}
+                        indexName={`hackers_posts_all`}
+                        createURL={createURL}
+                        hitsPerPage={100}
+                        analytics={true}
+                        searchState={searchState}
+                        onSearchStateChange={onSearchStateChange}
+                    >
+                        <Configure query={`allPostQuery`} hitsPerPage={100} analytics={true}/>
+                        <div className="search-body">
+                            <div className="postarchive-header">
+                                <h1>All Posts</h1>
+                                <div className="searchbar-container">
+                                    <SearchBox className="searchbox"
+                                        placeholder="Search"
+                                        showLoadingIndicator={true}
+                                    />
+                                    <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
+                                </div>
+                                <div className="search-bar-container">
+                                    <MenuSelect
+                                        attribute="tags.name"
+                                        limit={40}
+                                        defaultRefinement=""
+                                        placeholder="Filter by tag"
+                                    />
+                                    <MenuSelect
+                                        attribute="primary_author.name"
+                                        defaultRefinement=""
+                                        placeholder="Filter by author"
+                                    />
+                                    <SortBy
+                                        items={[
+                                            { value: `hackers_posts_all`, label: `Relevance` },
+                                            { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
+                                            { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
+                                        ]}
+                                        defaultRefinement="hackers_posts_all"
+                                    />
+                                </div>
+                            </div>
+                            <Hits hitComponent={Hit} />
+                            <Pagination showFirst={false} />
+                        </div>
+                    </InstantSearch>
+                </div>
+            </Layout>
+        </>
+    )
 }
 
 const Hit = ({ hit }) => (
@@ -132,7 +119,7 @@ PostArchive.propTypes = {
     }),
     location: PropTypes.object.isRequired,
     data: PropTypes.shape({
-        allGhostPost: PropTypes.object.isRequired,
+        ghostPage: PropTypes.object.isRequired,
     }).isRequired,
 }
 
