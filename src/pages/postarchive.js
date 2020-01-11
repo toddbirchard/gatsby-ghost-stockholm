@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+
 import {
     InstantSearch,
     SearchBox,
@@ -10,9 +13,10 @@ import {
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
-import PropTypes from 'prop-types'
+
 import { Layout, PostCard } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/postarchive.less'
 
@@ -23,9 +27,7 @@ const searchClient = algoliasearch(
 )
 
 const createURL = state => `?${qs.stringify(state)}`
-
 const searchStateToUrl = (props, searchState) => (searchState ? `${props.location.pathname}${createURL(searchState)}` : ``)
-
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
 class PostArchive extends Component {
@@ -57,54 +59,61 @@ class PostArchive extends Component {
 
   render() {
       return (
-          <Layout template="postarchive-template" hasSidebar={false}>
-              <div className="postarchive-container">
-                  <InstantSearch
-                      searchClient={searchClient}
-                      indexName={`hackers_posts_all`}
-                      createURL={createURL}
-                      hitsPerPage={100}
-                      analytics={true}
-                      searchState={this.state.searchState}
-                      onSearchStateChange={this.onSearchStateChange}
-                  >
-                      <Configure query={`allPostQuery`} hitsPerPage={100} analytics={true}/>
-                      <div className="search-body">
-                          <div className="postarchive-header">
-                              <h1>All Posts</h1>
+          <>
+              <MetaData
+                  data={data}
+                  location={location}
+                  type="series"
+              />
+              <Layout template="postarchive-template" hasSidebar={false}>
+                  <div className="postarchive-container">
+                      <InstantSearch
+                          searchClient={searchClient}
+                          indexName={`hackers_posts_all`}
+                          createURL={createURL}
+                          hitsPerPage={100}
+                          analytics={true}
+                          searchState={this.state.searchState}
+                          onSearchStateChange={this.onSearchStateChange}
+                      >
+                          <Configure query={`allPostQuery`} hitsPerPage={100} analytics={true}/>
+                          <div className="search-body">
+                              <div className="postarchive-header">
+                                  <h1>All Posts</h1>
 
-                              <div className="searchbar-container">
-                                  <SearchBox className="searchbox" placeholder="Search" showLoadingIndicator />
-                                  <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
+                                  <div className="searchbar-container">
+                                      <SearchBox className="searchbox" placeholder="Search" showLoadingIndicator />
+                                      <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
+                                  </div>
+                                  <div className="search-bar-container">
+                                      <MenuSelect
+                                          attribute="tags.name"
+                                          limit={40}
+                                          defaultRefinement=""
+                                          placeholder="Filter by tag"
+                                      />
+                                      <MenuSelect
+                                          attribute="primary_author.name"
+                                          defaultRefinement=""
+                                          placeholder="Filter by author"
+                                      />
+                                      <SortBy
+                                          items={[
+                                              { value: `hackers_posts_all`, label: `Relevance` },
+                                              { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
+                                              { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
+                                          ]}
+                                          defaultRefinement="hackers_posts_all"
+                                      />
+                                  </div>
                               </div>
-                              <div className="search-bar-container">
-                                  <MenuSelect
-                                      attribute="tags.name"
-                                      limit={40}
-                                      defaultRefinement=""
-                                      placeholder="Filter by tag"
-                                  />
-                                  <MenuSelect
-                                      attribute="primary_author.name"
-                                      defaultRefinement=""
-                                      placeholder="Filter by author"
-                                  />
-                                  <SortBy
-                                      items={[
-                                          { value: `hackers_posts_all`, label: `Relevance` },
-                                          { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
-                                          { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
-                                      ]}
-                                      defaultRefinement="hackers_posts_all"
-                                  />
-                              </div>
+                              <Hits hitComponent={Hit} />
+                              <Pagination showFirst={false} />
                           </div>
-                          <Hits hitComponent={Hit} />
-                          <Pagination showFirst={false} />
-                      </div>
-                  </InstantSearch>
-              </div>
-          </Layout>
+                      </InstantSearch>
+                  </div>
+              </Layout>
+          </>
       )
   }
 }
@@ -122,6 +131,16 @@ PostArchive.propTypes = {
         push: PropTypes.func.isRequired,
     }),
     location: PropTypes.object.isRequired,
+    data: PropTypes.shape({
+        allGhostPost: PropTypes.object.isRequired,
+    }).isRequired,
 }
+
+export const PostArchiveQuery = graphql`
+    query($slug: String!) {
+        ghostPage(slug: { eq: $slug }) {
+            ...GhostPageFields
+        }
+    }`
 
 export default PostArchive
