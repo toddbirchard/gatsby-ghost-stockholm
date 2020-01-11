@@ -18,7 +18,7 @@
 
 [[redirects]]
     from = "/structuring-your-flask-app/"
-    to = "/organizing-flask-with-blueprints"
+    to = "/organize-flask-with-blueprints/"
     status = 301
 
 [[redirects]]
@@ -178,11 +178,6 @@
 
 [[redirects]]
     from = "/demystifying-flasks-application-context/"
-    to = "/demystifying-flask-application-factory/"
-    status = 301
-
-[[redirects]]
-    from = "/structuring-your-flask-app/"
     to = "/demystifying-flask-application-factory/"
     status = 301
 
@@ -359,11 +354,6 @@
     status = 301
 
 [[redirects]]
-    from = "/organizing-flask-with-blueprints/"
-    to = "/flask-blueprints/"
-    status = 301
-
-[[redirects]]
     from = "/configuring-your-flask-application/"
     to = "/configuring-flask-applications/"
     status = 301
@@ -416,6 +406,11 @@
 [[redirects]]
     from = "/ssh-scp-in-python-with-paramiko/"
     to = "/automate-ssh-scp-python-paramiko/"
+    status = 301
+
+[[redirects]]
+    from = "/pythonic-database-management-with-sqlalchemy/"
+    to = "/python-database-management-sqlalchemy/"
     status = 301
 
 [[headers]]
