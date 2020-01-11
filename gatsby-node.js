@@ -100,6 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // Load Pages
     const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
+    const joinPage = path.resolve(`./src/pages/join.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
@@ -343,6 +344,16 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     createPage({
+        path: `/join/`,
+        component: seriesArchive,
+        context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: `series`,
+        },
+    })
+
+    createPage({
         path: `/jupyter/`,
         component: jupyterArchive,
         context: {
@@ -353,12 +364,12 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     createPage({
-        path: `/series/`,
-        component: seriesArchive,
+        path: `/join/`,
+        component: joinPage,
         context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
-            slug: `series`,
+            slug: `join`,
         },
     })
 }
