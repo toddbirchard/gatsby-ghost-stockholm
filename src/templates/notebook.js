@@ -31,7 +31,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
                         <div className="meta-item jupyter-origin-url"><a href={githubLink}>{githubRepoName}</a></div>
                         <div className="meta-item jupyter-date">{file.modifiedTime}</div>
                     </div>
-                    <NotebookPreview notebook={notebook.internal.content} />
+                    {/*<NotebookPreview notebook={notebook.internal.content} />*/}
                 </div>
             </Layout>
         </>

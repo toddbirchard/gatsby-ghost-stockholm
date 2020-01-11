@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { Layout } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MetaData } from '../components/common/meta'
-import { graphql } from 'gatsby'
 
 import '../styles/pages/page.less'
 
@@ -99,10 +98,3 @@ JoinUs.propTypes = {
 }
 
 export default JoinUs
-
-export const joinQuery = graphql`
-    query($slug: String!) {
-        ghostPage(slug: { eq: $slug }) {
-            ...GhostPageFields
-        }
-    }`

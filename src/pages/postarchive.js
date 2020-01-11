@@ -60,11 +60,11 @@ class PostArchive extends Component {
   render() {
       return (
           <>
-              <MetaData
+              {/*<MetaData
                   data={data}
                   location={location}
                   type="series"
-              />
+              />*/}
               <Layout template="postarchive-template" hasSidebar={false}>
                   <div className="postarchive-container">
                       <InstantSearch
@@ -135,12 +135,5 @@ PostArchive.propTypes = {
         allGhostPost: PropTypes.object.isRequired,
     }).isRequired,
 }
-
-export const PostArchiveQuery = graphql`
-    query($slug: String!) {
-        ghostPage(slug: { eq: $slug }) {
-            ...GhostPageFields
-        }
-    }`
 
 export default PostArchive
