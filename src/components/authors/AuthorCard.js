@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
 
-const AuthorCard = ({ author, headerClass, page }) => {
+const AuthorCard = ({ author, headerClass, page, template, pageContext }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
     const authorFacebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
     const classes = headerClass ? `author-card info-card` : `author-card`
+    const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
 
     return (
         <>
@@ -16,7 +17,7 @@ const AuthorCard = ({ author, headerClass, page }) => {
                         {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={author.name} /> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} />}
                     </div>
                     <div className="author-card-content">
-                        <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
+                        {template === `author-template` ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1> : <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>}
                         <div className="author-card-meta">
                             {author.postCount && <div className="author-card-item"><FontAwesomeIcon icon={[`fad`, `pencil-alt`]} size="xs" /> <span>{author.postCount} Posts</span></div>}
                             {author.location && <div className="author-card-item location"><FontAwesomeIcon icon={[`fad`, `home`]} size="xs" /> <span>{author.location}</span></div>}
@@ -46,6 +47,8 @@ AuthorCard.propTypes = {
         slug: PropTypes.string,
     }).isRequired,
     headerClass: PropTypes.boolean,
+    pageContext: PropTypes.object,
+    template: PropTypes.string,
     page: PropTypes.string.isRequired,
 }
 

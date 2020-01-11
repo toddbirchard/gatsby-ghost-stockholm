@@ -18,7 +18,7 @@ import '../styles/pages/tag.less'
 const Tag = ({ data, location, pageContext }) => {
     const tag = data.ghostTag
     const posts = data.allGhostPost.edges
-    const pageCount = pageContext.humanPageNumber > 0 ? pageContext.humanPageNumber : null
+    const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
 
     return (
         <>
@@ -30,7 +30,7 @@ const Tag = ({ data, location, pageContext }) => {
             <Layout template="tag-template" hasSidebar={true}>
                 <section className="post-feed">
                     <header className="tag-header info-card">
-                        <h1 className="tag-title"><FontAwesomeIcon icon={[`fad`, `tags`]} size="sm" swapOpacity /> {tag.name} <span>{`(page ${pageCount})`}</span></h1>
+                        <h1 className="tag-title"><FontAwesomeIcon icon={[`fad`, `tags`]} size="sm" swapOpacity /> {tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
                         {tag.description ? <p className="tag-description">{tag.description}</p> : null }
                     </header>
                     {posts.map(({ node }) => (
