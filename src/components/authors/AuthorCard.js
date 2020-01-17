@@ -7,7 +7,7 @@ const AuthorCard = ({ author, headerClass, page, template, pageContext }) => {
     const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
     const authorFacebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
     const classes = headerClass ? `author-card info-card` : `author-card`
-    const pageCount = pageContext.humanPageNumber && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
+    const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
 
     return (
         <>
