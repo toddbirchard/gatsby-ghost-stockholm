@@ -14,7 +14,8 @@ import '../styles/series/seriesarchive.less'
 */
 const SeriesArchive = ({ data, location }) => {
     const tags = data.allGhostTag.edges
-    const page = data.ghostPage
+    const title = data.ghostPage.title
+    const plaintext = data.ghostPage.plantext
 
     return (
         <>
@@ -26,8 +27,8 @@ const SeriesArchive = ({ data, location }) => {
             />
             <Layout template="seriesarchive-template page-template" hasSidebar={true}>
                 <div className="page-content post-content">
-                    {page.title && <h1>{page.title}</h1> }
-                    {page.plaintext && <p>{page.plaintext}</p> }
+                    {title && <h1>{title}</h1> }
+                    {plaintext && <p>{plaintext}</p> }
                     <div className="series-grid">
                         {tags.map(({ node }) => (
                             <Link to={`/series/${node.slug}`} className="series-card" key={node.id}>
