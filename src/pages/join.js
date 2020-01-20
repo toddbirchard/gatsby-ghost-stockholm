@@ -12,6 +12,7 @@ const JoinUs = ({ data, location }) => (
         <MetaData
             data={data}
             location={location}
+            title={`Join us`}
             description={`Join the Hackers and Slackers community and produce content of your own.`}
             type="series"
         />

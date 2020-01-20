@@ -22,6 +22,7 @@ const SeriesArchive = ({ data, location }) => {
             <MetaData
                 data={data}
                 location={location}
+                title={`Series and multi-part tutorials about software.`}
                 description={`Explore full topics in software development and data science by following our dedicated multi-part series'.`}
                 type="series"
             />

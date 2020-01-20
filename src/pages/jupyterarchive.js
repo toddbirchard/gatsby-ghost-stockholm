@@ -21,6 +21,7 @@ const JupyterArchive = ({ data, location, pageContext }) => {
             <MetaData
                 data={data}
                 location={location}
+                title={`Our Jupyter Notebooks.`}
                 description={`View our Jupyter notebook posts (these are a WIP)`}
                 type="series"
             />

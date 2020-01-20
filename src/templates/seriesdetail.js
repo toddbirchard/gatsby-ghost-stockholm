@@ -22,6 +22,8 @@ const SeriesDetail = ({ data, location }) => {
         <>
             <MetaData
                 data={data}
+                title={`${tagName} Series`}
+                description={tag.description}
                 location={location}
                 type="series"
             />

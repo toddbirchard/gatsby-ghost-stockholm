@@ -24,6 +24,8 @@ const Tag = ({ data, location, pageContext }) => {
         <>
             <MetaData
                 data={data}
+                title={`${tag.name} (page ${pageCount})`}
+                description={tag.description}
                 location={location}
                 type="website"
             />
