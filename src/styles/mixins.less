@@ -1,16 +1,16 @@
 .mobile-full-width() {
-	margin-left: calc(~"-50vw + 50%") !important;
+	min-width: 100%;
 	margin-right: calc(~"-50vw + 50%") !important;
+	margin-left: calc(~"-50vw + 50%") !important;
 	border-right: 0;
 	border-left: 0;
-	min-width: 100%;
 }
 
 .mobile-horizontal-scroll() {
-	white-space: nowrap;
-	overflow-y: hidden;
-	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
 
 	&:hover {
 		cursor: grab;
@@ -18,21 +18,19 @@
 }
 
 .select-dropdown() {
-	margin: 0;
-	background: #fff;
-	border-radius: 0;
-	width: 100%!important;
-	line-height: normal;
-	padding: 15px;
-	font-size: .9em;
-	max-width: -webkit-fill-available;
-	border: 1px solid #dfdede;
 	-webkit-appearance: none;
-	border-radius: 0!important;
 	-webkit-transition: all 0.2s ease-out;
-	transition: all 0.2s ease-out;
-	color: #616779;
+	width: 100%!important;
+	max-width: -webkit-fill-available;
+	margin: 0;
+	padding: 15px;
+	border: 1px solid #dfdede;
 	outline: none;
+	background: #fff;
+	color: #616779;
+	font-size: .9em;
+	line-height: normal;
+	transition: all 0.2s ease-out;
 }
 
 .mobile-horizontal-scroll-child() {
@@ -41,8 +39,8 @@
 
 .header-card() {
 	margin: 0 !important;
-	background: white;
 	padding: 30px !important;
+	background: white;
 	box-shadow: @box-shadow;
 	@media (max-width: @tablet-breakpoint) {
 		.mobile-full-width();
@@ -54,39 +52,38 @@
 		}
 
 		p {
-			font-size: 1em !important;
 			margin: auto;
+			font-size: 1em !important;
 		}
 	}
 
 	.author-card-image {
 		width: 100px;
-		height: 100px;
 		min-width: 100px;
+		height: 100px;
 	}
 }
 
 .body-font() {
-	color: @body-color;
-	font-family: @body-font-book;
 	-webkit-font-smoothing: auto;
 	margin: 0 0 20px;
+	color: @body-color;
+	font-family: @body-font-book;
 	line-height: 1.5em;
 }
 
 .input-field-interactions() {
 	-webkit-appearance: none;
-	border-radius: 0 !important;
 	transition: @transition;
 
 	&::placeholder {
-		opacity: 1;
 		color: #a2a7ba;
+		opacity: 1;
 	}
 
 	&:hover {
-		background: lighten(@theme-color, 25%) !important;
 		border-color: @theme-color !important;
+		background: lighten(@theme-color, 25%) !important;
 		cursor: text !important;
 
 		&::placeholder {
@@ -95,8 +92,8 @@
 	}
 
 	&:focus {
-		background: white !important;
 		border-color: @theme-color !important;
+		background: white !important;
 	}
 }
 
@@ -107,8 +104,8 @@
 	transition: @transition;
 
 	&:hover {
-		background: white;
 		border-color: @theme-color !important;
+		background: white;
 		color: @theme-color !important;
 		cursor: pointer !important;
 	}

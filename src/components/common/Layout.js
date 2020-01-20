@@ -65,7 +65,6 @@ library.add(faTags,
 
 const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => {
     const site = data.allGhostSettings.edges[0].node
-    const tags = data.allGhostTag.edges
 
     return (
         <>
@@ -73,7 +72,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
                 <body className={ template } />
-                
+
                 {template === `post-template` ?
                     <script
                         defer
@@ -89,7 +88,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
                 <div className={ hasSidebar ? `sidebar-container` : `container` }>
                     {/* All the main content gets inserted here, index.js, post.js */}
                     {children}
-                    {hasSidebar && <Sidebar site={site} tags={tags} template={template} authorData={authorData} />}
+                    {hasSidebar && <Sidebar site={site} template={template} authorData={authorData} />}
                 </div>
             </div>
             {/* The footer at the very bottom of the screen */}
@@ -127,15 +126,6 @@ const DefaultLayoutSettingsQuery = props => (
                             ...GatsbyImageSharpFixed
                         }
                     }
-                }
-                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, postCount: {gt: 1}, slug: {nin: "roundup"}}) {
-                  edges {
-                    node {
-                      name
-                      slug
-                      postCount
-                    }
-                  }
                 }
             }
         `}

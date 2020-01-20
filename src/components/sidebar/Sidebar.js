@@ -6,13 +6,13 @@ import { AboutWidget,
     TagsWidget,
     TrendingWidget,
     TwitterWidget } from '.'
-import { AuthorTrending, AuthorPocket } from '../authors'
+import { AuthorTrending } from '../authors'
 
 /**
 * Sidebar component
 */
 
-const Sidebar = ({ site, tags, template, authorData }) => {
+const Sidebar = ({ site, template, authorData }) => {
     const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
     const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
 
@@ -23,7 +23,7 @@ const Sidebar = ({ site, tags, template, authorData }) => {
                 {template === `author-template` ? <AuthorTrending authorData={authorData} /> : null }
                 <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
                 {template === `home-template` ? <TrendingWidget /> : null }
-                <TagsWidget tags={tags} />
+                <TagsWidget />
                 <NewsletterWidget />
                 <TwitterWidget />
             </aside>
@@ -39,13 +39,6 @@ Sidebar.propTypes = {
         twitter: PropTypes.string,
         facebook: PropTypes.string,
     }).isRequired,
-    tags: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            slug: PropTypes.string,
-            postCount: PropTypes.number,
-        })
-    ).isRequired,
     template: PropTypes.string.isRequired,
 }
 
