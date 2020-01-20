@@ -38,6 +38,7 @@ const MetaData = ({
                 data={ghostTag}
                 canonical={canonical}
                 type="Series"
+                title={`${data.title} - All Tagged Posts`}
             />
         )
     } else if (ghostAuthor) {

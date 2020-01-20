@@ -178,7 +178,7 @@
 
 [[redirects]]
     from = "/demystifying-flasks-application-context/"
-    to = "/demystifying-flask-application-factory/"
+    to = "/flask-application-factory/"
     status = 301
 
 [[redirects]]
@@ -276,11 +276,6 @@
 [[redirects]]
     from = "/creating-your-first-flask-application/"
     to = "/your-first-flask-application/"
-    status = 301
-
-[[redirects]]
-    from = "/demystifying-flask-application-factory/"
-    to = "/flask-application-factory/"
     status = 301
 
 [[redirects]]
