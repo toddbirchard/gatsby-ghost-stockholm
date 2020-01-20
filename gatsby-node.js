@@ -342,17 +342,7 @@ exports.createPages = async ({ graphql, actions }) => {
             slug: `series`,
         },
     })
-
-    createPage({
-        path: `/join/`,
-        component: seriesArchive,
-        context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
-            slug: `series`,
-        },
-    })
-
+    
     createPage({
         path: `/jupyter/`,
         component: jupyterArchive,
