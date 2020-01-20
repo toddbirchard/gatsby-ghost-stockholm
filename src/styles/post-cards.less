@@ -73,19 +73,15 @@
 
         .post-card-excerpt {
             -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            -webkit-font-smoothing: auto;
-            display: -webkit-box;
+            .line-clamp();
             width: 100%;
             margin: 20px auto 30px;
-            overflow: hidden;
             color:  #717b90;
             font-family: @body-font;
             font-size: 1.1em;
             font-weight: 500;
             letter-spacing: -.5px;
             line-height: 1.25;
-            text-overflow: ellipsis;
             transition: all 0.2s ease-out;
             @media(max-width: @tablet-breakpoint) {
               margin: 12px auto 20px;
@@ -99,9 +95,7 @@
     .post-card-footer {
         -webkit-line-clamp: 1;
         display: flex;
-        display: -webkit-box;
         align-items: center;
-        width: -webkit-fill-available;
         margin: 0;
         overflow: hidden;
         text-overflow: ellipsis;

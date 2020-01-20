@@ -64,16 +64,13 @@
 
     a {
         -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        display: -webkit-box;
-        overflow: hidden;
+        .line-clamp();
         color: #4e576a !important;
         font-family: @body-font;
         font-size: 1.2em;
         font-weight: normal;
         line-height: 1.2;
         text-decoration: none;
-        text-overflow: ellipsis;
     }
 }
 
@@ -120,8 +117,7 @@
 
             .kg-bookmark-title {
                 -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                display: -webkit-box;
+                .line-clamp();
                 overflow: hidden;
                 color: @header-color;
                 font-family: @body-font;
@@ -129,21 +125,17 @@
                 font-weight: 600;
                 line-height: 1.2;
                 text-decoration: none;
-                text-overflow: ellipsis;
             }
 
             .kg-bookmark-description {
                 -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                display: -webkit-box;
+                .line-clamp();
                 max-width: 475px;
                 margin: 15px 0;
-                overflow: hidden;
                 font-family: @body-font-book;
                 font-size: 0.9em;
                 font-weight: 500;
                 line-height: 1.4;
-                text-overflow: ellipsis;
                 @media(max-width: @tablet-breakpoint) {
                     width: -webkit-fill-available;
                 }

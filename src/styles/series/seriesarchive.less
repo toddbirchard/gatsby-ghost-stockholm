@@ -1,4 +1,5 @@
 @import '../variables.less';
+@import '../mixins.less';
 
 .seriesarchive-template {
     .series-grid {
@@ -46,7 +47,7 @@
         .series-card-title {
             margin-top: 0;
             margin-bottom: 7px;
-            color: @header-color;
+            color: lighten(@header-color, 10%);
             font-family: @header-font-secondary;
             font-size: 1.2em;
             line-height: 1.2;
@@ -55,10 +56,8 @@
 
         .series-card-description {
             -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
+            .line-clamp();
             margin: 10px 0;
-            overflow: hidden;
             color: #656871;
             font-family: @body-font-book;
             font-size: 0.9em;

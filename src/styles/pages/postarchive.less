@@ -233,14 +233,11 @@
 
             .post-card-title {
                 -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                display: -webkit-box;
-                overflow: hidden;
+                .line-clamp();
                 font-family: @header-font-secondary;
                 font-size: 1.2em;
                 letter-spacing: -.5px;
                 line-height: 1.1;
-                text-overflow: ellipsis;
                 @media(max-width: @mobile-breakpoint) {
                     font-size: 1.4em;
                 }
