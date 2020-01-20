@@ -27,7 +27,7 @@
     border-radius: 3px !important;
     background: rgba(145, 176, 211, .15) !important;
     color: #5d94b7 !important;
-    font-size: .9em !important;
+    font-size: 12px !important;
 }
 
 .commento-root .commento-button-margin {
@@ -312,7 +312,7 @@
 
 .commento-root .commento-markdown-button {
     bottom: 4px !important;
-    font-size: .75em !important;
+    font-size: 12px!important;
     line-height: 1 !important;
 }
 
@@ -365,7 +365,7 @@
     padding-bottom: 50px !important;
     color: #aeb1bd !important;
     font-family: 'Genera-Regular', sans-serif;
-    font-size: 1.1em;
+    font-size: 13px;
     text-transform: uppercase;
     opacity: 0.8;
     transition: all 0.2s ease-out;
@@ -375,7 +375,7 @@
 
     .commento-root #commento-textarea-root::placeholder,
     .commento-root textarea::placeholder {
-        font-size: 0.9em;
+        font-size: 15px;
     }
 }
 
