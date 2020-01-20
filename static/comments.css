@@ -265,24 +265,25 @@
 }
 
 .commento-root .commento-submit-button {
-  display: block !important;
-  z-index: 10;
-  position: absolute !important;
-  top: 88px !important;
-  right: 10px !important;
-  margin: 0 !important;
-  padding: 10px !important;
-  border: 1px solid #6baaf2 !important;
-  border-radius: 0 !important;
-  background: #6baaf2 !important;
-  box-shadow: none !important;
-  color: white !important;
-  font-family: 'TTNormsPro-Medium', sans-serif !important;
-  font-size: 0.7em !important;
-  line-height: 1 !important;
-  text-transform: uppercase !important;
-  opacity: 0;
-  transition: all 0.2s ease-out;
+    display: block !important;
+    z-index: 10;
+    position: absolute !important;
+    top: 81px !important;
+    right: 12px !important;
+    height: 35px;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    border: 1px solid #6baaf2 !important;
+    border-radius: 0 !important;
+    background: #6baaf2 !important;
+    box-shadow: none !important;
+    color: white !important;
+    font-family: 'TTNormsPro-DemiBold', sans-serif !important;
+    font-size: 0.8em !important;
+    line-height: 1 !important;
+    text-transform: uppercase !important;
+    opacity: 0;
+    transition: all 0.2s ease-out;
 }
 
 @media (max-width: 600px) {
@@ -392,8 +393,8 @@
 
 .commento-root .commento-markdown-button {
     position: absolute;
-    top: 104px;
-    left: 17px;
+    top: 100px;
+    left: 20px;
     height: fit-content;
     margin: 0 !important;
     background: none;
