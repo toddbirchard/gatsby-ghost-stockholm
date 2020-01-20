@@ -167,6 +167,7 @@ module.exports = {
         },
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
+        `@gatsby-contrib/gatsby-transformer-ipynb`,
         {
             resolve: `gatsby-transformer-remark`,
             options: {
@@ -250,7 +251,6 @@ module.exports = {
         /**
          *  Utility Plugins
          */
-        `@gatsby-contrib/gatsby-transformer-ipynb`,
         {
             resolve: `gatsby-plugin-ghost-manifest`,
             options: {
