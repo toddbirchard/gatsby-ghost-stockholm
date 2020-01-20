@@ -39,10 +39,9 @@
 }
 
 .commento-root .commento-card .commento-name {
-    margin: 0 !important;
-    margin-left: 0 !important;
+    margin: 0 0 2px !important;
     color: #6b6e73 !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
     line-height: 1 !important;
     text-transform: capitalize;
@@ -54,7 +53,7 @@
 
 .commento-card .commento-score {
     font-family: 'Genera-Regular', sans-serif !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-weight: normal !important;
 }
 
@@ -129,8 +128,8 @@
 .commento-root .commento-card .commento-option-downvote,
 .commento-root .commento-card .commento-option-upvote,
 .commento-root .commento-card .commento-option-collapse {
-    width: 17px !important;
-    height: 17px !important;
+    width: 14px !important;
+    height: 14px !important;
 }
 
 .commento-root .commento-error-box {
@@ -279,7 +278,7 @@
     box-shadow: none !important;
     color: white !important;
     font-family: 'TTNormsPro-DemiBold', sans-serif !important;
-    font-size: 0.8em !important;
+    font-size: 13px !important;
     line-height: 1 !important;
     text-transform: uppercase !important;
     opacity: 0;
