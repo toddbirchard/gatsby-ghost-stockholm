@@ -26,8 +26,8 @@ const SeriesArchive = ({ data, location }) => {
             />
             <Layout template="seriesarchive-template page-template" hasSidebar={true}>
                 <div className="page-content post-content">
-                    {page.title ? <h1>{page.title}</h1> : null }
-                    {page.plaintext ? <p>{page.plaintext}</p> : null }
+                    {page.title && <h1>{page.title}</h1> }
+                    {page.plaintext && <p>{page.plaintext}</p> }
                     <div className="series-grid">
                         {tags.map(({ node }) => (
                             <Link to={`/series/${node.slug}`} className="series-card" key={node.id}>
