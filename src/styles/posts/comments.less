@@ -1,0 +1,340 @@
+@import "../variables.less";
+
+.commento-root {
+    padding: 30px 0 0;
+    width: -webkit-fill-available !important;
+    overflow-x: visible !important;
+    margin: 30px 0 20px;
+    @media (max-width: 800px) {
+        margin: 30px 30px 0;
+    }
+
+    p {
+       font-size: 13px !important;
+    }
+
+    .commento-button-margin {
+        box-shadow: 0 !important;
+    }
+
+    .commento-root-font * {
+        font-family: @body-font;
+    }
+
+    .commento-name {
+        font-family: @header-font-secondary;
+        font-size: 1.1em !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        font-size: 1em !important;
+        margin-left: 0 !important;
+        color: #6b6e73 !important;
+    }
+
+    .commento-subtitle {
+        margin-left: 0 !important;
+
+        * {
+            line-height: 1;
+            color: #7c8a8f !important;
+        }
+    }
+
+    .commento-avatar,
+    .commento-avatar-img {
+        display: none !important;
+    }
+
+    .commento-sort-policy-buttons-container {
+      display: none !important;
+    }
+
+    .commento-options {
+        margin-top: 0;
+        height: 20px !important;
+        width: 150px !important;
+        display: flex;
+        align-items: center;
+        position: absolute !important;
+        right: 0;
+        top: 0;
+
+        button {
+            margin: 0 !important;
+
+            &.commento-option-reply {
+                height: 20px !important;
+                width: 20px !important;
+            }
+        }
+    }
+
+    .commento-error-box {
+        width: -webkit-fill-available !important;
+        border-radius: 4px;
+        height: auto !important;
+        font-family: @header-font-secondary;
+        text-align: center;
+        color: #bc8e8e !important;
+        font-weight: 700;
+        background: #efe2e4;
+        margin-bottom: 10px;
+        line-height: 1 !important;
+        padding: 20px;
+        border: 1px solid #dccacd !important;
+    }
+
+    #commento-logged-container {
+        display: none;
+        .commento-logout {
+            position: relative;
+            color: #adb5bd;
+        }
+    }
+
+    .commento-main-area {
+        transition: filter 0.2s;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-flow: column-reverse !important;
+
+        .commento-comments {
+            margin-bottom: 10px;
+
+            & > div > .commento-card {
+                border-left: none !important;
+                padding: 30px!important;
+                border-radius: 2px !important;
+                box-shadow: @box-shadow;
+            }
+        }
+    }
+
+    .commento-button-margin {
+        padding-top: 0 !important;
+        &:hover {
+            .commento-submit-button {
+                opacity: 1;
+            }
+        }
+
+        textarea {
+            margin-top: 13px;
+        }
+    }
+
+    .commento-card {
+        background: white;
+        margin-top: 0 !important;
+        position: relative;
+        @media(max-width: @mobile-breakpoint) {
+            padding: 20px !important;
+        }
+
+        .commento-card {
+            margin-left: 20px !important;
+            margin-top: 30px !important;
+            box-shadow: none !important;
+            padding: 30px 0 0 30px!important !important;
+            @media(max-width: @mobile-breakpoint) {
+                margin-left: 20px !important;
+                padding-bottom: 0 !important;
+            }
+        }
+
+        & > div:nth-of-type(2) {
+            margin: 0;
+        }
+
+        .commento-button-margin {
+            box-shadow: 0 !important;
+        }
+
+        .commento-markdown-button {
+            display: none;
+        }
+
+        .commento-submit-button {
+            top: 80px !important;
+        }
+
+        p {
+            margin: 10px 0 0 !important;
+        }
+
+        .commento-body {
+            font-size: 0.9em !important;
+        }
+    }
+
+    .commento-submit-button {
+        color: white !important;
+        text-transform: uppercase !important;
+        font-size: 0.7em !important;
+        padding: 10px 12px !important;
+        line-height: 1 !important;
+        font-family: @header-font !important;
+        box-shadow: none !important;
+        transition: @transition;
+        position: absolute !important;
+        top: 81px !important;
+        background: @theme-color !important;
+        border: 1px solid @theme-color !important;
+        border-radius: 0 !important;
+        right: 12px!important;
+        display: block !important;
+        margin: 0 !important;
+        z-index: 10;
+        opacity: 0;
+        height: 35px;
+        @media(max-width: @mobile-breakpoint) {
+          right: 10px !important;
+           top: 94px !important;
+        }
+        &:hover {
+            background: white !important;
+            color: @theme-color !important;
+            border: 1px solid @theme-color !important;
+        }
+    }
+
+    .commento-footer {
+        display: none;
+    }
+
+    .commento-login-text {
+        display: none !important;
+    }
+
+    .commento-markdown-button {
+        bottom: 4px !important;
+        line-height: 1 !important;
+        @media(max-width: @mobile-breakpoint) {
+            display: none;
+        }
+    }
+
+    #commento-textarea-root,
+    textarea {
+        overflow: hidden!important;
+        padding: 15px !important;
+        border-radius: 2px;
+        height: 100px;
+        min-height: unset !important;
+        position: relative;
+        -webkit-appearance: none !important;
+        max-height: 97px;
+        -webkit-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      /*   border: 1px solid rgba(50,50,93,.2) !important; */
+        margin-top: 0 !important;
+        box-shadow: @box-shadow;
+
+        &:hover {
+            background: lighten(@theme-color, 30%) !important;
+            border: 1px solid @theme-color !important;
+
+            &::placeholder {
+                opacity: 0;
+            }
+        }
+
+        &:focus {
+            border: 1px solid @theme-color !important;
+            background: white !important;
+        }
+
+        &::placeholder {
+            color: #aeb1bd !important;
+            text-transform: uppercase;
+            font-family: @body-font;
+            padding-bottom: 50px !important;
+            transition: @transition;
+            opacity: 0.8;
+            font-size: 1.1em;
+            @media(max-width: @mobile-breakpoint) {
+                font-size: 0.9em;
+            }
+        }
+
+        ::-webkit-input-placeholder {
+            /* WebKit browsers */
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            position: 0 0 !important;
+            height: 100px !important;
+            width: 400px !important;
+        }
+    }
+
+    .commento-markdown-button {
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        margin: 0 !important;
+        background: none;
+        height: fit-content;
+
+        * {
+            background: none !important;
+        }
+    }
+
+    .commento-markdown-help {
+        padding: 15px;
+        width: 100%;
+        background: rgba(255, 255, 255, .5);
+        @media(max-width: @mobile-breakpoint) {
+            td {
+                font-size: 10px;
+            }
+        }
+
+        * {
+            font-size: 0.95em !important;
+        }
+
+        tr td {
+            padding: 0 6px 4px !important;
+
+            &:last-of-type {
+                padding: 0 6px 0 !important;
+            }
+        }
+    }
+
+    .commento-logo-text {
+        display: none !important;
+    }
+}
+
+.commento-textarea-super-container-root {
+    &:focus {
+        opacity: 0;
+    }
+}
+
+.commento-login-text {
+    display: none;
+}
+
+.commento-login-box {
+    width: 90%;
+    max-width: 500px;
+    min-height: 100px;
+    background: #f1f3f5;
+    z-index: 100;
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: fit-content;
+    margin: auto;
+    padding: 16px;
+    opacity: 1;
+    transition: opacity 0.2s;
+    box-shadow: 0 0 200px #576280;
+}

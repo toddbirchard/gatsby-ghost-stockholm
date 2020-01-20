@@ -1,0 +1,65 @@
+/* Layout
+/* ---------------------------------------------------------- */
+.sidebar-container,
+.tag-container {
+    grid-gap: 20px;
+    display: grid;
+    grid-template-columns: 2.4fr 1fr;
+    width: 1020px;
+    max-width: 95%;
+    margin: 0 auto;
+    @media(max-width: @tablet-breakpoint) {
+        grid-template-columns: 1fr;
+        max-width: unset;
+        max-width: 100%;
+    }
+}
+
+.viewport {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    @media(max-width: @mobile-breakpoint) {
+      padding-bottom: 30px;
+    }
+}
+
+.page-template {
+    .container {
+        width: 1020px;
+        max-width: 95%;
+        margin: auto;
+        @media(max-width: @mobile-breakpoint) {
+            max-width: 100%;
+        }
+
+        .page-content {
+            padding: 60px;
+            @media(max-width: @tablet-breakpoint) {
+                padding: 40px;
+            }
+        }
+    }
+
+    .viewport {
+        @media(max-width: @mobile-breakpoint) {
+            margin: 0 auto !important;
+        }
+    }
+
+    .nav-wrapper {
+      max-width: 870px;
+    }
+}
+
+.post-feed {
+    grid-gap: 20px;
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    @media(max-width: @tablet-breakpoint) {
+        grid-gap: 20px;
+        width: 90%;
+    }
+}

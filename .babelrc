@@ -1,0 +1,32 @@
+{
+    "plugins": [
+        [
+            "prismjs",
+            {
+                "languages": [
+                    "markup",
+                    "css",
+                    "javascript",
+                    "http",
+                    "json",
+                    "markdown",
+                    "python",
+                    "java",
+                    "groovy",
+                    "html",
+                    "yaml",
+                    "toml",
+                    "jsx",
+                    "graphql",
+                    "sql",
+                    "jinja2",
+                    "handlebars"
+                ],
+                "plugins": ["normalize-whitespace"],
+                "theme": "default",
+                "css": false
+            }
+        ]
+    ],
+    "presets": ["babel-preset-gatsby"]
+}

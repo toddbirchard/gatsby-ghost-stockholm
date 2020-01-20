@@ -1,0 +1,164 @@
+.mobile-full-width() {
+	min-width: 100%;
+	margin-right: calc(~"-50vw + 50%") !important;
+	margin-left: calc(~"-50vw + 50%") !important;
+	border-right: 0;
+	border-left: 0;
+}
+
+.mobile-horizontal-scroll() {
+	-webkit-overflow-scrolling: touch;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+
+	&:hover {
+		cursor: grab;
+	}
+}
+
+.select-dropdown() {
+	-webkit-appearance: none;
+	-webkit-transition: all 0.2s ease-out;
+	width: 100%!important;
+	max-width: -webkit-fill-available;
+	margin: 0;
+	padding: 15px;
+	border: 1px solid #dfdede;
+	outline: none;
+	background: #fff;
+	color: #616779;
+	font-size: .9em;
+	line-height: normal;
+	transition: all 0.2s ease-out;
+}
+
+.mobile-horizontal-scroll-child() {
+	display: inline;
+}
+
+.line-clamp() {
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	width: -webkit-fill-available;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.header-card() {
+	margin: 0 !important;
+	padding: 30px !important;
+	background: white;
+	box-shadow: @box-shadow;
+	@media (max-width: @tablet-breakpoint) {
+		.mobile-full-width();
+		min-width: unset !important;
+		padding: 30px 20px;
+
+		h1 {
+			margin: 0 auto 15px;
+		}
+
+		p {
+			margin: auto;
+			font-size: 1em !important;
+		}
+	}
+
+	.author-card-image {
+		width: 100px;
+		min-width: 100px;
+		height: 100px;
+	}
+}
+
+.body-font() {
+	-webkit-font-smoothing: auto;
+	margin: 0 0 20px;
+	color: @body-color;
+	font-family: @body-font-book;
+	line-height: 1.5em;
+}
+
+.input-field-interactions() {
+	-webkit-appearance: none;
+	transition: @transition;
+
+	&::placeholder {
+		color: #a2a7ba;
+		opacity: 1;
+	}
+
+	&:hover {
+		border-color: @theme-color !important;
+		background: lighten(@theme-color, 25%) !important;
+		cursor: text !important;
+
+		&::placeholder {
+			color: #8ba6c7 !important;
+		}
+	}
+
+	&:focus {
+		border-color: @theme-color !important;
+		background: white !important;
+	}
+}
+
+.button-styles() {
+	-webkit-appearance: none;
+	background: @theme-color;
+	color: white;
+	transition: @transition;
+
+	&:hover {
+		border-color: @theme-color !important;
+		background: white;
+		color: @theme-color !important;
+		cursor: pointer !important;
+	}
+}
+
+.social-buttons() {
+	a {
+		transition: @transition;
+
+		&:hover {
+			-webkit-transform: scale(1.2);
+			transform: scale(1.2);
+		}
+	}
+
+	.medium svg {
+		color: lighten(@medium-color, 10%);
+	}
+
+	.facebook svg {
+		color: lighten(@facebook-color, 20%);
+	}
+
+	.twitter svg {
+		color: lighten(@twitter-color, 10%);
+	}
+
+	.angellist,
+	.github svg {
+		color: lighten(@github-color, 10%);
+	}
+
+	.tumblr svg {
+		color: lighten(@tumblr-color, 20%);
+	}
+
+	.rss svg {
+		color: lighten(@rss-color, 20%);
+	}
+
+	.pocket svg {
+		color: lighten(#f14861, 10%);
+	}
+
+	.linkedin svg {
+		color: lighten(@linkedin-color, 10%);
+	}
+}

@@ -1,0 +1,195 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.page-template {
+    h1 {
+        margin: 0 0 20px;
+        color: @header-color;
+        font-family: @header-font-light;
+        font-size: 2.5em;
+        font-weight: normal;
+    }
+
+    .navigation {
+        @media(max-width: @mobile-breakpoint) {
+            margin-bottom: 0 !important;
+            border-bottom: 1px solid #ebebeb;
+        }
+    }
+
+    .viewport {
+        /* Intro cards such as tag & author cards */
+        .header-card {
+            margin: 0 !important;
+            padding: 40px;
+            background: white;
+            @media (max-width: @mobile-breakpoint) {
+                .mobile-full-width();
+            }
+        }
+
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            box-shadow: 0 1px 4px rgba(39,44,49,.07);
+            @media (max-width: @tablet-breakpoint) {
+                max-width: unset;
+                padding: 20px 30px;
+            }
+            @media (max-width: @mobile-breakpoint) {
+                padding: 30px;
+            }
+
+            .content-body a {
+                color: #6baaf2;
+                font-family: @body-font-bold;
+                transition: @transition;
+            }
+        }
+
+        fieldset {
+            display: block;
+            margin-top: 40px;
+            padding-right: 0;
+            padding-left: 0;
+            border: none;
+            background: white;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .active {
+            display: block;
+        }
+
+        li,
+        p {
+            text-align: left;
+            .body-font();
+        }
+
+        hr {
+            margin: 1.8em 0 0;
+        }
+
+        label {
+            margin-bottom: 3px;
+            color: #71757b;
+            font-family: @body-font;
+            font-size: 14px;
+            font-weight: 500;
+
+            svg {
+              margin-right: 3px;
+            }
+        }
+
+        .input-field-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        input,
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e2e2;
+            border-radius: 2px;
+            outline: 0;
+            font-family: @body-font;
+            font-size: 14px;
+            transition: @transition;
+            .input-field-interactions();
+        }
+
+        textarea {
+            height: 200px;
+        }
+
+        .message {
+            margin: 15px 0 0;
+            color: #b3b3b3;
+            font-size: 12px;
+        }
+
+        .message a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            border: 0;
+            outline: 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            .button-styles();
+        }
+    }
+
+    .info-card {
+        .header-card();
+        min-width: unset !important;
+    }
+}
+
+.page-template {
+    .navigation {
+        @media(max-width: @mobile-breakpoint) {
+            margin-bottom: 0 !important;
+            border-bottom: 1px solid #ebebeb;
+        }
+    }
+
+    .sidebar-container {
+      @media(max-width: @tablet-breakpoint) {
+          grid-template-columns: 1fr;
+          width: 100%;
+      }
+
+      .page-content {
+        @media(max-width: 900px) {
+          max-width: 100%;
+          margin: 0;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .about-video-wrapper {
+        position: relative;
+        margin-bottom: 40px;
+        padding-top: 56.25%;
+        @media(max-width: @mobile-breakpoint) {
+          .mobile-full-width();
+          margin-bottom: 80px;
+        }
+
+        .about-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @media(max-width: @mobile-breakpoint) {
+              height: 120% !important;
+
+            }
+        }
+    }
+
+    .author-card-list {
+        padding: 30px 0 0;
+
+        .author-list-title {
+          margin-bottom: 10px;
+          font-family: @header-font-light;
+          font-size: 2.2em;
+        }
+    }
+}

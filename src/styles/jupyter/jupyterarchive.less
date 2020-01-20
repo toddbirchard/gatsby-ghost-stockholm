@@ -1,0 +1,27 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.jupyter-archive-template {
+    .jupyter-card-title {
+        font-family: @body-font-bold;
+        font-weight: normal;
+        font-size: 1.4em;
+        line-height: 1.1;
+        color: lighten(@header-color, 2%);
+        @media(max-width: @mobile-breakpoint) {
+            margin: 0;
+            font-weight: 300;
+            font-size: 1.1em;
+            width: 100%;
+        }
+
+        a {
+            color: lighten(@header-color, 2%);
+            transition: @transition;
+
+            &:hover {
+                color: @hover-color;
+            }
+        }
+    }
+}

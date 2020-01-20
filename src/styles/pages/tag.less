@@ -1,0 +1,44 @@
+@import '../variables.less';
+@import '../mixins.less';
+/* Tag Archives
+/* ---------------------------------------------------------- */
+.tag-template {
+    .tag-header {
+        .header-card();
+        padding: 40px !important;
+    }
+
+    .tag-title {
+        margin: 0 0 1rem;
+        color: @header-color;
+        font-family: @header-font-light;
+        font-size: 1.5em;
+        font-weight: normal;
+
+        svg {
+            margin-right: 5px;
+            font-size: 0.7em;
+            opacity: 0.7;
+        }
+
+        span {
+          margin-left: 5px;
+          font-size: .7em !important;
+          opacity: .8;
+        }
+    }
+
+    .meta-item.tag {
+        @media(max-width: @mobile-breakpoint) {
+            display: none;
+        }
+    }
+
+    .tag-description {
+        margin: 0;
+        color: @body-color;
+        font-size: 1em;
+        font-weight: 500;
+        line-height: 1.4em;
+    }
+}

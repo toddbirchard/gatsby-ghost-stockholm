@@ -1,0 +1,455 @@
+[build]
+  command = "gatsby build"
+  publish = "public/"
+
+[template]
+  incoming-hooks = ["Ghost"]
+
+[[redirects]]
+    from = "/ghost"
+    to = "https://hackersandslackers.app/ghost"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "/wp-login.php"
+    to = "https://i.imgur.com/1Ia9tTG.gif"
+    status = 301
+
+[[redirects]]
+    from = "/structuring-your-flask-app/"
+    to = "/organize-flask-with-blueprints/"
+    status = 301
+
+[[redirects]]
+    from = "/liberating-data-from-pdfs-with-tabula-and-pandas/"
+    to = "/data-from-pdfs-tabula-pandas/"
+    status = 301
+
+[[redirects]]
+    from = "/lets-start-with-perhaps-the-most-useful-vb-script-youll-ever-run-out-of-excel/"
+    to = "/excel-data-manipulation-for-everyone/"
+    status = 301
+
+[[redirects]]
+    from = "/how-i-learned-to-stop-worry/"
+    to = "/learning-to-love-excel-formulas/"
+    status = 301
+
+[[redirects]]
+    from = "/index-match-vs-the-lookups-an-excel-soujurn/"
+    to = "/excel-index-match-vs-lookups/"
+    status = 301
+
+[[redirects]]
+    from = "/the-one-formula-to-rule-them-all-adventures-in-excel/"
+    to = "/the-one-excel-formula-to-rule-them-all/"
+    status = 301
+
+[[redirects]]
+    from = "/pivoting-not-just-for-startups-anymore-adventures-in-excel/"
+    to = "/the-art-of-excel-pivot-tables/"
+    status = 301
+
+[[redirects]]
+    from = "/powering-up-your-pivot/"
+    to = "/powering-up-your-excel-pivot-tables/"
+    status = 301
+
+[[redirects]]
+    from = "/roll-on-through-create-an-expanding-list-without-vba/"
+    to = "/create-an-iterative-list-in-excel/"
+    status = 301
+
+[[redirects]]
+    from = "/dynamic-tension-creating-and-using-dynamic-named-ranges/"
+    to = "/dynamic-named-ranges-in-excel/"
+    status = 301
+
+[[redirects]]
+    from = "/named-ranges-and-the-active-xs-who-love-them/"
+    to = "/excel-named-ranges-and-the-active-xs-who-love-them/"
+    status = 301
+
+[[redirects]]
+    from = "/pivot-party-adventures-in-excel/"
+    to = "/excel-pivot-table-party/"
+    status = 301
+
+[[redirects]]
+    from = "/the-way-of-the-knife/"
+    to = "/slicing-excel-the-way-of-the-knife/"
+    status = 301
+
+[[redirects]]
+    from = "/yes-and-if-or-adventures-in-excel/"
+    to = "/excels-mighty-if-statement/"
+    status = 301
+
+[[redirects]]
+    from = "/getting-if-fy-with-it-adventures-in-excel/"
+    to = "/dirty-data-in-excel-part-2/"
+    status = 301
+
+[[redirects]]
+    from = "/dealing-with-dirty-data-adventures-in-excel-2/"
+    to = "/dealing-with-dirty-data-in-excel/"
+    status = 301
+
+[[redirects]]
+    from = "/dealing-with-dirty-data-adventures-in-excel/"
+    to = "/doing-the-excel-data-dance/"
+    status = 301
+
+[[redirects]]
+    from = "/powering-up-your-pivot/"
+    to = "/powering-up-your-excel-pivot-tables/"
+    status = 301
+
+[[redirects]]
+    from = "/creating-endpoints-with-lambda/"
+    to = "/create-a-rest-api-endpoint-using-aws-lambda/"
+    status = 301
+
+[[redirects]]
+    from = "/tag/aws-api/"
+    to = "/series/create-an-aws-api/"
+    status = 301
+
+[[redirects]]
+    from = "/hacking-linux-tableu-server/"
+    to = "/hacking-linux-tableau-server/"
+    status = 301
+
+[[redirects]]
+    from = "/products/mongodb-enterprise-advanced/"
+    to = "/series/mongodb-cloud/"
+    status = 301
+
+[[redirects]]
+    from = "/starting-a-flask-project-with-heroku/"
+    to = "/flask-app-heroku/"
+    status = 301
+
+[[redirects]]
+    from = "/data-could-solve-humanitys-greatest-problems-if-it-werent-for-humanity/"
+    to = "/data-could-save-humanity/"
+    status = 301
+
+[[redirects]]
+    from = "/tuning-random-forests-hyperparameters-with-binary-search-part-iii-min_samples_leaf/"
+    to = "/random-forests-hyperparameters-min_samples_leaf/"
+    status = 301
+
+[[redirects]]
+    from = "/using-random-forests-for-feature-selection-with-categorical-features/"
+    to = "/random-forests-for-feature-selection/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-getting-conda-envs-and-environment-variables-to-play-nicely-with-cron/"
+    to = "/conda-environments-and-cron/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-tuning-machine-learning-hyperparameters-with-binary-search/"
+    to = "/tuning-machine-learning-hyperparameters-with-binary-search/"
+    status = 301
+
+[[redirects]]
+    from = "/api/handlebars-themes/"
+    to = "/handlebars-templating-in-expressjs"
+    status = 301
+
+[[redirects]]
+    from = "/tag/aws-api/"
+    to = "/series/create-an-aws-api/"
+    status = 301
+
+[[redirects]]
+    from = "/creating-endpoints-with-lambda/"
+    to = "/create-a-rest-api-endpoint-using-aws-lambda/"
+    status = 301
+
+[[redirects]]
+    from = "/pipenv-etc-tracking-your-projects-dependancies/"
+    to = "/pipenv-python-environment-management/"
+    status = 301
+
+[[redirects]]
+    from = "/demystifying-flasks-application-context/"
+    to = "/flask-application-factory/"
+    status = 301
+
+[[redirects]]
+    from = "accessing-mysql-from-external-domains/"
+    to = "/accessing-mysql-externally/"
+    status = 301
+
+[[redirects]]
+    from = "/sqlalchemy-managing-relationships-data-models/"
+    to = "/sqlalchemy-data-models/"
+    status = 301
+
+[[redirects]]
+    from = "/constructuing-database-queries-with-the-sqlalchemy-orm/"
+    to = "/database-queries-sqlalchemy-orm/"
+    status = 301
+
+[[redirects]]
+    from = "/comparing-rows-between-two-pandas-dataframes/"
+    to = "/compare-rows-pandas-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/dataframe-transformations-in-pyspark-continued/"
+    to = "/transforming-pyspark-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/basic-dataframe-transformations-in-pyspark/"
+    to = "/transforming-pyspark-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/selecting-data-from-pyspark-dataframes/"
+    to = "/transforming-pyspark-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/pyspark-macro-dataframe-methods-join-and-groupby/"
+    to = "/join-aggregate-pyspark-dataframes/"
+    status = 301
+
+[[redirects]]
+    from = "/manage-s3-assests-with-boto3-python-sdk/"
+    to = "/s3-boto3-python-sdk/"
+    status = 301
+
+[[redirects]]
+    from = "/reading-and-writing-to-csvs-in-python/"
+    to = "/read-write-csv-python/"
+    status = 301
+
+[[redirects]]
+    from = "/guide-to-building-forms-in-flask/"
+    to = "/flask-wtforms-forms/"
+    status = 301
+
+[[redirects]]
+    from = "/intro-to-data-analysis-in-python-using-pandas/"
+    to = "/intro-python-pandas/"
+    status = 301
+
+[[redirects]]
+    from = "/plotting-data-with-seaborn-and-pandas/"
+    to = "/plotting-data-seaborn-pandas/"
+    status = 301
+
+[[redirects]]
+    from = "/using-hierarchical-indexes-with-pandas/"
+    to = "/hierarchical-indexes-pandas/"
+    status = 301
+
+[[redirects]]
+    from = "/cutting-a-file-down-to-size-with-dask/"
+    to = "/pandas-dask/"
+    status = 301
+
+
+[[redirects]]
+    from = "/serving-static-assets-in-flask/"
+    to = "/static-assets-flask/"
+    status = 301
+
+
+[[redirects]]
+    from = "/the-art-of-building-flask-routes/"
+    to = "/flask-routes/"
+    status = 301
+
+[[redirects]]
+    from = "/powerful-page-templates-in-flask-with-jinja/"
+    to = "/flask-page-templates-jinja/"
+    status = 301
+
+[[redirects]]
+    from = "/creating-your-first-flask-application/"
+    to = "/your-first-flask-application/"
+    status = 301
+
+[[redirects]]
+    from = "/manage-database-models-with-flask-sqlalchemy/"
+    to = "/flask-sqlalchemy-database-models/"
+    status = 301
+
+[[redirects]]
+    from = "/authenticating-users-with-flask-login/"
+    to = "/flask-login-user-authentication/"
+    status = 301
+
+[[redirects]]
+    from = "/becoming-familiar-with-apache-kafka/"
+    to = "/apache-kafka/"
+    status = 301
+
+[[redirects]]
+    from = "/managing-data-pipelines-with-apache-airflow/"
+    to = "/data-pipelines-apache-airflow/"
+    status = 301
+
+[[redirects]]
+    from = "setting-up-dns-with-google-cloud-platform"
+    to = "/google-cloud-compute-engine/"
+    status = 301
+
+[[redirects]]
+    from = "/setting-up-mysql-on-aws/"
+    to = "/mysql-aws-rds/"
+    status = 301
+
+[[redirects]]
+    from = "/building-an-api-using-aws/"
+    to = "/build-api-aws/"
+    status = 301
+
+[[redirects]]
+    from = "/custom-widgets-for-ghost-blogs/"
+    to = "/ghost-blog-custom-widgets/"
+    status = 301
+
+[[redirects]]
+    from = "/dealing-with-xml-in-python/"
+    to = "/xml-in-python/"
+    status = 301
+
+[[redirects]]
+    from = "/handlebars-templating-in-expressjs/"
+    to = "/handlebars-templates-expressjs/"
+    status = 301
+
+[[redirects]]
+    from = "/deploy-app-containters-with-gcp-app-engine/"
+    to = "/google-cloud-app-engine/"
+    status = 301
+
+[[redirects]]
+    from = "/simple-image-size-optimization-using-imagemin-and-gulp/"
+    to = "/image-optimization-imagemin-and-gulp/"
+    status = 301
+
+[[redirects]]
+    from = "/aws-adventures-why-cant-i-ssh-into-my-damn-ec2-instance/"
+    to = "/troubleshooting-ec2-ssh-connections/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-a-dirty-way-of-cleaning-data-ft-pandas-sql/"
+    to = "/dirty-data-cleaning-pandas-sql/"
+    status = 301
+
+[[redirects]]
+    from = "/configuring-your-flask-application/"
+    to = "/configuring-flask-applications/"
+    status = 301
+
+[[redirects]]
+    from = "/serve-docker-containers-with-custom-dns-and-ssl/"
+    to = "/caddy-webserver-for-docker-etc/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-removing-duplicate-columns-in-pandas/"
+    to = "/removing-duplicate-columns-in-pandas/"
+    status = 301
+
+[[redirects]]
+    from = "/code-snippet-corner-recasting-low-cardinality-columns-as-categoricals/"
+    to = "/recasting-low-cardinality-columns-as-categoricals/"
+    status = 301
+
+[[redirects]]
+    from = "/gaining-full-control-over-plotly-dash/"
+    to = "/use-plotly-dash-with-flask/"
+    status = 301
+
+[[redirects]]
+    from = "/trash-pandas/"
+    to = "/messy-pandas-database-operations/"
+    status = 301
+
+[[redirects]]
+    from = "/poetic-python-project-packaging/"
+    to = "/python-poetry/"
+    status = 301
+
+[[redirects]]
+    from = "/creating-your-first-gatsby-theme/"
+    to = "/create-your-first-gatsby-theme/"
+    status = 301
+
+[[redirects]]
+    from = "/accessing-private-s3-objects-with-node/"
+    to = "/node-aws-sdk-s3/"
+    status = 301
+
+[[redirects]]
+    from = "/getting-started-google-big-query-python/"
+    to = "/google-bigquery-python/"
+    status = 301
+
+[[redirects]]
+    from = "/ssh-scp-in-python-with-paramiko/"
+    to = "/automate-ssh-scp-python-paramiko/"
+    status = 301
+
+[[redirects]]
+    from = "/pythonic-database-management-with-sqlalchemy/"
+    to = "/python-database-management-sqlalchemy/"
+    status = 301
+
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    # Multi-key header rules are expressed with multi-line strings.
+    cache-control = '''
+      max-age=31557600,
+      no-cache,
+      no-store,
+      must-revalidate'''
+      set-cookie = "HttpOnly;Secure;SameSite=None"
+
+[[headers]]
+    for = "/fonts"
+    [headers.values]
+      crossorigin = "anonymous"
+      type = "font/woff2"
+      accept = "application/font-woff2"
+      cache-control = '''
+        max-age=31557600,
+        no-cache,
+        no-store,
+        must-revalidate'''
+
+[[headers]]
+    for = "/rss"
+    [headers.values]
+      content-type = "text/xml; charset=utf-8"
+
+
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
