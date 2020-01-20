@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
-import { NotebookPreview } from "@nteract/notebook-preview"
+// import NotebookPreview from "@nteract/notebook-preview"
 
 import '../styles/jupyter/index.less'
 
@@ -31,6 +31,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
                         <div className="meta-item jupyter-origin-url"><a href={githubLink}>{githubRepoName}</a></div>
                         <div className="meta-item jupyter-date">{file.modifiedTime}</div>
                     </div>
+                    <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: notebook.html }}></main>
                     {/*<NotebookPreview notebook={notebook.internal.content} />*/}
                 </div>
             </Layout>
