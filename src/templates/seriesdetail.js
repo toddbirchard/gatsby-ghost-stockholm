@@ -27,7 +27,7 @@ const SeriesDetail = ({ data, location }) => {
                 location={location}
                 type="series"
             />
-            <Layout template="tag-template page-template series-template" hasSidebar={false}>
+            <Layout template="tag-template page-template series-template" data={data} hasSidebar={false}>
                 <div className="series-container">
                     { tag.feature_image ?
                         <figure className="series-feature-image">

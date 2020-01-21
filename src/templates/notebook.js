@@ -23,7 +23,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
 
     return (
         <>
-            <Layout template="jupyter-template">
+            <Layout data={data} template="jupyter-template">
                 <div className="jupyter-container">
                     <h1>{pageContext.title}</h1>
                     <div className="jupyter-meta">

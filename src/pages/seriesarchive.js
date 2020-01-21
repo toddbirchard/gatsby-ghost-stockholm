@@ -26,7 +26,7 @@ const SeriesArchive = ({ data, location }) => {
                 description={`Explore full topics in software development and data science by following our dedicated multi-part series'.`}
                 type="series"
             />
-            <Layout template="seriesarchive-template page-template" hasSidebar={true}>
+            <Layout template="seriesarchive-template page-template" data={data} hasSidebar={true}>
                 <div className="page-content post-content">
                     {title && <h1>{title}</h1> }
                     {plaintext && <p>{plaintext}</p> }

@@ -7,6 +7,10 @@ const title = `Applied`
 const description = `Application received! You'll hear from us shortly.`
 
 const Applied = () => (
+    <MetaData
+        data={data}
+        type="website"
+    />
     <Layout template="page-template" hasSidebar={false}>
         <section className="confirmation-card">
             <h1 className="content-title">{title}</h1>
