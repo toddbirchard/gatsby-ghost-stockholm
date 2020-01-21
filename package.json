@@ -71,6 +71,7 @@
     "gatsby-plugin-algolia": "^0.5.0",
     "gatsby-plugin-feed": "2.3.26",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
+    "gatsby-plugin-just-comments": "^0.2.4",
     "gatsby-plugin-less": "^3.0.18",
     "gatsby-plugin-netlify": "^2.1.31",
     "gatsby-plugin-netlify-cache": "^1.2.0",
