@@ -15,7 +15,6 @@ import qs from 'qs'
 
 import { Layout, PostCard } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/postarchive.less'
 
@@ -28,7 +27,7 @@ const createURL = state => `?${qs.stringify(state)}`
 const searchStateToUrl = ({ location }, searchState) => (searchState ? `${location.pathname}${createURL(searchState)}` : ``)
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
-const PostArchive = ({ data, location, history }) => {
+const PostArchive = ({ location, history }) => {
     const [searchState, setSearchState] = useState(urlToSearchState(location))
     const [debouncedSetState, setDebouncedSetState] = useState(null)
     const onSearchStateChange = (updatedSearchState) => {
@@ -45,11 +44,6 @@ const PostArchive = ({ data, location, history }) => {
 
     return (
         <>
-            <MetaData
-                title={`Search Posts`}
-                description={`Search all Hackers and Slackers posts.`}
-                type="website"
-            />
             <Layout template="postarchive-template" hasSidebar={false}>
                 <div className="postarchive-container">
                     <InstantSearch
