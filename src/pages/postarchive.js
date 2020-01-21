@@ -46,8 +46,6 @@ const PostArchive = ({ data, location, history }) => {
     return (
         <>
             <MetaData
-                data={data}
-                location={location}
                 title={`Search Posts`}
                 description={`Search all Hackers and Slackers posts.`}
                 type="website"

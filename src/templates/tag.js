@@ -24,12 +24,10 @@ const Tag = ({ data, location, pageContext }) => {
         <>
             <MetaData
                 data={data}
-                title={`${tag.name} (page ${pageCount})`}
-                description={tag.description}
                 location={location}
                 type="website"
             />
-            <Layout template="tag-template" data={data} hasSidebar={true}>
+            <Layout template="tag-template" hasSidebar={true}>
                 <section className="post-feed">
                     <header className="tag-header info-card">
                         <h1 className="tag-title"><FontAwesomeIcon icon={[`fad`, `tags`]} size="sm" swapOpacity /> {tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>

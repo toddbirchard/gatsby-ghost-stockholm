@@ -9,13 +9,6 @@ import '../styles/pages/page.less'
 
 const JoinUs = ({ data, location }) => (
     <>
-        <MetaData
-            data={data}
-            location={location}
-            title={`Join us`}
-            description={`Join the Hackers and Slackers community and produce content of your own.`}
-            type="series"
-        />
         <Layout template="page-template join-template" hasSidebar={false}>
             <article className="post-content page-content">
                 <h1>{`Join Us`}</h1>

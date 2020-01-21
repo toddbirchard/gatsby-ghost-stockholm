@@ -72,7 +72,6 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
                 <body className={ template } />
-
                 {template === `post-template` ?
                     <script
                         defer
@@ -84,7 +83,6 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
 
             <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} template={template} />
             <div className="viewport">
-
                 <div className={ hasSidebar ? `sidebar-container` : `container` }>
                     {/* All the main content gets inserted here, index.js, post.js */}
                     {children}
@@ -103,6 +101,7 @@ DefaultLayout.propTypes = {
     hasAuthorSidebar: PropTypes.bool,
     template: PropTypes.string,
     authorTrendingPosts: PropTypes.object,
+    authorData: PropTypes.object,
     data: PropTypes.shape({
         allGhostSettings: PropTypes.object.isRequired,
         allGhostTag: PropTypes.object.isRequired,

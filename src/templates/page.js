@@ -27,7 +27,7 @@ const Page = ({ data, location, pageContext }) => {
                 location={location}
                 type="website"
             />
-            <Layout template="page-template" data={data} hasSidebar={true}>
+            <Layout template="page-template" hasSidebar={true}>
                 <article className="post-content page-content">
                     { page.feature_image ?
                         <figure className="post-feature-image">

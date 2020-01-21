@@ -9,7 +9,7 @@ import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { NewsletterWidget } from '../components/sidebar'
-import { JustComments } from 'gatsby-plugin-just-comments'
+// import { JustComments } from 'gatsby-plugin-just-comments'
 
 import '../styles/posts/index.less'
 
@@ -35,7 +35,7 @@ const Post = ({ data, location }) => {
 
     return (
         <>
-            <MetaData data={ data } location={ location } type="article" />
+            <MetaData location={ location } data={data} type="article" />
             <Layout template="post-template">
                 <div className="post-wrapper">
                     <div className="post-head">
