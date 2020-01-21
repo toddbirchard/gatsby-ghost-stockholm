@@ -38,7 +38,8 @@ const MetaData = ({
                 data={ghostTag}
                 canonical={canonical}
                 type="Series"
-                title={`${ghostTag.title} - All Tagged Posts`}
+                title={`${data.ghostTag.title} - All Tagged Posts`}
+                description={data.ghostTag.description}
             />
         )
     } else if (ghostAuthor) {
@@ -46,6 +47,8 @@ const MetaData = ({
             <AuthorMeta
                 data={ghostAuthor}
                 canonical={canonical}
+                title={`${data.ghostAuthor.name} - All Posts`}
+                description={data.ghostAuthor.bio}
             />
         )
     } else if (ghostPage) {
