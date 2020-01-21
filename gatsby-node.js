@@ -282,6 +282,10 @@ exports.createPages = async ({ graphql, actions }) => {
         node.tagSlugs = []
         node.primary = null
 
+        if (node.url.includes(`lynx`)) {
+            node.url = `/roundup/${node.slug}/`
+        }
+
         node.tags.forEach(function (element, index) {
             node.tagSlugs.push(element.slug)
 
@@ -289,11 +293,6 @@ exports.createPages = async ({ graphql, actions }) => {
             if (index === 0) {
                 node.primary = element.slug
             }
-
-            // generate different url for lynx posts
-            /*if (element.slug == 'roundup') {
-            node.url = `/roundup/${element.slug}/`
-          }*/
 
             // determine if post is in series
             if (element.visibility === `internal`) {
@@ -340,9 +339,11 @@ exports.createPages = async ({ graphql, actions }) => {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: `series`,
+            title: `Series: Multi-part tutorials to master topics in data & software.`,
+            description: `Multi-part tutorials to master topics in data & software.`,
         },
     })
-    
+
     createPage({
         path: `/jupyter/`,
         component: jupyterArchive,
@@ -350,6 +351,8 @@ exports.createPages = async ({ graphql, actions }) => {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: `jupyter`,
+            title: `Jupyter Notebooks`,
+            description: `Our collection of Jupyter notebooks.`,
         },
     })
 
@@ -360,6 +363,8 @@ exports.createPages = async ({ graphql, actions }) => {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: `join`,
+            title: `Join Us`,
+            description: `Apply to become an author for Hackers and Slackers.`,
         },
     })
 }
