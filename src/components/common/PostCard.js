@@ -6,7 +6,7 @@ import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const PostCard = ({ post }) => {
-    const url = `/${ post.slug }/`
+    const url = post.url
     const readingTime = readingTimeHelper(post)
     const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
     const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
@@ -50,6 +50,7 @@ const PostCard = ({ post }) => {
 PostCard.propTypes = {
     post: PropTypes.shape({
         id: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         feature_image: PropTypes.string,
