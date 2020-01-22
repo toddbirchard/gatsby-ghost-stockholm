@@ -12,6 +12,7 @@ import {
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
+import { MetaData } from '../components/common/meta'
 
 import { Layout, PostCard } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -44,6 +45,7 @@ const PostArchive = ({ location, history }) => {
 
     return (
         <>
+            <MetaData location={location} type="series" />
             <Layout template="postarchive-template" hasSidebar={false}>
                 <div className="postarchive-container">
                     <InstantSearch
