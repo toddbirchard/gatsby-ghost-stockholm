@@ -45,7 +45,6 @@ const PostArchive = ({ location, history }) => {
 
     return (
         <>
-            <MetaData location={location} type="series" />
             <Layout template="postarchive-template" hasSidebar={false}>
                 <div className="postarchive-container">
                     <InstantSearch
