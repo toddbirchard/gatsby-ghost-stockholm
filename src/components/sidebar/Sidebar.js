@@ -40,6 +40,7 @@ Sidebar.propTypes = {
         facebook: PropTypes.string,
     }).isRequired,
     template: PropTypes.string.isRequired,
+    authorData: PropTypes.object,
 }
 
 export default Sidebar
