@@ -7,13 +7,8 @@ import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/page.less'
 
-const JoinUs = ({ data, location, pageContext }) => (
+const JoinUs = ({ data, location }) => (
     <>
-        <MetaData
-            data={data}
-            location={location}
-            type="website"
-        />
         <Layout template="page-template join-template" hasSidebar={false}>
             <article className="post-content page-content">
                 <h1>{`Join Us`}</h1>
