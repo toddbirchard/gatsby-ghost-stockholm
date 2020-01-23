@@ -15,7 +15,7 @@ const AuthorPocket = ({ data }) => {
             <div className="widget-content">
                 {pocketLinks.map(({ node }) => (
                     <a href={node.url} className="link" key={ node.id } target="_blank" rel="noopener noreferrer">
-                    {node.image && <img className="favicon lazyload" data-src={node.domainFavicon} alt={node.title} />} {node.title}</a>
+                    {node.domainFavicon && <img className="favicon lazyload" data-src={node.domainFavicon} alt={node.title} />} {node.title}</a>
                 ))}
             </div>
         </div>
@@ -45,12 +45,6 @@ const AuthorPocketQuery = props => (
                   time_read
                   articleDomain
                   domainFavicon
-                  image {
-                    item_id
-                    src
-                    width
-                    height
-                  }
                 }
               }
             }
