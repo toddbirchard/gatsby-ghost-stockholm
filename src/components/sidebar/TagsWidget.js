@@ -24,7 +24,7 @@ const TagsWidgetQuery = props => (
     <StaticQuery
         query={graphql`
             query allGhostTags {
-                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, postCount: {gt: 2}, slug: {nin: "roundup"}}) {
+                allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, postCount: {gt: 3}, slug: {nin: "roundup"}}) {
                   edges {
                     node {
                       name
