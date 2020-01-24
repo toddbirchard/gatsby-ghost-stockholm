@@ -417,10 +417,9 @@
     Referrer-Policy = "no-referrer-when-downgrade"
     # Multi-key header rules are expressed with multi-line strings.
     cache-control = '''
-      max-age=31557600,
+      max-age=86400,
       no-cache,
-      no-store,
-      must-revalidate'''
+      public'''
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
@@ -430,10 +429,8 @@
       type = "font/woff2"
       accept = "application/font-woff2"
       cache-control = '''
-        max-age=31557600,
-        no-cache,
-        no-store,
-        must-revalidate'''
+        max-age=3155760,
+        no-cache'''
 
 [[headers]]
     for = "/rss"
