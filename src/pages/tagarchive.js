@@ -62,7 +62,7 @@ export default TagArchive
 
 export const tagQuery = graphql`
     query GhostTagArchiveQuery($slug: String) {
-      allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 2}}) {
+      allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 3}}) {
         edges {
           node {
             slug
