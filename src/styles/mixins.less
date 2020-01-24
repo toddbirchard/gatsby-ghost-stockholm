@@ -20,17 +20,21 @@
 .select-dropdown() {
 	-webkit-appearance: none;
 	-webkit-transition: all 0.2s ease-out;
-	width: 100%!important;
+	width: 100%;
 	max-width: -webkit-fill-available;
 	margin: 0;
 	padding: 15px;
 	border: 1px solid #dfdede;
+	border-radius: 0;
 	outline: none;
 	background: #fff;
 	color: #616779;
 	font-size: .9em;
 	line-height: normal;
 	transition: all 0.2s ease-out;
+	@media(max-width: @mobile-breakpoint) {
+		padding: 12px;
+	}
 }
 
 .mobile-horizontal-scroll-child() {

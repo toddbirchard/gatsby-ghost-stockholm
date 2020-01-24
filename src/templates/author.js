@@ -188,12 +188,6 @@ export const pageQuery = graphql`
             time_read
             articleDomain
             domainFavicon
-            image {
-              item_id
-              src
-              width
-              height
-            }
           }
         }
       }

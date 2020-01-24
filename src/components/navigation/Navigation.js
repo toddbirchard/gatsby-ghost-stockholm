@@ -31,7 +31,7 @@ const Navigation = ({ data, logo, mobileLogo, template }) => (
                         <NavLinks navigation={data} />
                     </div>
                 </div>
-                {template !== `postarchive-template` ? <div className="nav-right">
+                {template !== `search-template` ? <div className="nav-right">
                     <Search collapse indices={searchIndices} className="search-widget" />
                 </div> : null }
                 <Menu right width={ `100%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` }>

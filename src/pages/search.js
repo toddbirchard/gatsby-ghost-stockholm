@@ -12,12 +12,11 @@ import {
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
-import { MetaData } from '../components/common/meta'
 
 import { Layout, PostCard } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import '../styles/pages/postarchive.less'
+import '../styles/pages/search.less'
 
 const DEBOUNCE_TIME = 700
 const searchClient = algoliasearch(
@@ -28,7 +27,7 @@ const createURL = state => `?${qs.stringify(state)}`
 const searchStateToUrl = ({ location }, searchState) => (searchState ? `${location.pathname}${createURL(searchState)}` : ``)
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
-const PostArchive = ({ location, history }) => {
+const SearchPage = ({ location, history }) => {
     const [searchState, setSearchState] = useState(urlToSearchState(location))
     const [debouncedSetState, setDebouncedSetState] = useState(null)
     const onSearchStateChange = (updatedSearchState) => {
@@ -45,8 +44,8 @@ const PostArchive = ({ location, history }) => {
 
     return (
         <>
-            <Layout template="postarchive-template" hasSidebar={false}>
-                <div className="postarchive-container">
+            <Layout template="search-template" hasSidebar={false}>
+                <div className="search-container">
                     <InstantSearch
                         searchClient={searchClient}
                         indexName={`hackers_posts_all`}
@@ -58,8 +57,8 @@ const PostArchive = ({ location, history }) => {
                     >
                         <Configure query={`allPostQuery`} hitsPerPage={100} analytics={true}/>
                         <div className="search-body">
-                            <div className="postarchive-header">
-                                <h1>All Posts</h1>
+                            <div className="search-header">
+                                <h1>Search All Posts</h1>
                                 <div className="searchbar-container">
                                     <SearchBox className="searchbox"
                                         placeholder="Search"
@@ -107,7 +106,7 @@ Hit.propTypes = {
     hit: PropTypes.object.isRequired,
 }
 
-PostArchive.propTypes = {
+SearchPage.propTypes = {
     history: PropTypes.shape({
         push: PropTypes.func.isRequired,
     }),
@@ -117,4 +116,4 @@ PostArchive.propTypes = {
     }).isRequired,
 }
 
-export default PostArchive
+export default SearchPage

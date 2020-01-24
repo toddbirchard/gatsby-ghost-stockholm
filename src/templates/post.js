@@ -9,7 +9,6 @@ import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { NewsletterWidget } from '../components/sidebar'
-// import { JustComments } from 'gatsby-plugin-just-comments'
 
 import '../styles/posts/index.less'
 
@@ -83,6 +82,7 @@ const Post = ({ data, location }) => {
 
                 <section className="post-footer">
                     {relatedPosts && <RelatedPosts data={relatedPosts} /> }
+                    <div id="commento" data-css-override={`/comments.css`} data-no-fonts={false}></div>
                     <NewsletterWidget/>
                 </section>
 
