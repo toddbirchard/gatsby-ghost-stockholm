@@ -88,7 +88,7 @@
                 flex-wrap: wrap;
                 width: auto;
                 max-width: none;
-                margin: 10px 0 6px;
+                margin: 15px 0 6px;
                 padding: 0;
             }
 
@@ -110,7 +110,7 @@
                 @media(max-width: @mobile-breakpoint) {
                     margin: 0;
                     margin-bottom: 5px;
-                    font-size: .95em;
+                    font-size: .85em;
                     line-height: 1.5;
                 }
 
@@ -125,13 +125,15 @@
                     font-weight: 500;
                     line-height: 1;
                     white-space: nowrap;
+                    @media(max-width: @mobile-width) {
+                      font-weight: 400;
+                    }
                 }
 
                 a {
                     display: flex;
                     align-items: center;
                     color: unset;
-                    font-weight: 600;
                     transition: @transition;
 
                     &:hover {

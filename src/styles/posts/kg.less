@@ -36,7 +36,15 @@
 
     .wp-embedded-content {
         margin: 0;
-        padding: 30px;
+
+        & > a {
+          display: none;
+        }
+    }
+
+    .wp-embed {
+      border: 0;
+      box-shadow: 0;
     }
 
     &:hover {
