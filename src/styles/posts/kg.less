@@ -129,10 +129,13 @@
                 overflow: hidden;
                 color: @header-color;
                 font-family: @body-font;
-                font-size: 1.2em;
+                font-size: 1.15em;
                 font-weight: 600;
                 line-height: 1.2;
                 text-decoration: none;
+                @media(max-width: @mobile-breakpoint) {
+                  font-size: 1.05em;
+                }
             }
 
             .kg-bookmark-description {
