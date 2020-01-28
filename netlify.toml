@@ -407,7 +407,7 @@
     from = "/pythonic-database-management-with-sqlalchemy/"
     to = "/python-database-management-sqlalchemy/"
     status = 301
-    
+
 [[redirects]]
     from = "/python-poetry/"
     to = "/python-poetry-package-manager/"
@@ -425,16 +425,7 @@
       public'''
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
-[[headers]]
-    for = "/fonts"
-    [headers.values]
-      crossorigin = "anonymous"
-      type = "font/woff2"
-      accept = "application/font-woff2"
-      cache-control = '''
-        max-age=3155760,
-        no-cache,
-        public'''
+
 
 [[headers]]
     for = "/rss"
