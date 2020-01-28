@@ -299,7 +299,7 @@
     status = 301
 
 [[redirects]]
-    from = "setting-up-dns-with-google-cloud-platform"
+    from = "/setting-up-dns-with-google-cloud-platform/"
     to = "/google-cloud-compute-engine/"
     status = 301
 
@@ -407,15 +407,18 @@
     from = "/pythonic-database-management-with-sqlalchemy/"
     to = "/python-database-management-sqlalchemy/"
     status = 301
+    
+[[redirects]]
+    from = "/python-poetry/"
+    to = "/python-poetry-package-manager/"
+    status = 301
 
 [[headers]]
-  # Define which paths this specific [[headers]] block will cover.
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer-when-downgrade"
-    # Multi-key header rules are expressed with multi-line strings.
     cache-control = '''
       max-age=86400,
       no-cache,

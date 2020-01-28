@@ -231,16 +231,7 @@ module.exports = {
                 headers: { "/*": [
                     `Referrer-Policy: no-referrer-when-downgrade`,
                     `Expect-CT: enforce,max-age=604800`,
-                ], "/fonts": [
-                    `crossorigin: anonymous`,
-                    `type: font/woff2`,
-                    `accept: application/font-woff2`,
-                    `cache-control: '''
-                    max-age=31557600,
-                    no-cache,
-                    no-store,
-                    must-revalidate'''`,
-                ] },
+                ]},
                 // option to add more headers. `Link` headers are transformed by the below criteria
                 allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
                 mergeSecurityHeaders: true, // boolean to turn off the default security headers
