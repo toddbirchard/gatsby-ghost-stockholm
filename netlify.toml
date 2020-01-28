@@ -425,7 +425,16 @@
       public'''
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
-
+[[headers]]
+  for = "/fonts"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+        max-age=86400,
+        no-cache,
+        public'''
 
 [[headers]]
     for = "/rss"

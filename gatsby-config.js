@@ -184,12 +184,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
-                typekit: {
-                    id: [`pgr6fet`],
-                    urls: [`https://use.typekit.net/pgr6fet.css`],
-                },
                 custom: {
-                    families: [`TTNormsPro-Bold`, `TTNormsPro-DemiBold`, `dm`],
+                    families: [`TTNormsPro-DemiBold`, `TTNormsPro-Medium`, `TTNormsPro-Regular`, `dm`],
                     urls: [`/fonts.css`],
                 },
                 timeout: 7000,
@@ -231,7 +227,7 @@ module.exports = {
                 headers: { "/*": [
                     `Referrer-Policy: no-referrer-when-downgrade`,
                     `Expect-CT: enforce,max-age=604800`,
-                ]},
+                ] },
                 // option to add more headers. `Link` headers are transformed by the below criteria
                 allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
                 mergeSecurityHeaders: true, // boolean to turn off the default security headers
