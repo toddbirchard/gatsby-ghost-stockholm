@@ -19,12 +19,16 @@ import '../styles/pages/page.less'
 const Page = ({ data, location, pageContext }) => {
     const page = data.ghostPage
     const introVideo = config.introVideo
+    const title = page.title
+    const description = page.meta_description
 
     return (
         <>
             <MetaData
                 data={data}
                 location={location}
+                title={title}
+                description={description}
                 type="website"
             />
             <Layout template="page-template" hasSidebar={true}>
@@ -56,6 +60,7 @@ Page.propTypes = {
         ghostPage: PropTypes.shape({
             slug: PropTypes.string.isRequired,
             title: PropTypes.string,
+            meta_description: PropTypes.string,
             html: PropTypes.string.isRequired,
             feature_image: PropTypes.string,
         }).isRequired,

@@ -52,6 +52,8 @@ const MetaData = ({
             <WebsiteMeta
                 data={ghostPage}
                 canonical={canonical}
+                title={title}
+                description={description}
                 type="WebSite"
             />
         )
