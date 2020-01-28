@@ -15,14 +15,15 @@ import '../styles/jupyter/index.less'
 const JupyterArchive = ({ data, location, pageContext }) => {
     const notebooks = data.allFile.edges
     const title = pageContext.title
+    const description = pageContext.description
 
     return (
         <>
             <MetaData
                 data={data}
                 location={location}
-                title={`Our Jupyter Notebooks.`}
-                description={`View our Jupyter notebook posts (these are a WIP)`}
+                title={title}
+                description={description}
                 type="series"
             />
             <Layout template="jupyter-archive-template page-template" hasSidebar={true}>

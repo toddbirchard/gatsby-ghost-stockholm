@@ -96,6 +96,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
     const jupyterTemplate = path.resolve(`./src/templates/notebook.js`)
+    const searchPage = path.resolve(`./src/pages/search.js`)
 
     // Load Pages
     const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
@@ -341,6 +342,18 @@ exports.createPages = async ({ graphql, actions }) => {
             slug: `series`,
             title: `Series: Multi-part tutorials to master topics in data & software.`,
             description: `Multi-part tutorials to master topics in data & software.`,
+        },
+    })
+
+    createPage({
+        path: `/search/`,
+        component: searchPage,
+        context: {
+            // Data passed to context is available
+            // in page queries as GraphQL variables.
+            slug: `search`,
+            title: `Search all posts`,
+            description: `Search for tutorials about Data Science, Engineering, Software, and more.`,
         },
     })
 

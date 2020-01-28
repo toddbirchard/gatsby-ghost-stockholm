@@ -53,6 +53,7 @@
         }
 
         .widget {
+                width: 16%;
             overflow: hidden;
             @media(max-width: @mobile-breakpoint) {
                 width: 100%;
@@ -66,11 +67,13 @@
 
             .footer-widget-title {
                 margin-bottom: 30px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #dadada;
                 color: #56636e;
-                font-size: 1.25em;
-                font-weight: 600;
+                font-size: 1.1em;
                 @media(max-width: @mobile-breakpoint) {
                     margin-bottom: 20px;
+                    border-bottom: 0;
                     /*border-bottom: 1px solid #e7eaed;*/
                 }
             }
@@ -81,7 +84,7 @@
                 padding-left: 0;
                 color: #657884;
                 font-family: @body-font;
-                font-size: .95em;
+                font-size: .9em;
                 line-height: 1.2;
                 text-overflow: ellipsis;
                 white-space: nowrap;
@@ -97,7 +100,7 @@
             }
 
             &.about {
-                width: 28%;
+                width: 27%;
                 @media(max-width: @mobile-breakpoint) {
                     width: 100% !important;
                     padding-bottom: 15px;
@@ -110,7 +113,8 @@
                     margin-bottom: 20px;
                     transition: all 0.2s ease-out;
                     @media(max-width: @mobile-breakpoint) {
-                        width: 70%;
+                      width: 80%;
+                      max-width: 210px;
                     }
 
                     &:hover {
@@ -123,10 +127,11 @@
                 }
 
                 .description {
-                    line-height: 1.5;
+                    color: #4c5c71;
+                    font-family: 'TTNormsPro-Regular', sans-serif;
+                    line-height: 1.4;
                     @media(max-width: @mobile-breakpoint) {
-                        line-height: 1.4;
-                        text-align: justify;
+                        max-width: 80%;
                     }
                 }
 
@@ -135,14 +140,16 @@
                     align-items: center;
                     justify-content: space-between;
                     margin: 20px 0;
+                    overflow: visible;
                     .social-buttons();
+                    width: 100%;
                     @media(max-width: @mobile-breakpoint) {
-                        justify-content: left;
+                        max-width: 80%;
                     }
 
                     svg {
                         color: #8f9fa8;
-                        font-size: 1.4em;
+                        font-size: 1.5em;
                         @media(max-width: @mobile-breakpoint) {
                             margin-right: 25px;
                         }

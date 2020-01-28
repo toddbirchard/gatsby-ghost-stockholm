@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { PropTypes } from 'prop-types'
+import { graphql } from 'gatsby'
 
 import {
     InstantSearch,
@@ -12,7 +13,7 @@ import {
 } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
-
+import { MetaData } from '../components/common/meta'
 import { Layout, PostCard } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -27,7 +28,9 @@ const createURL = state => `?${qs.stringify(state)}`
 const searchStateToUrl = ({ location }, searchState) => (searchState ? `${location.pathname}${createURL(searchState)}` : ``)
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
-const SearchPage = ({ location, history }) => {
+const SearchPage = ({ data, location, pageContext }) => {
+    const title = pageContext.title
+    const description = pageContext.description
     const [searchState, setSearchState] = useState(urlToSearchState(location))
     const [debouncedSetState, setDebouncedSetState] = useState(null)
     const onSearchStateChange = (updatedSearchState) => {
@@ -44,6 +47,13 @@ const SearchPage = ({ location, history }) => {
 
     return (
         <>
+            <MetaData
+                data={data}
+                location={location}
+                title={title}
+                description={description}
+                type="series"
+            />
             <Layout template="search-template" hasSidebar={false}>
                 <div className="search-container">
                     <InstantSearch
@@ -107,13 +117,21 @@ Hit.propTypes = {
 }
 
 SearchPage.propTypes = {
-    history: PropTypes.shape({
-        push: PropTypes.func.isRequired,
-    }),
-    location: PropTypes.object.isRequired,
     data: PropTypes.shape({
         ghostPage: PropTypes.object.isRequired,
     }).isRequired,
+    location: PropTypes.object,
+    pageContext: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+    }),
 }
+
+export const SearchPageQuery = graphql`
+    query SearchPageMeta($slug: String) {
+      ghostPage(slug: {eq: $slug}) {
+        ...GhostPageFields
+      }
+  }`
 
 export default SearchPage

@@ -12,9 +12,6 @@ import SocialWidget from '../sidebar/SocialWidget'
 const Footer = ({ navigation, site, data, template }) => {
     const authorLinks = data.allGhostAuthor.edges
     const topTags = data.tags.edges
-    const siteTitle = site.title
-    const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
-    const facebookUrl = site.facebook ? `https://www.facebook.com/${site.facebook.replace(/^\//, ``)}` : null
     const isHome = template === `home-template`
     const seriesLinks = data.series.edges
     const logo = site.logo
@@ -72,7 +69,7 @@ const Footer = ({ navigation, site, data, template }) => {
                     </div>
                 </div>
                 <div className="copyright">
-                    <p className="copyright-txt">{config.siteCopyright}</p>
+                    <p>{config.siteCopyright}</p>
                 </div>
             </footer>
         </>
