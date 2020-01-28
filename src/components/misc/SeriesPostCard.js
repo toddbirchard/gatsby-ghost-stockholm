@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 const SeriesPostCard = ({ post, count }) => {
-    const url = `/${ post.slug }/`
+    const url = post.slug.includes(`lynx`) ? `/roundup/${post.slug}` : post.slug
     const postNumber = count + 1
 
     return (<div className="series-post-card">
@@ -21,6 +21,7 @@ const SeriesPostCard = ({ post, count }) => {
 SeriesPostCard.propTypes = {
     post: PropTypes.shape({
         slug: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         excerpt: PropTypes.string.isRequired,
         feature_image: PropTypes.string,

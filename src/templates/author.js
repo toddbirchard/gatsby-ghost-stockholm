@@ -34,7 +34,7 @@ const Author = ({ data, location, pageContext }) => {
             />
             <Layout template="author-template" hasSidebar={true} authorData={authorData}>
                 <div className="author-container">
-                    <AuthorCard author={author} headerClass={false} page={`author`} template={`author-template`} pageContext={pageContext}/>
+                    <AuthorCard author={author} page={`author`} template={`author-template`} pageContext={pageContext}/>
                     <section className="post-feed">
                         {posts.map(({ node }) => (
                             <PostCard key={node.id} post={node} />
@@ -121,7 +121,6 @@ Author.propTypes = {
         pathname: PropTypes.string.isRequired,
     }).isRequired,
     pageContext: PropTypes.object,
-    headerClass: PropTypes.boolean,
 }
 
 export default Author

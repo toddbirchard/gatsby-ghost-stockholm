@@ -104,7 +104,7 @@ DefaultLayout.propTypes = {
     authorData: PropTypes.object,
     data: PropTypes.shape({
         allGhostSettings: PropTypes.object.isRequired,
-        allGhostTag: PropTypes.object.isRequired,
+        allGhostTag: PropTypes.object,
     }).isRequired,
 }
 

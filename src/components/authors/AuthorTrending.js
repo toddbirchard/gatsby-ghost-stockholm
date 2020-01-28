@@ -23,7 +23,7 @@ const TrendingAuthorWidget = ({ authorData }) => {
 }
 
 TrendingAuthorWidget.propTypes = {
-    data: PropTypes.shape({
+    authorData: PropTypes.shape({
         authorTrendingPosts: PropTypes.object.isRequired,
     }).isRequired,
 }
