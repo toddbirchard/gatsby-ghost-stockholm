@@ -337,8 +337,6 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/series/`,
         component: seriesArchive,
         context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
             slug: `series`,
             title: `Series: Multi-part tutorials to master topics in data & software.`,
             description: `Multi-part tutorials to master topics in data & software.`,
@@ -349,8 +347,6 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/search/`,
         component: searchPage,
         context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
             slug: `search`,
             title: `Search all posts`,
             description: `Search for tutorials about Data Science, Engineering, Software, and more.`,
@@ -361,8 +357,6 @@ exports.createPages = async ({ graphql, actions }) => {
         path: `/jupyter/`,
         component: jupyterArchive,
         context: {
-            // Data passed to context is available
-            // in page queries as GraphQL variables.
             slug: `jupyter`,
             title: `Jupyter Notebooks`,
             description: `Our collection of Jupyter notebooks.`,

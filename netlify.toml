@@ -410,7 +410,7 @@
 
 [[redirects]]
     from = "/poetic-python-project-packaging/"
-    to = "/python-poetry/"
+    to = "/python-poetry-package-manager/"
     status = 301
 
 [[redirects]]

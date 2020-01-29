@@ -352,7 +352,7 @@ module.exports = {
                     `/confirmed`,
                 ],
                 createLinkInHead: true,
-                addUncaughtPages: true,
+                addUncaughtPages: false,
             },
         },
         `gatsby-plugin-netlify-cache`,

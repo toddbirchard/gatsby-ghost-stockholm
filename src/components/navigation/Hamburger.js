@@ -26,27 +26,22 @@ const Hamburger = ({ navigation, tagLinks, seriesLinks }) => {
                     <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fad`, `user-plus`]} size="xs"/> Join</Link>
                     <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/> Search</Link>
                     <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
-                    {/*{navigation.map((navItem, i) => {
-                        if (navItem.url.includes(`/rss`)) {
-                            return <a className="navigation-link rss" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                        } else if (navItem.url.includes(config.siteUrl)) {
-                            return <Link className={`navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
-                        } else {
-                            return <a className="navigation-link donate" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                        }
-                    })}*/}
                 </div>
                 <div className="tags">
                     <h3><FontAwesomeIcon icon={[`fad`, `tags`]} size="xs"/> Tags</h3>
-                    {tags.map(({ node }) => (
-                        <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
-                    ))}
+                    <div className="sublinks">
+                        {tags.map(({ node }) => (
+                            <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
+                        ))}
+                    </div>
                 </div>
                 <div className="series">
                     <h3><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/> Series</h3>
-                    {series.map(({ node }) => (
-                        <Link to={`/series/${ node.slug }`} className="series-link" key={ node.name }>{ node.name.replace(`#`, ``) }</Link>
-                    ))}
+                    <div className="sublinks">
+                        {series.map(({ node }) => (
+                            <Link to={`/series/${ node.slug }`} className="series-link" key={ node.name }>{ node.name.replace(`#`, ``) }</Link>
+                        ))}
+                    </div>
                 </div>
             </Menu>
         </>
