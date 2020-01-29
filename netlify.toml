@@ -150,6 +150,21 @@
     from = "/code-snippet-corner-getting-conda-envs-and-environment-variables-to-play-nicely-with-cron/"
     to = "/conda-environments-and-cron/"
     status = 301
+    
+[[redirects]]
+    from = "https://hackersandslackers.com/code-snippet-corner-tuning-random-learning-hyperparameters-with-binary-search/"
+    to = "/tuning-machine-learning-hyperparameters-with-binary-search/"
+    status = 301
+    
+[[redirects]]
+    from = "/become-a-contributor/"
+    to = "/join-us/"
+    status = 301
+
+[[redirects]]
+    from = "/organize-flask-with-blueprints/"
+    to = "/flask-blueprints/"
+    status = 301
 
 [[redirects]]
     from = "/code-snippet-corner-tuning-machine-learning-hyperparameters-with-binary-search/"
@@ -172,8 +187,18 @@
     status = 301
 
 [[redirects]]
+    from = "/using-pymysql/"
+    to = "/python-mysql-pymysql/"
+    status = 301
+
+[[redirects]]
     from = "/pipenv-etc-tracking-your-projects-dependancies/"
     to = "/pipenv-python-environment-management/"
+    status = 301
+
+[[redirects]]
+    from = "/demystifying-flask-application-factory/"
+    to = "/flask-application-factory/"
     status = 301
 
 [[redirects]]
@@ -199,6 +224,11 @@
 [[redirects]]
     from = "/comparing-rows-between-two-pandas-dataframes/"
     to = "/compare-rows-pandas-dataframes/"
+    status = 301
+    
+[[redirects]]
+    from = "/using-pandas-with-aws-lambda/"
+    to = "/pandas-with-aws-lambda/"
     status = 301
 
 [[redirects]]
