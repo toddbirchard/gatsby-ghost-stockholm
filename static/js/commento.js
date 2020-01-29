@@ -289,7 +289,7 @@
                 var e = Ae(`div`); e.id = m,De(e,`main-area`),Ie(e,`style`,`display: none`),Ne(ce,e)
             }(); var o = function (){
                 var e = Ae(`div`),o = Ae(`div`),n = Ae(`a`),t = Ae(`span`); return e.id = `commento-footer`,De(e,`footer`),De(o,`logo-container`),De(n,`logo`),De(t,`logo-text`),Ie(n,`href`,`https://commento.io`),Ie(n,`target`,`_blank`),t.innerText = `Commento`,Ne(n,t),Ne(o,n),Ne(e,o),e
-            }(); Xe(ae + `/css/commento.css`,`window.commento.loadCssOverride()`),Ve(function (){
+            }(); Xe(ae + `../css/commento.css`,`window.commento.loadCssOverride()`),Ve(function (){
                 !function (o){
                     var e = { commenterToken: Ye(),domain: parent.location.host,path: me }; qe(re + `/api/comment/list`,e,function (e){
                         e.success ? (Ge(),pe = e.requireIdentification,ve = e.isModerator,fe = e.isFrozen,ge = e.attributes.isLocked,xe = e.attributes.stickyCommentHex,de = e.comments,ue = Object.assign({},ue,e.commenters),ye = e.configuredOauths,He = e.defaultSortPolicy,je(o)) : ze(e.message)
