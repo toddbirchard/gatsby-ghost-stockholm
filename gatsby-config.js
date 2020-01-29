@@ -170,7 +170,7 @@ module.exports = {
             options: {
                 custom: {
                     families: [`TTNormsPro-DemiBold`, `TTNormsPro-Medium`, `TTNormsPro-Regular`, `dm`],
-                    urls: [`/fonts.css`],
+                    urls: [`/css/fonts.css`],
                 },
                 timeout: 7000,
             },

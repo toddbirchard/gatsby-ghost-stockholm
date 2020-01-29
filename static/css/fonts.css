@@ -2,25 +2,25 @@
 
 @font-face {
     font-display: swap;
-    src: url('fonts/3AE890_0_0.woff2') format('woff2'), url('fonts/3AE890_0_0.woff') format('woff');
+    src: url('../fonts/3AE890_0_0.woff2') format('woff2'), url('../fonts/3AE890_0_0.woff') format('woff');
     font-family: 'TTNormsPro-Regular';
 }
 
 @font-face {
     font-display: swap;
-    src: url('fonts/3AE890_1_0.woff2') format('woff2'), url('fonts/3AE890_1_0.woff') format('woff');
+    src: url('../fonts/3AE890_1_0.woff2') format('woff2'), url('../fonts/3AE890_1_0.woff') format('woff');
     font-family: 'TTNormsPro-Medium';
 }
 
 @font-face {
     font-display: swap;
-    src: url('fonts/3AE890_2_0.woff2') format('woff2'), url('fonts/3AE890_2_0.woff') format('woff');
+    src: url('../fonts/3AE890_2_0.woff2') format('woff2'), url('../fonts/3AE890_2_0.woff') format('woff');
     font-family: 'TTNormsPro-DemiBold';
 }
 
 /*@font-face {
     font-display: swap;
-    src: url('fonts/3AE890_3_0.woff2') format('woff2'), url('fonts/3AE890_3_0.woff') format('woff');
+    src: url('../fonts/3AE890_3_0.woff2') format('woff2'), url('../fonts/3AE890_3_0.woff') format('woff');
     font-family: 'TTNormsPro-Bold';
 }*/
 
