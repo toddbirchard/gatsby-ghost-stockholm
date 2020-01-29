@@ -22,6 +22,9 @@ module.exports = {
         },
         "propWrapperFunctions": ["forbidExtraProps"]
     },
+    "env": {
+        "node": true
+    },
     "rules": {
         "ghost/sort-imports-es6-autofix/sort-imports-es6": "off",
         "ghost/ember/use-ember-get-and-set": "off",

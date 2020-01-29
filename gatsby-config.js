@@ -205,6 +205,10 @@ module.exports = {
                 // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
             },
         },*/
+        /**
+         *  Netlify Plugins
+         */
+        `gatsby-plugin-netlify-cache`,
         {
             resolve: `gatsby-plugin-netlify`,
             options: {
@@ -334,15 +338,21 @@ module.exports = {
                     `/404.html`,
                     `/offline-plugin-app-shell-fallback`,
                     `/confirmed`,
+                    `/roundup`,
+                    `/roundup/*`,
+                    /(\/)?roundup\S*/,
                 ],
                 createLinkInHead: true,
                 addUncaughtPages: false,
             },
         },
-        `gatsby-plugin-netlify-cache`,
-        `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-force-trailing-slashes`,
-        `gatsby-plugin-offline`,
+        {
+            resolve: `gatsby-plugin-canonical-urls`,
+            options: {
+                siteUrl: config.siteUrl,
+                stripQueryString: true,
+            },
+        },
         {
             resolve: `gatsby-plugin-segment-js`,
             options: {
@@ -362,6 +372,10 @@ module.exports = {
                 chunkSize: 100, // default: 1000
             },
         },
+        /* Misc */
         `gatsby-plugin-styled-components`,
+        `gatsby-plugin-react-helmet`,
+        `gatsby-plugin-force-trailing-slashes`,
+        `gatsby-plugin-offline`,
     ],
 }
