@@ -9,7 +9,7 @@ import { AboutWidget,
 import { AuthorTrending } from '../authors'
 
 /**
-* Sidebar component
+* Sidebar
 */
 
 const Sidebar = ({ site, template, authorData }) => {

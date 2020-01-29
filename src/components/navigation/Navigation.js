@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import Search from './Search'
 import NavLinks from './NavLinks'
 import Hamburger from './Hamburger'
-import { stack as Menu } from 'react-burger-menu'
 
 /**
 * Navigation component

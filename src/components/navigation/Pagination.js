@@ -30,7 +30,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
 
 Pagination.propTypes = {
     pageContext: PropTypes.object.isRequired,
-    metaTitle: PropTypes.string.isRequired,
+    metaTitle: PropTypes.string,
 }
 
 export default Pagination

@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/tag.less'
 
 /**
-* Series page (/series/)
+* Tag Archive (/tags)
 *
-* Loads all posts for the requested tag incl. pagination.
-*
+* Archive of all available public-facing tags.
 */
 const TagArchive = ({ data, location }) => {
     const tags = data.allGhostTag.edges

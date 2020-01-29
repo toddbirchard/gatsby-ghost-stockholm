@@ -19,7 +19,7 @@ module.exports = {
         github: `https://github.com/hackersandslackers`,
         linkedin: `https://www.linkedin.com/company/hackers-and-slackers/`,
         angellist: `https://angel.co/company/hackers-and-slackers/`,
-        tumblr: `https://hackersandslackers.blog`,
+        medium: `https://hackingandslacking.com`,
     },
 
     appIDs: {
@@ -27,5 +27,5 @@ module.exports = {
         google: `SWC9VHRq1q2D7lK4vSVi8kkDd6AuEWpWz6ECAeN9di8`,
     },
 
-    siteGithubOrg: `https://github.com/hackersandslackers/jupyter.git`,
+    siteGithubOrg: `https://github.com/hackersandslackers/`,
 }

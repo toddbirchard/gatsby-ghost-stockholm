@@ -12,39 +12,41 @@ const PostCard = ({ post }) => {
     const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
     // const retinaWebpImage = retinaImage && retinaImage.replace(`.jpg`, `.webp`)
 
-    return (<div className="post-card">
-        <Link to={url}>
-            {/*{retinaWebpImage && <img className="post-card-image lazyload" data-src={retinaWebpImage} alt={post.title} /> }*/}
-            { retinaImage ?
-                <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
-                <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
-        </Link>
-        { post.featured && <span>Featured</span> }
-        <div className="post-card-detail">
-            <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
-            {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section> }
-            <footer className="post-card-footer">
-                {post.tags ? <div className="meta-item tag">
-                    <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
-                    <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id} />
-                </div> : null }
-                <div className="meta-item reading-item">
-                    <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" />
-                    <span>{readingTime}</span>
-                </div>
-                { post.primary_author && <div className="meta-item author">
-                    <Link to={`/author/${post.primary_author.slug}`}>
-                        <FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs" />
-                        <span>{authorFirstName}</span>
-                    </Link>
-                </div>}
-                <div className="meta-item date">
-                    <FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" />
-                    <span>{post.published_at_pretty}</span>
-                </div>
-            </footer>
+    return (
+        <div className="post-card">
+            <Link to={url}>
+                {/*{retinaWebpImage && <img className="post-card-image lazyload" data-src={retinaWebpImage} alt={post.title} /> }*/}
+                {retinaImage ?
+                    <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title}/> :
+                    <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title}/>}
+            </Link>
+            {post.featured && <span>Featured</span>}
+            <div className="post-card-detail">
+                <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
+                {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
+                <footer className="post-card-footer">
+                    {post.tags ? <div className="meta-item tag">
+                        <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity/>
+                        <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id}/>
+                    </div> : null}
+                    <div className="meta-item reading-item">
+                        <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs"/>
+                        <span>{readingTime}</span>
+                    </div>
+                    {post.primary_author && <div className="meta-item author">
+                        <Link to={`/author/${post.primary_author.slug}`}>
+                            <FontAwesomeIcon icon={[`fad`, `user-edit`]} size="xs"/>
+                            <span>{authorFirstName}</span>
+                        </Link>
+                    </div>}
+                    <div className="meta-item date">
+                        <FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs"/>
+                        <span>{post.published_at_pretty}</span>
+                    </div>
+                </footer>
+            </div>
         </div>
-    </div>)
+    )
 }
 
 PostCard.propTypes = {
@@ -63,9 +65,11 @@ PostCard.propTypes = {
         excerpt: PropTypes.string,
         published_at_pretty: PropTypes.string,
         primary_author: PropTypes.shape(
-            { name: PropTypes.string.isRequired,
+            {
+                name: PropTypes.string.isRequired,
                 slug: PropTypes.string.isRequired,
-                profile_image: PropTypes.string }).isRequired,
+                profile_image: PropTypes.string,
+            }).isRequired,
     }).isRequired,
 }
 

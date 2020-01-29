@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
-import config from '../../utils/siteConfig'
 import Search from './Search'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -11,9 +10,9 @@ const searchIndices = [
     { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
 ]
 
-const Hamburger = ({ navigation, tagLinks, seriesLinks }) => {
-    const tags = tagLinks.edges
-    const series = seriesLinks.edges
+const Hamburger = ({ data }) => {
+    const tags = data.tags.edges
+    const series = data.series.edges
 
     return (
         <>
@@ -25,6 +24,7 @@ const Hamburger = ({ navigation, tagLinks, seriesLinks }) => {
                     <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/> Series</Link>
                     <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fad`, `user-plus`]} size="xs"/> Join</Link>
                     <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/> Search</Link>
+                    <Link className={`navigation-link`} to={`/rss/`}><FontAwesomeIcon icon={[`fad`, `rss`]} size="xs"/> RSS</Link>
                     <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
                 </div>
                 <div className="tags">
@@ -99,7 +99,7 @@ const HamburgerMenuQuery = props => (
             }
           }
         `}
-        render={data => <Hamburger navigation={data.ghostSettings.navigation} tagLinks={data.tags} seriesLinks={data.series} {...props} />}
+        render={data => <Hamburger data={data} {...props} />}
     />
 )
 

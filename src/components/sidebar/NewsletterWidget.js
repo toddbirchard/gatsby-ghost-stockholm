@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 */
 
 const NewsletterWidget = () => {
-    const newsletterCopy = `Are you into data to the point where it's almost embarrasing? Toss us your email and we'll promise to only give you the good stuff.`
+    const newsletterCopy = `Are you into data to the point where it's almost embarrassing? Toss us your email and we'll promise to only give you the good stuff.`
 
     return (
         <>

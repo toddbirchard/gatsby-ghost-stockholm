@@ -72,13 +72,8 @@ module.exports = {
                 getCurrentWeekOnly: `y`,
                 stateFilterString: `all`,
                 tagFilter: false,
-                tagFilterString: `_untagged_`,
                 favouriteFilter: false,
-                favouriteFilterValue: 0,
                 searchFilter: false,
-                searchFilterString: `These 21 things`,
-                domainFilter: false,
-                domainFilterString: `buzzfeed.com`,
             },
         },
         {
@@ -170,17 +165,6 @@ module.exports = {
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `@gatsby-contrib/gatsby-transformer-ipynb`,
-        {
-            resolve: `gatsby-transformer-remark`,
-            options: {
-                plugins: [
-                    {
-                        resolve: `gatsby-remark-images`,
-                    },
-                    `gatsby-remark-lazy-load`,
-                ],
-            },
-        },
         {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
