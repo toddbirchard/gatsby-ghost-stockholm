@@ -467,10 +467,27 @@
         public'''
 
 [[headers]]
+  for = "/js/commento.js"
+  [headers.values]
+    type = "application/javascript"
+    cache-control = '''
+        max-age=604800,
+        no-cache,
+        public'''
+
+[[headers]]
+  for = "/css/commento.css"
+  [headers.values]
+    type = "text/css"
+    cache-control = '''
+        max-age=604800,
+        no-cache,
+        public'''
+
+[[headers]]
     for = "/rss"
     [headers.values]
       content-type = "text/xml; charset=utf-8"
-
 
 [build.processing]
   skip_processing = false

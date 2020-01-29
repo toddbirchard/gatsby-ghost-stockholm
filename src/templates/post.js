@@ -6,7 +6,7 @@ import { Tags } from '@tryghost/helpers-gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC } from '../components/posts'
+import { RelatedPosts, SeriesTOC, Commento } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { NewsletterWidget } from '../components/sidebar'
 
@@ -23,6 +23,7 @@ const Post = ({ data, location }) => {
     const post = data.ghostPost
     const tags = data.ghostPost.tags
     const author = data.ghostAuthor
+    const id = data.ghostPost.id
     const relatedPosts = data.relatedPosts
     const readingTime = readingTimeHelper(post)
     const seriesPosts = data.seriesPosts
@@ -82,7 +83,8 @@ const Post = ({ data, location }) => {
 
                 <section className="post-footer">
                     {relatedPosts && <RelatedPosts data={relatedPosts} /> }
-                    <div id="commento" data-css-override={`/comments.css`} data-no-fonts={false}></div>
+                    <Commento id={ id } />
+                    {/*<div id="commento" data-css-override={`/comments.css`} data-no-fonts={false}></div>*/}
                     <NewsletterWidget/>
                 </section>
 
