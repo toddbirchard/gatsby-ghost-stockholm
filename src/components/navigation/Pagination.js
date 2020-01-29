@@ -16,7 +16,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
                 )}
             </div>
             {numberOfPages > 1 && <div className="pagination-location">
-                <h1>{metaTitle}</h1>
+                {metaTitle && <h1>{metaTitle}</h1> }
                 <span className="page-count">Page {humanPageNumber} of {numberOfPages}</span>
             </div>}
             {nextPagePath && (
