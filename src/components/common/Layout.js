@@ -27,7 +27,11 @@ import { faTags,
     faRss,
     faSearch,
     faRetweet,
-    faHeartbeat } from '@fortawesome/pro-duotone-svg-icons'
+    faHeartbeat,
+    faCoffeeTogo,
+    faUserPlus,
+    faIndent,
+    faBooks } from '@fortawesome/pro-duotone-svg-icons'
 
 // Styles
 import '../../styles/app.less'
@@ -52,7 +56,11 @@ library.add(faTags,
     faGetPocket,
     faMedium,
     faRetweet,
-    faHeartbeat)
+    faHeartbeat,
+    faCoffeeTogo,
+    faUserPlus,
+    faIndent,
+    faBooks)
 
 /**
 * Main layout component

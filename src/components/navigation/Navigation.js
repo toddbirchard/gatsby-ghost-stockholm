@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Search from './Search'
 import NavLinks from './NavLinks'
+import Hamburger from './Hamburger'
 import { stack as Menu } from 'react-burger-menu'
 
 /**
@@ -34,9 +35,7 @@ const Navigation = ({ data, logo, mobileLogo, template }) => (
                 {template !== `search-template` ? <div className="nav-right">
                     <Search collapse indices={searchIndices} className="search-widget" />
                 </div> : null }
-                <Menu right width={ `100%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` }>
-                    <NavLinks navigation={data} />
-                </Menu>
+                <Hamburger />
             </div>
         </nav>
     </>

@@ -28,22 +28,6 @@ const TagArchive = ({ data, location }) => {
                 <div className="page-content post-content">
                     {page.title ? <h1>{page.title}</h1> : null }
                     {page.plaintext ? <p>{page.plaintext}</p> : null }
-                    <div className="series-grid">
-                        {tags.map(({ node }) => (
-                            <Link to={`/series/${node.slug}`} className="series-card" key={node.id}>
-                                {
-                                    node.feature_image && <div className="series-card-image" style={{
-                                        backgroundImage: `url(${node.feature_image})`,
-                                    }}></div>
-                                }
-                                <div className="series-card-info">
-                                    <h2 className="series-card-title">{node.meta_title}</h2>
-                                    <p className="series-card-description">{node.description}</p>
-                                    <span className="series-card-count">{node.postCount} Posts</span>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
                 </div>
             </Layout>
         </>

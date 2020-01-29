@@ -1,12 +1,11 @@
 @import '../variables.less';
 @import '../mixins.less';
 
-/* Position and sizing of burger button */
 .hamburger-button {
+    display: none;
     position: relative !important;
     width: 26px;
     height: 21px;
-    display: none;
     @media(max-width: @mobile-breakpoint) {
         display: block;
     }
@@ -16,8 +15,8 @@
     }
 
     .bm-burger-bars {
-        background: grey;
         height: 15% !important;
+        background: grey;
         transition: @transition;
 
         &:hover {
@@ -28,11 +27,12 @@
 }
 
 .hamburger-cross-bar {
-    background: #373a47;
-    height: 15% !important;
-    transition: @transition;
-    outline: none !important;
     -webkit-appearance: none !important;
+    display: none;
+    height: 15% !important;
+    outline: none !important;
+    background: #373a47;
+    transition: @transition;
 
     &:hover {
         background: @hover-color !important;
@@ -44,11 +44,11 @@
 }
 
 .bm-cross-button {
-    width: 30px !important;
-    height: 30px !important;
-    right: 16px !important;
-    top: 12px !important;
     -webkit-appearance: none !important;
+    top: 30px !important;
+    right: 25px !important;
+    width: 20px !important;
+    height: 20px !important;
 
     &:hover {
         .hamburger-cross-bar {
@@ -57,7 +57,8 @@
     }
 
     span {
-        top: 0;
+        top: -2px;
+        right: 13px;
     }
 
     button {
@@ -77,57 +78,202 @@
 }
 
 .bm-cross {
-    background: #fff;
     width: 2px !important;
     height: 30px !important;
-}
-/*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
-.bm-menu-wrap {
-    position: fixed;
-    height: 100%;
-    top: 0;
-    right: 0 !important;
-    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s !important;
-}
-/* General sidebar styles */
-.bm-menu {
-    background: #0e7cc3;
-    padding: 0;
-    font-size: 1.15em;
-    overflow: hidden !important;
-}
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-    fill: #373a47;
-}
-/* Wrapper for item list */
-.bm-item-list {
-    color: #fff !important;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-height: 300px;
-    margin: auto !important;
-    text-align: center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    background: #606265;
 
-    a {
-        color: #fff !important;
-        text-transform: uppercase;
-        font-family: @body-font;
-        font-size: 1.2em;
+    &:hover {
+      background: @theme-color !important;
+
+      * {
+        background: @theme-color !important;
+      }
+
     }
 }
 
+.bm-menu-wrap {
+    position: fixed;
+    top: 0;
+    right: 0 !important;
+    height: 80%;
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s !important;
+}
+
+.bm-menu {
+    padding: 0;
+    overflow: hidden !important;
+    background: white;
+    font-size: 1.15em;
+
+    h3 {
+      margin: 0 0 10px;
+      font-family: @body-font-bold;
+      font-size: .9em;
+      font-weight: 100;
+      text-align: left;
+      text-transform: uppercase;
+
+      svg {
+        margin-right: 4px;
+      }
+    }
+
+    .bm-item-list {
+        .pages,
+        .tags,
+        .series {
+            display: flex !important;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: auto !important;
+            padding: 30px;
+            border-bottom: 1px solid #dedede;
+            outline: none;
+            color: #fff !important;
+            text-align: center;
+        }
+
+        .pages {
+            height: 250px;
+
+            a {
+                font-size: 0.9em;
+
+                svg {
+                  margin-right: 10px;
+                  font-size: 1em;
+                }
+            }
+        }
+
+        .tags {
+            height: 350px;
+
+            a {
+                font-size: 0.7em;
+            }
+        }
+
+        .series {
+          height: 250px;
+          border-bottom: 0;
+
+          a {
+              font-size: 0.7em;
+          }
+        }
+
+        a {
+            outline: none;
+            color: #4d525a;
+            font-family: @body-font;
+            text-align: left;
+            /*text-transform: uppercase;*/
+            transition: @transition;
+
+            &:hover {
+                color: @theme-color !important;
+            }
+        }
+    }
+}
+
+.search-container {
+  position: relative;
+
+  .search-results {
+    top: 50px;
+    right: 0;
+    left: 0;
+    width: -webkit-fill-available !important;
+
+    header {
+      padding: 0 0 10px;
+    }
+
+    .search-result {
+      align-items: unset !important;
+    }
+
+    .search-result-details {
+      width: unset;
+    }
+
+    .search-results-title {
+        font-size: .7em !important;
+    }
+
+    .search-result-title {
+        font-size: .75em !important;
+        letter-spacing: 0 !important;
+    }
+
+    .search-result-tag {
+      display: flex !important;
+      align-items: center;
+      color: #4d525a;
+      font-size: .75em;
+      text-align: left;
+      opacity: 0.7 !important;
+
+      svg {
+        left: 0;
+        font-size: .8em !important;
+      }
+
+      span {
+        font-family: @body-font-bold;
+        font-size: .9em;
+      }
+    }
+
+    img {
+      max-width: 90px;
+      height: 50px;
+    }
+  }
+
+  .rXwu {
+    display: block;
+  }
+
+  svg {
+    position: absolute;
+    top: 38px;
+    right: 20px;
+    bottom: 0;
+    margin: auto;
+    color: grey;
+    font-size: .9em !important;
+  }
+
+  .ais-SearchBox-form input {
+    width: -webkit-fill-available !important;
+    margin: 0 0 20px;
+    padding: 10px;
+    float: left;
+    color: grey;
+    font-size: 0.8em;
+  }
+}
+
+.bm-morph-shape {
+    fill: #373a47;
+}
 
 .bm-overlay {
-    background: none !important;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) !important;
+    opacity: 1;
+    transition: opacity 0.3s ease 0s;
 }

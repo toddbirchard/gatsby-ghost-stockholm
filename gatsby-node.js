@@ -96,11 +96,11 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
     const jupyterTemplate = path.resolve(`./src/templates/notebook.js`)
-    const searchPage = path.resolve(`./src/pages/search.js`)
 
     // Load Pages
     const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
     const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
+    const searchPage = path.resolve(`./src/pages/search.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
