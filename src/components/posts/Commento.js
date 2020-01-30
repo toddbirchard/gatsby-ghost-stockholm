@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react'
 import config from '../../utils/siteConfig'
 
+const stylesheet = config.siteUrl + `/css/comments.css`
+
 // Helper to add scripts to our page
 const insertScript = (src, id, parentElement) => {
     const script = window.document.createElement(`script`)
     script.async = true
     script.src = src
     script.id = id
+    script.setAttribute(`data-css-override`, stylesheet)
+    script.setAttribute(`data-no-fonts`, `true`)
     parentElement.appendChild(script)
     return script
 }
@@ -28,12 +32,12 @@ const Commento = ({ id }) => {
         const document = window.document
         // In case our #commento container exists we can add our commento script
         if (document.getElementById(`commento`)) {
-            insertScript(`/js/commento.js`, `commento-script`, document.body)
+            insertScript(`https://cdn.commento.io/js/commento.js`, `commento-script`, document.body)
         }
         // Cleanup; remove the script from the page
         return () => removeScript(`commento-script`, document.body)
     }, [id])
-    return <div id={`commento`} data-css-override={`${config.siteUrl}/css/comments.css`} data-no-fonts={true} />
+    return <div id={`commento`} />
 }
 
 export default Commento
