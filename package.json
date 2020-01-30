@@ -35,6 +35,7 @@
     "preload-fonts": "gatsby-preload-fonts"
   },
   "devDependencies": {
+    "@bundle-analyzer/gatsby-plugin": "^0.5.1",
     "autoprefixer": "^9.7.4",
     "babel-eslint": "^10.0.3",
     "babel-preset-gatsby": "^0.2.27",
@@ -42,6 +43,7 @@
     "eslint-plugin-ghost": "^1.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-react": "^7.18.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8",
     "less": "^3.10.3",
     "qs": "^6.9.1",
     "stylelint": "^13.0.0"
@@ -50,6 +52,7 @@
     "@babel/core": "^7.8.3",
     "@babel/highlight": "^7.8.3",
     "@babel/runtime": "^7.8.3",
+    "@bundle-analyzer/cli": "^0.5.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/pro-duotone-svg-icons": "^5.12.0",
