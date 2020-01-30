@@ -478,7 +478,7 @@
 [[headers]]
   for = "/css/commento.css"
   [headers.values]
-    content-type = "text/css"
+    content-type = "text/css; charset=UTF-8"
     cache-control = '''
         max-age=604800,
         no-cache,

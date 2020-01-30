@@ -215,6 +215,10 @@ module.exports = {
                 headers: { "/*": [
                     `Referrer-Policy: no-referrer-when-downgrade`,
                     `Expect-CT: enforce,max-age=604800`,
+                ],
+                "/css/commento.css": [
+                    `content-type: "text/css; charset=UTF-8`,
+                    `Expect-CT: enforce,max-age=604800`,
                 ] },
                 // option to add more headers. `Link` headers are transformed by the below criteria
                 allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
