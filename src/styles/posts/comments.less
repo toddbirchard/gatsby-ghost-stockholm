@@ -10,7 +10,7 @@
     }
 
     p {
-       font-size: 13px !important;
+        font-size: 13px !important;
     }
 
     .commento-button-margin {
@@ -46,7 +46,7 @@
     }
 
     .commento-sort-policy-buttons-container {
-      display: none !important;
+        display: none !important;
     }
 
     .commento-options {
@@ -86,6 +86,7 @@
 
     #commento-logged-container {
         display: none;
+
         .commento-logout {
             position: relative;
             color: #adb5bd;
@@ -102,7 +103,7 @@
             margin-bottom: 10px;
 
             & > div > .commento-card {
-                padding: 30px!important;
+                padding: 30px!important !important;
                 border-left: none !important;
                 border-radius: 2px !important;
                 box-shadow: @box-shadow;
@@ -112,6 +113,7 @@
 
     .commento-button-margin {
         padding-top: 0 !important;
+
         &:hover {
             .commento-submit-button {
                 opacity: 1;
@@ -188,9 +190,10 @@
         opacity: 0;
         transition: @transition;
         @media(max-width: @mobile-breakpoint) {
-           top: 94px !important;
-          right: 10px !important;
+            top: 94px !important;
+            right: 10px !important;
         }
+
         &:hover {
             border: 1px solid @theme-color !important;
             background: white !important;
@@ -228,87 +231,85 @@
         box-shadow: @box-shadow;
         font-size: 16px !important;
         transition: all 0.2s ease-out;
-}
+    }
 
-
-        &:hover {
-            border: 1px solid @theme-color !important;
-            background: lighten(@theme-color, 30%) !important;
-
-            &::placeholder {
-                opacity: 0;
-            }
-        }
-
-        &:focus {
-            border: 1px solid @theme-color !important;
-            background: white !important;
-        }
+    &:hover {
+        border: 1px solid @theme-color !important;
+        background: lighten(@theme-color, 30%) !important;
 
         &::placeholder {
-            padding-bottom: 50px !important;
-            color: #aeb1bd !important;
-            font-family: @body-font;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            opacity: 0.8;
-            transition: @transition;
-            @media(max-width: @mobile-breakpoint) {
-                font-size: 0.9em;
-            }
-        }
-
-        ::-webkit-input-placeholder {
-            /* WebKit browsers */
-            position: absolute !important;
-            position: 0 0 !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 400px !important;
-            height: 100px !important;
+            opacity: 0;
         }
     }
 
-    .commento-markdown-button {
-        position: absolute;
-        top: 100px;
-        left: 20px;
-        height: fit-content;
-        margin: 0 !important;
-        background: none;
-
-        * {
-            background: none !important;
-        }
+    &:focus {
+        border: 1px solid @theme-color !important;
+        background: white !important;
     }
 
-    .commento-markdown-help {
-        width: 100%;
-        padding: 15px;
-        background: rgba(255, 255, 255, .5);
+    &::placeholder {
+        padding-bottom: 50px !important;
+        color: #aeb1bd !important;
+        font-family: @body-font;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        opacity: 0.8;
+        transition: @transition;
         @media(max-width: @mobile-breakpoint) {
-            td {
-                font-size: 10px;
-            }
-        }
-
-        * {
-            font-size: 0.95em !important;
-        }
-
-        tr td {
-            padding: 0 6px 4px !important;
-
-            &:last-of-type {
-                padding: 0 6px 0 !important;
-            }
+            font-size: 0.9em;
         }
     }
 
-    .commento-logo-text {
-        display: none !important;
+    ::-webkit-input-placeholder {
+        /* WebKit browsers */
+        position: absolute !important;
+        position: 0 0 !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 400px !important;
+        height: 100px !important;
+    }
+}
+
+.commento-markdown-button {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    height: fit-content;
+    margin: 0 !important;
+    background: none;
+
+    * {
+        background: none !important;
+    }
+}
+
+.commento-markdown-help {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, .5);
+    @media(max-width: @mobile-breakpoint) {
+        td {
+            font-size: 10px;
+        }
     }
 
+    * {
+        font-size: 0.95em !important;
+    }
+
+    tr td {
+        padding: 0 6px 4px !important;
+
+        &:last-of-type {
+            padding: 0 6px 0 !important;
+        }
+    }
+}
+
+.commento-logo-text {
+    display: none !important;
+}
 
 .commento-textarea-super-container-root {
     &:focus {
@@ -331,7 +332,6 @@
     max-width: 500px;
     height: fit-content;
     min-height: 100px;
-    margin: auto;
     margin: auto;
     padding: 16px;
     background: #f1f3f5;
