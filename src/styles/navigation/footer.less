@@ -69,10 +69,10 @@
                 margin-bottom: 30px;
                 padding-bottom: 8px;
                 border-bottom: 1px solid #dadada;
-                color: #56636e;
-                font-size: 1.1em;
+                color: #4b5863;
+                font-size: 1.2em;
                 @media(max-width: @mobile-breakpoint) {
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                     border-bottom: 0;
                 }
             }
@@ -129,8 +129,8 @@
                         max-width: 80%;
                     }
                     @media(max-width: 500px) {
-                        max-width: unset;
                         width: 100%;
+                        max-width: unset;
                     }
                 }
 
@@ -146,8 +146,8 @@
                         max-width: 80%;
                     }
                     @media(max-width: 500px) {
-                        max-width: unset;
                         width: 100%;
+                        max-width: unset;
                     }
 
                     svg {
@@ -171,7 +171,6 @@
         background-color: #f4f7f9;
         @media(max-width: @mobile-breakpoint) {
             padding: 30px 20px;
-            text-align: center;
         }
 
         p {
@@ -181,6 +180,9 @@
             color: #5a686f;
             font-size: 0.85em;
             line-height: 1.4;
+            @media(max-width: @mobile-breakpoint) {
+                text-align: center;
+            }
         }
     }
 }

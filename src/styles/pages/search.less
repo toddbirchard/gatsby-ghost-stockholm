@@ -30,6 +30,7 @@
         background: white;
         box-shadow: @box-shadow;
         @media(max-width: @mobile-breakpoint) {
+              min-width: 92% !important;
             .mobile-full-width();
             max-width: -webkit-fill-available !important;
         }
@@ -38,12 +39,13 @@
             margin: 0;
             color: @header-color;
             font-family: @header-font-light;
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: normal;
         }
 
         .searchbar-container {
             position: relative;
+            height: 50px;
 
             svg {
                 position: absolute !important;
