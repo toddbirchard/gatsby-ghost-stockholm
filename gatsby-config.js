@@ -382,9 +382,9 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-force-trailing-slashes`,
         `gatsby-plugin-offline`,
-        {
+        /*{
             resolve: `@bundle-analyzer/gatsby-plugin`,
             options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
-        },
+        },*/
     ],
 }
