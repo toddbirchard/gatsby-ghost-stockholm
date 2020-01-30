@@ -469,7 +469,7 @@
 [[headers]]
   for = "/js/commento.js"
   [headers.values]
-    type = "application/javascript"
+    content-type = "application/javascript"
     cache-control = '''
         max-age=604800,
         no-cache,
@@ -478,7 +478,7 @@
 [[headers]]
   for = "/css/commento.css"
   [headers.values]
-    type = "text/css"
+    content-type = "text/css"
     cache-control = '''
         max-age=604800,
         no-cache,
