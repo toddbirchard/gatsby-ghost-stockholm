@@ -80,13 +80,6 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
                 <html lang={site.lang} />
                 <style type="text/css">{`${site.codeinjection_styles}`}</style>
                 <body className={ template } />
-                {template === `post-template` ?
-                    <script
-                        defer
-                        src="https://cdn.commento.io/js/commento.js"
-                        data-css-override="https://hackersandslackers.com/comments.css"
-                        data-no-fonts={true}
-                    /> : null }
             </Helmet>
 
             <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} template={template} />
