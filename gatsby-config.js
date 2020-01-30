@@ -175,6 +175,7 @@ module.exports = {
                 timeout: 7000,
             },
         },
+        `gatsby-plugin-preload-fonts`,
         /**
          *  Style Plugins
          */

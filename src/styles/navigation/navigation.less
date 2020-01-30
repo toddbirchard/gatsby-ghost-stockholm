@@ -213,8 +213,9 @@
         text-align: center;
 
         h1 {
-          margin-bottom: 3px;
+          margin-bottom: 0;
           color: #667077;
+          line-height: 1;
         }
 
         .page-count {
@@ -236,7 +237,7 @@
         text-transform: uppercase;
         transition: @transition;
         @media(max-width: @mobile-breakpoint) {
-          padding: 8px 12px;
+          padding: 10px 12px;
         }
 
         &:hover {
@@ -260,8 +261,18 @@
             }
         }
 
+        svg {
+          @media(max-width: @mobile-breakpoint){
+            margin-right: 0;
+            font-size: 1.1em;
+          }
+        }
+
         span {
             line-height: 1;
+            @media(max-width: @mobile-breakpoint) {
+              display: none;
+            }
         }
     }
 }
