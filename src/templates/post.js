@@ -84,7 +84,6 @@ const Post = ({ data, location }) => {
                 <section className="post-footer">
                     {relatedPosts && <RelatedPosts data={relatedPosts} /> }
                     <Commento id={ id } />
-                    {/*<div id="commento" data-css-override={`/comments.css`} data-no-fonts={false}></div>*/}
                     <NewsletterWidget/>
                 </section>
 

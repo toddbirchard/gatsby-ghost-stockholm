@@ -7,6 +7,7 @@ import { MetaData } from '../components/common/meta'
 import config from '../utils/siteConfig'
 
 import '../styles/post-cards.less'
+import '../styles/sidebar.less'
 
 /**
 * Main index page (home page)

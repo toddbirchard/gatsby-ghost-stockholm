@@ -1,7 +1,6 @@
 /* Layout
 /* ---------------------------------------------------------- */
-.sidebar-container,
-.tag-container {
+.sidebar-container {
     grid-gap: 20px;
     display: grid;
     grid-template-columns: 2.4fr 1fr;
@@ -21,34 +20,6 @@
     padding-bottom: 50px;
     @media(max-width: @mobile-breakpoint) {
       padding-bottom: 30px;
-    }
-}
-
-.page-template {
-    .container {
-        width: 1020px;
-        max-width: 95%;
-        margin: auto;
-        @media(max-width: @mobile-breakpoint) {
-            max-width: 100%;
-        }
-
-        .page-content {
-            padding: 60px;
-            @media(max-width: @tablet-breakpoint) {
-                padding: 40px;
-            }
-        }
-    }
-
-    .viewport {
-        @media(max-width: @mobile-breakpoint) {
-            margin: 0 auto !important;
-        }
-    }
-
-    .nav-wrapper {
-      max-width: 870px;
     }
 }
 

@@ -2,13 +2,40 @@
 @import '../mixins.less';
 
 .page-template {
-    h1 {
-        margin: 0 0 20px;
-        color: @header-color;
-        font-family: @header-font-light;
-        font-size: 2.7em;
-        font-weight: normal;
+    .container {
+        width: 1020px;
+        max-width: 95%;
+        margin: auto;
+        @media(max-width: @mobile-breakpoint) {
+            max-width: 100%;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            color: @header-color;
+            font-family: @header-font-light;
+            font-size: 2.7em;
+            font-weight: normal;
+        }
+
+        .page-content {
+            padding: 60px;
+            @media(max-width: @tablet-breakpoint) {
+                padding: 40px;
+            }
+        }
+
+        .viewport {
+            @media(max-width: @mobile-breakpoint) {
+                margin: 0 auto !important;
+            }
+        }
+
+        .nav-wrapper {
+            max-width: 870px;
+        }
     }
+
 
     .navigation {
         @media(max-width: @mobile-breakpoint) {
