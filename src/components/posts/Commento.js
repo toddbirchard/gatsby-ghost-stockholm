@@ -3,7 +3,7 @@ import config from '../../utils/siteConfig'
 
 // Helper to add scripts to our page
 const insertScript = (src, id, parentElement) => {
-    const script = window.document.createElement('script')
+    const script = window.document.createElement(`script`)
     script.async = true
     script.src = src
     script.id = id
