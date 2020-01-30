@@ -409,18 +409,24 @@
     background: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 600px) {
-    .commento-root .commento-markdown-help td {
-        font-size: 10px;
-    }
-}
-
 .commento-root .commento-markdown-help * {
     font-size: 0.95em !important;
 }
 
 .commento-root .commento-markdown-help tr td {
     padding: 0 6px 4px !important;
+}
+
+@media (max-width: 600px) {
+    .commento-root .commento-markdown-help td {
+        font-size: 10px;
+    }
+}
+
+.commento-root .commento-markdown-help tr td pre {
+    display: inline;
+    font-family: monospace;
+    font-size: 13px
 }
 
 .commento-root .commento-markdown-help tr td:last-of-type {
