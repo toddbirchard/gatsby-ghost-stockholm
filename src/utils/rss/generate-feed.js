@@ -3,8 +3,8 @@ const tagsHelper = require(`@tryghost/helpers`).tags
 const _ = require(`lodash`)
 
 const generateItem = function generateItem(siteUrl, post) {
-    const itemUrl = siteUrl + `/` + post.url
-    const html = post.html
+    const itemUrl = post.canonical_url || post.url
+    const html = post.html.replace(/[\u{0080}-\u{FFFF}]/gu, ``)
     const htmlContent = cheerio.load(html, { decodeEntities: false, xmlMode: true })
     const item = {
         title: post.title,
@@ -55,7 +55,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
                 description: siteDescription,
                 // generator: `Ghost ` + data.safeVersion,
                 generator: `Ghost 2.9`,
-                feed_url: `${siteConfig.siteUrl}/rss`,
+                feed_url: `${siteConfig.siteUrl}/rss/`,
                 site_url: `${siteConfig.siteUrl}/`,
                 image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
                 ttl: `60`,
@@ -107,13 +107,13 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
 
                         # Additional fields
                         url
+                        canonical_url
                     }
                 }
               }
         }
   `,
         output: `/rss`,
-        title: siteConfig.siteTitleMeta,
     }
 }
 
