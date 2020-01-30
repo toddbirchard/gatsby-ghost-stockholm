@@ -33,7 +33,7 @@ const Commento = ({ id }) => {
         // Cleanup; remove the script from the page
         return () => removeScript(`commento-script`, document.body)
     }, [id])
-    return <div id={`commento`} data-css-override={`${config.siteUrl}/css/commento.css`} data-no-fonts={true} />
+    return <div id={`commento`} data-css-override={`${config.siteUrl}/css/comments.css`} data-no-fonts={true} />
 }
 
 export default Commento
