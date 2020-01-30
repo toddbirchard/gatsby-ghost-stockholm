@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import config from '../../utils/siteConfig'
+
 // Helper to add scripts to our page
 const insertScript = (src, id, parentElement) => {
     const script = window.document.createElement('script')
@@ -15,6 +17,7 @@ const removeScript = (id, parentElement) => {
         parentElement.removeChild(script)
     }
 }
+
 // The actual component
 const Commento = ({ id }) => {
     useEffect(() => {
@@ -25,12 +28,12 @@ const Commento = ({ id }) => {
         const document = window.document
         // In case our #commento container exists we can add our commento script
         if (document.getElementById(`commento`)) {
-            insertScript(`/js/commento.js`, `commento-script`, document.body)
+            insertScript(config.siteUrl + `/js/commento.js`, `commento-script`, document.body)
         }
         // Cleanup; remove the script from the page
         return () => removeScript(`commento-script`, document.body)
     }, [id])
-    return <div id={`commento`} data-css-override="/css/commento.css" data-no-fonts={true} />
+    return <div id={`commento`} data-css-override={`${config.siteUrl}/css/commento.css`} data-no-fonts={true} />
 }
 
 export default Commento
