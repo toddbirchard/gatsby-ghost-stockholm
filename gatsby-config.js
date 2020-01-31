@@ -169,7 +169,7 @@ module.exports = {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
                 custom: {
-                    families: [`TTNormsPro-DemiBold`, `TTNormsPro-Medium`, `TTNormsPro-Regular`, `dm`],
+                    families: [`TTNormsPro-DemiBold`, `TTNormsPro-Medium`, `TTNormsPro-Regular`],
                     urls: [`/css/fonts.css`],
                 },
                 timeout: 7000,

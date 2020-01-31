@@ -25,6 +25,7 @@ import { faTags,
     faHome,
     faChartLine,
     faRss,
+    faRssSquare,
     faSearch,
     faRetweet,
     faHeartbeat,
@@ -47,6 +48,7 @@ library.add(faTags,
     faHome,
     faChartLine,
     faRss,
+    faRssSquare,
     faSearch,
     faLinkedin,
     faAngellist,
@@ -60,7 +62,8 @@ library.add(faTags,
     faCoffeeTogo,
     faUserPlus,
     faIndent,
-    faBooks)
+    faBooks
+    )
 
 /**
 * Main layout component
