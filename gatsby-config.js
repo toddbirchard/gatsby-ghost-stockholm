@@ -275,6 +275,7 @@ module.exports = {
                 feeds: [
                     generateRSSFeed(config),
                 ],
+                title: config.siteTitle,
             },
         },
         {

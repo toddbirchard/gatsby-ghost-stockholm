@@ -92,7 +92,8 @@
     }
 }
 
-.bm-menu-wrap {
+.bm-menu-wrap,
+.mobile-menu {
     position: fixed;
     top: 0;
     right: 0 !important;
@@ -285,6 +286,7 @@
     background: #eaeaea;
     color: grey;
     font-size: 0.8em;
+    transition: all .2s easeout;
 
     &:focus,
     &:hover {
@@ -294,6 +296,11 @@
         &::placeholder {
             color: #95aaba !important;
         }
+    }
+
+    &:focus {
+      margin-right: calc(-50vw + 50%) !important;
+      margin-left: calc(-50vw + 50%) !important;
     }
   }
 }

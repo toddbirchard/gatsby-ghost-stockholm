@@ -35,14 +35,6 @@ const Hamburger = ({ data }) => {
                         ))}
                     </div>
                 </div>
-                {/*<div className="series">
-                    <h3><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/> Series</h3>
-                    <div className="sublinks">
-                        {series.map(({ node }) => (
-                            <Link to={`/series/${ node.slug }`} className="series-link" key={ node.name }>{ node.name.replace(`#`, ``) }</Link>
-                        ))}
-                    </div>
-                </div>*/}
             </Menu>
         </>
     )
