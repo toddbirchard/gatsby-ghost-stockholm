@@ -28,7 +28,7 @@ const Hamburger = ({ data }) => {
                     <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
                 </div>
                 <div className="tags">
-                    <h3><FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" fa-swap-opacity/> Tags</h3>
+                    <h3><FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity/> Tags</h3>
                     <div className="sublinks">
                         {tags.map(({ node }) => (
                             <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>

@@ -112,9 +112,9 @@
                 }
 
                 svg {
-                  margin-right: 5px;
-                  color: #7e8da3 !important;
-                  font-size: .75em;
+                    margin-right: 5px;
+                    color: #7e8da3 !important;
+                    font-size: 0.75em;
                 }
 
                 * {
@@ -200,8 +200,6 @@
             opacity: 0.3;
         }
 
-
-
         .post-content {
             position: relative;
             @media(max-width: @tablet-breakpoint) {
@@ -250,8 +248,8 @@
             }
 
             & > a,
-            p > a,
-            li > a, {
+            li > a,
+            p > a {
                 color: @theme-color;
                 font-family: @body-font-bold;
                 font-weight: 600;
@@ -263,9 +261,9 @@
             }
 
             & > strong,
-            p > strong,
+            blockquote > strong,
             li > strong,
-            blockquote > strong {
+            p > strong {
                 font-family: @body-font-bold;
                 font-weight: unset;
             }
@@ -318,7 +316,6 @@
             li > code,
             p > code {
                 display: inline;
-                width: fit-content;
                 padding: 3px 4px;
                 overflow-y: visible;
                 border-radius: 3px;
@@ -328,7 +325,6 @@
                 font-size: 0.8em;
                 white-space: nowrap;
             }
-
             /*   Start of Protip box */
             .protip {
                 position: relative;
