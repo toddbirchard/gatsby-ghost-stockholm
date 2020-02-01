@@ -15,7 +15,6 @@ function HamburgerMenu({ data }) {
     const classes = data.fullWidth ? `fullWidth` : null
     //const [searchView, setSearchView] = useState(false)
     const [menuWidth, setMenuWidth] = useState(false)
-    console.log(menuWidth)
 
     return (
         <>

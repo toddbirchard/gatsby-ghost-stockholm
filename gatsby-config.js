@@ -251,14 +251,10 @@ module.exports = {
                 legacy: true,
                 query: `
                 {
-                    allGhostSettings {
-                        edges {
-                            node {
-                                title
-                                description
-                            }
-                        }
-                    }
+                  ghostSettings {
+                    title
+                    description
+                  }
                 }
               `,
             },
