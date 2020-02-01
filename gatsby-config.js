@@ -262,20 +262,17 @@ module.exports = {
             options: {
                 query: `
                 {
-                    allGhostSettings {
-                        edges {
-                            node {
-                                title
-                                description
-                            }
-                        }
-                    }
+                  ghostSettings {
+                    title
+                    description
+                    url
+                  }
                 }
               `,
                 feeds: [
                     generateRSSFeed(config),
                 ],
-                title: config.siteTitle,
+                title: config.siteTitleMeta,
             },
         },
         {

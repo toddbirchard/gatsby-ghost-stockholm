@@ -110,10 +110,10 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
                         canonical_url
                     }
                 }
-              }
+            }
         }
   `,
-        output: `/rss`,
+        output: `/rss.xml`,
     }
 }
 
