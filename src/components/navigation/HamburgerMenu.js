@@ -50,18 +50,7 @@ HamburgerMenu.propTypes = {
                 url: PropTypes.string.isRequired,
             }).isRequired,
         ),
-        tags: PropTypes.arrayOf(
-            PropTypes.shape({
-                slug: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-            }).isRequired,
-        ).isRequired,
-        series: PropTypes.arrayOf(
-            PropTypes.shape({
-                slug: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-            }).isRequired,
-        ).isRequired,
+        tags: PropTypes.object.isRequired,
         fullWidth: PropTypes.boolean,
     }).isRequired,
 
@@ -82,14 +71,6 @@ const HamburgerMenuQuery = props => (
                 node {
                   name
                   slug
-                }
-              }
-            }
-            series: allGhostTag(limit: 7, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 3}, slug: {nin: "adventures-in-excel"}}) {
-              edges {
-                node {
-                  slug
-                  name
                 }
               }
             }

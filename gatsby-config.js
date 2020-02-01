@@ -141,22 +141,18 @@ module.exports = {
                 queries: [
                     {
                         statement: `SELECT * FROM weekly_stats`,
-                        idFieldName: `id`,
                         name: `weekly_stats`,
                     },
                     {
                         statement: `SELECT * FROM monthly_stats`,
-                        idFieldName: `id`,
                         name: `monthly_stats`,
                     },
                     {
                         statement: `SELECT * FROM monthly_page_analytics`,
-                        idFieldName: `id`,
                         name: `monthly_page_analytics`,
                     },
                     {
                         statement: `SELECT * FROM weekly_page_analytics`,
-                        idFieldName: `id`,
                         name: `weekly_page_analytics`,
                     },
                 ],

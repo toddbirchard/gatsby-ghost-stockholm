@@ -20,7 +20,6 @@ import '../styles/sidebar.less'
 const Index = ({ data, location, pageContext }) => {
     const posts = data.allGhostPost.edges
     const metaTitle = config.siteTitleMeta
-    const metaDescription = config.siteDescriptionMeta
 
     return (
         <>
@@ -57,7 +56,7 @@ export default Index
 export const pageQuery = graphql`
   query GhostPostQuery($limit: Int!, $skip: Int!) {
     allGhostPost(
-        sort: { order: DESC, fields: [published_at]}, filter: {tags: {elemMatch: {slug: {nin: ["roundup", "#newsletter", "hash-newsletter"]}}}},
+        sort: { order: DESC, fields: [published_at]}, filter: {tags: {elemMatch: {slug: {ne: "roundup"}, visibility: {eq: "public"}}}},
         limit: $limit,
         skip: $skip
     ) {

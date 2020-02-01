@@ -41,12 +41,7 @@ const TagsWidgetQuery = props => (
 
 TagsWidget.propTypes = {
     data: PropTypes.shape({
-        allGhostTag: PropTypes.arrayOf(
-            PropTypes.shape({
-                name: PropTypes.string,
-                slug: PropTypes.string,
-            }),
-        ).isRequired,
+        allGhostTag: PropTypes.object,
     }),
 }
 

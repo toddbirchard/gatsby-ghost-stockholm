@@ -19,7 +19,7 @@
         @media (max-width: 1200px) {
             max-width: 95%;
         }
-        @media (max-width:  @mobile-breakpoint) {
+        @media (max-width: @mobile-breakpoint) {
             max-width: 90%;
         }
     }
@@ -30,7 +30,7 @@
         background: white;
         box-shadow: @box-shadow;
         @media(max-width: @mobile-breakpoint) {
-              min-width: 92% !important;
+            min-width: 92% !important;
             .mobile-full-width();
             max-width: -webkit-fill-available !important;
         }
@@ -47,7 +47,7 @@
             position: relative;
             height: 50px;
 
-            svg {
+            .search-icon {
                 position: absolute !important;
                 top: 0;
                 right: 20px;
@@ -164,7 +164,6 @@
         .ais-Menu-item {
             display: block;
             margin: 0;
-            margin: 0;
             padding: 5px;
             border: 1px solid #d2d9e2;
             background: rgba(255, 255, 255, .5);
@@ -246,9 +245,11 @@
             }
 
             .post-card-excerpt {
-                margin: 10px auto 30px;
-                font-size: .95em;
-                line-height: 1.2;
+                -webkit-line-clamp: 2;
+                margin: 10px auto 35px;
+                font-size: 0.9em;
+                line-height: 1.3;
+                .line-clamp();
             }
 
             .post-card-detail {
@@ -258,6 +259,7 @@
             .post-card-footer {
                 position: absolute;
                 bottom: 20px;
+                justify-content: left;
                 overflow: unset;
 
                 .meta-item {
@@ -289,8 +291,7 @@
         justify-content: space-between;
         width: 500px;
         max-width: 80%;
-        margin: auto;
-        margin-top: 50px;
+        margin: 50px auto auto;
         padding: 0;
         list-style: none;
         list-style: none;
