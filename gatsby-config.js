@@ -162,9 +162,15 @@ module.exports = {
                 ],
             },
         },
+        /**
+         *  Image Plugins
+         */
         `gatsby-plugin-sharp`,
         `gatsby-transformer-sharp`,
         `@gatsby-contrib/gatsby-transformer-ipynb`,
+        /**
+         *  Font Plugins
+         */
         {
             resolve: `gatsby-plugin-web-font-loader`,
             options: {
@@ -356,6 +362,7 @@ module.exports = {
                 stripQueryString: true,
             },
         },
+        /* Analytics */
         {
             resolve: `gatsby-plugin-segment-js`,
             options: {
