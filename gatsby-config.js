@@ -304,14 +304,16 @@ module.exports = {
                             }
                         }
                     }
-                    allGhostTag {
-                        edges {
-                            node {
-                                id
-                                slug
-                                feature_image
-                            }
+                    allGhostTag(filter: {visibility: {eq: "public"}}) {
+                      edges {
+                        node {
+                          id
+                          slug
+                          feature_image
+                          description
+                          name
                         }
+                      }
                     }
                     allGhostAuthor {
                         edges {

@@ -97,12 +97,8 @@ export const pageQuery = graphql`
                 }
             }
         }
-        allGhostSettings {
-          edges {
-            node {
+        ghostSettings {
               icon
             }
           }
-      }
-    }
 `

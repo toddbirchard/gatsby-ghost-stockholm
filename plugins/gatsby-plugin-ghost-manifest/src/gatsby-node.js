@@ -2,7 +2,7 @@ const fs = require(`fs`)
 const path = require(`path`)
 const Promise = require(`bluebird`)
 const sharp = require(`sharp`)
-const Prism = require('prismjs')
+const Prism = require(`prismjs`)
 const { defaultIcons, doesIconExist } = require(`./common.js`)
 
 sharp.simd(true)
@@ -23,7 +23,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
     let { icon, ...manifest } = pluginOptions
 
     const { data } = await graphql(pluginOptions.query)
-    const siteTitle = data.allGhostSettings.edges[0].node.title || `No Title`
+    const siteTitle = data.ghostSettings.title || `No Title`
     manifest = {
         ...manifest,
         name: siteTitle,

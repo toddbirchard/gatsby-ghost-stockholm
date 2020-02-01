@@ -54,7 +54,7 @@ function () {
           case 4:
             _ref3 = _context.sent;
             data = _ref3.data;
-            siteTitle = data.allGhostSettings.edges[0].node.title || "No Title";
+            siteTitle = data.ghostSettings.title || "No Title";
             manifest = (0, _extends2["default"])({}, manifest, {
               name: siteTitle
             }); // Delete options we won't pass to the manifest.webmanifest.

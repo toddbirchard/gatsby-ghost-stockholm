@@ -62,8 +62,7 @@ library.add(faTags,
     faCoffeeTogo,
     faUserPlus,
     faIndent,
-    faBooks
-    )
+    faBooks)
 
 /**
 * Main layout component
@@ -75,7 +74,7 @@ library.add(faTags,
 */
 
 const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => {
-    const site = data.allGhostSettings.edges[0].node
+    const site = data.ghostSettings
 
     return (
         <>
@@ -107,7 +106,7 @@ DefaultLayout.propTypes = {
     authorTrendingPosts: PropTypes.object,
     authorData: PropTypes.object,
     data: PropTypes.shape({
-        allGhostSettings: PropTypes.object.isRequired,
+        ghostSettings: PropTypes.object.isRequired,
         allGhostTag: PropTypes.object,
     }).isRequired,
 }
@@ -116,12 +115,8 @@ const DefaultLayoutSettingsQuery = props => (
     <StaticQuery
         query={graphql`
             query GhostSettings {
-                allGhostSettings {
-                    edges {
-                        node {
-                            ...GhostSettingsFields
-                        }
-                    }
+                ghostSettings {
+                    ...GhostSettingsFields
                 }
                 file(relativePath: {eq: "ghost-icon.png"}) {
                     childImageSharp {

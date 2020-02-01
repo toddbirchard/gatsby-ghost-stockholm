@@ -13,7 +13,7 @@ import { tags as tagsHelper } from '@tryghost/helpers'
 
 const ArticleMetaGhost = ({ data, settings, canonical }) => {
     const ghostPost = data
-    settings = settings.allGhostSettings.edges[0].node
+    settings = settings.ghostSettings
 
     const author = getAuthorProperties(ghostPost.primary_author)
     const publicTags = _.map(tagsHelper(ghostPost, { visibility: `public`, fn: tag => tag }), `name`)
@@ -140,7 +140,7 @@ ArticleMetaGhost.propTypes = {
         excerpt: PropTypes.string.isRequired,
     }).isRequired,
     settings: PropTypes.shape({
-        allGhostSettings: PropTypes.object.isRequired,
+        ghostSettings: PropTypes.object.isRequired,
         twitter: PropTypes.string,
         title: PropTypes.string,
         logo: PropTypes.string,
@@ -152,14 +152,10 @@ const ArticleMetaQuery = props => (
     <StaticQuery
         query={graphql`
             query GhostSettingsArticleMeta {
-                allGhostSettings {
-                    edges {
-                        node {
+                ghostSettings {
                             ...GhostSettingsFields
                         }
                     }
-                }
-            }
         `}
         render={data => <ArticleMetaGhost settings={data} {...props} />}
     />

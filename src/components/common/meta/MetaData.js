@@ -23,7 +23,7 @@ const MetaData = ({
 }) => {
     const canonical = url.resolve(config.siteUrl, location.pathname)
     const { ghostPost, ghostTag, ghostAuthor, ghostPage } = data
-    settings = settings.allGhostSettings.edges[0].node
+    settings = settings.ghostSettings
 
     if (ghostPost) {
         return (
@@ -85,7 +85,7 @@ MetaData.propTypes = {
         ghostPage: PropTypes.object,
     }).isRequired,
     settings: PropTypes.shape({
-        allGhostSettings: PropTypes.object.isRequired,
+        ghostSettings: PropTypes.object.isRequired,
     }).isRequired,
     location: PropTypes.shape({
         pathname: PropTypes.string.isRequired,
@@ -99,15 +99,11 @@ const MetaDataQuery = props => (
     <StaticQuery
         query={graphql`
             query GhostSettingsMetaData {
-                allGhostSettings {
-                    edges {
-                        node {
-                            title
-                            description
-                        }
+                ghostSettings {
+                      title
+                      description
                     }
                 }
-            }
         `}
         render={data => <MetaData settings={data} {...props} />}
     />

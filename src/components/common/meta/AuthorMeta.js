@@ -9,7 +9,7 @@ import getAuthorProperties from './getAuthorProperties'
 import config from '../../../utils/siteConfig'
 
 const AuthorMeta = ({ data, settings, canonical }) => {
-    settings = settings.allGhostSettings.edges[0].node
+    settings = settings.ghostSettings
 
     const author = getAuthorProperties(data)
     const shareImage = author.image || _.get(settings, `cover_image`, null)
@@ -68,7 +68,7 @@ AuthorMeta.propTypes = {
         facebook: PropTypes.string,
     }).isRequired,
     settings: PropTypes.shape({
-        allGhostSettings: PropTypes.object.isRequired,
+        ghostSettings: PropTypes.object.isRequired,
         twitter: PropTypes.string,
         facebook: PropTypes.string,
         title: PropTypes.string,
@@ -81,14 +81,10 @@ const AuthorMetaQuery = props => (
     <StaticQuery
         query={graphql`
             query GhostSettingsAuthorMeta {
-                allGhostSettings {
-                    edges {
-                        node {
+                ghostSettings {
                             ...GhostSettingsFields
                         }
                     }
-                }
-            }
         `}
         render={data => <AuthorMeta settings={data} {...props} />}
     />

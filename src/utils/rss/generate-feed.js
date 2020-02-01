@@ -113,7 +113,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
             }
         }
   `,
-        output: `/rss.xml`,
+        output: `/rss`,
     }
 }
 
