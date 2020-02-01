@@ -37,12 +37,6 @@ export const onRouteUpdate = () => {
     	'remove-indent': true,
     	'left-trim': true,
     	'right-trim': true,
-      //'tabs-to-spaces': 8,
-    	//'spaces-to-tabs': 8
-    	/*'break-lines': 80,
-
-    	'remove-initial-line-feed': false,
-    	*/
     });
     Prism.highlightAll();
 }

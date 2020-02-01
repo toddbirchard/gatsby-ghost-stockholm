@@ -5,7 +5,7 @@ import { Layout } from '../components/common'
 import { SeriesPostCard } from '../components/misc'
 import { MetaData } from '../components/common/meta'
 
-import '../styles/series/seriesdetail.less'
+import '../styles/pages/seriesdetail.less'
 
 /**
 * Series detail page (/tag/:slug)

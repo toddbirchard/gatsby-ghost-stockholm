@@ -2,20 +2,20 @@
 @import '../mixins.less';
 
 .page-template {
+    h1 {
+        margin: 0 0 25px;
+        color: @header-color;
+        font-family: @header-font-light;
+        font-size: 2.4em;
+        font-weight: normal;
+    }
+
     .container {
         width: 1020px;
         max-width: 95%;
         margin: auto;
         @media(max-width: @mobile-breakpoint) {
             max-width: 100%;
-        }
-
-        h1 {
-            margin: 0 0 20px;
-            color: @header-color;
-            font-family: @header-font-light;
-            font-size: 2.7em;
-            font-weight: normal;
         }
 
         .page-content {
@@ -35,7 +35,6 @@
             max-width: 870px;
         }
     }
-
 
     .navigation {
         @media(max-width: @mobile-breakpoint) {
@@ -112,7 +111,7 @@
             font-weight: 500;
 
             svg {
-              margin-right: 3px;
+                margin-right: 3px;
             }
         }
 
@@ -177,18 +176,18 @@
     }
 
     .sidebar-container {
-      @media(max-width: @tablet-breakpoint) {
-          grid-template-columns: 1fr;
-          width: 100%;
-      }
-
-      .page-content {
-        @media(max-width: 900px) {
-          max-width: 100%;
-          margin: 0;
-          overflow: hidden;
+        @media(max-width: @tablet-breakpoint) {
+            grid-template-columns: 1fr;
+            width: 100%;
         }
-      }
+
+        .page-content {
+            @media(max-width: 900px) {
+                max-width: 100%;
+                margin: 0;
+                overflow: hidden;
+            }
+        }
     }
 
     .about-video-wrapper {
@@ -196,8 +195,8 @@
         margin-bottom: 40px;
         padding-top: 56.25%;
         @media(max-width: @mobile-breakpoint) {
-          .mobile-full-width();
-          margin-bottom: 80px;
+            .mobile-full-width();
+            margin-bottom: 80px;
         }
 
         .about-video {
@@ -205,8 +204,7 @@
             top: 0;
             left: 0;
             @media(max-width: @mobile-breakpoint) {
-              height: 120% !important;
-
+                height: 120% !important;
             }
         }
     }
@@ -215,10 +213,10 @@
         padding: 30px 0 0;
 
         .author-list-title {
-          margin-bottom: 10px;
-          font-family: @header-font-light;
-          font-size: 2em;
-          font-weight: unset;
+            margin-bottom: 10px;
+            font-family: @header-font-light;
+            font-size: 2em;
+            font-weight: unset;
         }
     }
 }

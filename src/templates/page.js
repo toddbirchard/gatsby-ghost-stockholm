@@ -37,7 +37,7 @@ const Page = ({ data, location, pageContext }) => {
                         <figure className="post-feature-image">
                             <img className="lazyload" data-src={ page.feature_image } alt={ page.title } />
                         </figure> : null }
-                    <h1 className="content-title">{page.title}</h1>
+                    <h1>{page.title}</h1>
                     { page.slug === `about` ?
                         <div className="about-video-wrapper">
                             <ReactPlayer url={introVideo} width="100%" height="100%" className="about-video" />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Search from './Search'
 import NavLinks from './NavLinks'
-import Hamburger from './Hamburger'
+import HamburgerMenu from './HamburgerMenu'
 
 /**
 * Navigation component
@@ -34,7 +34,7 @@ const Navigation = ({ data, logo, mobileLogo, template }) => (
                 {template !== `search-template` ? <div className="nav-right">
                     <Search collapse indices={searchIndices} className="search-widget" />
                 </div> : null }
-                <Hamburger />
+                <HamburgerMenu />
             </div>
         </nav>
     </>

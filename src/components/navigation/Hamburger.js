@@ -12,12 +12,10 @@ const searchIndices = [
 
 const Hamburger = ({ data }) => {
     const tags = data.tags.edges
-    const series = data.series.edges
 
     return (
         <>
             <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` }>
-
                 <div className="pages">
                     <div className="search-container"><Search collapse indices={searchIndices} className="search-widget" /></div>
                     <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>

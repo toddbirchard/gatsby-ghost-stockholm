@@ -34,7 +34,6 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                     <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
                     <span>{hit.primary_tag.name}</span>
                 </div>
-                {/*<p className="search-result-excerpt">{hit.excerpt}</p>*/}
             </div>
         </div>
     )

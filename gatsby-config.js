@@ -105,7 +105,7 @@ module.exports = {
                             count: 6,
                         },
                     },
-                    AuthorMattTweets: {
+                    /*AuthorMattTweets: {
                         endpoint: `statuses/user_timeline`,
                         params: {
                             screen_name: `MattAlhonte`,
@@ -124,7 +124,7 @@ module.exports = {
                             tweet_mode: `extended`,
                             count: 6,
                         },
-                    },
+                    },*/
                 },
             },
         },
