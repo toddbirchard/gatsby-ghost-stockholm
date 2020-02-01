@@ -456,7 +456,7 @@
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
-  for = "/fonts"
+  for = "/fonts/*"
   [headers.values]
     crossorigin = "anonymous"
     type = "font/woff2"
