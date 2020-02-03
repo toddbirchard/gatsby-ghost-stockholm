@@ -162,6 +162,15 @@
                 }
             }
         }
+
+        &.authors {
+          @media(max-width: @tablet-breakpoint) {
+            display: none;
+          }
+          @media(max-width: @mobile-breakpoint) {
+            display: block;
+          }
+        }
     }
 
     .copyright {
