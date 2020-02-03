@@ -100,6 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
     // Load Pages
     const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
     const searchPage = path.resolve(`./src/pages/search.js`)
+    const seriesArchivePage = path.resolve(`./src/pages/seriesarchive.js`)
 
     // Create tag pages
     tags.forEach(({ node }) => {
@@ -329,6 +330,18 @@ exports.createPages = async ({ graphql, actions }) => {
             } else {
                 return `/page`
             }
+        },
+    })
+
+    createPage({
+        path: `/series/`,
+        component: seriesArchivePage,
+        context: {
+            slug: `series`,
+            title: `Series'`,
+            description: `When we find a topic we hold true to our hearts, we'll occasionally cling long enough to produce a series. These publications cover topics from start to finish, just enough to arm readers with enough to be dangerous. We may not be a 500 dollar online bootcamp, but we do explain things like human beings, and occasionally even drop the F bomb. Trust us, it's way more fun (and perhaps effective) to stick to something this way.`,
+            metaTitle: `Series and multi-part tutorials about software.`,
+            metaDescription: `Explore full topics in software development and data science by following our dedicated multi-part series'.`,
         },
     })
 
