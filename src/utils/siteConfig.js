@@ -23,9 +23,10 @@ module.exports = {
         feedlyProfile: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss/`,
     },
 
-    appIDs: {
-        facebook: `2459570624150585`,
-        google: `SWC9VHRq1q2D7lK4vSVi8kkDd6AuEWpWz6ECAeN9di8`,
+    id: {
+        facebookPageID: `563406637379065`,
+        facebookAppID: `2459570624150585`,
+        googleVerificationID: `SWC9VHRq1q2D7lK4vSVi8kkDd6AuEWpWz6ECAeN9di8`,
     },
 
     siteGithubOrg: `https://github.com/hackersandslackers/`,

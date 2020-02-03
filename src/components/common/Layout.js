@@ -6,7 +6,6 @@ import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import config from '../../utils/siteConfig'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import 'lazysizes'
 import { faLinkedin,
     faAngellist,
     faTwitter,
