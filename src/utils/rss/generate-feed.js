@@ -112,8 +112,8 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
                 }
             }
         }`,
-        output: `/rss`,
-        title: siteConfig.title,
+        output: `/rss.xml`,
+        title: siteConfig.siteTitleMeta,
     }
 }
 

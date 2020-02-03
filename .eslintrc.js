@@ -7,7 +7,7 @@ module.exports = {
             'experimentalObjectRestSpread': true
         }
     },
-    plugins: ['ghost', 'react', 'node'],
+    plugins: ['ghost', 'react', 'node', 'promise'],
     extends: [
         'plugin:ghost/node',
         'plugin:ghost/ember',

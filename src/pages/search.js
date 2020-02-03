@@ -126,4 +126,11 @@ SearchPage.propTypes = {
     }),
 }
 
+export const SearchPageQuery = graphql`
+    query SearchPageMeta($slug: String) {
+      ghostPage(slug: {eq: $slug}) {
+        ...GhostPageFields
+      }
+  }`
+
 export default SearchPage
