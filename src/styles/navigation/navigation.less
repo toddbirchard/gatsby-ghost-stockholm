@@ -8,7 +8,7 @@
     margin-bottom: 30px;
     background: #ffffff;
     box-shadow: @box-shadow;
-    @media(max-width: @tablet-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
         height: 80px;
         margin-bottom: 0;
     }
@@ -20,23 +20,23 @@
         max-width: 1020px;
         height: 100%;
         margin: auto;
-        @media(max-width: 1200px) {
+        @media (max-width: 1200px) {
             width: 1020px;
             max-width: 95%;
         }
-        @media(max-width: @tablet-breakpoint) {
+        @media (max-width: @tablet-breakpoint) {
             align-items: center;
             justify-content: space-between;
             max-width: 90%;
         }
-        @media(max-width: @mobile-breakpoint) {
+        @media (max-width: @mobile-breakpoint) {
             max-width: 88%;
         }
 
         .nav-left {
             display: flex;
             align-items: center;
-            @media(max-width: @tablet-breakpoint) {
+            @media (max-width: @tablet-breakpoint) {
                 justify-content: space-between;
                 width: 100%;
             }
@@ -46,10 +46,10 @@
                 height: 40px;
                 margin-right: 40px;
                 transition: all 0.2s ease-out;
-                @media(max-width: 920px) {
+                @media (max-width: 920px) {
                     margin-right: 30px;
                 }
-                @media(max-width: @tablet-breakpoint) {
+                @media (max-width: @tablet-breakpoint) {
                     display: none;
                 }
 
@@ -66,7 +66,7 @@
             .mobile-logo {
                 display: none;
                 transition: @transition;
-                @media(max-width: @tablet-breakpoint) {
+                @media (max-width: @tablet-breakpoint) {
                     display: block;
                     width: unset;
                     min-width: 35px;
@@ -87,7 +87,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: left;
-                @media(max-width: @mobile-breakpoint) {
+                @media (max-width: @mobile-breakpoint) {
                     display: none;
                     justify-content: right;
                 }
@@ -104,16 +104,16 @@
                     font-family: @body-font;
                     font-size: 1.1em;
                     transition: @transition;
-                    @media(max-width: 920px) {
+                    @media (max-width: 920px) {
                         margin-right: 25px;
                     }
-                    @media(max-width: @tablet-breakpoint) {
+                    @media (max-width: @tablet-breakpoint) {
                         margin: 0 0 0 20px;
                         font-size: 1em;
                     }
 
                     &.rss {
-                        @media(max-width: 900px) {
+                        @media (max-width: 900px) {
                             display: none;
                         }
                     }
@@ -135,14 +135,15 @@
                 font-size: 1em;
                 pointer-events: none;
             }
-            @media(max-width: @tablet-breakpoint) {
+
+            @media (max-width: @tablet-breakpoint) {
                 display: none;
             }
         }
 
         & > div:last-of-type {
             display: none;
-            @media(max-width: @mobile-breakpoint) {
+            @media (max-width: @mobile-breakpoint) {
                 display: block;
             }
         }
@@ -151,7 +152,7 @@
 
 .series-template .navigation {
     margin-bottom: 50px;
-    @media(max-width: @tablet-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
         margin-bottom: 0;
     }
 }
@@ -159,7 +160,7 @@
 .join-template {
     .nav-wrapper {
         max-width: 882px;
-        @media(max-width: @tablet-breakpoint) {
+        @media (max-width: @tablet-breakpoint) {
             max-width: 90%;
         }
     }
@@ -171,9 +172,10 @@
         max-width: 90%;
     }
 }
+
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
-@media(max-width: @tablet-breakpoint) {
+@media (max-width: @tablet-breakpoint) {
     .home-template {
         .navigation {
             margin-bottom: 30px !important;
@@ -187,6 +189,7 @@
         }
     }
 }
+
 /* Pagination
 /* ---------------------------------------------------------- */
 .pagination {
@@ -196,10 +199,10 @@
     justify-content: space-between;
     margin: 25px 0 0;
     background: none;
-    @media(max-width: @tablet-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
         margin: 30px 0 0;
     }
-    @media(max-width: @mobile-breakpoint) {
+    @media (max-width: @mobile-breakpoint) {
         margin: 30px 0 20px;
     }
 
@@ -233,7 +236,7 @@
         text-decoration: none;
         text-transform: uppercase;
         transition: @transition;
-        @media(max-width: @mobile-breakpoint) {
+        @media (max-width: @mobile-breakpoint) {
             padding: 10px 12px;
         }
 
@@ -259,7 +262,7 @@
         }
 
         svg {
-            @media(max-width: @mobile-breakpoint) {
+            @media (max-width: @mobile-breakpoint) {
                 margin-right: 0;
                 font-size: 1.1em;
             }
@@ -267,7 +270,7 @@
 
         span {
             line-height: 1;
-            @media(max-width: @mobile-breakpoint) {
+            @media (max-width: @mobile-breakpoint) {
                 display: none;
             }
         }

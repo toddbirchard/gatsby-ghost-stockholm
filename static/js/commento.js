@@ -34,6 +34,7 @@
         e.setAttribute(o,n)
     } function qe(e,o,n){
         var t = new XMLHttpRequest; t.open(`POST`,e,!0),t.setRequestHeader(`Content-type`,`application/x-www-form-urlencoded`),t.onload = function (){
+            console.log(`t.response = ` + t.response)
             n(JSON.parse(t.response))
         },t.send(JSON.stringify(o))
     } function je(e){

@@ -7,11 +7,12 @@ import { MetaData } from '../components/common/meta'
 import '../styles/pages/jupyterarchive.less'
 
 /**
-* Series page (/series/)
+* Jupyter archive page (/jupyter/)
 *
-* Loads all posts for the requested tag incl. pagination.
+* Test playground for displaying notebooks via node.
 *
 */
+
 const JupyterArchive = ({ data, location, pageContext }) => {
     const notebooks = data.allFile.edges
     const title = pageContext.title

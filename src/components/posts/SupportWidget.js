@@ -2,14 +2,16 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 /**
-* Newsletter widget
+*
+* Support widget
+*
 */
 
 const SupportWidget = () => {
     const newsletterCopy = `Are you into data to the point where it's almost embarrassing? Toss us your email and we'll promise to only give you the good stuff.`
     const coffeeUrl = `https://www.buymeacoffee.com/hackersslackers`
-    const coffeeImg = `https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg`
-    const donateCopy = ` We started sharing  these tutorials to help and inspire new scientists and engineers around the world. If Hackers and Slackers has been helpful to you, feel free to buy us a coffee to keep us going :).`
+    const coffeeImg = `/images/bmc-new-btn-logo.svg`
+    const donateCopy = `We started sharing these tutorials to help and inspire new scientists and engineers around the world. If Hackers and Slackers has been helpful to you, feel free to buy us a coffee to keep us going :).`
 
     return (
         <>

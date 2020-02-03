@@ -462,7 +462,7 @@
     type = "font/woff2"
     accept = "application/font-woff2"
     cache-control = '''
-        max-age=86400,
+        max-age=604800,
         no-cache,
         public'''
 
@@ -478,7 +478,16 @@
 [[headers]]
   for = "/css/commento.css"
   [headers.values]
-    content-type = "text/css; charset=UTF-8"
+    content-type = "text/css"
+    cache-control = '''
+        max-age=604800,
+        no-cache,
+        public'''
+
+[[headers]]
+  for = "/images/bmc-new-btn-logo.svg"
+  [headers.values]
+    content-type = "image/svg+xml"
     cache-control = '''
         max-age=604800,
         no-cache,
@@ -486,6 +495,11 @@
 
 [[headers]]
     for = "/rss"
+    [headers.values]
+      content-type = "text/xml; charset=utf-8"
+
+[[headers]]
+    for = "/rss.xml"
     [headers.values]
       content-type = "text/xml; charset=utf-8"
 

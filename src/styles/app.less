@@ -25,6 +25,7 @@ body {
     line-height: 1.5em;
     text-rendering: optimizeLegibility;
 }
+
 /* Reset
 /* ---------------------------------------------------------- */
 a,
@@ -115,6 +116,7 @@ video {
         color: white;
     }
 }
+
 /* Defaults
 /* ---------------------------------------------------------- */
 a {
@@ -136,10 +138,10 @@ h3 {
     font-family: @header-font;
     font-size: 1.3em;
     line-height: 1.2;
-    @media(max-width: @tablet-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
         font-size: 1.3em;
     }
-    @media(max-width: @mobile-breakpoint) {
+    @media (max-width: @mobile-breakpoint) {
         margin-bottom: 5px;
         line-height: 1.2;
     }
@@ -168,6 +170,7 @@ svg,
 video {
     vertical-align: middle;
 }
+
 /* Form Defaults
 /* ---------------------------------------------------------- */
 input {
@@ -178,6 +181,7 @@ input {
 button {
     .button-styles();
 }
+
 /* Layout
 /* ---------------------------------------------------------- */
 .sidebar-container {
@@ -187,7 +191,7 @@ button {
     width: 1020px;
     max-width: 95%;
     margin: 0 auto;
-    @media(max-width: @tablet-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
         grid-template-columns: 1fr;
         max-width: unset;
         max-width: 100%;
@@ -199,7 +203,7 @@ button {
     margin: 0 auto;
     padding-bottom: 50px;
     overflow: hidden;
-    @media(max-width: @mobile-breakpoint) {
+    @media (max-width: @mobile-breakpoint) {
         padding-bottom: 30px;
     }
 }
@@ -210,7 +214,7 @@ button {
     grid-auto-rows: min-content;
     grid-template-columns: 1fr;
     margin: 0 auto;
-    @media(max-width: @tablet-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
         grid-gap: 20px;
         width: 90%;
     }
