@@ -6,9 +6,8 @@ import { Tags } from '@tryghost/helpers-gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC, Commento } from '../components/posts'
+import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
-import { NewsletterWidget } from '../components/sidebar'
 
 import '../styles/posts/index.less'
 
@@ -81,8 +80,8 @@ const Post = ({ data, location }) => {
                 </div>
                 <section className="post-footer">
                     <Commento id={ id } />
-                    {relatedPosts && <RelatedPosts data={relatedPosts} /> }
-                    <NewsletterWidget/>
+                    { relatedPosts && <RelatedPosts data={relatedPosts} /> }
+                    <SupportWidget />
                 </section>
             </Layout>
         </>)

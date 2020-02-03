@@ -14,7 +14,7 @@ import '../styles/pages/seriesarchive.less'
 */
 const SeriesArchive = ({ data, location }) => {
     const tags = data.allGhostTag.edges
-    const title = data.ghostPage.title
+    const title = ``
     const plaintext = data.ghostPage.plantext
 
     return (

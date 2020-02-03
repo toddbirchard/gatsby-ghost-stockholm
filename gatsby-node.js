@@ -99,7 +99,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
     // Load Pages
     const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
-    const seriesArchive = path.resolve(`./src/pages/seriesarchive.js`)
     const searchPage = path.resolve(`./src/pages/search.js`)
 
     // Create tag pages
@@ -330,16 +329,6 @@ exports.createPages = async ({ graphql, actions }) => {
             } else {
                 return `/page`
             }
-        },
-    })
-
-    createPage({
-        path: `/series/`,
-        component: seriesArchive,
-        context: {
-            slug: `series`,
-            title: `Series: Multi-part tutorials to master topics in data & software.`,
-            description: `Multi-part tutorials to master topics in data & software.`,
         },
     })
 

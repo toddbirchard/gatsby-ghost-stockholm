@@ -43,7 +43,7 @@
     "eslint-plugin-ghost": "^1.0.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.18.2",
+    "eslint-plugin-react": "^7.18.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8",
     "less": "^3.10.3",
     "qs": "^6.9.1",
