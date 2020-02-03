@@ -11,7 +11,6 @@ import SocialWidget from '../sidebar/SocialWidget'
 
 const Footer = ({ navigation, site, data, template }) => {
     const authorLinks = data.allGhostAuthor.edges
-    const topTags = data.tags.edges
     const isHome = template === `home-template`
     const seriesLinks = data.series.edges
     const logo = site.logo
@@ -87,6 +86,7 @@ Footer.propTypes = {
         logo: PropTypes.string.isRequired,
         twitter: PropTypes.string,
         facebook: PropTypes.string,
+        description: PropTypes.string,
     }),
     navigation: PropTypes.arrayOf(
         PropTypes.shape({
