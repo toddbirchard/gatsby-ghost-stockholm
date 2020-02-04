@@ -13,7 +13,7 @@
 }
 
 .commento-root * {
-    font-size: 1.4px !important;
+    font-size: 14px !important;
     line-height: 1.25 !important;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .commento-root .commento-root-font * {
-    font-family: 'Genera-Regular', sans-serif;
+    font-family: 'TTNormsPro-Regular', sans-serif;
 }
 
 .commento-root .commento-card .commento-name {
@@ -52,7 +52,7 @@
 }
 
 .commento-card .commento-score {
-    font-family: 'Genera-Regular', sans-serif !important;
+    font-family: 'TTNormsPro-Regular', sans-serif !important;
     font-size: 12px !important;
     font-weight: normal !important;
 }
@@ -364,7 +364,7 @@
 .commento-root textarea::placeholder {
     padding-bottom: 50px !important;
     color: #aeb1bd !important;
-    font-family: 'Genera-Regular', sans-serif;
+    font-family: 'TTNormsPro-Regular', sans-serif;
     font-size: 13px;
     text-transform: uppercase;
     opacity: 0.8;
