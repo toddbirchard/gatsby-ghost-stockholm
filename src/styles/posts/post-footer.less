@@ -94,10 +94,10 @@
                     align-items: center;
                     color: #757d8c;
                     font-size: 0.8em;
+                    line-height: 1;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     opacity: 0.9;
-                    line-height: 1;
 
                     svg {
                         margin-right: 5px;
@@ -120,15 +120,15 @@
         display: flex;
         z-index: 1;
         position: relative;
+        flex-flow: wrap-reverse;
         justify-content: space-around;
         width: -webkit-fill-available;
+        height: 100%;
         margin: 20px auto 0;
         padding: 30px;
         background: white;
         box-shadow: @box-shadow;
         text-align: center;
-        height: 100%;
-        flex-flow: wrap-reverse;
         @media (max-width: @mobile-breakpoint) {
             flex-direction: column;
             padding: 40px;
@@ -211,7 +211,7 @@
             width: -webkit-fill-available;
             height: 40px;
             font-family: @body-font;
-            font-size: 1em;
+            font-size: .9em;
         }
     }
 }
