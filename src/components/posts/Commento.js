@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import config from '../../utils/siteConfig'
 
-const commentoStyles = config.siteUrl + `/css/commento.css`
+const commentoStyles = `/css/commento.css`
 const commentoJS = `https://cdn.commento.io/js/commento.js`
 // const commentoJS = config.siteUrl + `/js/commento.js`
 
