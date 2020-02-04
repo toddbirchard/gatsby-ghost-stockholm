@@ -4,8 +4,8 @@ const _ = require(`lodash`)
 
 const generateItem = function generateItem(siteUrl, post) {
     const itemUrl = post.canonical_url || post.url
-    const html = post.html.replace(/[\u{0080}-\u{FFFF}]/gu, ``)
-    const htmlContent = cheerio.load(html, { decodeEntities: false, xmlMode: true })
+    const html = post.html.replace(/[^\\x00-\x7F]/g, ``)
+    const htmlContent = cheerio.load(html, { decodeEntities: true, xmlMode: true })
     const item = {
         title: post.title,
         description: post.excerpt,
