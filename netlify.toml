@@ -445,6 +445,16 @@
     to = "/python-poetry-package-manager/"
     status = 301
 
+[[redirects]]
+    from = "/rss/"
+    to = "/rss.xml"
+    status = 301
+
+[[redirects]]
+    from = "/rss"
+    to = "/rss.xml"
+    status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -494,11 +504,6 @@
         max-age=604800,
         no-cache,
         public'''
-
-[[headers]]
-    for = "/rss"
-    [headers.values]
-      content-type = "text/xml; charset=utf-8"
 
 [[headers]]
     for = "/rss.xml"
