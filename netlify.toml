@@ -446,6 +446,11 @@
     status = 301
 
 [[redirects]]
+    from = "/using-redis-with-python/"
+    to = "/redis-py-python/"
+    status = 301
+
+[[redirects]]
     from = "/rss/"
     to = "/rss.xml"
     status = 301

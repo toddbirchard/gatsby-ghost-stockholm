@@ -54,6 +54,9 @@
         .widget {
             width: 16%;
             overflow: hidden;
+            @media (max-width: @tablet-breakpoint) {
+              min-width: 25% !important;
+            }
             @media (max-width: @mobile-breakpoint) {
                 width: 100%;
                 max-width: unset;
@@ -161,14 +164,21 @@
                     }
                 }
             }
-        }
 
-        &.authors {
-            @media (max-width: @tablet-breakpoint) {
-                display: none;
+            &.series {
+              width: 20%;
+              @media (max-width: @mobile-breakpoint) {
+                  width: unset;
+              }
             }
-            @media (max-width: @mobile-breakpoint) {
-                display: block;
+
+            &.authors {
+              @media (max-width: @tablet-breakpoint) {
+                  display: none;
+              }
+              @media (max-width: @mobile-breakpoint) {
+                  display: block;
+              }
             }
         }
     }

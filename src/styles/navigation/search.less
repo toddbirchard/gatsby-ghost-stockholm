@@ -11,14 +11,14 @@
     header {
         align-items: center;
         margin: 0 !important;
-        padding: 5px 0 15px;
+        padding: 0 0 10px;
         border-bottom: 1px solid #f3f3f3;
 
         .search-results-title {
             margin: 0;
             color: #6c727f;
             font-family: @body-font-bold;
-            font-size: 1em;
+            font-size: .9em;
             line-height: 1;
             text-transform: uppercase;
         }
@@ -50,7 +50,7 @@
 
         &:last-of-type {
             margin-bottom: 0;
-            padding-bottom: 0;
+            padding-bottom: 5px;
             border-bottom: 0;
         }
 
@@ -141,7 +141,7 @@
     }
 
     input {
-        width: 280px !important;
+        width: 292px !important;
         margin: 0;
         padding: 12px;
         border: 1px solid #dcdada;
@@ -149,9 +149,11 @@
         font-size: 0.9em;
         line-height: normal;
         transition: @transition;
+        @media (max-width: 1100px) {
+          width: 280px !important;
+        }
         @media (max-width: 900px) {
-            width: 210px !important;
-            font-size: 0.95em;
+            width: 228px !important;
         }
 
         &::placeholder {
