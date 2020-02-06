@@ -11,7 +11,7 @@ const SeriesPostCard = ({ post, count }) => {
             post.feature_image && <Link to={url} className="series-post-card-image"><img className="lazyload" data-src={post.feature_image} alt={post.title}/></Link>
         }
         <div className="series-post-card-detail">
-            <div className="series-post-card-count"><span>Post</span> {postNumber}</div>
+            <div className="series-post-card-count">Post {postNumber}</div>
             <h2 className="series-post-card-title"><Link to={url}>{post.title}</Link></h2>
             <section className="series-post-card-excerpt">{post.excerpt}</section>
         </div>

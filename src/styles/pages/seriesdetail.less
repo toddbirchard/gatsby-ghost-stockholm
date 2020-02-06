@@ -36,12 +36,11 @@
         }
 
         .series-description {
-            margin: 5px 0;
+            margin: 15px 0 0;
             font-size: 1.1em;
-            line-height: 1.3;
+            line-height: 1.4;
             @media (max-width: @mobile-breakpoint) {
                 font-size: 0.95em;
-                line-height: 1.4;
             }
         }
     }
@@ -131,7 +130,7 @@
         .series-post-card-image {
             width: 130px;
             min-width: 175px;
-            height: 124px;
+            height: 129px;
             overflow: hidden;
             @media (max-width: @mobile-breakpoint) {
                 display: none;
@@ -139,6 +138,7 @@
 
             img {
                 width: 125%;
+                min-height: 100%;
                 margin-left: -22px;
             }
         }
@@ -159,8 +159,8 @@
             }
 
             .series-post-card-count {
-                margin-bottom: 8px;
                 color: #76879f;
+                font-family: @body-font-bold;
                 font-size: 0.8em;
                 font-weight: 600;
                 line-height: 1;
@@ -206,8 +206,8 @@
 
             .series-post-card-excerpt {
                 -webkit-line-clamp: 2;
-                font-size: 0.95em;
-                line-height: 1.2;
+                font-size: 0.9em;
+                line-height: 1.3;
                 transition: @transition;
                 .line-clamp();
                 @media (max-width: @mobile-breakpoint) {

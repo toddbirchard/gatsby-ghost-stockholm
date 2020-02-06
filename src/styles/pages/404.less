@@ -1,3 +1,5 @@
+@import '../variables.less';
+
 .error-template {
     .viewport {
         position: relative;
@@ -9,12 +11,26 @@
             font-size: 8em;
         }
 
+        a {
+            color: @theme-color;
+            font-family: @body-font-bold;
+            font-weight: 600;
+            transition: @transition;
+
+            &:hover {
+                color: @hover-color;
+            }
+        }
+
         .error {
+            display: flex;
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
+            flex-direction: column;
+            justify-content: space-between;
             width: max-content;
             height: 100px;
             margin: auto;
