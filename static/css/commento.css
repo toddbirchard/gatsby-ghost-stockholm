@@ -241,6 +241,12 @@
     top: 80px !important;
 }
 
+@media(max-width: 600px) {
+    .commento-root .commento-card .commento-submit-button {
+        top: 110px !important;
+    }
+}
+
 .commento-root .commento-card p {
     margin: 10px 0 0 !important;
     line-height: 1.4 !important;
