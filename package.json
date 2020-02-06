@@ -54,9 +54,9 @@
     "@babel/highlight": "^7.8.3",
     "@babel/runtime": "^7.8.4",
     "@bundle-analyzer/cli": "^0.5.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.26",
-    "@fortawesome/free-brands-svg-icons": "^5.12.0",
-    "@fortawesome/pro-duotone-svg-icons": "^5.12.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/pro-duotone-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@gatsby-contrib/gatsby-transformer-ipynb": "^0.5.8",
     "@nteract/notebook-preview": "^11.0.4-alpha.0",
@@ -104,6 +104,6 @@
     "react-helmet": "5.2.1",
     "react-instantsearch-dom": "^6.3.0",
     "react-player": "^1.15.2",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.1"
   }
 }

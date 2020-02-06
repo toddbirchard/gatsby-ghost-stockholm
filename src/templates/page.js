@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ReactPlayer from 'react-player'
-
+import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
@@ -71,3 +71,10 @@ Page.propTypes = {
 }
 
 export default Page
+
+export const pageQuery = graphql`
+    query($slug: String!) {
+        ghostPage(slug: { eq: $slug }) {
+            ...GhostPageFields
+        }
+    }`
