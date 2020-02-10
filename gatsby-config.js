@@ -140,14 +140,6 @@ module.exports = {
                 },
                 queries: [
                     {
-                        statement: `SELECT * FROM weekly_stats`,
-                        name: `weekly_stats`,
-                    },
-                    {
-                        statement: `SELECT * FROM monthly_stats`,
-                        name: `monthly_stats`,
-                    },
-                    {
                         statement: `SELECT * FROM monthly_page_analytics`,
                         name: `monthly_page_analytics`,
                     },
@@ -201,7 +193,6 @@ module.exports = {
             options: {
                 printRejected: true, // Print removed selectors and processed file names
                 develop: false, // Enable while using `gatsby develop`
-                // tailwind: true, // Enable tailwindcss support
                 whitelist: [`searchbox`, `search-result`, `tableContainer`], // Don't remove this selector
                 whitelistPatterns: [`*-template$`],
                 ignore: [`/ignored.css`, `prismjs/`, `docsearch.js/`], // Ignore files/folders

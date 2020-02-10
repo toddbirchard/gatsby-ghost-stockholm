@@ -1,7 +1,5 @@
-
-
 [build]
-  command = "gatsby build"
+  command = "npm run serve"
   publish = "public/"
 
 [template]
@@ -175,7 +173,7 @@
 
 [[redirects]]
     from = "/api/handlebars-themes/"
-    to = "/handlebars-templating-in-expressjs"
+    to = "/handlebars-templating-in-expressjs/"
     status = 301
 
 [[redirects]]

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import config from '../../utils/siteConfig'
 
 const TrendingWidget = ({ data }) => {
-    const topPages = data.allMysqlWeeklyStats.edges
+    const topPages = data.allMysqlWeeklyPageAnalytics.edges
 
     return (
         <div className="widget trending">
@@ -24,7 +24,7 @@ const TrendingWidget = ({ data }) => {
 
 TrendingWidget.propTypes = {
     data: PropTypes.shape({
-        allMysqlWeeklyStats: PropTypes.object.isRequired,
+        allMysqlWeeklyPageAnalytics: PropTypes.object.isRequired,
     }).isRequired,
 }
 
@@ -32,7 +32,7 @@ const TrendingWidgetQuery = props => (
     <StaticQuery
         query={graphql`
           query TrendingPages {
-            allMysqlWeeklyStats(limit: 10) {
+            allMysqlWeeklyPageAnalytics(limit: 10) {
               edges {
                 node {
                   title
