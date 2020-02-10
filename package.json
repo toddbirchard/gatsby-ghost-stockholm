@@ -45,9 +45,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.18.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8",
-    "less": "^3.10.3",
+    "less": "^3.11.0",
     "qs": "^6.9.1",
-    "stylelint": "^13.0.0"
+    "stylelint": "^13.1.0"
   },
   "dependencies": {
     "@babel/core": "^7.8.4",
@@ -62,7 +62,7 @@
     "@nteract/notebook-preview": "^11.0.4-alpha.0",
     "@tryghost/helpers": "1.1.22",
     "@tryghost/helpers-gatsby": "1.0.25",
-    "algoliasearch": "^4.0.1",
+    "algoliasearch": "^4.0.2",
     "babel-plugin-prismjs": "^2.0.1",
     "cheerio": "1.0.0-rc.3",
     "dotenv": "^8.2.0",
