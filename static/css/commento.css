@@ -82,8 +82,8 @@
 .commento-root .commento-options {
     display: flex;
     position: absolute !important;
-    top: -10px;
-    right: -10px;
+    top: 0px;
+    right: 0px;
     align-items: center;
     justify-content: space-between;
     width: 150px !important;
@@ -166,15 +166,15 @@
     margin-bottom: 10px;
 }
 
-.commento-root .commento-main-area .commento-comments>div>.commento-card {
-    padding: 30px !important;
+.commento-root #commento-main-area .commento-comments>div>.commento-card {
+    padding: 20px !important;
     border-left: none !important;
     border-radius: 2px !important;
     box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
 }
 
 @media(max-width: 600px) {
-    .commento-root .commento-main-area .commento-comments>div>.commento-card {
+    .commento-root #commento-main-area .commento-comments>div>.commento-card {
         padding: 20px !important;
     }
 }
@@ -326,8 +326,9 @@
     -webkit-appearance: none !important;
     -webkit-transition: all 0.2s ease-out;
     position: relative;
-    height: 120px;
+    height: 120px !important;
     min-height: unset !important;
+    max-height: 240px !important;
     margin-top: 0 !important;
     padding: 15px !important;
     overflow: hidden !important;

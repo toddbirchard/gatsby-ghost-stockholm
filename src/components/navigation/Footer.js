@@ -9,9 +9,8 @@ import {
 import config from '../../utils/siteConfig'
 import SocialWidget from '../sidebar/SocialWidget'
 
-const Footer = ({ navigation, site, data, template }) => {
+const Footer = ({ navigation, site, data }) => {
     const authorLinks = data.allGhostAuthor.edges
-    const isHome = template === `home-template`
     const seriesLinks = data.series.edges
     const logo = site.logo
     const description = site.description

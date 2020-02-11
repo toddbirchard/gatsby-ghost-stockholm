@@ -195,7 +195,7 @@ module.exports = {
             resolve: `gatsby-plugin-purgecss`,
             options: {
                 printRejected: true, // Print removed selectors and processed file names
-                develop: true, // Enable while using `gatsby develop`
+                develop: false, // Enable while using `gatsby develop`
                 whitelist: [`searchbox`, `search-result`, `tableContainer`], // Don't remove this selector
                 whitelistPatterns: [`*-template$`, `.content-body > pre`],
                 ignore: [`/ignored.css`, `prismjs/`, `docsearch.js/`], // Ignore files/folders
