@@ -9,8 +9,10 @@
     }
 
     .container {
+        width: 900px !important;
+        max-width: unset !important;
         @media (max-width: @tablet-breakpoint) {
-            max-width: 100%;
+            max-width: 100% !important;
         }
     }
 
@@ -47,7 +49,6 @@
 }
 
 .series-container {
-    max-width: @tablet-breakpoint;
     margin: 0 auto;
     background: white;
     @media (max-width: @tablet-breakpoint) {
@@ -57,7 +58,7 @@
     .series-feature-image {
         width: -webkit-fill-available;
         width: -moz-available;
-        height: 461px;
+        height: 561px;
         overflow: hidden;
         @media (max-width: @tablet-breakpoint) {
             height: 380px;
@@ -158,31 +159,12 @@
                 border-bottom: 0;
             }
 
-            .series-post-card-count {
-                color: #76879f;
-                font-family: @body-font-bold;
-                font-size: 0.8em;
-                font-weight: 600;
-                line-height: 1;
-                transition: @transition;
-                @media (max-width: @mobile-breakpoint) {
-                    min-width: 60px;
-                    margin-right: 5px;
-                    margin-bottom: 0;
-                    font-size: 0.8em;
-                    font-weight: 600;
-                    white-space: nowrap;
-                }
-            }
-
             .series-post-card-title {
                 -webkit-line-clamp: 1;
                 .line-clamp();
-                margin: 10px 0;
-                color: lighten(@header-color, 2%);
-                font-family: @body-font;
-                font-size: 1.22em;
-                font-weight: 600;
+                margin: 0 0 10px;
+                font-family: @body-font-bold;
+                font-size: 1.1em;
                 line-height: 1.1;
                 @media (max-width: @mobile-breakpoint) {
                     display: block;
@@ -195,7 +177,7 @@
                 }
 
                 a {
-                    color: lighten(@header-color, 2%);
+                    color: lighten(@header-color, 8%);
                     transition: @transition;
 
                     &:hover {
@@ -220,7 +202,7 @@
 
 .series-template {
     .nav-wrapper {
-        max-width: @tablet-breakpoint;
+        max-width: 900px;
         @media (max-width: @tablet-breakpoint) {
             max-width: 86%;
         }

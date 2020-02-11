@@ -37,16 +37,18 @@
             }
 
             .label {
-                font-family: @header-font-secondary;
+                font-family: @body-font-bold;
                 font-size: 0.95em;
 
                 svg {
-                    margin: 0 3px 0 0;
+                    margin: 0 6px 0 0;
                     font-size: 1em;
                 }
             }
 
             .trending {
+                display: flex;
+                align-items: center;
                 color: #5cc3a2;
             }
 
@@ -164,7 +166,6 @@
                 outline: none;
                 background: none;
                 color: @theme-color;
-                font-size: 1em;
                 font-weight: 500;
                 text-align: right;
                 transition: @transition;
@@ -238,8 +239,9 @@
                 overflow: hidden;
                 border-bottom: 1px solid #e7e7e7;
                 color: lighten(@header-color, 15%);
-                font-size: 0.9em;
+                font-size: 0.8em;
                 font-weight: 600;
+                line-height: 1;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 @media (max-width: 900px) {

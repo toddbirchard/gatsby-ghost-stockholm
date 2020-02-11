@@ -10,8 +10,7 @@ const TrendingWidget = ({ data }) => {
     return (
         <div className="widget trending">
             <div className="widget-header">
-                <div className="label trending"><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>Trending</span></div>
-                <div className="trend-type">Top Posts This Week</div>
+                <div className="label trending"><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>Trending Posts</span></div>
             </div>
             <div className="widget-content">
                 {topPages.map(({ node }) => (
