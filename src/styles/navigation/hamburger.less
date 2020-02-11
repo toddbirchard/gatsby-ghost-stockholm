@@ -45,7 +45,7 @@
 
 .bm-cross-button {
     -webkit-appearance: none !important;
-    top: 30px !important;
+    top: 20px !important;
     right: 25px !important;
     width: 20px !important;
     height: 20px !important;
@@ -56,9 +56,14 @@
         }
     }
 
+    & > span {
+      top: 0 !important;
+      right: 0 !important;
+    }
+
     span {
-        top: -2px;
-        right: 13px;
+        top: 0;
+        right: 0;
     }
 
     button {
@@ -97,6 +102,7 @@
     top: 0;
     right: 0 !important;
     height: 80%;
+    overflow-y: scroll;
     transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s !important;
 }
 
@@ -298,7 +304,7 @@
         .ais-SearchBox-form input {
             width: -webkit-fill-available !important;
             margin: 0;
-            padding: 10px 8px;
+            padding: 12px 10px;
             float: left;
             .input-field-interactions();
             border: 1px solid #dcdada;
@@ -350,7 +356,7 @@
         }
 
         input {
-            padding: 20px 15px !important;
+            padding: 25px 15px !important;
             border-top: 0 !important;
             border-right: 0 !important;
             border-left: 0 !important;
@@ -366,4 +372,13 @@
     .tags {
         opacity: 0;
     }
+
+    .hamburger-cross-bar {
+      display: block;
+    }
+}
+
+.menu-lock-screen {
+  height: 100%;
+  overflow: hidden;
 }

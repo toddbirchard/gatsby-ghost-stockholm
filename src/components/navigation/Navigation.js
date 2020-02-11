@@ -16,10 +16,6 @@ import HamburgerMenu from './HamburgerMenu'
 *
 */
 
-function addBodyClass(){
-    document.body.classList.add(`lock-screen-screen`)
-}
-
 const searchIndices = [
     { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
 ]
@@ -38,7 +34,7 @@ const Navigation = ({ data, smallLogo, fullLogo, template }) => (
                 {template !== `search-template` ? <div className="nav-right">
                     <Search collapse indices={searchIndices} className="search-widget" />
                 </div> : null }
-                <HamburgerMenu onClick={ addBodyClass() } />
+                <HamburgerMenu />
             </div>
         </nav>
     </>
