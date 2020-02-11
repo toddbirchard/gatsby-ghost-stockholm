@@ -99,8 +99,8 @@
 }
 
 .commento-card .commento-card .commento-options {
-  top: 0px;
-  right: 0;
+    top: 0px;
+    right: 0;
 }
 
 .commento-options-clearfix {
@@ -236,6 +236,7 @@
 .commento-root .commento-card .commento-markdown-button {
     display: none;
 }
+
 .commento-root .commento-card p {
     margin: 10px 0 0 !important;
     line-height: 1.4 !important;
@@ -282,12 +283,12 @@
 
 @media (max-width: 600px) {
     .commento-root .commento-submit-button {
-      top: 108px !important;
-      right: 10px !important;
-      height: unset;
-      padding: 10px 10px !important;
-      font-size: 0.7em !important;
-      line-height: 1;
+        top: 108px !important;
+        right: 10px !important;
+        height: unset;
+        padding: 10px 10px !important;
+        font-size: 0.7em !important;
+        line-height: 1;
     }
 }
 
@@ -359,7 +360,7 @@
     display: block;
     position: absolute !important;
     top: 0 !important;
-    right:0 !important;
+    right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
     margin: auto !important;
@@ -376,7 +377,6 @@
 
     .commento-root #commento-textarea-root::placeholder,
     .commento-root textarea::placeholder {
-
         font-size: 15px;
     }
 }
