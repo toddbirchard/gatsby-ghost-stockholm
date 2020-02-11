@@ -236,17 +236,6 @@
 .commento-root .commento-card .commento-markdown-button {
     display: none;
 }
-
-.commento-root .commento-card .commento-submit-button {
-    top: 80px !important;
-}
-
-@media(max-width: 600px) {
-    .commento-root .commento-card .commento-submit-button {
-        top: 110px !important;
-    }
-}
-
 .commento-root .commento-card p {
     margin: 10px 0 0 !important;
     line-height: 1.4 !important;
@@ -293,7 +282,7 @@
 
 @media (max-width: 600px) {
     .commento-root .commento-submit-button {
-      top: 86px !important;
+      top: 108px !important;
       right: 10px !important;
       height: unset;
       padding: 10px 10px !important;
