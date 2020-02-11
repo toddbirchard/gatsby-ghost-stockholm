@@ -15,9 +15,7 @@ class HamburgerMenu extends React.Component {
         super(props)
         this.tags = props.data.tags.edges
         this.classes = props.data.fullWidth ? `fullWidth` : null
-        this.state = {
-            active: false,
-        }
+        this.state = { active: false }
     }
 
     toggleClass() {
@@ -29,8 +27,8 @@ class HamburgerMenu extends React.Component {
         return (
             <>
                 <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} disableAutoFocus>
+                    <div className="search-container" onClick={ () => this.setState({ active: true }) }><Search collapse indices={searchIndices} className="search-widget"/></div>
                     <div className="pages">
-                        <div className="search-container" onClick={ () => this.setState({ active: true }) }><Search collapse indices={searchIndices} className="search-widget"/></div>
                         <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>
                         <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/>Series</Link>
                         <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fad`, `user-plus`]} size="xs"/>Join</Link>

@@ -97,7 +97,7 @@
     top: 0;
     right: 0 !important;
     height: 80%;
-    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s !important;
+    transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s !important;
 }
 
 .bm-menu {
@@ -120,6 +120,8 @@
     }
 
     .bm-item-list {
+        transition: @transition;
+
         .pages,
         .series,
         .sublinks {
@@ -149,7 +151,7 @@
         }
 
         .pages {
-            height: 300px;
+            height: 230px;
             border-bottom: 1px solid #dedede;
 
             a {
@@ -215,7 +217,9 @@
 
     .search-container {
         position: relative;
-        margin: 0 0 20px;
+        width: -webkit-fill-available;
+        margin: 20px 30px 0;
+        transition: @transition;
 
         .search-results {
             top: 50px;
@@ -283,18 +287,18 @@
 
         svg {
             position: absolute;
-            top: 50px;
+            top: 0;
             right: 16px;
             bottom: 0;
             margin: auto;
-            color: #eaeaea;
-            font-size: 0.9em !important;
+            color: #b3b3b3;
+            font-size: 0.8em !important;
         }
 
         .ais-SearchBox-form input {
             width: -webkit-fill-available !important;
             margin: 0;
-            padding: 15px;
+            padding: 10px 8px;
             float: left;
             .input-field-interactions();
             border: 1px solid #dcdada;
@@ -335,5 +339,31 @@
 }
 
 .full-width {
-  width: 100% !important;
+    width: 100% !important;
+
+    .search-container {
+        margin: 0 !important;
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.05);
+
+        svg {
+            display: none;
+        }
+
+        input {
+            padding: 20px 15px !important;
+            border-top: 0 !important;
+            border-right: 0 !important;
+            border-left: 0 !important;
+        }
+    }
+
+    .bm-item,
+    .bm-item-list {
+        padding: 0 !important;
+    }
+
+    .pages,
+    .tags {
+        opacity: 0;
+    }
 }
