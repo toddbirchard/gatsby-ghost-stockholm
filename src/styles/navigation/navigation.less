@@ -76,8 +76,7 @@
                 @media (max-width: @mobile-breakpoint) {
                     display: block;
                     width: unset;
-                    min-width: 35px;
-                    height: 40px;
+                    height: 37px;
                 }
 
                 &:hover {
@@ -217,16 +216,14 @@
     }
 
     .pagination-location {
+        position: absolute;
+        right: 0;
+        left: 0;
         width: 180px;
+        margin: auto;
         color: #899297;
         font-size: 0.9em;
         text-align: center;
-        @media(max-width: @tablet-breakpoint) {
-          position: absolute;
-          right: 0;
-          left: 0;
-          margin: auto;
-        }
 
         h1 {
             margin-bottom: 0;
@@ -273,18 +270,23 @@
         &.prev {
             svg {
                 margin-right: 5px;
+                @media (max-width: @mobile-breakpoint) {
+                    margin-right: 0 !important;
+                  }
             }
         }
 
         &.next {
             svg {
                 margin-left: 5px;
+                @media (max-width: @mobile-breakpoint) {
+                    margin-left: 0 !important;
+                  }
             }
         }
 
         svg {
             @media (max-width: @mobile-breakpoint) {
-                margin-right: 0;
                 font-size: 1.1em;
             }
         }

@@ -58,6 +58,7 @@
             margin: 12px 0;
             padding-left: 0;
             color: #687f99;
+            font-size: .95em;
             line-height: 1;
             counter-increment: li -1;
             opacity: 0.7;
@@ -70,7 +71,7 @@
 
             a {
                 width: 100%;
-                font-family: @body-font;
+                font-family: @body-font-bold;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
@@ -94,16 +95,15 @@
             }
 
             &::before {
-                min-width: 70px;
+                min-width: 40px;
                 margin-right: 8px;
                 color: #7f8a97;
                 font-family: @body-font-bold;
                 font-size: 1em;
-                font-weight: 600;
                 white-space: nowrap;
-                content: "Part " counter(li, upper-roman) "." !important;
+                content: counter(li, upper-roman) "." !important;
                 @media (max-width: @mobile-breakpoint) {
-                    min-width: 54px;
+                    min-width: 35px;
                     margin-right: 2px;
                 }
             }
