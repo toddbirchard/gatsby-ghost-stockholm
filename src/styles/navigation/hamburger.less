@@ -32,7 +32,8 @@
     height: 15% !important;
     outline: none !important;
     background: #373a47;
-    transition: @transition;
+    opacity: 0;
+    transition: all 0.4s ease-out;
 
     &:hover {
         background: @hover-color !important;
@@ -45,25 +46,28 @@
 
 .bm-cross-button {
     -webkit-appearance: none !important;
+    display: none;
     top: 20px !important;
-    right: 25px !important;
-    width: 20px !important;
-    height: 20px !important;
+    right: 14px !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: white;
+    opacity: 0;
+    transition: @transition;
 
     &:hover {
-        .hamburger-cross-bar {
-            opacity: 0.6 !important;
+        cursor: pointer;
+
+        .bm-cross {
+            background: #88a7d5;
         }
     }
 
-    & > span {
-      top: 0 !important;
-      right: 0 !important;
-    }
-
     span {
-        top: 0;
-        right: 0;
+        top: 0 !important;
+        right: 7px !important;
+        bottom: 0;
+        margin: 0 !important;
     }
 
     button {
@@ -84,7 +88,7 @@
 
 .bm-cross {
     width: 2px !important;
-    height: 30px !important;
+    height: 25px !important;
     background: #606265;
 
     &:hover {
@@ -102,7 +106,7 @@
     top: 0;
     right: 0 !important;
     height: 80%;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s !important;
 }
 
@@ -228,13 +232,20 @@
         transition: @transition;
 
         .search-results {
-            top: 50px;
+            top: 80px;
             right: 0;
             left: 0;
             width: -webkit-fill-available !important;
+            padding: 15px !important;
+            border: 0;
+            box-shadow: unset !important;
 
             header {
-                padding: 0 0 10px;
+                display: none;
+            }
+
+            .ais-Hits-item {
+                padding: 15px 10px;
             }
 
             .search-result {
@@ -256,15 +267,16 @@
             }
 
             .search-result-title {
-                font-size: 0.75em !important;
+                font-size: 0.8em !important;
                 letter-spacing: 0 !important;
+                line-height: 1.2 !important;
             }
 
             .search-result-tag {
                 display: block !important;
                 align-items: center;
                 color: #4d525a;
-                font-size: 0.65em !important;
+                font-size: 0.75em !important;
                 text-align: left;
                 opacity: 0.7 !important;
 
@@ -282,8 +294,8 @@
             }
 
             img {
-                max-width: 90px;
-                height: 50px;
+                max-width: 105px;
+                height: 60px;
             }
         }
 
@@ -301,23 +313,25 @@
             font-size: 0.8em !important;
         }
 
-        .ais-SearchBox-form input {
-            width: -webkit-fill-available !important;
-            margin: 0;
-            padding: 12px 10px;
-            float: left;
-            .input-field-interactions();
-            border: 1px solid #dcdada;
-            font-size: 0.8em;
-            transition: all 0.2s easeout;
+        .ais-SearchBox-form {
+            input {
+                width: -webkit-fill-available !important;
+                margin: 0;
+                padding: 12px 10px;
+                float: left;
+                .input-field-interactions();
+                border: 1px solid #dcdada;
+                font-size: 0.8em;
+                transition: all 0.2s easeout;
 
-            &:focus,
-            &:hover {
-                border-color: @theme-color;
-                background-color: #e1ebf3;
+                &:focus,
+                &:hover {
+                    border-color: @theme-color;
+                    background-color: #e1ebf3;
 
-                &::placeholder {
-                    color: #95aaba !important;
+                    &::placeholder {
+                        color: #95aaba !important;
+                    }
                 }
             }
         }
@@ -351,7 +365,7 @@
         margin: 0 !important;
         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.05);
 
-        svg {
+        & > div > svg {
             display: none;
         }
 
@@ -361,6 +375,12 @@
             border-right: 0 !important;
             border-left: 0 !important;
         }
+
+        &:hover {
+            .bm-cross-button {
+                background: #e1ebf3 !important;
+            }
+        }
     }
 
     .bm-item,
@@ -368,17 +388,28 @@
         padding: 0 !important;
     }
 
+    .bm-cross-button {
+        display: block;
+        opacity: 1;
+    }
+
     .pages,
     .tags {
         opacity: 0;
     }
 
+    .ais-SearchBox-form button,
+    .ais-SearchBox-form svg {
+        display: none !important;
+    }
+
     .hamburger-cross-bar {
-      display: block;
+        display: block;
+        opacity: 1;
     }
 }
 
 .menu-lock-screen {
-  height: 100%;
-  overflow: hidden;
+    height: 100%;
+    overflow: hidden;
 }

@@ -78,6 +78,8 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                     placeholder="Search"
                     aria-label="Search"
                     onFocus={() => setFocus(true)} {...{ collapse, focus }}
+                    submit={null}
+                    reset={null}
                 />
                 <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
                 <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results" >

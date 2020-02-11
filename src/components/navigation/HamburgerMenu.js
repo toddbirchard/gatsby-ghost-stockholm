@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
@@ -26,7 +26,7 @@ class HamburgerMenu extends React.Component {
     render() {
         return (
             <>
-                <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} bodyClassName={ `menu-lock-screen` } htmlClassName={ `menu-lock-screen` } disableAutoFocus>
+                <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} bodyClassName={ `menu-lock-screen` } disableAutoFocus>
                     <div className="search-container" onClick={ () => this.setState({ active: true }) }><Search collapse indices={searchIndices} className="search-widget"/></div>
                     <div className="pages">
                         <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>
