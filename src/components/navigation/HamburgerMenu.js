@@ -37,7 +37,6 @@ class HamburgerMenu extends React.Component {
                         <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
                     </div>
                     <div className="tags">
-                        <h3>Tags</h3>
                         <div className="sublinks">
                             {this.tags.map(({ node }) => (
                                 <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
