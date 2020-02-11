@@ -22,6 +22,11 @@
     font-size: 13px !important;
 }
 
+#commento-comments-area{
+  box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
+}
+
+
 .commento-root code {
     padding: 1px 3px !important;
     border-radius: 3px !important;
@@ -171,7 +176,6 @@
     padding: 20px !important;
     border-left: none !important;
     border-radius: 2px !important;
-    box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
 }
 
 @media(max-width: 600px) {
