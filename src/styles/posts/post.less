@@ -253,7 +253,6 @@
             p > a {
                 color: @theme-color;
                 font-family: @body-font-bold;
-                font-weight: 600;
                 transition: @transition;
 
                 &:hover {
@@ -442,7 +441,9 @@
                 border-left: 0.4em solid #dddddd;
                 background: #f4f4f4;
                 color: #6d787f;
-                line-height: 1.4;
+                font-size: .95em;
+                font-weight: 600;
+                line-height: 1.5;
                 @media (max-width: @mobile-breakpoint) {
                     margin: 20px auto;
                     font-size: 0.95em;
@@ -462,11 +463,22 @@
                     color: #7d8f9c;
                     font-family: @monospace-font;
                     font-size: 0.8em;
-                    font-weight: 600;
                 }
 
                 ul {
+                    margin-top: 10px;
                     margin-bottom: 0;
+                    margin-left: 5px;
+                    padding-left: 20px;
+
+                    li {
+                      margin-bottom: 5px;
+                      line-height: 1.3;
+                    }
+                }
+
+                P:last-of-type {
+                  margin: 0;
                 }
             }
 
