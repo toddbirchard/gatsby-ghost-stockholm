@@ -10,36 +10,46 @@ const searchIndices = [
     { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
 ]
 
-function HamburgerMenu({ data }) {
-    const tags = data.tags.edges
-    const classes = data.fullWidth ? `fullWidth` : null
-    //const [searchView, setSearchView] = useState(false)
-    const [menuWidth, setMenuWidth] = useState(false)
+class HamburgerMenu extends React.Component {
+    constructor(props) {
+        super(props)
+        this.tags = props.data.tags.edges
+        this.classes = props.data.fullWidth ? `fullWidth` : null
+        this.state = {
+            active: false,
+        }
+    }
 
-    return (
-        <>
-            <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={menuWidth ? `mobile-menu ${classes}` : `mobile-menu` } disableAutoFocus>
-                <div className="pages">
-                    {/*<div className="search-container"><Search collapse indices={searchIndices} className="search-widget" onClick={() => setSearchView(true) }/></div>*/}
-                    <div className="search-container"><Search collapse indices={searchIndices} className="search-widget" onClick={() => setMenuWidth(true) }/></div>
-                    <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>
-                    <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/>Series</Link>
-                    <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fad`, `user-plus`]} size="xs"/>Join</Link>
-                    <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/>Search</Link>
-                    <a className={`navigation-link`} href={`/rss/`}><FontAwesomeIcon icon={[`fad`, `rss`]} size="xs"/>RSS</a>
-                    <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
-                </div>
-                <div className="tags">
-                    <h3><FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity/> Tags</h3>
-                    <div className="sublinks">
-                        {tags.map(({ node }) => (
-                            <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
-                        ))}
+    toggleClass() {
+        const currentState = this.state.active
+        this.setState({ active: !currentState })
+    }
+
+    render() {
+        return (
+            <>
+                <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} disableAutoFocus>
+                    <div className="pages">
+                        <div className="search-container" onClick={ () => this.setState({ active: true }) }><Search collapse indices={searchIndices} className="search-widget"/></div>
+                        <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>
+                        <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/>Series</Link>
+                        <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fad`, `user-plus`]} size="xs"/>Join</Link>
+                        <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/>Search</Link>
+                        <a className={`navigation-link`} href={`/rss/`}><FontAwesomeIcon icon={[`fad`, `rss`]} size="xs"/>RSS</a>
+                        <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
                     </div>
-                </div>
-            </Menu>
-        </>
-    )
+                    <div className="tags">
+                        <h3>Tags</h3>
+                        <div className="sublinks">
+                            {this.tags.map(({ node }) => (
+                                <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
+                            ))}
+                        </div>
+                    </div>
+                </Menu>
+            </>
+        )
+    }
 }
 
 HamburgerMenu.propTypes = {

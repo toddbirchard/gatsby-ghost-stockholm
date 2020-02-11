@@ -12,24 +12,19 @@ import { AuthorTrending } from '../authors'
 * Sidebar
 */
 
-const Sidebar = ({ site, template, authorData }) => {
-    const twitterUrl = site.twitter ? `https://twitter.com/${site.twitter.replace(/^@/, ``)}` : null
-    const facebookUrl = site.twitter ? `https://facebook.com/${site.facebook.replace(/^@/, ``)}` : null
-
-    return (
-        <>
-            <aside className="sidebar">
-                {template === `home-template` ? <AboutWidget site={site} /> : null }
-                {template === `author-template` ? <AuthorTrending authorData={authorData} /> : null }
-                <SocialWidget facebookUrl={facebookUrl} twitterUrl={twitterUrl} />
-                {template === `home-template` ? <TrendingWidget /> : null }
-                <TagsWidget />
-                <NewsletterWidget />
-                <TwitterWidget />
-            </aside>
-        </>
-    )
-}
+const Sidebar = ({ site, template, authorData }) => (
+    <>
+        <aside className="sidebar">
+            {template === `home-template` ? <AboutWidget site={site} /> : null }
+            {template === `author-template` ? <AuthorTrending authorData={authorData} /> : null }
+            <SocialWidget site={site} />
+            {template === `home-template` ? <TrendingWidget /> : null }
+            <TagsWidget />
+            <NewsletterWidget />
+            <TwitterWidget />
+        </aside>
+    </>
+)
 
 Sidebar.propTypes = {
     site: PropTypes.shape({

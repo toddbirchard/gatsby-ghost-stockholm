@@ -10,14 +10,13 @@ import config from '../../utils/siteConfig'
 import SocialWidget from '../sidebar/SocialWidget'
 
 const Footer = ({ navigation, site, data }) => {
-    const authorLinks = data.allGhostAuthor.edges
+    const authorLinks = data.authors.edges
     const seriesLinks = data.series.edges
     const logo = site.logo
     const description = site.description
 
     return (
         <>
-            {/* The footer at the very bottom of the screen */}
             <footer className="site-footer">
                 <div className="footer-wrapper">
                     <div className="footer-widgets">
@@ -26,7 +25,7 @@ const Footer = ({ navigation, site, data }) => {
                                 { logo ? <img className="lazyload" data-src={logo} alt={site.title}/> : <h1 className="site-headline">{site.title} </h1> }
                             </Link>
                             <p className="description">{description}</p>
-                            <SocialWidget />
+                            <SocialWidget site={site} />
                         </div>
                         <div className="widget pages">
                             <h5 className="footer-widget-title">Pages</h5>
@@ -76,7 +75,7 @@ const Footer = ({ navigation, site, data }) => {
 
 Footer.propTypes = {
     data: PropTypes.shape({
-        allGhostAuthor: PropTypes.object.isRequired,
+        authors: PropTypes.object.isRequired,
         tags: PropTypes.object,
         series: PropTypes.object,
     }).isRequired,
@@ -100,7 +99,7 @@ const FooterQuery = props => (
     <StaticQuery query = {
         graphql `
             query FooterQuery {
-              allGhostAuthor(sort: {order: DESC, fields: postCount}) {
+              authors: allGhostAuthor(sort: {order: DESC, fields: postCount}) {
                 edges {
                   node {
                     url
