@@ -40,6 +40,13 @@
                 justify-content: space-between;
                 width: 100%;
             }
+            @media (max-width: @mobile-breakpoint) {
+              position: absolute;
+              right: 0;
+              left: 0;
+              width: fit-content;
+              margin: 0 auto;
+            }
 
             .logo {
                 width: 40px;
@@ -49,7 +56,7 @@
                 @media (max-width: 920px) {
                     margin-right: 30px;
                 }
-                @media (max-width: @tablet-breakpoint) {
+                @media (max-width: @mobile-breakpoint) {
                     display: none;
                 }
 
@@ -66,7 +73,7 @@
             .mobile-logo {
                 display: none;
                 transition: @transition;
-                @media (max-width: @tablet-breakpoint) {
+                @media (max-width: @mobile-breakpoint) {
                     display: block;
                     width: unset;
                     min-width: 35px;
@@ -146,6 +153,8 @@
             display: none;
             @media (max-width: @mobile-breakpoint) {
                 display: block;
+                position: absolute;
+                right: 5%;
             }
         }
     }
@@ -212,6 +221,12 @@
         color: #899297;
         font-size: 0.9em;
         text-align: center;
+        @media(max-width: @tablet-breakpoint) {
+          position: absolute;
+          right: 0;
+          left: 0;
+          margin: auto;
+        }
 
         h1 {
             margin-bottom: 0;

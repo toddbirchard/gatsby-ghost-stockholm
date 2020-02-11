@@ -54,9 +54,6 @@
         .widget {
             width: 16%;
             overflow: hidden;
-            @media (max-width: @tablet-breakpoint) {
-              min-width: 25% !important;
-            }
             @media (max-width: @mobile-breakpoint) {
                 width: 100%;
                 max-width: unset;
@@ -98,6 +95,9 @@
 
             &.about {
                 width: 27%;
+                @media (max-width: @tablet-breakpoint) {
+                  width: 38%;
+                }
                 @media (max-width: @mobile-breakpoint) {
                     width: 100% !important;
                     padding-bottom: 15px;
@@ -109,6 +109,9 @@
                     width: 90%;
                     margin-bottom: 20px;
                     transition: all 0.2s ease-out;
+
+
+
                     @media (max-width: @mobile-breakpoint) {
                         width: 80%;
                         max-width: 210px;
@@ -168,10 +171,16 @@
 
             &.pages {
               width: 12%;
+              @media (max-width: @tablet-breakpoint) {
+                  width: 18%;
+              }
             }
 
             &.series {
               width: 20%;
+              @media (max-width: @tablet-breakpoint) {
+                  width: 30%;
+              }
               @media (max-width: @mobile-breakpoint) {
                   width: unset;
               }

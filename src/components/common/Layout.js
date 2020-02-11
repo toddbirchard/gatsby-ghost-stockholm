@@ -83,7 +83,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
                 <body className={ template } />
             </Helmet>
 
-            <Navigation data={site.navigation} navClass="site-nav-item" logo={site.icon} mobileLogo={config.mobileLogo} template={template} />
+            <Navigation data={site.navigation} navClass="site-nav-item" smallLogo={site.icon} fullLogo={site.logo} template={template} />
             <div className="viewport">
                 <div className={ hasSidebar ? `sidebar-container` : `container` }>
                     {/* All the main content gets inserted here, index.js, post.js */}

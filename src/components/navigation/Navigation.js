@@ -20,13 +20,13 @@ const searchIndices = [
     { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
 ]
 
-const Navigation = ({ data, logo, mobileLogo, template }) => (
+const Navigation = ({ data, smallLogo, fullLogo, template }) => (
     <>
         <nav className="navigation">
             <div className="nav-wrapper">
                 <div className="nav-left">
-                    <Link to="/" className="logo"><img className="lazyload" data-src={logo} alt="logo" /></Link>
-                    <Link to="/" className="mobile-logo"><img className="lazyload" data-src={mobileLogo} alt="logo" /></Link>
+                    <Link to="/" className="logo"><img className="lazyload" data-src={smallLogo} alt="logo" /></Link>
+                    <Link to="/" className="mobile-logo"><img className="lazyload" data-src={fullLogo} alt="logo" /></Link>
                     <div className="nav-links">
                         <NavLinks navigation={data} />
                     </div>
@@ -47,8 +47,8 @@ Navigation.propTypes = {
             url: PropTypes.string.isRequired,
         }).isRequired,
     ).isRequired,
-    logo: PropTypes.string,
-    mobileLogo: PropTypes.string,
+    smallLogo: PropTypes.string,
+    fullLogo: PropTypes.string,
     template: PropTypes.string,
 }
 
