@@ -16,7 +16,7 @@ class HamburgerMenu extends React.Component {
         this.tags = props.data.tags.edges
         this.topSearches = props.data.topSearches.edges
         this.classes = props.data.fullWidth ? `fullWidth` : null
-        this.state = { active: false }
+        this.state = { active: false, query: `` }
     }
 
     toggleClass() {
@@ -28,7 +28,7 @@ class HamburgerMenu extends React.Component {
         return (
             <>
                 <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
-                    <div className="search-container" onClick={ () => this.toggleClass() }><Search collapse indices={searchIndices} className="search-widget"/></div>
+                    <div className="search-container" onClick={ () => this.toggleClass() }><Search collapse indices={searchIndices} className="search-widget" forcedQuery={this.state.query ? this.state.query : null}/></div>
                     <div className="pages">
                         <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>
                         <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/>Series</Link>
@@ -48,7 +48,7 @@ class HamburgerMenu extends React.Component {
                         <h4 className="top-search-title">Trending Searches</h4>
                         <div className="sublinks">
                             {this.topSearches.map(({ node }) => (
-                                <a className="search-suggestion" key={node.search} onClick={ () => Search.useState({ setQuery: node.search }) }><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>{ node.search }</span></a>
+                                <a className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>{ node.search }</span></a>
                             ))}
                         </div>
                     </div>

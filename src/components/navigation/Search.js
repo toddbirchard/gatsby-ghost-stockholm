@@ -21,9 +21,9 @@ const Stats = connectStateResults(
     ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
 )
 
-export default function Search({ indices, collapse, hitsAsGrid }) {
+export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
     const ref = createRef()
-    const [query, setQuery] = useState(``)
+    const [query, setQuery] = useState(forcedQuery ? forcedQuery : ``)
     const [focus, setFocus] = useState(false)
     const PostHit = clickHandler => ({ hit }) => (
         <div className="search-result">
@@ -37,6 +37,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
             </div>
         </div>
     )
+    console.log(`forcedQuery = `, forcedQuery)
 
     const appId = process.env.GATSBY_ALGOLIA_APP_ID
     const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
@@ -71,6 +72,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 searchClient={searchClient}
                 indexName={indices[0].name}
                 onSearchStateChange={({ query }) => setQuery(query)}
+
             >
                 <Configure hitsPerPage={8} />
                 <SearchBox
@@ -78,8 +80,10 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                     placeholder="Search all posts..."
                     aria-label="Search"
                     onFocus={() => setFocus(true)} {...{ collapse, focus }}
-                    submit={null}
-                    reset={null}
+                    defaultRefinement={ forcedQuery ? forcedQuery : false }
+                    translations={{
+                        placeholder: `Search all posts`,
+                    }}
                 />
                 <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
                 <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results" >
