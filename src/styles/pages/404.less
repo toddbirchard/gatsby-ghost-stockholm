@@ -8,7 +8,18 @@
 
         .content-title {
             color: #2c3c55;
-            font-size: 8em;
+            font-family: @header-font;
+            font-size: 10em;
+            font-weight: unset;
+            @media(max-width: @mobile-breakpoint) {
+              font-size: 8.5em;
+            }
+        }
+
+        .content-body {
+          @media(max-width: @mobile-breakpoint) {
+            font-size: .9em;
+          }
         }
 
         a {
