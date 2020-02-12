@@ -48,7 +48,7 @@ class HamburgerMenu extends React.Component {
                         <h4 className="top-search-title">Trending Searches</h4>
                         <div className="sublinks">
                             {this.topSearches.map(({ node }) => (
-                                <a className="search-suggestion" key={node.search}><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>{ node.search }</span></a>
+                                <a className="search-suggestion" key={node.search} onClick={ () => Search.useState({ setQuery: node.search }) }><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>{ node.search }</span></a>
                             ))}
                         </div>
                     </div>

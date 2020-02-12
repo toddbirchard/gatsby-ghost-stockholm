@@ -75,7 +75,7 @@ export default function Search({ indices, collapse, hitsAsGrid }) {
                 <Configure hitsPerPage={8} />
                 <SearchBox
                     searchAsYouType={true}
-                    placeholder="Search"
+                    placeholder="Search all posts..."
                     aria-label="Search"
                     onFocus={() => setFocus(true)} {...{ collapse, focus }}
                     submit={null}
