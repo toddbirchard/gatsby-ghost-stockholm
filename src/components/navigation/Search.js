@@ -24,7 +24,7 @@ const Stats = connectStateResults(
 export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
     const ref = createRef()
     const [query, setQuery] = useState(forcedQuery ? forcedQuery : ``)
-    const [focus, setFocus] = useState(false)
+    const [focus, setFocus] = useState(!!forcedQuery)
     const PostHit = clickHandler => ({ hit }) => (
         <div className="search-result">
             <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload" />
@@ -37,7 +37,6 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
             </div>
         </div>
     )
-    console.log(`forcedQuery = `, forcedQuery)
 
     const appId = process.env.GATSBY_ALGOLIA_APP_ID
     const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
@@ -55,6 +54,7 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
                         return {
                             hits: [],
                             nbHits: 0,
+                            nbPages: 0,
                             processingTimeMS: 0,
                         }
                     }),
@@ -72,15 +72,14 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
                 searchClient={searchClient}
                 indexName={indices[0].name}
                 onSearchStateChange={({ query }) => setQuery(query)}
-
+                searchState={forcedQuery && { query: forcedQuery }}
             >
-                <Configure hitsPerPage={8} />
+                <Configure hitsPerPage={8} analytics={true} />
                 <SearchBox
                     searchAsYouType={true}
                     placeholder="Search all posts..."
-                    aria-label="Search"
+                    aria-label="Search "
                     onFocus={() => setFocus(true)} {...{ collapse, focus }}
-                    defaultRefinement={ forcedQuery ? forcedQuery : false }
                     translations={{
                         placeholder: `Search all posts`,
                     }}
