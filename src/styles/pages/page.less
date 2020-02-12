@@ -6,7 +6,7 @@
         margin: 0 0 25px;
         color: @header-color;
         font-family: @header-font-light;
-        font-size: 2.4em;
+        font-size: 2em;
         font-weight: normal;
     }
 
@@ -218,6 +218,9 @@
             font-family: @header-font-light;
             font-size: 2em;
             font-weight: unset;
+            @media (max-width: @mobile-breakpoint) {
+              font-size: 1.7em;
+            }
         }
     }
 }

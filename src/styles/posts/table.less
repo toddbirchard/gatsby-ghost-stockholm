@@ -6,8 +6,13 @@
     border-radius: 3px;
     border-spacing: 0;
     @media (max-width: @mobile-breakpoint) {
-        /*.mobile-full-width();*/
+        .mobile-full-width();
         .mobile-horizontal-scroll();
+        width: 111%;
+        min-width: 100%;
+        max-width: 115%;
+        margin-right: calc(-45vw + 54%) !important;
+        margin-left: calc(-49vw + 50%) !important;
     }
 }
 

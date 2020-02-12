@@ -14,6 +14,7 @@ class HamburgerMenu extends React.Component {
     constructor(props) {
         super(props)
         this.tags = props.data.tags.edges
+        this.topSearches = props.data.topSearches.edges
         this.classes = props.data.fullWidth ? `fullWidth` : null
         this.state = { active: false }
     }
@@ -43,6 +44,14 @@ class HamburgerMenu extends React.Component {
                             ))}
                         </div>
                     </div>
+                    <div className="top-searches">
+                        <h4 className="top-search-title">Trending Searches</h4>
+                        <div className="sublinks">
+                            {this.topSearches.map(({ node }) => (
+                                <a className="search-suggestion" key={node.search}><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>{ node.search }</span></a>
+                            ))}
+                        </div>
+                    </div>
                 </Menu>
             </>
         )
@@ -58,6 +67,7 @@ HamburgerMenu.propTypes = {
             }).isRequired,
         ),
         tags: PropTypes.object.isRequired,
+        topSearches: PropTypes.object,
         fullWidth: PropTypes.boolean,
     }).isRequired,
 
@@ -78,6 +88,14 @@ const HamburgerMenuQuery = props => (
                 node {
                   name
                   slug
+                }
+              }
+            }
+            topSearches: allMysqlAlgoliaTopSearches(limit: 5) {
+              edges {
+                node {
+                  search
+                  count
                 }
               }
             }

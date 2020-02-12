@@ -149,6 +149,11 @@ module.exports = {
                         idFieldName: `id`,
                         name: `weekly_page_analytics`,
                     },
+                    {
+                        statement: `SELECT * FROM algolia_top_suggested_searches`,
+                        idFieldName: `search`,
+                        name: `algolia_top_searches`,
+                    },
                 ],
             },
         },

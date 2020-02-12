@@ -19,6 +19,9 @@
             font-family: @header-font-light;
             font-size: 1.6em;
             font-weight: normal;
+            @media (max-width: @mobile-breakpoint) {
+               font-size: 1.5em;
+            }
         }
 
         svg {
@@ -26,6 +29,9 @@
             margin-right: 8px;
             font-size: 1.2em;
             opacity: 0.7;
+            @media (max-width: @mobile-breakpoint) {
+               font-size: 1.1em;
+            }
         }
 
         span {
@@ -33,6 +39,9 @@
             margin-left: 5px;
             font-size: 0.7em !important;
             opacity: 0.8;
+            @media (max-width: @mobile-breakpoint) {
+               font-size: 0.6em !important;
+            }
         }
     }
 
