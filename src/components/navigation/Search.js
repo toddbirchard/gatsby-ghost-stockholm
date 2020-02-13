@@ -14,7 +14,7 @@ const Stats = connectStateResults(
     ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
 )
 
-export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
+export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
     const ref = createRef()
     const [query, setQuery] = useState(forcedQuery ? forcedQuery : ``)
     const [focus, setFocus] = useState(false)
