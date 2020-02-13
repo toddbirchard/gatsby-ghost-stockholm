@@ -15,12 +15,12 @@ const SocialWidget = ({ site }) => {
     return (
         <>
             <div className="widget social">
-                <a href={ twitterUrl } className="twitter" key="twitter-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /></a>
-                <a href={ config.social.mediumProfile } className="medium" key="medium-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `medium`]} size="xs" /></a>
-                <a href={ config.social.linkedinProfile } className="linkedin" key="linkedin-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="xs" /></a>
-                <a href={ config.social.githubProfile } className="github" key="github-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `github`]} size="xs" /></a>
-                <a href={ facebookUrl } className="facebook" key="facebook-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" /></a>
-                <a href={ config.social.feedlyProfile } className="rss" key="rss-sidebar" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fad`, `rss-square`]} size="xs" /></a>
+                <a href={ twitterUrl } className="twitter" key="twitter-sidebar" target="_blank" rel="noopener noreferrer"><button aria-label="twitter"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /></button></a>
+                <a href={ config.social.mediumProfile } className="medium" key="medium-sidebar" target="_blank" rel="noopener noreferrer"><button aria-label="medium"><FontAwesomeIcon icon={[`fab`, `medium`]} size="xs" /></button></a>
+                <a href={ config.social.linkedinProfile } className="linkedin" key="linkedin-sidebar" target="_blank" rel="noopener noreferrer"><button aria-label="linkedin"><FontAwesomeIcon icon={[`fab`, `linkedin`]} size="xs" /></button></a>
+                <a href={ config.social.githubProfile } className="github" key="github-sidebar" target="_blank" rel="noopener noreferrer"><button aria-label="github"><FontAwesomeIcon icon={[`fab`, `github`]} size="xs" /></button></a>
+                <a href={ facebookUrl } className="facebook" key="facebook-sidebar" target="_blank" rel="noopener noreferrer"><button aria-label="facebook"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" /></button></a>
+                <a href={ config.social.feedlyProfile } className="rss" key="rss-sidebar" target="_blank" rel="noopener noreferrer"><button aria-label="rss"><FontAwesomeIcon icon={[`fad`, `rss-square`]} size="xs" /></button></a>
             </div>
         </>
     )
