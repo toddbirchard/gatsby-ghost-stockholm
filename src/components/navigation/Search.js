@@ -1,20 +1,14 @@
-import React, { useState, createRef } from 'react'
-import {
-    InstantSearch,
-    Index,
-    Hits,
-    connectStateResults,
-    SearchBox,
-    Configure,
-} from 'react-instantsearch-dom'
+import React, { createRef, useState } from 'react'
+import { Configure, connectStateResults, Hits, InstantSearch, SearchBox, } from 'react-instantsearch-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
-import { Root, HitsWrapper } from './SearchStyles'
+import { HitsWrapper, Root } from './SearchStyles'
 import { Link } from 'gatsby'
 
 const Results = connectStateResults(
-    ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div>{`No results for ${state.query}`}</div>)
+    ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children :
+        <div>{`No results for ${state.query}`}</div>)
 )
 
 const Stats = connectStateResults(
@@ -27,11 +21,11 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
     const [focus, setFocus] = useState(!!forcedQuery)
     const PostHit = clickHandler => ({ hit }) => (
         <div className="search-result">
-            <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload" />
+            <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload"/>
             <div className="search-result-details">
                 <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
                 <div className="search-result-tag">
-                    <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
+                    <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity/>
                     <span>{hit.primary_tag.name}</span>
                 </div>
             </div>
@@ -74,7 +68,7 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
                 onSearchStateChange={({ query }) => setQuery(query)}
                 searchState={forcedQuery && { query: forcedQuery }}
             >
-                <Configure hitsPerPage={8} analytics={true} />
+                <Configure hitsPerPage={8} analytics={true}/>
                 <SearchBox
                     searchAsYouType={true}
                     placeholder="Search all posts..."
@@ -84,19 +78,15 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
                         placeholder: `Search all posts`,
                     }}
                 />
-                <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" />
-                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results" >
-                    {indices.map(({ name }) => (
-                        <Index key={name} indexName={name}>
-                            <header>
-                                <h4 className="search-results-title">Search results</h4>
-                                <div className="search-results-count"><Stats /></div>
-                            </header>
-                            <Results>
-                                <Hits hitComponent={PostHit(() => setFocus(false))} />
-                            </Results>
-                        </Index>
-                    ))}
+                <FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/>
+                <HitsWrapper show={query.length > 0 && focus} asGrid={hitsAsGrid} className="search-results">
+                    <header>
+                        <h4 className="search-results-title">Search results</h4>
+                        <div className="search-results-count"><Stats/></div>
+                    </header>
+                    <Results>
+                        <Hits hitComponent={PostHit(() => setFocus(false))}/>
+                    </Results>
                 </HitsWrapper>
             </InstantSearch>
         </Root>
