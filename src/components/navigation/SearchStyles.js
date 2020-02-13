@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 
 export const Root = styled.div`
   position: relative;
-  display: grid;
+  display: block;
   grid-gap: 1em;
 `
 

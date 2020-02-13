@@ -51,7 +51,6 @@
     right: 14px !important;
     width: 30px !important;
     height: 30px !important;
-    background: white;
     opacity: 0;
     transition: @transition;
 
@@ -162,7 +161,7 @@
             position: absolute;
             top: 150%;
             width: -webkit-fill-available;
-            height: 320px;
+            height: 820px;
             padding: 20px !important;
             border-bottom: 2px solid #dcdddf;
             background: white;
@@ -170,7 +169,8 @@
             transition: all 500ms cubic-bezier(0.000, 0.000, 0.000, 0.700);
 
             .sublinks {
-                max-height: 160px;
+              height: 700px;
+              transition: all 500ms cubic-bezier(0.000, 0.000, 0.000, 0.700);
             }
 
             .top-search-title {
@@ -178,8 +178,10 @@
             }
 
             .search-suggestion {
+                color: #3f4750;
                 font-size: 0.9em;
                 line-height: 1;
+                text-align: left;
                 text-transform: uppercase;
                 transition: @transition;
 
@@ -287,18 +289,21 @@
         }
 
         .search-results {
-            top: 80px;
+            z-index: 5;
+            position: relative;
+            top: 0;
             right: 0;
             left: 0;
             width: -webkit-fill-available !important;
-            padding: 15px !important;
             border: 0;
             box-shadow: unset !important;
-            z-index: 5;
-            position: relative;
 
             header {
                 display: none;
+            }
+
+            .no-results {
+              display: none;
             }
 
             .ais-Hits-item {
@@ -309,6 +314,7 @@
                 align-items: unset !important;
 
                 &:hover {
+                  background: @hover-color;
                     * {
                         color: white !important;
                     }
@@ -316,11 +322,7 @@
             }
 
             .search-result-details {
-                width: unset;
-            }
-
-            .search-results-title {
-                font-size: 0.65em !important;
+                width: -webkit-fill-available;
             }
 
             .search-result-title {
@@ -377,7 +379,9 @@
                 padding: 12px 10px;
                 .input-field-interactions();
                 border: 1px solid #dcdada;
+                color: #484c52;
                 font-size: 0.8em;
+                letter-spacing: .5px;
                 transition: all 0.2s easeout;
 
                 &:focus,
@@ -434,12 +438,6 @@
             border-right: 0 !important;
             border-left: 0 !important;
         }
-
-        &:hover {
-            .bm-cross-button {
-                background: #e1ebf3 !important;
-            }
-        }
     }
 
     .bm-item,
@@ -461,6 +459,10 @@
         top: 90px !important;
         height: 230px !important;
         opacity: 1 !important;
+
+        .sublinks {
+            height: 160px !important;
+        }
     }
 
     .ais-SearchBox-form button,
