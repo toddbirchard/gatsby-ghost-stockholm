@@ -14,7 +14,7 @@ const Stats = connectStateResults(
     ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
 )
 
-export default function Search({ indices, collapse, hitsAsGrid, forcedQuery, show }) {
+export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
     const ref = createRef()
     const [query, setQuery] = useState(forcedQuery ? forcedQuery : ``)
     const [focus, setFocus] = useState(false)
@@ -30,8 +30,6 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery, sho
             </div>
         </div>
     )
-    console.log(`forcedQuery = ` + forcedQuery)
-    console.log(`query = ` + query)
 
     const appId = process.env.GATSBY_ALGOLIA_APP_ID
     const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
