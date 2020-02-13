@@ -449,6 +449,11 @@
     status = 301
 
 [[redirects]]
+    from = "/psycopg2-postgres-python-the-old-fashioned-way/"
+    to = "/psycopg2-postgres-python/"
+    status = 301
+
+[[redirects]]
     from = "/rss/"
     to = "/rss.xml"
     status = 301
