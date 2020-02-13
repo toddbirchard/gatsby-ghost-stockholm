@@ -70,7 +70,7 @@ export default function Search({ indices, collapse, hitsAsGrid, forcedQuery }) {
         <Root ref={ref}>
             <InstantSearch
                 searchClient={searchClient}
-                indexName={indices[0].name}
+                indexName="hackers_posts"
                 onSearchStateChange={({ query }) => setQuery(query)}
                 searchState={forcedQuery && { query: forcedQuery }}
             >
