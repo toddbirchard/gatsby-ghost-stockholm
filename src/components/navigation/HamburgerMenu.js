@@ -6,10 +6,6 @@ import { slide as Menu } from 'react-burger-menu'
 import Search from './Search'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const searchIndices = [
-    { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
-]
-
 class HamburgerMenu extends React.Component {
     constructor(props) {
         super(props)
@@ -28,7 +24,7 @@ class HamburgerMenu extends React.Component {
         return (
             <>
                 <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
-                    <div className="search-container" onClick={ () => this.toggleClass() }><Search collapse indices={searchIndices} className="search-widget" forcedQuery={this.state.query ? this.state.query : null}/></div>
+                    <div className="search-container" onClick={ () => this.toggleClass() }><Search collapse className="search-widget" forcedQuery={this.state.query ? this.state.query : null}/></div>
                     <div className="pages">
                         <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>
                         <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/>Series</Link>

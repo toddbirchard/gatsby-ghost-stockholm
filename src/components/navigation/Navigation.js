@@ -32,7 +32,7 @@ const Navigation = ({ data, smallLogo, fullLogo, template }) => (
                     </div>
                 </div>
                 {template !== `search-template` ? <div className="nav-right">
-                    <Search collapse indices={searchIndices} className="search-widget" />
+                    <Search collapse className="search-widget" />
                 </div> : null }
                 <HamburgerMenu />
             </div>
