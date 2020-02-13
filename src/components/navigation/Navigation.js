@@ -16,10 +16,6 @@ import HamburgerMenu from './HamburgerMenu'
 *
 */
 
-const searchIndices = [
-    { name: `hackers_posts`, title: `Posts`, hitComp: `PostHit` },
-]
-
 const Navigation = ({ data, smallLogo, fullLogo, template }) => (
     <>
         <nav className="navigation">
