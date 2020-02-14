@@ -18,7 +18,7 @@ var Promise = require("bluebird");
 
 var sharp = require("sharp");
 
-var Prism = require('prismjs');
+var Prism = require("prismjs");
 
 var _require = require("./common.js"),
     defaultIcons = _require.defaultIcons,
