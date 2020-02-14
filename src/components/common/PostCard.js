@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
     const url = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
     const readingTime = readingTimeHelper(post)
     const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
-    const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
+    const retinaImage = post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image : post.feature_image.replace(`.jpg`, `@2x.jpg`)
     // const retinaWebpImage = retinaImage && retinaImage.replace(`.jpg`, `.webp`)
 
     return (
