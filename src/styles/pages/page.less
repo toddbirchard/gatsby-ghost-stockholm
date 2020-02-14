@@ -22,6 +22,10 @@
             padding: 60px;
             @media (max-width: @tablet-breakpoint) {
                 padding: 40px;
+
+                &.about {
+                    padding: 70vw 30px 30px;
+                }
             }
         }
 
@@ -197,7 +201,13 @@
         padding-top: 56.25%;
         @media (max-width: @mobile-breakpoint) {
             .mobile-full-width();
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
             margin-bottom: 80px;
+            margin-bottom: 40px;
+            padding-top: 48.25%;
         }
 
         .about-video {

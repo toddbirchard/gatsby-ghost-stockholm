@@ -8,6 +8,8 @@ import { MetaData } from '../components/common/meta'
 
 import config from '../utils/siteConfig'
 import '../styles/pages/page.less'
+import '../styles/sidebar.less'
+
 
 /**
 * Single page (/:slug)
@@ -31,7 +33,7 @@ const Page = ({ data, location, pageContext }) => {
                 type="website"
             />
             <Layout template="page-template" hasSidebar={true}>
-                <article className="post-content page-content">
+                <article className={`post-content page-content ${pageContext.slug}`}>
                     { page.feature_image ?
                         <figure className="post-feature-image">
                             <img className="lazyload" data-src={ page.feature_image } alt={ page.title } />
@@ -72,9 +74,10 @@ Page.propTypes = {
 
 export default Page
 
-export const pageQuery = graphql`
+export const postQuery = graphql`
     query($slug: String!) {
         ghostPage(slug: { eq: $slug }) {
             ...GhostPageFields
         }
-    }`
+    }
+`
