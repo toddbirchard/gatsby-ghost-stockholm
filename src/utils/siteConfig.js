@@ -20,7 +20,7 @@ module.exports = {
         linkedinProfile: `https://www.linkedin.com/company/hackers-and-slackers/`,
         angellistProfile: `https://angel.co/company/hackers-and-slackers/`,
         mediumProfile: `https://hackingandslacking.com`,
-        feedlyProfile: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss/`,
+        feedlyProfile: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
     },
 
     id: {

@@ -207,6 +207,7 @@ module.exports = {
                 // purgeOnly : ['components/', '/main.css'], // Purge only these files/folders
             },
         },
+        `gatsby-plugin-split-css`,
         /**
          *  Netlify Plugins
          */
