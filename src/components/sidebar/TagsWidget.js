@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 
 /**
@@ -13,7 +12,7 @@ const TagsWidget = ({ data }) => {
         <>
             <div className="widget tags">
                 {tags.map(({ node }) => (
-                    <Link to={`/tag/${ node.slug }`} className="tag" key={ node.name }>{ node.name }</Link>
+                    <a href={`/tag/${ node.slug }`} className="tag" key={ node.name }>{ node.name }</a>
                 ))}
             </div>
         </>

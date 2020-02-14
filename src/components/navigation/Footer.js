@@ -39,19 +39,11 @@ const Footer = ({ navigation, site, data }) => {
                                 })}
                             </div>
                         </div>
-                        {/*<div className="widget tags">
-                            <h5 className="footer-widget-title">Tags</h5>
-                            <div className="link-grid">
-                                {topTags.map(({ node }) => (
-                                    <Link to={`/tag/${ node.slug }`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.name }</Link>
-                                ))}
-                            </div>
-                        </div>*/}
                         <div className="widget series">
                             <h5 className="footer-widget-title">Series</h5>
                             <div className="link-grid">
                                 {seriesLinks.map(({ node }) => (
-                                    <Link to={`/series/${ node.slug}`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.name.replace(`#`, ``) }</Link>
+                                    <a href={`/series/${ node.slug}`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.name.replace(`#`, ``) }</a>
                                 ))}
                             </div>
                         </div>
@@ -59,7 +51,7 @@ const Footer = ({ navigation, site, data }) => {
                             <h5 className="footer-widget-title">Authors</h5>
                             <div className="link-grid">
                                 {authorLinks.map(({ node }) => (
-                                    <Link to={`/author/${ node.slug }`} className="footer-navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</Link>
+                                    <a href={`/author/${ node.slug }`} className="footer-navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</a>
                                 ))}
                             </div>
                         </div>

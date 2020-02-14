@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import config from '../../utils/siteConfig'
 
 const commentoStyles = `/css/commento.css`
-const commentoJS = `https://cdn.commento.io/js/commento.js`
+const commentoJS = `/js/commento.js`
 // const commentoJS = config.siteUrl + `/js/commento.js`
 
 // Helper to add scripts to our page

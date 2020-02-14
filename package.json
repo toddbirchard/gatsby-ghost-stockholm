@@ -31,8 +31,7 @@
     "build": "gatsby build",
     "dev": "gatsby develop",
     "lint": "eslint . --ext .js --cache",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preload-fonts": "gatsby-preload-fonts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@bundle-analyzer/gatsby-plugin": "^0.5.1",
