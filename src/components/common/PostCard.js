@@ -10,9 +10,6 @@ const PostCard = ({ post }) => {
     const readingTime = readingTimeHelper(post)
     const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
     const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`)
-    // const retinaWebpImage = retinaImage && retinaImage.replace(`.jpg`, `.webp`)
-    console.log(retinaImage)
-    console.log(post.feature_image)
 
     return (
         <div className="post-card">
