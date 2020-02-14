@@ -5,6 +5,8 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/seriesarchive.less'
+import '../styles/pages/page.less'
+import '../styles/sidebar.less'
 
 /**
 * Series page (/series/)

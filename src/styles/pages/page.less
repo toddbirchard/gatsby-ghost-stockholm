@@ -22,11 +22,9 @@
             padding: 60px;
             @media (max-width: @tablet-breakpoint) {
                 padding: 40px;
-
-                &.about {
-                    padding: 70vw 30px 30px;
-                }
             }
+
+
         }
 
         .viewport {
@@ -67,10 +65,13 @@
             box-shadow: 0 1px 4px rgba(39, 44, 49, .07);
             @media (max-width: @tablet-breakpoint) {
                 max-width: unset;
-                padding: 20px 30px;
-            }
-            @media (max-width: @mobile-breakpoint) {
                 padding: 30px;
+            }
+
+            &.about {
+                @media (max-width: @mobile-breakpoint) {
+                    padding: 70vw 30px 30px !important;
+                }
             }
 
             .content-body a {
@@ -78,92 +79,94 @@
                 font-family: @body-font-bold;
                 transition: @transition;
             }
-        }
 
-        fieldset {
-            display: block;
-            margin-top: 40px;
-            padding-right: 0;
-            padding-left: 0;
-            border: none;
-            background: white;
+            fieldset {
+                display: block;
+                margin-top: 40px;
+                padding-right: 0;
+                padding-left: 0;
+                border: none;
+                background: white;
 
-            &:last-of-type {
-                margin-bottom: 0;
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+
+            .active {
+                display: block;
+            }
+
+            li,
+            p {
+                text-align: left;
+                .body-font();
+            }
+
+            hr {
+                margin: 1.8em 0 0;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 4px;
+                color: #71757b;
+                font-family: @body-font;
+                font-size: 13px;
+                font-weight: 500;
+
+                svg {
+                    margin-right: 3px;
+                }
+            }
+
+            .input-field-group {
+                margin-bottom: 20px;
+                text-align: left;
+            }
+
+            input,
+            textarea {
+                box-sizing: border-box;
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #e2e2e2;
+                border-radius: 2px;
+                outline: 0;
+                font-family: @body-font;
+                font-size: 14px;
+                transition: @transition;
+                .input-field-interactions();
+            }
+
+            textarea {
+                height: 200px;
+            }
+
+            .message {
+                margin: 15px 0 0;
+                color: #b3b3b3;
+                font-size: 12px;
+            }
+
+            .message a {
+                color: #4CAF50;
+                text-decoration: none;
+            }
+
+            button {
+                width: 100%;
+                margin-top: 20px;
+                padding: 15px;
+                border: 1px solid #6baaf2;
+                outline: 0;
+                font-size: 14px;
+                text-transform: uppercase;
+                .button-styles();
             }
         }
 
-        .active {
-            display: block;
-        }
 
-        li,
-        p {
-            text-align: left;
-            .body-font();
-        }
-
-        hr {
-            margin: 1.8em 0 0;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 4px;
-            color: #71757b;
-            font-family: @body-font;
-            font-size: 13px;
-            font-weight: 500;
-
-            svg {
-                margin-right: 3px;
-            }
-        }
-
-        .input-field-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        input,
-        textarea {
-            box-sizing: border-box;
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #e2e2e2;
-            border-radius: 2px;
-            outline: 0;
-            font-family: @body-font;
-            font-size: 14px;
-            transition: @transition;
-            .input-field-interactions();
-        }
-
-        textarea {
-            height: 200px;
-        }
-
-        .message {
-            margin: 15px 0 0;
-            color: #b3b3b3;
-            font-size: 12px;
-        }
-
-        .message a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #6baaf2;
-            outline: 0;
-            font-size: 14px;
-            text-transform: uppercase;
-            .button-styles();
-        }
     }
 
     .info-card {

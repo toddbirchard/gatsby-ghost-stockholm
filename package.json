@@ -48,7 +48,7 @@
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8",
     "less": "^3.11.1",
     "qs": "^6.9.1",
-    "stylelint": "^13.1.0"
+    "stylelint": "^13.2.0"
   },
   "dependencies": {
     "@babel/core": "^7.8.4",
