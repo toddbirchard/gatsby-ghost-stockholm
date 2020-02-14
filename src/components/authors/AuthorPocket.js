@@ -10,7 +10,6 @@ const AuthorPocket = ({ data }) => {
         <div className="widget pocket">
             <div className="widget-header">
                 <div className="label pocket"><FontAwesomeIcon icon={[`fab`, `get-pocket`]} size="xs" /> <span>Recommended Reads</span></div>
-                {/*<div className="trend-type">Top Posts This Week</div>*/}
             </div>
             <div className="widget-content">
                 {pocketLinks.map(({ node }) => (
