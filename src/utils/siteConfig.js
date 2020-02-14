@@ -16,6 +16,7 @@ module.exports = {
     introVideo: `https://vimeo.com/265866802`, // OPTIONAL: Video URL to be used in "about" page
 
     social: {
+        twitterProfile: `https://twitter.com/hackersslackers/`,
         githubProfile: `https://github.com/hackersandslackers`,
         linkedinProfile: `https://www.linkedin.com/company/hackers-and-slackers/`,
         angellistProfile: `https://angel.co/company/hackers-and-slackers/`,
@@ -27,6 +28,10 @@ module.exports = {
         facebookPageID: `563406637379065`,
         facebookAppID: `2459570624150585`,
         googleVerificationID: `SWC9VHRq1q2D7lK4vSVi8kkDd6AuEWpWz6ECAeN9di8`,
+    },
+
+    creator: {
+        twitter: `@toddrbirchard`,
     },
 
     siteGithubOrg: `https://github.com/hackersandslackers/`,

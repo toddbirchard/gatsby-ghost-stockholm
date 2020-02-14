@@ -16,24 +16,21 @@ import '../styles/sidebar.less'
 */
 const SeriesArchive = ({ data, location }) => {
     const tags = data.allGhostTag.edges
-    const title = `Series'`
-    const description = `When we find a topic we hold true to our hearts, we'll occasionally cling long enough to produce a series. These publications cover topics from start to finish, just enough to arm readers with enough to be dangerous. We may not be a 500 dollar online bootcamp, but we do explain things like human beings, and occasionally even drop the F bomb. Trust us, it's way more fun (and perhaps effective) to stick to something this way.`
-    const metaTitle = `Series and multi-part tutorials about software.`
-    const metaDescription = `Explore full topics in software development and data science by following our dedicated multi-part series'.`
+    const page = data.ghostPage
 
     return (
         <>
             <MetaData
                 data={data}
                 location={location}
-                title={metaTitle}
-                description={metaDescription}
+                title={page.metaTitle}
+                description={page.metaDescription}
                 type="series"
             />
             <Layout template="seriesarchive-template page-template" hasSidebar={true}>
                 <div className="page-content post-content">
-                    <h1>{title}</h1>
-                    <p>{description}</p>
+                    <h1>{page.title}</h1>
+                    <p>{page.plaintext}</p>
                     <div className="series-grid">
                         {tags.map(({ node }) => (
                             <Link to={`/series/${node.slug}`} className="series-card" key={node.id}>

@@ -33,8 +33,9 @@ module.exports = {
         title: config.shortTitle,
         siteUrl: config.siteUrl,
         description: config.siteDescriptionMeta,
-        url: config.siteURL, // No trailing slash allowed!
-        image: config.siteIcon, // Path to your image you placed in the 'static' folder
+        url: config.siteUrl, // No trailing slash allowed!
+        image: config.siteIcon, // Path to your image you placed in the 'static' folder,
+        twitterUsername: config.social.twitterProfile,
     },
     plugins: [
         /**
