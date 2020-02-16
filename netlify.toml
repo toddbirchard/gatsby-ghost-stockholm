@@ -300,7 +300,7 @@
 
 [[redirects]]
     from = "/powerful-page-templates-in-flask-with-jinja/"
-    to = "/flask-page-templates-jinja/"
+    to = "/flask-jinja-templates/"
     status = 301
 
 [[redirects]]
