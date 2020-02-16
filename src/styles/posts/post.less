@@ -319,7 +319,7 @@
                 padding: 3px 4px;
                 overflow-y: visible;
                 border-radius: 3px;
-                background: rgba(145, 176, 211, 0.2);
+                background: rgba(145, 176, 211, 0.1);
                 color: #4c84b6;
                 font-family: @monospace-font;
                 font-size: 0.8em;
@@ -331,12 +331,12 @@
             .protip {
                 position: relative;
                 margin: 40px auto;
-                padding: 43px 15px 14px;
+                padding: 60px 20px 14px;
                 overflow: hidden;
                 border-radius: 5px;
                 background: rgba(255, 222, 196, .42);
                 box-shadow: -1px 1px 0 #f1ddce;
-                color: #967855;
+                color: #7e6446;
                 font-size: 0.9em;
                 line-height: 1.5;
                 @media (max-width: @mobile-breakpoint) {
@@ -344,8 +344,9 @@
                     line-height: 1.6;
                 }
 
-                strong {
-                    color: #7b6437;
+                strong,
+                p {
+                    color: #7e6446;
                 }
 
                 a {
@@ -364,14 +365,15 @@
                     max-width: -webkit-fill-available;
                     height: auto;
                     margin-right: unset;
-                    margin-bottom: 11px;
+                    margin-bottom: 24px;
                     margin-left: unset;
-                    padding: 7px 15px;
+                    padding: 14px 15px;
                     background: #f5dfce;
-                    font-size: 14px;
+                    font-size: 15px;
                     font-style: normal;
                     font-variant: normal;
                     font-weight: 700;
+                    line-height: 1;
                     text-rendering: auto;
                     content: "Protip";
                     @media (max-width: @mobile-breakpoint) {
@@ -387,7 +389,8 @@
                     }
 
                     li {
-                        color: #4c3100;
+                        margin: 0 0 10px;
+                        color: #7e6446;
                     }
                 }
 
@@ -398,7 +401,7 @@
                     background: #f9e3d1;
                     color: #86674e;
                     font-family: 'dm', sans-serif;
-                    font-size: 0.9em;
+                    font-size: 0.85em;
                     text-shadow: unset;
                     white-space: normal;
                 }

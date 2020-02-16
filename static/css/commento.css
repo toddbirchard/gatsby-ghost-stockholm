@@ -23,9 +23,8 @@
 }
 
 #commento-comments-area {
-  box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
+    box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
 }
-
 
 .commento-root code {
     padding: 1px 3px !important;
@@ -347,11 +346,11 @@
 }
 
 .commento-card textarea {
-  height: 100px !important;
+    height: 100px !important;
 }
 
 .commento-body .commento-submit-button {
-  top: 87px !important;
+    top: 87px !important;
 }
 
 .commento-root #commento-textarea-root:hover,
@@ -365,14 +364,14 @@
     opacity: 0;
 }
 
-.commento-root #commento-textarea-root:focus,
 .commento-root textarea:focus {
     border: 1px inset #6baaf2 !important;
     background: white !important;
 }
 
 .commento-root #commento-textarea-root::placeholder,
-.commento-root textarea::placeholder {
+.commento-root textarea::placeholder,
+.commento-root textarea::-webkit-input-placeholder {
     display: block;
     position: absolute !important;
     top: 0 !important;
@@ -395,18 +394,6 @@
     .commento-root textarea::placeholder {
         font-size: 15px;
     }
-}
-
-.commento-root #commento-textarea-root ::-webkit-input-placeholder,
-.commento-root textarea ::-webkit-input-placeholder {
-    /* WebKit browsers */
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0;
-    left: 0 !important;
-    width: 400px !important;
-    height: 120px !important;
-    margin: auto;
 }
 
 .commento-root .commento-markdown-button {
