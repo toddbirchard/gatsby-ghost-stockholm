@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 // import NotebookPreview from "@nteract/notebook-preview"
 
-import '../styles/jupyter-notebook.less'
+import '../styles/ipynb.less'
 import '../styles/posts/code.less'
 
 /**

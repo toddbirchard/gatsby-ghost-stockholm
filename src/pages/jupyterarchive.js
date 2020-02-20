@@ -5,6 +5,7 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/jupyterarchive.less'
+import '../styles/pages/page.less'
 
 /**
 * Jupyter archive page (/jupyter/)
