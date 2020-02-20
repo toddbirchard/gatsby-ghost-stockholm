@@ -5,7 +5,7 @@ import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import '../styles/post-card.less'
+import '../../styles/post-card.less'
 
 const PostCard = ({ post }) => {
     const url = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
