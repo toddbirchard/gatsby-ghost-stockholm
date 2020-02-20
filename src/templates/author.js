@@ -8,7 +8,7 @@ import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/page.less'
 import '../styles/author-card.less'
-import '../styles/post-cards.less'
+import '../styles/post-card.less'
 import '../styles/sidebar.less'
 
 /**

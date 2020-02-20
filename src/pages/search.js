@@ -17,7 +17,7 @@ import { Layout, PostCard } from '../components/common'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import '../styles/pages/search.less'
-import '../styles/post-cards.less'
+import '../styles/post-card.less'
 
 const DEBOUNCE_TIME = 700
 const searchClient = algoliasearch(
