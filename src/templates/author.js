@@ -7,9 +7,6 @@ import { AuthorCard } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/page.less'
-import '../styles/author-card.less'
-import '../styles/post-card.less'
-import '../styles/sidebar.less'
 
 /**
 * Author page (/author/:slug)

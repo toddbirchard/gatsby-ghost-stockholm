@@ -6,9 +6,6 @@ import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
 import config from '../utils/siteConfig'
 
-import '../styles/post-card.less'
-import '../styles/sidebar.less'
-
 /**
 * Main index page (home page)
 *

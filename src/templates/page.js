@@ -5,11 +5,9 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
-
 import config from '../utils/siteConfig'
-import '../styles/pages/page.less'
-import '../styles/sidebar.less'
 
+import '../styles/pages/page.less'
 
 /**
 * Single page (/:slug)

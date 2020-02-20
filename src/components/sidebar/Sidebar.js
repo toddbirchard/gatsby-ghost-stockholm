@@ -8,6 +8,8 @@ import { AboutWidget,
     TwitterWidget } from '.'
 import { AuthorTrending } from '../authors'
 
+import '../styles/sidebar.less'
+
 /**
 * Sidebar
 */

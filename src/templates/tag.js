@@ -6,7 +6,6 @@ import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import '../styles/author-card.less'
 import '../styles/pages/tag.less'
 
 /**
