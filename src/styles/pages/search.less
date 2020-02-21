@@ -26,7 +26,7 @@
 
     .search-header {
         margin-bottom: 20px;
-        padding: 30px;
+        padding: 40px;
         background: white;
         box-shadow: @box-shadow;
         @media (max-width: @mobile-breakpoint) {
@@ -109,10 +109,14 @@
                     width: 100%;
                 }
 
+                &:hover {
+                  cursor: pointer;
+                }
+
                 &::after {
                     position: absolute;
                     top: 0;
-                    right: 20px;
+                    right: 15px;
                     bottom: 0;
                     width: 0;
                     height: 0;

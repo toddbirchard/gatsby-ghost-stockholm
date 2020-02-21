@@ -57,12 +57,12 @@
         .series-card-description {
             -webkit-line-clamp: 3;
             .line-clamp();
-            margin: 10px 0;
+            margin: 10px 0 15px !important;
             color: #656871;
             font-family: @body-font-book;
             font-size: 0.9em;
             font-weight: normal;
-            line-height: 1.3;
+            line-height: 1.3 !important;
             text-align: left;
             transition: @transition;
         }
@@ -71,6 +71,7 @@
             color: lighten(@text-color-light, 20%);
             font-family: @header-font;
             font-size: 0.8em;
+            line-height: 1;
             text-align: right;
         }
     }

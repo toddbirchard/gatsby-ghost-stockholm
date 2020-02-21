@@ -11,6 +11,7 @@
     .container {
         width: 900px !important;
         max-width: unset !important;
+        margin: auto;
         background: white !important;
         box-shadow: @box-shadow;
         @media (max-width: @tablet-breakpoint) {
@@ -19,13 +20,13 @@
     }
 
     .series-header {
-        margin: 50px 60px;
+        margin: 60px;
         color: @header-color;
         @media (max-width: @tablet-breakpoint) {
             margin: 40px;
         }
         @media (max-width: @mobile-breakpoint) {
-            margin: 30px;
+            margin: 50px 30px 30px;
             padding-bottom: 0;
         }
 
@@ -36,6 +37,7 @@
             }
             @media (max-width: @mobile-breakpoint) {
                 font-size: 1.8em;
+                line-height: 1;
             }
         }
 
@@ -85,7 +87,7 @@
         @media (max-width: @tablet-breakpoint) {
             width: auto;
             margin: 0 40px;
-            padding: 0 0 60px;
+            padding: 0 0 50px;
         }
         @media (max-width: @mobile-breakpoint) {
             grid-gap: 0;
@@ -132,16 +134,16 @@
         .series-post-card-image {
             width: 130px;
             min-width: 175px;
-            height: 129px;
+            height: 120px;
             overflow: hidden;
             @media (max-width: @mobile-breakpoint) {
                 display: none;
             }
 
             img {
-                width: 125%;
-                min-height: 100%;
-                margin-left: -22px;
+              width: auto;
+              height: 100%;
+              margin-left: -10px;
             }
         }
 
@@ -153,7 +155,7 @@
                 display: flex;
                 justify-content: space-between;
                 margin: 0;
-                padding: 22px 0;
+                padding: 22px 5px;
             }
 
             &:last-of-type {
@@ -186,6 +188,15 @@
                         color: @hover-color;
                     }
                 }
+
+                .series-post-number {
+                  margin-right: 10px;
+                  font-family: @body-font-bold;
+                }
+            }
+
+            .series-post-title-text {
+              font-size: .9em;
             }
 
             .series-post-card-excerpt {
