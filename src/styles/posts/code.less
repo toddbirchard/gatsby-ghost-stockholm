@@ -2,16 +2,15 @@
 @import "../variables.less";
 
 pre[class*="language-"],
-.content-body > pre,
-.jupyter-container pre {
+.content-body > pre {
     display: block;
     padding: 20px;
     overflow-x: hidden;
     border-radius: 3px;
-    background: #303645;
+    background: #303645 !important;
     color: unset !important;
-    font-family: @monospace-font;
-    font-size: 0.8em;
+    font-family: @monospace-font !important;
+    font-size: 0.8em !important;
     line-height: 1.5 !important;
     text-shadow: none !important;
     @media (max-width: @tablet-breakpoint) {
@@ -31,7 +30,7 @@ pre[class*="language-"],
 
     code {
         color: #dde3ea !important;
-        font-family: @monospace-font;
+        font-family: @monospace-font !important;
         line-height: 1.3 !important;
         text-shadow: unset !important;
         white-space: pre-wrap !important;
@@ -121,15 +120,15 @@ pre[class*="language-"],
         }
 
         .params {
-            color: #D8DEE9;
+            color: #D8DEE9 !important;
         }
 
         .bullet {
-            color: #81A1C1;
+            color: #81A1C1 !important;
         }
 
         .code {
-            color: #8FBCBB;
+            color: #8FBCBB !important;
         }
 
         .emphasis {
@@ -137,7 +136,7 @@ pre[class*="language-"],
         }
 
         .formula {
-            color: #8FBCBB;
+            color: #8FBCBB !important;
         }
 
         .strong {
@@ -211,15 +210,15 @@ pre[class*="language-"],
         }
 
         .abnf .symbol {
-            color: #EBCB8B;
+            color: #EBCB8B !important;
         }
 
         .apache .attribute {
-            color: #88C0D0;
+            color: #88C0D0 !important;
         }
 
         .apache .section {
-            color: #81A1C1;
+            color: #81A1C1 !important;
         }
 
         .arduino .built_in {

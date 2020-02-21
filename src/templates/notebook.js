@@ -5,7 +5,6 @@ import { Layout } from '../components/common'
 // import NotebookPreview from "@nteract/notebook-preview"
 
 import '../styles/ipynb.less'
-import '../styles/posts/code.less'
 
 /**
 * Single notebook view (/jupyter/:slug)
@@ -25,6 +24,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
         : null
     const githubLink = file.gitRemote.href + file.relativePath
     const githubRepoName = file.gitRemote.full_name
+    //const notebookJSON = nb.parse(notebook.content)
 
     return (<>
         <Layout template="jupyter-template">
@@ -41,7 +41,6 @@ const JupyterNotebook = ({ data, pageContext }) => {
                 <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
                     __html: notebook.html,
                 }}></main>
-                {/*<NotebookPreview notebook={notebook.json}/>*/}
             </div>
         </Layout>
     </>)

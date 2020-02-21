@@ -2,10 +2,14 @@
 @import '../mixins.less';
 
 .jupyter-archive-template {
+
+  .page-content{
+    width: fill-available;
+  }
     .jupyter-card-title {
         color: lighten(@header-color, 2%);
         font-family: @body-font-bold;
-        font-size: 1.4em;
+        font-size: 1em;
         font-weight: normal;
         line-height: 1.1;
         @media (max-width: @mobile-breakpoint) {
