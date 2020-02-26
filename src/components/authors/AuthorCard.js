@@ -45,7 +45,7 @@ AuthorCard.propTypes = {
         facebook: PropTypes.string,
         postCount: PropTypes.number,
         location: PropTypes.string,
-        slug: PropTypes.string,
+        slug: PropTypes.string.isRequired,
     }).isRequired,
     pageContext: PropTypes.object,
     template: PropTypes.string,

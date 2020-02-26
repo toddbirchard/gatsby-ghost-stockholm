@@ -39,7 +39,7 @@ module.exports = {
     },
     plugins: [
         /**
-         *  Content Plugins
+         *  Source Plugins
          */
         {
             resolve: `gatsby-source-filesystem`,
@@ -158,11 +158,20 @@ module.exports = {
                 ],
             },
         },
+        /* {
+            resolve: `gatsby-source-github`,
+            options: {
+                headers: {
+                    Authorization: process.env.GITHUB_ACCESS_TOKEN,
+                },
+                queries: [
+
+                ],
+            },
+        }, */
         /**
-         *  Image Plugins
+         *  Transformer Plugins
          */
-        `gatsby-plugin-sharp`,
-        `gatsby-transformer-sharp`,
         `@gatsby-contrib/gatsby-transformer-ipynb`,
         /**
          *  Font Plugins
