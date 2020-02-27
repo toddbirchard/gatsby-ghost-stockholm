@@ -197,14 +197,10 @@ exports.createPages = async ({ graphql, actions }) => {
         // This part here defines, that our author pages will use
         // a `/author/:slug/` permalink.
         node.url = `/author/${node.slug}/`
-        node.twitterRegex = null
+        node.twitterRegex = ``
 
         if (node.twitter !== null) {
-            console.log(node.slug)
-            console.log(node.twitter)
-            const t = node.twitter.replace(`@`, ``)
-            node.twitterRegex = `/(` + t + `)/i`
-            console.log(node.twitterRegex)
+            node.twitterRegex = `/(` + node.twitter.replace(`@`, ``) + `)/i`
         }
 
         Array.from({ length: numberOfPages }).forEach((_, i) => {
