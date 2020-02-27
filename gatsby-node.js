@@ -202,7 +202,8 @@ exports.createPages = async ({ graphql, actions }) => {
         if (node.twitter !== null) {
             console.log(node.slug)
             console.log(node.twitter)
-            node.twitterRegex = `/(` + node.twitter.replace(`@`, ``) + `)/i`
+            const t = node.twitter.replace(`@`, ``)
+            node.twitterRegex = `/(` + t + `)/i`
             console.log(node.twitterRegex)
         }
 

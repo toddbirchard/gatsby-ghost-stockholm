@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const AuthorTwitterWidget = ({ data }) => {
     const twitterUsername = data && data.screen_name
-    const twitterUrl = twitterUsername && `https://twitter.com/` + data.screen_name + `/`
-    const twitterFollowUrl = twitterUsername && `https://twitter.com/intent/user?screen_name=` + data.screen_name
+    const twitterUrl = twitterUsername && `https://twitter.com/` + twitterUsername + `/`
+    const twitterFollowUrl = twitterUsername && `https://twitter.com/intent/user?screen_name=` + twitterUsername
 
     return (
         <>
