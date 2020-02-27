@@ -102,6 +102,7 @@
     "react-helmet": "5.2.1",
     "react-instantsearch-dom": "^6.3.0",
     "react-player": "^1.15.2",
+    "sharp": "^0.24.1",
     "styled-components": "^5.0.1"
   }
 }
