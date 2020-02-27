@@ -7,7 +7,8 @@ import { AboutWidget,
     TrendingWidget,
     TwitterWidget } from '.'
 import { AuthorTrendingWidget,
-    AuthorTwitterWidget } from './authors'
+    AuthorTwitterWidget,
+    AuthorWebsiteWidget } from './authors'
 
 import '../../styles/sidebar.less'
 
@@ -16,17 +17,20 @@ import '../../styles/sidebar.less'
 */
 
 const Sidebar = ({ site, template, authorData }) => {
-    const authorTwitter = authorData && authorData.twitter
+    const authorTwitter = authorData && authorData.authorTwitterProfile
+    const authorWebsite = authorData && authorData.ghostAuthor.website
+    const genericPages = [`home-template`, `page-template`, `tag-template`]
 
     return (
         <>
             <aside className="sidebar">
-                {template === `home-template` ? <AboutWidget site={site} /> : null }
+                {genericPages.includes(template) && <AboutWidget site={site} /> }
+                {authorWebsite && <AuthorWebsiteWidget authorWebsite={authorWebsite}/> }
                 <SocialWidget site={site} />
                 {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
-                {template === `home-template` ? <TagsWidget /> : null }
-                {template === `home-template` ? <NewsletterWidget /> : null }
-                {template === `home-template` ? <TwitterWidget /> : null }
+                {genericPages.includes(template) ? <TagsWidget /> : null }
+                {genericPages.includes(template) ? <NewsletterWidget /> : null }
+                {genericPages.includes(template) ? <TwitterWidget /> : null }
                 {authorTwitter && <AuthorTwitterWidget data={authorTwitter} />}
             </aside>
         </>
