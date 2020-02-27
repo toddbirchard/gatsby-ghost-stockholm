@@ -7,6 +7,7 @@
                     "markup",
                     "css",
                     "javascript",
+                    "typescript",
                     "http",
                     "json",
                     "python",
@@ -19,7 +20,11 @@
                     "graphql",
                     "sql",
                     "jinja2",
-                    "handlebars"
+                    "handlebars",
+                    "ini",
+                    "graphql",
+                    "less",
+                    "nginx"
                 ],
                 "plugins": ["normalize-whitespace"],
                 "theme": "default",
