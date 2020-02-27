@@ -106,7 +106,7 @@ module.exports = {
                             count: 6,
                         },
                     },
-                    AuthorTweets: {
+                    AuthorTwitterProfiles: {
                         endpoint: `lists/members`,
                         params: {
                             list_id: `1043490256052539392`,

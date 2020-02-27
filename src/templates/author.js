@@ -142,7 +142,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        authorTwitterProfile: twitterListsMembersAuthorTweets(screen_name: {regex: $twitterUsernameRegex}) {
+        authorTwitterProfile: twitterListsMembersAuthorTwitterProfiles(screen_name: {regex: $twitterUsernameRegex}) {
           screen_name
           name
           description

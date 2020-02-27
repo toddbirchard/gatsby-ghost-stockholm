@@ -16,7 +16,7 @@ import '../../styles/sidebar.less'
 */
 
 const Sidebar = ({ site, template, authorData }) => {
-    const authorTwitterData = authorData && authorData.authorTwitterProfile
+    const authorTwitter = authorData && authorData.twitter
 
     return (
         <>
@@ -27,7 +27,7 @@ const Sidebar = ({ site, template, authorData }) => {
                 {template === `home-template` ? <TagsWidget /> : null }
                 {template === `home-template` ? <NewsletterWidget /> : null }
                 {template === `home-template` ? <TwitterWidget /> : null }
-                {authorTwitterData && <AuthorTwitterWidget data={authorTwitterData} />}
+                {authorTwitter && <AuthorTwitterWidget data={authorTwitter} />}
             </aside>
         </>
     )
