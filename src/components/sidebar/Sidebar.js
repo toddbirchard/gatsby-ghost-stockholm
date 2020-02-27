@@ -15,18 +15,23 @@ import '../../styles/sidebar.less'
 * Sidebar
 */
 
-const Sidebar = ({ site, template, authorData }) => (
-    <>
-        <aside className="sidebar">
-            {template === `home-template` ? <AboutWidget site={site} /> : null }
-            <SocialWidget site={site} />
-            {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
-            {template === `home-template` ? <TagsWidget /> : null }
-            {template === `home-template` ? <NewsletterWidget /> : null }
-            {template === `home-template` ? <TwitterWidget /> : <AuthorTwitterWidget authorProfile={authorData.authorTwitterProfile} /> }
-        </aside>
-    </>
-)
+const Sidebar = ({ site, template, authorData }) => {
+    const authorTwitterData = authorData && authorData.authorTwitterProfile
+
+    return (
+        <>
+            <aside className="sidebar">
+                {template === `home-template` ? <AboutWidget site={site} /> : null }
+                <SocialWidget site={site} />
+                {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
+                {template === `home-template` ? <TagsWidget /> : null }
+                {template === `home-template` ? <NewsletterWidget /> : null }
+                {template === `home-template` ? <TwitterWidget /> : null }
+                {authorTwitterData && <AuthorTwitterWidget data={authorTwitterData} />}
+            </aside>
+        </>
+    )
+}
 
 Sidebar.propTypes = {
     site: PropTypes.shape({

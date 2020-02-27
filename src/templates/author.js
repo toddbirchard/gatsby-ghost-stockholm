@@ -101,13 +101,13 @@ Author.propTypes = {
             }),
         }).isRequired,
         authorTwitterProfile: PropTypes.shape({
-            user: PropTypes.shape({
-                profile_image_url_https: PropTypes.string,
-                name: PropTypes.string.isRequired,
-                url: PropTypes.string,
-                display_url: PropTypes.string,
-                screen_name: PropTypes.string.isRequired,
-            }).isRequired,
+            screen_name: PropTypes.string,
+            name: PropTypes.string,
+            description: PropTypes.string,
+            followers_count: PropTypes.string,
+            profile_image_url_https: PropTypes.string,
+            statuses_count: PropTypes.string,
+            favourites_count: PropTypes.string,
         }),
         authorTrendingPosts: PropTypes.shape({
             title: PropTypes.string,
