@@ -30,7 +30,8 @@ import { faTags,
     faCoffeeTogo,
     faUserPlus,
     faIndent,
-    faBooks } from '@fortawesome/pro-duotone-svg-icons'
+    faBooks,
+    faUserFriends } from '@fortawesome/pro-duotone-svg-icons'
 
 // Styles
 import '../../styles/app.less'
@@ -60,7 +61,8 @@ library.add(faTags,
     faCoffeeTogo,
     faUserPlus,
     faIndent,
-    faBooks)
+    faBooks,
+    faUserFriends)
 
 /**
 * Main layout component

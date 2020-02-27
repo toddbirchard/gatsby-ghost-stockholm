@@ -125,7 +125,7 @@ Author.propTypes = {
 export default Author
 
 export const pageQuery = graphql`
-    query GhostAuthorQuery($slug: String!, $limit: Int!, $skip: Int!) {
+    query GhostAuthorQuery($slug: String!, $twitterUsernameRegex: String, $limit: Int!, $skip: Int!) {
         ghostAuthor(slug: { eq: $slug }) {
             ...GhostAuthorFields
             postCount
@@ -142,27 +142,15 @@ export const pageQuery = graphql`
                 }
             }
         }
-        authorTweets: allTwitterStatusesUserTimelineHackersTweets(limit: 3) {
-          edges {
-            node {
-              full_text
-              created_at
-              entities {
-                urls {
-                  url
-                }
-              }
-            }
-          }
+        authorTwitterProfile: twitterListsMembersAuthorTweets(screen_name: {regex: $twitterUsernameRegex}) {
+          screen_name
+          name
+          description
+          followers_count
+          profile_image_url_https
+          statuses_count
+          favourites_count
         }
-        authorTwitterProfile: twitterStatusesUserTimelineHackersTweets {
-          user {
-            profile_image_url_https
-            name
-            url
-            screen_name
-          }
-       }
        authorTrendingPosts: allMysqlMonthlyPageAnalytics(sort: {fields: views, order: DESC}, filter: {author_slug: {eq: $slug}, views: {gt: 10}}, limit: 10) {
         edges {
           node {

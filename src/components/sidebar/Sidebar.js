@@ -6,7 +6,8 @@ import { AboutWidget,
     TagsWidget,
     TrendingWidget,
     TwitterWidget } from '.'
-import { AuthorTrending } from '../authors'
+import { AuthorTrendingWidget,
+    AuthorTwitterWidget } from './authors'
 
 import '../../styles/sidebar.less'
 
@@ -18,12 +19,11 @@ const Sidebar = ({ site, template, authorData }) => (
     <>
         <aside className="sidebar">
             {template === `home-template` ? <AboutWidget site={site} /> : null }
-            {template === `author-template` ? <AuthorTrending authorData={authorData} /> : null }
             <SocialWidget site={site} />
-            {template === `home-template` ? <TrendingWidget /> : null }
-            <TagsWidget />
-            <NewsletterWidget />
-            <TwitterWidget />
+            {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
+            {template === `home-template` ? <TagsWidget /> : null }
+            {template === `home-template` ? <NewsletterWidget /> : null }
+            {template === `home-template` ? <TwitterWidget /> : <AuthorTwitterWidget authorProfile={authorData.authorTwitterProfile} /> }
         </aside>
     </>
 )

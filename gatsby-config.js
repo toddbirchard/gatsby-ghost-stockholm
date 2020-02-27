@@ -106,6 +106,16 @@ module.exports = {
                             count: 6,
                         },
                     },
+                    AuthorTweets: {
+                        endpoint: `lists/members`,
+                        params: {
+                            list_id: `1043490256052539392`,
+                            include_rts: true,
+                            exclude_replies: true,
+                            tweet_mode: `extended`,
+                            count: 3,
+                        },
+                    },
                     /*AuthorMattTweets: {
                         endpoint: `statuses/user_timeline`,
                         params: {

@@ -43,6 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         slug
                         url
                         postCount
+                        twitter
                     }
                 }
             }
@@ -210,6 +211,7 @@ exports.createPages = async ({ graphql, actions }) => {
             const nextPagePath = nextPageNumber
                 ? `${node.url}page/${nextPageNumber}/`
                 : null
+            const twitterUsernameRegex = `/(` + node.twitter + `)/i`
 
             createPage({
                 path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
@@ -219,6 +221,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     // in page queries as GraphQL variables.
                     slug: node.slug,
                     limit: postsPerPage,
+                    twitterUsernameRegex: twitterUsernameRegex,
                     skip: i * postsPerPage,
                     numberOfPages: numberOfPages,
                     humanPageNumber: currentPage,
