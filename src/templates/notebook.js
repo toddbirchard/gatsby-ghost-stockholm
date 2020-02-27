@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
-// import NotebookPreview from "@nteract/notebook-preview"
+//import NotebookPreview from "@nteract/notebook-preview"
 
 import '../styles/ipynb.less'
 
@@ -24,7 +24,6 @@ const JupyterNotebook = ({ data, pageContext }) => {
         : null
     const githubLink = file.gitRemote.href + file.relativePath
     const githubRepoName = file.gitRemote.full_name
-    //const notebookJSON = nb.parse(notebook.content)
 
     return (<>
         <Layout template="jupyter-template">
@@ -41,6 +40,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
                 <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
                     __html: notebook.html,
                 }}></main>
+                {/*<NotebookPreview notebook={notebook.internal.content} />*/}
             </div>
         </Layout>
     </>)
@@ -76,26 +76,57 @@ export const JupyterNotebookQuery = graphql `
   query($id: String!) {
     file(id: {eq: $id}) {
      childJupyterNotebook {
-       fileAbsolutePath
        id
-       html
-       internal {
-        content
-      }
-      json {
-            nbformat
-            nbformat_minor
-            cells {
-              cell_type
-              execution_count
+        html
+        internal {
+          content
+          contentDigest
+          description
+          fieldOwners
+          ignoreType
+          mediaType
+          owner
+          type
+        }
+        metadata {
+          kernelspec {
+            name
+            language
+            display_name
+          }
+          language_info {
+            file_extension
+            mimetype
+            name
+            nbconvert_exporter
+            pygments_lexer
+            version
+          }
+        }
+        json {
+          nbformat_minor
+          nbformat
+          metadata {
+            language_info {
+              name
+              nbconvert_exporter
+              pygments_lexer
+              version
+              mimetype
+              file_extension
+              codemirror_mode {
+                name
+                version
+              }
             }
           }
-       metadata {
-         language_info {
-           name
-           version
-         }
-       }
+          cells {
+            cell_type
+            execution_count
+            source
+          }
+        }
+        fileAbsolutePath
      }
      name
      modifiedTime(formatString: "DD MMMM, YYYY")
