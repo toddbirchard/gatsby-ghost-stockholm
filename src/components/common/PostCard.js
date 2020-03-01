@@ -11,15 +11,15 @@ const PostCard = ({ post }) => {
     const url = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
     const readingTime = readingTimeHelper(post)
     const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
-    const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`)
 
     return (
         <div className="post-card">
             <Link to={url}>
-                {/*{retinaWebpImage && <img className="post-card-image lazyload" data-src={retinaWebpImage} alt={post.title} /> }*/}
-                {retinaImage === -1 ?
-                    <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} alt={post.title}/> :
-                    <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title}/>}
+                <picture>
+                    {/*<source data-srcset={post.feature_image.replace(`.jpg`, `@2x.webp`)} type="image/webp" alt={post.title} />*/}
+                    {/*<source data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={post.title} />*/}
+                    <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={post.title} />
+                </picture>
             </Link>
             {post.featured && <span>Featured</span>}
             <div className="post-card-detail">
