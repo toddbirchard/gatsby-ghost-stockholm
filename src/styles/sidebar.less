@@ -280,68 +280,6 @@
             padding: 25px;
             overflow: hidden;
 
-            .twitter-followers {
-              display: flex;
-              align-items: center;
-              margin-top: 5px;
-                font-family: @body-font-bold;
-                font-size: .8em;
-                white-space: nowrap;
-
-                svg {
-                  font-size: .8em;
-                }
-            }
-
-            .retweeted-header {
-                margin: 0 0 10px;
-                color: #8b9db7;
-                font-weight: 600;
-
-                svg {
-                    margin-right: 3px;
-                }
-
-                span {
-                    font-family: @body-font-bold;
-                    font-size: 0.9em;
-                    font-weight: 500;
-                }
-            }
-
-            .tweet-header {
-              display: flex;
-              align-items: center;
-              margin-bottom: 10px;
-
-              .twitter-avatar {
-                width: 25px !important;
-                height: 25px !important;
-                margin-right: 7px;
-                overflow: hidden;
-                border-radius: 50%;
-
-                img {
-                  width: 100%;
-                }
-              }
-
-              .twitter-name {
-                  display: block;
-                  color: #606c8c;
-                  font-family: @body-font;
-                  font-size: .9em;
-                  font-weight: 600;
-                  line-height: 1;
-              }
-            }
-
-            .retweeted-body {
-                margin-left: 5px;
-                padding-left: 20px;
-                border-left: 3px solid #e2e7ed;
-            }
-
             .github-header,
             .twitter-header {
                 display: flex;
@@ -374,7 +312,80 @@
                     font-weight: 500;
                     line-height: 1;
                 }
+
+                .twitter-avatar {
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 10px;
+                }
             }
+
+            .twitter-followers {
+                display: flex;
+                align-items: center;
+                margin-top: 5px;
+                color: #a4b4c6;
+                font-family: @body-font-bold;
+                font-size: 0.8em;
+                line-height: 1;
+                white-space: nowrap;
+
+                svg {
+                    margin-right: 6px;
+                    font-size: 0.8em;
+                }
+            }
+
+            .retweeted-header {
+                margin: 0 0 10px;
+                color: #8b9db7;
+                font-weight: 600;
+
+                svg {
+                    margin-right: 3px;
+                }
+
+                span {
+                    font-family: @body-font-bold;
+                    font-size: 0.9em;
+                    font-weight: 500;
+                }
+            }
+
+            .tweet-header {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+
+                .twitter-avatar {
+                    width: 25px !important;
+                    height: 25px !important;
+                    margin-right: 7px;
+                    overflow: hidden;
+                    border-radius: 50%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .twitter-name {
+                    display: block;
+                    color: #606c8c;
+                    font-family: @body-font;
+                    font-size: 0.9em;
+                    font-weight: 600;
+                    line-height: 1;
+                }
+            }
+
+            .retweeted-body {
+                margin-left: 5px;
+                padding-left: 15px;
+                border-left: 3px solid #e2e7ed;
+            }
+
+
 
             .twitter-profile-description {
                 color: #87929e;
@@ -397,8 +408,6 @@
                     padding: 0 0 30px;
                 }
 
-
-
                 .tweet-link {
                     display: block;
                     margin: 15px 0 0;
@@ -406,7 +415,6 @@
                     color: #6baaf2;
                     font-family: @body-font-bold;
                     font-size: 0.86em;
-                    font-weight: 600;
                     line-height: 1;
                     text-overflow: ellipsis;
                     white-space: nowrap;
@@ -419,13 +427,13 @@
                     margin: 15px 0 0;
 
                     .hashtag {
-                      display: inline-block;
-                      margin: 0 4px 6px 0;
-                      color: #89a0b7;
-                      font-family: @body-font;
-                      font-size: 0.8em;
-                      font-weight: 900;
-                      line-height: 1;
+                        display: inline-block;
+                        margin: 0 4px 6px 0;
+                        color: #89a0b7;
+                        font-family: @body-font;
+                        font-size: 0.8em;
+                        font-weight: 900;
+                        line-height: 1;
                     }
                 }
 
@@ -447,7 +455,7 @@
 
             .meta-item {
                 margin-right: 20px;
-                color: #a4b4c6;
+                color: #96a6b9;
                 line-height: 1;
 
                 span {
@@ -458,7 +466,6 @@
 
                 svg {
                     margin-right: 4px;
-                    font-size: 1em;
                 }
 
                 &.retweets {
@@ -499,7 +506,7 @@
                 .meta-item {
                     display: flex;
                     align-items: center;
-                    margin-bottom: 5px;
+                    margin-bottom: 7px;
 
                     svg {
                         margin-right: 10px;
@@ -538,41 +545,42 @@
             }
 
             .github-org-meta {
-              display: flex;
-              margin-top: 5px;
+                display: flex;
+                margin-top: 5px;
 
-              .meta-item {
-                font-family: @body-font-bold;
-                font-size: .8em;
-                white-space: nowrap;
+                .meta-item {
+                    font-family: @body-font-bold;
+                    font-size: 0.8em;
+                    white-space: nowrap;
 
-                svg {
-                  font-size: .8em;
+                    svg {
+                        font-size: 0.8em;
+                    }
                 }
-              }
             }
 
             .repos {
                 .github-repo {
-                  display: block;
-                  padding: 20px 5px;
-                  border-bottom: 1px solid #dcdcdc;
-                  opacity: 0.9;
+                    display: block;
+                    padding: 20px 5px;
+                    border-bottom: 1px solid #dcdcdc;
+                    opacity: 0.9;
 
                     &:hover {
-                      background: @hover-color;
-                      * {
-                        color: white !important;
-                      }
+                        background: @hover-color;
+
+                        * {
+                            color: white !important;
+                        }
                     }
 
                     &:last-of-type {
-                      padding-bottom: 10px;
-                      border-bottom: 0;
+                        padding-bottom: 10px;
+                        border-bottom: 0;
                     }
 
                     &:first-of-type {
-                      padding-top: 15px
+                        padding-top: 15px;
                     }
 
                     .repo-name {
@@ -593,7 +601,7 @@
                     .repo-meta {
                         display: flex;
                         font-family: @body-font-bold;
-                        font-size: 0.7em;
+                        font-size: 0.8em;
                         font-weight: 900;
 
                         .repo-stargazers {

@@ -34,7 +34,7 @@ import { faTags,
     faUserFriends,
     faStar,
     faCodeBranch,
-    faBracketsCurly,
+    faCode,
     faProjectDiagram,
     faUsers } from '@fortawesome/pro-duotone-svg-icons'
 
@@ -70,7 +70,7 @@ library.add(faTags,
     faUserFriends,
     faStar,
     faCodeBranch,
-    faBracketsCurly,
+    faCode,
     faProjectDiagram,
     faUsers)
 

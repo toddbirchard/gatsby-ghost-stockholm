@@ -16,7 +16,7 @@ const TwitterWidget = ({ data }) => {
                         <div className="profile-details">
                             <div className="profile-details">
                                 <a href={twitterProfile.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{`@${twitterProfile.screen_name}`}</a>
-                                <div className="twitter-followers meta-item"><FontAwesomeIcon icon={[`fad`, `users`]} size="xs" /> {twitterProfile.followers_count} Followers</div>
+                                <div className="twitter-followers"><FontAwesomeIcon icon={[`fad`, `users`]} size="xs" /> <span>{twitterProfile.followers_count} Followers</span></div>
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,6 @@ const TwitterWidget = ({ data }) => {
                                               <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
                                           ))
                                         }
-
                                     </div>
                                 </div>
                                 :
@@ -63,7 +62,7 @@ const TwitterWidget = ({ data }) => {
                                 </div> }
                             <div className="tweet-footer">
                                 <div className="retweets meta-item"><FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity /> <span>{node.retweet_count}</span></div>
-                                <div className="favorites meta-item"><FontAwesomeIcon icon={[`fad`, `heartbeat`]} size="xs"/> <span>{node.favorite_count}</span></div>
+                                <div className="favorites meta-item"><FontAwesomeIcon icon={[`fad`, `heartbeat`]} size="xs" swapOpacity/> <span>{node.favorite_count}</span></div>
                                 <div className="date meta-item"><FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" /> {node.created_at.split(` `, 3).join(` `)}</div>
                             </div>
                         </div>
