@@ -29,14 +29,12 @@ const TwitterWidget = ({ data }) => {
                                         <span>{`${node.user.name} retweeted`}</span>
                                     </div>
                                     <div className="retweeted-body">
-                                        <div className="twitter-header">
+                                        <div className="tweet-header">
                                             <div className="twitter-avatar">
                                                 <img className="lazyload" data-src={node.retweeted_status.user.profile_image_url_https} alt="twitter-avatar" />
                                             </div>
-                                            <div className="profile-details">
-                                                <a href={node.retweeted_status.user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{node.retweeted_status.user.name}</a>
-                                                <a href={node.retweeted_status.user.url} className="twitter-user" rel="nofollow noreferrer">@{node.retweeted_status.user.screen_name}</a>
-                                            </div>
+                                            {/*<a href={node.retweeted_status.user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{node.retweeted_status.user.name}</a>*/}
+                                            <a href={node.retweeted_status.user.url} className="twitter-name" rel="nofollow noreferrer">@{node.retweeted_status.user.screen_name}</a>
                                         </div>
                                         <p className="tweet-content">{node.retweeted_status.full_text.split(`http`)[0]}</p>
                                         {node.entities.urls &&
@@ -44,6 +42,7 @@ const TwitterWidget = ({ data }) => {
                                               <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
                                           ))
                                         }
+
                                     </div>
                                 </div>
                                 :
