@@ -275,12 +275,13 @@
             }
         }
 
+        &.github,
         &.twitter {
             padding: 25px;
             overflow: hidden;
 
             .retweeted-header {
-                margin: 0 0 15px;
+                margin: 0 0 10px;
                 color: #8b9db7;
                 font-weight: 600;
 
@@ -289,8 +290,9 @@
                 }
 
                 span {
-                    font-family: @body-font;
+                    font-family: @body-font-bold;
                     font-size: 0.9em;
+                    font-weight: 500;
                 }
             }
 
@@ -300,23 +302,19 @@
                 border-left: 3px solid #e2e7ed;
             }
 
+            .github-header,
             .twitter-header {
                 display: flex;
                 align-items: center;
-                margin: 0 0 15px;
+                margin: 0 0 20px;
 
-                .twitter-avatar {
+                .twitter-logo {
                     width: 35px !important;
                     height: 35px !important;
                     margin-right: 10px;
-                    overflow: hidden;
-                    border-radius: 50%;
-
-                    img {
-                        width: 100%;
-                    }
                 }
 
+                .github-name,
                 .twitter-name {
                     display: block;
                     color: #606c8c;
@@ -326,6 +324,7 @@
                     line-height: 1;
                 }
 
+                .github-user,
                 .twitter-user {
                     display: block;
                     margin-top: 3px;
@@ -338,47 +337,61 @@
             }
 
             .twitter-profile-description {
-              color: #87929e;
-              font-size: .9em;
-              font-weight: 600;
-              line-height: 1.3;
+                color: #87929e;
+                font-size: 0.9em;
+                font-weight: 600;
+                line-height: 1.3;
             }
 
             .tweet {
-                padding: 25px 0;
+                padding: 30px 0;
                 border-bottom: 1px solid #e7e7e7;
                 font-family: @header-font-secondary;
 
                 &:last-of-type {
-                    padding: 25px 0 0;
+                    padding: 30px 0 0;
                     border-bottom: 0;
                 }
 
-                &:first-of-type {
-                    padding: 0 0 25px;
+                &:nth-of-type(2) {
+                    padding: 0 0 30px;
+                }
+
+                .twitter-avatar {
+                  width: 35px;
+                  height: 35px;
+                  margin-right: 10px;
+                  overflow: hidden;
+                  border-radius: 50%;
                 }
 
                 .tweet-link {
                     display: block;
-                    margin: 10px 0 8px;
+                    margin: 15px 0 0;
                     overflow: hidden;
                     color: #6baaf2;
                     font-family: @body-font-bold;
                     font-size: 0.86em;
                     font-weight: 600;
+                    line-height: 1;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                 }
 
                 .tweet-hastags {
+                    display: flex;
+                    flex-wrap: wrap;
                     width: 100%;
+                    margin: 15px 0 0;
 
                     .hashtag {
-                        display: inline-block;
-                        margin: 0 7px 4px 0;
-                        color: #89a0b7;
-                        font-size: 0.9em;
-                        font-weight: 500;
+                      display: inline-block;
+                      margin: 0 4px 6px 0;
+                      color: #89a0b7;
+                      font-family: @body-font;
+                      font-size: 0.8em;
+                      font-weight: 900;
+                      line-height: 1;
                     }
                 }
 
@@ -395,56 +408,56 @@
             .tweet-footer {
                 display: flex;
                 justify-content: left;
-                margin: 20px 0 0;
-              }
+                margin-top: 15px;
+            }
 
-                .meta-item {
-                    margin-right: 25px;
-                    color: #a4b4c6;
+            .meta-item {
+                margin-right: 25px;
+                color: #a4b4c6;
+                line-height: 1;
+
+                span {
+                    font-family: @body-font-bold;
+                    font-size: 0.8em;
                     line-height: 1;
-
-                    span {
-                        font-family: @body-font-bold;
-                        font-size: 0.8em;
-                        line-height: 1;
-                    }
-
-                    svg {
-                        margin-right: 4px;
-                        font-size: 1em;
-                    }
-
-                    &.retweets {
-                        display: flex;
-                        align-items: center;
-                        color: #59d39e;
-                    }
-
-                    &.tweets {
-                        display: flex;
-                        align-items: center;
-                        color: @twitter-color;
-                    }
-
-                    &.favorites {
-                        display: flex;
-                        align-items: center;
-                        color: #d8819c;
-                    }
-
-                    &.date {
-                        color: #a4b4c6;
-                        font-size: 0.8em;
-                        line-height: 1;
-                        white-space: nowrap;
-                    }
-
-                    &.followers {
-                        color: #7f93a9;
-                        line-height: 1;
-                        white-space: nowrap;
-                    }
                 }
+
+                svg {
+                    margin-right: 4px;
+                    font-size: 1em;
+                }
+
+                &.retweets {
+                    display: flex;
+                    align-items: center;
+                    color: #59d39e;
+                }
+
+                &.tweets {
+                    display: flex;
+                    align-items: center;
+                    color: @twitter-color;
+                }
+
+                &.favorites {
+                    display: flex;
+                    align-items: center;
+                    color: #d8819c;
+                }
+
+                &.date {
+                    color: #a4b4c6;
+                    font-size: 0.8em;
+                    line-height: 1;
+                    white-space: nowrap;
+                }
+
+                &.followers {
+                    color: #7f93a9;
+                    line-height: 1;
+                    white-space: nowrap;
+                }
+            }
 
             .twitter-profile-meta {
                 margin-top: 20px;
@@ -461,26 +474,98 @@
             }
 
             .twitter-follow-button {
-              display: block;
-              width: fit-content;
-              margin-top: 16px;
-              padding: 6px 8px;
-              border: 1px solid @twitter-color;
-              border-radius: 3px;
-              background: @twitter-color;
-              color: white;
-              font-size: .8em;
-              line-height: 1;
+                display: block;
+                width: fit-content;
+                margin-top: 16px;
+                padding: 6px 8px;
+                border: 1px solid @twitter-color;
+                border-radius: 3px;
+                background: @twitter-color;
+                color: white;
+                font-size: 0.8em;
+                line-height: 1;
 
-              &:hover {
-                background: white;
-                color: @twitter-color !important;
-                transition: @transition;
-              }
+                &:hover {
+                    background: white;
+                    color: @twitter-color !important;
+                    transition: @transition;
+                }
 
-              svg {
-                margin-right: 5px;
+                svg {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        &.github {
+            .github-avatar {
+                margin-right: 10px;
+                font-size: 2em;
+            }
+
+            .github-org-meta {
+              display: flex;
+              margin-bottom: 20px;
+
+              .meta-item {
+                font-family: @body-font-bold;
+                font-size: .8em;
+
+                svg {
+                  font-size: .8em;
+                }
               }
+            }
+
+            .repos {
+                .github-repo {
+                  display: block;
+                  padding: 20px 5px;
+                  border-bottom: 1px solid #dcdcdc;
+                  opacity: 0.9;
+
+                    &:hover {
+                      background: @hover-color;
+                      * {
+                        color: white !important;
+                      }
+                    }
+
+                    &:last-of-type {
+                      padding-bottom: 10px;
+                      border-bottom: 0;
+                    }
+
+                    &:first-of-type {
+                      padding-top: 15px
+                    }
+
+                    .repo-name {
+                        color: lighten(@body-color, 10%);
+                        font-family: @body-font-bold;
+                        font-size: 0.9em;
+                        line-height: 1;
+                    }
+
+                    .repo-description {
+                        margin: 10px 0;
+                        color: @body-color;
+                        font-family: @body-font;
+                        font-size: 0.8em;
+                        line-height: 1.2;
+                    }
+
+                    .repo-meta {
+                        display: flex;
+                        font-family: @body-font-bold;
+                        font-size: 0.7em;
+                        font-weight: 900;
+
+                        .repo-stargazers {
+                            color: #e29b39;
+                        }
+                    }
+                }
             }
         }
     }

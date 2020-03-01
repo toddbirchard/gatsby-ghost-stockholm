@@ -5,7 +5,8 @@ import { AboutWidget,
     SocialWidget,
     TagsWidget,
     TrendingWidget,
-    TwitterWidget } from '.'
+    TwitterWidget,
+    GithubWidget } from '.'
 import { AuthorTrendingWidget,
     AuthorTwitterWidget,
     AuthorWebsiteWidget } from './authors'
@@ -30,6 +31,7 @@ const Sidebar = ({ site, template, authorData }) => {
                 {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
                 {genericPages.includes(template) ? <TagsWidget /> : null }
                 {genericPages.includes(template) ? <NewsletterWidget /> : null }
+                {genericPages.includes(template) ? <GithubWidget /> : null }
                 {genericPages.includes(template) ? <TwitterWidget /> : null }
                 {authorTwitter && <AuthorTwitterWidget data={authorTwitter} />}
             </aside>

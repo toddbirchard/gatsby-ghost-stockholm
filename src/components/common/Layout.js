@@ -31,7 +31,12 @@ import { faTags,
     faUserPlus,
     faIndent,
     faBooks,
-    faUserFriends } from '@fortawesome/pro-duotone-svg-icons'
+    faUserFriends,
+    faStar,
+    faCodeBranch,
+    faBracketsCurly,
+    faProjectDiagram,
+    faUsers } from '@fortawesome/pro-duotone-svg-icons'
 
 // Styles
 import '../../styles/app.less'
@@ -62,7 +67,12 @@ library.add(faTags,
     faUserPlus,
     faIndent,
     faBooks,
-    faUserFriends)
+    faUserFriends,
+    faStar,
+    faCodeBranch,
+    faBracketsCurly,
+    faProjectDiagram,
+    faUsers)
 
 /**
 * Main layout component

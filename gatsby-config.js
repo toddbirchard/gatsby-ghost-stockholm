@@ -96,16 +96,6 @@ module.exports = {
                             count: 6,
                         },
                     },
-                    AuthorToddTweets: {
-                        endpoint: `statuses/user_timeline`,
-                        params: {
-                            screen_name: `toddrbirchard`,
-                            include_rts: true,
-                            exclude_replies: true,
-                            tweet_mode: `extended`,
-                            count: 6,
-                        },
-                    },
                     AuthorTwitterProfiles: {
                         endpoint: `lists/members`,
                         params: {
@@ -113,7 +103,7 @@ module.exports = {
                             include_rts: true,
                             exclude_replies: true,
                             tweet_mode: `extended`,
-                            count: 3,
+                            count: 20,
                         },
                     },
                 },
@@ -148,17 +138,91 @@ module.exports = {
                 ],
             },
         },
-        /* {
+        {
             resolve: `gatsby-source-github`,
             options: {
                 headers: {
                     Authorization: process.env.GITHUB_ACCESS_TOKEN,
                 },
                 queries: [
+                    `{
+  organization(login: "hackersandslackers") {
+    name
+    description
+    login
+    url
+    avatarUrl(size: 35)
+    itemShowcase {
+      items(first: 3) {
+        edges {
+          node {
+            ... on Repository {
+              id
+              name
+              description
+              url
+              forkCount
+              primaryLanguage {
+                color
+                name
+              }
+              stargazers {
+                totalCount
+              }
+            }
+          }
+        }
+      }
+    }
+    repositories {
+      totalCount
+    }
+    membersWithRole(first: 20) {
+      totalCount
+      nodes {
+        bio
+        avatarUrl
+        login
+        name
+        company
+        followers {
+          totalCount
+        }
+        following {
+          totalCount
+        }
+        repositories(orderBy: {field: STARGAZERS, direction: DESC}, first: 5, privacy: PUBLIC) {
+          edges {
+            node {
+              name
+              description
+              url
+              forks {
+                totalCount
+              }
+              stargazers {
+                totalCount
+              }
+              watchers {
+                totalCount
+              }
+              primaryLanguage {
+                name
+                color
+              }
+            }
+          }
+          totalCount
+        }
+      }
+    }
+  }
+}
 
+              `,
                 ],
             },
-        }, */
+        },
         /**
          *  Transformer Plugins
          */
