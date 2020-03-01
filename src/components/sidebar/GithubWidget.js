@@ -17,13 +17,12 @@ const GithubWidget = ({ data }) => {
                 <div className="github-header">
                     <FontAwesomeIcon icon={[`fab`, `github`]} size="s" className="github-avatar" />
                     <div className="profile-details">
-                        <a href={githubOrg.url} className="github-name" target="_blank" rel="noopener noreferrer">{githubOrg.name}</a>
-                        <a href={githubOrg.url} className="github-user" rel="nofollow noreferrer">{`@${githubOrg.login}`}</a>
+                        <a href={githubOrg.url} className="github-name" target="_blank" rel="noopener noreferrer">{`@${githubOrg.login}`}</a>
+                        <div className="github-org-meta">
+                            <div className="meta-item"><FontAwesomeIcon icon={[`fad`, `users`]} size="xs" /> {githubOrg.membersWithRole.totalCount} Members</div>
+                            <div className="meta-item"><FontAwesomeIcon icon={[`fad`, `project-diagram`]} size="xs" /> {githubOrg.repositories.totalCount} Repos</div>
+                        </div>
                     </div>
-                </div>
-                <div className="github-org-meta">
-                    <div className="meta-item"><FontAwesomeIcon icon={[`fad`, `users`]} size="xs" /> {githubOrg.membersWithRole.totalCount} Members</div>
-                    <div className="meta-item"><FontAwesomeIcon icon={[`fad`, `project-diagram`]} size="xs" /> {githubOrg.repositories.totalCount} Repos</div>
                 </div>
                 <div className="repos">
                     {githubRepos.map(({ node }) => (

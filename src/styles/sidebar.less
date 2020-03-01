@@ -280,6 +280,19 @@
             padding: 25px;
             overflow: hidden;
 
+            .twitter-followers {
+              display: flex;
+              align-items: center;
+              margin-top: 5px;
+                font-family: @body-font-bold;
+                font-size: .8em;
+                white-space: nowrap;
+
+                svg {
+                  font-size: .8em;
+                }
+            }
+
             .retweeted-header {
                 margin: 0 0 10px;
                 color: #8b9db7;
@@ -309,8 +322,8 @@
                 margin: 0 0 20px;
 
                 .twitter-logo {
-                    width: 35px !important;
-                    height: 35px !important;
+                    width: 30px !important;
+                    height: 30px !important;
                     margin-right: 10px;
                 }
 
@@ -412,7 +425,7 @@
             }
 
             .meta-item {
-                margin-right: 25px;
+                margin-right: 20px;
                 color: #a4b4c6;
                 line-height: 1;
 
@@ -505,11 +518,12 @@
 
             .github-org-meta {
               display: flex;
-              margin-bottom: 20px;
+              margin-top: 5px;
 
               .meta-item {
                 font-family: @body-font-bold;
                 font-size: .8em;
+                white-space: nowrap;
 
                 svg {
                   font-size: .8em;

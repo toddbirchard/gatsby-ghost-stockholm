@@ -15,8 +15,8 @@ const TwitterWidget = ({ data }) => {
                         <FontAwesomeIcon icon={[`fab`, `twitter`]} size="s" className="twitter-logo" />
                         <div className="profile-details">
                             <div className="profile-details">
-                                <a href={twitterProfile.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{twitterProfile.name}</a>
-                                <a href={twitterProfile.url} className="twitter-user" rel="nofollow noreferrer">{`@${twitterProfile.screen_name}`}</a>
+                                <a href={twitterProfile.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{`@${twitterProfile.screen_name}`}</a>
+                                <div className="twitter-followers meta-item"><FontAwesomeIcon icon={[`fad`, `users`]} size="xs" /> {twitterProfile.followers_count} Followers</div>
                             </div>
                         </div>
                     </div>
@@ -167,6 +167,7 @@ const TwitterQuery = props => (
                 screen_name
                 profile_image_url_https
                 name
+                followers_count
               }
             }
           }`
