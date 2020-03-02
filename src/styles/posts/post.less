@@ -18,7 +18,7 @@
                 padding: 0;
             }
             @media (max-width: @mobile-breakpoint) {
-                padding: 0 20px;
+                padding: 0 25px;
             }
 
             .post-title {
@@ -44,9 +44,7 @@
                     margin: 40px auto 0;
                     font-family: @header-font;
                     font-size: 1.6em;
-                }
-                @media (max-width: 450px) {
-                    font-size: 1.5em;
+                    text-align: left;
                 }
             }
         }
@@ -85,6 +83,7 @@
             @media (max-width: @mobile-breakpoint) {
                 flex-wrap: wrap;
                 align-items: center;
+                justify-content: left;
                 width: auto;
                 max-width: none;
                 margin: 15px 0 6px;
@@ -412,6 +411,7 @@
                     border-radius: 3px;
                     background: #ffe5cb;
                     color: #8b572b;
+                    font-size: .8em;
                     @media (max-width: @mobile-breakpoint) {
                         min-width: 100% !important;
                     }
