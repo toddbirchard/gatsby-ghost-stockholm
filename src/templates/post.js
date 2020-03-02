@@ -48,7 +48,7 @@ const Post = ({ data, location }) => {
               </div>
               {tags && <div className="meta-item tag">
                 <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity />
-                <Tags post={post} limit={1} visibility="public" autolink={true} separator={null} permalink="/tag/:slug" classes={tags.ghostId}/>
+                <Tags post={post} limit={1} visibility="public" autolink={true} separator="" permalink="/tag/:slug" classes={tags.ghostId}/>
               </div>}
               <div className="meta-item reading-time">
                 <FontAwesomeIcon icon={[`fad`, `eye`]} size="xs" swapOpacity />
@@ -102,7 +102,7 @@ Post.propTypes = {
       codeinjection_styles: PropTypes.string,
     }).isRequired,
     ghostAuthor: PropTypes.object.isRequired,
-    relatedPosts: PropTypes.object.isRequired,
+    relatedPosts: PropTypes.objectOf(PropTypes.array),
     seriesPosts: PropTypes.object,
   }).isRequired,
   location: PropTypes.object.isRequired,
@@ -130,7 +130,7 @@ query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: Str
     relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {in: $tags}}, slug: {ne: $slug}}) {
       edges {
         node {
-          ghostId
+          id
           feature_image
           title
           slug
