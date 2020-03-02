@@ -52,23 +52,23 @@ const allPostQuery = `{
 }`
 
 const flatten = arr => arr.map(({ node: { frontmatter, ...rest } }) => {
-    return {
-        ...frontmatter,
-        ...rest,
-    }
+  return {
+    ...frontmatter,
+    ...rest,
+  }
 })
 
 const queries = [
-    {
-        query: postQuery,
-        transformer: ({ data }) => flatten(data.posts.edges), // optional
-        indexName: `hackers_posts`,
-    },
-    {
-        query: allPostQuery,
-        transformer: ({ data }) => flatten(data.posts.edges), // optional
-        indexName: `hackers_posts_all`,
-    },
+  {
+    query: postQuery,
+    transformer: ({ data }) => flatten(data.posts.edges), // optional
+    indexName: `hackers_posts`,
+  },
+  {
+    query: allPostQuery,
+    transformer: ({ data }) => flatten(data.posts.edges), // optional
+    indexName: `hackers_posts_all`,
+  },
 ]
 
 module.exports = queries

@@ -4,29 +4,29 @@ import { StaticQuery, graphql } from 'gatsby'
 import { AuthorCard } from './'
 
 const AuthorCards = ({ allAuthors }) => {
-    const authors = allAuthors.allGhostAuthor.edges
+  const authors = allAuthors.allGhostAuthor.edges
 
-    return (
-        <>
-            <div className="author-card-list">
-                <h2 className="author-list-title">Authors</h2>
-                {authors.map(({ node }) => (
-                    <AuthorCard author={node} key={node.id} page={`about`} />
-                ))}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div className="author-card-list">
+        <h2 className="author-list-title">Authors</h2>
+        {authors.map(({ node }) => (
+          <AuthorCard author={node} key={node.id} page={`about`} />
+        ))}
+      </div>
+    </>
+  )
 }
 
 AuthorCards.propTypes = {
-    allAuthors: PropTypes.shape({
-        allGhostAuthor: PropTypes.object.isRequired,
-    }).isRequired,
+  allAuthors: PropTypes.shape({
+    allGhostAuthor: PropTypes.object.isRequired,
+  }).isRequired,
 }
 
 const AuthorCardsQuery = props => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
           query AuthorCardsQuery {
             allGhostAuthor {
               edges {
@@ -46,8 +46,8 @@ const AuthorCardsQuery = props => (
             }
           }
         `}
-        render={data => <AuthorCards allAuthors={data} {...props} />}
-    />
+    render={data => <AuthorCards allAuthors={data} {...props} />}
+  />
 )
 
 export default AuthorCardsQuery

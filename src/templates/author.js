@@ -15,111 +15,111 @@ import '../styles/pages/page.less'
 *
 */
 const Author = ({ data, location, pageContext }) => {
-    const author = data.ghostAuthor
-    const posts = data.allGhostPost.edges
-    const authorData = data
-    const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
-    // const authorTweets = data.authorTweets.edges
-    // const authorTwitterUser = data.authorTwitterProfile.user
+  const author = data.ghostAuthor
+  const posts = data.allGhostPost.edges
+  const authorData = data
+  const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
+  // const authorTweets = data.authorTweets.edges
+  // const authorTwitterUser = data.authorTwitterProfile.user
 
-    return (
-        <>
-            <MetaData
-                data={data}
-                title={`${author.name}'s posts (page ${pageCount})`}
-                description={author.bio}
-                location={location}
-                type="profile"
-            />
-            <Layout template="author-template" hasSidebar={true} authorData={authorData}>
-                <div className="author-container">
-                    <AuthorCard author={author} page={`author`} template={`author-template`} pageContext={pageContext}/>
-                    <section className="post-feed">
-                        {posts.map(({ node }) => (
-                            <PostCard key={node.id} post={node} />
-                        ))}
-                        <Pagination pageContext={pageContext} />
-                    </section>
-                </div>
-            </Layout>
-        </>
-    )
+  return (
+    <>
+      <MetaData
+        data={data}
+        title={`${author.name}'s posts (page ${pageCount})`}
+        description={author.bio}
+        location={location}
+        type="profile"
+      />
+      <Layout template="author-template" hasSidebar={true} authorData={authorData}>
+        <div className="author-container">
+          <AuthorCard author={author} page={`author`} template={`author-template`} pageContext={pageContext}/>
+          <section className="post-feed">
+            {posts.map(({ node }) => (
+              <PostCard key={node.id} post={node} />
+            ))}
+            <Pagination pageContext={pageContext} />
+          </section>
+        </div>
+      </Layout>
+    </>
+  )
 }
 
 Author.propTypes = {
-    data: PropTypes.shape({
-        ghostAuthor: PropTypes.shape({
+  data: PropTypes.shape({
+    ghostAuthor: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      cover_image: PropTypes.string,
+      profile_image: PropTypes.string,
+      website: PropTypes.string,
+      bio: PropTypes.string,
+      location: PropTypes.string,
+      facebook: PropTypes.string,
+      twitter: PropTypes.string,
+      postCount: PropTypes.number.isRequired,
+    }),
+    allGhostPost: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        slug: PropTypes.string.isRequired,
+        primary_author: PropTypes.object.isRequired,
+        html: PropTypes.string.isRequired,
+        feature_image: PropTypes.string,
+        tags: PropTypes.arrayOf(
+          PropTypes.shape({
             name: PropTypes.string.isRequired,
-            cover_image: PropTypes.string,
-            profile_image: PropTypes.string,
-            website: PropTypes.string,
-            bio: PropTypes.string,
-            location: PropTypes.string,
-            facebook: PropTypes.string,
-            twitter: PropTypes.string,
-            postCount: PropTypes.number.isRequired,
-        }),
-        allGhostPost: PropTypes.arrayOf(
-            PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                slug: PropTypes.string.isRequired,
-                primary_author: PropTypes.object.isRequired,
-                html: PropTypes.string.isRequired,
-                feature_image: PropTypes.string,
-                tags: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        name: PropTypes.string.isRequired,
-                        slug: PropTypes.string.isRequired,
-                    })
-                ).isRequired,
-                published_at_pretty: PropTypes.string,
-            }).isRequired,
-        ),
-        authorTweets: PropTypes.shape({
-            full_text: PropTypes.string,
-            favorite_count: PropTypes.number,
-            retweet_count: PropTypes.number,
-            created_at: PropTypes.string,
-            id: PropTypes.string,
-            user: PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                url: PropTypes.string.isRequired,
-                profile_image_url: PropTypes.string.isRequired,
-                screen_name: PropTypes.string.isRequired,
-            }),
-            entities: PropTypes.shape({
-                urls: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        url: PropTypes.string,
-                    }),
-                ),
-                hashtags: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        text: PropTypes.string,
-                    }),
-                ),
-            }),
-        }).isRequired,
-        authorTwitterProfile: PropTypes.shape({
-            screen_name: PropTypes.string,
-            name: PropTypes.string,
-            description: PropTypes.string,
-            followers_count: PropTypes.string,
-            profile_image_url_https: PropTypes.string,
-            statuses_count: PropTypes.string,
-            favourites_count: PropTypes.string,
-        }),
-        authorTrendingPosts: PropTypes.shape({
-            title: PropTypes.string,
+            slug: PropTypes.string.isRequired,
+          })
+        ).isRequired,
+        published_at_pretty: PropTypes.string,
+      }).isRequired,
+    ),
+    authorTweets: PropTypes.shape({
+      full_text: PropTypes.string,
+      favorite_count: PropTypes.number,
+      retweet_count: PropTypes.number,
+      created_at: PropTypes.string,
+      id: PropTypes.string,
+      user: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        profile_image_url: PropTypes.string.isRequired,
+        screen_name: PropTypes.string.isRequired,
+      }),
+      entities: PropTypes.shape({
+        urls: PropTypes.arrayOf(
+          PropTypes.shape({
             url: PropTypes.string,
-            views: PropTypes.number,
-        }),
-        authorPocket: PropTypes.object,
+          }),
+        ),
+        hashtags: PropTypes.arrayOf(
+          PropTypes.shape({
+            text: PropTypes.string,
+          }),
+        ),
+      }),
     }).isRequired,
-    location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-    }).isRequired,
-    pageContext: PropTypes.object,
+    authorTwitterProfile: PropTypes.shape({
+      screen_name: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      followers_count: PropTypes.string,
+      profile_image_url_https: PropTypes.string,
+      statuses_count: PropTypes.string,
+      favourites_count: PropTypes.string,
+    }),
+    authorTrendingPosts: PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+      views: PropTypes.number,
+    }),
+    authorPocket: PropTypes.object,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  pageContext: PropTypes.object,
 }
 
 export default Author

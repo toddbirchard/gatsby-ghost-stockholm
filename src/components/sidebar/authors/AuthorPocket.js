@@ -4,32 +4,32 @@ import { StaticQuery, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const AuthorPocket = ({ data }) => {
-    const pocketLinks = data.allPocketArticle.edges
+  const pocketLinks = data.allPocketArticle.edges
 
-    return (
-        <div className="widget pocket">
-            <div className="widget-header">
-                <div className="label pocket"><FontAwesomeIcon icon={[`fab`, `get-pocket`]} size="xs" /> <span>Recommended Reads</span></div>
-            </div>
-            <div className="widget-content">
-                {pocketLinks.map(({ node }) => (
-                    <a href={node.url} className="link" key={ node.id } target="_blank" rel="noopener noreferrer">
-                        {node.domainFavicon && <img className="favicon lazyload" data-src={node.domainFavicon} alt={node.title} />} {node.title}</a>
-                ))}
-            </div>
-        </div>
-    )
+  return (
+    <div className="widget pocket">
+      <div className="widget-header">
+        <div className="label pocket"><FontAwesomeIcon icon={[`fab`, `get-pocket`]} size="xs" /> <span>Recommended Reads</span></div>
+      </div>
+      <div className="widget-content">
+        {pocketLinks.map(({ node }) => (
+          <a href={node.url} className="link" key={ node.id } target="_blank" rel="noopener noreferrer">
+            {node.domainFavicon && <img className="favicon lazyload" data-src={node.domainFavicon} alt={node.title} />} {node.title}</a>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 AuthorPocket.propTypes = {
-    data: PropTypes.shape({
-        allPocketArticle: PropTypes.object,
-    }).isRequired,
+  data: PropTypes.shape({
+    allPocketArticle: PropTypes.object,
+  }).isRequired,
 }
 
 const AuthorPocketQuery = props => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
           query AuthorPocketQuery {
             allPocketArticle(sort: {fields: readDay, order: DESC}, filter: {title: {nin: [null, ""]}}) {
               edges {
@@ -49,8 +49,8 @@ const AuthorPocketQuery = props => (
             }
           }
         `}
-        render={data => <AuthorPocket data={data} {...props} />}
-    />
+    render={data => <AuthorPocket data={data} {...props} />}
+  />
 )
 
 export default AuthorPocketQuery

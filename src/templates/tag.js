@@ -15,65 +15,65 @@ import '../styles/pages/tag.less'
 *
 */
 const Tag = ({ data, location, pageContext }) => {
-    const tag = data.ghostTag
-    const posts = data.allGhostPost.edges
-    const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
+  const tag = data.ghostTag
+  const posts = data.allGhostPost.edges
+  const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
 
-    return (
-        <>
-            <MetaData
-                data={data}
-                location={location}
-                type="website"
-            />
-            <Layout template="tag-template" hasSidebar={true}>
-                <section className="post-feed">
-                    <header className="tag-header info-card">
-                        <div className="tag-title">
-                            <FontAwesomeIcon icon={[`fad`, `tags`]} size="sm" swapOpacity />
-                            <h1>{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
-                        </div>
-                        {tag.description ? <p className="tag-description">{tag.description}</p> : null }
-                    </header>
-                    {posts.map(({ node }) => (
-                        // The tag below includes the markup for each post - components/common/PostCard.js
-                        <PostCard key={node.id} post={node} />
-                    ))}
-                    <Pagination pageContext={pageContext} />
-                </section>
-            </Layout>
-        </>
-    )
+  return (
+    <>
+      <MetaData
+        data={data}
+        location={location}
+        type="website"
+      />
+      <Layout template="tag-template" hasSidebar={true}>
+        <section className="post-feed">
+          <header className="tag-header info-card">
+            <div className="tag-title">
+              <FontAwesomeIcon icon={[`fad`, `tags`]} size="sm" swapOpacity />
+              <h1>{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
+            </div>
+            {tag.description ? <p className="tag-description">{tag.description}</p> : null }
+          </header>
+          {posts.map(({ node }) => (
+            // The tag below includes the markup for each post - components/common/PostCard.js
+            <PostCard key={node.id} post={node} />
+          ))}
+          <Pagination pageContext={pageContext} />
+        </section>
+      </Layout>
+    </>
+  )
 }
 
 Tag.propTypes = {
-    data: PropTypes.shape({
-        ghostTag: PropTypes.shape({
+  data: PropTypes.shape({
+    ghostTag: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string,
+    }),
+    allGhostPost: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        slug: PropTypes.string.isRequired,
+        primary_author: PropTypes.object.isRequired,
+        html: PropTypes.string.isRequired,
+        feature_image: PropTypes.string,
+        tags: PropTypes.arrayOf(
+          PropTypes.shape({
             name: PropTypes.string.isRequired,
-            description: PropTypes.string,
-        }),
-        allGhostPost: PropTypes.arrayOf(
-            PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                slug: PropTypes.string.isRequired,
-                primary_author: PropTypes.object.isRequired,
-                html: PropTypes.string.isRequired,
-                feature_image: PropTypes.string,
-                tags: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        name: PropTypes.string.isRequired,
-                        slug: PropTypes.string.isRequired,
-                    })
-                ).isRequired,
-                published_at_pretty: PropTypes.string,
-            }).isRequired,
-        ),
-    }).isRequired,
-    location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-    }).isRequired,
-    pageContext: PropTypes.object,
-    icon: PropTypes.string,
+            slug: PropTypes.string.isRequired,
+          })
+        ).isRequired,
+        published_at_pretty: PropTypes.string,
+      }).isRequired,
+    ),
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  pageContext: PropTypes.object,
+  icon: PropTypes.string,
 }
 
 export default Tag

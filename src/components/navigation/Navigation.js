@@ -17,35 +17,35 @@ import HamburgerMenu from './HamburgerMenu'
 */
 
 const Navigation = ({ data, smallLogo, fullLogo, template }) => (
-    <>
-        <nav className="navigation">
-            <div className="nav-wrapper">
-                <div className="nav-left">
-                    <Link to="/" className="logo"><img className="lazyload" data-src={smallLogo} alt="logo" /></Link>
-                    <Link to="/" className="mobile-logo"><img className="lazyload" data-src={fullLogo} alt="logo" /></Link>
-                    <div className="nav-links">
-                        <NavLinks navigation={data} />
-                    </div>
-                </div>
-                {template !== `search-template` ? <div className="nav-right">
-                    <Search collapse className="search-widget" />
-                </div> : null }
-                <HamburgerMenu />
-            </div>
-        </nav>
-    </>
+  <>
+    <nav className="navigation">
+      <div className="nav-wrapper">
+        <div className="nav-left">
+          <Link to="/" className="logo"><img className="lazyload" data-src={smallLogo} alt="logo" /></Link>
+          <Link to="/" className="mobile-logo"><img className="lazyload" data-src={fullLogo} alt="logo" /></Link>
+          <div className="nav-links">
+            <NavLinks navigation={data} />
+          </div>
+        </div>
+        {template !== `search-template` ? <div className="nav-right">
+          <Search collapse className="search-widget" />
+        </div> : null }
+        <HamburgerMenu />
+      </div>
+    </nav>
+  </>
 )
 
 Navigation.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-        }).isRequired,
-    ).isRequired,
-    smallLogo: PropTypes.string,
-    fullLogo: PropTypes.string,
-    template: PropTypes.string,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  smallLogo: PropTypes.string,
+  fullLogo: PropTypes.string,
+  template: PropTypes.string,
 }
 
 export default Navigation

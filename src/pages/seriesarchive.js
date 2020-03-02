@@ -14,48 +14,48 @@ import '../styles/pages/page.less'
 *
 */
 const SeriesArchive = ({ data, location }) => {
-    const tags = data.allGhostTag.edges
-    const page = data.ghostPage
+  const tags = data.allGhostTag.edges
+  const page = data.ghostPage
 
-    return (
-        <>
-            <MetaData
-                data={data}
-                location={location}
-                title={page.metaTitle}
-                description={page.metaDescription}
-                type="series"
-            />
-            <Layout template="seriesarchive-template page-template" hasSidebar={true}>
-                <div className="page-content post-content">
-                    <h1>{page.title}</h1>
-                    <p>{page.plaintext}</p>
-                    <div className="series-grid">
-                        {tags.map(({ node }) => (
-                            <Link to={`/series/${node.slug}`} className="series-card" key={node.id}>
-                                {node.feature_image &&
+  return (
+    <>
+      <MetaData
+        data={data}
+        location={location}
+        title={page.metaTitle}
+        description={page.metaDescription}
+        type="series"
+      />
+      <Layout template="seriesarchive-template page-template" hasSidebar={true}>
+        <div className="page-content post-content">
+          <h1>{page.title}</h1>
+          <p>{page.plaintext}</p>
+          <div className="series-grid">
+            {tags.map(({ node }) => (
+              <Link to={`/series/${node.slug}`} className="series-card" key={node.id}>
+                {node.feature_image &&
                                   <div className="series-card-image" style={{ backgroundImage: `url(${node.feature_image})` }}> </div>
-                                }
-                                <div className="series-card-info">
-                                    <h2 className="series-card-title">{node.name.replace(`#`, ``)}</h2>
-                                    <p className="series-card-description">{node.description}</p>
-                                    <span className="series-card-count">{node.postCount} Posts</span>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
+                }
+                <div className="series-card-info">
+                  <h2 className="series-card-title">{node.name.replace(`#`, ``)}</h2>
+                  <p className="series-card-description">{node.description}</p>
+                  <span className="series-card-count">{node.postCount} Posts</span>
                 </div>
-            </Layout>
-        </>
-    )
+              </Link>
+            ))}
+          </div>
+        </div>
+      </Layout>
+    </>
+  )
 }
 
 SeriesArchive.propTypes = {
-    data: PropTypes.shape({
-        allGhostTag: PropTypes.object.isRequired,
-        ghostPage: PropTypes.object.isRequired,
-    }).isRequired,
-    location: PropTypes.object,
+  data: PropTypes.shape({
+    allGhostTag: PropTypes.object.isRequired,
+    ghostPage: PropTypes.object.isRequired,
+  }).isRequired,
+  location: PropTypes.object,
 }
 
 export default SeriesArchive
