@@ -151,7 +151,7 @@
 
                 &.tag {
                     @media (max-width: @mobile-breakpoint) {
-                        margin: 7px 25px 7px;
+                        margin: 7px 25px;
                     }
                 }
 
@@ -325,9 +325,7 @@
                 font-size: 0.8em;
                 white-space: nowrap;
             }
-
             /*   Start of Protip box */
-
             .protip {
                 position: relative;
                 margin: 40px auto;
@@ -344,8 +342,8 @@
                     line-height: 1.6;
                 }
 
-                strong,
-                p {
+                p,
+                strong {
                     color: #7e6446;
                 }
 
@@ -376,9 +374,6 @@
                     line-height: 1;
                     text-rendering: auto;
                     content: "Protip";
-                    @media (max-width: @mobile-breakpoint) {
-                        padding: 5px 12px;
-                    }
                 }
 
                 ol,
@@ -400,7 +395,7 @@
                     border-radius: 3px;
                     background: #f9e3d1;
                     color: #86674e;
-                    font-family: 'dm', sans-serif;
+                    font-family: @monospace-font;
                     font-size: 0.85em;
                     text-shadow: unset;
                     white-space: normal;
@@ -408,13 +403,13 @@
 
                 pre {
                     margin: 15px auto 10px !important;
-                    padding: 12px 19px;
+                    padding: 15px;
+                    border: 1px solid #ecd8c6;
                     border-radius: 3px;
-                    background: #ffe5cb;
+                    background: #f9e9db;
                     color: #8b572b;
-                    @media (max-width: @mobile-breakpoint) {
-                        min-width: 100% !important;
-                    }
+                    font-family: @monospace-font;
+                    font-size: 0.85em;
 
                     code {
                         white-space: normal;
@@ -446,7 +441,7 @@
                 border-left: 0.4em solid #dddddd;
                 background: #f4f4f4;
                 color: #6d787f;
-                font-size: .95em;
+                font-size: 0.95em;
                 font-weight: 600;
                 line-height: 1.5;
                 @media (max-width: @mobile-breakpoint) {
@@ -492,7 +487,7 @@
                 width: 80%;
                 margin: 25px 0 20px auto;
                 color: #a6a6a6;
-                font-size: .85em;
+                font-size: 0.85em;
                 font-style: italic;
                 line-height: 1.4;
                 text-align: right;
