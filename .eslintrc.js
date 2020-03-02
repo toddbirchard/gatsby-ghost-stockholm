@@ -30,6 +30,7 @@ module.exports = {
         "ghost/sort-imports-es6-autofix/sort-imports-es6": "off",
         "ghost/ember/use-ember-get-and-set": "off",
         "no-console": "off",
+        "indent": ["error", 2],
         "no-inner-declarations": "off",
         "valid-jsdoc": "off",
         "require-jsdoc": "off",

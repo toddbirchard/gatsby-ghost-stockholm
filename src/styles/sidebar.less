@@ -546,12 +546,17 @@
 
             .github-org-meta {
                 display: flex;
+                flex-wrap: wrap;
                 margin-top: 5px;
 
                 .meta-item {
                     font-family: @body-font-bold;
                     font-size: 0.8em;
                     white-space: nowrap;
+
+                    &:last-of-type {
+                      margin-right: 0;
+                    }
 
                     svg {
                         font-size: 0.8em;
@@ -603,6 +608,7 @@
                         font-family: @body-font-bold;
                         font-size: 0.8em;
                         font-weight: 900;
+                        white-space: nowrap;
 
                         .repo-stargazers {
                             color: #e29b39;
