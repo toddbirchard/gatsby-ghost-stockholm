@@ -16,12 +16,12 @@ module.exports = {
   introVideo: `https://vimeo.com/265866802`, // OPTIONAL: Video URL to be used in "about" page
 
   social: {
-    twitterProfile: `https://twitter.com/hackersslackers/`,
-    githubProfile: `https://github.com/hackersandslackers`,
-    linkedinProfile: `https://www.linkedin.com/company/hackers-and-slackers/`,
-    angellistProfile: `https://angel.co/company/hackers-and-slackers/`,
-    mediumProfile: `https://hackingandslacking.com`,
-    feedlyProfile: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
+    twitter: `https://twitter.com/hackersslackers/`,
+    github: `https://github.com/hackersandslackers`,
+    linkedin: `https://www.linkedin.com/company/hackers-and-slackers/`,
+    angellist: `https://angel.co/company/hackers-and-slackers/`,
+    medium: `https://hackingandslacking.com`,
+    feedly: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
   },
 
   id: {
