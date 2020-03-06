@@ -9,46 +9,46 @@ import ImageMeta from './ImageMeta'
 import config from '../../../utils/siteConfig'
 
 const WebsiteMeta = ({ data, settings, canonical, title, description, image, type }) => {
-    settings = settings.ghostSettings
+  settings = settings.ghostSettings
 
-    const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
-    let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
+  const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
+  let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
 
-    shareImage = shareImage ? url.resolve(config.siteUrl, shareImage) : null
+  shareImage = shareImage ? url.resolve(config.siteUrl, shareImage) : null
 
-    description = description || data.meta_description || data.description || config.siteDescriptionMeta || settings.description
-    title = `${title || data.meta_title || data.name || data.title} - ${settings.title}`
+  description = description || data.meta_description || data.description || config.siteDescriptionMeta || settings.description
+  title = `${title || data.meta_title || data.name || data.title} - ${settings.title}`
 
-    return (
-        <>
-            <Helmet>
-                <title>{title}</title>
-                <meta name="description" content={description} />
-                <link rel="canonical" to={canonical} />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
-                <meta property="og:site_name" content={settings.title} />
-                <meta property="og:type" content="website" />
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-                <meta property="og:url" content={canonical} />
-                { config.id.facebookPageID && <meta property="fb:page_id" content={config.id.facebookPageID} /> }
-                { config.id.facebookAppID && <meta property="fb:app_id" content={config.id.facebookAppID} /> }
-                <meta name="twitter:title" content={title} />
-                <meta name="twitter:description" content={description} />
-                <meta name="twitter:url" content={canonical} />
-                { settings.twitter && <meta name="twitter:site" content={settings.twitter} />}
-                { config.creator.twitter && <meta name="twitter:creator" content={config.creator.twitter} /> }
-                { config.id.googleVerificationID && <meta name="google-site-verification" content={config.id.googleVerificationID} /> }
-                <link rel="icon" type="image/png" sizes="72x72" href="images/icons/icon-72x72.png" />
-                <link rel="icon" type="image/png" sizes="96x96" href="images/icons/icon-96x96.png" />
-                <link rel="icon" type="image/png" sizes="128x128" href="images/icons/icon-128x128.png" />
-                <link rel="icon" type="image/png" sizes="144x144" href="images/icons/icon-144x144.png" />
-                <link rel="icon" type="image/png" sizes="152x152" href="images/icons/icon-152x152.png" />
-                <link rel="icon" type="image/png" sizes="192x192" href="images/icons/icon-192x192.png" />
-                <link rel="icon" type="image/png" sizes="384x384" href="images/icons/icon-384x384.png" />
-                <link rel="icon" type="image/png" sizes="512x512" href="images/icons/icon-512x512.png" />
-                <link rel="manifest" href="/manifest.json" />
-                <script type="application/ld+json">{`
+  return (
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" to={canonical} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
+        <meta property="og:site_name" content={settings.title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        { config.id.facebookPageID && <meta property="fb:page_id" content={config.id.facebookPageID} /> }
+        { config.id.facebookAppID && <meta property="fb:app_id" content={config.id.facebookAppID} /> }
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:url" content={canonical} />
+        { settings.twitter && <meta name="twitter:site" content={settings.twitter} />}
+        { config.creator.twitter && <meta name="twitter:creator" content={config.creator.twitter} /> }
+        { config.id.googleVerificationID && <meta name="google-site-verification" content={config.id.googleVerificationID} /> }
+        <link rel="icon" type="image/png" sizes="72x72" href="images/icons/icon-72x72.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="images/icons/icon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="128x128" href="images/icons/icon-128x128.png" />
+        <link rel="icon" type="image/png" sizes="144x144" href="images/icons/icon-144x144.png" />
+        <link rel="icon" type="image/png" sizes="152x152" href="images/icons/icon-152x152.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="images/icons/icon-192x192.png" />
+        <link rel="icon" type="image/png" sizes="384x384" href="images/icons/icon-384x384.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="images/icons/icon-512x512.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <script type="application/ld+json">{`
                     {
                         "@context": "https://schema.org/",
                         "@type": "${type}",
@@ -76,48 +76,48 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
                         "description": "${description}"
                     }
                 `}</script>
-            </Helmet>
-            <ImageMeta image={shareImage} />
-        </>
-    )
+      </Helmet>
+      <ImageMeta image={shareImage} />
+    </>
+  )
 }
 
 WebsiteMeta.propTypes = {
-    data: PropTypes.shape({
-        title: PropTypes.string,
-        feature_image: PropTypes.string,
-        description: PropTypes.string,
-        bio: PropTypes.string,
-        profile_image: PropTypes.string,
-        meta_description: PropTypes.string,
-        name: PropTypes.string,
-        meta_title: PropTypes.string,
-    }).isRequired,
-    settings: PropTypes.shape({
-        ghostSettings: PropTypes.object.isRequired,
-        twitter: PropTypes.object,
-        title: PropTypes.string,
-        logo: PropTypes.string,
-        description: PropTypes.string,
-    }).isRequired,
-    canonical: PropTypes.string.isRequired,
+  data: PropTypes.shape({
     title: PropTypes.string,
+    feature_image: PropTypes.string,
     description: PropTypes.string,
-    image: PropTypes.string,
-    type: PropTypes.oneOf([`WebSite`, `Series`]).isRequired,
+    bio: PropTypes.string,
+    profile_image: PropTypes.string,
+    meta_description: PropTypes.string,
+    name: PropTypes.string,
+    meta_title: PropTypes.string,
+  }).isRequired,
+  settings: PropTypes.shape({
+    ghostSettings: PropTypes.object.isRequired,
+    twitter: PropTypes.object,
+    title: PropTypes.string,
+    logo: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
+  canonical: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  type: PropTypes.oneOf([`WebSite`, `Series`]).isRequired,
 }
 
 const WebsiteMetaQuery = props => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
             query GhostSettingsWebsiteMeta {
                 ghostSettings {
                             ...GhostSettingsFields
                         }
                     }
         `}
-        render={data => <WebsiteMeta settings={data} {...props} />}
-    />
+    render={data => <WebsiteMeta settings={data} {...props} />}
+  />
 )
 
 export default WebsiteMetaQuery
