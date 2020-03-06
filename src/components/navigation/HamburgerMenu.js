@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
-import Search from './Search'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Search from './Search'
+import config from '../../utils/siteConfig'
 
 class HamburgerMenu extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class HamburgerMenu extends React.Component {
             <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/>Series</Link>
             <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fad`, `user-plus`]} size="xs"/>Join</Link>
             <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/>All Posts</Link>
-            <a className={`navigation-link`} href={`/rss/`}><FontAwesomeIcon icon={[`fad`, `rss`]} size="xs"/>RSS</a>
+            <a className={`navigation-link`} href={config.social.feedly}><FontAwesomeIcon icon={[`fad`, `rss`]} size="xs"/>RSS</a>
             <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
           </div>
           <div className="tags">
@@ -66,7 +67,7 @@ HamburgerMenu.propTypes = {
     ),
     tags: PropTypes.object.isRequired,
     topSearches: PropTypes.object,
-    fullWidth: PropTypes.boolean,
+    fullWidth: PropTypes.bool,
   }).isRequired,
 
 }

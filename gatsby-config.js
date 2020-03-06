@@ -35,12 +35,12 @@ module.exports = {
     description: config.siteDescriptionMeta,
     url: config.siteUrl, // No trailing slash allowed!
     image: config.siteIcon, // Path to your image you placed in the 'static' folder,
-    twitterUsername: config.social.twitterProfile,
+    twitterUsername: config.social.twitter,
   },
   plugins: [
     /**
-         *  Source Plugins
-         */
+     *  Source Plugins
+     */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -146,90 +146,87 @@ module.exports = {
         },
         queries: [
           `{
-  organization(login: "hackersandslackers") {
-    name
-    description
-    login
-    url
-    avatarUrl(size: 35)
-    itemShowcase {
-      items(first: 3) {
-        edges {
-          node {
-            ... on Repository {
-              id
-              name
-              description
-              url
-              forkCount
-              primaryLanguage {
-                color
+              organization(login: "hackersandslackers") {
                 name
+                description
+                login
+                url
+                itemShowcase {
+                  items(first: 3) {
+                    edges {
+                      node {
+                        ... on Repository {
+                          id
+                          name
+                          description
+                          url
+                          forkCount
+                          primaryLanguage {
+                            color
+                            name
+                          }
+                          stargazers {
+                            totalCount
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                repositories {
+                  totalCount
+                }
+                membersWithRole(first: 20) {
+                  totalCount
+                  nodes {
+                    bio
+                    avatarUrl
+                    login
+                    name
+                    company
+                    followers {
+                      totalCount
+                    }
+                    following {
+                      totalCount
+                    }
+                    repositories(orderBy: {field: STARGAZERS, direction: DESC}, first: 5, privacy: PUBLIC) {
+                      edges {
+                        node {
+                          name
+                          description
+                          url
+                          forks {
+                            totalCount
+                          }
+                          stargazers {
+                            totalCount
+                          }
+                          watchers {
+                            totalCount
+                          }
+                          primaryLanguage {
+                            name
+                            color
+                          }
+                        }
+                      }
+                      totalCount
+                    }
+                  }
+                }
               }
-              stargazers {
-                totalCount
-              }
-            }
-          }
-        }
-      }
-    }
-    repositories {
-      totalCount
-    }
-    membersWithRole(first: 20) {
-      totalCount
-      nodes {
-        bio
-        avatarUrl
-        login
-        name
-        company
-        followers {
-          totalCount
-        }
-        following {
-          totalCount
-        }
-        repositories(orderBy: {field: STARGAZERS, direction: DESC}, first: 5, privacy: PUBLIC) {
-          edges {
-            node {
-              name
-              description
-              url
-              forks {
-                totalCount
-              }
-              stargazers {
-                totalCount
-              }
-              watchers {
-                totalCount
-              }
-              primaryLanguage {
-                name
-                color
-              }
-            }
-          }
-          totalCount
-        }
-      }
-    }
-  }
-}
-
-              `,
+            }`,
         ],
       },
     },
     /**
-         *  Transformer Plugins
-         */
+     *  Transformer Plugins
+     */
     `@gatsby-contrib/gatsby-transformer-ipynb`,
     /**
-         *  Font Plugins
-         */
+     *  Font Plugins
+     */
     {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
@@ -241,8 +238,8 @@ module.exports = {
       },
     },
     /**
-         *  Style Plugins
-         */
+     *  Style Plugins
+     */
     {
       resolve: `gatsby-plugin-less`,
       options: {
@@ -272,8 +269,8 @@ module.exports = {
     },
     `gatsby-plugin-split-css`,
     /**
-         *  Netlify Plugins
-         */
+     *  Netlify Plugins
+     */
     `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-plugin-netlify`,
@@ -296,8 +293,8 @@ module.exports = {
       },
     },
     /**
-         *  Utility Plugins
-         */
+     *  Utility Plugins
+     */
     {
       resolve: `gatsby-plugin-ghost-manifest`,
       options: {
@@ -444,8 +441,8 @@ module.exports = {
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
     /*{
-            resolve: `@bundle-analyzer/gatsby-plugin`,
-            options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
-        },*/
+       resolve: `@bundle-analyzer/gatsby-plugin`,
+       options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
+   },*/
   ],
 }

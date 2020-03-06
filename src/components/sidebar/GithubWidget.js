@@ -54,7 +54,6 @@ const GithubWidgetQuery = props => (
           query githubOrg {
             githubOrganization {
               name
-              avatarUrl
               description
               url
               login
