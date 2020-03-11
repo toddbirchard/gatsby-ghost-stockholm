@@ -15,7 +15,7 @@ const GithubWidget = ({ data }) => {
     <>
       <div className="widget github">
         <div className="github-header">
-          <FontAwesomeIcon icon={[`fab`, `github`]} size="s" className="github-avatar" />
+          <FontAwesomeIcon icon={[`fab`, `github`]} size="xs" className="github-avatar" />
           <div className="profile-details">
             <a href={githubOrg.url} className="github-name" target="_blank" rel="noopener noreferrer">{`@${githubOrg.login}`}</a>
             <div className="github-org-meta">
