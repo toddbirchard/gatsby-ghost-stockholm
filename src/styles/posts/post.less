@@ -43,8 +43,11 @@
                     max-width: unset;
                     margin: 40px auto 0;
                     font-family: @header-font;
-                    font-size: 1.6em;
+                    font-size: 1.7em;
                     text-align: left;
+                }
+                @media (max-width: 500px) {
+                  font-size: 1.6em;
                 }
             }
         }
@@ -86,7 +89,7 @@
                 justify-content: left;
                 width: auto;
                 max-width: none;
-                margin: 15px 0 6px;
+                margin: 10px 0 0;
                 padding: 0;
             }
 
@@ -566,26 +569,6 @@
             }
             @media (max-width: @mobile-breakpoint) {
                 margin: auto 20px;
-            }
-        }
-    }
-
-    .footer-wrapper {
-        width: 760px;
-
-        .footer-navigation-link {
-            font-size: 0.9em;
-        }
-
-        .footer-widget-title {
-            font-size: 1.1em;
-        }
-
-        .widget.about {
-            width: 33%;
-
-            .description {
-                font-size: 0.9em;
             }
         }
     }
