@@ -303,7 +303,7 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: `browser`,
-        icon: config.siteIcon,
+        icon: `static/${config.siteIcon}`,
         legacy: true,
         query: `
             {
