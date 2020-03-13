@@ -303,16 +303,16 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: `browser`,
-        icon: `static/${config.siteIcon}`,
+        icon: config.siteIcon,
         legacy: true,
         query: `
-                {
-                  ghostSettings {
-                    title
-                    description
-                  }
-                }
-              `,
+            {
+              ghostSettings {
+                title
+                description
+              }
+            }
+          `,
       },
     },
     {
@@ -440,6 +440,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
+    `gatsby-plugin-preload-link-crossorigin`,
     /*{
        resolve: `@bundle-analyzer/gatsby-plugin`,
        options: { token: process.env.BUNDLE_ANALYZER_TOKEN },

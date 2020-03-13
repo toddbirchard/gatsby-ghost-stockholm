@@ -96,7 +96,6 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         <html lang={site.lang}/>
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
         <body className={template}/>
-        <script src="/js/segment.js" />
       </Helmet>
 
       <Navigation data={site.navigation} navClass="site-nav-item" smallLogo={site.icon} fullLogo={site.logo}
