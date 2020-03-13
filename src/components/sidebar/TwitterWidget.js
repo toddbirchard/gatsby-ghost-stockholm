@@ -6,16 +6,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const TwitterWidget = ({ data }) => {
   const tweets = data.tweets.edges
   const twitterProfile = data.twitterProfile.user
+  const twitterProfileURL = `https://twitter.com/${twitterProfile.screen_name}/`
 
   return (
     <>
       <div className="widget twitter">
         <div className="tweets">
           <div className="twitter-header">
-            <FontAwesomeIcon icon={[`fab`, `twitter`]} size="s" className="twitter-logo" />
+            <FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" className="twitter-logo" />
             <div className="profile-details">
               <div className="profile-details">
-                <a href={twitterProfile.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{`@${twitterProfile.screen_name}`}</a>
+                <a href={twitterProfileURL} className="twitter-name" target="_blank" rel="noopener noreferrer">{`@${twitterProfile.screen_name}`}</a>
                 <div className="twitter-followers"><FontAwesomeIcon icon={[`fad`, `users`]} size="xs" /> <span>{twitterProfile.followers_count} Followers</span></div>
               </div>
             </div>
@@ -119,7 +120,6 @@ TwitterWidget.propTypes = {
       }).isRequired,
     }),
     twitterProfile: PropTypes.shape({
-      url: PropTypes.string.isRequired,
       screen_name: PropTypes.string.isRequired,
       profile_image_url_https: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
@@ -169,7 +169,6 @@ const TwitterQuery = props => (
             }
             twitterProfile: twitterStatusesUserTimelineHackersTweets {
               user {
-                url
                 screen_name
                 profile_image_url_https
                 name
