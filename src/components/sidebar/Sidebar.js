@@ -31,7 +31,7 @@ const Sidebar = ({ site, template, authorData }) => {
         {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
         {genericPages.includes(template) ? <TagsWidget /> : null }
         {genericPages.includes(template) ? <NewsletterWidget /> : null }
-        {genericPages.includes(template) ? <GithubWidget /> : null }
+        {template === `home-template` ? <GithubWidget /> : null }
         {genericPages.includes(template) ? <TwitterWidget /> : null }
         {authorTwitter && <AuthorTwitterWidget data={authorTwitter} />}
       </aside>

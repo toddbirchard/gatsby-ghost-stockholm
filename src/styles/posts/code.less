@@ -3,420 +3,420 @@
 
 pre[class*="language-"],
 .content-body > pre {
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    border-radius: 4px;
-    background: #303645 !important;
-    color: unset !important;
+  display: block;
+  padding: 20px;
+  overflow-x: hidden;
+  border-radius: 4px;
+  background: #303645 !important;
+  color: unset !important;
+  font-family: @monospace-font !important;
+  font-size: 0.8em !important;
+  line-height: 1.5 !important;
+  text-shadow: none !important;
+  @media (max-width: @tablet-breakpoint) {
+    font-size: 0.75em;
+  }
+  @media (max-width: @mobile-breakpoint) {
+    border-radius: 0;
+    .mobile-horizontal-scroll();
+    .mobile-full-width();
+    padding: 20px 25px;
+    font-size: 0.75em;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  code {
+    color: #dde3ea !important;
     font-family: @monospace-font !important;
-    font-size: 0.8em !important;
-    line-height: 1.5 !important;
-    text-shadow: none !important;
-    @media (max-width: @tablet-breakpoint) {
-        font-size: 0.75em;
-    }
+    line-height: 1.3 !important;
+    text-shadow: unset !important;
+    white-space: pre-wrap !important;
     @media (max-width: @mobile-breakpoint) {
-        border-radius: 0;
-        .mobile-horizontal-scroll();
-        .mobile-full-width();
-        padding: 20px 25px;
-        font-size: 0.75em;
+      border-radius: 0;
+      white-space: pre !important;
+      .mobile-horizontal-scroll-child();
     }
 
-    &::-webkit-scrollbar {
-        display: none;
+    .namespace {
+      opacity: 0.95;
     }
 
-    code {
-        color: #dde3ea !important;
-        font-family: @monospace-font !important;
-        line-height: 1.3 !important;
-        text-shadow: unset !important;
-        white-space: pre-wrap !important;
-        @media (max-width: @mobile-breakpoint) {
-            border-radius: 0;
-            white-space: pre !important;
-            .mobile-horizontal-scroll-child();
-        }
-
-        .namespace {
-            opacity: 0.95;
-        }
-
-        .subst {
-            color: #f3f6fa !important;
-        }
-
-        .selector-tag {
-            color: #81A1C1 !important;
-        }
-
-        .selector-id {
-            color: #8FBCBB !important;
-            font-weight: bold !important;
-        }
-
-        .selector-class {
-            color: #8FBCBB !important;
-        }
-
-        .selector-attr {
-            color: #8FBCBB !important;
-        }
-
-        .selector-pseudo {
-            color: #88C0D0 !important;
-        }
-
-        .addition {
-            background-color: rgba(163, 190, 140, 0.5) !important;
-        }
-
-        .deletion {
-            background-color: rgba(191, 97, 106, 0.5) !important;
-        }
-
-        .built_in,
-        .type {
-            color: #8FBCBB !important;
-        }
-
-        .class {
-            color: #8FBCBB !important;
-        }
-
-        .function {
-            color: #88C0D0 !important;
-            font-weight: 900 !important;
-        }
-
-        .function > .title {
-            color: #88C0D0 !important;
-        }
-
-        .keyword,
-        .literal,
-        .symbol {
-            color: #7ea8d2 !important;
-            font-weight: 900 !important;
-        }
-
-        .number {
-            color: #B48EAD !important;
-            font-weight: 900;
-        }
-
-        .regexp {
-            color: #EBCB8B !important;
-        }
-
-        .string {
-            color: #cbf9ab !important;
-        }
-
-        .title {
-            color: #8FBCBB !important;
-        }
-
-        .params {
-            color: #D8DEE9 !important;
-        }
-
-        .bullet {
-            color: #81A1C1 !important;
-        }
-
-        .code {
-            color: #8FBCBB !important;
-        }
-
-        .emphasis {
-            font-style: italic !important;
-        }
-
-        .formula {
-            color: #8FBCBB !important;
-        }
-
-        .strong {
-            font-weight: bold !important;
-        }
-
-        .link:hover {
-            text-decoration: underline !important;
-        }
-
-        .quote {
-            color: #4C566A !important;
-        }
-
-        .comment {
-            color: #767e8f !important;
-        }
-
-        .doctag {
-            color: #8FBCBB !important;
-        }
-
-        .meta,
-        .meta-keyword {
-            color: #5E81AC !important;
-        }
-
-        .meta-string {
-            color: #A3BE8C !important;
-        }
-
-        .attr {
-            color: #8FBCBB !important;
-        }
-
-        .attribute {
-            color: #D8DEE9 !important;
-        }
-
-        .builtin-name {
-            color: #81A1C1 !important;
-        }
-
-        .name {
-            color: #81A1C1 !important;
-        }
-
-        .section {
-            color: #88C0D0 !important;
-        }
-
-        .tag {
-            /*color: #81A1C1 !important;*/
-            color: #b48ead !important;
-        }
-
-        .variable {
-            color: #D8DEE9 !important;
-        }
-
-        .template-variable {
-            color: #D8DEE9 !important;
-        }
-
-        .template-tag {
-            color: #5E81AC !important;
-        }
-
-        .abnf .attribute {
-            color: #88C0D0 !important;
-        }
-
-        .abnf .symbol {
-            color: #EBCB8B !important;
-        }
-
-        .apache .attribute {
-            color: #88C0D0 !important;
-        }
-
-        .apache .section {
-            color: #81A1C1 !important;
-        }
-
-        .arduino .built_in {
-            color: #88C0D0;
-        }
-
-        .aspectj .meta {
-            color: #D08770;
-        }
-
-        .aspectj > .title {
-            color: #88C0D0;
-        }
-
-        .bnf .attribute {
-            color: #8FBCBB;
-        }
-
-        .clojure .name {
-            color: #88C0D0;
-        }
-
-        .clojure .symbol {
-            color: #EBCB8B;
-        }
-
-        .coq .built_in {
-            color: #88C0D0;
-        }
-
-        .cpp .meta-string {
-            color: #8FBCBB;
-        }
-
-        .css .built_in {
-            color: #88C0D0;
-        }
-
-        .css .keyword {
-            color: #D08770;
-        }
-
-        .diff .meta {
-            color: #8FBCBB;
-        }
-
-        .ebnf .attribute {
-            color: #8FBCBB;
-        }
-
-        .glsl .built_in {
-            color: #EBCB8B;
-        }
-
-        .groovy .meta:not(:first-child) {
-            color: #D08770;
-        }
-
-        .haxe .meta {
-            color: #D08770;
-        }
-
-        .java .meta {
-            color: #D08770;
-        }
-
-        .ldif .attribute {
-            color: #8FBCBB;
-        }
-
-        .lisp .name {
-            color: #88C0D0;
-        }
-
-        .lua .built_in {
-            color: #88C0D0;
-        }
-
-        .moonscript .built_in {
-            color: #88C0D0;
-        }
-
-        .nginx .attribute {
-            color: #88C0D0;
-        }
-
-        .nginx .section {
-            color: #5E81AC;
-        }
-
-        .pf .built_in {
-            color: #88C0D0;
-        }
-
-        .processing .built_in {
-            color: #88C0D0;
-        }
-
-        .scss .keyword {
-            color: #81A1C1;
-        }
-
-        .stylus .keyword {
-            color: #81A1C1;
-        }
-
-        .swift .meta {
-            color: #D08770;
-        }
-
-        .vim .built_in {
-            color: #88C0D0;
-            font-style: italic;
-        }
-
-        .yaml .meta {
-            color: #D08770 !important;
-        }
-
-        .token {
-            & * {
-                background: none !important;
-            }
-
-            &.attr-value {
-                color: #c3e88d !important;
-            }
-
-            &.attr-name {
-                color: white !important;
-            }
-
-            &.punctuation {
-                color: #b9e4ef;
-            }
-
-            &.class-name {
-                color: #ffde86 !important;
-                font-weight: 600;
-            }
-
-            &.table.class-name {
-                color: #7ea8d2 !important;
-            }
-
-            &.constant {
-                color: #ebcb8b !important;
-            }
-
-            &.operator {
-                background: none !important;
-                color: #D8DEE9 !important;
-            }
-
-            &.atrule,
-            &.property {
-                color: #8FBCBB !important;
-                font-weight: bold;
-            }
-
-            &.boolean {
-                color: #b48ead !important;
-                font-weight: 600;
-            }
-
-            &.builtin {
-                color: #EBCB8B !important;
-            }
-
-            &.triple-quoted-string {
-                color: #697798 !important;
-            }
-        }
+    .subst {
+      color: #f3f6fa !important;
     }
+
+    .selector-tag {
+      color: #81A1C1 !important;
+    }
+
+    .selector-id {
+      color: #8FBCBB !important;
+      font-weight: bold !important;
+    }
+
+    .selector-class {
+      color: #8FBCBB !important;
+    }
+
+    .selector-attr {
+      color: #8FBCBB !important;
+    }
+
+    .selector-pseudo {
+      color: #88C0D0 !important;
+    }
+
+    .addition {
+      background-color: rgba(163, 190, 140, 0.5) !important;
+    }
+
+    .deletion {
+      background-color: rgba(191, 97, 106, 0.5) !important;
+    }
+
+    .built_in,
+    .type {
+      color: #8FBCBB !important;
+    }
+
+    .class {
+      color: #8FBCBB !important;
+    }
+
+    .function {
+      color: #88C0D0 !important;
+      font-weight: 900 !important;
+    }
+
+    .function > .title {
+      color: #88C0D0 !important;
+    }
+
+    .keyword,
+    .literal,
+    .symbol {
+      color: #7ea8d2 !important;
+      font-weight: 900 !important;
+    }
+
+    .number {
+      color: #B48EAD !important;
+      font-weight: 900;
+    }
+
+    .regexp {
+      color: #EBCB8B !important;
+    }
+
+    .string {
+      color: #cbf9ab !important;
+    }
+
+    .title {
+      color: #8FBCBB !important;
+    }
+
+    .params {
+      color: #D8DEE9 !important;
+    }
+
+    .bullet {
+      color: #81A1C1 !important;
+    }
+
+    .code {
+      color: #8FBCBB !important;
+    }
+
+    .emphasis {
+      font-style: italic !important;
+    }
+
+    .formula {
+      color: #8FBCBB !important;
+    }
+
+    .strong {
+      font-weight: bold !important;
+    }
+
+    .link:hover {
+      text-decoration: underline !important;
+    }
+
+    .quote {
+      color: #4C566A !important;
+    }
+
+    .comment {
+      color: #767e8f !important;
+    }
+
+    .doctag {
+      color: #8FBCBB !important;
+    }
+
+    .meta,
+    .meta-keyword {
+      color: #5E81AC !important;
+    }
+
+    .meta-string {
+      color: #A3BE8C !important;
+    }
+
+    .attr {
+      color: #8FBCBB !important;
+    }
+
+    .attribute {
+      color: #D8DEE9 !important;
+    }
+
+    .builtin-name {
+      color: #81A1C1 !important;
+    }
+
+    .name {
+      color: #81A1C1 !important;
+    }
+
+    .section {
+      color: #88C0D0 !important;
+    }
+
+    .tag {
+      /*color: #81A1C1 !important;*/
+      color: #b48ead !important;
+    }
+
+    .variable {
+      color: #D8DEE9 !important;
+    }
+
+    .template-variable {
+      color: #D8DEE9 !important;
+    }
+
+    .template-tag {
+      color: #5E81AC !important;
+    }
+
+    .abnf .attribute {
+      color: #88C0D0 !important;
+    }
+
+    .abnf .symbol {
+      color: #EBCB8B !important;
+    }
+
+    .apache .attribute {
+      color: #88C0D0 !important;
+    }
+
+    .apache .section {
+      color: #81A1C1 !important;
+    }
+
+    .arduino .built_in {
+      color: #88C0D0;
+    }
+
+    .aspectj .meta {
+      color: #D08770;
+    }
+
+    .aspectj > .title {
+      color: #88C0D0;
+    }
+
+    .bnf .attribute {
+      color: #8FBCBB;
+    }
+
+    .clojure .name {
+      color: #88C0D0;
+    }
+
+    .clojure .symbol {
+      color: #EBCB8B;
+    }
+
+    .coq .built_in {
+      color: #88C0D0;
+    }
+
+    .cpp .meta-string {
+      color: #8FBCBB;
+    }
+
+    .css .built_in {
+      color: #88C0D0;
+    }
+
+    .css .keyword {
+      color: #D08770;
+    }
+
+    .diff .meta {
+      color: #8FBCBB;
+    }
+
+    .ebnf .attribute {
+      color: #8FBCBB;
+    }
+
+    .glsl .built_in {
+      color: #EBCB8B;
+    }
+
+    .groovy .meta:not(:first-child) {
+      color: #D08770;
+    }
+
+    .haxe .meta {
+      color: #D08770;
+    }
+
+    .java .meta {
+      color: #D08770;
+    }
+
+    .ldif .attribute {
+      color: #8FBCBB;
+    }
+
+    .lisp .name {
+      color: #88C0D0;
+    }
+
+    .lua .built_in {
+      color: #88C0D0;
+    }
+
+    .moonscript .built_in {
+      color: #88C0D0;
+    }
+
+    .nginx .attribute {
+      color: #88C0D0;
+    }
+
+    .nginx .section {
+      color: #5E81AC;
+    }
+
+    .pf .built_in {
+      color: #88C0D0;
+    }
+
+    .processing .built_in {
+      color: #88C0D0;
+    }
+
+    .scss .keyword {
+      color: #81A1C1;
+    }
+
+    .stylus .keyword {
+      color: #81A1C1;
+    }
+
+    .swift .meta {
+      color: #D08770;
+    }
+
+    .vim .built_in {
+      color: #88C0D0;
+      font-style: italic;
+    }
+
+    .yaml .meta {
+      color: #D08770 !important;
+    }
+
+    .token {
+      & * {
+        background: none !important;
+      }
+
+      &.attr-value {
+        color: #c3e88d !important;
+      }
+
+      &.attr-name {
+        color: white !important;
+      }
+
+      &.punctuation {
+        color: #b9e4ef;
+      }
+
+      &.class-name {
+        color: #ffde86 !important;
+        font-weight: 600;
+      }
+
+      &.table.class-name {
+        color: #7ea8d2 !important;
+      }
+
+      &.constant {
+        color: #ebcb8b !important;
+      }
+
+      &.operator {
+        background: none !important;
+        color: #D8DEE9 !important;
+      }
+
+      &.atrule,
+      &.property {
+        color: #8FBCBB !important;
+        font-weight: bold;
+      }
+
+      &.boolean {
+        color: #b48ead !important;
+        font-weight: 600;
+      }
+
+      &.builtin {
+        color: #EBCB8B !important;
+      }
+
+      &.triple-quoted-string {
+        color: #697798 !important;
+      }
+    }
+  }
 }
 
 pre[class*="language-toml"] {
-    .token.punctuation {
-        color: #9cb5d0 !important;
-    }
+  .token.punctuation {
+    color: #9cb5d0 !important;
+  }
 
-    .token.property {
-        color: #8FBCBB !important;
-        font-weight: 500 !important;
-    }
+  .token.property {
+    color: #8FBCBB !important;
+    font-weight: 500 !important;
+  }
 
-    .token.property {
-        color: #B48EAD !important;
-        font-weight: 900;
-    }
+  .token.property {
+    color: #B48EAD !important;
+    font-weight: 900;
+  }
 }
 
 .content-body > pre {
-    margin: 0 0 20px;
+  margin: 0 0 20px;
 }
 
 pre[class*="language-shell"] {
-    .token.function {
-        color: #ebcb8b !important;
-    }
+  .token.function {
+    color: #ebcb8b !important;
+  }
 }

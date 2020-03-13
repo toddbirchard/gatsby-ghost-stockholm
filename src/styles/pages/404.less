@@ -1,51 +1,51 @@
 @import '../variables.less';
 
 .error-template {
-    .viewport {
-        position: relative;
-        height: 500px;
-        max-height: 100%;
+  .viewport {
+    position: relative;
+    height: 500px;
+    max-height: 100%;
 
-        .content-title {
-            color: #2c3c55;
-            font-family: @header-font;
-            font-size: 10em;
-            font-weight: unset;
-            @media (max-width: @mobile-breakpoint) {
-                font-size: 8.5em;
-            }
-        }
-
-        .content-body {
-            @media (max-width: @mobile-breakpoint) {
-                font-size: .9em;
-            }
-        }
-
-        a {
-            color: @theme-color;
-            font-family: @body-font-bold;
-            font-weight: 600;
-            transition: @transition;
-
-            &:hover {
-                color: @hover-color;
-            }
-        }
-
-        .error {
-            display: flex;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            flex-direction: column;
-            justify-content: space-between;
-            width: max-content;
-            height: 100px;
-            margin: auto;
-            text-align: center;
-        }
+    .content-title {
+      color: #2c3c55;
+      font-family: @header-font;
+      font-size: 10em;
+      font-weight: unset;
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 8.5em;
+      }
     }
+
+    .content-body {
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 0.9em;
+      }
+    }
+
+    a {
+      color: @theme-color;
+      font-family: @body-font-bold;
+      font-weight: 600;
+      transition: @transition;
+
+      &:hover {
+        color: @hover-color;
+      }
+    }
+
+    .error {
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      width: max-content;
+      height: 100px;
+      margin: auto;
+      text-align: center;
+    }
+  }
 }

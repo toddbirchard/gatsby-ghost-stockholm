@@ -2,162 +2,162 @@
 @import './mixins.less';
 
 .post-card {
-    width: 100%;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: @box-shadow;
-    @media (max-width: @tablet-breakpoint) {
-        padding: 0;
-    }
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: @box-shadow;
+  @media (max-width: @tablet-breakpoint) {
+    padding: 0;
+  }
 
-    * {
-        text-decoration: none;
+  * {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    .post-card-image {
+      opacity: 0.7;
+    }
+  }
+
+  .post-card-title {
+    margin: 0;
+    padding: 0;
+    color: @header-color;
+    font-family: @header-font-secondary;
+    font-size: 1.8em;
+    font-weight: unset;
+    letter-spacing: -.5px;
+    line-height: 1.1;
+    transition: @transition;
+    @media (max-width: 1000px) {
+      font-size: 1.7em;
+    }
+    @media (max-width: @mobile-breakpoint) {
+      margin-bottom: 0;
+      font-size: 1.45em;
+    }
+    @media (max-width: 400px) {
+      font-size: 1.38em;
     }
 
     &:hover {
-        text-decoration: none;
+      color: @hover-color;
+      cursor: pointer;
+    }
+  }
 
-        .post-card-image {
-            opacity: 0.7;
-        }
+  .post-card-image {
+    width: 100%;
+    background: @text-color-light no-repeat center center;
+    background-size: cover;
+    transition: opacity 0.2s ease-out;
+    @media (max-width: 1040px) {
+      height: auto !important;
     }
 
-    .post-card-title {
-        margin: 0;
-        padding: 0;
-        color: @header-color;
-        font-family: @header-font-secondary;
-        font-size: 1.8em;
-        font-weight: unset;
-        letter-spacing: -.5px;
-        line-height: 1.1;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .post-card-detail {
+    padding: 30px;
+    overflow: hidden;
+    @media (max-width: @mobile-breakpoint) {
+      padding: 25px;
+    }
+
+    .post-card-excerpt {
+      -webkit-line-clamp: 3;
+      .line-clamp();
+      width: 100%;
+      margin: 20px auto 25px;
+      color: #5e6877;
+      font-family: @body-font;
+      font-size: 1.1em;
+      font-weight: 600;
+      letter-spacing: -.5px;
+      line-height: 1.35;
+      transition: all 0.2s ease-out;
+      @media (max-width: 1000px) {
+        font-size: 1em;
+      }
+      @media (max-width: @tablet-breakpoint) {
+        margin: 12px auto 20px;
+      }
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 1em;
+      }
+    }
+  }
+
+  .post-card-footer {
+    -webkit-line-clamp: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+      color: #637082;
+      font-family: @body-font-bold;
+      font-size: 0.9em;
+      letter-spacing: -.5px;
+      line-height: 1;
+      white-space: nowrap;
+      transition: @transition;
+      @media (max-width: @tablet-breakpoint) {
+        margin-right: 25px;
+      }
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 0.95em;
+      }
+
+      a {
+        color: #637082;
         transition: @transition;
+      }
+
+      span {
+        white-space: nowrap;
+        transition: @transition;
+      }
+
+      svg {
+        margin-right: 5px;
+        font-size: 0.85em;
+        @media (max-width: @mobile-breakpoint) {
+          font-size: 0.7em;
+        }
+      }
+
+      &.reading-item {
+        @media (max-width: @mobile-breakpoint) {
+          display: none;
+        }
+      }
+
+      &.date {
         @media (max-width: 1000px) {
-            font-size: 1.7em;
+          display: none;
         }
-        @media (max-width: @mobile-breakpoint) {
-            margin-bottom: 0;
-            font-size: 1.45em;
-        }
-        @media (max-width: 400px) {
-            font-size: 1.38em;
-        }
+      }
 
-        &:hover {
-            color: @hover-color;
-            cursor: pointer;
+      &.author:hover,
+      &.tag:hover {
+        color: @hover-color;
+
+        * {
+          color: @hover-color;
         }
+      }
     }
-
-    .post-card-image {
-        width: 100%;
-        background: @text-color-light no-repeat center center;
-        background-size: cover;
-        transition: opacity 0.2s ease-out;
-        @media (max-width: 1040px) {
-            height: auto !important;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    .post-card-detail {
-        padding: 30px;
-        overflow: hidden;
-        @media (max-width: @mobile-breakpoint) {
-            padding: 25px;
-        }
-
-        .post-card-excerpt {
-            -webkit-line-clamp: 3;
-            .line-clamp();
-            width: 100%;
-            margin: 20px auto 25px;
-            color: #5e6877;
-            font-family: @body-font;
-            font-size: 1.1em;
-            font-weight: 600;
-            letter-spacing: -.5px;
-            line-height: 1.35;
-            transition: all 0.2s ease-out;
-            @media (max-width: 1000px) {
-                font-size: 1em;
-            }
-            @media (max-width: @tablet-breakpoint) {
-                margin: 12px auto 20px;
-            }
-            @media (max-width: @mobile-breakpoint) {
-                font-size: 1em;
-            }
-        }
-    }
-
-    .post-card-footer {
-        -webkit-line-clamp: 1;
-        display: flex;
-        align-items: center;
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            margin-right: 30px;
-            color: #637082;
-            font-family: @body-font-bold;
-            font-size: 0.9em;
-            letter-spacing: -.5px;
-            line-height: 1;
-            white-space: nowrap;
-            transition: @transition;
-            @media (max-width: @tablet-breakpoint) {
-                margin-right: 25px;
-            }
-            @media (max-width: @mobile-breakpoint) {
-                font-size: 0.95em;
-            }
-
-            a {
-                color: #637082;
-                transition: @transition;
-            }
-
-            span {
-                white-space: nowrap;
-                transition: @transition;
-            }
-
-            svg {
-                margin-right: 5px;
-                font-size: 0.85em;
-                @media (max-width: @mobile-breakpoint) {
-                    font-size: 0.7em;
-                }
-            }
-
-            &.reading-item {
-                @media (max-width: @mobile-breakpoint) {
-                    display: none;
-                }
-            }
-
-            &.date {
-                @media (max-width: 1000px) {
-                    display: none;
-                }
-            }
-
-            &.author:hover,
-            &.tag:hover {
-                color: @hover-color;
-
-                * {
-                    color: @hover-color;
-                }
-            }
-        }
-    }
+  }
 }

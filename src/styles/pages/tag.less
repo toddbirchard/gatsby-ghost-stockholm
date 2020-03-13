@@ -1,60 +1,59 @@
 @import '../variables.less';
 @import '../mixins.less';
-
 /* Tag Archives
 /* ---------------------------------------------------------- */
 .tag-template {
-    .tag-header {
-        .header-card();
-        padding: 40px !important;
+  .tag-header {
+    .header-card();
+    padding: 40px !important;
+  }
+
+  .tag-title {
+    margin-bottom: 15px;
+
+    h1 {
+      display: inline;
+      margin: 0 0 1rem;
+      color: @header-color;
+      font-family: @header-font-light;
+      font-size: 1.6em;
+      font-weight: normal;
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 1.5em;
+      }
     }
 
-    .tag-title {
-        margin-bottom: 15px;
-
-        h1 {
-            display: inline;
-            margin: 0 0 1rem;
-            color: @header-color;
-            font-family: @header-font-light;
-            font-size: 1.6em;
-            font-weight: normal;
-            @media (max-width: @mobile-breakpoint) {
-                font-size: 1.5em;
-            }
-        }
-
-        svg {
-            display: inline;
-            margin-right: 8px;
-            font-size: 1.2em;
-            opacity: 0.7;
-            @media (max-width: @mobile-breakpoint) {
-                font-size: 1.1em;
-            }
-        }
-
-        span {
-            display: inline;
-            margin-left: 5px;
-            font-size: 0.7em !important;
-            opacity: 0.8;
-            @media (max-width: @mobile-breakpoint) {
-                font-size: 0.6em !important;
-            }
-        }
+    svg {
+      display: inline;
+      margin-right: 8px;
+      font-size: 1.2em;
+      opacity: 0.7;
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 1.1em;
+      }
     }
 
-    .meta-item.tag {
-        @media (max-width: @mobile-breakpoint) {
-            display: none;
-        }
+    span {
+      display: inline;
+      margin-left: 5px;
+      font-size: 0.7em !important;
+      opacity: 0.8;
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 0.6em !important;
+      }
     }
+  }
 
-    .tag-description {
-        margin: 0;
-        color: @body-color;
-        font-size: 1em;
-        line-height: 1.4em;
+  .meta-item.tag {
+    @media (max-width: @mobile-breakpoint) {
+      display: none;
     }
+  }
+
+  .tag-description {
+    margin: 0;
+    color: @body-color;
+    font-size: 1em;
+    line-height: 1.4em;
+  }
 }
