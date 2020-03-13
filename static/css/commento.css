@@ -267,8 +267,8 @@
     display: block !important;
     z-index: 10;
     position: absolute !important;
-    top: 107px !important;
     right: 12px !important;
+    bottom: 10px !important;
     height: 35px;
     margin: 0 !important;
     padding: 8px 12px !important;
@@ -311,7 +311,7 @@
 }
 
 .commento-root .commento-markdown-button {
-    bottom: 4px !important;
+    bottom: 15px !important;
     font-size: 11px !important;
     line-height: 1 !important;
 }
@@ -398,7 +398,7 @@
 
 .commento-root .commento-markdown-button {
     position: absolute;
-    top: 125px;
+    bottom: 15px;
     left: 20px;
     height: fit-content;
     margin: 0 !important;
