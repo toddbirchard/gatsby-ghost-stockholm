@@ -5,12 +5,13 @@ const insertScript = (src, id, parentElement) => {
   script.async = true
   script.src = src
   script.id = id
-  script.setAttribute(`data-css-override`, `/css/commento.css`)
+  // script.setAttribute(`data-css-override`, `https://hackersandslackers.com/css/commento.css`)
   script.setAttribute(`data-no-fonts`, true)
   script.setAttribute(`data-auto-init`, true)
   parentElement.appendChild(script)
   return script
 }
+
 // Helper to remove scripts from our page
 const removeScript = (id, parentElement) => {
   const script = window.document.getElementById(id)
@@ -18,7 +19,7 @@ const removeScript = (id, parentElement) => {
     parentElement.removeChild(script)
   }
 }
-// The actual component
+
 const Commento = ({ id }) => {
   useEffect(() => {
     // If there's no window there's nothing to do for us
@@ -28,7 +29,7 @@ const Commento = ({ id }) => {
     const document = window.document
     // In case our #commento container exists we can add our commento script
     if (document.getElementById(`commento`)) {
-      insertScript(`https://cdn.commento.io/js/commento.js`, `commento-script`, document.body)
+      insertScript(`/js/commento.js`, `commento-script`, document.body)
     }
     // Cleanup; remove the script from the page
     return () => removeScript(`commento-script`, document.body)
