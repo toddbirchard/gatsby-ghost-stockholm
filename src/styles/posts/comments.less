@@ -1,6 +1,7 @@
 @import "../variables.less";
 
 .commento-root {
+  position: relative;
   width: -webkit-fill-available !important;
   overflow-x: visible !important;
 
@@ -129,18 +130,39 @@
     }
 
     .commento-card {
-      margin-top: 30px !important;
+      margin-top: 25px !important;
       margin-left: 20px !important;
-      padding: 30px 0 0 30px !important;
+      padding: 20px 0 0 20px !important;
+      overflow: hidden;
       box-shadow: none !important;
-      @media (max-width: @mobile-breakpoint) {
-        margin-left: 20px !important;
+      @media (max-width: 700px) {
+        margin-top: 20px !important;
+        margin-left: 10px !important;
         padding-bottom: 0 !important;
       }
     }
 
     & > div:nth-of-type(2) {
       margin: 0;
+    }
+
+    .commento-name {
+      margin: 0 0 2px !important;
+      color: #6b6e73 !important;
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      line-height: 1 !important;
+      text-transform: capitalize;
+    }
+
+    .commento-score {
+      font-family: @body-font;
+      font-size: 11px !important;
+      font-weight: normal !important;
+    }
+
+    .commento-timeago {
+      font-size: 11px !important;
     }
 
     .commento-button-margin {
@@ -205,10 +227,26 @@
   }
 
   .commento-markdown-button {
-    bottom: 15px !important;
-    line-height: 1 !important;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    height: fit-content;
+    margin: 0 !important;
+    background: none;
     @media (max-width: @mobile-breakpoint) {
       display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    * {
+      background: none !important;
+    }
+
+    b {
+      font-size: 0.9em !important;
     }
   }
 
@@ -229,42 +267,39 @@
     outline: none;
     box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
     transition: all 0.2s ease-out;
-  }
 
-  &:hover {
-    border: 1px solid @theme-color !important;
-    background: lighten(@theme-color, 30%) !important;
-
-    &::placeholder {
-      opacity: 0;
+    &::-webkit-input-placeholder {
+      display: block;
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      width: 100%;
+      margin: auto !important;
+      padding-top: 10px;
+      color: #aeb1bd !important;
+      font-family: 'TTNormsPro-Regular', sans-serif;
+      font-size: 13px;
+      text-align: center;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: all 0.2s ease-out;
     }
-  }
 
-  &:focus {
-    border: 1px solid @theme-color !important;
-    background: white !important;
-  }
+    &:hover {
+      border: 1px solid @theme-color !important;
+      background: lighten(@theme-color, 30%) !important;
 
-  &::placeholder {
-    padding-bottom: 50px !important;
-    color: #aeb1bd !important;
-    font-family: @body-font;
-    font-size: 1.1em;
-    text-transform: uppercase;
-    opacity: 0.8;
-    transition: @transition;
-    @media (max-width: @mobile-breakpoint) {
-      font-size: 0.9em;
+      &::placeholder {
+        opacity: 0;
+      }
     }
-  }
 
-  ::-webkit-input-placeholder {
-    /* WebKit browsers */
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 400px !important;
-    height: 100px !important;
+    &:focus {
+      border: 1px solid @theme-color !important;
+      background: white !important;
+    }
   }
 }
 
@@ -301,6 +336,12 @@
     &:last-of-type {
       padding: 0 6px 0 !important;
     }
+  }
+
+  pre {
+    display: inline;
+    font-family: monospace;
+    font-size: 13px;
   }
 }
 
