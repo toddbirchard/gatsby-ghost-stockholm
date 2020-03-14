@@ -295,7 +295,7 @@
         var e = Ae(`div`); e.id = m,De(e,`main-area`),Ie(e,`style`,`display: none`),Ne(ce,e)
       }(); var o = function (){
         var e = Ae(`div`),o = Ae(`div`),n = Ae(`a`),t = Ae(`span`); return e.id = `commento-footer`,De(e,`footer`),De(o,`logo-container`),De(n,`logo`),De(t,`logo-text`),Ie(n,`href`,`https://commento.io`),Ie(n,`target`,`_blank`),t.innerText = `Commento`,Ne(n,t),Ne(o,n),Ne(e,o),e
-      }(); Ve(function (){
+      }(); Xe(`https://hackersandslackers.com/css/commento.css`,`window.commento.loadCssOverride()`),Ve(function (){
         ze(function (){
           !function (){
             var e = Ae(`div`),o = Ae(`button`); e.id = d,o.id = n,De(e,`mod-tools`),o.innerHTML = ge ? `Unlock Thread` : `Lock Thread`,Ue(o,B.threadLockToggle),Ie(e,`style`,`display: none`),Ne(e,o),Ne(ce,e)

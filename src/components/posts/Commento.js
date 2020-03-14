@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 
-import '../../styles/posts/comments.less'
-
 const insertScript = (src, id, parentElement) => {
   const script = window.document.createElement(`script`)
   script.async = true
