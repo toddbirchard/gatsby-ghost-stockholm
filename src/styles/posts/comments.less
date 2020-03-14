@@ -47,12 +47,17 @@
   .commento-options {
     display: flex;
     position: absolute !important;
-    top: 0;
-    right: 0;
+    top: 0px;
+    right: 0px;
     align-items: center;
+    justify-content: space-between;
     width: 150px !important;
     height: 20px !important;
     margin-top: 0;
+    float: unset;
+    @media(max-width: 600px) {
+       width: 120px !important;
+    }
 
     button {
       margin: 0 !important;
@@ -61,6 +66,46 @@
         width: 20px !important;
         height: 20px !important;
       }
+    }
+
+    .commento-option-collapse {
+        -webkit-mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b…olygon points="42 20 0 20 0 22 20 22 22 22 42 22" fill="%231e2127"/></svg>');
+        width: 14px;
+        height: 14px;
+        margin: 12px 6px;
+        background: #495057;
+        mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b…olygon points="42 20 0 20 0 22 20 22 22 22 42 22" fill="%231e2127"/></svg>');
+    }
+
+    .commento-option-downvote,
+    .commento-option-upvote {
+        -webkit-mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b…2.847-6.566 1e-3 -2.476-0.944-4.666-2.846-6.569z" fill="%23abbac4"/></svg>');
+        width: 14px;
+        height: 14px;
+        margin: 12px 6px;
+        mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b…2.847-6.566 1e-3 -2.476-0.944-4.666-2.846-6.569z" fill="%23abbac4"/></svg>');
+    }
+
+    .commento-option-downvote {
+        transform: rotate(180deg);
+    }
+
+    .commento-option-edit {
+        -webkit-mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b…8 16.708 14.811 14.565l119.89-29.069-107.53-107.59-27.173 122.09z"/></svg>');
+        width: 14px;
+        height: 14px;
+        margin: 12px 6px;
+        background: #adb5bd;
+        mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b…8 16.708 14.811 14.565l119.89-29.069-107.53-107.59-27.173 122.09z"/></svg>');
+    }
+
+    .commento-option-remove {
+        -webkit-mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b….734,0-2.898-2.717-2.909-3.042L10.542,8h37.915L46.544,53.979z"/></g></svg>');
+        width: 14px;
+        height: 14px;
+        margin: 12px 6px;
+        background: #e03131;
+        mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-b….734,0-2.898-2.717-2.909-3.042L10.542,8h37.915L46.544,53.979z"/></g></svg>');
     }
   }
 
