@@ -1,20 +1,20 @@
-@import url("//hello.myfonts.net/count/3ae890");
+@import url("//hello.myfonts.net/count/3b343c");
 
 @font-face {
   font-display: swap;
-  src: url('../fonts/3AE890_0_0.woff2') format('woff2'), url('../fonts/3AE890_0_0.woff') format('woff');
-  font-family: 'TTNormsPro-Regular';
+  src: url('../fonts/ttcommonsbook.woff2') format('woff2'), url('../fonts/ttcommonsbook.woff') format('woff');
+  font-family: 'TTCommons-Book';
 }
 
 @font-face {
   font-display: swap;
-  src: url('../fonts/3AE890_1_0.woff2') format('woff2'), url('../fonts/3AE890_1_0.woff') format('woff');
-  font-family: 'TTNormsPro-Medium';
+  src: url('../fonts/ttcommonsmedium.woff2') format('woff2'), url('../fonts/ttcommonsmedium.woff') format('woff');
+  font-family: 'TTCommons-Medium';
 }
 
 @font-face {
   font-display: swap;
-  src: url('../fonts/3AE890_2_0.woff2') format('woff2'), url('../fonts/3AE890_2_0.woff') format('woff');
+  src: url('../fonts/ttcommonsdemibold.woff2') format('woff2'), url('../fonts/ttcommonsdemibold.woff') format('woff');
   font-family: 'TTNormsPro-DemiBold';
 }
 

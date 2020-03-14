@@ -109,12 +109,12 @@
           outline: none;
           color: #57657e;
           font-family: @body-font;
-          font-size: 1em;
+          font-size: 1.15em;
           font-weight: 600;
+          letter-spacing: .5px;
           transition: @transition;
           @media (max-width: 920px) {
             margin-right: 25px;
-            font-size: 1em;
           }
           @media (max-width: @tablet-breakpoint) {
             margin: 0 0 0 20px;
@@ -204,6 +204,7 @@
   position: relative;
   align-items: center;
   justify-content: space-between;
+  height: 50px;
   margin: 25px 0 0;
   background: none;
   @media (max-width: @tablet-breakpoint) {
@@ -220,30 +221,25 @@
     width: 180px;
     margin: auto;
     color: #545c63;
-    font-size: 0.9em;
+    font-size: 1em;
     text-align: center;
 
     h1 {
-      margin-bottom: 0;
+      margin-bottom: 3px;
       color: #525c63;
+      letter-spacing: .5px;
       line-height: 1;
       white-space: nowrap;
-    }
-
-    .page-count {
-      font-size: 0.9em;
     }
   }
 
   a {
     display: flex;
     align-items: center;
-    padding: 10px 14px;
-    border: 1px solid #c4cad3;
-    border-radius: 3px;
     color: #525c63;
-    font-family: @body-font;
-    font-size: 0.8em;
+    font-family: @body-font-bold;
+    font-size: 0.9em;
+    letter-spacing: .5px;
     line-height: 1em;
     text-decoration: none;
     text-transform: uppercase;
@@ -258,11 +254,9 @@
     }
 
     &:hover {
-      border: 1px solid @hover-color;
-      background: @hover-color;
 
       * {
-        color: white;
+        color: @hover-color;
       }
     }
 

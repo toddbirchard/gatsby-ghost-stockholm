@@ -82,14 +82,13 @@
             width: fit-content;
             max-width: 720px;
             margin: 20px auto 60px;
-            letter-spacing: -0.4px;
             @media (max-width: @mobile-breakpoint) {
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content: left;
                 width: auto;
                 max-width: none;
-                margin: 10px 0 0;
+                margin: 15px 0;
                 padding: 0;
             }
 
@@ -110,14 +109,14 @@
                 text-transform: capitalize;
                 @media (max-width: @mobile-breakpoint) {
                     margin: 0;
-                    font-size: 0.85em;
+                    font-size: 0.95em;
                     line-height: 1.5;
                 }
 
                 svg {
                     margin-right: 5px;
                     color: #7e8da3 !important;
-                    font-size: 0.75em;
+                    font-size: 0.85em;
                 }
 
                 * {
@@ -153,7 +152,7 @@
 
                 &.tag {
                     @media (max-width: @mobile-breakpoint) {
-                        margin: 7px 25px;
+                        margin: 0 25px;
                     }
                 }
 
@@ -227,7 +226,7 @@
                     margin-bottom: 5px;
                     border: none;
                     font-size: 1.7em;
-                    letter-spacing: -1px;
+                    letter-spacing: -.5px;
                     line-height: 1.1;
                     text-align: left;
                 }
@@ -318,13 +317,13 @@
             li > code,
             p > code {
                 display: inline;
-                padding: 3px 4px;
+                padding: 2px 2px;
                 overflow-y: visible;
                 border-radius: 3px;
                 background: rgba(145, 176, 211, 0.1);
                 color: #4c84b6;
                 font-family: @monospace-font;
-                font-size: 0.8em;
+                font-size: 0.7em;
                 white-space: nowrap;
             }
             /*   Start of Protip box */
@@ -442,9 +441,8 @@
                 overflow: hidden;
                 border-left: 0.4em solid #dddddd;
                 background: #f4f4f4;
-                color: #6d787f;
+                color: #34383a;
                 font-size: 0.95em;
-                font-weight: 600;
                 line-height: 1.5;
                 @media (max-width: @mobile-breakpoint) {
                     margin: 20px auto;
@@ -534,7 +532,7 @@
                 border-radius: 3px;
                 color: #7a8595 !important;
                 font-family: @body-font;
-                font-size: 0.85em;
+                font-size: 0.95em;
                 line-height: 1;
                 transition: all 0.2s ease-out;
                 @media (max-width: @tablet-breakpoint) {
