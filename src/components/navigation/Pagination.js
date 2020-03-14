@@ -11,7 +11,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
       <div className="pagination-button">
         {previousPagePath && (
           <Link to={previousPagePath} rel="prev" className="prev">
-            <FontAwesomeIcon icon={[`fad`, `arrow-left`]} size="xs" /> <span>Previous</span>
+            <FontAwesomeIcon icon={[`fad`, `arrow-left`]} size="xs" /> Previous
           </Link>
         )}
       </div>
@@ -21,7 +21,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
       </div>}
       {nextPagePath && (
         <Link to={nextPagePath} rel="next" className="next">
-          <span>Next</span> <FontAwesomeIcon icon={[`fad`, `arrow-right`]} size="xs" />
+          Next <FontAwesomeIcon icon={[`fad`, `arrow-right`]} size="xs" />
         </Link>
       )}
     </nav>
