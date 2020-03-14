@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Pagination = ({ pageContext, metaTitle }) => {
   const { previousPagePath, nextPagePath, humanPageNumber, numberOfPages } = pageContext
@@ -11,7 +10,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
       <div className="pagination-button">
         {previousPagePath && (
           <Link to={previousPagePath} rel="prev" className="prev">
-            <FontAwesomeIcon icon={[`fad`, `arrow-left`]} size="xs" /> Previous
+            Previous
           </Link>
         )}
       </div>
@@ -21,7 +20,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
       </div>}
       {nextPagePath && (
         <Link to={nextPagePath} rel="next" className="next">
-          Next <FontAwesomeIcon icon={[`fad`, `arrow-right`]} size="xs" />
+          Next
         </Link>
       )}
     </nav>

@@ -6,7 +6,7 @@
     margin: 0 0 25px;
     color: @header-color;
     font-family: @header-font-light;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: normal;
   }
 
@@ -81,10 +81,15 @@
         transition: @transition;
       }
 
-      .content-body > p,
-      .content-body > li {
+      .content-body p,
+      .content-body li {
         text-align: left;
         .body-font();
+      }
+
+      .content-body ul {
+        margin: 0 10px 30px;
+        padding-left: 1em;
       }
 
       fieldset {
