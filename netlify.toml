@@ -454,6 +454,11 @@
     status = 301
 
 [[redirects]]
+    from = "/static-assets-flask/"
+    to = "/flask-assets/"
+    status = 301
+
+[[redirects]]
     from = "/rss/"
     to = "/rss.xml"
     status = 301
