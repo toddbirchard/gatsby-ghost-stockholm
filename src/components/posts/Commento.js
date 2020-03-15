@@ -5,7 +5,7 @@ const insertScript = (src, id, parentElement) => {
   script.async = true
   script.src = src
   script.id = id
-  // script.setAttribute(`data-css-override`, `https://hackersandslackers.com/css/commento.css`)
+  script.setAttribute(`data-css-override`, `https://hackersandslackers.com/css/commento.css`)
   script.setAttribute(`data-no-fonts`, true)
   script.setAttribute(`data-auto-init`, true)
   parentElement.appendChild(script)
