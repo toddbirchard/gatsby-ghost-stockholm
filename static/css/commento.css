@@ -19,7 +19,7 @@
 
 .commento-root p,
 .commento-root a {
-    font-size: 13px !important;
+    font-size: 14px !important;
 }
 
 #commento-comments-area {
@@ -31,7 +31,7 @@
     border-radius: 3px !important;
     background: rgba(145, 176, 211, .15) !important;
     color: #5d94b7 !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
 }
 
 .commento-root .commento-button-margin {
@@ -45,6 +45,7 @@
 .commento-root .commento-card .commento-name {
     margin: 0 0 2px !important;
     color: #6b6e73 !important;
+    font-family: 'TTCommons-Medium', sans-serif;
     font-size: 16px !important;
     font-weight: 600 !important;
     line-height: 1 !important;
@@ -198,7 +199,7 @@
 }
 
 .commento-root .commento-button-margin textarea {
-    margin-top: 13px;
+    margin-top: 14px;
 }
 
 .commento-anonymous-checkbox-container {
@@ -389,7 +390,7 @@
     padding-top: 10px;
     color: #aeb1bd !important;
     font-family: 'TTNormsPro-Regular', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
     text-transform: uppercase;
     opacity: 0.8;
@@ -444,7 +445,7 @@
 .commento-root .commento-markdown-help tr td pre {
     display: inline;
     font-family: monospace;
-    font-size: 13px
+    font-size: 14px
 }
 
 .commento-root .commento-markdown-help tr td:last-of-type {
