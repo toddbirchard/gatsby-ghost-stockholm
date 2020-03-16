@@ -48,7 +48,6 @@ const TwitterWidget = ({ data }) => {
                 :
                 <div>
                   <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
-
                   {node.entities.hashtags.length > 0 ?
                     <div className="tweet-hastags">
                       {node.entities.hashtags.map(({ text }) => (
