@@ -66,8 +66,13 @@
 }
 
 .commento-root .commento-subtitle * {
+    display: inline;
     color: #7c8a8f !important;
     line-height: 1;
+}
+
+.commento-root .commento-subtitle .commento-score {
+  margin-right: 10px;
 }
 
 .commento-root .commento-avatar,

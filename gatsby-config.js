@@ -234,7 +234,7 @@ module.exports = {
           families: [`TTNormsPro-DemiBold`, `TTCommons-Medium`, `TTCommons-Regular`, `dm`],
           urls: [`/css/fonts.css`],
         },
-        timeout: 7000,
+        timeout: 10000,
       },
     },
     /**
