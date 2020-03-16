@@ -23,7 +23,7 @@ const TwitterWidget = ({ data }) => {
           </div>
           {tweets.map(({ node }) => (
             <div className="tweet" key={node.id}>
-              {node.retweeted_status ?
+              {node.retweeted ?
                 <div className="retweeted-tweet">
                   <div className="retweeted-header">
                     <FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity />
@@ -32,12 +32,11 @@ const TwitterWidget = ({ data }) => {
                   <div className="retweeted-body">
                     <div className="tweet-header">
                       <div className="twitter-avatar">
-                        <img className="lazyload" data-src={node.retweeted_status.user.profile_image_url_https} alt="twitter-avatar" />
+                        <img className="lazyload" data-src={node.user.profile_image_url_https} alt="twitter-avatar" />
                       </div>
-                      {/*<a href={node.retweeted_status.user.url} className="twitter-name" target="_blank" rel="noopener noreferrer">{node.retweeted_status.user.name}</a>*/}
-                      <a href={node.retweeted_status.user.url} className="twitter-name" rel="nofollow noreferrer">@{node.retweeted_status.user.screen_name}</a>
+                      <a href={node.user.url} className="twitter-name" rel="nofollow noreferrer">@{node.user.screen_name}</a>
                     </div>
-                    <p className="tweet-content">{node.retweeted_status.full_text.split(`http`)[0]}</p>
+                    <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
                     {node.entities.urls &&
                       node.entities.urls.map(({ display_url, expanded_url }) => (
                         <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
@@ -55,7 +54,7 @@ const TwitterWidget = ({ data }) => {
                       ))}
                     </div>
                     : null }
-                  {node.entities.length > 0 ?
+                  {node.entities.urls.length > 0 ?
                     node.entities.urls.map(({ display_url, expanded_url }) => (
                       <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
                     ))
@@ -118,63 +117,57 @@ TwitterWidget.propTypes = {
         screen_name: PropTypes.string.isRequired,
       }).isRequired,
     }),
-    twitterProfile: PropTypes.shape({
-      screen_name: PropTypes.string.isRequired,
-      profile_image_url_https: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      followers_count: PropTypes.number.isRequired,
-    }),
+    twitterProfile: PropTypes.object.isRequired,
   }),
 }
 
 const TwitterQuery = props => (
   <StaticQuery
     query={graphql`
-          query TwitterQuery {
-            tweets: allTwitterStatusesUserTimelineHackersTweets {
-              edges {
-                node {
-                  full_text
-                  favorite_count
-                  retweet_count
-                  created_at
-                  id
-                  user {
-                    name
-                    url
-                    profile_image_url_https
-                    screen_name
-                  }
-                  entities{
-                    urls {
-                      display_url
-                      expanded_url
-                    }
-                    hashtags {
-                      text
-                    }
-                  }
-                  retweeted_status {
-                    user {
-                      profile_image_url_https
-                      url
-                      screen_name
-                      name
-                    }
-                    full_text
-                  }
+      query TwitterQuery {
+        tweets: allTwitterStatusesUserTimelineHackersTweets {
+          edges {
+            node {
+              full_text
+              favorite_count
+              retweet_count
+              created_at
+              id
+              user {
+                name
+                url
+                profile_image_url_https
+                screen_name
+              }
+              entities {
+                urls {
+                  display_url
+                  expanded_url
+                }
+                hashtags {
+                  text
                 }
               }
-            }
-            twitterProfile: twitterStatusesUserTimelineHackersTweets {
               user {
-                screen_name
                 profile_image_url_https
+                url
+                screen_name
                 name
-                followers_count
               }
+              retweeted
             }
-          }`
+          }
+        }
+        twitterProfile: twitterStatusesUserTimelineHackersTweets {
+          user {
+            url
+            screen_name
+            profile_image_url_https
+            name
+            followers_count
+          }
+        }
+      }`
     }
     render={data => <TwitterWidget data={data} {...props} />}
   />
