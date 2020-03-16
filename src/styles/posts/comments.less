@@ -9,6 +9,11 @@
     font-size: 14px !important;
   }
 
+  a {
+    color: @theme-color;
+    font-family: @body-font-bold;
+  }
+
   code {
       padding: 1px 3px !important;
       border-radius: 3px !important;
@@ -28,7 +33,6 @@
   .commento-name {
     margin-left: 0;
     color: #6b6e73;
-    font-family: @header-font-secondary;
     font-size: 1em;
     font-weight: 600;
     line-height: 1;
@@ -71,6 +75,11 @@
     button {
       margin: 0;
       padding: 0 !important;
+      transition: @transition;
+
+      &:hover {
+        background: @hover-color !important;
+      }
     }
 
     .commento-option-collapse {
@@ -78,7 +87,7 @@
         width: 14px;
         height: 14px;
         margin: 12px 6px;
-        background: #495057 !important;
+        background: #a1a8ae !important;
         mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-background="new 0 0 42 42" version="1.1" viewBox="0 0 42 42" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><polygon points="42 20 0 20 0 22 20 22 22 22 42 22" fill="%231e2127"/></svg>');
     }
 
@@ -93,6 +102,10 @@
 
     .commento-option-downvote {
         transform: rotate(180deg);
+    }
+
+    .commento-upvoted {
+      background: #3ed8ac !important;
     }
 
     .commento-option-edit {

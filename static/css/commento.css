@@ -22,6 +22,11 @@
     font-size: 14px !important;
 }
 
+.commento-root a {
+  color: #6baaf2;
+  font-family: 'TTCommons-Medium', sans-serif;
+}
+
 #commento-comments-area {
     box-shadow: 0 1px 4px rgba(39, 44, 49, 0.15);
 }
@@ -45,7 +50,6 @@
 .commento-root .commento-card .commento-name {
     margin: 0 0 2px !important;
     color: #6b6e73 !important;
-    font-family: 'TTCommons-Medium', sans-serif;
     font-size: 16px !important;
     font-weight: 600 !important;
     line-height: 1 !important;
@@ -494,6 +498,11 @@
 .commento-options button {
   border: 0 !important;
   background: #ced4da !important;
+  transition: all .2s ease-out;
+}
+
+.commento-options button:hover {
+  background: #40cebb !important;
 }
 
 .commento-options .commento-option-collapse {
@@ -501,7 +510,7 @@
     width: 14px;
     height: 14px;
     margin: 12px 6px;
-    background: #ced4da !important;
+    background: #a1a8ae !important;
     mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-background="new 0 0 42 42" version="1.1" viewBox="0 0 42 42" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><polygon points="42 20 0 20 0 22 20 22 22 22 42 22" fill="%231e2127"/></svg>');
 }
 
@@ -513,6 +522,10 @@
     margin: 12px 6px;
     background: #ced4da !important;
     mask-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg enable-background="new 0 0 284.929 284.929" version="1.1" viewBox="0 0 284.93 284.93" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">	<path d="m282.08 195.28-133.05-133.04c-1.901-1.903-4.088-2.856-6.562-2.856s-4.665 0.953-6.567 2.856l-133.04 133.04c-1.906 1.906-2.856 4.093-2.856 6.568 0 2.474 0.953 4.664 2.856 6.566l14.272 14.271c1.903 1.903 4.093 2.854 6.567 2.854s4.664-0.951 6.567-2.854l112.2-112.2 112.21 112.21c1.902 1.903 4.093 2.848 6.563 2.848 2.478 0 4.668-0.951 6.57-2.848l14.274-14.277c1.902-1.902 2.847-4.093 2.847-6.566 1e-3 -2.476-0.944-4.666-2.846-6.569z" fill="%23abbac4"/></svg>');
+}
+
+.commento-options .commento-upvoted {
+  background: #3ed8ac !important;
 }
 
 .commento-options .commento-option-downvote {
