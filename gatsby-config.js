@@ -5,6 +5,7 @@ const queries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
 const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
+const generateAuthorRSSFeed = require(`./src/utils/rss/author-feed`)
 
 let ghostConfig
 
@@ -37,6 +38,9 @@ module.exports = {
     image: config.siteIcon, // Path to your image you placed in the 'static' folder,
     twitterUsername: config.social.twitter,
   },
+  mapping: {
+    'allGhostAuthor.slug': `frontmatter`,
+  },
   plugins: [
     /**
      *  Source Plugins
@@ -46,6 +50,14 @@ module.exports = {
       options: {
         path: path.join(__dirname, `src`, `pages`),
         name: `pages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data/`,
+        ignore: [`**/.*`], // ignore files starting with a dot
       },
     },
     {
@@ -329,6 +341,7 @@ module.exports = {
               `,
         feeds: [
           generateRSSFeed(config),
+          generateAuthorRSSFeed(config, `todd`, `Todd Birchard`),
         ],
       },
     },

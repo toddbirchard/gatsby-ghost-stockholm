@@ -46,18 +46,17 @@ const generateItem = function generateItem(siteUrl, post) {
   return item
 }
 
-const generateRSSFeed = function generateRSSFeed(siteConfig) {
+const generateAuthorRSSFeed = function generateRSSFeed(siteConfig, authorSlug, authorName) {
   return {
     serialize: ({ query: { allGhostPost } }) => allGhostPost.edges.map(edge => Object.assign({}, generateItem(siteConfig.siteUrl, edge.node))),
     setup: ({ query: { ghostSettings } }) => {
-      const siteTitle = ghostSettings.title || `No Title`
       const siteDescription = ghostSettings.description || `No Description`
       const feed = {
-        title: siteTitle,
+        title: authorName,
         description: siteDescription,
         // generator: `Ghost ` + data.safeVersion,
         generator: `Ghost 2.9`,
-        feed_url: `${siteConfig.siteUrl}/rss/`,
+        feed_url: `${siteConfig.siteUrl}/author/${authorSlug}/rss/`,
         site_url: `${siteConfig.siteUrl}/`,
         image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
         ttl: `60`,
@@ -72,7 +71,7 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
     },
     query: `
         {
-            allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}}) {
+            allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}, primary_author: {slug: {eq: "todd"}}}) {
                 edges {
                     node {
                         # Main fields
@@ -114,10 +113,9 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
                 }
             }
         }`,
-    output: `/rss.xml`,
+    output: `/author/${authorSlug}/rss.xml`,
     title: siteConfig.siteTitleMeta,
-    link: siteConfig.social.feedly,
   }
 }
 
-module.exports = generateRSSFeed
+module.exports = generateAuthorRSSFeed
