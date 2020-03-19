@@ -38,9 +38,6 @@ module.exports = {
     image: config.siteIcon, // Path to your image you placed in the 'static' folder,
     twitterUsername: config.social.twitter,
   },
-  mapping: {
-    'allGhostAuthor.slug': `frontmatter`,
-  },
   plugins: [
     /**
      *  Source Plugins
@@ -50,14 +47,6 @@ module.exports = {
       options: {
         path: path.join(__dirname, `src`, `pages`),
         name: `pages`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`,
-        ignore: [`**/.*`], // ignore files starting with a dot
       },
     },
     {
@@ -256,9 +245,11 @@ module.exports = {
       resolve: `gatsby-plugin-less`,
       options: {
         javascriptEnabled: true,
+        postCssPlugins: [require(`autoprefixer`)(),
+          require(`cssnano`)({ preset: `default` })],
       },
     },
-    {
+    /* {
       resolve: `gatsby-plugin-postcss`,
       options: {
         parser: `less`,
@@ -267,7 +258,7 @@ module.exports = {
           require(`cssnano`)({ preset: `default` }),
         ],
       },
-    },
+    }, */
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
@@ -422,6 +413,16 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: config.siteUrl,
+        sitemap: config.siteMap,
+        policy: [{ userAgent: `*`,
+          allow: `/`,
+          disallow: [`/ghost/`, `/p/`, `/roundup/*`] }],
+      },
+    },
+    {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: config.siteUrl,
@@ -454,9 +455,9 @@ module.exports = {
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-preload-link-crossorigin`,
-    /*{
+    /* {
        resolve: `@bundle-analyzer/gatsby-plugin`,
        options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
-   },*/
+   }, */
   ],
 }

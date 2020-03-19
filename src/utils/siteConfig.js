@@ -1,5 +1,7 @@
 module.exports = {
   siteUrl: `https://hackersandslackers.com`, // Site domain. Do not include a trailing slash!
+  siteRss: `https://hackersandslackers.com/rss.xml`,
+  siteMap: `https://hackersandslackers.com/sitemap.xml`,
 
   postsPerPage: 8, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 

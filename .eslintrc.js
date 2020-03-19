@@ -18,7 +18,7 @@ module.exports = {
         "react": {
             "createClass": "createReactClass",
             "pragma": "React",
-            "version": "16.0",
+            "version": "16.13.1",
             "flowVersion": "0.53"
         },
         "propWrapperFunctions": ["forbidExtraProps"]

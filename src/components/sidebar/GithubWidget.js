@@ -67,6 +67,7 @@ const GithubWidgetQuery = props => (
                 items {
                   edges {
                     node {
+                      id
                       description
                       name
                       forkCount
@@ -83,8 +84,7 @@ const GithubWidgetQuery = props => (
                 }
               }
             }
-          }`
-    }
+          }`}
     render={data => <GithubWidget data={data} {...props} />}
   />
 )
