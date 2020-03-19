@@ -749,6 +749,7 @@
 .commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email {
   width: 100%;
   max-width: 400px;
+  height: 40px;
   border-radius: 4px;
   background: #fff
 }
@@ -756,6 +757,8 @@
 .commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-input {
   display: inline;
   width: calc(100% - 150px);
+  height: -webkit-fill-available;
+  height: moz-available;
   height: 40px;
   padding: 5px 5px 5px 10px;
   border: none;
@@ -842,4 +845,60 @@
 
 .commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:after {
   transform: rotate(-45deg)
+}
+
+
+
+/*
+*
+*  Buttons
+*
+*/
+
+
+.commento-oauth-buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons {
+  display: contents;
+  z-index: 1;
+  position: absolute;
+  align-items: center
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-google-button {
+  width: 70px;
+  background: #dd4b39;
+  font-size: 13px;
+  text-transform: uppercase
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-github-button {
+  width: 70px;
+  background: #000;
+  font-size: 13px;
+  text-transform: uppercase
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-twitter-button {
+  width: 70px;
+  background: #00aced;
+  font-size: 13px;
+  text-transform: uppercase
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-gitlab-button {
+  width: 70px;
+  background: #fc6d26;
+  font-size: 13px;
+  text-transform: uppercase
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-sso-button {
+  width: 200px;
+  background: #000;
+  font-size: 13px;
+  text-transform: uppercase
 }
