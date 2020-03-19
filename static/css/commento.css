@@ -14,12 +14,12 @@
 
 .commento-root * {
   font-size: 14px !important;
-  line-height: 1.25 !important;
 }
 
-.commento-root p,
-.commento-root a {
-  font-size: 14px !important;
+.commento-root .commento-card p,
+.commento-root .commento-card a {
+  font-size: 15px !important;
+  line-height: 1.3 !important;
 }
 
 .commento-root .commento-body a {
@@ -48,12 +48,16 @@
 }
 
 .commento-root .commento-card .commento-name {
-  margin: 0 0 5px 0 !important;
+  margin: 0 0 2px 0 !important;
   color: #6b6e73 !important;
   font-size: 19px !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   text-transform: capitalize;
+}
+
+.commento-root .commento-card .commento-card .commento-name {
+  font-size: 16px !important;
 }
 
 .commento-card .commento-timeago {
@@ -94,7 +98,11 @@
 
 .commento-header {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+.commento-card .commento-card .commento-header {
+    margin-bottom: 10px;
 }
 
 .commento-root .commento-options {
@@ -237,7 +245,7 @@
 .commento-root .commento-card .commento-card {
   margin-top: 25px !important;
   margin-left: 20px !important;
-  padding: 20px 0 0 20px !important;
+  padding: 0 0 0 20px !important;
   overflow: hidden;
   box-shadow: none !important;
 }
