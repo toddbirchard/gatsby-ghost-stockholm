@@ -1,5 +1,5 @@
 .commento-root {
-    width: fill-available !important;
+    width: -webkit-fill-available !important;
     margin: 0 0 20px !important;
     padding: 0 !important;
     overflow-x: visible !important;
@@ -147,7 +147,7 @@
 }
 
 .commento-root .commento-error-box {
-    width: fill-available !important;
+    width: -webkit-fill-available !important;
     height: auto !important;
     margin-bottom: 10px;
     padding: 20px;
@@ -342,7 +342,7 @@
     -webkit-appearance: none !important;
     -webkit-transition: all 0.2s ease-out;
     position: relative;
-    width: fill-available;
+    width: -webkit-fill-available;
     height: 120px !important;
     min-height: unset !important;
     max-height: 240px !important;
