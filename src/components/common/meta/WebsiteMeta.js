@@ -10,6 +10,9 @@ import config from '../../../utils/siteConfig'
 
 const WebsiteMeta = ({ data, settings, canonical, title, description, image, type }) => {
   settings = settings.ghostSettings
+  const facebookPageID = process.env.FACEBOOK_PAGE_ID
+  const facebookAppID = process.env.FACEBOOK_APP_ID
+  const googleVerificationID = process.env.GOOGLE_VERIFICATION_ID
 
   const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
   let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
@@ -25,20 +28,20 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" to={canonical} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
-        { config.id.facebookPageID && <meta property="fb:page_id" content={config.id.facebookPageID} /> }
-        { config.id.facebookAppID && <meta property="fb:app_id" content={config.id.facebookAppID} /> }
+        {facebookPageID && <meta property="fb:page_id" content={config.id.facebookPageID} />}
+        {facebookAppID && <meta property="fb:app_id" content={config.id.facebookAppID} />}
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:url" content={canonical} />
-        { settings.twitter && <meta name="twitter:site" content={settings.twitter} />}
-        { config.creator.twitter && <meta name="twitter:creator" content={config.creator.twitter} /> }
-        { config.id.googleVerificationID && <meta name="google-site-verification" content={config.id.googleVerificationID} /> }
+        {settings.twitter && <meta name="twitter:site" content={settings.twitter} />}
+        {config.creator.twitter && <meta name="twitter:creator" content={config.creator.twitter} />}
+        {googleVerificationID && <meta name="google-site-verification" content={config.id.googleVerificationID} />}
         <link rel="icon" type="image/png" sizes="72x72" href="images/icons/icon-72x72.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="images/icons/icon-96x96.png" />
         <link rel="icon" type="image/png" sizes="128x128" href="images/icons/icon-128x128.png" />
@@ -75,7 +78,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
                         },
                         "description": "${description}"
                     }
-                `}</script>
+                `}
+        </script>
       </Helmet>
       <ImageMeta image={shareImage} />
     </>
