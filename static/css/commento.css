@@ -44,13 +44,13 @@
 }
 
 .commento-root .commento-root-font * {
-  font-family: 'TTNormsPro-Regular', sans-serif;
+  font-family: 'TTCommons-Book', sans-serif;
 }
 
 .commento-root .commento-card .commento-name {
-  margin: 0 0 2px !important;
+  margin: 0 !important;
   color: #6b6e73 !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   text-transform: capitalize;
@@ -61,14 +61,15 @@
 }
 
 .commento-card .commento-score {
-  font-family: 'TTNormsPro-Regular', sans-serif !important;
+  font-family: 'TTCommons-Book', sans-serif !important;
   font-size: 11px !important;
   font-weight: normal !important;
 }
 
 .commento-root .commento-subtitle {
   margin-left: 0 !important;
-  line-height: 1;
+  font-size: 15px !important;
+  line-height: 1 !important;
 }
 
 .commento-root .commento-subtitle * {
@@ -156,7 +157,7 @@
   border-radius: 3px;
   background: #efe2e4;
   color: #9a6c6c !important;
-  font-family: 'TTNormsPro-Regular', sans-serif;
+  font-family: 'TTCommons-Book', sans-serif;
   font-size: 14px !important;
   line-height: 1.2 !important;
   text-align: center;
@@ -217,11 +218,11 @@
   background: white;
 }
 
-.commento-root>.commento-card {
+.commento-comments >.commento-card {
   border-bottom: 1px solid #d7d7d7;
 }
 
-.commento-root>.commento-card:last-of-type {
+.commento-comments >.commento-card:last-of-type {
   border-bottom: 0;
 }
 
@@ -332,6 +333,13 @@
 
 .commento-root .commento-markdown-button {
   bottom: 15px !important;
+  color: #3c484e;
+  font-size: 13px !important;
+  line-height: 1 !important;
+}
+
+.commento-root .commento-markdown-button a {
+  bottom: 15px !important;
   font-size: 11px !important;
   line-height: 1 !important;
 }
@@ -402,7 +410,7 @@
   margin: auto !important;
   padding-top: 50px;
   color: #aeb1bd !important;
-  font-family: 'TTNormsPro-Regular', sans-serif;
+  font-family: 'TTCommons-Book', sans-serif;
   font-size: 14px;
   text-align: center;
   text-transform: uppercase;
