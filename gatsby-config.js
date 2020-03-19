@@ -258,7 +258,6 @@ module.exports = {
         javascriptEnabled: true,
       },
     },
-
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -274,7 +273,7 @@ module.exports = {
       options: {
         printRejected: true, // Print removed selectors and processed file names
         develop: false, // Enable while using `gatsby develop`
-        whitelist: [`searchbox`, `search-result`, `tableContainer`], // Don't remove this selector
+        whitelist: [`searchbox`, `search-result`, `tableContainer`], // Don't remove these selectors
         whitelistPatterns: [`*-template$`, `.content-body > pre`],
         ignore: [`/ignored.css`, `prismjs/`, `docsearch.js/`], // Ignore files/folders
         // purgeOnly : ['components/', '/main.css'], // Purge only these files/folders
