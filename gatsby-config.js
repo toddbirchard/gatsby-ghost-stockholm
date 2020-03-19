@@ -258,14 +258,15 @@ module.exports = {
         javascriptEnabled: true,
       },
     },
+
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         parser: `less`,
         postCssPlugins: [
           require(`autoprefixer`)(),
-          require(`stylelint`)(),
-          require(`cssnano`)()],
+          require(`cssnano`)({ preset: `default` }),
+        ],
       },
     },
     {
