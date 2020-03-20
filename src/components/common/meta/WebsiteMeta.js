@@ -27,7 +27,6 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" to={canonical} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="website" />

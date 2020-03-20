@@ -15,7 +15,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
       <div className={`author-card ${page}`}>
         <div className="author-card-head">
           <div className="author-card-image">
-            {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={author.name} /> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} />}
+            {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={`${author.name}'s avatar`} title={author.name}/> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} title={author.name}/>}
           </div>
           <div className="author-card-content">
             {template === `author-template` ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1> : <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>}

@@ -22,7 +22,7 @@ const Footer = ({ navigation, site, data }) => {
           <div className="footer-widgets">
             <div className="widget about">
               <Link to="/" className="footer-logo">
-                { logo ? <img className="lazyload" data-src={logo} alt={site.title}/> : <h1 className="site-headline">{site.title} </h1> }
+                { logo ? <img className="lazyload" data-src={logo} alt={`Logo for ${site.title}`} title={site.title}/> : <h1 className="site-headline">{site.title} </h1> }
               </Link>
               <p className="description">{description}</p>
               <SocialWidget site={site} />
