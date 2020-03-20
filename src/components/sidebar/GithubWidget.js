@@ -45,6 +45,16 @@ const GithubWidget = ({ data }) => {
 GithubWidget.propTypes = {
   data: PropTypes.shape({
     githubOrganization: PropTypes.object,
+    itemShowcase: PropTypes.object,
+    membersWithRole: PropTypes.shape({
+      totalCount: PropTypes.number,
+    }),
+    repositories: PropTypes.shape({
+      totalCount: PropTypes.number,
+    }),
+    stargazers: PropTypes.shape({
+      totalCount: PropTypes.number,
+    }),
   }),
 }
 

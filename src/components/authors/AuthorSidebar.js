@@ -8,12 +8,11 @@ import { AuthorTrending } from '.'
 const AuthorSidebar = ({ authorData }) => {
   // const authorTweets = authorData.authorTweets.edges
   //const authorTwitterProfile = authorData.authorTwitterProfile.edges
-  const authorTrendingPosts = authorData
 
   return (
     <>
       <aside className="AuthorSidebar">
-        <AuthorTrending />
+        <AuthorTrending authorData={authorData}/>
       </aside>
     </>
   )
