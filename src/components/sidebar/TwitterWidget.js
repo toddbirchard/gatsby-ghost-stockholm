@@ -81,6 +81,7 @@ TwitterWidget.propTypes = {
       retweet_count: PropTypes.number,
       created_at: PropTypes.string,
       id: PropTypes.string,
+      retweeted: PropTypes.bool,
       user: PropTypes.shape({
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
@@ -99,25 +100,17 @@ TwitterWidget.propTypes = {
           }),
         ),
       }),
-      retweeted_status: PropTypes.shape({
-        user: PropTypes.shape({
-          profile_image_url_https: PropTypes.string,
-          url: PropTypes.string,
-          screen_name: PropTypes.string,
-          name: PropTypes.string,
-        }),
-      }),
     }).isRequired,
-    twitterStatusesUserTimelineHackersTweets: PropTypes.shape({
+    twitterProfile: PropTypes.shape({
       user: PropTypes.shape({
         profile_image_url_https: PropTypes.string,
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         display_url: PropTypes.string,
         screen_name: PropTypes.string.isRequired,
+        followers_count: PropTypes.number.isRequired,
       }).isRequired,
     }),
-    twitterProfile: PropTypes.object.isRequired,
   }),
 }
 
