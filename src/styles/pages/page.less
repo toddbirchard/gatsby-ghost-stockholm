@@ -30,6 +30,9 @@
     }
 
     .viewport {
+      @media (max-width: @tablet-breakpoint) {
+        padding-bottom: 0;
+      }
       @media (max-width: @mobile-breakpoint) {
         margin: 0 auto !important;
       }
@@ -71,7 +74,7 @@
 
       &.about {
         @media (max-width: @mobile-breakpoint) {
-          padding: 70vw 30px 30px !important;
+          padding: 65vw 30px 30px !important;
         }
       }
 
