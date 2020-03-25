@@ -36,7 +36,6 @@ const Tag = ({ data, location, pageContext }) => {
             {tag.description ? <p className="tag-description">{tag.description}</p> : null }
           </header>
           {posts.map(({ node }) => (
-            // The tag below includes the markup for each post - components/common/PostCard.js
             <PostCard key={node.id} post={node} />
           ))}
           <Pagination pageContext={pageContext} />
@@ -98,5 +97,4 @@ export const pageQuery = graphql`
         ghostSettings {
               icon
             }
-          }
-`
+          }`

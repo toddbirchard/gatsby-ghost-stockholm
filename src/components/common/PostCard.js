@@ -23,8 +23,10 @@ const PostCard = ({ post }) => {
       </Link>
       {post.featured && <span>Featured</span>}
       <div className="post-card-detail">
-        <Link to={url}><h2 className="post-card-title">{post.title}</h2></Link>
-        {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
+        <Link to={url}>
+          <h2 className="post-card-title">{post.title}</h2>
+        </Link>
+        {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section> }
         <footer className="post-card-footer">
           {post.tags ? <div className="meta-item tag">
             <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity/>
