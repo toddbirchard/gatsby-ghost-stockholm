@@ -36,7 +36,7 @@
   border-radius: 3px !important;
   background: rgba(145, 176, 211, .15) !important;
   color: #5d94b7 !important;
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 
 .commento-root .commento-button-margin {
@@ -50,7 +50,7 @@
 .commento-root .commento-card .commento-name {
   margin: 0 0 2px 0 !important;
   color: #6b6e73 !important;
-  font-size: 19px !important;
+  font-size: 17px !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   text-transform: capitalize;
@@ -72,14 +72,13 @@
 
 .commento-root .commento-subtitle {
   margin-left: 0 !important;
-  font-size: 15px !important;
   line-height: 1 !important;
 }
 
 .commento-root .commento-subtitle * {
   display: inline;
   color: #7c8a8f !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   line-height: 1;
 }
 
