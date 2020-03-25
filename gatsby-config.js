@@ -94,7 +94,7 @@ module.exports = {
               include_rts: true,
               exclude_replies: true,
               tweet_mode: `extended`,
-              count: 3,
+              count: 4,
             },
           },
           AuthorTwitterProfiles: {
