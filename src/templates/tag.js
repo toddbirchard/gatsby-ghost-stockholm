@@ -51,33 +51,30 @@ Tag.propTypes = {
       name: PropTypes.string.isRequired,
       description: PropTypes.string,
     }),
-    allGhostPost: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        primary_author: PropTypes.object.isRequired,
-        html: PropTypes.string.isRequired,
-        feature_image: PropTypes.string,
-        tags: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-          })
-        ).isRequired,
-        published_at_pretty: PropTypes.string,
-      }).isRequired,
-    ),
+    allGhostPost: PropTypes.shape({
+      title: PropTypes.string,
+      slug: PropTypes.string.isRequired,
+      primary_author: PropTypes.object.isRequired,
+      html: PropTypes.string.isRequired,
+      feature_image: PropTypes.string,
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      published_at_pretty: PropTypes.string,
+    }).isRequired,
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
   pageContext: PropTypes.object,
-  icon: PropTypes.string,
 }
 
 export default Tag
 
-export const pageQuery = graphql`
+export const tagQuery = graphql`
     query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
         ghostTag(slug: { eq: $slug }) {
             ...GhostTagFields
@@ -94,7 +91,4 @@ export const pageQuery = graphql`
                 }
             }
         }
-        ghostSettings {
-              icon
-            }
-          }`
+      }`
