@@ -245,8 +245,10 @@ module.exports = {
       resolve: `gatsby-plugin-less`,
       options: {
         javascriptEnabled: true,
-        postCssPlugins: [require(`autoprefixer`)(),
-          require(`cssnano`)({ preset: `default` })],
+        postCssPlugins: [
+          require(`autoprefixer`)(),
+          require(`cssnano`)({ preset: `default` }),
+          require(`stylelint`)()],
       },
     },
     `gatsby-plugin-split-css`,

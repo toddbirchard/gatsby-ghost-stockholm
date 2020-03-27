@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "block-no-empty": null,
+    "comment-empty-line-before": ["always"],
+    "max-empty-lines": 2,
+    "indentation": [2, { "except": ["value"], "severity": "warning"}]
+  }
+}
