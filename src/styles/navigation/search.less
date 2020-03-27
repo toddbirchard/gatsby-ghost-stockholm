@@ -136,11 +136,21 @@
     transition: @transition;
   }
 
+  &::before {
+    content: '\f002';
+  }
+
   &:focus,
   &:hover {
     svg {
       fill: @theme-color !important;
       color: @theme-color !important;
+    }
+  }
+
+  &:focus {
+    svg {
+      opacity: 0;
     }
   }
 

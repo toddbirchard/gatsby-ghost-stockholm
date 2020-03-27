@@ -15,34 +15,34 @@ import config from '../utils/siteConfig'
 *
 */
 const Index = ({ data, location, pageContext }) => {
-    const posts = data.allGhostPost.edges
-    const metaTitle = config.siteTitleMeta
+  const posts = data.allGhostPost.edges
+  const metaTitle = config.siteTitleMeta
 
-    return (
-        <>
-            <MetaData location={location} data={data} />
-            <Layout hasSidebar={true} template="home-template">
-                <main className="site-main">
-                    <section className="post-feed">
-                        {posts.map(({ node }) => (
-                            <PostCard key={node.id} post={node} />
-                        ))}
-                        <Pagination pageContext={pageContext} metaTitle={metaTitle} />
-                    </section>
-                </main>
-            </Layout>
-        </>
-    )
+  return (
+    <>
+      <MetaData location={location} data={data} />
+      <Layout hasSidebar={true} template="home-template">
+        <main className="site-main">
+          <section className="post-feed">
+            {posts.map(({ node }) => (
+              <PostCard key={node.id} post={node} />
+            ))}
+            <Pagination pageContext={pageContext} metaTitle={metaTitle} />
+          </section>
+        </main>
+      </Layout>
+    </>
+  )
 }
 
 Index.propTypes = {
-    data: PropTypes.shape({
-        allGhostPost: PropTypes.object.isRequired,
-    }).isRequired,
-    location: PropTypes.shape({
-        pathname: PropTypes.string.isRequired,
-    }).isRequired,
-    pageContext: PropTypes.object,
+  data: PropTypes.shape({
+    allGhostPost: PropTypes.object.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  pageContext: PropTypes.object,
 }
 
 export default Index
