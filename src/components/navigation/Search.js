@@ -73,7 +73,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
         onSearchStateChange={({ query }) => setQuery(query)}
         onSearchParameters={() => setFocus(true)} {...{ collapse, focus }}
       >
-        <Configure hitsPerPage={8} analytics={true}/>
+        <Configure hitsPerPage={10} analytics={true}/>
         <SearchBox
           searchAsYouType={true}
           placeholder="Search all posts..."

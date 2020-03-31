@@ -132,6 +132,7 @@
   }
 
   .bm-item-list {
+    height: 100%;
     transition: @transition;
 
     .pages,
@@ -215,7 +216,6 @@
       border-bottom: 1px solid #dedede;
 
       a {
-
         svg {
           margin-right: 15px;
           font-size: 1em;
@@ -293,7 +293,8 @@
       right: 0;
       left: 0;
       width: stretch !important;
-      padding: 5px !important;
+      height: 100%;
+      padding: 0 !important;
       border: 0;
       box-shadow: unset !important;
 
@@ -306,7 +307,7 @@
       }
 
       .ais-Hits-item {
-        padding: 15px 10px;
+        padding: 15px;
       }
 
       .search-result {
@@ -347,8 +348,9 @@
         }
 
         span {
+          color: #728295;
           font-family: @body-font-bold;
-          font-size: 0.9em;
+          font-size: 1.1em;
         }
       }
 
@@ -380,7 +382,7 @@
         .input-field-interactions();
         border: 1px solid #dcdada;
         color: #484c52;
-        font-size: 0.8em;
+        font-size: 1em;
         font-weight: 300;
         letter-spacing: 1px;
         transition: all 0.2s ease-out;
@@ -426,8 +428,8 @@
   overflow-x: hidden;
 
   .search-container {
+    height: 100%;
     margin: 0 !important;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.05);
 
     & > div > svg {
       display: none;

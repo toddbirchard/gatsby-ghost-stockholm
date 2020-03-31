@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import Search from './Search'
+import Search from './Search'
 import config from '../../utils/siteConfig'
 
 class HamburgerMenu extends React.Component {
@@ -25,14 +24,16 @@ class HamburgerMenu extends React.Component {
     return (
       <>
         <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
-          <div className="search-container" onClick={ () => this.setState({ active: true })}>{/*<Search collapse className="search-widget" forcedQuery={this.state.query ? this.state.query : null} />*/}</div>
+          <div className="search-container" onClick={ () => this.setState({ active: true })}>
+            <Search collapse className="search-widget" />
+          </div>
           <div className="pages">
-            <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fas`, `indent`]} size="xs"/>About</Link>
-            <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fas`, `books`]} size="xs"/>Series</Link>
-            <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fas`, `user-plus`]} size="xs"/>Join</Link>
-            <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fas`, `search`]} size="xs"/>All Posts</Link>
-            <a className={`navigation-link`} href={config.social.feedly}><FontAwesomeIcon icon={[`fas`, `rss`]} size="xs"/>RSS</a>
-            <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fas`, `coffee-togo`]} size="xs"/> Donate</a>
+            <Link className={`navigation-link`} to={`/about/`}>About</Link>
+            <Link className={`navigation-link`} to={`/series/`}>Series</Link>
+            <Link className={`navigation-link`} to={`/join-us/`}>Join</Link>
+            <Link className={`navigation-link`} to={`/search/`}>All Posts</Link>
+            <a className={`navigation-link`} href={config.social.feedly}>RSS</a>
+            <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers">Donate</a>
           </div>
           <div className="tags">
             <div className="sublinks">
@@ -46,7 +47,7 @@ class HamburgerMenu extends React.Component {
             <div className="sublinks">
               {this.topSearches.map(({ node }) => (
                 <div className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>
-                  <FontAwesomeIcon icon={[`fas`, `chart-line`]} size="xs" /> <span>{ node.search }</span>
+                  <span>{ node.search }</span>
                 </div>
               ))}
             </div>
@@ -90,7 +91,7 @@ const HamburgerMenuQuery = props => (
                 }
               }
             }
-            topSearches: allMysqlAlgoliaTopSearches(limit: 5) {
+            topSearches: allMysqlAlgoliaTopSearches(limit: 8) {
               edges {
                 node {
                   search
