@@ -20,9 +20,9 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
           <div className="author-card-content">
             {template === `author-template` ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1> : <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>}
             <div className="author-card-meta">
-              {author.postCount && <div className="author-card-item"><FontAwesomeIcon icon={[`fad`, `pencil-alt`]} size="xs" /> <span>{author.postCount} Posts</span></div>}
-              {author.location && <div className="author-card-item location"><FontAwesomeIcon icon={[`fad`, `home`]} size="xs" /> <span>{author.location}</span></div>}
-              {author.website && <div className="author-card-item"><a href={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fad`, `globe`]} size="xs" /> <span>Website</span></a></div>}
+              {author.postCount && <div className="author-card-item"><FontAwesomeIcon icon={[`fas`, `pencil-alt`]} size="xs" /> <span>{author.postCount} Posts</span></div>}
+              {author.location && <div className="author-card-item location"><FontAwesomeIcon icon={[`fas`, `home`]} size="xs" /> <span>{author.location}</span></div>}
+              {author.website && <div className="author-card-item"><a href={author.website} target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fas`, `globe`]} size="xs" /> <span>Website</span></a></div>}
               {authorTwitterUrl && <div className="author-card-item"><a href={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /> <span>Twitter</span></a></div>}
               {authorFacebookUrl && <div className="author-card-item"><a href={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={[`fab`, `facebook`]} size="xs" /> <span>Facebook</span></a></div>}
             </div>

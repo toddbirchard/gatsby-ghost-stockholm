@@ -73,7 +73,7 @@ const SearchPage = ({ data, location, pageContext }) => {
                     placeholder="Search"
                     showLoadingIndicator={true}
                   />
-                  <FontAwesomeIcon icon={[`fad`, `search`]} size="xs" className="search-icon" />
+                  <FontAwesomeIcon icon={[`fas`, `search`]} size="xs" className="search-icon" />
                 </div>
                 <div className="search-bar-container">
                   <MenuSelect

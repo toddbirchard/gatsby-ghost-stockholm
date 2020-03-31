@@ -27,12 +27,12 @@ class HamburgerMenu extends React.Component {
         <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="search-container" onClick={ () => this.setState({ active: true })}>{/*<Search collapse className="search-widget" forcedQuery={this.state.query ? this.state.query : null} />*/}</div>
           <div className="pages">
-            <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fad`, `indent`]} size="xs"/>About</Link>
-            <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fad`, `books`]} size="xs"/>Series</Link>
-            <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fad`, `user-plus`]} size="xs"/>Join</Link>
-            <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/>All Posts</Link>
-            <a className={`navigation-link`} href={config.social.feedly}><FontAwesomeIcon icon={[`fad`, `rss`]} size="xs"/>RSS</a>
-            <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fad`, `coffee-togo`]} size="xs"/> Donate</a>
+            <Link className={`navigation-link`} to={`/about/`}><FontAwesomeIcon icon={[`fas`, `indent`]} size="xs"/>About</Link>
+            <Link className={`navigation-link`} to={`/series/`}><FontAwesomeIcon icon={[`fas`, `books`]} size="xs"/>Series</Link>
+            <Link className={`navigation-link`} to={`/join-us/`}><FontAwesomeIcon icon={[`fas`, `user-plus`]} size="xs"/>Join</Link>
+            <Link className={`navigation-link`} to={`/search/`}><FontAwesomeIcon icon={[`fas`, `search`]} size="xs"/>All Posts</Link>
+            <a className={`navigation-link`} href={config.social.feedly}><FontAwesomeIcon icon={[`fas`, `rss`]} size="xs"/>RSS</a>
+            <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><FontAwesomeIcon icon={[`fas`, `coffee-togo`]} size="xs"/> Donate</a>
           </div>
           <div className="tags">
             <div className="sublinks">
@@ -46,7 +46,7 @@ class HamburgerMenu extends React.Component {
             <div className="sublinks">
               {this.topSearches.map(({ node }) => (
                 <div className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>
-                  <FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>{ node.search }</span>
+                  <FontAwesomeIcon icon={[`fas`, `chart-line`]} size="xs" /> <span>{ node.search }</span>
                 </div>
               ))}
             </div>

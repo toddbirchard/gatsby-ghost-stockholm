@@ -17,7 +17,7 @@ const TwitterWidget = ({ data }) => {
             <div className="profile-details">
               <div className="profile-details">
                 <a href={twitterProfileURL} className="twitter-name" target="_blank" rel="noopener noreferrer">{`@${twitterProfile.screen_name}`}</a>
-                <div className="twitter-followers"><FontAwesomeIcon icon={[`fad`, `users`]} size="xs" /> <span>{twitterProfile.followers_count} Followers</span></div>
+                <div className="twitter-followers"><FontAwesomeIcon icon={[`fas`, `users`]} size="xs" /> <span>{twitterProfile.followers_count} Followers</span></div>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ const TwitterWidget = ({ data }) => {
               {node.retweeted ?
                 <div className="retweeted-tweet">
                   <div className="retweeted-header">
-                    <FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity />
+                    <FontAwesomeIcon icon={[`fas`, `retweet`]} size="xs" swapOpacity />
                     <span>{`${node.user.name} retweeted`}</span>
                   </div>
                   <div className="retweeted-body">
@@ -39,7 +39,7 @@ const TwitterWidget = ({ data }) => {
                     <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
                     {node.entities.urls &&
                       node.entities.urls.map(({ display_url, expanded_url }) => (
-                        <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
+                        <a href={expanded_url} className="tweet-link" key={ display_url } rel="nofollow noreferrer">{ display_url }</a>
                       ))
                     }
                   </div>
@@ -61,9 +61,9 @@ const TwitterWidget = ({ data }) => {
                     : null }
                 </div> }
               <div className="tweet-footer">
-                <div className="retweets meta-item"><FontAwesomeIcon icon={[`fad`, `retweet`]} size="xs" swapOpacity /> <span>{node.retweet_count}</span></div>
-                <div className="favorites meta-item"><FontAwesomeIcon icon={[`fad`, `heartbeat`]} size="xs" swapOpacity/> <span>{node.favorite_count}</span></div>
-                <div className="date meta-item"><FontAwesomeIcon icon={[`fad`, `calendar`]} size="xs" /> {node.created_at.split(` `, 3).join(` `)}</div>
+                <div className="retweets meta-item"><FontAwesomeIcon icon={[`fas`, `retweet`]} size="xs" swapOpacity /> <span>{node.retweet_count}</span></div>
+                <div className="favorites meta-item"><FontAwesomeIcon icon={[`fas`, `heartbeat`]} size="xs" swapOpacity/> <span>{node.favorite_count}</span></div>
+                <div className="date meta-item"><FontAwesomeIcon icon={[`fas`, `calendar`]} size="xs" /> {node.created_at.split(` `, 3).join(` `)}</div>
               </div>
             </div>
           ))}

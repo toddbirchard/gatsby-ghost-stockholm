@@ -30,7 +30,7 @@ const Tag = ({ data, location, pageContext }) => {
         <section className="post-feed">
           <header className="tag-header info-card">
             <div className="tag-title">
-              <FontAwesomeIcon icon={[`fad`, `tags`]} size="sm" swapOpacity />
+              <FontAwesomeIcon icon={[`fas`, `tags`]} size="sm" swapOpacity />
               <h1>{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
             </div>
             {tag.description ? <p className="tag-description">{tag.description}</p> : null }

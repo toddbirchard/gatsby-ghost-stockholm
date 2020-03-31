@@ -24,8 +24,8 @@ const AuthorTwitterWidget = ({ data }) => {
         </p>
         <div className="twitter-profile-meta">
           <div className="tweets meta-item"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /> <span>{data.statuses_count} Tweets</span></div>
-          <div className="followers meta-item"><FontAwesomeIcon icon={[`fad`, `user-friends`]} size="xs" /> <span>{data.followers_count} Followers</span></div>
-          <div className="favorites meta-item"><FontAwesomeIcon icon={[`fad`, `heartbeat`]} size="xs" swapOpacity /> <span>{data.favourites_count} Favorites</span></div>
+          <div className="followers meta-item"><FontAwesomeIcon icon={[`fas`, `user-friends`]} size="xs" /> <span>{data.followers_count} Followers</span></div>
+          <div className="favorites meta-item"><FontAwesomeIcon icon={[`fas`, `heartbeat`]} size="xs" swapOpacity /> <span>{data.favourites_count} Favorites</span></div>
         </div>
         <a href={twitterFollowUrl} className="twitter-follow-button"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /> Follow</a>
       </div>
