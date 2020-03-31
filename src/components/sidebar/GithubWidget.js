@@ -30,9 +30,9 @@ const GithubWidget = ({ data }) => {
               <div className="repo-name">{node.name}</div>
               <div className="repo-description">{node.description.split(`: `).pop()}</div>
               <div className="repo-meta">
-                <div className="repo-lang meta-item" style={{ color: node.primaryLanguage.color }}><FontAwesomeIcon icon={[`fas`, `code`]} size="xs" /> {node.primaryLanguage.name}</div>
-                <div className="repo-stargazers meta-item"><FontAwesomeIcon icon={[`fas`, `star`]} size="xs" swapOpacity /> {node.stargazers.totalCount}</div>
-                <div className="repo-forks meta-item"><FontAwesomeIcon icon={[`fas`, `code-branch`]} size="xs" swapOpacity /> {node.forkCount}</div>
+                <div className="repo-lang meta-item" style={{ color: node.primaryLanguage.color }}><FontAwesomeIcon icon={[`fas`, `code`]} size="xs" /> <span>{node.primaryLanguage.name}</span></div>
+                <div className="repo-stargazers meta-item"><FontAwesomeIcon icon={[`fas`, `star`]} size="xs" swapOpacity /> <span>{node.stargazers.totalCount}</span></div>
+                <div className="repo-forks meta-item"><FontAwesomeIcon icon={[`fas`, `code-branch`]} size="xs" swapOpacity /> <span>{node.forkCount}</span></div>
               </div>
             </a>
           ))}
