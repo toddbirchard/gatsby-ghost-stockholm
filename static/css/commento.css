@@ -101,7 +101,7 @@
 }
 
 .commento-card .commento-card .commento-header {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .commento-root .commento-options {
@@ -615,67 +615,6 @@
   transition: opacity .2s
 }
 
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container {
-  display: flex;
-  justify-content: center
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons {
-  display: flex;
-  z-index: 1;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  width: 320px;
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons button {
-  padding: 6px 13px;
-  border: 0;
-  border-radius: 2px;
-  transition: all .2s ease-out;
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons button:hover {
-  background: white;
-  color: black;
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-google-button {
-  width: 70px;
-  background: #dd4b39;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-github-button {
-  width: 70px;
-  background: #000;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-twitter-button {
-  width: 70px;
-  background: #00aced;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-gitlab-button {
-  width: 70px;
-  background: #fc6d26;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-sso-button {
-  width: 200px;
-  background: #000;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
 .commento-login-box-container .commento-login-box hr {
   width: 80%;
   height: 1px;
@@ -897,7 +836,9 @@
 */
 .commento-oauth-buttons-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
 }
 
 .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons {
@@ -908,28 +849,24 @@
 }
 
 .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-google-button {
-  width: 70px;
   background: #dd4b39;
   font-size: 13px;
   text-transform: uppercase
 }
 
 .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-github-button {
-  width: 70px;
   background: #000;
   font-size: 13px;
   text-transform: uppercase
 }
 
 .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-twitter-button {
-  width: 70px;
   background: #00aced;
   font-size: 13px;
   text-transform: uppercase
 }
 
 .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-gitlab-button {
-  width: 70px;
   background: #fc6d26;
   font-size: 13px;
   text-transform: uppercase
