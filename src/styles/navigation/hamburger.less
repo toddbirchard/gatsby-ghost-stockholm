@@ -162,25 +162,24 @@
       position: absolute;
       top: 150%;
       width: stretch;
-      height: 820px;
-      padding: 20px !important;
-      border-bottom: 2px solid #dcdddf;
+      padding: 20px 40px 0 !important;
       background: white;
       opacity: 0;
-      transition: all 500ms cubic-bezier(0.000, 0.000, 0.000, 0.700);
+      transition: all 300ms cubic-bezier(0.000, 0.000, 0.000, 0.600);
 
       .sublinks {
         height: 700px;
-        transition: all 500ms cubic-bezier(0.000, 0.000, 0.000, 0.700);
+        transition: all 500ms cubic-bezier(0.000, 0.000, 0.000, 0.600);
       }
 
       .top-search-title {
         margin-bottom: 25px;
+        text-transform: uppercase;
       }
 
       .search-suggestion {
+        margin-bottom: 15px;
         color: #3f4750;
-        font-size: 0.9em;
         line-height: 1;
         text-align: left;
         text-transform: uppercase;
@@ -382,7 +381,7 @@
         .input-field-interactions();
         border: 1px solid #dcdada;
         color: #484c52;
-        font-size: 1em;
+        font-size: .8em;
         font-weight: 300;
         letter-spacing: 1px;
         transition: all 0.2s ease-out;
@@ -422,7 +421,11 @@
   }
 }
 
-/* Search active state */
+/*
+*
+* Search active state
+*
+*/
 .full-width {
   width: 100% !important;
   overflow-x: hidden;
@@ -440,6 +443,7 @@
       border-top: 0 !important;
       border-right: 0 !important;
       border-left: 0 !important;
+      font-size: 1em !important;
     }
   }
 
@@ -460,7 +464,6 @@
 
   .top-searches {
     top: 90px !important;
-    height: 230px !important;
     opacity: 1 !important;
 
     .sublinks {
