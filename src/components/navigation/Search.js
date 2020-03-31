@@ -28,7 +28,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
       <div className="search-result-details">
         <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
         <div className="search-result-tag">
-          <FontAwesomeIcon icon={[`fad`, `tags`]} size="xs" swapOpacity/>
+          <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity/>
           <span>{hit.primary_tag.name}</span>
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
             placeholder: `Search all posts`,
           }}
         />
-        <FontAwesomeIcon icon={[`fad`, `search`]} size="xs"/>
+        <FontAwesomeIcon icon={[`fas`, `search`]} size="xs"/>
         <HitsWrapper show={(query.length > 0 && focus) || (!!forcedQuery)} asGrid={hitsAsGrid} className="search-results">
           <Index indexName="hackers_posts">
             <header>
