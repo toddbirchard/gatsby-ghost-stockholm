@@ -15,11 +15,6 @@ class HamburgerMenu extends React.Component {
     this.state = { active: false, query: `` }
   }
 
-  toggleClass() {
-    const currentState = this.state.active
-    this.setState({ active: !currentState })
-  }
-
   render() {
     return (
       <>

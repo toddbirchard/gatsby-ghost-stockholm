@@ -9,8 +9,6 @@ import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 
-import '../styles/posts/index.less'
-
 /**
 * Single post view (/:slug)
 *
