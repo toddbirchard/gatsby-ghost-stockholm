@@ -468,6 +468,11 @@
     to = "/rss.xml"
     status = 301
 
+[[redirects]]
+    from = "/forms-in-flask-wtforms/"
+    to = "/flask-wtforms-forms/"
+    status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]
