@@ -67,12 +67,10 @@ export const seriesQuery = graphql`
              node {
                id
                slug
-               url
                postCount
                feature_image
                description
                name
-               meta_title
              }
            }
         }
