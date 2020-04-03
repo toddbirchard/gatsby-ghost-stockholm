@@ -25,7 +25,7 @@ const Footer = ({ navigation, site, data }) => {
                 { logo ? <img className="lazyload" data-src={logo} alt={`Logo for ${site.title}`} title={site.title}/> : <h1 className="site-headline">{site.title} </h1> }
               </Link>
               <p className="description">{description}</p>
-              <SocialWidget site={site} />
+
             </div>
             <div className="widget pages">
               <h5 className="footer-widget-title">Pages</h5>
@@ -58,6 +58,7 @@ const Footer = ({ navigation, site, data }) => {
           </div>
         </div>
         <div className="copyright">
+          <SocialWidget site={site} />
           <p>{config.siteCopyright}</p>
         </div>
       </footer>

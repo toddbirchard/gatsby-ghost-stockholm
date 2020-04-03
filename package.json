@@ -74,7 +74,7 @@
     "cheerio": "1.0.0-rc.3",
     "dotenv": "^8.2.0",
     "eslint-plugin-standard": "^4.0.1",
-    "gatsby": "^2.20.10",
+    "gatsby": "^2.20.11",
     "gatsby-awesome-pagination": "0.3.5",
     "gatsby-image": "2.3.1",
     "gatsby-plugin-advanced-sitemap": "^1.5.2",
