@@ -51,7 +51,7 @@
     }
 
     .widget {
-      width: 16%;
+      width: fit-content;
       overflow: hidden;
       @media (max-width: @mobile-breakpoint) {
         width: 100%;
@@ -195,6 +195,7 @@
       margin-right: 30px;
       overflow: visible;
 
+
       button {
         -webkit-appearance: none;
         padding: unset;
@@ -213,6 +214,15 @@
       svg {
         color: #8f9fa8;
         font-size: 2.1em;
+        transition: .2s all ease-out;
+
+        &:hover {
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+          color: @hover-color;
+          cursor: pointer;
+        }
+
         @media (max-width: @mobile-breakpoint) {
           margin-right: 25px;
         }

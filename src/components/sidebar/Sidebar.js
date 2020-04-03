@@ -30,7 +30,7 @@ const Sidebar = ({ site, template, authorData }) => {
         {authorWebsite && <AuthorWebsiteWidget authorWebsite={authorWebsite}/> }
         <SocialWidget site={site} />
         {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
-        {isCorePage ? <TagsWidget /> : null }
+        {template != `author-template` ? <TagsWidget /> : null }
         {isCorePage ? <NewsletterWidget /> : null }
         {template === `home-template` ? <GithubWidget /> : null }
         {isCorePage ? <TwitterWidget /> : null }
