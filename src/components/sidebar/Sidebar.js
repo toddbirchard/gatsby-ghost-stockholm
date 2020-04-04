@@ -20,19 +20,20 @@ import '../../styles/sidebar.less'
 const Sidebar = ({ site, template, authorData }) => {
   const authorTwitter = authorData && authorData.authorTwitterProfile
   const authorWebsite = authorData && authorData.ghostAuthor.website
-  const genericPages = [`home-template`, `page-template`, `tag-template`]
+  const corePages = [`home-template`, `page-template`, `tag-template`]
+  const isCorePage = corePages.includes(template)
 
   return (
     <>
       <aside className="sidebar">
-        {genericPages.includes(template) && <AboutWidget site={site} /> }
+        {isCorePage && <AboutWidget site={site} /> }
         {authorWebsite && <AuthorWebsiteWidget authorWebsite={authorWebsite}/> }
         <SocialWidget site={site} />
         {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
-        {genericPages.includes(template) ? <TagsWidget /> : null }
-        {genericPages.includes(template) ? <NewsletterWidget /> : null }
+        {template != `author-template` ? <TagsWidget /> : null }
+        {isCorePage ? <NewsletterWidget /> : null }
         {template === `home-template` ? <GithubWidget /> : null }
-        {genericPages.includes(template) ? <TwitterWidget /> : null }
+        {isCorePage ? <TwitterWidget /> : null }
         {authorTwitter && <AuthorTwitterWidget data={authorTwitter} />}
       </aside>
     </>

@@ -30,17 +30,15 @@ import {
   faSearch,
   faRetweet,
   faHeartbeat,
-  faCoffeeTogo,
   faUserPlus,
   faIndent,
-  faBooks,
   faUserFriends,
   faStar,
   faCodeBranch,
   faCode,
   faProjectDiagram,
   faUsers,
-} from '@fortawesome/pro-duotone-svg-icons'
+} from '@fortawesome/free-solid-svg-icons'
 
 // Styles
 import '../../styles/app.less'
@@ -67,10 +65,8 @@ library.add(faTags,
   faMedium,
   faRetweet,
   faHeartbeat,
-  faCoffeeTogo,
   faUserPlus,
   faIndent,
-  faBooks,
   faUserFriends,
   faStar,
   faCodeBranch,

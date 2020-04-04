@@ -1,6 +1,7 @@
 @import './variables.less';
 @import './mixins.less';
 @import './navigation/index.less';
+@import './posts/index.less';
 
 html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -16,8 +17,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: "liga";
   overflow-x: hidden;
-  background: #ecf1f9;
-  color: #3c484e;
+  background: @background-color;
+  color: @body-color;
   font-family: @body-font;
   font-size: 16px;
   font-style: normal;
@@ -131,7 +132,6 @@ h2 {
 }
 
 h3 {
-  margin: 40px 0 5px;
   color: @light-header-color;
   font-family: @body-font-bold;
   font-size: 1.3em;

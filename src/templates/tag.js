@@ -26,12 +26,12 @@ const Tag = ({ data, location, pageContext }) => {
         location={location}
         type="website"
       />
-      <Layout template="tag-template" hasSidebar={true}>
+      <Layout template="tag-template page-template" hasSidebar={true}>
         <section className="post-feed">
-          <header className="tag-header info-card">
-            <div className="tag-title">
-              <FontAwesomeIcon icon={[`fad`, `tags`]} size="sm" swapOpacity />
-              <h1>{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
+          <header className="info-card">
+            <div className="page-title">
+              <FontAwesomeIcon icon={[`fas`, `tags`]} size="sm" swapOpacity />
+              <h1 className="page-title">{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
             </div>
             {tag.description ? <p className="tag-description">{tag.description}</p> : null }
           </header>

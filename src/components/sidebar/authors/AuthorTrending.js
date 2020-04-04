@@ -10,7 +10,7 @@ const AuthorTrendingWidget = ({ authorData }) => {
   return (
     <div className="widget trending">
       <div className="widget-header">
-        <div className="label trending"><FontAwesomeIcon icon={[`fad`, `chart-line`]} size="xs" /> <span>Trending</span></div>
+        <div className="label trending"><FontAwesomeIcon icon={[`fas`, `chart-line`]} size="xs" /> <span>Trending</span></div>
         <div className="trend-type">Top Posts This Month</div>
       </div>
       <div className="widget-content">

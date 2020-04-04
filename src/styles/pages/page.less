@@ -4,7 +4,7 @@
 .page-template {
   h1 {
     margin: 0 0 25px;
-    color: @header-color;
+    color: @header-font-color;
     font-family: @body-font-book;
     font-size: 2.5em;
     font-weight: normal;
@@ -12,6 +12,10 @@
 
   h3 {
     font-weight: unset;
+  }
+
+  .info-card {
+    .header-card();
   }
 
   .container {
@@ -179,11 +183,6 @@
         .button-styles();
       }
     }
-  }
-
-  .info-card {
-    .header-card();
-    min-width: unset !important;
   }
 }
 
