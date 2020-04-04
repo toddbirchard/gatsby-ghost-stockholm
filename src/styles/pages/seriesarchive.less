@@ -15,7 +15,13 @@
       display: block;
       overflow: hidden;
       border: 1px solid #d3dbe1;
+      border-radius: 5px;
       background: white;
+      transition: @transition;
+
+      * {
+        transition: @transition;
+      }
 
       &:hover {
         border-color: #bee8ff;
@@ -34,7 +40,7 @@
       }
 
       .series-card-image {
-        height: 170px;
+        height: 150px;
         background-position-y: center;
         background-size: cover;
       }
@@ -49,7 +55,7 @@
       margin-bottom: 7px;
       color: lighten(@header-font-color, 10%);
       font-family: @body-font-bold;
-      font-size: 1.3em;
+      font-size: 1.4em;
       font-weight: unset;
       line-height: 1.2;
       transition: @transition;
