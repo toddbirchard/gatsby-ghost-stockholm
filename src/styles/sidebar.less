@@ -155,32 +155,31 @@
         width: -moz-available;
         margin: 8px 0 0;
         padding: 10px;
-        border: 1px solid #cfd4de;
-        background: white;
+        border: 1px solid #e8ebed;
+        border-radius: 3px;
+        background: #ebeff3;
         font-size: 0.85em;
         transition: @transition;
         .input-field-interactions();
       }
 
       button {
-        width: 100%;
+        width: fit-content;
         margin-top: 10px;
-        padding: 0;
+        padding: 9px 9px;
         border: 0;
+        border-radius: 3px;
         outline: none;
-        background: none;
-        color: @theme-color;
-        font-size: 0.9em;
+        background: @theme-color;
+        color: white;
+        font-size: .9em;
         font-weight: 500;
+        line-height: 1;
         text-align: right;
-        transition: @transition;
-
-        svg {
-          margin-left: 3px;
-        }
+        transition: all .2s ease-out;
 
         &:hover {
-          color: @hover-color !important;
+          background: @hover-color !important;
           cursor: pointer;
         }
       }
