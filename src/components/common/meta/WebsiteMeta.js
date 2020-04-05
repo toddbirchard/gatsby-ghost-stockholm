@@ -36,14 +36,14 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
-        {facebookPageID && <meta property="fb:page_id" content={config.id.facebookPageID} />}
-        {facebookAppID && <meta property="fb:app_id" content={config.id.facebookAppID} />}
+        {facebookPageID ? <meta property="fb:page_id" content={config.id.facebookPageID} /> : null }
+        {facebookAppID ? <meta property="fb:app_id" content={config.id.facebookAppID} /> : null }
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:url" content={canonical} />
-        {settings.twitter && <meta name="twitter:site" content={settings.twitter} />}
-        {config.creator.twitter && <meta name="twitter:creator" content={config.creator.twitter} />}
-        {googleVerificationID && <meta name="google-site-verification" content={config.id.googleVerificationID} />}
+        {settings.twitter ? <meta name="twitter:site" content={settings.twitter} /> : null}
+        {config.creator.twitter ? <meta name="twitter:creator" content={config.creator.twitter} /> : null}
+        {googleVerificationID ? <meta name="google-site-verification" content={config.id.googleVerificationID} /> : null}
         <link rel="icon" type="image/png" sizes="72x72" href="images/icons/icon-72x72.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="images/icons/icon-96x96.png" />
         <link rel="icon" type="image/png" sizes="128x128" href="images/icons/icon-128x128.png" />
