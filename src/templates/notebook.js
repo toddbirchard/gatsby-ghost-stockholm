@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 //import NotebookPreview from "@nteract/notebook-preview"
+import * as ipynb from 'ipynb2html'
+import { Document } from 'nodom'
 
 import '../styles/ipynb.less'
 
@@ -24,26 +26,29 @@ const JupyterNotebook = ({ data, pageContext }) => {
     : null
   const githubLink = file.gitRemote.href + file.relativePath
   const githubRepoName = file.gitRemote.full_name
+  const renderNotebook = ipynb.createRenderer(new Document())
+  console.log(renderNotebook(`/Users/toddbirchard/projects/stockholm/.cache/gatsby-source-git/jupyter/Binary%20Search%20Multiple%20Variables.ipynb`))
 
-  return (<>
-    <Layout template="jupyter-template">
-      <div className="jupyter-container">
-        <h1>{pageContext.title}</h1>
-        <div className="jupyter-meta">
-          <div className="meta-item jupyter-language">{languageName}
-            {languageVersion}</div>
-          <div className="meta-item jupyter-origin-url">
-            <a href={githubLink}>{githubRepoName}</a>
+  return (
+    <>
+      <Layout template="jupyter-template">
+        <div className="jupyter-container">
+          <h1>{pageContext.title}</h1>
+          <div className="jupyter-meta">
+            <div className="meta-item jupyter-language">{languageName}
+              {languageVersion}</div>
+            <div className="meta-item jupyter-origin-url">
+              <a href={githubLink}>{githubRepoName}</a>
+            </div>
+            <div className="meta-item jupyter-date">{file.modifiedTime}</div>
           </div>
-          <div className="meta-item jupyter-date">{file.modifiedTime}</div>
+          <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
+            __html: renderNotebook(notebook.json).outerHTML,
+          }}></main>
         </div>
-        <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
-          __html: notebook.html,
-        }}></main>
-        {/*<NotebookPreview notebook={notebook.internal.content} />*/}
-      </div>
-    </Layout>
-  </>)
+      </Layout>
+    </>
+  )
 }
 
 JupyterNotebook.propTypes = {
@@ -104,24 +109,78 @@ export const JupyterNotebookQuery = graphql `
           }
         }
         json {
-          nbformat_minor
           nbformat
+          nbformat_minor
           metadata {
-            language_info {
+            kernelspec {
+              display_name
+              language
               name
-              nbconvert_exporter
-              pygments_lexer
-              version
-              mimetype
-              file_extension
+            }
+            language_info {
               codemirror_mode {
                 name
                 version
               }
+              file_extension
+              mimetype
+              name
+              nbconvert_exporter
+              pygments_lexer
+              version
             }
           }
           cells {
             cell_type
+            outputs {
+              ename
+              execution_count
+              name
+              text
+              traceback
+              output_type
+              evalue
+              data {
+                image_png
+                text_html
+                text_plain
+                application_vnd_vegalite_v2_json {
+                  _schema
+                  width
+                  encoding {
+                    y {
+                      field
+                      type
+                    }
+                    x {
+                      field
+                      type
+                    }
+                    color {
+                      field
+                      type
+                    }
+                  }
+                  mark
+                  data {
+                    name
+                    values {
+                      max_depth
+                      min_samples_leaf
+                      min_weight_fraction_leaf
+                      value
+                      variable
+                    }
+                  }
+                  config {
+                    view {
+                      height
+                      width
+                    }
+                  }
+                }
+              }
+            }
             execution_count
             source
           }

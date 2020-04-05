@@ -20,8 +20,10 @@ const AuthorMeta = ({ data, settings, canonical }) => {
     <>
       <Helmet>
         <title>{title}</title>
-        <meta name="description" content={description} />
         <link rel="canonical" to={canonical} />
+        <link rel="prev" href="http://www.example.com/topic/" />
+        <link rel="next" href="http://www.example.com/topic/page/3/" />
+        <meta name="description" content={description} />
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="profile" />
         <meta property="og:title" content={title} />

@@ -22,39 +22,34 @@ const Footer = ({ navigation, site, data }) => {
           <div className="footer-widgets">
             <div className="widget about">
               <Link to="/" className="footer-logo">
-                { logo ? <img className="lazyload" data-src={logo} alt={`Logo for ${site.title}`} title={site.title}/> : <h1 className="site-headline">{site.title} </h1> }
+                { logo ?
+                  <img className="lazyload" data-src={logo} alt={`${site.title} Logo`} title={`${site.title} Logo`} /> : <h1 className="site-headline">{site.title}</h1> }
               </Link>
               <p className="description">{description}</p>
 
             </div>
-            <div className="widget pages">
-              <h5 className="footer-widget-title">Pages</h5>
-              <div className="link-grid">
-                {navigation.map((navItem, i) => {
-                  if (navItem.url.includes(config.siteUrl)) {
-                    return <Link className={`footer-navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
-                  } else {
-                    return <a className="footer-navigation-link donate" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-                  }
-                })}
-              </div>
-            </div>
-            <div className="widget series">
-              <h5 className="footer-widget-title">Series</h5>
-              <div className="link-grid">
-                {seriesLinks.map(({ node }) => (
-                  <a href={`/series/${ node.slug}`} className="footer-navigation-link" key={`${ node.slug }-footer-link`}>{ node.name.replace(`#`, ``) }</a>
-                ))}
-              </div>
-            </div>
-            <div className="widget authors">
-              <h5 className="footer-widget-title">Authors</h5>
-              <div className="link-grid">
-                {authorLinks.map(({ node }) => (
-                  <a href={`/author/${ node.slug }`} className="footer-navigation-link" key={`${ node.name }-footer-link`} >{ node.name }</a>
-                ))}
-              </div>
-            </div>
+            <dl className="widget pages">
+              <dt className="footer-widget-title">Pages</dt>
+              {navigation.map((navItem, i) => {
+                if (navItem.url.includes(config.siteUrl)) {
+                  return <dd key={i}><Link className={`footer-navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`} >{navItem.label}</Link></dd>
+                } else {
+                  return <dd key={i}><a className="footer-navigation-link donate" href={navItem.url} target="_blank" rel="noopener noreferrer">{navItem.label}</a></dd>
+                }
+              })}
+            </dl>
+            <dl className="widget series">
+              <dt className="footer-widget-title">Series</dt>
+              {seriesLinks.map(({ node }) => (
+                <dd key={`${ node.slug }-footer-link`}><a href={`/series/${ node.slug}`} className="footer-navigation-link" >{ node.name.replace(`#`, ``) }</a></dd>
+              ))}
+            </dl>
+            <dl className="widget authors">
+              <dt className="footer-widget-title">Authors</dt>
+              {authorLinks.map(({ node }) => (
+                <dd key={`${ node.name }-footer-link`}><a href={`/author/${ node.slug }`} className="footer-navigation-link" >{ node.name }</a></dd>
+              ))}
+            </dl>
           </div>
         </div>
         <div className="copyright">

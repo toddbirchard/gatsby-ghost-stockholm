@@ -8,11 +8,12 @@ import url from 'url'
 import ImageMeta from './ImageMeta'
 import config from '../../../utils/siteConfig'
 
-const WebsiteMeta = ({ data, settings, canonical, title, description, image, type }) => {
+const WebsiteMeta = ({ data, settings, canonical, title, description, image, pageContext, type }) => {
   settings = settings.ghostSettings
   const facebookPageID = process.env.FACEBOOK_PAGE_ID
   const facebookAppID = process.env.FACEBOOK_APP_ID
   const googleVerificationID = process.env.GOOGLE_VERIFICATION_ID
+  const { previousPagePath, nextPagePath } = pageContext
 
   const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
   let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
@@ -26,6 +27,9 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
     <>
       <Helmet>
         <title>{title}</title>
+        <link rel="canonical" to={canonical} />
+        {previousPagePath && <link rel="prev" href={previousPagePath} />}
+        {nextPagePath && <link rel="next" href={nextPagePath} />}
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:site_name" content={settings.title} />
@@ -51,33 +55,33 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
         <link rel="icon" type="image/png" sizes="512x512" href="images/icons/icon-512x512.png" />
         <link rel="manifest" href="/manifest.json" />
         <script type="application/ld+json">{`
-                    {
-                        "@context": "https://schema.org/",
-                        "@type": "${type}",
-                        "url": "${canonical}",
-                        ${shareImage ? `"image": {
-                                "@type": "ImageObject",
-                                "url": "${shareImage}",
-                                "width": "${config.shareImageWidth}",
-                                "height": "${config.shareImageHeight}"
-                            },` : ``}
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "${settings.title}",
-                            "logo": {
-                                "@type": "ImageObject",
-                                "url": "${publisherLogo}",
-                                "width": 60,
-                                "height": 60
-                            }
-                        },
-                        "mainEntityOfPage": {
-                            "@type": "WebPage",
-                            "@id": "${config.siteUrl}"
-                        },
-                        "description": "${description}"
-                    }
-                `}
+              {
+                  "@context": "https://schema.org/",
+                  "@type": "${type}",
+                  "url": "${canonical}",
+                  ${shareImage ? `"image": {
+                          "@type": "ImageObject",
+                          "url": "${shareImage}",
+                          "width": "${config.shareImageWidth}",
+                          "height": "${config.shareImageHeight}"
+                      },` : ``}
+                  "publisher": {
+                      "@type": "Organization",
+                      "name": "${settings.title}",
+                      "logo": {
+                          "@type": "ImageObject",
+                          "url": "${publisherLogo}",
+                          "width": 60,
+                          "height": 60
+                      }
+                  },
+                  "mainEntityOfPage": {
+                      "@type": "WebPage",
+                      "@id": "${config.siteUrl}"
+                  },
+                  "description": "${description}"
+              }
+          `}
         </script>
       </Helmet>
       <ImageMeta image={shareImage} />
@@ -107,6 +111,7 @@ WebsiteMeta.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  pageContext: PropTypes.object,
   type: PropTypes.oneOf([`WebSite`, `Series`]).isRequired,
 }
 
@@ -114,11 +119,11 @@ const WebsiteMetaQuery = props => (
   <StaticQuery
     query={graphql`
             query GhostSettingsWebsiteMeta {
-                ghostSettings {
-                            ...GhostSettingsFields
-                        }
-                    }
-        `}
+              ghostSettings {
+                ...GhostSettingsFields
+                  }
+              }
+           `}
     render={data => <WebsiteMeta settings={data} {...props} />}
   />
 )

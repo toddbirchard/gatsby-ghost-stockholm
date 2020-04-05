@@ -29,7 +29,6 @@ const Author = ({ data, location, pageContext }) => {
         title={`${author.name}'s posts (page ${pageCount})`}
         description={author.bio}
         location={location}
-        type="profile"
       />
       <Layout template="author-template" hasSidebar={true} authorData={authorData}>
         <div className="author-container">

@@ -21,8 +21,12 @@ const Navigation = ({ data, smallLogo, fullLogo, template }) => (
     <nav className="navigation">
       <div className="nav-wrapper">
         <div className="nav-left">
-          <Link to="/" className="logo"><img className="lazyload" data-src={smallLogo} alt="logo" /></Link>
-          <Link to="/" className="mobile-logo"><img className="lazyload" data-src={fullLogo} alt="logo" /></Link>
+          <Link to="/" className="logo">
+            <img className="lazyload" data-src={smallLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
+          </Link>
+          <Link to="/" className="mobile-logo">
+            <img className="lazyload" data-src={fullLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
+          </Link>
           <div className="nav-links">
             <NavLinks navigation={data} />
           </div>

@@ -17,7 +17,7 @@ const SupportWidget = () => {
     <>
       <div className="widget support">
         <div className="newsletter-section">
-          <h4>Monthly Newsletter</h4>
+          <h5>Monthly Newsletter</h5>
           <p className="support-description">{newsletterCopy}</p>
           <form name="newsletter" method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/subscribed/" >
             <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
@@ -28,7 +28,7 @@ const SupportWidget = () => {
         </div>
         <div className="divider"></div>
         <div className="donate-section">
-          <h4>Support us</h4>
+          <h5>Support us</h5>
           <p className="support-description">{donateCopy}</p>
           <a className="coffee-button" rel="noopener noreferrer" target="_blank" href={coffeeUrl} >
             <img src={coffeeImg} alt="Buy us a coffee"/>

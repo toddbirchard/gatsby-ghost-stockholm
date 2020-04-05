@@ -38,7 +38,7 @@ class HamburgerMenu extends React.Component {
             </div>
           </div>
           <div className="top-searches">
-            <h4 className="top-search-title">Trending Searches</h4>
+            <div className="top-search-title">Trending Searches</div>
             <div className="sublinks">
               {this.topSearches.map(({ node }) => (
                 <div className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>

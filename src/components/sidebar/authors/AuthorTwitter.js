@@ -38,10 +38,10 @@ AuthorTwitterWidget.propTypes = {
     screen_name: PropTypes.string,
     name: PropTypes.string,
     description: PropTypes.string,
-    followers_count: PropTypes.string,
+    followers_count: PropTypes.number,
     profile_image_url_https: PropTypes.string,
-    statuses_count: PropTypes.string,
-    favourites_count: PropTypes.string,
+    statuses_count: PropTypes.number,
+    favourites_count: PropTypes.number,
   }),
 }
 

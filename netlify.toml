@@ -289,7 +289,7 @@
 
 [[redirects]]
     from = "/serving-static-assets-in-flask/"
-    to = "/static-assets-flask/"
+    to = "/flask-assets/"
     status = 301
 
 
@@ -454,8 +454,8 @@
     status = 301
 
 [[redirects]]
-    from = "/static-assets-flask/"
-    to = "/flask-assets/"
+    from = "/forms-in-flask-wtforms/"
+    to = "/flask-wtforms-forms/"
     status = 301
 
 [[redirects]]
@@ -466,11 +466,6 @@
 [[redirects]]
     from = "/rss"
     to = "/rss.xml"
-    status = 301
-
-[[redirects]]
-    from = "/forms-in-flask-wtforms/"
-    to = "/flask-wtforms-forms/"
     status = 301
 
 [[headers]]
