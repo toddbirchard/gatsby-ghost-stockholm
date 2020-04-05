@@ -26,7 +26,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
     : null
   const githubLink = file.gitRemote.href + file.relativePath
   const githubRepoName = file.gitRemote.full_name
-  const renderNotebook = ipynb.createRenderer(new Document())
+  // const renderNotebook = ipynb.createRenderer(new Document())
 
   return (
     <>
