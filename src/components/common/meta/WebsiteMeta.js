@@ -13,6 +13,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
   const facebookPageID = process.env.FACEBOOK_PAGE_ID
   const facebookAppID = process.env.FACEBOOK_APP_ID
   const googleVerificationID = process.env.GOOGLE_VERIFICATION_ID
+  const previousPagePath = pageContext ? pageContext.previousPagePath : null
+  const nextPagePath = pageContext ? pageContext.nextPagePath : null
 
   const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
   let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
@@ -27,8 +29,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
       <Helmet>
         <title>{title}</title>
         <link rel="canonical" to={canonical} />
-        {pageContext.previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null }
-        {pageContext.nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
+        {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null }
+        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:site_name" content={settings.title} />
