@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
 
 const PostCard = ({ post }) => {
   const url = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
@@ -27,21 +27,21 @@ const PostCard = ({ post }) => {
         {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section> }
         <footer className="post-card-footer">
           {post.tags ? <div className="meta-item tag">
-            <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity/>
+            <FaTags />
             <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id}/>
           </div> : null}
           <div className="meta-item reading-item">
-            <FontAwesomeIcon icon={[`fas`, `eye`]} size="xs"/>
+            <FaEye />
             <span>{readingTime}</span>
           </div>
           {post.primary_author && <div className="meta-item author">
             <Link to={`/author/${post.primary_author.slug}`}>
-              <FontAwesomeIcon icon={[`fas`, `user-edit`]} size="xs"/>
+              <FaUserEdit />
               <span>{authorFirstName}</span>
             </Link>
           </div>}
           <div className="meta-item date">
-            <FontAwesomeIcon icon={[`fas`, `calendar`]} size="xs"/>
+            <FaCalendar />
             <span>{post.published_at_pretty}</span>
           </div>
         </footer>

@@ -128,10 +128,18 @@
 
 .input-field-interactions() {
   -webkit-appearance: none;
+  width: stretch;
+  width: -moz-available;
+  margin: 8px 0 0;
+  padding: 10px;
+  border: 1px solid #e8ebed;
+  border-radius: 3px !important;
+  background: #ebeff3;
+  font-size: 0.85em;
   transition: @transition;
 
   &::placeholder {
-    color: #a2a7ba;
+    color: lighten(#a2a7ba, 10%);
     opacity: 1;
   }
 
@@ -154,6 +162,7 @@
 .button-styles() {
   -webkit-appearance: none;
   border: 1px solid #6baaf2;
+  border-radius: 3px;
   outline: none;
   background: @theme-color;
   color: white;

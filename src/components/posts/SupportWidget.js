@@ -1,5 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaArrowRight } from 'react-icons/fa'
 
 /**
 *
@@ -17,18 +17,18 @@ const SupportWidget = () => {
     <>
       <div className="widget support">
         <div className="newsletter-section">
-          <h5>Monthly Newsletter</h5>
+          <span className="post-footer-title">Monthly Newsletter</span>
           <p className="support-description">{newsletterCopy}</p>
           <form name="newsletter" method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/subscribed/" >
             <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
             <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
             <input className="phone-number" type="phone" name="phone-number" placeholder="Your phone number" style={{ display: `none` }} autoComplete="off" />
-            <button type="submit">Sign Up <FontAwesomeIcon icon={[`fas`, `arrow-right`]} size="xs" /></button>
+            <button type="submit">Sign Up <FaArrowRight /></button>
           </form>
         </div>
         <div className="divider"></div>
         <div className="donate-section">
-          <h5>Support us</h5>
+          <span className="post-footer-title">Support us</span>
           <p className="support-description">{donateCopy}</p>
           <a className="coffee-button" rel="noopener noreferrer" target="_blank" href={coffeeUrl} >
             <img src={coffeeImg} alt="Buy us a coffee"/>

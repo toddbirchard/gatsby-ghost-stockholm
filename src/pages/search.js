@@ -14,7 +14,7 @@ import algoliasearch from 'algoliasearch'
 import qs from 'qs'
 import { MetaData } from '../components/common/meta'
 import { Layout, PostCard } from '../components/common'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaSearch } from 'react-icons/fa'
 
 import '../styles/pages/search.less'
 
@@ -73,7 +73,7 @@ const SearchPage = ({ data, location, pageContext }) => {
                     placeholder="Search"
                     showLoadingIndicator={true}
                   />
-                  <FontAwesomeIcon icon={[`fas`, `search`]} size="xs" className="search-icon" />
+                  <FaSearch className="search-icon" />
                 </div>
                 <div className="search-bar-container">
                   <MenuSelect

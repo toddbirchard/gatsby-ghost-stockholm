@@ -403,13 +403,6 @@ module.exports = {
           disallow: [`/ghost/`, `/p/`, `/roundup/*`] }],
       },
     },
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: config.siteUrl,
-        stripQueryString: true,
-      },
-    },
     /* Analytics */
     {
       resolve: `gatsby-plugin-segment-js`,

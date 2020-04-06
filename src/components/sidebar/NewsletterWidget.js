@@ -1,5 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaArrowRight } from 'react-icons/fa'
 
 /**
 * Newsletter widget
@@ -16,7 +16,7 @@ const NewsletterWidget = () => {
           <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
           <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
           <input className="phone-number" type="phone" name="phone-number" placeholder="Your phone number" style={{ display: `none` }} autoComplete="off" />
-          <button type="submit">Sign Up <FontAwesomeIcon icon={[`fas`, `arrow-right`]} size="xs" /></button>
+          <button type="submit">Sign Up <FaArrowRight /></button>
         </form>
       </div>
     </>

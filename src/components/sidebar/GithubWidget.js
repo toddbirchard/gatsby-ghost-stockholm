@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaGithub, FaUsers, FaCode, FaStar, FaCodeBranch,FaProjectDiagram } from 'react-icons/fa'
 
 /**
 * Github widget
@@ -15,12 +15,12 @@ const GithubWidget = ({ data }) => {
     <>
       <div className="widget github">
         <div className="github-header">
-          <FontAwesomeIcon icon={[`fab`, `github`]} size="xs" className="github-avatar" />
+          <FaGithub className="github-avatar" />
           <div className="profile-details">
             <a href={githubOrg.url} className="github-name" target="_blank" rel="noopener noreferrer">{`@${githubOrg.login}`}</a>
             <div className="github-org-meta">
-              <div className="meta-item"><FontAwesomeIcon icon={[`fas`, `users`]} size="xs" /> {githubOrg.membersWithRole.totalCount} Members</div>
-              <div className="meta-item"><FontAwesomeIcon icon={[`fas`, `project-diagram`]} size="xs" /> {githubOrg.repositories.totalCount} Repos</div>
+              <div className="meta-item"><FaUsers /> {githubOrg.membersWithRole.totalCount} Members</div>
+              <div className="meta-item"><FaProjectDiagram /> {githubOrg.repositories.totalCount} Repos</div>
             </div>
           </div>
         </div>
@@ -30,9 +30,9 @@ const GithubWidget = ({ data }) => {
               <div className="repo-name">{node.name}</div>
               <div className="repo-description">{node.description.split(`: `).pop()}</div>
               <div className="repo-meta">
-                <div className="repo-lang meta-item" style={{ color: node.primaryLanguage.color }}><FontAwesomeIcon icon={[`fas`, `code`]} size="xs" /> <span>{node.primaryLanguage.name}</span></div>
-                <div className="repo-stargazers meta-item"><FontAwesomeIcon icon={[`fas`, `star`]} size="xs" swapOpacity /> <span>{node.stargazers.totalCount}</span></div>
-                <div className="repo-forks meta-item"><FontAwesomeIcon icon={[`fas`, `code-branch`]} size="xs" swapOpacity /> <span>{node.forkCount}</span></div>
+                <div className="repo-lang meta-item" style={{ color: node.primaryLanguage.color }}><FaCode /> <span>{node.primaryLanguage.name}</span></div>
+                <div className="repo-stargazers meta-item"><FaStar /> <span>{node.stargazers.totalCount}</span></div>
+                <div className="repo-forks meta-item"><FaCodeBranch /> <span>{node.forkCount}</span></div>
               </div>
             </a>
           ))}

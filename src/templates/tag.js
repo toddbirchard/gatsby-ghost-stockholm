@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout, PostCard } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaTags } from 'react-icons/fa'
 
 import '../styles/pages/tag.less'
 
@@ -30,7 +30,7 @@ const Tag = ({ data, location, pageContext }) => {
         <section className="post-feed">
           <header className="info-card">
             <div className="page-title">
-              <FontAwesomeIcon icon={[`fas`, `tags`]} size="sm" swapOpacity />
+              <FaTags />
               <h1 className="page-title">{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
             </div>
             {tag.description ? <p className="tag-description">{tag.description}</p> : null }

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
+import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
 
 /**
 * Single post view (/:slug)
@@ -40,20 +40,20 @@ const Post = ({ data, location }) => {
             <div className="post-meta">
               <div className="meta-item author">
                 <Link to={authorUrl}>
-                  <FontAwesomeIcon icon={[`fas`, `user-edit`]} size="xs"/>
+                  <FaUserEdit />
                   <span>{authorFirstName}</span>
                 </Link>
               </div>
               {tags && <div className="meta-item tag">
-                <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity />
+                <FaTags />
                 <Tags post={post} limit={1} visibility="public" autolink={true} separator="" permalink="/tag/:slug" classes={tags.ghostId}/>
               </div>}
               <div className="meta-item reading-time">
-                <FontAwesomeIcon icon={[`fas`, `eye`]} size="xs" swapOpacity />
+                <FaEye />
                 <span>{readingTime}</span>
               </div>
               <div className="meta-item date">
-                <FontAwesomeIcon icon={[`fas`, `calendar`]} size="xs"/>
+                <FaCalendar />
                 <span>{post.published_at_pretty}</span>
               </div>
             </div>

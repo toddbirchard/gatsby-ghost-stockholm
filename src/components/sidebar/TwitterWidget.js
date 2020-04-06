@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaTwitter, FaUsers, FaRetweet, FaHeartbeat, FaCalendar } from 'react-icons/fa'
 
 const TwitterWidget = ({ data }) => {
   const tweets = data.tweets.edges
@@ -13,11 +13,11 @@ const TwitterWidget = ({ data }) => {
       <div className="widget twitter">
         <div className="tweets">
           <div className="twitter-header">
-            <FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" className="twitter-logo" />
+            <FaTwitter className="twitter-avatar" />
             <div className="profile-details">
               <div className="profile-details">
                 <a href={twitterProfileURL} className="twitter-name" target="_blank" rel="noopener noreferrer">{`@${twitterProfile.screen_name}`}</a>
-                <div className="twitter-followers"><FontAwesomeIcon icon={[`fas`, `users`]} size="xs" /> <span>{twitterProfile.followers_count} Followers</span></div>
+                <div className="twitter-followers"><FaUsers /> <span>{twitterProfile.followers_count} Followers</span></div>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ const TwitterWidget = ({ data }) => {
               {node.retweeted ?
                 <div className="retweeted-tweet">
                   <div className="retweeted-header">
-                    <FontAwesomeIcon icon={[`fas`, `retweet`]} size="xs" swapOpacity />
+                    <FaRetweet />
                     <span>{`${node.user.name} retweeted`}</span>
                   </div>
                   <div className="retweeted-body">
@@ -61,9 +61,9 @@ const TwitterWidget = ({ data }) => {
                     : null }
                 </div> }
               <div className="tweet-footer">
-                <div className="retweets meta-item"><FontAwesomeIcon icon={[`fas`, `retweet`]} size="xs" swapOpacity /> <span>{node.retweet_count}</span></div>
-                <div className="favorites meta-item"><FontAwesomeIcon icon={[`fas`, `heartbeat`]} size="xs" swapOpacity/> <span>{node.favorite_count}</span></div>
-                <div className="date meta-item"><FontAwesomeIcon icon={[`fas`, `calendar`]} size="xs" /> {node.created_at.split(` `, 3).join(` `)}</div>
+                <div className="retweets meta-item"><FaRetweet /> <span>{node.retweet_count}</span></div>
+                <div className="favorites meta-item"><FaHeartbeat /> <span>{node.favorite_count}</span></div>
+                <div className="date meta-item"><FaCalendar /> {node.created_at.split(` `, 3).join(` `)}</div>
               </div>
             </div>
           ))}
