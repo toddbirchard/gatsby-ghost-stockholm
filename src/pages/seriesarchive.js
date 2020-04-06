@@ -24,7 +24,7 @@ const SeriesArchive = ({ data, location }) => {
         location={location}
         title={page.metaTitle}
         description={page.metaDescription}
-        type="series"
+        type="Series"
       />
       <Layout template="seriesarchive-template page-template" hasSidebar={false}>
         <div className="info-card">
