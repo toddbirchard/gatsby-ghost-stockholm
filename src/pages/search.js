@@ -51,7 +51,7 @@ const SearchPage = ({ data, location, pageContext }) => {
         location={location}
         title={title}
         description={description}
-        type="series"
+        type="Search"
       />
       <Layout template="search-template" hasSidebar={false}>
         <div className="search-container">

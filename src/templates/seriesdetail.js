@@ -25,7 +25,7 @@ const SeriesDetail = ({ data, location }) => {
         title={`${tagName} Series`}
         description={tag.description}
         location={location}
-        type="series"
+        type={`${tagName} Series`}
       />
       <Layout template="tag-template page-template series-template series-container" hasSidebar={false}>
         { tag.feature_image ?
