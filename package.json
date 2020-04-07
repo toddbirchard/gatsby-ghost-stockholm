@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@bundle-analyzer/gatsby-plugin": "^0.5.1",
-    "autoprefixer": "^9.7.5",
+    "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.1.0",
     "babel-preset-gatsby": "^0.3.1",
     "cssnano": "^4.1.10",
