@@ -5,9 +5,21 @@
 [template]
   incoming-hooks = ["Ghost"]
 
+[[plugins]]
+package = "netlify-plugin-gatsby-cache"
+
+[[plugins]]
+package = "netlify-plugin-checklinks"
+
 [[redirects]]
     from = "/ghost"
     to = "https://hackersandslackers.app/ghost"
+    status = 301
+    force = true
+
+[[redirects]]
+    from = "/ghost/"
+    to = "https://hackersandslackers.app/ghost/"
     status = 301
     force = true
 
