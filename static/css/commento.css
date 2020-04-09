@@ -97,7 +97,7 @@
 
 .commento-header {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 15px !important;
 }
 
 .commento-card .commento-card .commento-header {
@@ -272,15 +272,8 @@
 }
 
 .commento-root .commento-card p {
-  margin: 10px 0 0 !important;
-  line-height: 1.4 !important;
-}
-
-@media(max-width: 600px) {
-  .commento-root .commento-card p {
-    margin: 10px 0 0 !important;
-    line-height: 1.4 !important;
-  }
+  margin: 5px 0 0 !important;
+  line-height: 1.3 !important;
 }
 
 .commento-root .commento-card .commento-body {
@@ -289,7 +282,7 @@
 
 @media(max-width: 600px) {
   .commento-root .commento-card .commento-body {
-    margin: 15px 0;
+    margin: 0;
   }
 }
 
