@@ -10,8 +10,8 @@ import config from '../../../utils/siteConfig'
 
 const WebsiteMeta = ({ data, settings, canonical, title, description, image, pageContext, type }) => {
   settings = settings.ghostSettings
-  const facebookPageID = process.env.FACEBOOK_PAGE_ID ? process.env.FACEBOOK_PAGE_ID : null
-  const facebookAppID = process.env.FACEBOOK_APP_ID ? process.env.FACEBOOK_APP_ID : null
+  const facebookPageID = process.env.FACEBOOK_PAGE_ID
+  const facebookAppID = process.env.FACEBOOK_APP_ID
   const googleVerificationID = process.env.GOOGLE_VERIFICATION_ID
   const previousPagePath = pageContext ? pageContext.previousPagePath : null
   const nextPagePath = pageContext ? pageContext.nextPagePath : null
@@ -121,8 +121,8 @@ const WebsiteMetaQuery = props => (
     query={graphql`
             query GhostSettingsWebsiteMeta {
               ghostSettings {
-                ...GhostSettingsFields
-                  }
+                  ...GhostSettingsFields
+                }
               }
            `}
     render={data => <WebsiteMeta settings={data} {...props} />}
