@@ -22,7 +22,7 @@ const Index = ({ data, location, pageContext }) => {
 
   return (
     <>
-      <MetaData location={location} data={data} pageContext={ pageContext }/>
+      <MetaData location={location} data={data} />
       <Layout hasSidebar={true} template="home-template">
         <main className="site-main">
           <section className="post-feed">

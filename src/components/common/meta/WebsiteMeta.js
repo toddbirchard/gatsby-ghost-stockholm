@@ -8,13 +8,13 @@ import url from 'url'
 import ImageMeta from './ImageMeta'
 import config from '../../../utils/siteConfig'
 
-const WebsiteMeta = ({ data, settings, canonical, title, description, image, pageContext, type }) => {
+const WebsiteMeta = ({ data, settings, canonical, title, description, image, type }) => {
   settings = settings.ghostSettings
   const facebookPageID = process.env.FACEBOOK_PAGE_ID
   const facebookAppID = process.env.FACEBOOK_APP_ID
   const googleVerificationID = process.env.GOOGLE_VERIFICATION_ID
-  const previousPagePath = pageContext ? pageContext.previousPagePath : null
-  const nextPagePath = pageContext ? pageContext.nextPagePath : null
+  // const previousPagePath = pageContext ? pageContext.previousPagePath : null
+  // const nextPagePath = pageContext ? pageContext.nextPagePath : null
 
   const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
   let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
@@ -29,8 +29,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
       <Helmet>
         <title>{title}</title>
         <link rel="canonical" to={canonical} />
-        {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null}
-        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
+        {/*previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null}
+        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null*/}
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:site_name" content={settings.title} />
@@ -38,8 +38,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonical} />
-        {facebookPageID && <meta property="fb:page_id" content={facebookPageID} />}
-        {facebookAppID && <meta property="fb:app_id" content={facebookAppID} />}
+        {facebookPageID ? <meta property="fb:page_id" content={facebookPageID} /> : null }
+        {facebookAppID ? <meta property="fb:app_id" content={facebookAppID} /> : null }
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:url" content={canonical} />

@@ -20,7 +20,6 @@ const MetaData = ({
   description,
   image,
   location,
-  pageContext,
 }) => {
   const canonical = url.resolve(config.siteUrl, location.pathname)
   const { ghostPost, ghostTag, ghostAuthor, ghostPage } = data
@@ -38,7 +37,6 @@ const MetaData = ({
       <WebsiteMeta
         data={ghostTag}
         canonical={canonical}
-        pageContext={pageContext}
         type="Series"
       />
     )
@@ -47,7 +45,6 @@ const MetaData = ({
       <AuthorMeta
         data={ghostAuthor}
         canonical={canonical}
-        pageContext={pageContext}
         type="profile"
       />
     )
@@ -58,7 +55,6 @@ const MetaData = ({
         canonical={canonical}
         title={title}
         description={description}
-        pageContext={pageContext}
         type="WebSite"
       />
     )
@@ -76,7 +72,6 @@ const MetaData = ({
         title={title}
         description={description}
         image={image}
-        pageContext={pageContext}
         type="WebSite"
       />
     )
