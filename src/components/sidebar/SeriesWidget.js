@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaChartLine } from 'react-icons/fa'
 
 const SeriesWidget = ({ data }) => {
   const series = data.ghostTag
@@ -12,7 +12,7 @@ const SeriesWidget = ({ data }) => {
   return (
     <div className="widget series">
       <div className="widget-trending-header">
-        <div className="trending"><FontAwesomeIcon icon={[`fas`, `chart-line`]} size="xs" /> <span>Trending</span></div>
+        <div className="trending"><FaChartLine /> <span>Trending</span></div>
         <div className="trend-type">Top Series This Week</div>
       </div>
       <div className="widget-series-featured">

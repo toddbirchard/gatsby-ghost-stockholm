@@ -1,78 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {
-  faLinkedin,
-  faAngellist,
-  faTwitter,
-  faGithub,
-  faFacebook,
-  faGetPocket,
-  faMedium,
-} from '@fortawesome/free-brands-svg-icons'
-import {
-  faTags,
-  faEye,
-  faPencilAlt,
-  faUserEdit,
-  faCalendar,
-  faArrowLeft,
-  faArrowRight,
-  faGlobe,
-  faHome,
-  faChartLine,
-  faRss,
-  faRssSquare,
-  faSearch,
-  faRetweet,
-  faHeartbeat,
-  faUserPlus,
-  faIndent,
-  faUserFriends,
-  faStar,
-  faCodeBranch,
-  faCode,
-  faProjectDiagram,
-  faUsers,
-} from '@fortawesome/free-solid-svg-icons'
 
 // Styles
 import '../../styles/app.less'
-
-library.add(faTags,
-  faEye,
-  faPencilAlt,
-  faUserEdit,
-  faCalendar,
-  faArrowLeft,
-  faArrowRight,
-  faGlobe,
-  faHome,
-  faChartLine,
-  faRss,
-  faRssSquare,
-  faSearch,
-  faLinkedin,
-  faAngellist,
-  faTwitter,
-  faGithub,
-  faFacebook,
-  faGetPocket,
-  faMedium,
-  faRetweet,
-  faHeartbeat,
-  faUserPlus,
-  faIndent,
-  faUserFriends,
-  faStar,
-  faCodeBranch,
-  faCode,
-  faProjectDiagram,
-  faUsers)
 
 /**
  * Main layout component
@@ -100,7 +34,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         smallLogo={site.icon}
         fullLogo={site.logo}
         template={template} />
-        
+
       <div className="viewport">
         <div className={hasSidebar ? `sidebar-container` : `container`}>
           {/* All the main content gets inserted here, index.js, post.js */}

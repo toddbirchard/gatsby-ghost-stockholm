@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaTwitter, FaUserFriends, FaHeartbeat } from 'react-icons/fa'
 
 const AuthorTwitterWidget = ({ data }) => {
   const twitterUsername = data && data.screen_name
@@ -23,11 +23,11 @@ const AuthorTwitterWidget = ({ data }) => {
           {data.description}
         </p>
         <div className="twitter-profile-meta">
-          <div className="tweets meta-item"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /> <span>{data.statuses_count} Tweets</span></div>
-          <div className="followers meta-item"><FontAwesomeIcon icon={[`fas`, `user-friends`]} size="xs" /> <span>{data.followers_count} Followers</span></div>
-          <div className="favorites meta-item"><FontAwesomeIcon icon={[`fas`, `heartbeat`]} size="xs" swapOpacity /> <span>{data.favourites_count} Favorites</span></div>
+          <div className="tweets meta-item"><FaTwitter /> <span>{data.statuses_count} Tweets</span></div>
+          <div className="followers meta-item"><FaUserFriends /> <span>{data.followers_count} Followers</span></div>
+          <div className="favorites meta-item"><FaHeartbeat /> <span>{data.favourites_count} Favorites</span></div>
         </div>
-        <a href={twitterFollowUrl} className="twitter-follow-button"><FontAwesomeIcon icon={[`fab`, `twitter`]} size="xs" /> Follow</a>
+        <a href={twitterFollowUrl} className="twitter-follow-button"><FaTwitter /> Follow</a>
       </div>
     </>
   )

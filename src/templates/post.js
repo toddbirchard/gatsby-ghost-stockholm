@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
+import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
 
 /**
 * Single post view (/:slug)
@@ -34,49 +34,47 @@ const Post = ({ data, location }) => {
     <>
       <MetaData location={ location } data={data} type="article" />
       <Layout template="post-template">
-        <div className="post-background">
-          <div className="post-wrapper">
-            <div className="post-head">
-              <h1 className="post-title">{post.title}</h1>
-              <div className="post-meta">
-                <div className="meta-item author">
-                  <Link to={authorUrl}>
-                    <FontAwesomeIcon icon={[`fas`, `user-edit`]} size="xs"/>
-                    <span>{authorFirstName}</span>
-                  </Link>
-                </div>
-                {tags && <div className="meta-item tag">
-                  <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity />
-                  <Tags post={post} limit={1} visibility="public" autolink={true} separator="" permalink="/tag/:slug" classes={tags.ghostId}/>
-                </div>}
-                <div className="meta-item reading-time">
-                  <FontAwesomeIcon icon={[`fas`, `eye`]} size="xs" swapOpacity />
-                  <span>{readingTime}</span>
-                </div>
-                <div className="meta-item date">
-                  <FontAwesomeIcon icon={[`fas`, `calendar`]} size="xs"/>
-                  <span>{post.published_at_pretty}</span>
-                </div>
+        <div className="post-wrapper">
+          <div className="post-head">
+            <h1 className="post-title">{post.title}</h1>
+            <div className="post-meta">
+              <div className="meta-item author">
+                <Link to={authorUrl}>
+                  <FaUserEdit />
+                  <span>{authorFirstName}</span>
+                </Link>
               </div>
-              <figure className="post-image">
-                { retinaImage ?
-                  <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
-                  <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
-              </figure>
+              {tags && <div className="meta-item tag">
+                <FaTags />
+                <Tags post={post} limit={1} visibility="public" autolink={true} separator="" permalink="/tag/:slug" classes={tags.ghostId}/>
+              </div>}
+              <div className="meta-item reading-time">
+                <FaEye />
+                <span>{readingTime}</span>
+              </div>
+              <div className="meta-item date">
+                <FaCalendar />
+                <span>{post.published_at_pretty}</span>
+              </div>
             </div>
-
-            <article className="post">
-              { seriesPosts
-                ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-                : null
-              }
-              <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
-              <div className="post-tags">
-                <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
-              </div>
-              <AuthorCard author={author} page={`post`} />
-            </article>
+            <figure className="post-image">
+              { retinaImage ?
+                <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
+                <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
+            </figure>
           </div>
+
+          <article className="post">
+            { seriesPosts
+              ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
+              : null
+            }
+            <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
+            <div className="post-tags">
+              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
+            </div>
+            <AuthorCard author={author} page={`post`} />
+          </article>
         </div>
         <section className="post-footer">
           <Commento id={ id } />

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaTags } from 'react-icons/fa'
 
 const RelatedPosts = ({ data }) => {
   const related = data.edges
@@ -16,7 +16,7 @@ const RelatedPosts = ({ data }) => {
             <div className="related-post-info">
               <h5 className="related-post-title"> { node.title } </h5>
               <div className="related-post-tags">
-                <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity />
+                <FaTags />
                 <Tags post={node} limit={2} visibility="public" autolink={false} classes="tag" separator=", " separatorClasses={`${node.ghostId} tag-separator`} />
               </div>
             </div>

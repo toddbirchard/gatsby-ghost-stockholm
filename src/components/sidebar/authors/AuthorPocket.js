@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FaGetPocket } from 'react-icons/fa'
 
 const AuthorPocket = ({ data }) => {
   const pocketLinks = data.allPocketArticle.edges
@@ -9,7 +9,7 @@ const AuthorPocket = ({ data }) => {
   return (
     <div className="widget pocket">
       <div className="widget-header">
-        <div className="label pocket"><FontAwesomeIcon icon={[`fab`, `get-pocket`]} size="xs" /> <span>Recommended Reads</span></div>
+        <div className="label pocket"><FaGetPocket /> <span>Recommended Reads</span></div>
       </div>
       <div className="widget-content">
         {pocketLinks.map(({ node }) => (

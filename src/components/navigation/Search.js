@@ -4,11 +4,11 @@ import { Configure,
   Hits, InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
 import { HitsWrapper, Root } from './SearchStyles'
 import { Link } from 'gatsby'
+import { FaTags, FaSearch } from 'react-icons/fa'
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div className="no-results">{`No results for ${state.query}`}</div>),
@@ -28,7 +28,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
       <div className="search-result-details">
         <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
         <div className="search-result-tag">
-          <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity/>
+          <FaTags />
           <span>{hit.primary_tag.name}</span>
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
             placeholder: `Search all posts`,
           }}
         />
-        <FontAwesomeIcon icon={[`fas`, `search`]} size="xs"/>
+        <FaSearch />
         <HitsWrapper show={(query.length > 0 && focus) || (!!forcedQuery)} asGrid={hitsAsGrid} className="search-results">
           <Index indexName="hackers_posts">
             <header>
