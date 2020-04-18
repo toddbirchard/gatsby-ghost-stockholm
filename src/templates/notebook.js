@@ -26,8 +26,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
     : null
   const githubLink = file.gitRemote.href + file.relativePath
   const githubRepoName = file.gitRemote.full_name
-  const renderNotebook = ipynb.createRenderer(new Document())
-  console.log(renderNotebook(`/Users/toddbirchard/projects/stockholm/.cache/gatsby-source-git/jupyter/Binary%20Search%20Multiple%20Variables.ipynb`))
+  // const renderNotebook = ipynb.createRenderer(new Document())
 
   return (
     <>
@@ -43,7 +42,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
             <div className="meta-item jupyter-date">{file.modifiedTime}</div>
           </div>
           <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
-            __html: renderNotebook(notebook.json).outerHTML,
+            __html: notebook.html,
           }}></main>
         </div>
       </Layout>
