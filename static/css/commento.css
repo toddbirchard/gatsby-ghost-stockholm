@@ -342,6 +342,7 @@
 
 .commento-root .commento-markdown-button a {
   bottom: 15px !important;
+  color: #727b84;
   font-size: 11px !important;
   line-height: 1 !important;
 }
@@ -395,6 +396,7 @@
 }
 
 .commento-root textarea:focus {
+  height: 188px !important;
   border: 1px inset #6baaf2 !important;
   background: white !important;
 }

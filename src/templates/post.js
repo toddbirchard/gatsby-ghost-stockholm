@@ -34,47 +34,49 @@ const Post = ({ data, location }) => {
     <>
       <MetaData location={ location } data={data} type="article" />
       <Layout template="post-template">
-        <div className="post-wrapper">
-          <div className="post-head">
-            <h1 className="post-title">{post.title}</h1>
-            <div className="post-meta">
-              <div className="meta-item author">
-                <Link to={authorUrl}>
-                  <FontAwesomeIcon icon={[`fas`, `user-edit`]} size="xs"/>
-                  <span>{authorFirstName}</span>
-                </Link>
+        <div className="post-background">
+          <div className="post-wrapper">
+            <div className="post-head">
+              <h1 className="post-title">{post.title}</h1>
+              <div className="post-meta">
+                <div className="meta-item author">
+                  <Link to={authorUrl}>
+                    <FontAwesomeIcon icon={[`fas`, `user-edit`]} size="xs"/>
+                    <span>{authorFirstName}</span>
+                  </Link>
+                </div>
+                {tags && <div className="meta-item tag">
+                  <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity />
+                  <Tags post={post} limit={1} visibility="public" autolink={true} separator="" permalink="/tag/:slug" classes={tags.ghostId}/>
+                </div>}
+                <div className="meta-item reading-time">
+                  <FontAwesomeIcon icon={[`fas`, `eye`]} size="xs" swapOpacity />
+                  <span>{readingTime}</span>
+                </div>
+                <div className="meta-item date">
+                  <FontAwesomeIcon icon={[`fas`, `calendar`]} size="xs"/>
+                  <span>{post.published_at_pretty}</span>
+                </div>
               </div>
-              {tags && <div className="meta-item tag">
-                <FontAwesomeIcon icon={[`fas`, `tags`]} size="xs" swapOpacity />
-                <Tags post={post} limit={1} visibility="public" autolink={true} separator="" permalink="/tag/:slug" classes={tags.ghostId}/>
-              </div>}
-              <div className="meta-item reading-time">
-                <FontAwesomeIcon icon={[`fas`, `eye`]} size="xs" swapOpacity />
-                <span>{readingTime}</span>
-              </div>
-              <div className="meta-item date">
-                <FontAwesomeIcon icon={[`fas`, `calendar`]} size="xs"/>
-                <span>{post.published_at_pretty}</span>
-              </div>
+              <figure className="post-image">
+                { retinaImage ?
+                  <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
+                  <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
+              </figure>
             </div>
-            <figure className="post-image">
-              { retinaImage ?
-                <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
-                <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
-            </figure>
-          </div>
 
-          <article className="post">
-            { seriesPosts
-              ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-              : null
-            }
-            <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
-            <div className="post-tags">
-              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
-            </div>
-            <AuthorCard author={author} page={`post`} />
-          </article>
+            <article className="post">
+              { seriesPosts
+                ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
+                : null
+              }
+              <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
+              <div className="post-tags">
+                <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
+              </div>
+              <AuthorCard author={author} page={`post`} />
+            </article>
+          </div>
         </div>
         <section className="post-footer">
           <Commento id={ id } />

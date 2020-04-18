@@ -1,5 +1,5 @@
 .post-footer {
-  width: 760px;
+  width: 900px;
   max-width: 90%;
   margin: 40px auto 0;
   @media (max-width: @mobile-breakpoint) {
@@ -46,7 +46,6 @@
 
       .related-post-image-wrapper {
         width: 100%;
-        height: 142px;
         @media (max-width: @mobile-breakpoint) {
           width: 185px;
           max-width: 185px;
@@ -55,9 +54,7 @@
         }
 
         img {
-          width: auto;
-          height: 100%;
-          background-size: cover;
+          width: 100%;
           @media (max-width: @mobile-breakpoint) {
             width: unset;
             height: 100%;
@@ -75,10 +72,11 @@
         .related-post-title {
           -webkit-line-clamp: 2;
           .line-clamp();
+          height: 40px;
           margin: 0 0 20px;
           color: #616f7d;
           font-family: @body-font-bold;
-          font-size: 1.05em;
+          font-size: 1.1em;
           font-weight: unset;
           line-height: 1.2;
           @media (max-width: @mobile-breakpoint) {
@@ -118,9 +116,9 @@
     z-index: 1;
     position: relative;
     flex-flow: wrap-reverse;
+    align-items: center;
     justify-content: space-around;
     width: stretch;
-    height: 100%;
     margin: 20px auto 0;
     padding: 30px;
     background: white;
@@ -128,6 +126,16 @@
     text-align: center;
     @media (max-width: @mobile-breakpoint) {
       flex-direction: column;
+    }
+
+    .post-footer-title {
+      display: block;
+      margin-bottom: 10px;
+      color: #5d6b7b;
+      font-family: @body-font-bold;
+      font-size: 1.3em;
+      font-weight: 100;
+      text-align: left;
     }
 
     .donate-section,
@@ -149,10 +157,14 @@
 
     .donate-section {
       .support-description {
-        margin-bottom: 77px;
+        margin-bottom: 52px;
         @media (max-width: @mobile-breakpoint) {
           margin-bottom: 30px;
         }
+      }
+
+      .coffee-button {
+        border-radius: 3px;
       }
 
       .coffee-button-text {
@@ -164,7 +176,8 @@
     .divider {
       display: block;
       width: 1px;
-      height: 261px;
+      height: 206px;
+      margin: 0 5%;
       background: #d9d9d9;
       @media (max-width: @mobile-breakpoint) {
         display: none;
@@ -172,7 +185,7 @@
     }
 
     .support-description {
-      margin: 0 auto 1.5em;
+      margin: 0 auto 10px;
       color: lighten(@body-color, 5%);
       text-align: left;
       @media (max-width: @mobile-breakpoint) {
@@ -192,14 +205,12 @@
       }
     }
 
-    .subscribe-input-class {
+    input {
       display: block;
       width: stretch;
       margin: 0 auto 10px;
-      padding: 10px;
-      border: 1px solid #cdd4e0;
-      font-size: 0.8em;
-      .input-field-interactions();
+      font-size: 0.9em;
+      .input-text-fields();
       @media (max-width: @mobile-breakpoint) {
         width: stretch;
         padding: 11px;
@@ -211,6 +222,8 @@
       .button-styles();
       width: stretch;
       height: 40px;
+      margin-top: 10px;
+      border-radius: 3px;
       font-family: @body-font;
       font-size: 1em;
     }

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 */
 
 const SupportWidget = () => {
-  const newsletterCopy = `Are you into data to the point where it's almost embarrassing? Toss us your email and we'll promise to only give you the good stuff.`
+  const newsletterCopy = `Subcribe to monthly updates if you want em.`
   const coffeeUrl = `https://www.buymeacoffee.com/hackersslackers`
   const coffeeImg = `/images/bmc-new-btn-logo.svg`
   const donateCopy = `We started sharing these tutorials to help and inspire new scientists and engineers around the world. If Hackers and Slackers has been helpful to you, feel free to buy us a coffee to keep us going :).`
@@ -17,7 +17,7 @@ const SupportWidget = () => {
     <>
       <div className="widget support">
         <div className="newsletter-section">
-          <h5>Monthly Newsletter</h5>
+          <span className="post-footer-title">Monthly Newsletter</span>
           <p className="support-description">{newsletterCopy}</p>
           <form name="newsletter" method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/subscribed/" >
             <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
@@ -28,7 +28,7 @@ const SupportWidget = () => {
         </div>
         <div className="divider"></div>
         <div className="donate-section">
-          <h5>Support us</h5>
+          <span className="post-footer-title">Support us</span>
           <p className="support-description">{donateCopy}</p>
           <a className="coffee-button" rel="noopener noreferrer" target="_blank" href={coffeeUrl} >
             <img src={coffeeImg} alt="Buy us a coffee"/>

@@ -74,11 +74,15 @@
         @media (max-width: @mobile-breakpoint) {
           margin-bottom: 10px;
           border-bottom: 0;
+          text-align: left;
         }
       }
 
       dd {
         text-align: right;
+        @media (max-width: @mobile-breakpoint) {
+          text-align: left;
+        }
       }
 
       .footer-navigation-link {
@@ -142,17 +146,15 @@
       }
 
       &.pages {
-        width: 12%;
-        @media (max-width: @tablet-breakpoint) {
-          width: 18%;
+        width: 10%;
+        @media (max-width: @mobile-breakpoint) {
+          width: unset;
         }
       }
 
       &.series {
         width: 20%;
-        @media (max-width: @tablet-breakpoint) {
-          width: 30%;
-        }
+
         @media (max-width: @mobile-breakpoint) {
           width: unset;
         }
@@ -198,7 +200,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 280px;
+      width: 250px;
       overflow: visible;
       @media (max-width: @mobile-breakpoint) {
         margin: 0 0 15px;
@@ -234,10 +236,13 @@
 /* Post Template Footer */
 .post-template {
   .footer-wrapper {
-    width: 760px;
+    width: 900px;
 
     .widget.about {
-      width: 39% !important;
+      width: 30% !important;
+      @media (max-width: @tablet-breakpoint) {
+        width: 40% !important;
+      }
       @media (max-width: @mobile-breakpoint) {
         width: 100% !important;
       }
@@ -247,17 +252,30 @@
       }
     }
 
-    .widget.series {
-      display: none;
+    .widget.authors {
+      display: block;
+      @media (max-width: @tablet-breakpoint) {
+        display: none;
+      }
+      @media (max-width: @mobile-breakpoint) {
+        display: block;
+        width: unset;
+      }
     }
 
-    .widget.authors {
-      display: block !important;
+    .widget.series {
+      @media (max-width: @tablet-breakpoint) {
+        width: 30%;
+      }
+      @media (max-width: @mobile-breakpoint) {
+        width: unset;
+      }
     }
+
   }
 
   .copyright {
-    max-width: 760px;
+    width: 900px;
   }
 }
 
