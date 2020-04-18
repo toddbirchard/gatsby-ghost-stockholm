@@ -56,7 +56,7 @@
         width: 20px;
         height: 20px;
         margin: auto;
-        color: #606060;
+        color: #a6b6c7;
         opacity: 0.8;
       }
     }
@@ -73,12 +73,12 @@
       input {
         width: 100% !important;
         max-width: stretch;
-        margin: 0;
-        padding: 15px;
+        margin: 0 !important;
+        padding: 15px !important;
         border: 1px solid #dfdede;
         border-radius: 0;
         background: white;
-        font-size: 1em;
+        font-size: 1em !important;
         line-height: normal;
         transition: all 0.2s ease-out;
         .input-field-interactions();
@@ -99,7 +99,10 @@
 
       .ais-MenuSelect-select,
       .ais-SortBy-select {
+        margin: 0 !important;
+        padding: 15px !important;
         .select-dropdown();
+        .input-field-interactions();
       }
 
       .ais-MenuSelect,
