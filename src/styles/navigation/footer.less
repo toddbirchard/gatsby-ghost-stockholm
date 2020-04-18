@@ -9,7 +9,7 @@
     width: 1000px;
     max-width: 90%;
     margin: auto;
-    border-top: 1px solid #dadada;
+    border-top: 1px solid #d8e0e6;
     @media (max-width: @mobile-breakpoint) {
       max-width: 100%;
       border-top: 0;
@@ -70,10 +70,15 @@
         color: #4b5863;
         font-size: 1.2em;
         font-weight: 600;
+        text-align: right;
         @media (max-width: @mobile-breakpoint) {
           margin-bottom: 10px;
           border-bottom: 0;
         }
+      }
+
+      dd {
+        text-align: right;
       }
 
       .footer-navigation-link {
@@ -124,8 +129,8 @@
         .description {
           color: #4c5c71;
           font-family: @body-font;
-          font-size: 1.1em;
-          line-height: 1.3;
+          font-size: 1em;
+          line-height: 1.4;
           @media (max-width: @mobile-breakpoint) {
             max-width: 80%;
           }
@@ -252,7 +257,7 @@
     }
   }
 
-  .copyright p {
+  .copyright {
     max-width: 760px;
   }
 }
