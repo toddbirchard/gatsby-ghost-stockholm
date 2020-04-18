@@ -28,7 +28,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
     <>
       <Helmet>
         <title>{title}</title>
-        <link rel="canonical" to={canonical} />
+        {canonical && <link rel="canonical" to={canonical} />}
         {/*previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null}
         {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null*/}
         <meta name="description" content={description} />
