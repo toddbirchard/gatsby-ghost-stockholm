@@ -24,6 +24,7 @@ const Tag = ({ data, location, pageContext }) => {
       <MetaData
         data={data}
         location={location}
+        pageContext={pageContext}
         type="website"
       />
       <Layout template="tag-template page-template" hasSidebar={true}>

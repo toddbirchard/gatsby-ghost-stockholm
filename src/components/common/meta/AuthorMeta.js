@@ -8,19 +8,23 @@ import ImageMeta from './ImageMeta'
 import getAuthorProperties from './getAuthorProperties'
 import config from '../../../utils/siteConfig'
 
-const AuthorMeta = ({ data, settings, canonical }) => {
+const AuthorMeta = ({ data, settings, canonical, pageContext }) => {
   settings = settings.ghostSettings
 
   const author = getAuthorProperties(data)
   const shareImage = author.image || _.get(settings, `cover_image`, null)
   const title = `${data.name} - ${settings.title}`
   const description = data.bio || config.siteDescriptionMeta || settings.description
+  const previousPagePath = pageContext ? pageContext.previousPagePath : null
+  const nextPagePath = pageContext ? pageContext.nextPagePath : null
 
   return (
     <>
       <Helmet>
         <title>{title}</title>
-        <link rel="canonical" to={canonical} />
+        {canonical && <link rel="canonical" to={canonical} />}
+        {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null }
+        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
         <meta name="description" content={description} />
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="profile" />
@@ -74,6 +78,7 @@ AuthorMeta.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
+  pageContext: PropTypes.object,
   canonical: PropTypes.string.isRequired,
 }
 
