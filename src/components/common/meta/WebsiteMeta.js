@@ -13,7 +13,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
   const facebookPageID = process.env.FACEBOOK_PAGE_ID
   const facebookAppID = process.env.FACEBOOK_APP_ID
   const googleVerificationID = process.env.GOOGLE_VERIFICATION_ID
-  const { previousPagePath, nextPagePath } = pageContext
+  const previousPagePath = pageContext ? pageContext.previousPagePath : null
+  const nextPagePath = pageContext ? pageContext.nextPagePath : null
 
   const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
   let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)

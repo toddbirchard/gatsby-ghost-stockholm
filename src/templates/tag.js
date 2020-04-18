@@ -7,6 +7,7 @@ import { MetaData } from '../components/common/meta'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import '../styles/pages/tag.less'
+import '../styles/post-card.less'
 
 /**
 * Tag page (/tag/:slug)
