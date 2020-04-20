@@ -116,7 +116,6 @@ table {
     }
 
     td {
-      font-size: 0.9em;
       text-align: left;
       @media (max-width: @tablet-breakpoint) {
         margin: 0 !important;
@@ -126,13 +125,10 @@ table {
       }
 
       &:first-child {
-        max-width: 33px;
-        border-bottom: 1px solid #404554;
-        background: #33394a !important;
-        color: white;
+        max-width: 45px;
         font-family: @table-font;
-        font-size: 0.7em;
-        font-weight: 500;
+        font-size: 0.8em;
+        font-weight: 600;
         text-align: top;
         @media (max-width: @tablet-breakpoint) {
           max-width: none;
@@ -151,12 +147,22 @@ table {
           white-space: inherit;
         }
       }
+
+      a {
+        color: @theme-color;
+        font-weight: 600;
+      }
     }
   }
 
   ul {
     @media (max-width: @tablet-breakpoint) {
       margin: 0 0 0 !important;
+    }
+
+    li {
+      margin: 0 0 5px !important;
+      font-size: 1em;
     }
 
     li:last-child {
