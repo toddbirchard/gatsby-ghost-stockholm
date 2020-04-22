@@ -17,9 +17,11 @@
   .nav-wrapper {
     max-width: 1200px;
     @media (max-width: 1200px) {
+      width: 1200px;
       max-width: 95%;
     }
-    @media (max-width: @mobile-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
+      width: unset;
       max-width: 90%;
     }
   }
@@ -244,7 +246,7 @@
         -webkit-line-clamp: 2;
         .line-clamp();
         font-family: @header-font-secondary;
-        font-size: 1.15em;
+        font-size: 1.25em;
         letter-spacing: -.5px;
         line-height: 1.2;
         @media (max-width: @mobile-breakpoint) {
@@ -256,6 +258,7 @@
         -webkit-line-clamp: 2;
         margin: 10px auto 35px;
         font-size: 1em;
+        font-weight: 600;
         line-height: 1.2;
         .line-clamp();
       }
