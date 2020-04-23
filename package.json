@@ -75,7 +75,7 @@
     "gatsby-awesome-pagination": "0.3.5",
     "gatsby-image": "2.3.4",
     "gatsby-plugin-advanced-sitemap": "^1.5.4",
-    "gatsby-plugin-algolia": "^0.8.0",
+    "gatsby-plugin-algolia": "^0.8.1",
     "gatsby-plugin-canonical-urls": "^2.2.3",
     "gatsby-plugin-feed": "2.4.3",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
