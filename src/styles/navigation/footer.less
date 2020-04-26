@@ -191,7 +191,9 @@
       line-height: 1.4;
       @media (max-width: @mobile-breakpoint) {
         width: 100%;
-        font-size: 1em;
+        color: #88959b;
+        font-size: .9em;
+        letter-spacing: 0.5px;
         text-align: center;
       }
     }
@@ -203,7 +205,7 @@
       width: 250px;
       overflow: visible;
       @media (max-width: @mobile-breakpoint) {
-        width: 303px;
+        width: 358px;
         max-width: unset;
         margin: 0 0 15px;
       }
@@ -223,6 +225,9 @@
         color: #8f9fa8;
         font-size: 1.9em;
         transition: 0.2s all ease-out;
+        @media(max-width: @mobile-breakpoint) {
+          font-size: 2.2em;
+        }
 
         &:hover {
           -webkit-transform: scale(1.2);

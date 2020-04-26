@@ -263,8 +263,11 @@
     white-space: normal;
     @media (max-width: @mobile-breakpoint) {
       display: block;
-      width: auto !important;
+      width: 87% !important;
       height: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     a {
@@ -299,8 +302,9 @@
     white-space: normal;
     @media (max-width: @mobile-breakpoint) {
       .mobile-full-width();
-      padding: 12px 23px;
+      padding: 12px 25px;
       border-radius: 0;
+      font-size: 1em;
     }
   }
 

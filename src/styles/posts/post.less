@@ -345,7 +345,10 @@
         color: #796c5c;
         line-height: 1.4;
         @media (max-width: @mobile-breakpoint) {
-          font-size: 0.9em;
+          margin-right: calc(-50vw + 50%)!important;
+          margin-left: calc(-50vw + 50%)!important;
+          padding: 60px 27px 14px;
+          font-size: 1em;
         }
 
         p,
@@ -380,6 +383,9 @@
           line-height: 1;
           text-rendering: auto;
           content: "Protip";
+          @media(max-width: @mobile-breakpoint) {
+            padding: 14px 28px;
+          }
         }
 
         ol,
@@ -412,6 +418,7 @@
         pre {
           margin: 15px auto 10px;
           padding: 12px;
+          overflow: hidden;
           border: 1px solid #ecd8c6;
           border-radius: 3px;
           background: #f8e5d7;
@@ -493,7 +500,7 @@
         width: 80%;
         margin: 25px 0 20px auto;
         color: #a6a6a6;
-        font-size: 0.85em;
+        font-size: 0.95em;
         font-style: italic;
         line-height: 1.4;
         text-align: right;

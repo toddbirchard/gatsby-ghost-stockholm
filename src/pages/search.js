@@ -17,6 +17,7 @@ import { Layout, PostCard } from '../components/common'
 import { FaSearch } from 'react-icons/fa'
 
 import '../styles/pages/search.less'
+import '../styles/post-card.less'
 
 const DEBOUNCE_TIME = 700
 const searchClient = algoliasearch(
