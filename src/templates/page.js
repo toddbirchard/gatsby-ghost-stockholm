@@ -37,7 +37,7 @@ const Page = ({ data, location, pageContext }) => {
               <img className="lazyload" data-src={ page.feature_image } alt={ page.title } />
             </figure> : null }
           <h1>{page.title}</h1>
-          { page.slug === `about-us` ?
+          { page.slug === `about` ?
             <div className="about-video-wrapper">
               <ReactPlayer url={introVideo} width="100%" height="100%" className="about-video" />
             </div>
@@ -47,7 +47,7 @@ const Page = ({ data, location, pageContext }) => {
             className="content-body load-external-scripts"
             dangerouslySetInnerHTML={{ __html: page.html }}
           />
-          { pageContext.slug === `about-us` ? <AuthorList page={`about`} /> : null }
+          { pageContext.slug === `about` ? <AuthorList page={`about`} /> : null }
         </article>
       </Layout>
     </>

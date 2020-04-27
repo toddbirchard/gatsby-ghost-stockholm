@@ -510,6 +510,15 @@
         public'''
 
 [[headers]]
+  for = "/css/fonts.css"
+  [headers.values]
+    content-type = "text/css"
+    cache-control = '''
+        max-age=604800,
+        no-cache,
+        public'''
+
+[[headers]]
   for = "https://hackersandslackers-cdn.storage.googleapis.com/*"
   [headers.values]
     cache-control = '''

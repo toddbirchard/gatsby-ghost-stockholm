@@ -99,7 +99,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const jupyterTemplate = path.resolve(`./src/templates/notebook.js`)
 
   // Load Pages
-  const aboutPage = path.resolve(`./src/pages/about.js`)
   const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
   const searchPage = path.resolve(`./src/pages/search.js`)
   const seriesArchivePage = path.resolve(`./src/pages/seriesarchive.js`)
@@ -369,16 +368,6 @@ exports.createPages = async ({ graphql, actions }) => {
     context: {
       slug: `jupyter`,
       title: `Jupyter Notebooks`,
-      description: `Our collection of Jupyter notebooks.`,
-    },
-  })
-
-  createPage({
-    path: `/about/`,
-    component: aboutPage,
-    context: {
-      slug: `about`,
-      title: `About Us`,
       description: `Our collection of Jupyter notebooks.`,
     },
   })
