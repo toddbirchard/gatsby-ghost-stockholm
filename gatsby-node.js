@@ -47,7 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     }
                 }
             }
-            allGhostPage(sort: { order: ASC, fields: published_at }) {
+            allGhostPage {
                 edges {
                     node {
                         slug
