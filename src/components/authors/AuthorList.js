@@ -38,7 +38,6 @@ const AuthorCardsQuery = props => (
                   twitter
                   website
                   location
-                  facebook
                   cover_image
                   bio
                 }

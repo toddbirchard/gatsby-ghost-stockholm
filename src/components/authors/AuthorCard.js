@@ -7,7 +7,6 @@ import '../../styles/author-card.less'
 
 const AuthorCard = ({ author, page, template, pageContext }) => {
   const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
-  const authorFacebookUrl = author.facebook ? `https://www.facebook.com/${author.facebook.replace(/^\//, ``)}` : null
   const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
 
   return (
@@ -24,7 +23,6 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
               {author.location && <div className="author-card-item location"><FaHome /> <span>{author.location}</span></div>}
               {author.website && <div className="author-card-item"><a href={author.website} target="_blank" rel="noopener noreferrer"><FaGlobe /> <span>Website</span></a></div>}
               {authorTwitterUrl && <div className="author-card-item"><a href={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FaTwitter /> <span>Twitter</span></a></div>}
-              {authorFacebookUrl && <div className="author-card-item"><a href={ authorFacebookUrl } target="_blank" rel="noopener noreferrer"><FaFacebook /> <span>Facebook</span></a></div>}
             </div>
             {author.bio && <p className="author-card-bio">{author.bio}</p>}
           </div>

@@ -47,7 +47,7 @@ const Page = ({ data, location, pageContext }) => {
             className="content-body load-external-scripts"
             dangerouslySetInnerHTML={{ __html: page.html }}
           />
-          { pageContext.slug === `about` ? <AuthorList page={`about`} /> : null }
+          { pageContext.slug === `about-us` ? <AuthorList page={`about`} /> : null }
         </article>
       </Layout>
     </>

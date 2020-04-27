@@ -110,8 +110,6 @@ export const ghostPostFields = graphql`
         url
         uuid
         page
-        codeinjection_foot
-        codeinjection_styles
         comment_id
     }
 `

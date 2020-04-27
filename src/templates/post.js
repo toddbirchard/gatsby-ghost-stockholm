@@ -97,7 +97,6 @@ Post.propTypes = {
       feature_image: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired })),
       published_at_pretty: PropTypes.string,
-      codeinjection_styles: PropTypes.string,
     }).isRequired,
     ghostAuthor: PropTypes.object.isRequired,
     relatedPosts: PropTypes.objectOf(PropTypes.array),
