@@ -1,18 +1,61 @@
 import React from 'react'
+import { Configure,
+  connectStateResults,
+  Hits, InstantSearch,
+  SearchBox,
+  Index } from 'react-instantsearch-dom'
+import { HitsWrapper } from './SearchStyles'
+
+import algoliasearch from 'algoliasearch/lite'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
-import Search from './Search'
-import config from '../../utils/siteConfig'
+import PostHit from './PostHit'
+import config from '../../../utils/siteConfig'
+import { FaSearch } from 'react-icons/fa'
 
-class HamburgerMenu extends React.Component {
+const appId = process.env.GATSBY_ALGOLIA_APP_ID
+const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
+
+const algoliaClient = algoliasearch(
+  appId,
+  searchKey,
+)
+
+const searchClient = {
+  search(requests) {
+    if (requests.every(({ params }) => !params.query)) {
+      return Promise.resolve({
+        results: requests.map(() => {
+          return {
+            hits: [],
+            nbHits: 0,
+            nbPages: 0,
+            processingTimeMS: 0,
+          }
+        }),
+      })
+    }
+    return algoliaClient.search(requests)
+  },
+}
+
+const Results = connectStateResults(
+  ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div className="no-results">{`No results for ${state.query}`}</div>),
+)
+
+const Stats = connectStateResults(
+  ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
+)
+
+class MobileMenu extends React.Component {
   constructor(props) {
     super(props)
     this.tags = props.data.tags.edges
     this.topSearches = props.data.topSearches.edges
     this.classes = props.data.fullWidth ? `fullWidth` : null
-    this.state = { active: false, query: `` }
+    this.state = { active: false, query: ``, focus: false }
   }
 
   render() {
@@ -20,7 +63,36 @@ class HamburgerMenu extends React.Component {
       <>
         <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="search-container" onClick={ () => this.setState({ active: true })}>
-            <Search collapse className="search-widget" />
+            <InstantSearch
+              searchClient={searchClient}
+              indexName="hackers_posts"
+              searchState={{ query: this.state.query }}
+              onSearchStateChange={({ query }) => this.setState(({ query: query }))}
+              onSearchParameters={() => this.setState({ focus: true })}
+            >
+              <Configure hitsPerPage={10} analytics={true}/>
+              <SearchBox
+                searchAsYouType={true}
+                placeholder="Search all posts..."
+                onFocus={() => this.setState({ focus: true })}
+                translations={{
+                  placeholder: `Search all posts`,
+                }}
+              />
+              <FaSearch />
+              <HitsWrapper show={(this.state.query.length > 0 && this.state.focus)} className="search-results">
+                <Index indexName="hackers_posts">
+                  <header>
+                    <div className="search-results-title">Search results</div>
+                    <div className="search-results-count"><Stats/></div>
+                  </header>
+                  <Results>
+                    <Hits hitComponent={PostHit(() => this.setState({ focus: true }))}/>
+                  </Results>
+                </Index>
+              </HitsWrapper>
+            </InstantSearch>
+
           </div>
           <div className="pages">
             <Link className={`navigation-link`} to={`/about/`}>About</Link>
@@ -32,6 +104,7 @@ class HamburgerMenu extends React.Component {
           </div>
           <div className="tags">
             <div className="sublinks">
+              <div className="mobile-tag-title">Tags</div>
               {this.tags.map(({ node }) => (
                 <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
               ))}
@@ -53,7 +126,7 @@ class HamburgerMenu extends React.Component {
   }
 }
 
-HamburgerMenu.propTypes = {
+MobileMenu.propTypes = {
   data: PropTypes.shape({
     navigation: PropTypes.arrayOf(
       PropTypes.shape({
@@ -68,7 +141,7 @@ HamburgerMenu.propTypes = {
 
 }
 
-const HamburgerMenuQuery = props => (
+const MobileMenuQuery = props => (
   <StaticQuery
     query={graphql`
           query HamburgerNavQuery {
@@ -96,8 +169,8 @@ const HamburgerMenuQuery = props => (
             }
           }
         `}
-    render={data => <HamburgerMenu data={data} {...props} />}
+    render={data => <MobileMenu data={data} {...props} />}
   />
 )
 
-export default HamburgerMenuQuery
+export default MobileMenuQuery

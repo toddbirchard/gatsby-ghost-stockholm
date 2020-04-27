@@ -174,6 +174,7 @@
 
       .top-search-title {
         margin-bottom: 25px;
+        font-family: @body-font-bold;
         font-weight: 600;
         text-transform: uppercase;
       }
@@ -212,10 +213,13 @@
     }
 
     .pages {
-      height: 220px;
+      height: 200px;
       border-bottom: 1px solid #dedede;
 
-      a {
+      .navigation-link {
+        color: #67717d;
+        font-size: 1.1em;
+
         svg {
           margin-right: 15px;
           font-size: 1em;
@@ -226,30 +230,32 @@
     .tags {
       height: 400px;
 
-      .sublinks {
-        display: flex !important;
-        flex-direction: row;
-        flex-wrap: wrap;
+      .mobile-tag-title {
+        margin-bottom: 20px;
+        color: #3f474f;
+        font-family: @body-font-bold;
+        font-size: 1.2em;
         text-align: left;
       }
 
       .tag-link {
-        display: inline-block;
-        flex-grow: 1;
         width: fit-content;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
         height: fit-content;
-        margin: 0 6px 6px 0;
-        padding: 9px;
-        background: #eef0f3;
+        margin: 0;
         color: #67717d;
-        font-size: 0.7em;
+        font-size: 0.9em;
         line-height: 1;
         text-align: center;
         transition: @transition;
 
         &:hover {
-          background: @hover-color;
-          color: white !important;
+          color: @hover-color;
+        }
+
+        &:nth-child(n+12) {
+          display: none;
         }
       }
     }
@@ -279,7 +285,7 @@
   .search-container {
     position: relative;
     width: stretch;
-    margin: 30px 30px 0;
+    margin: 30px 32px 0;
     transition: @transition;
 
     &:hover {
@@ -344,7 +350,7 @@
           top: 0 !important;
           left: 0 !important;
           margin-top: 0;
-          font-size: 0.8em !important;
+          font-size: 1em !important;
         }
 
         span {
@@ -378,7 +384,7 @@
       input {
         width: 100% !important;
         margin: 0 !important;
-        padding: 15px !important;
+        padding: 12px !important;
         .input-field-interactions();
         border: 1px solid #dcdada;
         color: #484c52;
@@ -436,6 +442,10 @@
     margin: 0 !important;
 
     & > div > svg {
+      display: none;
+    }
+
+    svg {
       display: none;
     }
 
