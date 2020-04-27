@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { FaPencilAlt, FaTwitter, FaFacebook, FaHome, FaGlobe } from 'react-icons/fa'
+import { FaPencilAlt, FaTwitter, FaHome, FaGlobe } from 'react-icons/fa'
 
 import '../../styles/author-card.less'
 
