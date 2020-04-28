@@ -66,6 +66,7 @@
 
     .page-content {
       width: -webkit-fill-available;
+      width: -moz-available;
       max-width: 800px;
       margin: 0 auto;
       padding: 40px;
@@ -128,11 +129,9 @@
 
       label {
         display: block;
-        margin-bottom: 4px;
+        margin-bottom: 2px;
         color: #71757b;
-        font-family: @body-font;
-        font-size: 13px;
-        font-weight: 500;
+        font-family: @body-font-bold;
 
         svg {
           margin-right: 3px;
@@ -153,9 +152,9 @@
         border-radius: 2px;
         outline: 0;
         font-family: @body-font;
-        font-size: 14px;
+        font-size: 15px;
         transition: @transition;
-        .input-field-interactions();
+        .input-text-fields();
       }
 
       textarea {
@@ -178,6 +177,7 @@
         margin-top: 20px;
         padding: 15px;
         border: 1px solid #6baaf2;
+        border-radius: 3px;
         outline: 0;
         font-size: 14px;
         text-transform: uppercase;

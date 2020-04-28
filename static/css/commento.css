@@ -363,6 +363,7 @@
   -webkit-transition: all 0.2s ease-out;
   position: relative;
   width: -webkit-fill-available;
+  width: -moz-available;
   height: 120px !important;
   min-height: unset !important;
   max-height: 240px !important;

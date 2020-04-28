@@ -42,7 +42,6 @@ const Page = ({ data, location, pageContext }) => {
               <ReactPlayer url={introVideo} width="100%" height="100%" className="about-video" />
             </div>
             : null }
-          {/* The main page content */}
           <section
             className="content-body load-external-scripts"
             dangerouslySetInnerHTML={{ __html: page.html }}
@@ -72,7 +71,7 @@ Page.propTypes = {
 
 export default Page
 
-export const postQuery = graphql`
+export const pageQuery = graphql`
     query($slug: String!) {
         ghostPage(slug: { eq: $slug }) {
             ...GhostPageFields

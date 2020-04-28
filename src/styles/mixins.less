@@ -61,6 +61,7 @@
 .header-card() {
   width: stretch;
   width: -webkit-fill-available;
+  width: -moz-available;
   padding: 40px !important;
   background: white;
   box-shadow: @box-shadow;
@@ -74,9 +75,6 @@
     font-size: 1.4em;
     font-weight: 400;
     line-height: 1;
-    @media (max-width: @mobile-breakpoint) {
-      font-size: 1.6em;
-    }
 
     h1 {
       margin: 0 !important;
@@ -85,7 +83,7 @@
 
   svg {
     display: inline;
-    margin-right: 12px;
+    margin-right: 10px;
     font-size: 1.1em;
     opacity: 0.7;
     @media (max-width: @mobile-breakpoint) {
