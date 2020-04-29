@@ -492,6 +492,48 @@
         public'''
 
 [[headers]]
+  for = "/fonts/ttcommonsbook.woff2"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/ttcommonsdemibold.woff2"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/ttcommonsmedium.woff2"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/fonts.css"
+  [headers.values]
+    content-type = "text/css"
+    cache-control = '''
+        max-age=604800,
+        no-cache,
+        public'''
+
+[[headers]]
   for = "/js/commento.js"
   [headers.values]
     content-type = "application/javascript"
