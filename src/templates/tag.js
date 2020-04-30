@@ -55,7 +55,7 @@ Tag.propTypes = {
     }),
     allGhostPost: PropTypes.shape({
       title: PropTypes.string,
-      slug: PropTypes.string.isRequired,
+      slug: PropTypes.string,
       primary_author: PropTypes.object.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,

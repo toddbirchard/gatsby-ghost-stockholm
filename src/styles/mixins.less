@@ -65,16 +65,28 @@
   padding: 40px !important;
   background: white;
   box-shadow: @box-shadow;
+  @media (max-width: @tablet-breakpoint) {
+    .mobile-full-width();
+    min-width: unset !important;
+    margin-bottom: 20px;
+    padding: 30px 20px;
+  }
+  @media (max-width: @mobile-breakpoint) {
+    margin-bottom: 10px;
+  }
 
   .page-title {
     display: flex;
     align-items: center;
     margin: 0 0 15px !important;
     color: #4e576a;
-    font-family: TTCommons-Book,sans-serif;
-    font-size: 1.4em;
+    font-family: @body-font;
+    font-size: 1.5em;
     font-weight: 400;
     line-height: 1;
+    @media (max-width: @tablet-breakpoint) {
+      font-size: 1.3em;
+    }
 
     h1 {
       margin: 0 !important;
@@ -106,11 +118,7 @@
     font-size: 1.1em !important;
     line-height: 1.3;
   }
-  @media (max-width: @tablet-breakpoint) {
-    .mobile-full-width();
-    min-width: unset !important;
-    padding: 30px 20px;
-  }
+
 
   .author-card-image {
     width: 100px;

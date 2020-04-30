@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ReactPlayer from 'react-player'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
+import ReactPlayer from 'react-player'
 import config from '../utils/siteConfig'
 
 import '../styles/pages/page.less'
@@ -17,9 +17,9 @@ import '../styles/pages/page.less'
 */
 const Page = ({ data, location, pageContext }) => {
   const page = data.ghostPage
-  const introVideo = config.introVideo
   const title = page.title
   const description = page.meta_description
+  const video = config.introVideo
 
   return (
     <>
@@ -31,23 +31,26 @@ const Page = ({ data, location, pageContext }) => {
         type="website"
       />
       <Layout template="page-template" hasSidebar={true}>
-        <article className={`post-content page-content ${pageContext.slug}`}>
-          { page.feature_image ?
-            <figure className="post-feature-image">
-              <img className="lazyload" data-src={ page.feature_image } alt={ page.title } />
-            </figure> : null }
-          <h1>{page.title}</h1>
-          { page.slug === `about` ?
-            <div className="about-video-wrapper">
-              <ReactPlayer url={introVideo} width="100%" height="100%" className="about-video" />
-            </div>
-            : null }
-          <section
-            className="content-body load-external-scripts"
-            dangerouslySetInnerHTML={{ __html: page.html }}
-          />
-          { pageContext.slug === `about` ? <AuthorList page={`about`} /> : null }
-        </article>
+        <main className={`post-content page-content ${pageContext.slug}`}>
+          <div className="page-wrapper">
+            { page.feature_image ?
+              <figure className="post-feature-image">
+                <img className="lazyload" data-src={ page.feature_image } alt={ page.title } />
+              </figure> : null }
+            <h1>{page.title}</h1>
+            { pageContext.slug === `about` ?
+              <div className="about-video-wrapper">
+                <ReactPlayer url={video} width="100%" height="100%" className="about-video" />
+              </div>
+              : null }
+            <section
+              className="content-body load-external-scripts"
+              dangerouslySetInnerHTML={{ __html: page.html }}
+            />
+            { pageContext.slug === `about` ? <AuthorList page={`about`} /> : null }
+          </div>
+        </main>
+
       </Layout>
     </>
   )

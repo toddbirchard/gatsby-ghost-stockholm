@@ -60,22 +60,18 @@ Author.propTypes = {
       twitter: PropTypes.string,
       postCount: PropTypes.number.isRequired,
     }),
-    allGhostPost: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        primary_author: PropTypes.object.isRequired,
-        html: PropTypes.string.isRequired,
-        feature_image: PropTypes.string,
-        tags: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-          })
-        ).isRequired,
-        published_at_pretty: PropTypes.string,
-      }).isRequired,
-    ),
+    allGhostPost: PropTypes.shape({
+      title: PropTypes.string,
+      primary_author: PropTypes.object,
+      feature_image: PropTypes.string,
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      published_at_pretty: PropTypes.string,
+    }).isRequired,
     authorTweets: PropTypes.shape({
       full_text: PropTypes.string,
       favorite_count: PropTypes.number,
