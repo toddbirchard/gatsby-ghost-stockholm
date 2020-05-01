@@ -38,7 +38,12 @@
     min-width: 80px;
     height: 80px;
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: 3px;
+    @media(max-width: @mobile-breakpoint) {
+      width: 70px;
+      min-width: 70px;
+      height: 70px;
+    }
 
     img {
       width: 100%;
@@ -56,13 +61,15 @@
     width: stretch;
     width: -moz-available;
     margin-left: 20px;
+    @media (max-width: @mobile-breakpoint) {
+      margin-left: 15px;
+    }
 
     .author-card-meta {
       display: flex;
       margin: 10px 0;
       overflow: hidden;
       @media (max-width: @mobile-breakpoint) {
-        display: block;
         margin: 10px 0 0;
       }
 
@@ -79,6 +86,12 @@
           display: block;
           margin: 0 25px 6px 0;
           font-size: 1em;
+        }
+
+        &.location {
+          @media (max-width: @mobile-breakpoint) {
+            display: none !important;
+          }
         }
 
         span {
@@ -102,9 +115,6 @@
       font-family: @body-font-book;
       font-size: 1.05em;
       line-height: 1.3em;
-      @media (max-width: @mobile-breakpoint) {
-        display: none;
-      }
     }
   }
 
@@ -154,12 +164,6 @@
   &:last-of-type {
     padding: 30px 0 0;
     border-bottom: 0;
-  }
-
-  .author-card-bio-mobile {
-    max-width: 96%;
-    margin: 10px 0 0;
-    line-height: 1.3em;
   }
 }
 

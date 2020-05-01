@@ -1,0 +1,63 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.page-content.about {
+  @media (max-width: @mobile-breakpoint) {
+    margin: 38px 0 25px;
+    padding: 55vw 0 50px !important;
+  }
+
+  h1 {
+    @media(max-width: @mobile-breakpoint) {
+      margin: 35px 0 25px;
+    }
+  }
+
+  .page-wrapper {
+    @media (max-width: @mobile-breakpoint) {
+      width: -webkit-fill-available;
+      margin: 0 5%;
+      overflow-x: hidden;
+    }
+  }
+
+  .about-video-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+    padding-top: 59.25%;
+    @media (max-width: @mobile-breakpoint) {
+      .mobile-full-width();
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 103%;
+      padding-top: 0 !important;
+    }
+
+    .about-video {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      @media (max-width: @mobile-breakpoint) {
+        width: 100% !important;
+        height: 55vw !important;
+      }
+
+      div {
+        position: relative !important;
+      }
+    }
+  }
+
+  .author-card-list {
+    padding: 30px 0 0;
+
+    .author-list-title {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e3e4e6;
+      font-family: @header-font-light;
+      font-size: 1.7em;
+      font-weight: unset;
+    }
+  }
+}

@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
-import ReactPlayer from 'react-player'
 import config from '../utils/siteConfig'
 
 import '../styles/pages/page.less'

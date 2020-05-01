@@ -27,7 +27,6 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
             {author.bio && <p className="author-card-bio">{author.bio}</p>}
           </div>
         </div>
-        {author.bio && <p className="author-card-bio-mobile">{author.bio}</p>}
       </div>
     </>
   )

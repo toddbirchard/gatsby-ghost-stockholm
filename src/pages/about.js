@@ -4,10 +4,11 @@ import ReactPlayer from 'react-player'
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import config from '../utils/siteConfig'
 
 import '../styles/pages/page.less'
+import '../styles/pages/about.less'
 
 /**
 * About page (/:slug)
@@ -16,9 +17,9 @@ import '../styles/pages/page.less'
 *
 */
 const AboutPage = ({ data, location, pageContext }) => {
-  const introVideo = config.introVideo
   const title = pageContext.title
   const description = pageContext.description
+  const introVideo = config.introVideo
 
   return (
     <>
@@ -31,24 +32,26 @@ const AboutPage = ({ data, location, pageContext }) => {
       />
       <Layout template="page-template" hasSidebar={true}>
         <main className={`post-content page-content about`}>
-          <h1>{title}</h1>
-          <div className="about-video-wrapper">
-            <ReactPlayer
-              url={introVideo}
-              width="100%"
-              height="100%"
-              className="about-video"
-              config={{
-                vimdeo: {
-                  width: `100%`,
-                },
-              }}/>
+          <div className="page-wrapper">
+            <h1>About</h1>
+            <div className="about-video-wrapper">
+              <ReactPlayer
+                url={introVideo}
+                width="100%"
+                height="100%"
+                className="about-video"
+                config={{
+                  vimdeo: {
+                    width: `100%`,
+                  },
+                }}/>
+            </div>
+            <p>We&apos;re a non-profit aiming to democratize knowledge in Data Science and Software Engineering. Thousands of developers worldwide rely on us every day to empower themselves with industry skills in a manner that is accessible, enjoyable, and free.</p>
+            <p>Our global community is militantly open-source in both creation and collaboration, resembling a human-driven antithesis to 600-dollar bootcamps, paywalls, and barriers-to-entry, which collectively hold the growth of the technology industry in a stranglehold. Hackers and Slackers is a collective of humans serving humans... so that we may perhaps one day build robots.</p>
+            <p>We’re all students and teachers of data-for-good. We code as a means to an end. Some of us aren’t even developers, but we like to blow stuff up and make an impact. If we get to pick up a few programming languages in the process, that’s pretty rad too.</p>
+            <p>If you&apos;re somebody who likes to learn (and be casually badass), maybe you should <Link to="/about/"> join us.</Link></p>
+            <AuthorList page={`about`} />
           </div>
-          <p>{`We're a non-profit aiming to democratize knowledge in Data Science and Software Engineering. Thousands of developers worldwide rely on us every day to empower themselves with industry skills in a manner that is accessible, enjoyable, and free.`}</p>
-          <p>{`Our global community is militantly open-source in both creation and collaboration, resembling a human-driven antithesis to 600-dollar bootcamps, paywalls, and barriers-to-entry, which collectively hold the growth of the technology industry in a stranglehold. Hackers and Slackers is a collective of humans serving humans... so that we may perhaps one day build robots.`}</p>
-          <p>{`We’re all students and teachers of data-for-good. We code as a means to an end. Some of us aren’t even developers, but we like to blow stuff up and make an impact. If we get to pick up a few programming languages in the process, that’s pretty rad too.`}</p>
-          <p>{`If you're somebody who likes to learn (and be casually badass), maybe you should join us.`}</p>
-          <AuthorList page={`about`} />
         </main>
       </Layout>
     </>
