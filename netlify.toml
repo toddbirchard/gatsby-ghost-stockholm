@@ -458,6 +458,83 @@
     to = "/flask-wtforms-forms/"
     status = 301
 
+
+[[redirects]]
+    from = "/sqlalchemy-managing-relationships-data-models/"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "/pipenv-etc-tracking-your-projects-dependancies/"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+[[redirects]]
+    from = "//"
+    to = "//"
+    status = 301
+
+
+
+
+
+
+
+
+
+
+
+
 [[redirects]]
     from = "/rss/"
     to = "/rss.xml"
