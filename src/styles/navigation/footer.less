@@ -103,6 +103,7 @@
 
       &.about {
         width: 33%;
+        max-width: 280px;
         @media (max-width: @tablet-breakpoint) {
           width: 38%;
         }
@@ -192,7 +193,7 @@
       @media (max-width: @mobile-breakpoint) {
         width: 100%;
         color: #88959b;
-        font-size: .9em;
+        font-size: 0.9em;
         letter-spacing: 0.5px;
         text-align: center;
       }
@@ -239,7 +240,6 @@
     }
   }
 }
-
 /* Post Template Footer */
 .post-template {
   .footer-wrapper {
@@ -288,10 +288,8 @@
 .viewport {
   position: relative;
 }
-
-
 /* Series Detail Footer */
-.footer-wrapper,
-.copyright {
+.copyright,
+.footer-wrapper {
   width: 1020px !important;
 }

@@ -8,8 +8,10 @@ import {
   Hits,
   Pagination,
   SortBy,
-  MenuSelect,
+  RefinementList,
+  Panel,
 } from 'react-instantsearch-dom'
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
 import { MetaData } from '../components/common/meta'
@@ -69,25 +71,14 @@ const SearchPage = ({ data, location, pageContext }) => {
             <div className="search-body">
               <div className="search-header">
                 <h1>Search All Posts</h1>
-                <div className="searchbar-container">
-                  <SearchBox className="searchbox"
-                    placeholder="Search"
-                    showLoadingIndicator={true}
-                  />
-                  <FaSearch className="search-icon" />
-                </div>
-                <div className="search-bar-container">
-                  <MenuSelect
-                    attribute="tags.name"
-                    limit={40}
-                    defaultRefinement=""
-                    placeholder="Filter by tag"
-                  />
-                  <MenuSelect
-                    attribute="primary_author.name"
-                    defaultRefinement=""
-                    placeholder="Filter by author"
-                  />
+                <div className="search-header-flex">
+                  <div className="searchbar-container">
+                    <SearchBox className="searchbox"
+                      placeholder="Search"
+                      showLoadingIndicator={true}
+                    />
+                    <FaSearch className="search-icon" />
+                  </div>
                   <SortBy
                     items={[
                       { value: `hackers_posts_all`, label: `Relevance` },
@@ -98,8 +89,32 @@ const SearchPage = ({ data, location, pageContext }) => {
                   />
                 </div>
               </div>
-              <Hits hitComponent={Hit} />
-              <Pagination showFirst={false} />
+              <div className="search-sidebar-container">
+                <Hits hitComponent={Hit} />
+                <aside className="search-sidebar">
+                  <Panel header="Tags">
+                    <RefinementList
+                      attribute="tags.name"
+                      limit={20}
+                      showMore
+                      showMoreLimit={50}
+                    />
+                  </Panel>
+                  <Panel header="Authors">
+                    <RefinementList
+                      attribute="primary_author.name"
+                    />
+                  </Panel>
+                </aside>
+
+              </div>
+              <Pagination
+                showFirst={false}
+                translations={{
+                  previous: <FaArrowLeft />,
+                  next: <FaArrowRight />,
+                }}
+              />
             </div>
           </InstantSearch>
         </div>
