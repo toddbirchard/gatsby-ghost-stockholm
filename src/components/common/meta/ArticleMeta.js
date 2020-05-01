@@ -32,8 +32,8 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         <meta property="og:title"
           content={
             ghostPost.og_title ||
-                        ghostPost.meta_title ||
-                        ghostPost.title
+            ghostPost.meta_title ||
+            ghostPost.title
           }
         />
         <meta property="og:description"
