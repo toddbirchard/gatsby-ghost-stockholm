@@ -22,7 +22,7 @@ const AuthorMeta = ({ data, settings, canonical, pageContext }) => {
     <>
       <Helmet>
         <title>{title}</title>
-        {canonical && <link rel="canonical" to={canonical} />}
+        {/*canonical && <link rel="canonical" to={canonical} />*/}
         {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null }
         {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
         <meta name="description" content={description} />
