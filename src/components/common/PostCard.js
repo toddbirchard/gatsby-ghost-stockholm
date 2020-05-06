@@ -16,7 +16,7 @@ const PostCard = ({ post }) => {
         <picture>
           {/*<source data-srcset={post.feature_image.replace(`.jpg`, `@2x.webp`)} type="image/webp" alt={post.title} />*/}
           {/*<source data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={post.title} />*/}
-          <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={`Feature image for ${post.title}`} title={post.title}/>
+          {post.feature_image && <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={`Feature image for ${post.title}`} title={post.title}/>}
         </picture>
       </Link>
       {post.featured && <span>Featured</span>}

@@ -160,7 +160,7 @@
   .search-sidebar-container {
     display: flex;
     grid-template-columns: 4fr 1.1fr;
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
 
     .search-sidebar {
@@ -310,6 +310,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 0;
     list-style: none;
+    @media (max-width: 1000px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
     @media (max-width: @tablet-breakpoint) {
       grid-template-columns: 1fr 1fr;
     }
