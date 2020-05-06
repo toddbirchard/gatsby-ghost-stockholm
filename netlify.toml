@@ -9,7 +9,11 @@
     from = "/ghost"
     to = "https://hackersandslackers.app/ghost"
     status = 301
-    force = true
+
+[[redirects]]
+    from = "/ghost/"
+    to = "https://hackersandslackers.app/ghost"
+    status = 301
 
 [[redirects]]
     from = "/wp-login.php"
