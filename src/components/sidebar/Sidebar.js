@@ -26,14 +26,14 @@ const Sidebar = ({ site, template, authorData }) => {
   return (
     <>
       <aside className="sidebar">
-        {isCorePage && <AboutWidget site={site} /> }
-        {authorWebsite && <AuthorWebsiteWidget authorWebsite={authorWebsite}/> }
+        {isCorePage && <AboutWidget site={site} />}
+        {authorWebsite && <AuthorWebsiteWidget authorWebsite={authorWebsite} />}
         <SocialWidget site={site} />
-        {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget /> }
-        {template !== `author-template` ? <TagsWidget /> : null }
-        {isCorePage ? <NewsletterWidget /> : null }
-        {template === `home-template` ? <GithubWidget /> : null }
-        {template === `home-template` ? <TwitterWidget /> : null }
+        {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget />}
+        {template !== `author-template` ? <TagsWidget /> : null}
+        {isCorePage ? <NewsletterWidget /> : null}
+        {template === `home-template` ? <GithubWidget /> : null}
+        {template === `home-template` ? <TwitterWidget /> : null}
         {authorTwitter && <AuthorTwitterWidget data={authorTwitter} />}
       </aside>
     </>

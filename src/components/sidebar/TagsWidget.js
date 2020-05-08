@@ -12,7 +12,7 @@ const TagsWidget = ({ data }) => {
     <>
       <div className="widget tags">
         {tags.map(({ node }) => (
-          <a href={`/tag/${ node.slug }`} className="tag" key={ node.name }>{ node.name }</a>
+          <a href={`/tag/${node.slug}`} className="tag" key={node.name}>{node.name}</a>
         ))}
       </div>
     </>

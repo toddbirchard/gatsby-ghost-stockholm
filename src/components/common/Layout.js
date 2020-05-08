@@ -23,9 +23,9 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
   return (
     <>
       <Helmet>
-        <html lang={site.lang}/>
+        <html lang={site.lang} />
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
-        <body className={template}/>
+        <body className={template} />
       </Helmet>
 
       <Navigation
@@ -33,16 +33,17 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         navClass="site-nav-item"
         smallLogo={site.icon}
         fullLogo={site.logo}
-        template={template} />
+        template={template}
+      />
 
       <div className="viewport">
         <div className={hasSidebar ? `sidebar-container` : `container`}>
           {/* All the main content gets inserted here, index.js, post.js */}
           {children}
-          {hasSidebar && <Sidebar site={site} template={template} authorData={authorData}/>}
+          {hasSidebar && <Sidebar site={site} template={template} authorData={authorData} />}
         </div>
       </div>
-      <Footer navigation={site.navigation} site={site} template={template}/>
+      <Footer navigation={site.navigation} site={site} template={template} />
     </>
   )
 }
@@ -50,9 +51,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
 DefaultLayout.propTypes = {
   children: PropTypes.node.isRequired,
   hasSidebar: PropTypes.bool,
-  hasAuthorSidebar: PropTypes.bool,
   template: PropTypes.string,
-  authorTrendingPosts: PropTypes.object,
   authorData: PropTypes.object,
   data: PropTypes.shape({
     ghostSettings: PropTypes.object.isRequired,

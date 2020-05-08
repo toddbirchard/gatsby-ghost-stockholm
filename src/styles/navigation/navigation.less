@@ -178,7 +178,6 @@
     max-width: 90%;
   }
 }
-
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
 @media (max-width: @tablet-breakpoint) {
@@ -195,7 +194,6 @@
     }
   }
 }
-
 /* Pagination
 /* ---------------------------------------------------------- */
 .pagination {
@@ -232,6 +230,9 @@
       letter-spacing: 0.5px;
       line-height: 1;
       white-space: nowrap;
+      @media (max-width: @mobile-breakpoint) {
+        display: none;
+      }
     }
   }
 
@@ -245,14 +246,6 @@
     text-decoration: none;
     text-transform: uppercase;
     transition: @transition;
-    @media (max-width: @mobile-breakpoint) {
-      padding: 10px 12px;
-    }
-
-    span {
-      color: #5d6876;
-      font-family: @body-font-bold;
-    }
 
     &:hover {
       * {

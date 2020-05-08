@@ -32,7 +32,7 @@ const Post = ({ data, location }) => {
 
   return (
     <>
-      <MetaData location={ location } data={data} type="article" />
+      <MetaData location={location} data={data} type="article" />
       <Layout template="post-template">
         <div className="post-wrapper">
           <div className="post-head">
@@ -44,10 +44,11 @@ const Post = ({ data, location }) => {
                   <span>{authorFirstName}</span>
                 </Link>
               </div>
-              {tags && <div className="meta-item tag">
-                <FaTags />
-                <Tags post={post} limit={1} visibility="public" autolink={true} separator="" permalink="/tag/:slug" classes={tags.ghostId}/>
-              </div>}
+              {tags &&
+                <div className="meta-item tag">
+                  <FaTags />
+                  <Tags post={post} limit={1} visibility="public" autolink separator="" permalink="/tag/:slug" classes={tags.ghostId} />
+                </div>}
               <div className="meta-item reading-time">
                 <FaEye />
                 <span>{readingTime}</span>
@@ -58,27 +59,26 @@ const Post = ({ data, location }) => {
               </div>
             </div>
             <figure className="post-image">
-              { retinaImage ?
-                <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} /> :
-                <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} /> }
+              {retinaImage
+                ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} />
+                : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} />}
             </figure>
           </div>
 
           <article className="post">
-            { seriesPosts
-              ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
-              : null
-            }
-            <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }}></main>
+            {seriesPosts
+              ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug} />
+              : null}
+            <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }} />
             <div className="post-tags">
-              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink={true} separator={false} suffix={false} classes="post-tag-footer"/>
+              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false} classes="post-tag-footer" />
             </div>
-            <AuthorCard author={author} page={`post`} />
+            <AuthorCard author={author} page="post" />
           </article>
         </div>
         <section className="post-footer">
-          <Commento id={ id } />
-          { relatedPosts && <RelatedPosts data={relatedPosts} /> }
+          <Commento id={id} />
+          {relatedPosts && <RelatedPosts data={relatedPosts} />}
           <SupportWidget />
         </section>
       </Layout>
@@ -107,7 +107,7 @@ Post.propTypes = {
 
 export default Post
 
-export const postQuery = graphql `
+export const postQuery = graphql`
 query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
         ...GhostPostFields

@@ -14,7 +14,7 @@ const TrendingWidget = ({ data }) => {
       </div>
       <div className="widget-content">
         {topPages.map(({ node }) => (
-          <Link to={`${node.url.split(config.siteUrl).pop()}`} className="link" key={ node.title }>{node.title}</Link>
+          <Link to={`${node.url.split(config.siteUrl).pop()}`} className="link" key={node.title}>{node.title}</Link>
         ))}
       </div>
     </div>

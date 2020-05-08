@@ -14,9 +14,7 @@ const PostCard = ({ post }) => {
     <div className="post-card">
       <Link to={url}>
         <picture>
-          {/*<source data-srcset={post.feature_image.replace(`.jpg`, `@2x.webp`)} type="image/webp" alt={post.title} />*/}
-          {/*<source data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={post.title} />*/}
-          {post.feature_image && <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={`Feature image for ${post.title}`} title={post.title}/>}
+          {post.feature_image && <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={`Feature image for ${post.title}`} title={post.title} />}
         </picture>
       </Link>
       {post.featured && <span>Featured</span>}
@@ -24,22 +22,25 @@ const PostCard = ({ post }) => {
         <Link to={url}>
           <h2 className="post-card-title">{post.title}</h2>
         </Link>
-        {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section> }
+        {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
         <footer className="post-card-footer">
-          {post.tags ? <div className="meta-item tag">
-            <FaTags />
-            <Tags post={post} limit={1} visibility="public" autolink={true} permalink="/tag/:slug" separator={null} classes={post.id}/>
-          </div> : null}
+          {post.tags ?
+            <div className="meta-item tag">
+              <FaTags />
+              <Tags post={post} limit={1} visibility="public" autolink permalink="/tag/:slug" separator={null} classes={post.id} />
+            </div>
+            : null}
           <div className="meta-item reading-item">
             <FaEye />
             <span>{readingTime}</span>
           </div>
-          {post.primary_author && <div className="meta-item author">
-            <Link to={`/author/${post.primary_author.slug}`}>
-              <FaUserEdit />
-              <span>{authorFirstName}</span>
-            </Link>
-          </div>}
+          {post.primary_author ?
+            <div className="meta-item author">
+              <Link to={`/author/${post.primary_author.slug}`}>
+                <FaUserEdit />
+                <span>{authorFirstName}</span>
+              </Link>
+            </div> : null}
           <div className="meta-item date">
             <FaCalendar />
             <span>{post.published_at_pretty}</span>

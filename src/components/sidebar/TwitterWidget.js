@@ -39,7 +39,7 @@ const TwitterWidget = ({ data }) => {
                     <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
                     {node.entities.urls &&
                       node.entities.urls.map(({ display_url, expanded_url }) => (
-                        <a href={expanded_url} className="tweet-link" key={ display_url } rel="nofollow noreferrer">{ display_url }</a>
+                        <a href={expanded_url} className="tweet-link" key={display_url} rel="nofollow noreferrer">{ display_url }</a>
                       ))
                     }
                   </div>
@@ -53,13 +53,13 @@ const TwitterWidget = ({ data }) => {
                         <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
                       ))}
                     </div>
-                    : null }
+                    : null}
                   {node.entities.urls.length > 0 ?
                     node.entities.urls.map(({ display_url, expanded_url }) => (
-                      <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{ display_url }</a>
+                      <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{display_url}</a>
                     ))
-                    : null }
-                </div> }
+                    : null}
+                </div>}
               <div className="tweet-footer">
                 <div className="retweets meta-item"><FaRetweet /> <span>{node.retweet_count}</span></div>
                 <div className="favorites meta-item"><FaHeartbeat /> <span>{node.favorite_count}</span></div>

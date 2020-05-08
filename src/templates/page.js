@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
-import config from '../utils/siteConfig'
 
 import '../styles/pages/page.less'
 
@@ -18,7 +17,6 @@ const Page = ({ data, location, pageContext }) => {
   const page = data.ghostPage
   const title = page.title
   const description = page.meta_description
-  const video = config.introVideo
 
   return (
     <>
@@ -29,27 +27,20 @@ const Page = ({ data, location, pageContext }) => {
         description={description}
         type="website"
       />
-      <Layout template="page-template" hasSidebar={true}>
+      <Layout template="page-template" hasSidebar>
         <main className={`post-content page-content ${pageContext.slug}`}>
           <div className="page-wrapper">
-            { page.feature_image ?
-              <figure className="post-feature-image">
-                <img className="lazyload" data-src={ page.feature_image } alt={ page.title } />
-              </figure> : null }
+            {page.feature_image
+              ? <figure className="post-feature-image"><img className="lazyload" data-src={page.feature_image} alt={page.title} /></figure>
+              : null}
             <h1>{page.title}</h1>
-            { pageContext.slug === `about` ?
-              <div className="about-video-wrapper">
-                <ReactPlayer url={video} width="100%" height="100%" className="about-video" />
-              </div>
-              : null }
             <section
               className="content-body load-external-scripts"
               dangerouslySetInnerHTML={{ __html: page.html }}
             />
-            { pageContext.slug === `about` ? <AuthorList page={`about`} /> : null }
+            {pageContext.slug === `about` ? <AuthorList page="about" /> : null}
           </div>
         </main>
-
       </Layout>
     </>
   )

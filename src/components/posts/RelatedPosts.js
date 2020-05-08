@@ -11,10 +11,10 @@ const RelatedPosts = ({ data }) => {
     <>
       <div className="related-posts">
         {related.map(({ node }) => (
-          <Link to={`/${ node.slug.includes(`lynx`) ? `/roundup/${node.slug}` : node.slug }/`} className="related-post-card" key={node.id}>
-            <div className="related-post-image-wrapper"><img className="related-post-image lazyload" data-src={ node.feature_image } alt={ node.slug }/></div>
+          <Link to={`/${node.slug.includes(`lynx`) ? `/roundup/${node.slug}` : node.slug}/`} className="related-post-card" key={node.id}>
+            <div className="related-post-image-wrapper"><img className="related-post-image lazyload" data-src={node.feature_image} alt={node.slug} /></div>
             <div className="related-post-info">
-              <h5 className="related-post-title"> { node.title } </h5>
+              <h5 className="related-post-title">{node.title}</h5>
               <div className="related-post-tags">
                 <FaTags />
                 <Tags post={node} limit={2} visibility="public" autolink={false} classes="tag" separator=", " separatorClasses={`${node.ghostId} tag-separator`} />

@@ -11,12 +11,11 @@ import {
   RefinementList,
   Panel,
 } from 'react-instantsearch-dom'
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
+import { FaArrowRight, FaArrowLeft, FaSearch } from 'react-icons/fa'
 import algoliasearch from 'algoliasearch'
 import qs from 'qs'
 import { MetaData } from '../components/common/meta'
 import { Layout, PostCard } from '../components/common'
-import { FaSearch } from 'react-icons/fa'
 
 import '../styles/pages/search.less'
 import '../styles/post-card.less'
@@ -60,22 +59,23 @@ const SearchPage = ({ data, location, pageContext }) => {
         <div className="search-container">
           <InstantSearch
             searchClient={searchClient}
-            indexName={`hackers_posts_all`}
+            indexName="hackers_posts_all"
             createURL={createURL}
-            hitsPerPage={100}
-            analytics={true}
+            hitsPerPage={50}
+            analytics
             searchState={searchState}
             onSearchStateChange={onSearchStateChange}
           >
-            <Configure query={`allPostQuery`} hitsPerPage={100} analytics={true}/>
+            <Configure query="allPostQuery" hitsPerPage={100} analytics />
             <div className="search-body">
               <div className="search-header">
                 <h1>Search All Posts</h1>
                 <div className="search-header-flex">
                   <div className="searchbar-container">
-                    <SearchBox className="searchbox"
+                    <SearchBox
+                      className="searchbox"
                       placeholder="Search"
-                      showLoadingIndicator={true}
+                      showLoadingIndicator
                     />
                     <FaSearch className="search-icon" />
                   </div>
@@ -124,7 +124,7 @@ const SearchPage = ({ data, location, pageContext }) => {
 }
 
 const Hit = ({ hit }) => (
-  <PostCard post={hit} key={hit.objectID}/>
+  <PostCard post={hit} key={hit.objectID} />
 )
 
 Hit.propTypes = {

@@ -14,7 +14,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
       <div className={`author-card ${page}`}>
         <div className="author-card-head">
           <div className="author-card-image">
-            {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={`${author.name}'s avatar`} title={author.name}/> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} title={author.name}/>}
+            {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={`${author.name}'s avatar`} title={author.name} /> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} title={author.name} />}
           </div>
           <div className="author-card-content">
             {template === `author-template` ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1> : <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>}
@@ -22,7 +22,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
               {author.postCount && <div className="author-card-item"><FaPencilAlt /> <span>{author.postCount} Posts</span></div>}
               {author.location && <div className="author-card-item location"><FaHome /> <span>{author.location}</span></div>}
               {author.website && <div className="author-card-item"><a href={author.website} target="_blank" rel="noopener noreferrer"><FaGlobe /> <span>Website</span></a></div>}
-              {authorTwitterUrl && <div className="author-card-item"><a href={ authorTwitterUrl } target="_blank" rel="noopener noreferrer"><FaTwitter /> <span>Twitter</span></a></div>}
+              {authorTwitterUrl && <div className="author-card-item"><a href={authorTwitterUrl} target="_blank" rel="noopener noreferrer"><FaTwitter /> <span>Twitter</span></a></div>}
             </div>
             {author.bio && <p className="author-card-bio">{author.bio}</p>}
           </div>

@@ -32,9 +32,9 @@ const Author = ({ data, location, pageContext }) => {
         location={location}
         pageContext={pageContext}
       />
-      <Layout template="author-template" hasSidebar={true} authorData={authorData}>
+      <Layout template="author-template" hasSidebar authorData={authorData}>
         <div className="author-container">
-          <AuthorCard author={author} page={`author`} template={`author-template`} pageContext={pageContext}/>
+          <AuthorCard author={author} page="author" template="author-template" pageContext={pageContext} />
           <section className="post-feed">
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node} />

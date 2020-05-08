@@ -28,7 +28,7 @@ const Tag = ({ data, location, pageContext }) => {
         pageContext={pageContext}
         type="website"
       />
-      <Layout template="tag-template page-template" hasSidebar={true}>
+      <Layout template="tag-template page-template" hasSidebar>
         <section className="post-feed">
           <header className="info-card">
             <div className="page-title">

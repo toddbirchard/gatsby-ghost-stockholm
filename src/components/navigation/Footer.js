@@ -22,8 +22,9 @@ const Footer = ({ navigation, site, data }) => {
           <div className="footer-widgets">
             <div className="widget about">
               <Link to="/" className="footer-logo">
-                { logo ?
-                  <img className="lazyload" data-src={logo} alt={`${site.title} Logo`} title={`${site.title} Logo`} /> : <h1 className="site-headline">{site.title}</h1> }
+                {logo
+                  ? <img className="lazyload" data-src={logo} alt={`${site.title} Logo`} title={`${site.title} Logo`} />
+                  : <h1 className="site-headline">{site.title}</h1>}
               </Link>
               <p className="description">{description}</p>
 
@@ -32,7 +33,7 @@ const Footer = ({ navigation, site, data }) => {
               <dt className="footer-widget-title">Pages</dt>
               {navigation.map((navItem, i) => {
                 if (navItem.url.includes(config.siteUrl)) {
-                  return <dd key={i}><Link className={`footer-navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`} >{navItem.label}</Link></dd>
+                  return <dd key={i}><Link className={`footer-navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`}>{navItem.label}</Link></dd>
                 } else {
                   return <dd key={i}><a className="footer-navigation-link donate" href={navItem.url} target="_blank" rel="noopener noreferrer">{navItem.label}</a></dd>
                 }
@@ -41,13 +42,13 @@ const Footer = ({ navigation, site, data }) => {
             <dl className="widget series">
               <dt className="footer-widget-title">Series</dt>
               {seriesLinks.map(({ node }) => (
-                <dd key={`${ node.slug }-footer-link`}><a href={`/series/${ node.slug}`} className="footer-navigation-link" >{ node.name.replace(`#`, ``) }</a></dd>
+                <dd key={`${node.slug}-footer-link`}><a href={`/series/${node.slug}`} className="footer-navigation-link">{node.name.replace(`#`, ``)}</a></dd>
               ))}
             </dl>
             <dl className="widget authors">
               <dt className="footer-widget-title">Authors</dt>
               {authorLinks.map(({ node }) => (
-                <dd key={`${ node.name }-footer-link`}><a href={`/author/${ node.slug }`} className="footer-navigation-link" >{ node.name }</a></dd>
+                <dd key={`${node.name}-footer-link`}><a href={`/author/${node.slug}`} className="footer-navigation-link">{node.name}</a></dd>
               ))}
             </dl>
           </div>
@@ -80,12 +81,11 @@ Footer.propTypes = {
       name: PropTypes.string,
     })
   ).isRequired,
-  template: PropTypes.string,
 }
 
 const FooterQuery = props => (
-  <StaticQuery query = {
-    graphql `
+  <StaticQuery
+    query={graphql`
             query FooterQuery {
               authors: allGhostAuthor(sort: {order: DESC, fields: postCount}) {
                 edges {
@@ -112,9 +112,8 @@ const FooterQuery = props => (
                   }
                 }
               }
-            }`
-  }
-  render={data => <Footer data={data} {...props} />}
+            }`}
+    render={data => <Footer data={data} {...props} />}
   />
 )
 
