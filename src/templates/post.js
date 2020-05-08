@@ -9,6 +9,8 @@ import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/
 import { AuthorCard } from '../components/authors'
 import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
 
+import '../styles/posts/post.less'
+
 /**
 * Single post view (/:slug)
 *

@@ -6,6 +6,14 @@ import { Configure,
   Index } from 'react-instantsearch-dom'
 import { HitsWrapper } from './SearchStyles'
 
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion'
+
 import algoliasearch from 'algoliasearch/lite'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
@@ -13,7 +21,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import PostHit from './PostHit'
 import config from '../../../utils/siteConfig'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaChevronDown } from 'react-icons/fa'
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
@@ -53,6 +61,7 @@ class MobileMenu extends React.Component {
   constructor(props) {
     super(props)
     this.tags = props.data.tags.edges
+    this.series = props.data.series.edges
     this.topSearches = props.data.topSearches.edges
     this.classes = props.data.fullWidth ? `fullWidth` : null
     this.state = { active: false, query: ``, focus: false }
@@ -92,24 +101,48 @@ class MobileMenu extends React.Component {
                 </Index>
               </HitsWrapper>
             </InstantSearch>
-
           </div>
           <div className="pages">
             <Link className={`navigation-link`} to={`/about/`}>About</Link>
-            <Link className={`navigation-link`} to={`/series/`}>Series</Link>
-            <Link className={`navigation-link`} to={`/join-us/`}>Join</Link>
             <Link className={`navigation-link`} to={`/search/`}>All Posts</Link>
+            <Accordion allowZeroExpanded>
+              <AccordionItem>
+                <AccordionItemHeading>
+                  <AccordionItemButton>
+                        Tags <FaChevronDown />
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel >
+                  {this.tags.map(({ node }) => (
+                    <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.id }>{ node.name }</Link>
+                  ))}
+                </AccordionItemPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <AccordionItemHeading>
+                  <AccordionItemButton>
+                        Series <FaChevronDown />
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  {this.series.map(({ node }) => (
+                    <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.id }>{ node.meta_title }</Link>
+                  ))}
+                </AccordionItemPanel>
+              </AccordionItem>
+            </Accordion>
+            <Link className={`navigation-link`} to={`/join-us/`}>Join</Link>
             <a className={`navigation-link`} href={config.social.feedly}>RSS</a>
             <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers">Donate</a>
           </div>
-          <div className="tags">
+          {/*<div className="tags">
             <div className="sublinks">
               <div className="mobile-tag-title">Tags</div>
               {this.tags.map(({ node }) => (
                 <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
               ))}
             </div>
-          </div>
+          </div>*/}
           <div className="top-searches">
             <div className="top-search-title">Trending Searches</div>
             <div className="sublinks">
@@ -151,11 +184,22 @@ const MobileMenuQuery = props => (
                 url
               }
             }
-            tags: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
+            tags: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}, postCount: {gt: 10}}) {
               edges {
                 node {
+                  id
                   name
                   slug
+                }
+              }
+            }
+            series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}}) {
+              edges {
+                node {
+                  id
+                  slug
+                  description
+                  meta_title
                 }
               }
             }

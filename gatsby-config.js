@@ -436,9 +436,15 @@ module.exports = {
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-preload-link-crossorigin`,
-    /* {
-       resolve: `@bundle-analyzer/gatsby-plugin`,
-       options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
-   }, */
+    {
+      resolve: `@bundle-analyzer/gatsby-plugin`,
+      options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
+    },
+    {
+      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
+      options: {
+        devMode: true,
+      },
+    },
   ],
 }
