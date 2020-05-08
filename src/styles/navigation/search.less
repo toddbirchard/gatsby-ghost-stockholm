@@ -2,16 +2,16 @@
 @import '../mixins.less';
 
 .search-results {
-  width: 340px;
+  width: 377px;
   max-height: unset !important;
   margin: 0;
-  padding: 20px !important;
+  padding: 15px !important;
   box-shadow: 4px 4px 10px rgba(45, 47, 55, 0.2);
 
   header {
     align-items: center;
     margin: 0 !important;
-    padding: 0 0 10px;
+    padding: 5px 0 15px;
     border-bottom: 1px solid #f3f3f3;
 
     .search-results-title {
@@ -45,7 +45,7 @@
   .ais-Hits-item {
     width: stretch;
     margin: 0;
-    padding: 15px 0;
+    padding: 0;
     border-bottom: 1px solid #eaeaea;
 
     &:last-of-type {
@@ -85,6 +85,7 @@
       flex-direction: column;
       justify-content: space-around;
       width: 220px;
+      padding: 10px 0;
 
       .search-result-title {
         -webkit-line-clamp: 2;
@@ -92,11 +93,12 @@
         width: 100%;
         margin-bottom: 10px;
         color: #585f6d;
-        font-family: @body-font-bold;
+        font-family: @header-font-secondary;
         letter-spacing: -.1px;
         line-height: 1.2 !important;
         text-overflow: ellipsis;
         opacity: 0.9;
+        font-size: .9em !important;
       }
 
       .search-result-tag {
@@ -117,7 +119,7 @@
         }
 
         span {
-          font-size: 1em;
+          font-size: .9em;
         }
       }
 
@@ -128,8 +130,7 @@
   }
 
   img {
-    max-width: 100px;
-    height: 66px;
+    height: 78px;
     margin-right: 12px;
     border-radius: 2px;
   }
@@ -168,7 +169,7 @@
     }
 
     &::placeholder {
-      color: lighten(grey, 10%);
+      color: lighten(grey, 5%);
       font-size: 1em;
       transition: @transition;
     }

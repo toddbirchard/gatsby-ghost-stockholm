@@ -37,7 +37,7 @@
     li {
       display: flex;
       justify-content: left;
-      margin: 12px 0;
+      margin: 8px 0;
       padding-left: 0;
       color: #687f99;
       line-height: 1;
@@ -60,13 +60,16 @@
 
       a {
         width: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
         color: #7f8a97;
         font-family: @body-font;
-        font-size: 1.05em;
+        line-height: 1.2;
         font-weight: 600;
         text-overflow: ellipsis;
         white-space: nowrap;
+        @media (max-width: @mobile-breakpoint) {
+          font-size: 1em;
+        }
       }
 
       * {

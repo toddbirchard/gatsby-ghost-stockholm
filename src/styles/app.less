@@ -13,9 +13,9 @@ html {
 }
 
 body {
-  -webkit-font-smoothing: auto;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga";
   overflow-x: hidden;
   background: @background-color;
   color: @body-color;
@@ -25,6 +25,20 @@ body {
   letter-spacing: 0;
   line-height: 1.3em;
   text-rendering: optimizeLegibility;
+
+  * {
+    &::selection {
+      background: @theme-color;
+      color: white;
+    }
+
+    &::-moz-selection {
+      background: @theme-color;
+      color: white;
+    }
+  }
+
+
 }
 /* Reset
 /* ---------------------------------------------------------- */

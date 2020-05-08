@@ -232,7 +232,7 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         custom: {
-          families: [`TTNormsPro-DemiBold`, `TTCommons-Medium`, `TTCommons-Regular`, `dm`],
+          families: [`TTNormsPro-DemiBold`, `TTNormsPro-Bold`, `AvenirNextLTPro-Regular`, `AvenirNextLTPro-Medium`, `dm`],
           urls: [`/css/fonts.css`],
         },
         timeout: 10000,

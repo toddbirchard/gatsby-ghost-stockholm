@@ -132,9 +132,20 @@
   margin: 0 0 20px;
   color: @body-color;
   font-family: @body-font-book;
-  font-size: 1.1em;
-  line-height: 1.4em;
+  font-size: 1em;
+  line-height: 1.5em;
   @media (max-width: @mobile-breakpoint) {}
+}
+
+.link() {
+  color: @body-color;
+  border-bottom: 1px solid @theme-color;
+  word-break: break-word;
+  transition: @transition;
+
+  &:hover {
+    color: @theme-color !important;
+  }
 }
 
 .input-field-interactions() {

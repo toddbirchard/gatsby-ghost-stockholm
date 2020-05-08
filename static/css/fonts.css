@@ -1,21 +1,24 @@
-@import url("//hello.myfonts.net/count/3b343c");
+@import url("//hello.myfonts.net/count/3b83eb");
 
 @font-face {
+  font-family: 'AvenirNextLTPro-Medium';
   font-display: swap;
-  src: url('../fonts/ttcommonsbook.woff2') format('woff2'), url('../fonts/ttcommonsbook.woff') format('woff');
-  font-family: 'TTCommons-Book';
+  src: url('../fonts/AvenirNextLTPro-Medium.woff2') format('woff2'), url('../fonts/AvenirNextLTPro-Medium.woff') format('woff');
 }
-
 @font-face {
+  font-family: 'TTNormsPro-Bold';
   font-display: swap;
-  src: url('../fonts/ttcommonsmedium.woff2') format('woff2'), url('../fonts/ttcommonsmedium.woff') format('woff');
-  font-family: 'TTCommons-Medium';
+  src: url('../fonts/TTNormsPro-Bold.woff2') format('woff2'), url('../fonts/TTNormsPro-Bold.woff') format('woff');
 }
-
 @font-face {
+  font-family: 'AvenirNextLTPro-Regular';
   font-display: swap;
-  src: url('../fonts/ttcommonsdemibold.woff2') format('woff2'), url('../fonts/ttcommonsdemibold.woff') format('woff');
+  src: url('../fonts/AvenirNextLTPro-Regular.woff2') format('woff2'), url('../fonts/AvenirNextLTPro-Regular.woff') format('woff');
+}
+@font-face {
   font-family: 'TTNormsPro-DemiBold';
+  font-display: swap;
+  src: url('../fonts/TTNormsPro-DemiBold.woff2') format('woff2'), url('../fonts/TTNormsPro-DemiBold.woff') format('woff');
 }
 
 @font-face {

@@ -1,36 +1,36 @@
 {
-    "plugins": [
-        [
-            "prismjs",
-            {
-                "languages": [
-                    "markup",
-                    "css",
-                    "javascript",
-                    "typescript",
-                    "shell",
-                    "json",
-                    "python",
-                    "java",
-                    "groovy",
-                    "html",
-                    "yaml",
-                    "toml",
-                    "jsx",
-                    "graphql",
-                    "sql",
-                    "jinja2",
-                    "handlebars",
-                    "ini",
-                    "graphql",
-                    "less",
-                    "nginx"
-                ],
-                "plugins": ["normalize-whitespace"],
-                "theme": "default",
-                "css": false
-            }
-        ]
-    ],
-    "presets": ["babel-preset-gatsby"]
+  "plugins": [
+    [
+      "prismjs",
+      {
+        "languages": [
+          "markup",
+          "css",
+          "javascript",
+          "typescript",
+          "shell",
+          "json",
+          "python",
+          "java",
+          "groovy",
+          "html",
+          "yaml",
+          "toml",
+          "jsx",
+          "graphql",
+          "sql",
+          "jinja2",
+          "handlebars",
+          "ini",
+          "graphql",
+          "less",
+          "nginx"
+        ],
+        "plugins": ["normalize-whitespace"],
+        "theme": "default",
+        "css": false
+      }
+    ]
+  ],
+  "presets": ["babel-preset-gatsby"]
 }
