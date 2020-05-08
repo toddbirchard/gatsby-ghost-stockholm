@@ -136,20 +136,13 @@
   }
 }
 
-.ais-SearchBox-form {
+.search-root {
   svg {
     transition: @transition;
   }
 
   &:focus,
   &:hover {
-    svg {
-      fill: @theme-color !important;
-      color: @theme-color !important;
-    }
-  }
-
-  &:focus {
     svg {
       opacity: 0;
     }
@@ -160,7 +153,7 @@
     .input-text-fields();
     margin-bottom: 0;
     padding: 12px 10px !important;
-    font-size: 1em !important;
+    font-size: .9em !important;
     @media (max-width: 1100px) {
       width: 297px !important;
     }
@@ -180,10 +173,11 @@
 
     &:hover {
       border-color: @theme-color;
-      background-color: lighten(@theme-color, %70) !important;
+      background-color: lighten(@theme-color, 40%) !important;
+      color: #35668a;
 
       &::placeholder {
-        color: @theme-color !important;
+        color: #527dab !important;
       }
     }
   }

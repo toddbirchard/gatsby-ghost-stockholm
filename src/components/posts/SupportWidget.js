@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
+import config from '../../utils/siteConfig'
 
 /**
 *
@@ -9,7 +10,7 @@ import { FaArrowRight } from 'react-icons/fa'
 
 const SupportWidget = () => {
   const newsletterCopy = `Toss us your email and we'll promise to only give you the good stuff.`
-  const coffeeUrl = `https://www.buymeacoffee.com/hackersslackers`
+  const coffeeUrl = config.links.buymeacoffee
   const coffeeImg = `/images/bmc-new-btn-logo.svg`
   const donateCopy = `We started sharing these tutorials to help and inspire new scientists and engineers around the world. If Hackers and Slackers has been helpful to you, feel free to buy us a coffee to keep us going :).`
 

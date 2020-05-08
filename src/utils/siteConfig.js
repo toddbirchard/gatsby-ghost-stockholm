@@ -28,6 +28,10 @@ module.exports = {
   creator: {
     twitter: `@toddrbirchard`,
   },
+  
+  links: {
+    buyMeACoffee: `https://www.buymeacoffee.com/hackersslackers`,
+    siteGithubOrg: `https://github.com/hackersandslackers/`,
+  },
 
-  siteGithubOrg: `https://github.com/hackersandslackers/`,
 }

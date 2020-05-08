@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 const insertScript = (src, id, parentElement) => {
   const script = window.document.createElement(`script`)
@@ -34,4 +35,9 @@ const Commento = ({ id }) => {
   }, [id])
   return <div id={`commento`} />
 }
+
+Commento.propTypes = {
+  id: PropTypes.object.isRequired,
+}
+
 export default Commento

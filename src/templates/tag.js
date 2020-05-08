@@ -31,9 +31,9 @@ const Tag = ({ data, location, pageContext }) => {
       <Layout template="tag-template page-template" hasSidebar>
         <section className="post-feed">
           <header className="info-card">
-            <div className="page-title">
+            <div className="page-title-card">
               <FaTags />
-              <h1 className="page-title">{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
+              <h1>{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
             </div>
             {tag.description ? <p className="tag-description">{tag.description}</p> : null }
           </header>

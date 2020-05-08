@@ -26,6 +26,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         <html lang={site.lang} />
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
         <body className={template} />
+        <link type="text/css" rel="stylesheet" href="https://cloud.typography.com/7899256/7946212/css/fonts.css" />
       </Helmet>
 
       <Navigation
