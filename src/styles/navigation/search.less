@@ -2,7 +2,7 @@
 @import '../mixins.less';
 
 .search-results {
-  width: 377px;
+  width: 377px !important;
   max-height: unset !important;
   margin: 0;
   padding: 15px !important;
@@ -11,14 +11,15 @@
   header {
     align-items: center;
     margin: 0 !important;
-    padding: 5px 0 15px;
+    padding: 0 0 15px;
     border-bottom: 1px solid #f3f3f3;
 
     .search-results-title {
       margin: 0;
       color: #6c727f;
       font-family: @body-font-bold;
-      font-size: 0.9em;
+      font-weight: 600;
+      font-size: 0.8em;
       line-height: 1;
       text-transform: uppercase;
     }
@@ -49,8 +50,6 @@
     border-bottom: 1px solid #eaeaea;
 
     &:last-of-type {
-      margin-bottom: 0;
-      padding-bottom: 5px;
       border-bottom: 0;
     }
 
@@ -120,6 +119,7 @@
 
         span {
           font-size: .9em;
+          font-family: @header-font-secondary;
         }
       }
 
@@ -174,13 +174,16 @@
       transition: @transition;
     }
 
-    &:focus,
+    &:focus {
+      border-color: @theme-color;
+    }
+
     &:hover {
       border-color: @theme-color;
-      background-color: #e1ebf3;
+      background-color: lighten(@theme-color, %70) !important;
 
       &::placeholder {
-        color: #95aaba !important;
+        color: @theme-color !important;
       }
     }
   }

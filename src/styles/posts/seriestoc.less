@@ -52,7 +52,6 @@
           display: inline-block;
           margin-right: 8px;
           color: darken(@theme-color, 20%);
-          font-family: @body-font;
           font-size: 15px;
           content: counter(my-awesome-counter) ". ";
         }
@@ -96,6 +95,8 @@
         color: #7f8a97;
         font-size: 1em;
         white-space: nowrap;
+        font-family: @body-font-bold;
+        font-weight: 600;
         content: counter(li, upper-roman) "." !important;
         @media (max-width: @mobile-breakpoint) {
           min-width: 35px;
