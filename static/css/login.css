@@ -22,7 +22,20 @@
 
 .commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container {
   display: flex;
-  justify-content: center
+  justify-content: space-between;
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-button {
+  border: 0;
+  padding: 6px 20px;
+  width: fit-content;
+  border-radius: 4px;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-button:hover {
+  background: white;
 }
 
 .commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons {
@@ -30,6 +43,7 @@
   z-index: 1;
   position: absolute;
   align-items: center
+
 }
 
 .commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-google-button {
@@ -78,7 +92,8 @@
   margin: 12px 0;
   color: #868e96;
   font-size: 15px;
-  text-align: center
+  text-align: center;
+  font-weight: 600;
 }
 
 .commento-root .commento-login-box-container .commento-login-box button, .commento-root .commento-login-box-container .commento-login-box html, .commento-root .commento-login-box-container .commento-login-box input, .commento-root .commento-login-box-container .commento-login-box textarea {
@@ -187,7 +202,6 @@
 .commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-input {
   display: inline;
   width: calc(100% - 150px);
-  height: 40px;
   padding: 5px 5px 5px 10px;
   border: none;
   outline: 0;
