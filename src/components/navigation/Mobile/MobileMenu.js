@@ -109,7 +109,7 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                        Tags <FaChevronDown />
+                    <span>Tags</span> <FaChevronDown />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel >
@@ -121,12 +121,12 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                        Series <FaChevronDown />
+                    <span>Series</span> <FaChevronDown />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   {this.series.map(({ node }) => (
-                    <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.id }>{ node.meta_title }</Link>
+                    <Link to={`/series/${ node.slug }`} className="tag-link" key={ node.id }>{ node.meta_title }</Link>
                   ))}
                 </AccordionItemPanel>
               </AccordionItem>

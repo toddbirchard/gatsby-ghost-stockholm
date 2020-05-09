@@ -496,7 +496,7 @@
         public'''
 
 [[headers]]
-  for = "/fonts/ttcommonsbook.woff2"
+  for = "/fonts/TTNormsPro-Bold.woff2"
   [headers.values]
     crossorigin = "anonymous"
     type = "font/woff2"
@@ -507,7 +507,7 @@
     public'''
 
 [[headers]]
-  for = "/fonts/ttcommonsdemibold.woff2"
+  for = "/fonts/TTNormsPro-Bold.woff"
   [headers.values]
     crossorigin = "anonymous"
     type = "font/woff2"
@@ -518,7 +518,62 @@
     public'''
 
 [[headers]]
-  for = "/fonts/ttcommonsmedium.woff2"
+  for = "/fonts/TTNormsPro-DemiBold.woff2"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/TTNormsPro-DemiBold.woff"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/AvenirNextLTPro-Medium.woff2"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/AvenirNextLTPro-Medium.woff"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/AvenirNextLTPro-Regular.woff2"
+  [headers.values]
+    crossorigin = "anonymous"
+    type = "font/woff2"
+    accept = "application/font-woff2"
+    cache-control = '''
+    max-age=604800,
+    no-cache,
+    public'''
+
+[[headers]]
+  for = "/fonts/AvenirNextLTPro-Regular.woff"
   [headers.values]
     crossorigin = "anonymous"
     type = "font/woff2"

@@ -141,7 +141,7 @@
 
     .accordion__panel {
       transition: @transition;
-      padding: 0 20px 20px;
+      padding: 0 15px 15px;
       .tag-link {
         display: block;
         margin-bottom: 10px;
@@ -241,15 +241,29 @@
         color: #67717d;
         font-size: 1.1em;
         margin-bottom: 25px;
+        display: flex;
+        align-items: center;
         font-family: @body-font-bold;
         transition: @transition;
 
         &:hover {
           color: @theme-color !important;
+          cursor: pointer;
+        }
+
+        &[aria-expanded="true"]{
+          svg {
+            transform: scaleY(-1);
+          }
+        }
+
+        span {
+          margin-right:5px;
         }
 
         svg {
           opacity: .5;
+          font-size: .8em;
         }
       }
     }
