@@ -28,10 +28,11 @@ module.exports = {
   creator: {
     twitter: `@toddrbirchard`,
   },
-  
+
   links: {
     buyMeACoffee: `https://www.buymeacoffee.com/hackersslackers`,
-    siteGithubOrg: `https://github.com/hackersandslackers/`,
+    githubOrg: `https://github.com/hackersandslackers/`,
+    githubJupyterRepo: `https://github.com/hackersandslackers/hackers-jupyter-posts`,
   },
 
 }

@@ -61,12 +61,12 @@ const SearchPage = ({ data, location, pageContext }) => {
             searchClient={searchClient}
             indexName="hackers_posts_all"
             createURL={createURL}
-            hitsPerPage={50}
+            hitsPerPage={40}
             analytics
             searchState={searchState}
             onSearchStateChange={onSearchStateChange}
           >
-            <Configure query="allPostQuery" hitsPerPage={100} analytics />
+            <Configure query="allPostQuery" hitsPerPage={40} analytics />
             <div className="search-body">
               <div className="search-header">
                 <h1>Search All Posts</h1>

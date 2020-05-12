@@ -53,16 +53,16 @@ module.exports = {
       resolve: `gatsby-source-git`,
       options: {
         name: `jupyter`,
-        remote: `https://github.com/hackersandslackers/hackers-jupyter-posts`,
+        remote: config.links.githubJupyterRepo,
         branch: `master`,
         patterns: `*.ipynb`,
       },
     },
     {
       resolve: `gatsby-source-ghost`,
-      options: process.env.NODE_ENV === `development` ?
-        ghostConfig.development :
-        ghostConfig.production,
+      options: process.env.NODE_ENV === `development`
+        ? ghostConfig.development
+        : ghostConfig.production,
     },
     {
       resolve: `gatsby-source-pocket`,
@@ -440,11 +440,11 @@ module.exports = {
       resolve: `@bundle-analyzer/gatsby-plugin`,
       options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
     },
-    {
+    /* {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
         devMode: true,
       },
-    },
+    }, */
   ],
 }

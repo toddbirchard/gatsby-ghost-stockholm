@@ -140,11 +140,11 @@
     transition: @transition;
 
     .accordion__panel {
-      transition: @transition;
       padding: 0 15px 15px;
+      transition: @transition;
       .tag-link {
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 13px;
         font-size: .9em;
       }
     }
@@ -158,11 +158,11 @@
       left: 0;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
       margin: auto !important;
       outline: none;
       color: #fff !important;
       text-align: center;
-      height: 100%;
 
       & > * {
         display: block;
@@ -187,6 +187,7 @@
       transition: all 300ms cubic-bezier(0.000, 0.000, 0.000, 0.600);
 
       .sublinks {
+        display: flex;
         height: 700px;
         transition: all 500ms cubic-bezier(0.000, 0.000, 0.000, 0.600);
       }
@@ -195,14 +196,15 @@
         margin-bottom: 25px;
         font-family: @body-font-bold;
         font-weight: 600;
+        letter-spacing: .5px;
         text-transform: uppercase;
       }
 
       .search-suggestion {
         margin-bottom: 15px;
         color: #3f4750;
-        line-height: 1;
         font-family: @body-font-bold;
+        line-height: 1;
         text-align: left;
         text-transform: uppercase;
 
@@ -236,14 +238,14 @@
 
       .navigation-link,
       .accordion__button {
-        color: @body-color;
-        text-align: left;
-        color: #67717d;
-        font-size: 1.1em;
-        margin-bottom: 25px;
         display: flex;
         align-items: center;
+        margin-bottom: 25px;
+        color: @body-color;
+        color: #67717d;
         font-family: @body-font-bold;
+        font-size: 1.1em;
+        text-align: left;
         transition: @transition;
 
         &:hover {
@@ -262,8 +264,8 @@
         }
 
         svg {
-          opacity: .5;
           font-size: .8em;
+          opacity: .5;
         }
       }
     }
@@ -375,10 +377,10 @@
       }
 
       .search-result-title {
+        color: #4a505c;
         font-size: 0.8em !important;
         letter-spacing: 0 !important;
         line-height: 1.2 !important;
-        color: #4a505c;
       }
 
       .search-result-tag {
@@ -386,14 +388,14 @@
         align-items: center;
         justify-content: flex-start;
         color: #4d525a;
+        font-family: @header-font-secondary !important;
         font-size: 0.7em !important;
         text-align: left;
-        font-family: @header-font-secondary !important;
 
         svg {
-          font-size: 1em !important;
           display: block;
           margin: 0 5px 0 0;
+          font-size: 1em !important;
         }
 
         span {
@@ -431,9 +433,9 @@
         margin: 0 !important;
         padding: 12px !important;
         .input-field-interactions();
-        font-family: @body-font-bold !important;
         border: 1px solid #dcdada;
         color: #636a75;
+        font-family: @body-font-bold !important;
         font-size: .9em !important;
         font-weight: 300;
         letter-spacing: 1px;
@@ -525,7 +527,7 @@
     opacity: 1 !important;
 
     .sublinks {
-      height: 160px !important;
+      height: 250px !important;
     }
   }
 
