@@ -83,7 +83,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
             placeholder: `Search all posts`,
           }}
         />
-        <FaSearch />
+        <FaSearch className="search-icon" />
         <HitsWrapper show={(query.length > 0 && focus) || (!!forcedQuery)} asGrid={hitsAsGrid} className="search-results">
           <Index indexName="hackers_posts">
             <header>
