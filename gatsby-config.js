@@ -92,7 +92,7 @@ module.exports = {
             params: {
               screen_name: `hackersslackers`,
               include_rts: true,
-              exclude_replies: true,
+              exclude_replies: false,
               tweet_mode: `extended`,
               count: 4,
             },
@@ -102,7 +102,7 @@ module.exports = {
             params: {
               list_id: `1043490256052539392`,
               include_rts: true,
-              exclude_replies: true,
+              exclude_replies: false,
               tweet_mode: `extended`,
               count: 20,
             },
@@ -436,15 +436,5 @@ module.exports = {
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-preload-link-crossorigin`,
-    {
-      resolve: `@bundle-analyzer/gatsby-plugin`,
-      options: { token: process.env.BUNDLE_ANALYZER_TOKEN },
-    },
-    /* {
-      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
-      options: {
-        devMode: true,
-      },
-    }, */
   ],
 }

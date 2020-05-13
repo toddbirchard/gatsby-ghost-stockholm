@@ -37,28 +37,28 @@ const TwitterWidget = ({ data }) => {
                       <a href={node.user.url} className="twitter-name" rel="nofollow noreferrer">@{node.user.screen_name}</a>
                     </div>
                     <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
-                    {node.entities.urls &&
+                    {/*node.entities.urls &&
                       node.entities.urls.map(({ display_url, expanded_url }) => (
                         <a href={expanded_url} className="tweet-link" key={display_url} rel="nofollow noreferrer">{ display_url }</a>
                       ))
-                    }
+                    */}
                   </div>
                 </div>
                 :
                 <div>
                   <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
-                  {node.entities.hashtags.length > 0 ?
+                  {/*node.entities.hashtags.length > 0 ?
                     <div className="tweet-hastags">
                       {node.entities.hashtags.map(({ text }) => (
                         <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
                       ))}
                     </div>
-                    : null}
-                  {node.entities.urls.length > 0 ?
+                    : null*/}
+                  {/*node.entities.urls.length > 0 ?
                     node.entities.urls.map(({ display_url, expanded_url }) => (
                       <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{display_url}</a>
                     ))
-                    : null}
+                    : null*/}
                 </div>}
               <div className="tweet-footer">
                 <div className="retweets meta-item"><FaRetweet /> <span>{node.retweet_count}</span></div>
@@ -131,15 +131,6 @@ const TwitterQuery = props => (
                 url
                 profile_image_url_https
                 screen_name
-              }
-              entities {
-                urls {
-                  display_url
-                  expanded_url
-                }
-                hashtags {
-                  text
-                }
               }
               user {
                 profile_image_url_https
