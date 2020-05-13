@@ -12,7 +12,7 @@
     }
 
     h3 {
-      font-weight: unset;
+      .body-h3();
     }
 
     .page-wrapper {
@@ -31,6 +31,27 @@
         font-size: 1.1em;
         line-height: 1.3;
       }
+    }
+
+    .input-field-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    input,
+    textarea {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px 10px;
+      outline: 0;
+      font-family: @body-font;
+      font-size: 14px;
+      transition: @transition;
+      .input-text-fields();
+    }
+
+    textarea {
+      height: 200px;
     }
   }
 
@@ -117,7 +138,6 @@
 
       fieldset {
         display: block;
-        margin-top: 40px;
         padding-right: 0;
         padding-left: 0;
         border: none;
@@ -147,32 +167,13 @@
         margin-bottom: 2px;
         color: #71757b;
         font-family: @body-font-bold;
+        font-size: .9em;
 
         svg {
           margin-right: 3px;
         }
       }
 
-      .input-field-group {
-        margin-bottom: 20px;
-        text-align: left;
-      }
-
-      input,
-      textarea {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 12px 10px;
-        outline: 0;
-        font-family: @body-font;
-        font-size: 16px;
-        transition: @transition;
-        .input-text-fields();
-      }
-
-      textarea {
-        height: 200px;
-      }
 
       .message {
         margin: 15px 0 0;
@@ -192,6 +193,7 @@
         border: 1px solid #6baaf2;
         border-radius: 3px;
         outline: 0;
+        font-family: @body-font-bold;
         font-size: 14px;
         text-transform: uppercase;
         .button-styles();
