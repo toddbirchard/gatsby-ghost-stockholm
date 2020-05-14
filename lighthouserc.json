@@ -1,16 +1,8 @@
 {
   "ci": {
     "collect": {
-      "url": [
-        "http://hackersandslackers.com/",
-        "http://hackersandslackers.com/about/",
-        "http://hackersandslackers.com/series/",
-        "http://hackersandslackers.com/author/todd/",
-        "http://hackersandslackers.com/series/data-analysis-pandas/",
-        "http://hackersandslackers.com/getting-started-django/"
-      ],
-      "numberOfRuns": 2,
-      "staticDistDir": "./public"
+      "staticDistDir": "./public",
+      "numberOfRuns": 2
     },
     "assert": {
       "preset": "lighthouse:recommended",
@@ -32,9 +24,6 @@
         "uses-long-cache-ttl": "off",
         "uses-http2": "off"
       }
-    },
-    "upload": {
-      "target": "temporary-public-storage"
     }
   }
 }
