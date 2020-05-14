@@ -466,6 +466,11 @@
     status = 301
 
 [[redirects]]
+    from = "/building-an-etl-pipeline-from-jira-to-postgresql/"
+    to = "/jira-to-sql-etl/"
+    status = 301
+
+[[redirects]]
     from = "/rss/"
     to = "/rss.xml"
     status = 301
