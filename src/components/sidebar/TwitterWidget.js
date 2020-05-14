@@ -38,21 +38,21 @@ const TwitterWidget = ({ data }) => {
                     </div>
                     <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
                     {node.entities.urls &&
-                      node.entities.urls.map(({ display_url, expanded_url }) => (
+                      node.entities.urls.map(({ url }) => (
                         <a href={url} className="tweet-link" key={url} rel="nofollow noreferrer">{ url }</a>
                       ))}
                   </div>
                 </div>}
 
-                {node.in_reply_to_screen_name &&
+              {node.in_reply_to_screen_name &&
                   <div className="reply-tweet">
-                   <div className="retweeted-header">
+                    <div className="retweeted-header">
                       <FaReply /> <span>{`Replying to @${node.in_reply_to_screen_name}`}</span>
                     </div>
                     <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
                   </div>}
 
-                  {node.retweeted == false && node.in_reply_to_screen_name == false &&
+              {node.retweeted === false && node.in_reply_to_screen_name === false &&
                     <div>
                       <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
                       {node.entities.hashtags.length > 0 ?
@@ -63,11 +63,11 @@ const TwitterWidget = ({ data }) => {
                         </div>
                         : null}
                       {node.entities.urls.length > 0 ?
-                        node.entities.urls.map(({ display_url, expanded_url }) => (
-                          <a href={expanded_url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{display_url}</a>
+                        node.entities.urls.map(({ url }) => (
+                          <a href={url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{url}</a>
                         ))
                         : null}
-                  </div>}
+                    </div>}
 
               <div className="tweet-footer">
                 <div className="retweets meta-item"><FaRetweet /> <span className="meta-count">{node.retweet_count}</span></div>
