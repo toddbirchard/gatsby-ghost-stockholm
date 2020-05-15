@@ -359,7 +359,8 @@ exports.createPages = async ({ graphql, actions }) => {
     context: {
       slug: `search`,
       title: `Search all posts`,
-      description: `Search for tutorials about Data Science, Engineering, Software, and more.`,
+      description: `Search for coding tutorials about Data Science, Software Engineering, Python, JavaScript, and more.`,
+      metaDescription: `Search for coding tutorials about Data Science, Software Engineering, Python, JavaScript, and more.`,
     },
   })
 
@@ -380,6 +381,7 @@ exports.createPages = async ({ graphql, actions }) => {
       slug: `about`,
       title: `About Us`,
       description: `Hackers and Slackers is a community which values technology, life, and improving the latter with the former.`,
+      metaDescription: `Hackers and Slackers is a community which values technology, life, and improving the latter with the former.`,
     },
   })
 }

@@ -53,7 +53,6 @@ const SearchPage = ({ data, location, pageContext }) => {
         location={location}
         title={title}
         description={description}
-        type="series"
       />
       <Layout template="search-template" hasSidebar={false}>
         <div className="search-container">
@@ -143,10 +142,11 @@ SearchPage.propTypes = {
 }
 
 export const SearchPageQuery = graphql`
-    query SearchPageMeta($slug: String) {
-      ghostPage(slug: {eq: $slug}) {
-        ...GhostPageFields
-      }
-  }`
+    query SearchPageQuery($slug: String) {
+        ghostPage(slug: {eq: $slug}) {
+          ...GhostPageFields
+        }
+    }`
+
 
 export default SearchPage

@@ -13,25 +13,27 @@ import '../styles/pages/page.less'
 * Lists all multi-part post series.
 *
 */
-const SeriesArchive = ({ data, location }) => {
+const SeriesArchive = ({ data, location, pageContext }) => {
   const tags = data.allGhostTag.edges
-  const page = data.ghostPage
+  const title = pageContext.title
+  const description = pageContext.description
+  const metaDescription = pageContext.metaDescription
 
   return (
     <>
       <MetaData
         data={data}
         location={location}
-        title={page.metaTitle}
-        description={page.metaDescription}
+        title={title}
+        description={metaDescription}
         type="series"
       />
       <Layout template="seriesarchive-template page-template" hasSidebar={false}>
         <div className="info-card">
           <div className="page-title-card">
-            <h1>{page.title}</h1>
+            <h1>{title}</h1>
           </div>
-          <p>{page.plaintext}</p>
+          <p>{description}</p>
         </div>
         <div className="series-grid">
           {tags.map(({ node }) => (
@@ -55,6 +57,10 @@ SeriesArchive.propTypes = {
     allGhostTag: PropTypes.object.isRequired,
     ghostPage: PropTypes.object.isRequired,
   }).isRequired,
+  pageContext: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }),
   location: PropTypes.object,
 }
 
