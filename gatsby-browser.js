@@ -1,6 +1,7 @@
 /* eslint-disable */
 import Prism from 'prismjs';
 import 'lazysizes';
+import './src/styles/app.less'
 
 
 let trustAllScripts = function() {

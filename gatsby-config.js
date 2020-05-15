@@ -430,6 +430,18 @@ module.exports = {
         chunkSize: 100, // default: 1000
       },
     },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false
+        }
+      }
+    },
     /* Misc */
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,

@@ -5,9 +5,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 
-// Styles
-import '../../styles/app.less'
-
 /**
  * Main layout component
  *

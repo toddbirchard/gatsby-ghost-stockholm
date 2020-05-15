@@ -18,7 +18,6 @@ import { MetaData } from '../components/common/meta'
 import { Layout, PostCard } from '../components/common'
 
 import '../styles/pages/search.less'
-import '../styles/post-card.less'
 
 const DEBOUNCE_TIME = 700
 const searchClient = algoliasearch(

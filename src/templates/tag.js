@@ -7,7 +7,6 @@ import { MetaData } from '../components/common/meta'
 import { FaTags } from 'react-icons/fa'
 
 import '../styles/pages/tag.less'
-import '../styles/post-card.less'
 
 /**
 * Tag page (/tag/:slug)

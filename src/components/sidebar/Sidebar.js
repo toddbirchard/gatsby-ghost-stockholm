@@ -11,7 +11,6 @@ import { AuthorTrendingWidget,
   AuthorTwitterWidget,
   AuthorWebsiteWidget } from './authors'
 
-import '../../styles/sidebar.less'
 
 /**
 * Sidebar
