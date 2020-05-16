@@ -1,0 +1,78 @@
+@import '../variables.less';
+
+.seriesarchive-template {
+    .series-grid {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        margin: 30px 0 0;
+        @media(max-width: @mobile-breakpoint) {
+            grid-template-columns: 1fr;
+        }
+
+        .series-card {
+            display: block;
+            background: white;
+            overflow: hidden;
+            border: 1px solid #d3dbe1;
+
+            &:hover {
+                cursor: pointer;
+                background: #e7f7ff;
+                border-color: #bee8ff;
+
+                .series-card-image {
+                    opacity: 0.7;
+                }
+
+                .series-card-count,
+                .series-card-description,
+                .series-card-title {
+                    color: #4381a1 !important;
+                }
+            }
+
+            .series-card-image {
+                height: 200px;
+                background-size: cover;
+                background-position-y: center;
+            }
+        }
+
+        .series-card-info {
+            padding: 20px;
+        }
+
+        .series-card-title {
+            color: @header-color;
+            font-family: @header-font-secondary;
+            margin-bottom: 7px;
+            margin-top: 0;
+            font-size: 1.3em;
+            line-height: 1.2;
+            transition: @transition;
+        }
+
+        .series-card-description {
+            color: #656871;
+            margin: 10px 0;
+            line-height: 1.4;
+            text-align: left;
+            font-family: @body-font-book;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            transition: @transition;
+            font-size: 0.9em;
+            font-weight: normal;
+        }
+
+        .series-card-count {
+            font-size: 0.8em;
+            color: lighten(@text-color-light, 20%);
+            text-align: right;
+            font-family: @header-font;
+        }
+    }
+}

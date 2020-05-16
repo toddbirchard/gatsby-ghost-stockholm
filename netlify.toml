@@ -1,9 +1,6 @@
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
-
 [build]
   command = "gatsby build"
-  publish = "/public"
+  publish = "public/"
 
 [template]
   incoming-hooks = ["Ghost"]
@@ -12,11 +9,7 @@
     from = "/ghost"
     to = "https://hackersandslackers.app/ghost"
     status = 301
-
-[[redirects]]
-    from = "/ghost/"
-    to = "https://hackersandslackers.app/ghost"
-    status = 301
+    force = true
 
 [[redirects]]
     from = "/wp-login.php"
@@ -25,7 +18,7 @@
 
 [[redirects]]
     from = "/structuring-your-flask-app/"
-    to = "/flask-blueprints/"
+    to = "/organizing-flask-with-blueprints"
     status = 301
 
 [[redirects]]
@@ -159,28 +152,13 @@
     status = 301
 
 [[redirects]]
-    from = "https://hackersandslackers.com/code-snippet-corner-tuning-random-learning-hyperparameters-with-binary-search/"
-    to = "/tuning-machine-learning-hyperparameters-with-binary-search/"
-    status = 301
-
-[[redirects]]
-    from = "/become-a-contributor/"
-    to = "/join-us/"
-    status = 301
-
-[[redirects]]
-    from = "/organize-flask-with-blueprints/"
-    to = "/flask-blueprints/"
-    status = 301
-
-[[redirects]]
     from = "/code-snippet-corner-tuning-machine-learning-hyperparameters-with-binary-search/"
     to = "/tuning-machine-learning-hyperparameters-with-binary-search/"
     status = 301
 
 [[redirects]]
     from = "/api/handlebars-themes/"
-    to = "/handlebars-templating-in-expressjs/"
+    to = "/handlebars-templating-in-expressjs"
     status = 301
 
 [[redirects]]
@@ -194,23 +172,18 @@
     status = 301
 
 [[redirects]]
-    from = "/using-pymysql/"
-    to = "/python-mysql-pymysql/"
-    status = 301
-
-[[redirects]]
     from = "/pipenv-etc-tracking-your-projects-dependancies/"
     to = "/pipenv-python-environment-management/"
     status = 301
 
 [[redirects]]
-    from = "/demystifying-flask-application-factory/"
-    to = "/flask-application-factory/"
+    from = "/demystifying-flasks-application-context/"
+    to = "/demystifying-flask-application-factory/"
     status = 301
 
 [[redirects]]
-    from = "/demystifying-flasks-application-context/"
-    to = "/flask-application-factory/"
+    from = "/structuring-your-flask-app/"
+    to = "/demystifying-flask-application-factory/"
     status = 301
 
 [[redirects]]
@@ -231,11 +204,6 @@
 [[redirects]]
     from = "/comparing-rows-between-two-pandas-dataframes/"
     to = "/compare-rows-pandas-dataframes/"
-    status = 301
-
-[[redirects]]
-    from = "/using-pandas-with-aws-lambda/"
-    to = "/pandas-with-aws-lambda/"
     status = 301
 
 [[redirects]]
@@ -296,7 +264,7 @@
 
 [[redirects]]
     from = "/serving-static-assets-in-flask/"
-    to = "/flask-assets/"
+    to = "/static-assets-flask/"
     status = 301
 
 
@@ -307,12 +275,17 @@
 
 [[redirects]]
     from = "/powerful-page-templates-in-flask-with-jinja/"
-    to = "/flask-jinja-templates/"
+    to = "/flask-page-templates-jinja/"
     status = 301
 
 [[redirects]]
     from = "/creating-your-first-flask-application/"
     to = "/your-first-flask-application/"
+    status = 301
+
+[[redirects]]
+    from = "/demystifying-flask-application-factory/"
+    to = "/flask-application-factory/"
     status = 301
 
 [[redirects]]
@@ -336,7 +309,7 @@
     status = 301
 
 [[redirects]]
-    from = "/setting-up-dns-with-google-cloud-platform/"
+    from = "setting-up-dns-with-google-cloud-platform"
     to = "/google-cloud-compute-engine/"
     status = 301
 
@@ -386,6 +359,11 @@
     status = 301
 
 [[redirects]]
+    from = "/organizing-flask-with-blueprints/"
+    to = "/flask-blueprints/"
+    status = 301
+
+[[redirects]]
     from = "/configuring-your-flask-application/"
     to = "/configuring-flask-applications/"
     status = 301
@@ -417,7 +395,7 @@
 
 [[redirects]]
     from = "/poetic-python-project-packaging/"
-    to = "/python-poetry-package-manager/"
+    to = "/python-poetry/"
     status = 301
 
 [[redirects]]
@@ -430,233 +408,32 @@
     to = "/node-aws-sdk-s3/"
     status = 301
 
-[[redirects]]
-    from = "/getting-started-google-big-query-python/"
-    to = "/google-bigquery-python/"
-    status = 301
-
-[[redirects]]
-    from = "/ssh-scp-in-python-with-paramiko/"
-    to = "/automate-ssh-scp-python-paramiko/"
-    status = 301
-
-[[redirects]]
-    from = "/pythonic-database-management-with-sqlalchemy/"
-    to = "/python-database-management-sqlalchemy/"
-    status = 301
-
-[[redirects]]
-    from = "/python-poetry/"
-    to = "/python-poetry-package-manager/"
-    status = 301
-
-[[redirects]]
-    from = "/using-redis-with-python/"
-    to = "/redis-py-python/"
-    status = 301
-
-[[redirects]]
-    from = "/psycopg2-postgres-python-the-old-fashioned-way/"
-    to = "/psycopg2-postgres-python/"
-    status = 301
-
-[[redirects]]
-    from = "/forms-in-flask-wtforms/"
-    to = "/flask-wtforms-forms/"
-    status = 301
-
-[[redirects]]
-    from = "/building-an-etl-pipeline-from-jira-to-postgresql/"
-    to = "/jira-to-sql-etl/"
-    status = 301
-
-[[redirects]]
-    from = "/rss/"
-    to = "/rss.xml"
-    status = 301
-
-[[redirects]]
-    from = "/rss"
-    to = "/rss.xml"
-    status = 301
-
 [[headers]]
+  # Define which paths this specific [[headers]] block will cover.
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer-when-downgrade"
+    # Multi-key header rules are expressed with multi-line strings.
     cache-control = '''
-      max-age=86400,
+      max-age=31557600,
       no-cache,
-      public'''
+      no-store,
+      must-revalidate'''
       set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-  for = "/fonts/TTNormsPro-Bold.woff2"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/TTNormsPro-Bold.woff"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/TTNormsPro-DemiBold.woff2"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/TTNormsPro-DemiBold.woff"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/AvenirNextLTPro-Medium.woff2"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/AvenirNextLTPro-Medium.woff"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/AvenirNextLTPro-Regular.woff2"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/AvenirNextLTPro-Regular.woff"
-  [headers.values]
-    crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
-    cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
-
-[[headers]]
-  for = "/fonts/fonts.css"
-  [headers.values]
-    content-type = "text/css"
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-  for = "/js/commento.js"
-  [headers.values]
-    content-type = "application/javascript"
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-  for = "/css/commento.css"
-  [headers.values]
-    content-type = "text/css"
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-  for = "/css/fonts.css"
-  [headers.values]
-    content-type = "text/css"
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-  for = "https://hackersandslackers-cdn.storage.googleapis.com/*"
-  [headers.values]
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-  for = "https://storage.googleapis.com/*"
-  [headers.values]
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-
-[[headers]]
-  for = "/images/bmc-new-btn-logo.svg"
-  [headers.values]
-    content-type = "image/svg+xml"
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-    for = "/rss.xml"
+    for = "/fonts.css"
     [headers.values]
-      content-type = "text/xml; charset=utf-8"
+      crossorigin = "anonymous"
+      type = "font/woff2"
+      accept = "application/font-woff2"
+      cache-control = '''
+        max-age=31557600,
+        no-cache,
+        no-store,
+        must-revalidate'''
 
 [build.processing]
   skip_processing = false

@@ -1,616 +1,385 @@
-@import './variables.less';
-@import './mixins.less';
-
-.AuthorSidebar,
 .sidebar {
-  grid-gap: 20px;
-  display: grid;
-  grid-auto-rows: min-content;
-  grid-template-columns: 1fr;
-  @media (max-width: @tablet-breakpoint) {
-    display: none;
-  }
-
-  .widget {
-    padding: 25px;
-    background: #fff 50%;
-    box-shadow: @box-shadow;
-    transition: all 0.5s ease;
-    @media (max-width: 900px) {
-      max-width: 200px;
-      padding: 20px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    @media(max-width: @tablet-breakpoint) {
+        display: none;
     }
 
-    p {
-      margin: 0;
-      line-height: 1;
-    }
+    .widget {
+        padding: 25px;
+        background: #fff 50%;
+        box-shadow: @box-shadow;
+        transition: all 0.5s ease;
 
-    .widget-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-
-      * {
-        line-height: 1;
-      }
-
-      .label {
-        font-family: @body-font-bold;
-        font-size: 0.95em;
-
-        svg {
-          margin: 0 6px 0 0;
-          font-size: 1em;
-        }
-      }
-
-      .trending {
-        display: flex;
-        align-items: center;
-        color: #5cc3a2;
-        font-weight: 600;
-
-        span {
-          font-size: 0.95em;
-        }
-      }
-
-      .pocket {
-        color: @pocket-color;
-      }
-
-      .trend-type {
-        font-size: 0.85em;
-        opacity: 0.6;
-        @media (max-width: 900px) {
-          display: none;
-        }
-      }
-    }
-
-    &.about {
-      .widget-logo {
-        display: block;
-        width: 230px;
-        margin: auto;
-        transition: @transition;
-        @media (max-width: 900px) {
-          width: 100%;
-        }
-
-        &:hover {
-          opacity: 0.6;
-        }
-      }
-
-      .description {
-        margin: 15px 0 0;
-        font-family: @body-font-bold;
-        font-size: .9em;
-        line-height: 1.3;
-        text-align: center;
-      }
-    }
-
-    &.social {
-      display: flex;
-      justify-content: space-between;
-
-      button {
-        -webkit-appearance: none;
-        padding: unset;
-        border: unset;
-        outline: none;
-        background: unset;
-      }
-
-      svg {
-        font-size: 2.1em;
-      }
-      .social-buttons();
-    }
-
-    &.tags {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-
-      .tag {
-        -webkit-transition: all 0.2s ease;
-        -moz-transition: all 0.2s ease;
-        -o-transition: all 0.2s ease;
-        display: inline-block;
-        flex-grow: 1;
-        margin: 0 2px 4px;
-        padding: 4px 10px;
-        border: 1px solid #d7dee7;
-        color: #78849c;
-        font-family: @body-font-bold;
-        font-size: 0.85em !important;
-        line-height: 1.5em;
-        text-align: center;
-        transition: all 0.2s ease;
-
-        &:hover {
-          border: 1px solid @hover-color;
-          background: @hover-color;
-          color: white !important;
-          cursor: pointer;
-        }
-      }
-    }
-
-    &.newsletter {
-      .newsletter-description {
-        margin-bottom: 10px;
-        font-family: @body-font-book;
-        line-height: 1.3;
-      }
-
-      input {
-        width: stretch;
-        width: -moz-available;
-        margin: 8px 0 0;
-        font-size: 0.9em;
-        transition: @transition;
-        .input-text-fields();
-      }
-
-      button {
-        width: fit-content;
-        margin-top: 13px;
-        padding: 9px;
-        border: 0;
-        border-radius: 2px;
-        outline: none;
-        background: @theme-color;
-        color: white;
-        font-size: 0.8em;
-        line-height: 1;
-        text-align: right;
-        transition: all 0.2s ease-out;
-
-        &:hover {
-          background: @hover-color !important;
-          color: white !important;
-          cursor: pointer;
-        }
-      }
-    }
-
-    &.series {
-      .widget-series-featured {
-        img {
-          width: 100%;
-          transition: @transition;
-        }
-
-        .series-widget-detail {
-          padding: 15px;
-          border: 1px solid #d7dee7;
-
-          .series-widget-title {
-            margin: 0 0 10px;
-            font-family: @header-font;
-          }
-
-          .series-widget-description {
-            margin-bottom: 10px;
-            line-height: 1.1;
-            transition: @transition;
-          }
-
-          .series-widget-count {
-            font-size: 0.9em;
-            text-align: right;
-            opacity: 0.6;
-          }
-        }
-
-        &:hover {
-          cursor: pointer;
-
-          img {
-            opacity: 0.7;
-          }
-
-          .series-widget-detail {
-            border: 1px solid lighten(@hover-color, 10%);
-            background: lighten(@hover-color, 10%);
-
-            * {
-              color: white;
-            }
-          }
-        }
-      }
-    }
-
-    &.pocket,
-    &.trending {
-      .link {
-        display: block;
-        max-width: 250px;
-        margin: 10px 0;
-        padding: 10px 0 15px;
-        overflow: hidden;
-        border-bottom: 1px solid #e7e7e7;
-        color: lighten(@header-font-color, 15%);
-        font-size: 0.85em;
-        font-weight: 600;
-        line-height: 1;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        @media (max-width: 900px) {
-          padding: 5px 0 10px;
-          font-size: 0.9em;
-        }
-
-        &:first-of-type {
-          margin: 0 0 10px;
-          padding: 0 0 15px;
-        }
-
-        &:last-of-type {
-          margin: 10px 0 0;
-          padding: 10px 0 0;
-          border-bottom: 0 solid #e7e7e7;
-        }
-
-        .favicon {
-          margin-right: 5px;
-        }
-      }
-
-      .widget-content {
-        margin-top: 30px;
-      }
-    }
-
-    &.github,
-    &.twitter {
-      padding: 25px;
-      overflow: hidden;
-
-      .github-header,
-      .twitter-header {
-        display: flex;
-        align-items: center;
-        margin: 0 0 20px;
-
-        .twitter-logo {
-          width: 30px;
-          height: 30px;
-          margin-right: 10px;
-        }
-
-        .github-name,
-        .twitter-name {
-          display: block;
-          color: #606c8c;
-          font-family: @body-font;
-          font-size: 1.05em;
-          font-weight: 600;
-          line-height: 1;
-        }
-
-        .github-user,
-        .twitter-user {
-          display: block;
-          margin-top: 3px;
-          color: #a8b4c1;
-          font-family: @body-font-bold;
-          font-size: 0.95em;
-          font-weight: 500;
-          line-height: 1;
-        }
-
-        .twitter-avatar {
-          width: 30px;
-          height: 30px;
-          margin-right: 10px;
-        }
-      }
-
-      .twitter-followers {
-        display: flex;
-        align-items: center;
-        margin-top: 7px;
-        color: #a4b4c6;
-        font-family: @body-font-bold;
-        font-size: 0.9em;
-        font-weight: 600;
-        line-height: 1;
-        white-space: nowrap;
-
-        svg {
-          margin-right: 6px;
-          font-size: 0.9em;
-        }
-      }
-
-      .retweeted-header {
-        margin: 0 0 10px;
-        color: #7b8592;
-        font-family: @body-font-bold;
-        font-size: .9em;
-        font-weight: unset;
-        letter-spacing: .2px;
-
-        svg {
-          margin-right: 3px;
-        }
-
-        span {
-          font-family: @body-font-bold;
-        }
-      }
-
-      .tweet-header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
-
-        .twitter-avatar {
-          width: 25px !important;
-          height: 25px !important;
-          margin-right: 7px;
-          overflow: hidden;
-          border-radius: 50%;
-
-          img {
-            width: 100%;
-          }
-        }
-
-        .twitter-name {
-          display: block;
-          color: #606c8c;
-          font-family: @body-font;
-          font-size: 0.95em;
-          font-weight: 600;
-          line-height: 1;
-        }
-      }
-
-      .retweeted-body {
-        margin-left: 5px;
-        padding-left: 15px;
-        border-left: 3px solid #e2e7ed;
-      }
-
-      .twitter-profile-description {
-        color: #87929e;
-        font-size: 0.9em;
-        font-weight: 600;
-        line-height: 1.3;
-      }
-
-      .tweet {
-        padding: 30px 0;
-        border-bottom: 1px solid #e7e7e7;
-        font-family: @header-font-secondary;
-
-        &:last-of-type {
-          padding: 30px 0 0;
-          border-bottom: 0;
-        }
-
-        &:nth-of-type(2) {
-          padding: 0 0 30px;
-        }
-
-        .tweet-link {
-          display: block;
-          margin: 15px 0 0;
-          overflow: hidden;
-          color: #6baaf2;
-          font-family: @body-font-bold;
-          font-size: .9em;
-          font-weight: 600;
-          line-height: 1;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-        }
-
-        .tweet-hastags {
-          display: flex;
-          flex-wrap: wrap;
-          width: 100%;
-          margin: 15px 0 0;
-
-          .hashtag {
-            display: inline-block;
-            margin: 0 6px 6px 0;
-            color: #89a0b7;
-            font-family: @body-font-bold;
-            font-size: .9em;
+        p {
+            margin: 0;
             line-height: 1;
-          }
         }
 
-        .tweet-content {
-          margin: 0;
-          color: #7a8496;
-          font-family: @body-font-bold !important;
-          font-size: .9em;
-          line-height: 1.3;
-        }
-      }
-
-      .reply-tweet,
-      .retweeted-tweet {
-        .tweet-content {
-          margin-left: 10px;
-          padding-left: 15px;
-          border-left: 2px solid #cfd5de;
-        }
-      }
-
-      .tweet-footer {
-        display: flex;
-        justify-content: left;
-        margin-top: 15px;
-      }
-
-      .meta-item {
-        display: flex;
-        align-items: center;
-        margin-right: 20px;
-        color: #96a6b9;
-        font-size: 1em;
-        font-weight: 600;
-        line-height: 1;
-
-        .meta-count {
-          font-family: @body-font-bold;
-          font-size: .9em;
-          line-height: 1;
-        }
-
-        svg {
-          margin-right: 4px;
-          font-size: .9em;
-        }
-
-        &.retweets {
-          display: flex;
-          align-items: center;
-          color: #59d39e;
-        }
-
-        &.tweets {
-          display: flex;
-          align-items: center;
-          color: @twitter-color;
-        }
-
-        &.favorites {
-          display: flex;
-          align-items: center;
-          color: #d8819c;
-        }
-
-        &.date {
-          color: #a4b4c6;
-          font-size: 0.8em;
-          line-height: 1;
-          white-space: nowrap;
-        }
-
-        &.followers {
-          color: #7f93a9;
-          line-height: 1;
-          white-space: nowrap;
-        }
-      }
-
-      .twitter-follow-button {
-        display: block;
-        width: fit-content;
-        margin-top: 16px;
-        padding: 6px 8px;
-        border: 1px solid @twitter-color;
-        border-radius: 3px;
-        background: @twitter-color;
-        color: white;
-        font-size: 0.9em;
-        line-height: 1;
-
-        &:hover {
-          background: white;
-          color: @twitter-color !important;
-          transition: @transition;
-        }
-
-        svg {
-          margin-right: 5px;
-        }
-      }
-    }
-
-    &.github {
-      .github-avatar {
-        margin-right: 10px;
-        font-size: 2em;
-      }
-
-      .github-org-meta {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 7px;
-
-        .meta-item {
-          display: flex;
-          align-items: center;
-          font-family: @body-font-bold;
-          font-size: 0.9em;
-          white-space: nowrap;
-
-          &:last-of-type {
-            margin-right: 0;
-          }
-        }
-      }
-
-      .repos {
-        .github-repo {
-          display: block;
-          padding: 20px 5px;
-          border-bottom: 1px solid #dcdcdc;
-          opacity: 0.9;
-
-          &:hover {
-            background: @hover-color;
-
-            * {
-              color: white !important;
-            }
-          }
-
-          &:last-of-type {
-            padding-bottom: 10px;
-            border-bottom: 0;
-          }
-
-          &:first-of-type {
-            padding-top: 15px;
-          }
-
-          .repo-name {
-            color: @body-color;
-            font-family: @body-font-bold;
-            line-height: 1;
-          }
-
-          .repo-description {
-            margin: 10px 0;
-            color: @body-color;
-            font-family: @body-font;
-            font-size: 0.95em;
-            line-height: 1.2;
-          }
-
-          .repo-meta {
+        .widget-header {
             display: flex;
-            font-family: @body-font-bold;
-            font-size: 0.9em;
-            font-weight: 900;
-            white-space: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
 
-            .meta-item {
-              font-size: .9em;
+            * {
+              line-height: 1;
             }
 
-            .repo-stargazers {
-              color: #e29b39;
+            .label {
+                font-weight: 500;
+                font-size: 0.95em;
+                font-family: @header-font-secondary;
+
+                svg {
+                    margin: 0 3px 0 0;
+                    font-size: 1em;
+                }
             }
-          }
+
+            .trending {
+                color: #3fa77a;
+            }
+
+            .pocket {
+                color: @pocket-color;
+            }
+
+            .trend-type {
+                opacity: 0.6;
+                font-size: 0.8em;
+            }
         }
-      }
+
+        &.about {
+            .widget-logo {
+                width: 230px;
+                margin: auto;
+                display: block;
+                transition: @transition;
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+
+            .description {
+                margin: 15px 0 0;
+                line-height: 1.35;
+                text-align: center;
+                font-size: 0.95em;
+            }
+        }
+
+        &.social {
+            display: flex;
+            justify-content: space-between;
+
+            svg {
+                font-size: 1.5em;
+            }
+            .social-buttons();
+        }
+
+        &.tags {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .tag {
+                color: #778794;
+                line-height: 1.5em;
+                display: inline-block;
+                font-size: 0.8em !important;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+                font-family: @body-font;
+                font-weight: normal;
+                flex-grow: 1;
+                text-align: center;
+                margin: 0 2px 4px;
+                padding: 6px 10px;
+                border: 1px solid #d7dee7;
+
+                &:hover {
+                    cursor: pointer;
+                    background: @hover-color;
+                    border: 1px solid @hover-color;
+                    color: white !important;
+                }
+            }
+        }
+
+        &.newsletter {
+            .newsletter-description {
+                font-size: 0.95em;
+                line-height: 1.3;
+                margin-bottom: 10px;
+                font-family: @body-font-book;
+            }
+
+            input {
+                width: -webkit-fill-available;
+                width: -moz-available;
+                width: -moz-available;
+                padding: 12px;
+                background: white;
+                font-size: 0.9em;
+                border: 1px solid #cfd4de;
+                transition: @transition;
+                margin: 8px 0 0;
+                .input-field-interactions();
+            }
+
+            button {
+                font-size: 1em;
+                color: @theme-color;
+                border: 0;
+                transition: @transition;
+                margin-top: 10px;
+                background: none;
+                text-align: right;
+                width: 100%;
+                font-weight: 500;
+                outline: none;
+                padding: 0;
+
+                svg {
+                    margin-left: 3px;
+                }
+
+                &:hover {
+                    color: @hover-color !important;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &.series {
+            .widget-series-featured {
+                img {
+                    width: 100%;
+                    transition: @transition;
+                }
+
+                .series-widget-detail {
+                    padding: 15px;
+                    border: 1px solid #d7dee7;
+
+                    .series-widget-title {
+                        margin: 0 0 10px;
+                        font-family: @header-font;
+                    }
+
+                    .series-widget-description {
+                        line-height: 1.1;
+                        margin-bottom: 10px;
+                        transition: @transition;
+                    }
+
+                    .series-widget-count {
+                        text-align: right;
+                        opacity: 0.6;
+                        font-size: 0.9em;
+                    }
+                }
+
+                &:hover {
+                    cursor: pointer;
+
+                    img {
+                        opacity: 0.7;
+                    }
+
+                    .series-widget-detail {
+                        background: lighten(@hover-color, 10%);
+                        border: 1px solid lighten(@hover-color, 10%);
+
+                        * {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.pocket,
+        &.trending {
+            .link {
+                display: block;
+                color: lighten(@header-color, 15%);
+                padding: 10px 0 15px;
+                margin: 10px 0;
+                border-bottom: 1px solid #e7e7e7;
+                font-size: 0.9em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 250px;
+                font-family: @header-font-secondary;
+
+                &:first-of-type {
+                    padding: 0 0 15px;
+                    margin: 0 0 10px;
+                }
+
+                &:last-of-type {
+                    padding: 10px 0 0;
+                    margin: 10px 0 0;
+                    border-bottom: 0 solid #e7e7e7;
+                }
+
+                .favicon {
+                    margin-right: 5px;
+                }
+            }
+
+            .widget-content {
+                margin-top: 30px;
+            }
+        }
+
+        &.twitter {
+            overflow: hidden;
+            padding: 25px 25px 45px;
+
+            .retweeted-header {
+                color: #8b9db7;
+                margin: 0 0 15px;
+
+                svg {
+                    margin-right: 3px;
+                }
+
+                span {
+                    font-family: @body-font;
+                    font-size: 0.9em;
+                }
+            }
+
+            .retweeted-body {
+                margin-left: 5px;
+                padding-left: 20px;
+                border-left: 3px solid #e2e7ed;
+            }
+
+            .twitter-header {
+                display: flex;
+                align-items: center;
+                margin: 0 0 15px;
+
+                .twitter-avatar {
+                    overflow: hidden;
+                    height: 35px;
+                    margin-right: 7px;
+                    border-radius: 505%;
+                }
+
+                .twitter-name {
+                    color: #4b5776;
+                    font-family: @header-font-secondary;
+                    font-size: 1.1em;
+                    display: block;
+                }
+
+                .twitter-user {
+                    color: #9ea6ae;
+                    font-weight: 500;
+                    margin-top: 3px;
+                    font-weight: 400;
+                    font-size: 0.9em;
+                    display: block;
+                }
+            }
+
+            .tweet {
+                border-bottom: 1px solid #e7e7e7;
+                padding: 35px 0;
+                font-family: @header-font-secondary;
+
+                &:last-of-type {
+                    border-bottom: 0;
+                    padding: 35px 0 0;
+                }
+
+                &:first-of-type {
+                    padding: 0 0 35px;
+                }
+
+                .tweet-footer {
+                    margin: 30px 0 0;
+                    display: flex;
+                    justify-content: left;
+
+                    .meta-item {
+                        margin-right: 25px;
+                        line-height: 1;
+
+                        span {
+                            font-size: 0.8em;
+                            line-height: 1;
+                        }
+
+                        svg {
+                            margin-right: 4px;
+                            font-size: 1em;
+                        }
+                    }
+
+                    .retweets {
+                        color: #59d39e;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .favorites {
+                        color: #eb4075;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .date {
+                        color: #a4b4c6;;
+                        font-size: 0.8em;
+                        line-height: 1;
+                    }
+                }
+
+                .tweet-link {
+                    color: #6baaf2;
+                    font-family: @body-font-bold;
+                    display: block;
+                    font-size: 0.86em;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    margin: 15px 0 0;
+                }
+
+                .tweet-hastags {
+                    width: 100%;
+
+                    .hashtag {
+                        color: #6a849f;
+                        font-size: 0.9em;
+                        margin: 0 7px 4px 0;
+                        display: inline-block;
+                        font-weight: 500;
+                    }
+                }
+
+                .tweet-content {
+                    margin: 0;
+                    line-height: 1.4;
+                    font-size: 0.9em;
+                    font-family: @body-font-book !important;
+                }
+            }
+        }
     }
-  }
 }
