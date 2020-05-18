@@ -9,8 +9,8 @@
     },
     "plugins": ["ghost", "react", "node", "promise", "import", "standard"],
     "extends": [
-        //"plugin:ghost/node",
-        //"plugin:ghost/ember",
+        "plugin:ghost/node",
+        "plugin:ghost/ember",
         "plugin:react/recommended",
         "plugin:promise/recommended",
         "eslint:recommended"

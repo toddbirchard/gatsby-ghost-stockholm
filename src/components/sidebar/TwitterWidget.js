@@ -64,7 +64,7 @@ const TwitterWidget = ({ data }) => {
                         : null}
                       {node.entities.urls.length > 0 ?
                         node.entities.urls.map(({ url }) => (
-                          <a href={url} className="tweet-link" key={`${node.id}-link`} rel="nofollow noreferrer">{url}</a>
+                          <a href={url} className="tweet-link" key={`${node.id}`} rel="nofollow noreferrer">{url}</a>
                         ))
                         : null}
                     </div>}

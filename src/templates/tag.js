@@ -4,7 +4,8 @@ import { graphql } from 'gatsby'
 import { Layout, PostCard } from '../components/common'
 import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
-import { FaTags } from 'react-icons/fa'
+import { InfoCard } from '../components/misc'
+
 
 import '../styles/pages/tag.less'
 
@@ -29,13 +30,7 @@ const Tag = ({ data, location, pageContext }) => {
       />
       <Layout template="tag-template page-template" hasSidebar>
         <section className="post-feed">
-          <header className="info-card">
-            <div className="page-title-card">
-              <FaTags />
-              <h1>{tag.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
-            </div>
-            {tag.description ? <p className="tag-description">{tag.description}</p> : null }
-          </header>
+          <InfoCard tag={tag} count={pageCount} />
           {posts.map(({ node }) => (
             <PostCard key={node.id} post={node} />
           ))}

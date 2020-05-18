@@ -127,7 +127,7 @@ class MobileMenu extends React.Component {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   {this.series.map(({ node }) => (
-                    <Link to={`/series/${ node.slug }`} className="tag-link" key={ node.id }>{ node.meta_title }</Link>
+                    <Link to={`/series/${ node.slug }`} className="tag-link" key={ node.ghostId }>{ node.meta_title }</Link>
                   ))}
                 </AccordionItemPanel>
                 </AccordionItem>
@@ -180,14 +180,12 @@ MobileMenu.propTypes = {
         url: PropTypes.string.isRequired,
       }).isRequired,
     ),
-    series: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        meta_title: PropTypes.string.isRequired,
+    series: PropTypes.shape({
+        ghostId: PropTypes.string,
+        slug: PropTypes.strin,
+        description: PropTypes.string,
+        meta_title: PropTypes.string,
       }).isRequired,
-    ),
     tags: PropTypes.object.isRequired,
     authors: PropTypes.object.isRequired,
     topSearches: PropTypes.object,
@@ -218,7 +216,7 @@ const MobileMenuQuery = props => (
             series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}}) {
               edges {
                 node {
-                  id
+                  ghostId
                   slug
                   description
                   meta_title
