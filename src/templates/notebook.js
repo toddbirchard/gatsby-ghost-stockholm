@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 //import NotebookPreview from "@nteract/notebook-preview"
-import * as ipynb from 'ipynb2html'
-import { Document } from 'nodom'
+// import * as ipynb from 'ipynb2html'
+// import { Document } from 'nodom'
 
 import '../styles/ipynb.less'
 
@@ -43,7 +43,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
           </div>
           <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
             __html: notebook.html,
-          }}></main>
+          }} />
         </div>
       </Layout>
     </>

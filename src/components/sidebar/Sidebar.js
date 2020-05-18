@@ -11,9 +11,10 @@ import { AuthorTrendingWidget,
   AuthorTwitterWidget,
   AuthorWebsiteWidget } from './authors'
 
-
 /**
-* Sidebar
+ *
+ * Sidebar
+ *
 */
 
 const Sidebar = ({ site, template, authorData }) => {

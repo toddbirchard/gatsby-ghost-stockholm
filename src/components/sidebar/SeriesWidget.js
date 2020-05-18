@@ -15,7 +15,9 @@ const SeriesWidget = ({ data }) => {
         <div className="trend-type">Top Series This Week</div>
       </div>
       <div className="widget-series-featured">
-        {series.feature_image && <Link to={url}><img className="series-widget-image lazyload" data-src={series.feature_image} alt={series.name} /> </Link>}
+        {series.feature_image &&
+          <Link to={url}><img className="series-widget-image lazyload" data-src={series.feature_image} alt={series.name} /> </Link>
+        }
         <div className="series-widget-detail">
           <Link to={url}><h3 className="series-widget-title">{title}</h3></Link>
           <section className="series-widget-description">{series.description}</section>

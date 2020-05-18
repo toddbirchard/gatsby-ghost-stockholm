@@ -431,16 +431,16 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-eslint',
+      resolve: `gatsby-plugin-eslint`,
       options: {
         test: /\.js$|\.jsx$/,
         exclude: /(node_modules|.cache|public)/,
-        stages: ['develop'],
+        stages: [`develop`],
         options: {
           emitWarning: true,
-          failOnError: false
-        }
-      }
+          failOnError: false,
+        },
+      },
     },
     /* Misc */
     `gatsby-plugin-styled-components`,

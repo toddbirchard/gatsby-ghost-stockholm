@@ -45,7 +45,15 @@ const GithubWidget = ({ data }) => {
 GithubWidget.propTypes = {
   data: PropTypes.shape({
     githubOrganization: PropTypes.object,
-    itemShowcase: PropTypes.object,
+    itemShowcase: PropTypes.shape({
+      items: PropTypes.shape({
+        edges: PropTypes.arrayOf(
+          PropTypes.shape({
+            node: PropTypes.object.isRequired,
+          })
+        ),
+      }),
+    }),
     membersWithRole: PropTypes.shape({
       totalCount: PropTypes.number,
     }),

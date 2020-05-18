@@ -33,22 +33,38 @@ const Footer = ({ navigation, site, data }) => {
               <dt className="footer-widget-title">Pages</dt>
               {navigation.map((navItem, i) => {
                 if (navItem.url.includes(config.siteUrl)) {
-                  return <dd key={i}><Link className={`footer-navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`}>{navItem.label}</Link></dd>
+                  return <dd key={i}>
+                    <Link className={`footer-navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`}>
+                      {navItem.label}
+                    </Link>
+                  </dd>
                 } else {
-                  return <dd key={i}><a className="footer-navigation-link donate" href={navItem.url} target="_blank" rel="noopener noreferrer">{navItem.label}</a></dd>
+                  return <dd key={i}>
+                    <a className="footer-navigation-link donate" href={navItem.url} target="_blank" rel="noopener noreferrer">
+                      {navItem.label}
+                    </a>
+                  </dd>
                 }
               })}
             </dl>
             <dl className="widget series">
               <dt className="footer-widget-title">Series</dt>
               {seriesLinks.map(({ node }) => (
-                <dd key={`${node.slug}-footer-link`}><a href={`/series/${node.slug}`} className="footer-navigation-link">{node.name.replace(`#`, ``)}</a></dd>
+                <dd key={`${node.slug}-footer-link`}>
+                  <a href={`/series/${node.slug}`} className="footer-navigation-link">
+                    {node.name.replace(`#`, ``)}
+                  </a>
+                </dd>
               ))}
             </dl>
             <dl className="widget authors">
               <dt className="footer-widget-title">Authors</dt>
               {authorLinks.map(({ node }) => (
-                <dd key={`${node.name}-footer-link`}><a href={`/author/${node.slug}`} className="footer-navigation-link">{node.name}</a></dd>
+                <dd key={`${node.name}-footer-link`}>
+                  <a href={`/author/${node.slug}`} className="footer-navigation-link">
+                    {node.name}
+                  </a>
+                </dd>
               ))}
             </dl>
           </div>

@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 /**
 * Tags widget
 */
+
 const TagsWidget = ({ data }) => {
   const tags = data.allGhostTag.edges
 
