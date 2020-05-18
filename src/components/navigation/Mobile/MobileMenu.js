@@ -62,6 +62,7 @@ class MobileMenu extends React.Component {
     super(props)
     this.tags = props.data.tags.edges
     this.series = props.data.series.edges
+    this.authors = props.data.authors.edges
     this.topSearches = props.data.topSearches.edges
     this.classes = props.data.fullWidth ? `fullWidth` : null
     this.state = { active: false, query: ``, focus: false }
@@ -70,7 +71,7 @@ class MobileMenu extends React.Component {
   render() {
     return (
       <>
-        <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
+        <Menu right width={ `90%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="search-container" onClick={ () => this.setState({ active: true })}>
             <InstantSearch
               searchClient={searchClient}
@@ -129,6 +130,18 @@ class MobileMenu extends React.Component {
                     <Link to={`/series/${ node.slug }`} className="tag-link" key={ node.id }>{ node.meta_title }</Link>
                   ))}
                 </AccordionItemPanel>
+                </AccordionItem>
+                <AccordionItem>
+                <AccordionItemHeading>
+                  <AccordionItemButton>
+                    <span>Authors</span> <FaChevronDown />
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                  {this.authors.map(({ node }) => (
+                    <Link to={`/author/${ node.slug }`} className="tag-link" key={ node.id }>{ node.name }</Link>
+                  ))}
+                </AccordionItemPanel>
               </AccordionItem>
             </Accordion>
             <Link className={`navigation-link`} to={`/join-us/`}>Join</Link>
@@ -176,6 +189,7 @@ MobileMenu.propTypes = {
       }).isRequired,
     ),
     tags: PropTypes.object.isRequired,
+    authors: PropTypes.object.isRequired,
     topSearches: PropTypes.object,
     fullWidth: PropTypes.bool,
   }).isRequired,
@@ -216,6 +230,18 @@ const MobileMenuQuery = props => (
                 node {
                   search
                   count
+                }
+              }
+            }
+            authors: allGhostAuthor(filter: {postCount: {gt: 1}}) {
+              edges {
+                node {
+                  name
+                  slug
+                  id
+                  count {
+                    posts
+                  }
                 }
               }
             }

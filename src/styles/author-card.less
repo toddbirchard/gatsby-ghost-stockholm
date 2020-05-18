@@ -12,6 +12,10 @@
     color: #5a606d;
   }
 
+  p {
+    margin-bottom: 0 !important;
+  }
+
   .author-card-head {
     display: flex;
     align-items: top;
@@ -20,7 +24,7 @@
   }
 
   .author-card-name {
-    margin: 0 0 .5em;
+    margin: 0 0 0.5em;
     color: #666c70;
     font-family: @header-font-secondary;
     font-size: 1.3em;
@@ -34,9 +38,9 @@
   }
 
   .author-card-image {
-    width: 80px;
-    min-width: 80px;
-    height: 80px;
+    width: 90px;
+    min-width: 90px;
+    height: 90px;
     overflow: hidden;
     border-radius: 3px;
     @media(max-width: @mobile-breakpoint) {
@@ -67,11 +71,11 @@
 
     .author-card-meta {
       display: flex;
-      margin: 10px 0;
+      margin: 13px 0;
       overflow: hidden;
       @media (max-width: @mobile-breakpoint) {
-        margin: 10px 0 0;
         flex-wrap: wrap;
+        margin: 13px 0 10px;
       }
 
       .author-card-item {
@@ -113,8 +117,8 @@
     .author-card-bio {
       margin: 0;
       color: @body-color;
-      font-family: @body-font-bold;
-      font-size: 1em;
+      font-family: @body-font;
+      font-size: 1em !important;
       line-height: 1.3em;
     }
   }
@@ -198,8 +202,8 @@
   margin-bottom: 20px !important;
   padding: 40px 5%;
   box-shadow: @box-shadow;
-  @media (max-width: @mobile-breakpoint) {
-    padding: 30px 8%;
+  @media (max-width: @tablet-breakpoint) {
+    display: none;
   }
 
   .author-card-meta {
@@ -217,5 +221,68 @@
   .author-card-bio {
     font-family: @body-font;
     line-height: 1.4;
+  }
+}
+
+.author-card-mobile {
+  display: none;
+  width: 90%;
+  margin: 40px auto 20px !important;
+  padding: 0 0 30px;
+  border-bottom: 1px solid #d4dae2;
+  background: unset;
+  @media(max-width: @tablet-breakpoint) {
+    display: block;
+
+    .author-card-head {
+      display: flex;
+    }
+
+    .author-card-image {
+      width: 100px;
+      min-width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+    }
+
+    .author-card-name {
+      margin: 0 0 0.5em;
+      color: #666c70;
+      font-family: @body-font-bold;
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+
+    .author-card-meta {
+      margin: 19px 0 !important;
+
+      .author-card-item {
+        margin: 0 25px 0 0 !important;
+      }
+    }
+
+    .author-card-bio {
+      max-width: 90%;
+    }
+  }
+  @media(max-width: @mobile-breakpoint) {
+    max-width: 93%;
+
+    .author-card-head {
+      display: block;
+    }
+
+    * {
+      text-align: center;
+    }
+
+    .author-card-meta {
+      justify-content: center;
+    }
+
+    .author-card-bio {
+      margin: auto !important;
+    }
   }
 }

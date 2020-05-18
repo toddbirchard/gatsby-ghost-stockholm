@@ -52,7 +52,7 @@ const TwitterWidget = ({ data }) => {
                     <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
                   </div>}
 
-              {node.retweeted === false && node.in_reply_to_screen_name === false &&
+              {!node.retweeted && !node.in_reply_to_screen_name &&
                     <div>
                       <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
                       {node.entities.hashtags.length > 0 ?
@@ -136,12 +136,6 @@ const TwitterQuery = props => (
               retweet_count
               created_at
               id
-              user {
-                name
-                url
-                profile_image_url_https
-                screen_name
-              }
               user {
                 profile_image_url_https
                 url
