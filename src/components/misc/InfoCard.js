@@ -13,7 +13,7 @@ return (
         {tag.feature_image
           ? <img src={tag.feature_image} alt={tag.name} className="tag-image" />
           : <FaTag />}
-        <div>
+        <div className="card-details">
           <div className="page-title-card">
             <h1>{tag.name}{count && <span>{` (page ${count})`}</span>}</h1>
           </div>
