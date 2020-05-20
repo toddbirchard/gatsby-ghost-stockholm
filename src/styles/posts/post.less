@@ -591,4 +591,39 @@
       }
     }
   }
+
+  .basicLightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .85);
+    z-index: 100;
+    transition: @transition;
+
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 80%;
+      max-height: 80%;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      @media(max-width: @mobile-breakpoint) {
+        max-width: 100%;
+        max-height: unset;
+      }
+    }
+  }
+}
+
+.noscroll {
+  overflow: hidden;
 }
