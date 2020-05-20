@@ -1,7 +1,8 @@
 import React from 'react'
 import { Configure,
   connectStateResults,
-  Hits, InstantSearch,
+  Hits,
+  InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
 import { HitsWrapper } from './SearchStyles'
@@ -130,8 +131,8 @@ class MobileMenu extends React.Component {
                     <Link to={`/series/${ node.slug }`} className="tag-link" key={ node.ghostId }>{ node.meta_title }</Link>
                   ))}
                 </AccordionItemPanel>
-                </AccordionItem>
-                <AccordionItem>
+              </AccordionItem>
+              <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
                     <span>Authors</span> <FaChevronDown />
@@ -148,14 +149,6 @@ class MobileMenu extends React.Component {
             <a className={`navigation-link`} href={config.social.feedly}>RSS</a>
             <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers">Donate</a>
           </div>
-          {/*<div className="tags">
-            <div className="sublinks">
-              <div className="mobile-tag-title">Tags</div>
-              {this.tags.map(({ node }) => (
-                <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.name }>{ node.name }</Link>
-              ))}
-            </div>
-          </div>*/}
           <div className="top-searches">
             <div className="top-search-title">Trending Searches</div>
             <div className="sublinks">
@@ -181,17 +174,16 @@ MobileMenu.propTypes = {
       }).isRequired,
     ),
     series: PropTypes.shape({
-        ghostId: PropTypes.string,
-        slug: PropTypes.strin,
-        description: PropTypes.string,
-        meta_title: PropTypes.string,
-      }).isRequired,
+      ghostId: PropTypes.string,
+      slug: PropTypes.string,
+      description: PropTypes.string,
+      meta_title: PropTypes.string,
+    }).isRequired,
     tags: PropTypes.object.isRequired,
     authors: PropTypes.object.isRequired,
     topSearches: PropTypes.object,
     fullWidth: PropTypes.bool,
   }).isRequired,
-
 }
 
 const MobileMenuQuery = props => (

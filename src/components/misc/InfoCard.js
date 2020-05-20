@@ -1,12 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 import { FaTag } from 'react-icons/fa'
 
-
-const InfoCard = ({ tag, count }) => {
-
-return (
+const InfoCard = ({ tag, count }) => (
   <>
     <header className="info-card">
       <div className="info-card-wrapper">
@@ -18,11 +14,19 @@ return (
             <h1>{tag.name}{count && <span>{` (page ${count})`}</span>}</h1>
           </div>
           {tag.description ? <p className="tag-description">{tag.description}</p> : null }
+        </div>
       </div>
-    </div>
     </header>
   </>
-  )
+)
+
+InfoCard.propTypes = {
+  tag: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    feature_image: PropTypes.string,
+  }).isRequired,
+  count: PropTypes.number.isRequired,
 }
 
 export default InfoCard

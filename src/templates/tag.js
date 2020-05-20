@@ -6,7 +6,6 @@ import { Pagination } from '../components/navigation'
 import { MetaData } from '../components/common/meta'
 import { InfoCard } from '../components/misc'
 
-
 import '../styles/pages/tag.less'
 
 /**
@@ -15,6 +14,7 @@ import '../styles/pages/tag.less'
 * Loads all posts for the requested tag incl. pagination.
 *
 */
+
 const Tag = ({ data, location, pageContext }) => {
   const tag = data.ghostTag
   const posts = data.allGhostPost.edges

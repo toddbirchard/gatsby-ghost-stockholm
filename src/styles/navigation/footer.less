@@ -11,8 +11,9 @@
     margin: auto;
     border-top: 1px solid #d8e0e6;
     @media (max-width: @mobile-breakpoint) {
-      max-width: 100%;
-      border-top: 0;
+      width: 90%;
+      max-width: unset;
+      margin: 40px auto 10px;
     }
 
     .link-grid {
@@ -46,10 +47,7 @@
     padding: 50px 0 10px;
     @media (max-width: @mobile-breakpoint) {
       display: block;
-      width: unset;
-      max-width: unset;
-      margin: 40px 40px 10px;
-      border-top: 1px solid #dadada;
+      padding: 50px 20px 10px;
     }
 
     .widget {
@@ -233,9 +231,6 @@
         @media(max-width: @tablet-breakpoint) {
           font-size: 2em;
         }
-        @media(max-width: @mobile-breakpoint) {
-          font-size: 1.9em;
-        }
 
         &:hover {
           -webkit-transform: scale(1.2);
@@ -297,7 +292,10 @@
 }
 
 /* Series Detail Footer */
-.copyright,
-.footer-wrapper {
-  width: 1020px !important;
+.series-template {
+  .copyright,
+  .footer-wrapper {
+    width: 1020px !important;
+  }
 }
+

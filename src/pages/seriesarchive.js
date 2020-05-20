@@ -60,6 +60,7 @@ SeriesArchive.propTypes = {
   pageContext: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    metaDescription: PropTypes.string,
   }),
   location: PropTypes.object,
 }

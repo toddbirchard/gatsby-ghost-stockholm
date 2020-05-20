@@ -147,5 +147,4 @@ export const SearchPageQuery = graphql`
         }
     }`
 
-
 export default SearchPage

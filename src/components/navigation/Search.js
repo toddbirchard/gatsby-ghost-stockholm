@@ -1,7 +1,8 @@
 import React, { createRef, useState } from 'react'
 import { Configure,
   connectStateResults,
-  Hits, InstantSearch,
+  Hits,
+  InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
 import algoliasearch from 'algoliasearch/lite'
@@ -9,6 +10,7 @@ import { useClickOutside } from '../../utils/hooks'
 import { HitsWrapper, Root } from './SearchStyles'
 import { Link } from 'gatsby'
 import { FaTags, FaSearch } from 'react-icons/fa'
+import PropTypes from "prop-types"
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div className="no-results">{`No results for ${state.query}`}</div>),
@@ -98,4 +100,10 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
       </InstantSearch>
     </Root>
   )
+}
+
+Search.propTypes = {
+  forcedQuery: PropTypes.string,
+  collapse: PropTypes.object.isRequired,
+  hitsAsGrid: PropTypes.object,
 }
