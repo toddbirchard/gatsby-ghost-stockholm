@@ -33,7 +33,7 @@ const SupportWidget = () => {
           <p className="support-description">{donateCopy}</p>
           <a className="coffee-button" rel="noopener noreferrer" target="_blank" href={coffeeUrl}>
             <img src={coffeeImg} alt="Buy us a coffee" />
-            <span className="coffee-button-text">Buy us a coffee</span>
+            <span className="coffee-button-text">Buy me a coffee</span>
           </a>
         </div>
       </div>

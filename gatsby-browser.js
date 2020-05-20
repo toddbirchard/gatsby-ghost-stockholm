@@ -44,7 +44,7 @@ export const onRouteUpdate = ({location}) => {
             let html = `<img src="` + images[image].getAttribute('src') + `" />`;
             const instance = basicLightbox.create(html, {
               onShow: (instance) => {
-                document.body.classList.toggle('noscroll');
+          instance.element().style.opacity = 1
               },
               onClose: (instance) => {
                 instance.element().style.opacity = 0
