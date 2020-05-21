@@ -24,7 +24,8 @@
           "ini",
           "graphql",
           "less",
-          "nginx"
+          "nginx",
+          "go"
         ],
         "plugins": ["normalize-whitespace"],
         "theme": "default",
