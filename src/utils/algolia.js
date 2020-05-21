@@ -9,6 +9,7 @@ const postQuery = `{
         feature_image
         excerpt
         meta_description
+        plaintext
         tags {
           name
           slug
@@ -36,6 +37,7 @@ const allPostQuery = `{
         feature_image
         excerpt
         meta_description
+        plaintext
         tags {
           name
         }
