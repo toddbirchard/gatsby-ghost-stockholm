@@ -31,7 +31,7 @@ const Commento = ({ id }) => {
       insertScript(`/js/commento.js`, `commento-script`, document.body)
     }
     // Remove the script from the page
-    return () => removeScript(`commento-script`, document.body)
+    removeScript(`commento-script`, document.body)
   }, [id])
   return <div id={`commento`} />
 }
