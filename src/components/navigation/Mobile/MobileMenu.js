@@ -174,11 +174,15 @@ MobileMenu.propTypes = {
       }).isRequired,
     ),
     series: PropTypes.shape({
-      ghostId: PropTypes.string,
-      slug: PropTypes.string,
-      description: PropTypes.string,
-      meta_title: PropTypes.string,
-    }).isRequired,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          ghostId: PropTypes.string,
+          slug: PropTypes.string,
+          description: PropTypes.string,
+          meta_title: PropTypes.string,
+        }).isRequired,
+      ),
+    }),
     tags: PropTypes.object.isRequired,
     authors: PropTypes.object.isRequired,
     topSearches: PropTypes.object,

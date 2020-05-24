@@ -30,7 +30,7 @@ const GithubWidget = ({ data }) => {
               <div className="repo-name">{node.name}</div>
               <div className="repo-description">{node.description.split(`: `).pop()}</div>
               <div className="repo-meta">
-                <div className="repo-lang meta-item" style={{ color: node.primaryLanguage.color }}><FaCode /> <span>{node.primaryLanguage.name}</span></div>
+                <div className="repo-lang meta-item"><FaCode /> <span>{node.primaryLanguage.name}</span></div>
                 <div className="repo-stargazers meta-item"><FaStar /> <span>{node.stargazers.totalCount}</span></div>
                 <div className="repo-forks meta-item"><FaCodeBranch /> <span>{node.forkCount}</span></div>
               </div>
@@ -90,7 +90,6 @@ const GithubWidgetQuery = props => (
                       name
                       forkCount
                       primaryLanguage {
-                        color
                         name
                       }
                       stargazers {

@@ -46,19 +46,21 @@ const JupyterArchive = ({ data, location, pageContext }) => {
 
 JupyterArchive.propTypes = {
   data: PropTypes.shape({
-    allFile: PropTypes.arrayOf(
-      PropTypes.shape({
-        childJupyterNotebook: PropTypes.shape({
-          fileAbsolutePath: PropTypes.string.isRequired,
+    allFile: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          childJupyterNotebook: PropTypes.shape({
+            fileAbsolutePath: PropTypes.string.isRequired,
+          }),
+          slug: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          modifiedTime: PropTypes.string,
+          gitRemote: PropTypes.shape({
+            href: PropTypes.string,
+          }),
         }),
-        slug: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        modifiedTime: PropTypes.string,
-        gitRemote: PropTypes.shape({
-          href: PropTypes.string,
-        }),
-      }),
-    ),
+      ),
+    }),
   }).isRequired,
   location: PropTypes.object,
   pageContext: PropTypes.shape({

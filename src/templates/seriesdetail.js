@@ -55,23 +55,25 @@ SeriesDetail.propTypes = {
       description: PropTypes.string,
       feature_image: PropTypes.string,
     }),
-    allGhostPost: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        primary_author: PropTypes.object.isRequired,
-        html: PropTypes.string.isRequired,
-        feature_image: PropTypes.string,
-        tags: PropTypes.arrayOf(
-          PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-          })
-        ).isRequired,
-        published_at_pretty: PropTypes.string,
-      }).isRequired,
-    ),
-  }).isRequired,
+    allGhostPost: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+          primary_author: PropTypes.object.isRequired,
+          html: PropTypes.string.isRequired,
+          feature_image: PropTypes.string,
+          tags: PropTypes.arrayOf(
+            PropTypes.shape({
+              name: PropTypes.string.isRequired,
+              slug: PropTypes.string.isRequired,
+            })
+          ).isRequired,
+          published_at_pretty: PropTypes.string,
+        }).isRequired,
+      ),
+    }).isRequired,
+  }),
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,

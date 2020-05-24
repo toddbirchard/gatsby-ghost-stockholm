@@ -39,7 +39,6 @@ export const onRouteUpdate = ({location}) => {
     if (images.length > 0) {
       for (let image in images) {
         if (image < images.length) {
-          console.log(images[image]);
           images[image].onclick = () => {
             let html = `<img src="` + images[image].getAttribute('src') + `" />`;
             const instance = basicLightbox.create(html, {

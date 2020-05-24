@@ -86,31 +86,35 @@ const TwitterWidget = ({ data }) => {
 TwitterWidget.propTypes = {
   data: PropTypes.shape({
     tweets: PropTypes.shape({
-      full_text: PropTypes.string,
-      favorite_count: PropTypes.number,
-      retweet_count: PropTypes.number,
-      created_at: PropTypes.string,
-      id: PropTypes.string,
-      retweeted: PropTypes.bool,
-      user: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-        profile_image_url_https: PropTypes.string.isRequired,
-        screen_name: PropTypes.string.isRequired,
-      }),
-      entities: PropTypes.shape({
-        urls: PropTypes.arrayOf(
-          PropTypes.shape({
-            url: PropTypes.string,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          full_text: PropTypes.string,
+          favorite_count: PropTypes.number,
+          retweet_count: PropTypes.number,
+          created_at: PropTypes.string,
+          id: PropTypes.string,
+          retweeted: PropTypes.bool,
+          user: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            url: PropTypes.string.isRequired,
+            profile_image_url_https: PropTypes.string.isRequired,
+            screen_name: PropTypes.string.isRequired,
           }),
-        ),
-        hashtags: PropTypes.arrayOf(
-          PropTypes.shape({
-            text: PropTypes.string,
+          entities: PropTypes.shape({
+            urls: PropTypes.arrayOf(
+              PropTypes.shape({
+                url: PropTypes.string,
+              }),
+            ),
+            hashtags: PropTypes.arrayOf(
+              PropTypes.shape({
+                text: PropTypes.string,
+              }),
+            ),
           }),
-        ),
-      }),
-    }).isRequired,
+        }).isRequired,
+      ),
+    }),
     twitterProfile: PropTypes.shape({
       user: PropTypes.shape({
         profile_image_url_https: PropTypes.string,

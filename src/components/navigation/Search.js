@@ -104,6 +104,6 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
 
 Search.propTypes = {
   forcedQuery: PropTypes.string,
-  collapse: PropTypes.object.isRequired,
+  collapse: PropTypes.bool.isRequired,
   hitsAsGrid: PropTypes.object,
 }
