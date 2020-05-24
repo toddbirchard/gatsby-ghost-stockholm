@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
   const url = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
   const readingTime = readingTimeHelper(post)
   const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
-  const authorAvatar = post.primary_author.profile_image ? post.primary_author.profile_image : <FaUserEdit />
+  const authorAvatar = post.primary_author.profile_image ? post.primary_author.profile_image : null
   const publishDate = post.published_at_pretty
 
   return (
@@ -33,17 +33,17 @@ const PostCard = ({ post }) => {
         <footer className="post-card-footer">
           {post.primary_author ?
             <div className="meta-item author">
-              <Link to={`/author/${post.primary_author.slug}`}>
-                <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
-                <div>
-                  <div className="author-name">{authorFirstName}</div>
-                  <div className="meta-info">
-                    <span>{publishDate}</span>
-                    <span>•</span>
-                    <span>{readingTime}</span>
-                  </div>
+              {authorAvatar
+                ? <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
+                : <FaUserEdit /> }
+              <div>
+                <Link to={`/author/${post.primary_author.slug}`} className="author-name">{authorFirstName}</Link>
+                <div className="post-card-meta-info">
+                  <span>{publishDate}</span>
+                  <span>•</span>
+                  <span>{readingTime}</span>
                 </div>
-              </Link>
+              </div>
             </div> : null}
         </footer>
       </div>
