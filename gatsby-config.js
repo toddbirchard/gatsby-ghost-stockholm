@@ -256,7 +256,7 @@ module.exports = {
      *  Netlify Plugins
      */
     `gatsby-plugin-netlify-cache`,
-    {
+    /*{
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: { "/*": [
@@ -275,7 +275,7 @@ module.exports = {
         transformHeaders: headers => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
         generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
       },
-    },
+    },*/
     /**
      *  Utility Plugins
      */

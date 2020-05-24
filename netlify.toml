@@ -9,6 +9,12 @@
   incoming-hooks = ["Ghost"]
 
 [[redirects]]
+    from = "http://hackersandslackers.app/"
+    to = "https://hackersandslackers.app/"
+    status = 301
+
+
+[[redirects]]
     from = "/ghost"
     to = "https://hackersandslackers.app/ghost"
     status = 301
