@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import { FaGithub, FaUsers, FaCode, FaStar, FaCodeBranch, FaProjectDiagram } from 'react-icons/fa'
+import { FaGithub, FaCode, FaStar, FaCodeBranch, FaProjectDiagram } from 'react-icons/fa'
 
 /**
 * Github widget
@@ -19,7 +19,6 @@ const GithubWidget = ({ data }) => {
           <div className="profile-details">
             <a href={githubOrg.url} className="github-name" target="_blank" rel="noopener noreferrer">{`@${githubOrg.login}`}</a>
             <div className="github-org-meta">
-              <div className="meta-item"><FaUsers /> {githubOrg.membersWithRole.totalCount} Members</div>
               <div className="meta-item"><FaProjectDiagram /> {githubOrg.repositories.totalCount} Repos</div>
             </div>
           </div>
@@ -54,9 +53,6 @@ GithubWidget.propTypes = {
         ),
       }),
     }),
-    membersWithRole: PropTypes.shape({
-      totalCount: PropTypes.number,
-    }),
     repositories: PropTypes.shape({
       totalCount: PropTypes.number,
     }),
@@ -75,9 +71,6 @@ const GithubWidgetQuery = props => (
               description
               url
               login
-              membersWithRole{
-                totalCount
-              }
               repositories {
                 totalCount
               }
