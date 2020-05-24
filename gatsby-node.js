@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
                         slug
                         primary_tag {
                           slug
+                          name
                         }
                         primary_author {
                           slug
@@ -289,6 +290,7 @@ exports.createPages = async ({ graphql, actions }) => {
     node.name = null
     node.tagSlugs = []
     node.primary = null
+    node.primary_tag_name
 
     if (node.url.includes(`lynx`)) {
       node.url = `/roundup/${node.slug}/`
@@ -300,6 +302,7 @@ exports.createPages = async ({ graphql, actions }) => {
       // get primary tag
       if (index === 0) {
         node.primary = element.slug
+        node.primary_tag_name = element.name
       }
 
       // determine if post is in series

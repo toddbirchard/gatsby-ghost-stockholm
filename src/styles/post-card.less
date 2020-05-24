@@ -22,6 +22,34 @@
     }
   }
 
+  .primary-tag {
+    margin-bottom: 10px;
+    line-height: 1;
+    @media(max-width: @mobile-breakpoint) {
+      margin-bottom: 8px;
+    }
+    /*font-family: @body-font-bold;
+    background: #277899;
+    font-size: .9em;
+    width: fit-content;
+    padding: 2px 6px;
+    border-radius: 3px;*/
+
+    a {
+      color: #607fa2;
+      font-family: @header-font-secondary;
+      font-size: 1.1em;
+
+      &:hover {
+        color: @hover-color;
+
+        * {
+          color: @hover-color;
+        }
+      }
+    }
+  }
+
   .post-card-title {
     margin: 0;
     padding: 0;
@@ -71,15 +99,15 @@
     .post-card-excerpt {
       -webkit-line-clamp: 3;
       .line-clamp();
-      margin: 10px auto 30px;
+      margin: 10px auto 20px;
       color: #5e6877;
       font-family: @body-font-bold;
-      font-size: 1.1em;
+      font-size: 1.15em;
       letter-spacing: -.5px;
       line-height: 1.2;
       transition: all 0.2s ease-out;
       @media (max-width: @tablet-breakpoint) {
-        margin: 12px auto 20px;
+        margin: 5px auto 20px;
       }
       @media (max-width: @mobile-breakpoint) {
         font-size: 1.05em;
@@ -90,7 +118,7 @@
   .post-card-footer {
     -webkit-line-clamp: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -123,7 +151,10 @@
         margin-right: 5px;
       }
 
-      &.reading-item {
+      &.reading-time {
+        font-family: @body-font-bold;
+        font-size: .9em;
+        margin-bottom: 2px;
         @media (max-width: @mobile-breakpoint) {
           display: none;
         }
@@ -135,16 +166,32 @@
         }
       }
 
-      &.author:hover,
-      &.tag:hover {
-        color: @hover-color;
 
-        * {
-          color: @hover-color;
-        }
-      }
 
       &.author {
+        a {
+          display: flex;
+        }
+        img {
+          height: 35px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        .meta-info {
+          font-family: @body-font-bold;
+          font-size: .9em;
+
+          span {
+            margin-right: 8px;
+          }
+
+        }
+        .author-name {
+          font-size: 1.1em;
+          color: #656e85;
+          margin-bottom: 2px;
+        }
         @media(max-width: @mobile-breakpoint) {
           margin-right: 0;
         }
