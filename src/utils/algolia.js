@@ -43,6 +43,7 @@ const allPostQuery = `{
         }
         primary_tag {
           name
+          slug
         }
         primary_author {
           name

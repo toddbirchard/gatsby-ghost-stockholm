@@ -99,6 +99,7 @@
         font-size: 1em !important;
         @media(max-width: 900px) {
           min-width: unset;
+          height: 40px;
         }
 
         &:hover {
@@ -117,6 +118,7 @@
       }
       @media(max-width: @mobile-breakpoint) {
         margin: 0 0 10px 0;
+        height: 40px;
       }
 
       .search-icon {
@@ -129,6 +131,12 @@
         margin: auto;
         color: #a6b6c7;
         opacity: 0.8;
+        @media(max-width: @mobile-breakpoint) {
+          font-size: .8em;
+          right: 15px;
+          width: 17px;
+          height: 17px;
+        }
       }
     }
 
@@ -148,7 +156,7 @@
         border: 1px solid #dfdede;
         border-radius: 0;
         background: #fcfcfd !important;
-        font-size: 1.2em!important;
+        font-size: 1.2em;
         line-height: normal;
         transition: all 0.2s ease-out;
         .input-text-fields();
@@ -156,6 +164,7 @@
         @media (max-width: @mobile-breakpoint) {
           padding: 15px;
           font-size: 1em;
+          height: 40px;
         }
       }
     }
@@ -357,7 +366,7 @@
     .post-card {
       height: 100%;
 
-      .primary_tag {
+      .primary_tag a {
         font-size: .85em;
       }
 
