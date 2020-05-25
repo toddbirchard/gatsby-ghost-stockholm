@@ -8,10 +8,11 @@ import '../../styles/author-card.less'
 const AuthorCard = ({ author, page, template, pageContext }) => {
   const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
   const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
+  const authorCardClass = page ? `author-card ${page}` : `author-card`
 
   return (
     <>
-      <div className={`author-card ${page}`}>
+      <div className={authorCardClass}>
         <div className="author-card-head">
           <div className="author-card-image">
             {author.profile_image ? <img className="lazyload" data-src={author.profile_image} alt={`${author.name}'s avatar`} title={author.name} /> : <img className="lazyload" data-src="/images/icons/avatar.svg" alt={author.name} title={author.name} />}

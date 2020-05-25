@@ -22,7 +22,7 @@
       @media (max-width: @mobile-breakpoint) {
         display: flex;
         width: auto;
-        padding:10px;
+        padding: 10px;
         margin-bottom: 0;
         justify-content: space-between;
       }
@@ -105,8 +105,9 @@
           white-space: nowrap;
           opacity: 0.9;
 
-          svg {
+          .tags-icon {
             margin-right: 5px;
+            min-width: 15px;
           }
 
           .tag-separator {
@@ -200,6 +201,7 @@
       text-align: left;
       @media (max-width: @mobile-breakpoint) {
         max-width: unset;
+        margin: 0 auto 15px;
       }
     }
 

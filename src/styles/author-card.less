@@ -172,30 +172,30 @@
   }
 }
 
-.post{
-.author-card {
-  justify-content: left;
-  margin: 30px auto 0;
-  padding: 40px 0 20px 0 !important;
-  border-top: 2px dotted #eaeaea;
-  @media (max-width: @tablet-breakpoint) {
-    padding: 30px 0 0;
-  }
-  @media (max-width: @mobile-breakpoint) {
-    margin: auto !important;
-  }
-
-  .author-card-meta {
-    margin: 12px 0;
-  }
-
-  .author-card-bio-mobile {
+.post {
+  .author-card {
+    justify-content: left;
+    margin: 30px auto 0;
+    padding: 40px 0 0 0 !important;
+    border-top: 2px dotted #eaeaea;
+    @media (max-width: @tablet-breakpoint) {
+      padding: 30px 0 0;
+    }
     @media (max-width: @mobile-breakpoint) {
-      margin: 10px auto 0;
-      line-height: 1.4;
+      margin: auto !important;
+    }
+
+    .author-card-meta {
+      margin: 12px 0;
+    }
+
+    .author-card-bio-mobile {
+      @media (max-width: @mobile-breakpoint) {
+        margin: 10px auto 0;
+        line-height: 1.4;
+      }
     }
   }
-}
 }
 
 .author-card.author {
