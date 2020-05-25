@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout, PostCard } from '../components/common'
-import { Pagination } from '../components/navigation'
-import { MetaData } from '../components/common/meta'
-import { InfoCard } from '../components/misc'
+import {graphql} from 'gatsby'
+import {Layout, PostCard} from '../components/common'
+import {Pagination} from '../components/navigation'
+import {MetaData} from '../components/common/meta'
+import {InfoCard} from '../components/misc'
 
 import '../styles/pages/tag.less'
 
 /**
-* Tag page (/tag/:slug)
-*
-* Loads all posts for the requested tag incl. pagination.
-*
-*/
+ * Tag page (/tag/:slug)
+ *
+ * Loads all posts for the requested tag incl. pagination.
+ *
+ */
 
-const Tag = ({ data, location, pageContext }) => {
+const Tag = ({data, location, pageContext}) => {
   const tag = data.ghostTag
   const posts = data.allGhostPost.edges
   const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
@@ -30,11 +30,11 @@ const Tag = ({ data, location, pageContext }) => {
       />
       <Layout template="tag-template page-template" hasSidebar>
         <section className="post-feed">
-          <InfoCard tag={tag} count={pageCount} />
-          {posts.map(({ node }) => (
-            <PostCard key={node.id} post={node} />
+          <InfoCard tag={tag} count={pageCount}/>
+          {posts.map(({node}) => (
+            <PostCard key={node.id} post={node}/>
           ))}
-          <Pagination pageContext={pageContext} />
+          <Pagination pageContext={pageContext}/>
         </section>
       </Layout>
     </>
@@ -75,20 +75,20 @@ Tag.propTypes = {
 export default Tag
 
 export const tagQuery = graphql`
-    query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
-        ghostTag(slug: { eq: $slug }) {
-            ...GhostTagFields
+  query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
+    ghostTag(slug: { eq: $slug }) {
+      ...GhostTagFields
+    }
+    allGhostPost(
+      sort: { order: DESC, fields: [published_at] },
+      filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
+      limit: $limit,
+      skip: $skip
+    ) {
+      edges {
+        node {
+          ...GhostPostFields
         }
-        allGhostPost(
-            sort: { order: DESC, fields: [published_at] },
-            filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
-            limit: $limit,
-            skip: $skip
-        ) {
-            edges {
-                node {
-                ...GhostPostFields
-                }
-            }
-        }
-      }`
+      }
+    }
+  }`

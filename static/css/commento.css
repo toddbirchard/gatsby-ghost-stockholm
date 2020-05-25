@@ -125,7 +125,7 @@
   float: unset;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .commento-root .commento-options {
     width: 120px !important;
   }
@@ -200,14 +200,14 @@
   margin-bottom: 10px;
 }
 
-.commento-root #commento-main-area .commento-comments>div>.commento-card {
+.commento-root #commento-main-area .commento-comments > div > .commento-card {
   padding: 20px !important;
   border-left: none !important;
   border-radius: 2px !important;
 }
 
-@media(max-width: 600px) {
-  .commento-root #commento-main-area .commento-comments>div>.commento-card {
+@media (max-width: 600px) {
+  .commento-root #commento-main-area .commento-comments > div > .commento-card {
     padding: 20px !important;
   }
 }
@@ -266,7 +266,7 @@
   }
 }
 
-.commento-root .commento-card>div:nth-of-type(2) {
+.commento-root .commento-card > div:nth-of-type(2) {
   margin: 0;
 }
 
@@ -288,7 +288,7 @@
   font-size: 0.9em !important;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .commento-root .commento-card .commento-body {
     margin: 0;
   }
@@ -711,7 +711,7 @@
   color: #495057
 }
 
-@media only screen and (max-width:1000px) {
+@media only screen and (max-width: 1000px) {
   .commento-login-box-container .commento-login-box .footer .footer-inner .link-group {
     display: block
   }
@@ -1044,7 +1044,7 @@
   color: #495057
 }
 
-@media only screen and (max-width:1000px) {
+@media only screen and (max-width: 1000px) {
   .commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .link-group {
     display: block
   }

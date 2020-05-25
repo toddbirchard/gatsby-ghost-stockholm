@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout } from '../components/common'
+import {graphql} from 'gatsby'
+import {Layout} from '../components/common'
 //import NotebookPreview from "@nteract/notebook-preview"
 // import * as ipynb from 'ipynb2html'
 // import { Document } from 'nodom'
@@ -9,13 +9,13 @@ import { Layout } from '../components/common'
 import '../styles/ipynb.less'
 
 /**
-* Single notebook view (/jupyter/:slug)
-*
-* This file renders a single notebook and loads all the content.
-*
-*/
+ * Single notebook view (/jupyter/:slug)
+ *
+ * This file renders a single notebook and loads all the content.
+ *
+ */
 
-const JupyterNotebook = ({ data, pageContext }) => {
+const JupyterNotebook = ({data, pageContext}) => {
   const file = data.file
   const notebook = file.childJupyterNotebook
   const languageName = notebook.metadata
@@ -43,7 +43,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
           </div>
           <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
             __html: notebook.html,
-          }} />
+          }}/>
         </div>
       </Layout>
     </>
@@ -58,29 +58,29 @@ JupyterNotebook.propTypes = {
         fileAbsolutePath: PropTypes.string.isRequired,
         html: PropTypes.string.isRequired,
         json: PropTypes.object,
-        internal: PropTypes.shape({ content: PropTypes.string.isRequired }),
+        internal: PropTypes.shape({content: PropTypes.string.isRequired}),
         metadata: PropTypes.shape({
-          language_info: PropTypes.shape({ name: PropTypes.string.isRequired, version: PropTypes.string.isRequired }),
+          language_info: PropTypes.shape({name: PropTypes.string.isRequired, version: PropTypes.string.isRequired}),
         }),
       }).isRequired,
       slug: PropTypes.string,
       name: PropTypes.string.isRequired,
       modifiedTime: PropTypes.string,
       relativePath: PropTypes.string,
-      gitRemote: PropTypes.shape({ href: PropTypes.string, full_name: PropTypes.string.isRequired }),
+      gitRemote: PropTypes.shape({href: PropTypes.string, full_name: PropTypes.string.isRequired}),
     }).isRequired,
   }),
-  pageContext: PropTypes.shape({ title: PropTypes.string.isRequired }),
+  pageContext: PropTypes.shape({title: PropTypes.string.isRequired}),
   location: PropTypes.object.isRequired,
 }
 
 export default JupyterNotebook
 
-export const JupyterNotebookQuery = graphql `
+export const JupyterNotebookQuery = graphql`
   query($id: String!) {
     file(id: {eq: $id}) {
-     childJupyterNotebook {
-       id
+      childJupyterNotebook {
+        id
         html
         internal {
           content
@@ -185,14 +185,14 @@ export const JupyterNotebookQuery = graphql `
           }
         }
         fileAbsolutePath
-     }
-     name
-     modifiedTime(formatString: "DD MMMM, YYYY")
-     gitRemote {
-       href
-       full_name
-     }
-     ext
-     relativePath
-   }
- }`
+      }
+      name
+      modifiedTime(formatString: "DD MMMM, YYYY")
+      gitRemote {
+        href
+        full_name
+      }
+      ext
+      relativePath
+    }
+  }`

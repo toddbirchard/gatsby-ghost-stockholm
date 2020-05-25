@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { Layout } from '../components/common'
+import {Link} from 'gatsby'
+import {Layout} from '../components/common'
 
 import '../styles/pages/404.less'
 

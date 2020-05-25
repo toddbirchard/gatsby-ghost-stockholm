@@ -1,24 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { Tags } from '@tryghost/helpers-gatsby'
-import { Layout } from '../components/common'
-import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
-import { AuthorCard } from '../components/authors'
-import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
+import {Link, graphql} from 'gatsby'
+import {readingTime as readingTimeHelper} from '@tryghost/helpers'
+import {Tags} from '@tryghost/helpers-gatsby'
+import {Layout} from '../components/common'
+import {MetaData} from '../components/common/meta'
+import {RelatedPosts, SeriesTOC, Commento, SupportWidget} from '../components/posts'
+import {AuthorCard} from '../components/authors'
+import {FaEye, FaTags, FaCalendar, FaUserEdit} from 'react-icons/fa'
 
 import '../styles/posts/post.less'
 
 /**
-* Single post view (/:slug)
-*
-* This file renders a single post and loads all the content.
-*
-*/
+ * Single post view (/:slug)
+ *
+ * This file renders a single post and loads all the content.
+ *
+ */
 
-const Post = ({ data, location }) => {
+const Post = ({data, location}) => {
   const post = data.ghostPost
   const tags = data.ghostPost.tags
   const author = data.ghostAuthor
@@ -34,7 +34,7 @@ const Post = ({ data, location }) => {
 
   return (
     <>
-      <MetaData location={location} data={data} type="article" />
+      <MetaData location={location} data={data} type="article"/>
       <Layout template="post-template">
         <div className="post-wrapper">
           <div className="post-head">
@@ -42,46 +42,49 @@ const Post = ({ data, location }) => {
             <div className="post-meta">
               <div className="meta-item author">
                 <Link to={authorUrl}>
-                  <FaUserEdit />
+                  <FaUserEdit/>
                   <span>{authorFirstName}</span>
                 </Link>
               </div>
               {tags &&
-                <div className="meta-item tag">
-                  <FaTags />
-                  <Tags post={post} limit={1} visibility="public" autolink separator="" permalink="/tag/:slug" classes={tags.ghostId} />
-                </div>}
+              <div className="meta-item tag">
+                <FaTags/>
+                <Tags post={post} limit={1} visibility="public" autolink separator="" permalink="/tag/:slug"
+                      classes={tags.ghostId}/>
+              </div>}
               <div className="meta-item reading-time">
-                <FaEye />
+                <FaEye/>
                 <span>{readingTime}</span>
               </div>
               <div className="meta-item date">
-                <FaCalendar />
+                <FaCalendar/>
                 <span>{post.published_at_pretty}</span>
               </div>
             </div>
             <figure className="post-image">
               {retinaImage
-                ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} />
-                : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} />}
+                ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title}/>
+                : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title}/>}
             </figure>
           </div>
 
           <article className="post">
             {seriesPosts
-              ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug} />
+              ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
               : null}
-            <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }} />
+            <main className="post-content content-body load-external-scripts"
+                  dangerouslySetInnerHTML={{__html: post.html}}/>
             <div className="post-tags">
-              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false} classes="post-tag-footer" />
+              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false}
+                    classes="post-tag-footer"/>
             </div>
-            <AuthorCard author={author} />
+            <AuthorCard author={author}/>
           </article>
         </div>
         <section className="post-footer">
-          <Commento id={id} />
-          {relatedPosts && <RelatedPosts data={relatedPosts} />}
-          <SupportWidget />
+          <Commento id={id}/>
+          {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+          <SupportWidget/>
         </section>
       </Layout>
     </>)
@@ -97,7 +100,7 @@ Post.propTypes = {
       primary_author: PropTypes.object.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
-      tags: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired })),
+      tags: PropTypes.arrayOf(PropTypes.shape({name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired})),
       published_at_pretty: PropTypes.string,
     }).isRequired,
     ghostAuthor: PropTypes.object.isRequired,
@@ -110,9 +113,9 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
+  query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
-        ...GhostPostFields
+      ...GhostPostFields
     }
     ghostAuthor(slug: {eq: $primaryAuthor}) {
       postCount
