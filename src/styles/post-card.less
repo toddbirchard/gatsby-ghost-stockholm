@@ -98,7 +98,7 @@
       margin: 10px auto 30px;
       color: #5e6877;
       font-family: @body-font-bold;
-      font-size: 1.15em;
+      font-size: 1.2em;
       letter-spacing: -.5px;
       line-height: 1.2;
       transition: all 0.2s ease-out;
@@ -123,7 +123,6 @@
     .meta-items {
       display: flex;
       align-items: center;
-      margin-right: 30px;
       color: #7e8ca0;
       font-family: @body-font-bold;
       line-height: 1;
@@ -152,41 +151,17 @@
 
       .author-avatar {
         height: 35px;
+        width: 35px;
         border-radius: 50%;
         margin-right: 10px;
       }
 
       .author-name {
-        font-size: 1.1em;
+        font-size: 1.15em;
         color: #656e85;
         margin-bottom: 4px;
         display: block;
         font-family: @header-font-secondary;
-      }
-
-      &.reading-time {
-        font-family: @body-font-bold;
-        font-size: 0.9em;
-        margin-bottom: 2px;
-        @media (max-width: @mobile-breakpoint) {
-          display: none;
-        }
-      }
-
-      &.date {
-        @media (max-width: 1000px) {
-          display: none;
-        }
-      }
-
-      &.author {
-        a {
-          display: flex;
-        }
-
-        @media(max-width: @mobile-breakpoint) {
-          margin-right: 0;
-        }
       }
 
       .post-card-meta-info {
