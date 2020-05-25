@@ -357,6 +357,10 @@
     .post-card {
       height: 100%;
 
+      .primary_tag {
+        font-size: .85em;
+      }
+
       .post-card-title {
         -webkit-line-clamp: 2;
         .line-clamp();
@@ -388,28 +392,10 @@
       }
 
       .post-card-footer {
-        position: relative;
-        margin-top: 20px;
-        overflow: unset;
+        margin-top: 10px;
 
-        .meta-item {
-          margin: 0;
-          font-size: 0.9em;
-          line-height: 1;
-          opacity: 0.9;
-
-          * {
-            line-height: 1;
-          }
-
-          &:first-of-type {
-            margin-right: 20px;
-          }
-
-          &.date,
-          &.reading-item {
-            display: none !important;
-          }
+        .author-name {
+          font-size: 1em;
         }
       }
     }

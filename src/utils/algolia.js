@@ -36,6 +36,8 @@ const allPostQuery = `{
         feature_image
         excerpt
         meta_description
+        published_at
+        created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
         tags {
           name
         }
@@ -44,8 +46,8 @@ const allPostQuery = `{
         }
         primary_author {
           name
+          profile_image
         }
-        published_at
       }
     }
   }
