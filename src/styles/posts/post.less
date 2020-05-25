@@ -48,11 +48,10 @@
         line-height: 1;
         text-align: center;
         @media (max-width: @tablet-breakpoint) {
-          max-width: 95%;
-          font-size: 2em;
+          margin: 60px 40px 0;
+          font-size: 1.9em;
         }
         @media (max-width: @mobile-breakpoint) {
-          max-width: unset;
           margin: 40px auto 0;
           font-family: @header-font-secondary;
           font-size: 1.8em;
@@ -89,7 +88,7 @@
       display: flex;
       justify-content: center;
       width: fit-content;
-      max-width: 760px;
+      max-width: 780px;
       margin: 15px auto 60px;
       @media (max-width: @mobile-breakpoint) {
         flex-wrap: wrap;
@@ -198,15 +197,15 @@
 
   .post {
     position: relative;
-    max-width: 760px;
-    margin: 0 auto 30px;
+    margin: 0 50px 30px;
     padding-bottom: 40px;
     background: white;
     @media (max-width: @tablet-breakpoint) {
       width: auto;
+      margin: 0 40px 30px;
     }
     @media (max-width: @mobile-breakpoint) {
-      margin: 0;
+      margin: 20px 30px 30px;
     }
 
     hr {
@@ -215,12 +214,6 @@
 
     .post-content {
       position: relative;
-      @media (max-width: @tablet-breakpoint) {
-        margin: 30px;
-      }
-      @media (max-width: @tablet-breakpoint) {
-        margin: 25px;
-      }
 
       h2 {
         width: 100%;
@@ -320,6 +313,16 @@
             }
           }
         }
+      }
+
+      & > iframe {
+        width: 100%;
+        box-shadow: @box-shadow;
+        margin: 0 auto 30px;
+      }
+
+      .plotly-graph {
+        height: 400px;
       }
 
       li > code,
@@ -523,15 +526,6 @@
       }
     }
 
-    iframe {
-      width: 100%;
-      box-shadow: @box-shadow;
-    }
-
-    .plotly-graph {
-      height: 400px;
-    }
-
     .post-tags {
       display: block;
       align-items: center;
@@ -542,7 +536,6 @@
       margin: 40px 0 20px;
       @media (max-width: @tablet-breakpoint) {
         width: auto;
-        margin: 40px 30px 20px;
       }
 
       * {

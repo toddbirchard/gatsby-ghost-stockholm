@@ -75,7 +75,7 @@ const Post = ({ data, location }) => {
             <div className="post-tags">
               <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false} classes="post-tag-footer" />
             </div>
-            <AuthorCard author={author} page="post" />
+            <AuthorCard author={author} />
           </article>
         </div>
         <section className="post-footer">
