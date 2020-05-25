@@ -246,12 +246,27 @@
 
 /* Post Template Footer */
 .post-template {
+
+  .site-footer{
+    width: 850px !important;
+    margin: auto;
+    @media(max-width: @tablet-breakpoint) {
+      width: auto !important;
+      margin: auto 30px;
+    }
+  }
+
   .footer-wrapper {
-    width: 900px !important;
+    width: auto;
+    max-width: unset;
 
     .widget.about {
       @media (max-width: @tablet-breakpoint) {
         width: 40% !important;
+      }
+
+      @media (max-width: @tablet-breakpoint) {
+        width: 100% !important;
       }
 
       .social button {
