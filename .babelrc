@@ -25,7 +25,8 @@
           "graphql",
           "less",
           "nginx",
-          "go"
+          "go",
+          "hcl"
         ],
         "plugins": ["normalize-whitespace"],
         "theme": "default",
