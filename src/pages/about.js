@@ -67,7 +67,7 @@ AboutPage.propTypes = {
       meta_description: PropTypes.string,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
-    }).isRequired,
+    }),
   }).isRequired,
   pageContext: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,

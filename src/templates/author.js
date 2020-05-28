@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
-import {Layout, PostCard} from '../components/common'
-import {Pagination} from '../components/navigation'
-import {AuthorCard} from '../components/authors'
-import {MetaData} from '../components/common/meta'
+import { graphql } from 'gatsby'
+import { Layout, PostCard } from '../components/common'
+import { Pagination } from '../components/navigation'
+import { AuthorCard } from '../components/authors'
+import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/page.less'
 
@@ -14,7 +14,7 @@ import '../styles/pages/page.less'
  * Loads all posts for the requested author incl. pagination.
  *
  */
-const Author = ({data, location, pageContext}) => {
+const Author = ({ data, location, pageContext }) => {
   const author = data.ghostAuthor
   const posts = data.allGhostPost.edges
   const authorData = data
@@ -36,7 +36,7 @@ const Author = ({data, location, pageContext}) => {
         <div className="author-container">
           <AuthorCard author={author} page="author" template="author-template" pageContext={pageContext}/>
           <section className="post-feed">
-            {posts.map(({node}) => (
+            {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>
             ))}
             <Pagination pageContext={pageContext}/>

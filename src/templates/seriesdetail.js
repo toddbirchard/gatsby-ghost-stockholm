@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
-import {Layout} from '../components/common'
-import {SeriesPostCard} from '../components/misc'
-import {MetaData} from '../components/common/meta'
+import { graphql } from 'gatsby'
+import { Layout } from '../components/common'
+import { SeriesPostCard } from '../components/misc'
+import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/seriesdetail.less'
 
@@ -13,7 +13,7 @@ import '../styles/pages/seriesdetail.less'
  * Loads all posts for the requested tag incl. pagination.
  *
  */
-const SeriesDetail = ({data, location}) => {
+const SeriesDetail = ({ data, location }) => {
   const tag = data.ghostTag
   const tagName = tag.name.replace(`#`, ``)
   const posts = data.allGhostPost.edges
@@ -37,7 +37,7 @@ const SeriesDetail = ({data, location}) => {
           {tag.description ? <p className="series-description">{tag.description}</p> : null}
         </header>
         <section className="post-feed">
-          {posts.map(({node}, index) => (
+          {posts.map(({ node }, index) => (
             // The tag below includes the markup for each post - components/common/PostCard.js
             <SeriesPostCard key={node.id} post={node} count={index}/>
           ))}

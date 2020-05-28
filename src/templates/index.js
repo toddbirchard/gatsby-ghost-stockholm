@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
-import {Layout, PostCard} from '../components/common'
-import {Pagination} from '../components/navigation'
-import {MetaData} from '../components/common/meta'
+import { graphql } from 'gatsby'
+import { Layout, PostCard } from '../components/common'
+import { Pagination } from '../components/navigation'
+import { MetaData } from '../components/common/meta'
 import config from '../utils/siteConfig'
 
 /**
@@ -14,7 +14,7 @@ import config from '../utils/siteConfig'
  * in /utils/siteConfig.js under `postsPerPage`.
  *
  */
-const Index = ({data, location, pageContext}) => {
+const Index = ({ data, location, pageContext }) => {
   const posts = data.allGhostPost.edges
   const metaTitle = config.siteTitleMeta
 
@@ -24,7 +24,7 @@ const Index = ({data, location, pageContext}) => {
       <Layout hasSidebar={true} template="home-template">
         <main className="site-main">
           <section className="post-feed">
-            {posts.map(({node}) => (
+            {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>
             ))}
             <Pagination pageContext={pageContext} metaTitle={metaTitle}/>

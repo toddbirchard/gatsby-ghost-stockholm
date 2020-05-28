@@ -22,7 +22,6 @@
           "jinja2",
           "handlebars",
           "ini",
-          "graphql",
           "less",
           "nginx",
           "go",

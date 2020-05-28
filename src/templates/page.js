@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
-import {Layout} from '../components/common'
-import {AuthorList} from '../components/authors'
-import {MetaData} from '../components/common/meta'
+import { graphql } from 'gatsby'
+import { Layout } from '../components/common'
+import { AuthorList } from '../components/authors'
+import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/page.less'
 
@@ -13,7 +13,7 @@ import '../styles/pages/page.less'
  * This file renders a single page and loads all the content.
  *
  */
-const Page = ({data, location, pageContext}) => {
+const Page = ({ data, location, pageContext }) => {
   const page = data.ghostPage
   const title = page.title
   const description = page.meta_description
@@ -38,7 +38,7 @@ const Page = ({data, location, pageContext}) => {
             <h1>{page.title}</h1>
             <section
               className="content-body load-external-scripts"
-              dangerouslySetInnerHTML={{__html: page.html}}
+              dangerouslySetInnerHTML={{ __html: page.html }}
             />
             {pageContext.slug === `about` ? <AuthorList page="about"/> : null}
           </div>

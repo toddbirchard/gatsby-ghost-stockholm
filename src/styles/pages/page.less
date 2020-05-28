@@ -27,9 +27,8 @@
       }
 
       p {
-        margin-bottom: 20px;
-        font-size: 1.1em;
-        line-height: 1.3;
+        .body-font();
+        margin: 0 0 25px;
       }
     }
 
@@ -119,19 +118,13 @@
         padding: 30px 0;
       }
 
-      .content-body a {
-        color: #6baaf2;
-        font-family: @body-font-bold;
-        transition: @transition;
-      }
-
-      .content-body li,
-      .content-body p {
+      .page-content li,
+      .page-content p {
         text-align: left;
         .body-font();
       }
 
-      .content-body ul {
+      .page-content ul {
         margin: 0 0 30px 20px;
         padding-left: 1em;
       }
@@ -152,10 +145,16 @@
         display: block;
       }
 
-      & > li,
-      & > p {
+      li,
+      p {
         text-align: left;
         .body-font();
+
+        a {
+         color: #6baaf2;
+         font-family: @body-font-bold;
+         transition: @transition;
+       }
       }
 
       hr {

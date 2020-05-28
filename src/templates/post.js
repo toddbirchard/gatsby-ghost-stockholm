@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link, graphql} from 'gatsby'
-import {readingTime as readingTimeHelper} from '@tryghost/helpers'
-import {Tags} from '@tryghost/helpers-gatsby'
-import {Layout} from '../components/common'
-import {MetaData} from '../components/common/meta'
-import {RelatedPosts, SeriesTOC, Commento, SupportWidget} from '../components/posts'
-import {AuthorCard} from '../components/authors'
-import {FaEye, FaTags, FaCalendar, FaUserEdit} from 'react-icons/fa'
+import { Link, graphql } from 'gatsby'
+import { readingTime as readingTimeHelper } from '@tryghost/helpers'
+import { Tags } from '@tryghost/helpers-gatsby'
+import { Layout } from '../components/common'
+import { MetaData } from '../components/common/meta'
+import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
+import { AuthorCard } from '../components/authors'
+import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
 
 import '../styles/posts/post.less'
 
@@ -18,7 +18,7 @@ import '../styles/posts/post.less'
  *
  */
 
-const Post = ({data, location}) => {
+const Post = ({ data, location }) => {
   const post = data.ghostPost
   const tags = data.ghostPost.tags
   const author = data.ghostAuthor
@@ -50,7 +50,7 @@ const Post = ({data, location}) => {
               <div className="meta-item tag">
                 <FaTags/>
                 <Tags post={post} limit={1} visibility="public" autolink separator="" permalink="/tag/:slug"
-                      classes={tags.ghostId}/>
+                  classes={tags.ghostId}/>
               </div>}
               <div className="meta-item reading-time">
                 <FaEye/>
@@ -73,10 +73,10 @@ const Post = ({data, location}) => {
               ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
               : null}
             <main className="post-content content-body load-external-scripts"
-                  dangerouslySetInnerHTML={{__html: post.html}}/>
+              dangerouslySetInnerHTML={{ __html: post.html }}/>
             <div className="post-tags">
               <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false}
-                    classes="post-tag-footer"/>
+                classes="post-tag-footer"/>
             </div>
             <AuthorCard author={author}/>
           </article>
@@ -100,7 +100,7 @@ Post.propTypes = {
       primary_author: PropTypes.object.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
-      tags: PropTypes.arrayOf(PropTypes.shape({name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired})),
+      tags: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired })),
       published_at_pretty: PropTypes.string,
     }).isRequired,
     ghostAuthor: PropTypes.object.isRequired,

@@ -13,43 +13,45 @@ const PostCard = ({ post }) => {
   const createdDate = post.created_at_pretty
 
   return (
-    <div className="post-card">
-      <Link to={url}>
-        <picture>
-          {post.feature_image && <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={`Feature image for ${post.title}`} title={post.title} />}
-        </picture>
-      </Link>
-      {post.featured && <span>Featured</span>}
-      <div className="post-card-detail">
-        {post.tags ?
-          <div className={`primary-tag ${post.tags[0].slug}`}>
-            <Tags post={post} limit={1} visibility="public" autolink permalink="/tag/:slug" class=":slug" separator={null} classes={post.id} />
-          </div>
-          : null}
+    <>
+      <div className="post-card">
         <Link to={url}>
-          <h2 className="post-card-title">{post.title}</h2>
+          <picture>
+            {post.feature_image && <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={`Feature image for ${post.title}`} title={post.title} />}
+          </picture>
         </Link>
-        {post.excerpt &&
+        {post.featured && <span>Featured</span>}
+        <div className="post-card-detail">
+          {post.tags ?
+            <div className={`primary-tag ${post.tags[0].slug}`}>
+              <Tags post={post} limit={1} visibility="public" autolink permalink="/tag/:slug" class=":slug" separator={null} classes={post.id} />
+            </div>
+            : null}
+          <Link to={url}>
+            <h2 className="post-card-title">{post.title}</h2>
+          </Link>
+          {post.excerpt &&
           <section className="post-card-excerpt">{post.excerpt}</section>
-        }
-        <footer className="post-card-footer">
-          {post.primary_author ?
-            <div className="meta-items">
-              {authorAvatar
-                ? <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
-                : <FaUserEdit /> }
-              <div>
-                <Link to={`/author/${post.primary_author.slug}`} className="author-name">{authorFirstName}</Link>
-                <div className="post-card-meta-info">
-                  <span className="meta-item date">{createdDate}</span>
-                  <span className="meta-item separator">•</span>
-                  <span className="meta-item reading-time">{readingTime}</span>
+          }
+          <footer className="post-card-footer">
+            {post.primary_author ?
+              <div className="meta-items">
+                {authorAvatar
+                  ? <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
+                  : <FaUserEdit /> }
+                <div>
+                  <Link to={`/author/${post.primary_author.slug}`} className="author-name">{authorFirstName}</Link>
+                  <div className="post-card-meta-info">
+                    <span className="meta-item date">{createdDate}</span>
+                    <span className="meta-item separator">•</span>
+                    <span className="meta-item reading-time">{readingTime}</span>
+                  </div>
                 </div>
-              </div>
-            </div> : null}
-        </footer>
+              </div> : null}
+          </footer>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
