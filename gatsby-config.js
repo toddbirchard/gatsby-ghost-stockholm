@@ -256,26 +256,6 @@ module.exports = {
      *  Netlify Plugins
      */
     `gatsby-plugin-netlify-cache`,
-    /*{
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: { "/*": [
-          `Referrer-Policy: no-referrer-when-downgrade`,
-          `Expect-CT: enforce,max-age=604800`,
-        ],
-        "/css/commento.css": [
-          `content-type: "text/css; charset=UTF-8`,
-          `Expect-CT: enforce,max-age=604800`,
-        ] },
-        // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        transformHeaders: headers => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
-      },
-    },*/
     /**
      *  Utility Plugins
      */
@@ -288,7 +268,7 @@ module.exports = {
         theme_color: config.themeColor,
         display: `browser`,
         icon: `static/${config.siteIcon}`,
-        legacy: true,
+        legacy: false,
         query: `
             {
               ghostSettings {
