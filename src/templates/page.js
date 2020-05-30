@@ -15,7 +15,8 @@ import '../styles/pages/page.less'
  */
 const Page = ({ data, location, pageContext }) => {
   const page = data.ghostPage
-  const title = page.title
+  const pageNumber = pageContext.pageNumber
+  const title = pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
   const description = page.meta_description
 
   return (
@@ -35,7 +36,7 @@ const Page = ({ data, location, pageContext }) => {
                 <img className="lazyload" data-src={page.feature_image} alt={page.title}/>
               </figure>
               : null}
-            <h1>{page.title}</h1>
+            <h1>{title}</h1>
             <section
               className="content-body load-external-scripts"
               dangerouslySetInnerHTML={{ __html: page.html }}
