@@ -25,17 +25,14 @@
   .primary-tag {
     margin-bottom: 10px;
     line-height: 1;
-    /*font-family: @body-font-bold;
-    background: #277899;
-    font-size: .9em;
-    width: fit-content;
-    padding: 2px 6px;
-    border-radius: 3px;*/
 
     a {
       color: #607fa2;
       font-family: @header-font-secondary;
       font-size: 1.1em;
+      @media(max-width: @mobile-breakpoint) {
+        font-size: 1em;
+      }
 
       &:hover {
         color: @hover-color;
@@ -90,7 +87,7 @@
     padding: 30px;
     overflow: hidden;
     @media (max-width: @mobile-breakpoint) {
-      padding: 25px;
+      padding: 20px;
     }
 
     .post-card-excerpt {
@@ -124,19 +121,19 @@
     .meta-items {
       display: flex;
       align-items: center;
-      color: #7e8ca0;
+      color: #646f7d;
       font-family: @body-font-bold;
+      font-size: .9em;
       line-height: 1;
       white-space: nowrap;
       transition: @transition;
-      font-size: .9em;
 
       * {
         line-height: 1;
       }
 
       a {
-        color: #7e8ca0;
+        color: #646f7d;
         transition: @transition;
       }
 
@@ -151,18 +148,18 @@
       }
 
       .author-avatar {
-        height: 35px;
         width: 35px;
-        border-radius: 50%;
+        height: 35px;
         margin-right: 10px;
+        border-radius: 50%;
       }
 
       .author-name {
-        font-size: 1.15em;
-        color: #656e85;
-        margin-bottom: 4px;
         display: block;
+        margin-bottom: 4px;
+        color: #646f7d;
         font-family: @header-font-secondary;
+        font-size: 1.15em;
       }
 
       .post-card-meta-info {

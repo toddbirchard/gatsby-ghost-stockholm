@@ -262,13 +262,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-ghost-manifest`,
       options: {
+        name: config.shortTitle,
         short_name: config.shortTitle,
+        description: config.siteDescriptionMeta,
         start_url: `/`,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        display: `browser`,
+        display: `standalone`,
         icon: `static/${config.siteIcon}`,
-        legacy: false,
+        legacy: true,
         query: `
             {
               ghostSettings {

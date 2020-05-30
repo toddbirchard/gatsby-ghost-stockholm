@@ -100,7 +100,7 @@
     "gatsby-source-git": "^1.0.2",
     "gatsby-source-mysql": "^2.2.2",
     "gatsby-source-pocket": "^2.3.1",
-    "gatsby-source-twitter": "^3.2.1",
+    "gatsby-source-twitter": "^3.2.2",
     "lazysizes": "^5.2.2",
     "lodash": "4.17.15",
     "nodom": "^2.4.0",

@@ -17,8 +17,7 @@ import config from '../utils/siteConfig'
 const Index = ({ data, location, pageContext }) => {
   const posts = data.allGhostPost.edges
   const pageNumber = pageContext.pageNumber
-  const title = pageContext.pageNumber > 0 ? config.metaTitle + ` (page ` + pageNumber + ` of ` + pageContext.numberOfPages + `)` : config.metaTitle
-  // const title = pageNumber > 1 ? config.siteTitleMeta + `(page` + pageNumber + `)` : config.siteTitleMeta
+  const title = config.shortTitle
 
   return (
     <>
