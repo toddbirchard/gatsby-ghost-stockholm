@@ -18,11 +18,17 @@ const Index = ({ data, location, pageContext }) => {
   const posts = data.allGhostPost.edges
   const pageNumber = pageContext.pageNumber
   const title = pageContext.pageNumber > 0 ? config.metaTitle + ` (page ` + pageNumber + ` of ` + pageContext.numberOfPages + `)` : config.metaTitle
-  // const title = pageNumber > 1 ? config.siteTitleMeta + `(page` + pageNumber + `)` : config.siteTitleMeta
+  const description = config.siteDescriptionMeta
 
   return (
     <>
-      <MetaData location={location} data={data} pageContext={pageContext}/>
+      <MetaData
+        data={data}
+        title={title}
+        description={description}
+        location={location}
+        pageContext={pageContext}
+      />
       <Layout hasSidebar={true} template="home-template">
         <main className="site-main">
           <section className="post-feed">

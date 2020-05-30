@@ -61,6 +61,7 @@ Page.propTypes = {
   }).isRequired,
   pageContext: PropTypes.shape({
     slug: PropTypes.string.isRequired,
+    pageNumber: PropTypes.number,
   }),
   location: PropTypes.object.isRequired,
 }
