@@ -5,7 +5,6 @@ import { Link } from 'gatsby'
 const Pagination = ({ pageContext, metaTitle }) => {
   const { previousPagePath, nextPagePath, humanPageNumber, numberOfPages } = pageContext
   const title = pageContext.pageNumber > 0 ? metaTitle + ` (page ` + pageContext.pageNumber + ` of ` + numberOfPages + `)` : metaTitle
-  console.log(pageContext.pageNumber)
 
   return (
     <>
