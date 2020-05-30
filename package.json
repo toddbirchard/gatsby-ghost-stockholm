@@ -59,9 +59,9 @@
     "stylelint-config-standard": "^20.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.10.1",
+    "@babel/core": "^7.10.2",
     "@babel/highlight": "^7.10.1",
-    "@babel/runtime": "^7.10.1",
+    "@babel/runtime": "^7.10.2",
     "@gatsby-contrib/gatsby-transformer-ipynb": "^0.5.8",
     "@nteract/notebook-preview": "^11.0.4-alpha.0",
     "@tryghost/helpers": "1.1.27",

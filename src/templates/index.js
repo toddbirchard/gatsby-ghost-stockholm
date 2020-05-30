@@ -17,7 +17,8 @@ import config from '../utils/siteConfig'
 const Index = ({ data, location, pageContext }) => {
   const posts = data.allGhostPost.edges
   const pageNumber = pageContext.pageNumber
-  const title = pageContext.pageNumber > 0 ? config.metaTitle + ` (page ` + pageNumber + ` of ` + pageContext.numberOfPages + `)` : config.metaTitle
+  const baseTitle = config.siteTitleMeta
+  const title = pageContext.pageNumber > 0 ? baseTitle + ` (page ` + pageNumber + ` of ` + pageContext.numberOfPages + `)` : baseTitle
   const description = config.siteDescriptionMeta
 
   return (
@@ -35,7 +36,7 @@ const Index = ({ data, location, pageContext }) => {
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>
             ))}
-            <Pagination pageContext={pageContext} metaTitle={title}/>
+            <Pagination pageContext={pageContext} metaTitle={baseTitle}/>
           </section>
         </main>
       </Layout>
