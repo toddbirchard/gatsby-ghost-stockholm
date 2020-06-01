@@ -962,9 +962,12 @@
 
 #commento-login-box .commento-login-box-subtitle {
   margin: 12px 0;
-  color: #868e96;
-  font-size: 15px;
+  color: #5d6369;
   text-align: center
+}
+
+#commento-login-box #commento-login-box-email-subtitle {
+  font-size: 1.1em !important;
 }
 
 #commento-login-box button,
