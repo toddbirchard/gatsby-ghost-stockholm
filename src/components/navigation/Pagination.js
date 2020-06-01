@@ -10,9 +10,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
     <>
       <nav className="pagination" role="navigation">
         <div className="pagination-button">
-          {previousPagePath && (
-            <Link to={previousPagePath} rel="prev" className="prev">Previous</Link>
-          )}
+          {previousPagePath && <Link to={previousPagePath} rel="prev" className="prev">Previous</Link>}
         </div>
         <div className="pagination-location">
           {title && <h1>{title}</h1> }
