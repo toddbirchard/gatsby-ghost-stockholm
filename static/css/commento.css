@@ -734,7 +734,8 @@
   max-width: 400px;
   height: 40px;
   border-radius: 4px;
-  background: #fff
+  background: #fff;
+  display: flex;
 }
 
 #commento-login-box .commento-email-container .commento-email .commento-input {
@@ -744,11 +745,19 @@
   padding: 5px 5px 5px 10px;
   border: none;
   outline: 0;
-  background: #fff
+  background: #fff;
+  width: 100%;
+  transition: @transition;
+}
+
+#commento-login-box .commento-email-container .commento-email .commento-input:hover {
+  border-color: #0297f6;
+  background: lighten(@theme-color, 45%);
+  cursor: text;
 }
 
 #commento-login-box .commento-email-container .commento-email .commento-input::placeholder {
-  color: #adb5bd
+  color: #8ba6c7;
 }
 
 #commento-login-box .commento-email-container .commento-email .commento-email-button {
@@ -838,7 +847,7 @@
 *  Buttons
 *
 */
-.commento-oauth-buttons-container {
+.commento-oauth-buttons-container .commento-oauth-buttons {
   display: flex;
   justify-content: space-around;
   width: 80%;
@@ -854,7 +863,7 @@
 }
 
 #commento-login-box .commento-button:hover {
-  background: white;
+  background: white !important;
   color: black;
 }
 
@@ -911,6 +920,10 @@
   transition: opacity .2s
 }
 
+#commento-login-box #commento-login-box-oauth-pretext {
+  margin: 15px 0 20px;
+}
+
 #commento-login-box .commento-oauth-buttons .commento-oauth-buttons {
   display: contents;
   z-index: 1;
@@ -961,13 +974,13 @@
 }
 
 #commento-login-box .commento-login-box-subtitle {
-  margin: 12px 0;
   color: #5d6369;
   text-align: center
 }
 
 #commento-login-box #commento-login-box-email-subtitle {
   font-size: 1.1em !important;
+  margin: 15px 0;
 }
 
 #commento-login-box button,
@@ -1070,13 +1083,6 @@
   margin: 8px 0
 }
 
-#commento-login-box .commento-email-container .commento-email {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 4px;
-  background: #fff
-}
-
 #commento-login-box .commento-email-container .commento-email .commento-input {
   display: inline;
   padding: 5px 5px 5px 10px;
@@ -1111,13 +1117,13 @@
 }
 
 #commento-login-box .commento-email-button:hover {
-  background: #228be6;
-  color: white;
+  background: #228be6 !important;
+  color: white !important;
   cursor: pointer;
 }
 
 #commento-login-box .commento-email-button:disabled {
-  color: #868e96;
+  color: #868e96  !important;
   cursor: default
 }
 
@@ -1143,10 +1149,10 @@
 
 #commento-login-box .commento-login-box-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 16px;
-  height: 16px;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
   opacity: .3
 }
 
