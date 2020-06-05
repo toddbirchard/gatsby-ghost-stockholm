@@ -13,6 +13,7 @@
         "plugin:ghost/ember",
         "plugin:react/recommended",
         "plugin:promise/recommended",
+        "plugin:jsx-a11y/recommended"
         "eslint:recommended"
     ],
     "settings": {
@@ -42,6 +43,13 @@
             "as-needed",
             { "requireReturnForObjectLiteral": true }
         ],
+        "jsx-a11y/alt-text": [ 2, {
+            "elements": [ "img", "object", "area", "input[type=\"image\"]" ],
+            "img": ["Image"],
+            "object": ["Object"],
+            "area": ["Area"],
+            "input[type=\"image\"]": ["InputImage"]
+          }],
         "jsx-quotes": ["error", "prefer-double"],
         "semi": ["error", "never"],
         "object-curly-spacing": ["error", "always"],

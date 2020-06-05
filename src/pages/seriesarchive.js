@@ -81,6 +81,17 @@ export const seriesQuery = graphql`
              }
            }
         }
+        courses: allGhostPost(filter: {tags: {elemMatch: {visibility: {eq: "internal"}}}}) {
+          group(field: primary_tag___slug) {
+                fieldValue
+                totalCount
+                nodes {
+                  meta_title
+                  meta_description
+                }
+              }
+              totalCount
+            }
         ghostPage(slug: {eq: $slug}) {
           ...GhostPageFields
         }
