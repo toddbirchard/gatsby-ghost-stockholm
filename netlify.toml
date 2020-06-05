@@ -2,6 +2,7 @@
   package = "netlify-plugin-gatsby-cache"
 
 [build]
+  base = "/"
   command = "gatsby build"
   publish = "/public"
 
