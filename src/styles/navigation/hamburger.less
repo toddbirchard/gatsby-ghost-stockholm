@@ -208,6 +208,9 @@
         line-height: 1;
         text-align: left;
         text-transform: uppercase;
+        background: unset;
+        border: unset;
+        font-size: 1em;
 
         svg {
           margin-right: 5px;
@@ -345,6 +348,14 @@
       padding: 0 !important;
       border: 0;
       box-shadow: unset !important;
+
+      .ais-Hits-list {
+        grid-gap: 0px;
+        .ais-Hits-item {
+          box-shadow: unset !important;
+          border-bottom: 1px solid #eaeaea;
+        }
+      }
 
       header {
         display: none;

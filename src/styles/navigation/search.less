@@ -42,13 +42,13 @@
 
   .ais-Hits-list {
     margin: 0 !important;
+    grid-gap: 0;
   }
 
   .ais-Hits-item {
     width: stretch;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid #eaeaea;
 
     &:last-of-type {
       border-bottom: 0;
@@ -135,6 +135,12 @@
     height: 78px;
     margin-right: 12px;
     border-radius: 0;
+  }
+}
+
+.search-body {
+  .ais-Hits-list {
+    grid-gap: 10px;
   }
 }
 
