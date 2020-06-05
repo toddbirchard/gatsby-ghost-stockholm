@@ -51,7 +51,7 @@ exports.onPostBuild = /*#__PURE__*/function () {
             _yield$graphql = _context.sent;
             data = _yield$graphql.data;
             siteTitle = data.ghostSettings.title || "No Title";
-            manifest = (0, _extends2.default)((0, _extends2.default)({}, manifest), {}, {
+            manifest = (0, _extends2.default)({}, manifest, {
               name: siteTitle
             }); // Delete options we won't pass to the manifest.webmanifest.
 
@@ -81,6 +81,7 @@ exports.onPostBuild = /*#__PURE__*/function () {
 
               generateIcons(manifest.icons, icon).then(function () {
                 //images have been generated
+                console.log("done generating icons for manifest");
                 Promise.resolve();
               });
             } else {

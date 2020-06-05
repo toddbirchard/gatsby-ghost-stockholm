@@ -23,10 +23,10 @@ const InfoCard = ({ tag, count }) => (
 InfoCard.propTypes = {
   tag: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    description: PropTypes.string,
     feature_image: PropTypes.string,
   }).isRequired,
-  count: PropTypes.number.isRequired,
+  count: PropTypes.number,
 }
 
 export default InfoCard

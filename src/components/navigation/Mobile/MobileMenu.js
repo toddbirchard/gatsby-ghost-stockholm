@@ -73,7 +73,7 @@ class MobileMenu extends React.Component {
     return (
       <>
         <Menu right width={ `90%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
-          <div className="search-container" onClick={ () => this.setState({ active: true })}>
+          <div className="search-container" onClick={ () => this.setState({ active: true })} onKeyPress={() => this.setState({ active: true })} role="button" tabIndex="0">
             <InstantSearch
               searchClient={searchClient}
               indexName="hackers_posts"
@@ -153,9 +153,9 @@ class MobileMenu extends React.Component {
             <div className="top-search-title">Trending Searches</div>
             <div className="sublinks">
               {this.topSearches.map(({ node }) => (
-                <div className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>
+                <button className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>
                   <span>{ node.search }</span>
-                </div>
+                </button>
               ))}
             </div>
           </div>
