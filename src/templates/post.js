@@ -7,7 +7,7 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
-import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
+import { FaEye, FaTags, FaCalendar, FaUserEdit, FaFlask } from 'react-icons/fa'
 
 import '../styles/posts/post.less'
 
@@ -31,6 +31,7 @@ const Post = ({ data, location }) => {
     : null
   const authorFirstName = author.name.split(` `)[0]
   const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
+  const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
 
   return (
     <>
@@ -72,14 +73,17 @@ const Post = ({ data, location }) => {
             {seriesPosts
               ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug}/>
               : null}
-            <main className="post-content content-body load-external-scripts"
-              dangerouslySetInnerHTML={{ __html: post.html }}/>
+            {post.slug.includes(`lynx`)
+              ? <div className="post-roundup-blurb"> <FaFlask /> <p>{lynxBlurb}</p> </div>
+              : null }
+            <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }} />
             <div className="post-tags">
               <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false}
                 classes="post-tag-footer"/>
             </div>
             <AuthorCard author={author}/>
           </article>
+
         </div>
         <section className="post-footer">
           <Commento id={id}/>

@@ -139,6 +139,42 @@
   }
 }
 
+.lists(){
+    margin: 0 10px 30px;
+    padding-left: 1em;
+    @media (max-width: 600px) {
+      margin: 0 10px 25px;
+      padding-left: 10px;
+    }
+
+    ul {
+      padding-left: 1em;
+    }
+
+    li {
+      display: list-item;
+      margin: 0 0 10px;
+      padding-left: 0;
+      .body-font();
+
+      &::marker {
+        font-weight: 600;
+      }
+
+      & > ul {
+        margin: 10px 0;
+
+        li {
+          margin: 0 0 0 10px;
+
+          &:last-of-type {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+}
+
 .body-h3() {
   margin: 40px 0 5px;
   font-family: @body-font-bold;

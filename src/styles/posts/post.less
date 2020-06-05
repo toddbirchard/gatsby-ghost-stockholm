@@ -281,38 +281,7 @@
 
       & > ol,
       & > ul {
-        margin: 0 10px 30px;
-        padding-left: 1em;
-        @media (max-width: 600px) {
-          margin: 0 10px 25px;
-          padding-left: 10px;
-        }
-
-        ul {
-          padding-left: 1em;
-        }
-
-        li {
-          display: list-item;
-          margin: 0 0 10px;
-          padding-left: 0;
-
-          &::marker {
-            font-weight: 600;
-          }
-
-          & > ul {
-            margin: 10px 0;
-
-            li {
-              margin: 0 0 0 10px;
-
-              &:last-of-type {
-                padding-bottom: 0;
-              }
-            }
-          }
-        }
+        .lists();
       }
 
       & > iframe {
@@ -337,13 +306,11 @@
         background: rgba(144, 181, 223, 0.13);
         color: #547ea5;
         font-family: @monospace-font;
-        font-size: 0.9em;
+        font-size: 0.85em;
         font-weight: 600;
         white-space: nowrap;
       }
-
       /* Start of Protip box */
-
       .protip {
         position: relative;
         margin: 40px auto;
@@ -351,7 +318,7 @@
         overflow: hidden;
         border-radius: 5px;
         background: rgba(255, 222, 196, .42);
-        box-shadow: -1px 1px 0 #f1ddce;
+        box-shadow: -2px 2px 0 #ede2db;
         color: #615649;
         font-family: @body-font;
         line-height: 1.4;
@@ -388,7 +355,7 @@
           margin-left: unset;
           padding: 14px 15px;
           background: #f5dfce;
-          font-size: 1.05em;
+          color: #847059;
           font-style: normal;
           font-variant: normal;
           font-weight: 700;
@@ -397,7 +364,7 @@
           content: "Protip";
           @media (max-width: @mobile-breakpoint) {
             padding: 14px 20px;
-            font-size: .9em;
+            font-size: 0.9em;
           }
         }
 
@@ -471,7 +438,7 @@
         background: #f4f4f4;
         color: #767f86;
         font-family: @body-font-bold;
-        font-size: .9em;
+        font-size: 0.9em;
         font-style: italic;
         @media (max-width: @mobile-breakpoint) {
           margin: 20px auto;
@@ -575,6 +542,35 @@
           cursor: pointer;
         }
       }
+    }
+  }
+
+  .post-roundup-blurb {
+    padding: 15px 30px;
+    background: 0 0;
+    border-top: 0;
+    margin: 30px 0 60px;
+    width: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    min-height: 35px;
+    border-bottom: 0;
+    border-left: 5px solid #c8dec8;
+    background: #e9f3e9;
+    border-radius: 3px;
+    box-shadow: -2px 2px 0 #d5e6d7;
+
+    svg {
+      font-size: 30px;
+      margin-right: 20px;
+      color: #9dc29f;
+    }
+
+    p {
+      font-size: .9em;
+      color: #69826b;
+      font-family: @body-font-bold;
     }
   }
 

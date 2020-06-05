@@ -13,7 +13,7 @@ import '../styles/pages/page.less'
 * Test playground for displaying notebooks via node.
 *
 */
-
+/*
 const JupyterArchive = ({ data, location, pageContext }) => {
   const notebooks = data.allFile.edges
   const title = pageContext.title
@@ -96,3 +96,4 @@ export const jupyterArchiveQuery = graphql`
             }
           }
         }`
+*/
