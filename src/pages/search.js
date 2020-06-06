@@ -95,7 +95,7 @@ const SearchPage = ({ data, location, pageContext }) => {
                       attribute="tags.name"
                       limit={20}
                       showMore
-                      showMoreLimit={50}
+                      showMoreLimit={40}
                     />
                   </Panel>
                   <Panel header="Authors">

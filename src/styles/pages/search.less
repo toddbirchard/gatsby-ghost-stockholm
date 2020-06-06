@@ -207,6 +207,7 @@
 
       .ais-Panel {
         margin-bottom: 30px;
+        overflow: hidden;
 
         .ais-Panel-header {
           margin-bottom: 15px;
@@ -228,14 +229,15 @@
 
       .ais-RefinementList-labelText {
         margin-left: 3px;
-        font-size: .9em;
+        font-size: .8em;
       }
 
       .ais-RefinementList-count {
-        margin-left: 3px;
-        padding: 0 4px;
+        margin-left: 0;
+        padding: 0 3px;
+        font-weight: 600;
         border-radius: 3px;
-        background: #a8b0c9;
+        background: #959db7;
         color: white;
         font-size: 0.7em;
         font-family: @body-font-bold;
@@ -373,6 +375,10 @@
         .primary-tag {
           font-size: .85em;
           margin-bottom: 5px;
+
+          a {
+            font-size: 1em;
+          }
         }
 
         .post-card-title {
@@ -408,8 +414,20 @@
         .post-card-footer {
           margin-top: 15px;
 
+          .author-avatar {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+          }
+
           .author-name {
             font-size: 1em;
+            margin-bottom: 2px;
+          }
+
+          .meta-item {
+            font-size: .9em !important;
+            line-height: 1.1;
           }
 
           .separator {
