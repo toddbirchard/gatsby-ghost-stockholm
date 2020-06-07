@@ -1,11 +1,23 @@
 @import '../variables.less';
 @import '../mixins.less';
 
+.mobile-search-button {
+  display: none;
+  transition: @transition;
+  @media (max-width: @mobile-breakpoint) {
+    display: block;
+  }
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
 .hamburger-button {
   display: none;
   position: relative !important;
-  width: 21px;
-  height: 18px;
+  width: 22px;
+  height: 20px;
   @media (max-width: @mobile-breakpoint) {
     display: block;
   }
@@ -16,12 +28,11 @@
 
   .bm-burger-bars {
     height: 15% !important;
-    background: grey;
+    background: #5b5f69;
     transition: @transition;
 
     &:hover {
-      background: @hover-color !important;
-      opacity: 1 !important;
+      opacity: .7;
     }
   }
 }
@@ -174,7 +185,7 @@
     .pages,
     .series,
     .tags {
-      padding: 30px 27px;
+      padding: 40px;
     }
 
     .top-searches {

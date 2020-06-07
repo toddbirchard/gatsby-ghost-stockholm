@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@bundle-analyzer/gatsby-plugin": "^0.5.1",
-    "@danbruegge/gatsby-plugin-stylelint": "^3.4.1",
+    "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-gatsby": "^0.4.8",
@@ -107,7 +107,7 @@
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-accessible-accordion": "^3.0.1",
-    "react-burger-menu": "^2.6.14",
+    "react-burger-menu": "^2.6.15",
     "react-dom": "16.13.1",
     "react-helmet": "6.0.0",
     "react-icons": "^3.10.0",

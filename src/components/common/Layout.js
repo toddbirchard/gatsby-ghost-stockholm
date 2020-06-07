@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
+import config from '../../utils/siteConfig'
 
 /**
  * Main layout component
@@ -28,8 +29,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
       <Navigation
         data={site.navigation}
         navClass="site-nav-item"
-        smallLogo={site.icon}
-        fullLogo={site.logo}
+        smallLogo={config.mobileLogo}
         template={template}
       />
 

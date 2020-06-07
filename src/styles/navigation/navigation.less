@@ -41,13 +41,6 @@
         justify-content: space-between;
         width: 100%;
       }
-      @media (max-width: @mobile-breakpoint) {
-        position: absolute;
-        right: 0;
-        left: 0;
-        width: fit-content;
-        margin: 0 auto;
-      }
 
       .logo {
         width: 40px;
@@ -128,8 +121,14 @@
 
     .nav-right {
       position: relative;
+      @media(max-width: @mobile-breakpoint) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90px;
+      }
 
-      svg {
+      .search-root > svg {
         position: absolute;
         top: 0;
         right: 10px;
@@ -139,19 +138,6 @@
         color: #b1b1b1;
         font-size: 1em;
         pointer-events: none;
-      }
-
-      @media (max-width: @tablet-breakpoint) {
-        display: none;
-      }
-    }
-
-    & > div:last-of-type {
-      display: none;
-      @media (max-width: @mobile-breakpoint) {
-        display: block;
-        position: absolute;
-        right: 5%;
       }
     }
   }
@@ -182,6 +168,7 @@
 
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
+
 @media (max-width: @tablet-breakpoint) {
   .home-template {
     .navigation {
@@ -200,6 +187,8 @@
 @media (max-width: @mobile-breakpoint) {
   .home-template .navigation {
     margin-bottom: 20px !important;
+    background: unset;
+    box-shadow: unset;
   }
 }
 

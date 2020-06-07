@@ -49,6 +49,7 @@
     width: stretch;
     margin: 0;
     padding: 0;
+    border-bottom: 1px solid #e7eaf3;
 
     &:last-of-type {
       border-bottom: 0;
@@ -91,10 +92,10 @@
         -webkit-line-clamp: 2;
         .line-clamp();
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 13px;
         color: #585f6d;
         font-family: @header-font-secondary;
-        font-size: .9em !important;
+        font-size: .95em !important;
         letter-spacing: -.1px;
         line-height: 1.2 !important;
         text-overflow: ellipsis;
@@ -132,7 +133,7 @@
 
   img {
     max-width: 135px;
-    height: 78px;
+    height: 84px;
     margin-right: 12px;
     border-radius: 0;
   }
@@ -145,6 +146,9 @@
 }
 
 .search-root {
+  @media(max-width: @tablet-breakpoint) {
+    display: none !important;
+  }
   .search-icon {
     transition: @transition;
   }
