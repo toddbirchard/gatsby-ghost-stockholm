@@ -57,7 +57,7 @@ class SearchMenu extends React.Component {
   render() {
     return (
       <>
-        <Menu right width={ `90%` } burgerButtonClassName={ `mobile-search-button` } customBurgerIcon={ <img src="/images/search.svg" alt="search-icon" /> } className="mobile-menu" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
+        <Menu right width={ `85%` } burgerButtonClassName={ `mobile-search-button` } customBurgerIcon={ <img src="/images/search.svg" alt="search-icon" /> } className="mobile-menu" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="search-container">
             <InstantSearch
               searchClient={searchClient}

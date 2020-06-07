@@ -26,7 +26,7 @@ class MobileMenu extends React.Component {
   render() {
     return (
       <>
-        <Menu right width={ `90%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className="mobile-menu" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
+        <Menu right width={ `85%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className="mobile-menu" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="pages">
             <Link className={`navigation-link`} to={`/`}><AiOutlineHome />Home</Link>
             <Link className={`navigation-link`} to={`/about/`}><AiOutlineInfoCircle />About</Link>

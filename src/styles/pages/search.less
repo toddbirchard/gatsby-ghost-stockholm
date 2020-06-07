@@ -102,7 +102,8 @@
           min-width: unset;
         }
         @media (max-width: @mobile-breakpoint) {
-          height: 40px;
+          height: unset;
+          padding:12px;
         }
 
         &:hover {
@@ -121,7 +122,7 @@
       }
       @media (max-width: @mobile-breakpoint) {
         margin: 0 0 10px 0;
-        height: 40px;
+        height: unset;
       }
 
       .search-icon {
@@ -148,7 +149,8 @@
       width: 100%;
       @media (max-width: @mobile-breakpoint) {
         width: 100%;
-        margin-bottom: 7px;
+        margin-bottom: 0;
+        height: fit-content;
       }
 
       .ais-SearchBox-input {
@@ -165,9 +167,9 @@
         .input-text-fields();
         height: 50px;
         @media (max-width: @mobile-breakpoint) {
-          padding: 15px;
+          padding: 12px !important;
           font-size: 1em;
-          height: 40px;
+          height: unset;
         }
       }
     }

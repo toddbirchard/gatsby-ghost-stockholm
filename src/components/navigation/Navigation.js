@@ -17,7 +17,7 @@ import SearchMenu from './Mobile/SearchMenu'
 *
 */
 
-const Navigation = ({ data, smallLogo, template }) => (
+const Navigation = ({ data, smallLogo }) => (
   <>
     <nav className="navigation">
       <div className="nav-wrapper">
@@ -32,12 +32,11 @@ const Navigation = ({ data, smallLogo, template }) => (
             <NavLinks navigation={data} />
           </div>
         </div>
-        {template !== `search-template` ? <div className="nav-right">
+        <div className="nav-right">
           <Search collapse className="search-widget" />
           <SearchMenu />
           <MobileMenu />
-        </div> : null }
-
+        </div>
       </div>
     </nav>
   </>
