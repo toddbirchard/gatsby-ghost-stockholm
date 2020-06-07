@@ -410,6 +410,8 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries,
         chunkSize: 100, // default: 1000
+      enablePartialUpdates: true,
+      matchFields: ['title', 'modified']
       },
     },
     {
@@ -429,6 +431,5 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-preload-link-crossorigin`,
   ],
 }
