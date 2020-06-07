@@ -21,14 +21,13 @@ class MobileMenu extends React.Component {
     this.tags = props.data.tags.edges
     this.series = props.data.series.edges
     this.authors = props.data.authors.edges
-    this.classes = props.data.fullWidth ? `fullWidth` : null
-    this.state = { active: false, query: ``, focus: false }
+    this.state = { active: false, focus: false }
   }
 
   render() {
     return (
       <>
-        <Menu right width={ `90%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
+        <Menu right width={ `90%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className="mobile-menu" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="pages">
             <Link className={`navigation-link`} to={`/`}><AiOutlineHome />Home</Link>
             <Link className={`navigation-link`} to={`/about/`}><AiOutlineInfoCircle />About</Link>
@@ -104,8 +103,6 @@ MobileMenu.propTypes = {
     }),
     tags: PropTypes.object.isRequired,
     authors: PropTypes.object.isRequired,
-    topSearches: PropTypes.object,
-    fullWidth: PropTypes.bool,
   }).isRequired,
 }
 

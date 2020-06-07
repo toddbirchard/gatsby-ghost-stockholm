@@ -22,7 +22,7 @@ const Stats = connectStateResults(
 
 export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
   const ref = createRef()
-  const [query, setQuery] = useState(forcedQuery ? forcedQuery : ``)
+  const [searchQuery, setQuery] = useState(forcedQuery ? forcedQuery : ``)
   const [focus, setFocus] = useState(false)
   const PostHit = clickHandler => ({ hit }) => (
     <div className="search-result">
@@ -86,7 +86,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
           }}
         />
         <FaSearch />
-        <HitsWrapper show={(query.length > 0 && focus) || (!!forcedQuery)} asGrid={hitsAsGrid} className="search-results">
+        <HitsWrapper show={(searchQuery.length > 0 && focus) || (!!forcedQuery)} asGrid={hitsAsGrid} className="search-results">
           <Index indexName="hackers_posts">
             <header>
               <div className="search-results-title">Search results</div>

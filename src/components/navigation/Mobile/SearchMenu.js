@@ -6,7 +6,6 @@ import { Configure,
   SearchBox,
   Index } from 'react-instantsearch-dom'
 import { HitsWrapper } from './SearchStyles'
-
 import algoliasearch from 'algoliasearch/lite'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
@@ -58,7 +57,7 @@ class SearchMenu extends React.Component {
   render() {
     return (
       <>
-        <Menu right width={ `90%` } burgerButtonClassName={ `mobile-search-button` } customBurgerIcon={ <img src="/images/search.svg" alt="search-icon" /> } className="mobile-menu full-width" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
+        <Menu right width={ `90%` } burgerButtonClassName={ `mobile-search-button` } customBurgerIcon={ <img src="/images/search.svg" alt="search-icon" /> } className="mobile-menu" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="search-container">
             <InstantSearch
               searchClient={searchClient}
@@ -116,12 +115,6 @@ const SearchMenuQuery = props => (
   <StaticQuery
     query={graphql`
           query MobileSearchQuery {
-            ghostSettings {
-              navigation {
-                label
-                url
-              }
-            }
             topSearches: allMysqlAlgoliaTopSearches(limit: 8) {
               edges {
                 node {
