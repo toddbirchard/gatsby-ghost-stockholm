@@ -35,7 +35,13 @@ const Post = ({ data, location }) => {
 
   return (
     <>
-      <MetaData location={location} data={data} type="article"/>
+      <MetaData
+        data={data}
+        location={location}
+        title={post.title}
+        description={post.excerpt}
+        type="article"
+      />
       <Layout template="post-template">
         <div className="post-wrapper">
           <div className="post-head">

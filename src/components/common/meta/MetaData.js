@@ -32,6 +32,7 @@ const MetaData = ({
       <ArticleMeta
         data={ghostPost}
         canonical={canonical}
+        type="Article"
       />
     )
   } else if (ghostTag) {
