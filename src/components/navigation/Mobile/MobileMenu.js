@@ -21,7 +21,6 @@ class MobileMenu extends React.Component {
     this.tags = props.data.tags.edges
     this.series = props.data.series.edges
     this.authors = props.data.authors.edges
-    this.state = { active: false, focus: false }
   }
 
   render() {
@@ -73,9 +72,6 @@ class MobileMenu extends React.Component {
             <Link className={`navigation-link`} to={`/join-us/`}><AiOutlineUserAdd />Join</Link>
             <a className={`navigation-link`} href={config.social.feedly}><FiRss />RSS</a>
             <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><AiOutlineDollarCircle /> Donate</a>
-          </div>
-          <div className="top-searches">
-            <div className="top-search-title">Trending Searches</div>
           </div>
         </Menu>
       </>
