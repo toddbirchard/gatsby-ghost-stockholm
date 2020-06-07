@@ -12,6 +12,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import config from '../../../utils/siteConfig'
 import { FaChevronDown } from 'react-icons/fa'
+import { AiOutlineHome, AiOutlineInfoCircle, AiOutlineSearch, AiOutlineTags, AiOutlineBook, AiOutlineUser, AiOutlineUserAdd, AiOutlineDollarCircle } from "react-icons/ai"
+import { FiRss } from 'react-icons/fi'
 
 class MobileMenu extends React.Component {
   constructor(props) {
@@ -28,13 +30,14 @@ class MobileMenu extends React.Component {
       <>
         <Menu right width={ `90%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
           <div className="pages">
-            <Link className={`navigation-link`} to={`/about/`}>About</Link>
-            <Link className={`navigation-link`} to={`/search/`}>All Posts</Link>
+            <Link className={`navigation-link`} to={`/`}><AiOutlineHome />Home</Link>
+            <Link className={`navigation-link`} to={`/about/`}><AiOutlineInfoCircle />About</Link>
+            <Link className={`navigation-link`} to={`/search/`}><AiOutlineSearch />Search</Link>
             <Accordion allowZeroExpanded>
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span>Tags</span> <FaChevronDown />
+                    <span><AiOutlineTags />Tags</span> <FaChevronDown className="chevron" />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel >
@@ -46,7 +49,7 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span>Series</span> <FaChevronDown />
+                    <span><AiOutlineBook />Series</span> <FaChevronDown className="chevron" />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -58,7 +61,7 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span>Authors</span> <FaChevronDown />
+                    <span><AiOutlineUser />Authors</span> <FaChevronDown className="chevron" />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -68,9 +71,9 @@ class MobileMenu extends React.Component {
                 </AccordionItemPanel>
               </AccordionItem>
             </Accordion>
-            <Link className={`navigation-link`} to={`/join-us/`}>Join</Link>
-            <a className={`navigation-link`} href={config.social.feedly}>RSS</a>
-            <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers">Donate</a>
+            <Link className={`navigation-link`} to={`/join-us/`}><AiOutlineUserAdd />Join</Link>
+            <a className={`navigation-link`} href={config.social.feedly}><FiRss />RSS</a>
+            <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><AiOutlineDollarCircle /> Donate</a>
           </div>
           <div className="top-searches">
             <div className="top-search-title">Trending Searches</div>

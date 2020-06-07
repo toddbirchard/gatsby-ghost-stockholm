@@ -151,13 +151,17 @@
     transition: @transition;
 
     .accordion__panel {
-      padding: 0 10px 10px;
+      padding: 0 0 20px 20px;
       transition: @transition;
 
       .tag-link {
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         font-size: .8em;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -269,18 +273,22 @@
         }
 
         &[aria-expanded="true"] {
-          svg {
+          .chevron {
             transform: scaleY(-1);
           }
         }
 
         span {
-          margin-right: 5px;
+          margin-right: 8px;
+        }
+
+        .chevron {
+          font-size: .7em;
+          opacity: .5;
         }
 
         svg {
-          font-size: .8em;
-          opacity: .5;
+          margin-right: 5px;
         }
       }
     }
