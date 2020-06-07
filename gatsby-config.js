@@ -251,7 +251,6 @@ module.exports = {
           require(`stylelint`)()],
       },
     },
-    `gatsby-plugin-split-css`,
     /**
      *  Netlify Plugins
      */
@@ -410,8 +409,8 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries,
         chunkSize: 100, // default: 1000
-      enablePartialUpdates: true,
-      matchFields: ['title', 'modified']
+        enablePartialUpdates: true,
+        matchFields: [`title`, `modified`],
       },
     },
     {
