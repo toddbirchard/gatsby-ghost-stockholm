@@ -19,8 +19,6 @@ const Author = ({ data, location, pageContext }) => {
   const posts = data.allGhostPost.edges
   const authorData = data
   const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
-  // const authorTweets = data.authorTweets.edges
-  // const authorTwitterUser = data.authorTwitterProfile.user
 
   return (
     <>

@@ -6,13 +6,20 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from 'react-accessible-accordion'
+import { AiOutlineHome,
+  AiOutlineInfoCircle,
+  AiOutlineSearch,
+  AiOutlineTags,
+  AiOutlineBook,
+  AiOutlineUser,
+  AiOutlineUserAdd,
+  AiOutlineDollarCircle } from "react-icons/ai"
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import config from '../../../utils/siteConfig'
 import { FaChevronDown } from 'react-icons/fa'
-import { AiOutlineHome, AiOutlineInfoCircle, AiOutlineSearch, AiOutlineTags, AiOutlineBook, AiOutlineUser, AiOutlineUserAdd, AiOutlineDollarCircle } from "react-icons/ai"
 import { FiRss } from 'react-icons/fi'
 
 class MobileMenu extends React.Component {
