@@ -1,12 +1,4 @@
 import React from 'react'
-import { Configure,
-  connectStateResults,
-  Hits,
-  InstantSearch,
-  SearchBox,
-  Index } from 'react-instantsearch-dom'
-import { HitsWrapper } from './SearchStyles'
-
 import {
   Accordion,
   AccordionItem,
@@ -14,49 +6,12 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from 'react-accessible-accordion'
-
-import algoliasearch from 'algoliasearch/lite'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
-import PostHit from './PostHit'
 import config from '../../../utils/siteConfig'
-import { FaSearch, FaChevronDown } from 'react-icons/fa'
-
-const appId = process.env.GATSBY_ALGOLIA_APP_ID
-const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
-
-const algoliaClient = algoliasearch(
-  appId,
-  searchKey,
-)
-
-const searchClient = {
-  search(requests) {
-    if (requests.every(({ params }) => !params.query)) {
-      return Promise.resolve({
-        results: requests.map(() => {
-          return {
-            hits: [],
-            nbHits: 0,
-            nbPages: 0,
-            processingTimeMS: 0,
-          }
-        }),
-      })
-    }
-    return algoliaClient.search(requests)
-  },
-}
-
-const Results = connectStateResults(
-  ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div className="no-results">{`No results for ${state.query}`}</div>),
-)
-
-const Stats = connectStateResults(
-  ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
-)
+import { FaChevronDown } from 'react-icons/fa'
 
 class MobileMenu extends React.Component {
   constructor(props) {
@@ -64,7 +19,6 @@ class MobileMenu extends React.Component {
     this.tags = props.data.tags.edges
     this.series = props.data.series.edges
     this.authors = props.data.authors.edges
-    this.topSearches = props.data.topSearches.edges
     this.classes = props.data.fullWidth ? `fullWidth` : null
     this.state = { active: false, query: ``, focus: false }
   }
@@ -73,37 +27,6 @@ class MobileMenu extends React.Component {
     return (
       <>
         <Menu right width={ `90%` } isOpen={ false } burgerButtonClassName={ `hamburger-button` } crossClassName={ `hamburger-cross-bar` } className={this.state.active ? `mobile-menu full-width` : `mobile-menu`} htmlClassName={ `menu-lock-screen` } disableAutoFocus>
-          <div className="search-container" onClick={ () => this.setState({ active: true })} onKeyPress={() => this.setState({ active: true })} role="button" tabIndex="0">
-            <InstantSearch
-              searchClient={searchClient}
-              indexName="hackers_posts"
-              searchState={{ query: this.state.query }}
-              onSearchStateChange={({ query }) => this.setState(({ query: query }))}
-              onSearchParameters={() => this.setState({ focus: true })}
-            >
-              <Configure hitsPerPage={10} analytics={true}/>
-              <SearchBox
-                searchAsYouType={true}
-                placeholder="Search all posts..."
-                onFocus={() => this.setState({ focus: true })}
-                translations={{
-                  placeholder: `Search all posts`,
-                }}
-              />
-              <FaSearch />
-              <HitsWrapper show={(this.state.query.length > 0 && this.state.focus)} className="search-results">
-                <Index indexName="hackers_posts">
-                  <header>
-                    <div className="search-results-title">Search results</div>
-                    <div className="search-results-count"><Stats/></div>
-                  </header>
-                  <Results>
-                    <Hits hitComponent={PostHit(() => this.setState({ focus: true }))}/>
-                  </Results>
-                </Index>
-              </HitsWrapper>
-            </InstantSearch>
-          </div>
           <div className="pages">
             <Link className={`navigation-link`} to={`/about/`}>About</Link>
             <Link className={`navigation-link`} to={`/search/`}>All Posts</Link>
@@ -151,13 +74,6 @@ class MobileMenu extends React.Component {
           </div>
           <div className="top-searches">
             <div className="top-search-title">Trending Searches</div>
-            <div className="sublinks">
-              {this.topSearches.map(({ node }) => (
-                <button className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>
-                  <span>{ node.search }</span>
-                </button>
-              ))}
-            </div>
           </div>
         </Menu>
       </>
@@ -216,14 +132,6 @@ const MobileMenuQuery = props => (
                   slug
                   description
                   meta_title
-                }
-              }
-            }
-            topSearches: allMysqlAlgoliaTopSearches(limit: 8) {
-              edges {
-                node {
-                  search
-                  count
                 }
               }
             }
