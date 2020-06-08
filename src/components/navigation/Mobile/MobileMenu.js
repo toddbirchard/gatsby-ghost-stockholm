@@ -138,7 +138,7 @@ const MobileMenuQuery = props => (
                 }
               }
             }
-            authors: allGhostAuthor(filter: {postCount: {gt: 1}}) {
+            authors: allGhostAuthor(filter: {postCount: {gte: 1}}) {
               edges {
                 node {
                   name
