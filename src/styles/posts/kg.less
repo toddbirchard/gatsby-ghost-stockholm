@@ -33,6 +33,9 @@
   box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
   text-decoration: none;
   transition: @transition;
+  @media(max-width: @mobile-breakpoint) {
+        width: 100%;
+  }
 
   .wp-embedded-content {
     margin: 0;
@@ -169,17 +172,24 @@
         display: flex;
         align-items: center;
         font-size: 0.8em;
+        flex-wrap: wrap;
 
         * {
           font-weight: 600;
           line-height: 1;
+          white-space: nowrap;
         }
 
         .kg-bookmark-icon {
           width: 18px;
           height: 18px;
           margin-right: 12px;
+          margin-bottom: 4px;
           vertical-align: bottom;
+        }
+
+        .kg-bookmark-author {
+            margin-bottom: 4px;
         }
 
         .kg-bookmark-author:after {
@@ -200,8 +210,9 @@
       position: relative;
       flex-basis: 30%;
       @media (max-width: @mobile-breakpoint) {
-        height: 180px;
+        max-height: 180px;
         overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
       }
 
       img {

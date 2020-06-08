@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import PostHit from './PostHit'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaChartLine } from 'react-icons/fa'
 
 const appId = process.env.GATSBY_ALGOLIA_APP_ID
 const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
@@ -90,11 +90,11 @@ class SearchMenu extends React.Component {
             </InstantSearch>
           </div>
           <div className="top-searches">
-            <div className="top-search-title">Trending Searches</div>
+            <div className="top-search-title"><FaChartLine /> Trending Searches</div>
             <div className="sublinks">
               {this.topSearches.map(({ node }) => (
                 <button className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>
-                  <span>{ node.search }</span>
+                  { node.search }
                 </button>
               ))}
             </div>
