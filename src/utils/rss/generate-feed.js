@@ -3,7 +3,7 @@ const tagsHelper = require(`@tryghost/helpers`).tags
 const _ = require(`lodash`)
 
 const generateItem = function generateItem(siteUrl, post) {
-  const re = /[\u0150\0164\0000]/g
+  const re = /(\x00)/g
   const itemUrl = post.canonical_url || post.url
   const html = post.html.replace(re, ``)
   const htmlContent = cheerio.load(html, { decodeEntities: false, xmlMode: true })

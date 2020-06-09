@@ -21,11 +21,6 @@
     status = 301
 
 [[redirects]]
-    from = "/ghost/"
-    to = "https://hackersandslackers.app/ghost"
-    status = 301
-
-[[redirects]]
     from = "/wp-login.php"
     to = "https://i.imgur.com/1Ia9tTG.gif"
     status = 301
