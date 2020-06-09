@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 const CoursePreview = ({ course }) => {
-  const id = course.id
   const url = `/series/${course.slug}`
   const image = course.feature_image
   const name = course.name.replace(`#`, ``)
@@ -12,7 +11,7 @@ const CoursePreview = ({ course }) => {
 
   return (
     <>
-      <Link to={url} className="series-card" key={id}>
+      <Link to={url} className="series-card">
         <div className="series-card-image" style={{ backgroundImage: `url(${image})` }}> </div>
         <div className="series-card-info">
           <h3 className="series-card-title">{name}</h3>
