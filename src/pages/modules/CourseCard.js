@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-const CoursePreview = ({ course }) => {
+const CourseCard = ({ course }) => {
   const url = `/series/${course.slug}`
   const image = course.feature_image
   const name = course.name.replace(`#`, ``)
@@ -23,7 +23,7 @@ const CoursePreview = ({ course }) => {
   )
 }
 
-CoursePreview.propTypes = {
+CourseCard.propTypes = {
   course: PropTypes.shape({
     id: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
@@ -34,4 +34,4 @@ CoursePreview.propTypes = {
   }).isRequired,
 }
 
-export default CoursePreview
+export default CourseCard

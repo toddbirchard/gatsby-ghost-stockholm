@@ -32,9 +32,7 @@ const PostCard = ({ post }) => {
           <Link to={url}>
             <h2 className="post-card-title">{post.title}</h2>
           </Link>
-          {post.excerpt &&
-          <section className="post-card-excerpt">{post.excerpt}</section>
-          }
+          {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
           <footer className="post-card-footer">
             {post.primary_author ?
               <div className="meta-items">

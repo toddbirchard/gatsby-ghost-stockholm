@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { CoursePreview } from './modules'
+import { CourseCard } from './modules'
 
 import '../styles/pages/seriesarchive.less'
 import '../styles/pages/page.less'
@@ -44,25 +44,25 @@ const SeriesArchive = ({ data, location, pageContext }) => {
           <h2 className="course-section-title">Data Science & Engineering</h2>
           <div className="series-grid">
             {dataScienceCourses.map(({ node }) => (
-              <CoursePreview course={node} key={node.id} />
+              <CourseCard course={node} key={node.id} />
             ))}
           </div>
           <h2 className="course-section-title">Software Engineering</h2>
           <div className="series-grid">
             {softwareCourses.map(({ node }) => (
-              <CoursePreview course={node} key={node.id} />
+              <CourseCard course={node} key={node.id} />
             ))}
           </div>
           <h2 className="course-section-title">Data Analysis</h2>
           <div className="series-grid">
             {analysisCourses.map(({ node }) => (
-              <CoursePreview course={node} key={node.id} />
+              <CourseCard course={node} key={node.id} />
             ))}
           </div>
           <h2 className="course-section-title">Cloud Architecture</h2>
           <div className="series-grid">
             {cloudCourses.map(({ node }) => (
-              <CoursePreview course={node} key={node.id} />
+              <CourseCard course={node} key={node.id} />
             ))}
           </div>
         </div>
@@ -175,17 +175,6 @@ export const seriesQuery = graphql`
             }
           }
         }
-        courses: allGhostPost(filter: {tags: {elemMatch: {visibility: {eq: "internal"}}}}) {
-          group(field: primary_tag___slug) {
-                fieldValue
-                totalCount
-                nodes {
-                  meta_title
-                  meta_description
-                }
-              }
-              totalCount
-            }
         ghostPage(slug: {eq: $slug}) {
           ...GhostPageFields
         }
