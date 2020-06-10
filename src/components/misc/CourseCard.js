@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
 const CourseCard = ({ course }) => {
-  const url = course && `/series/${course.slug}`
-  const image = course && course.feature_image
-  const name = course && course.name.replace(`#`, ``)
-  const description = course && course.description
-  const postCount = course && course.postCount
+  const url = `/series/${course.slug}`
+  const image = course.feature_image
+  const name = course.name.replace(`#`, ``)
+  const description = course.description
+  const postCount = course.postCount
 
   return (
     <>

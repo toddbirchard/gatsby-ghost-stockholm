@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { CourseCard } from './modules'
+import { CourseCard } from '../components/misc'
 
 import '../styles/pages/seriesarchive.less'
 import '../styles/pages/page.less'
