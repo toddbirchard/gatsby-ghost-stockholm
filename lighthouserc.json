@@ -22,7 +22,7 @@
           }
         ],
         "uses-long-cache-ttl": "off",
-        "uses-http2": "off"
+        "uses-http2": "on"
       }
     }
   }

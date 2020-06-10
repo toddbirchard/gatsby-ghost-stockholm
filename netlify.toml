@@ -9,11 +9,6 @@
 [template]
   incoming-hooks = ["Ghost"]
 
-[[redirects]]
-    from = "http://hackersandslackers.app/"
-    to = "https://hackersandslackers.app/"
-    status = 301
-
 
 [[redirects]]
     from = "/ghost"
@@ -158,11 +153,6 @@
 [[redirects]]
     from = "/code-snippet-corner-getting-conda-envs-and-environment-variables-to-play-nicely-with-cron/"
     to = "/conda-environments-and-cron/"
-    status = 301
-
-[[redirects]]
-    from = "https://hackersandslackers.com/code-snippet-corner-tuning-random-learning-hyperparameters-with-binary-search/"
-    to = "/tuning-machine-learning-hyperparameters-with-binary-search/"
     status = 301
 
 [[redirects]]
@@ -644,7 +634,6 @@
         max-age=604800,
         no-cache,
         public'''
-
 
 [[headers]]
   for = "/images/bmc-new-btn-logo.svg"
