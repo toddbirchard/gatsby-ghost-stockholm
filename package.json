@@ -67,6 +67,7 @@
     "@nteract/notebook-preview": "^11.0.4-alpha.0",
     "@tryghost/helpers": "1.1.27",
     "@tryghost/helpers-gatsby": "1.0.31",
+    "@tryghost/social-urls": "^0.1.9",
     "algoliasearch": "^4.2.0",
     "algoliasearch-helper": "^3.1.2",
     "babel-plugin-prismjs": "^2.0.1",

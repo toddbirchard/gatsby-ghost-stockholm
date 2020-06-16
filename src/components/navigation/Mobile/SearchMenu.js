@@ -1,51 +1,16 @@
 import React from 'react'
 import { Configure,
-  connectStateResults,
   Hits,
   InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
 import { HitsWrapper } from './SearchStyles'
-import algoliasearch from 'algoliasearch/lite'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import PostHit from './PostHit'
+import { searchClient, searchResults, searchStats } from '../../search/SearchClient'
 import { FaSearch, FaChartLine } from 'react-icons/fa'
-
-const appId = process.env.GATSBY_ALGOLIA_APP_ID
-const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
-
-const algoliaClient = algoliasearch(
-  appId,
-  searchKey,
-)
-
-const searchClient = {
-  search(requests) {
-    if (requests.every(({ params }) => !params.query)) {
-      return Promise.resolve({
-        results: requests.map(() => {
-          return {
-            hits: [],
-            nbHits: 0,
-            nbPages: 0,
-            processingTimeMS: 0,
-          }
-        }),
-      })
-    }
-    return algoliaClient.search(requests)
-  },
-}
-
-const Results = connectStateResults(
-  ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div className="no-results">{`No results for ${state.query}`}</div>),
-)
-
-const Stats = connectStateResults(
-  ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
-)
 
 class SearchMenu extends React.Component {
   constructor(props) {
@@ -57,7 +22,14 @@ class SearchMenu extends React.Component {
   render() {
     return (
       <>
-        <Menu right width={ `85%` } burgerButtonClassName={ `mobile-search-button` } customBurgerIcon={ <img src="/images/search.svg" alt="search-icon" /> } className="mobile-menu" htmlClassName={ `menu-lock-screen` } disableAutoFocus>
+        <Menu
+          right width={ `85%` }
+          burgerButtonClassName={ `mobile-search-button` }
+          customBurgerIcon={ <img src="/images/search.svg" alt="search-icon" /> }
+          className="mobile-menu"
+          htmlClassName={ `menu-lock-screen` }
+          disableAutoFocus
+        >
           <div className="search-container">
             <InstantSearch
               searchClient={searchClient}
@@ -80,11 +52,11 @@ class SearchMenu extends React.Component {
                 <Index indexName="hackers_posts">
                   <header>
                     <div className="search-results-title">Search results</div>
-                    <div className="search-results-count"><Stats/></div>
+                    <div className="search-results-count"><searchStats/></div>
                   </header>
-                  <Results>
+                  <searchResults>
                     <Hits hitComponent={PostHit(() => this.setState({ focus: true }))}/>
-                  </Results>
+                  </searchResults>
                 </Index>
               </HitsWrapper>
             </InstantSearch>

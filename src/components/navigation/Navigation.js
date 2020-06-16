@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Search from './Search'
+import Search from '../search/Search'
 import NavLinks from './NavLinks'
 import MobileMenu from './Mobile/MobileMenu'
 import SearchMenu from './Mobile/SearchMenu'

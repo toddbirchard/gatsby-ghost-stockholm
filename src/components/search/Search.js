@@ -1,24 +1,15 @@
 import React, { createRef, useState } from 'react'
 import { Configure,
-  connectStateResults,
   Hits,
   InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
-import algoliasearch from 'algoliasearch/lite'
 import { useClickOutside } from '../../utils/hooks'
 import { HitsWrapper, Root } from './SearchStyles'
 import { Link } from 'gatsby'
 import { FaTags, FaSearch } from 'react-icons/fa'
 import PropTypes from "prop-types"
-
-const Results = connectStateResults(
-  ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : <div className="no-results">{`No results for ${state.query}`}</div>),
-)
-
-const Stats = connectStateResults(
-  ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} results`
-)
+import { searchClient, searchResults, searchStats } from './SearchClient'
 
 export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
   const ref = createRef()
@@ -37,35 +28,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
     </div>
   )
 
-  const appId = process.env.GATSBY_ALGOLIA_APP_ID
-  const searchKey = process.env.GATSBY_ALGOLIA_SEARCH_KEY
-
-  const algoliaClient = algoliasearch(
-    appId,
-    searchKey,
-  )
-
-  const searchClient = {
-    search(requests) {
-      if (requests.every(({ params }) => !params.query)) {
-        return Promise.resolve({
-          results: requests.map(() => {
-            return {
-              hits: [],
-              nbHits: 0,
-              nbPages: 0,
-              processingTimeMS: 0,
-            }
-          }),
-        })
-      }
-      focusTrue(true)
-      return algoliaClient.search(requests)
-    },
-  }
-
   const focusFalse = () => setFocus(false)
-  const focusTrue = () => setFocus(true)
   useClickOutside(ref, focusFalse)
   return (
     <Root ref={ref} className="search-root">
@@ -85,16 +48,16 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
             placeholder: `Search all posts`,
           }}
         />
-        <FaSearch />
+        <FaSearch className="search-icon" />
         <HitsWrapper show={(searchQuery.length > 0 && focus) || (!!forcedQuery)} asGrid={hitsAsGrid} className="search-results">
           <Index indexName="hackers_posts">
             <header>
               <div className="search-results-title">Search results</div>
-              <div className="search-results-count"><Stats/></div>
+              <div className="search-results-count"><searchStats/></div>
             </header>
-            <Results>
+            <searchResults>
               <Hits hitComponent={PostHit(() => setFocus(false))}/>
-            </Results>
+            </searchResults>
           </Index>
         </HitsWrapper>
       </InstantSearch>
@@ -104,6 +67,6 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
 
 Search.propTypes = {
   forcedQuery: PropTypes.string,
-  collapse: PropTypes.object.isRequired,
+  collapse: PropTypes.bool.isRequired,
   hitsAsGrid: PropTypes.object,
 }

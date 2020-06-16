@@ -37,12 +37,6 @@ export const Input = styled.input`
   ${props => (props.collapse ? collapse : expand)};
 `
 
-export const InputContainer = styled.form`
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-`
-
 export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
   max-height: 80vh;

@@ -1,13 +1,14 @@
 import _ from 'lodash'
 import PropTypes from 'prop-types'
+import { twitter, facebook } from '@tryghost/social-urls'
 
 export const getAuthorProperties = (primaryAuthor) => {
   let authorProfiles = []
 
   authorProfiles.push(
-    primaryAuthor.website ? primaryAuthor.website : null,
-    primaryAuthor.twitter ? `https://twitter.com/${primaryAuthor.twitter.replace(/^@/, ``)}/` : null,
-    primaryAuthor.facebook ? `https://www.facebook.com/${primaryAuthor.facebook.replace(/^\//, ``)}/` : null
+    primaryAuthor.website && primaryAuthor.website,
+    primaryAuthor.twitter && twitter(primaryAuthor.twitter),
+    primaryAuthor.facebook && facebook(primaryAuthor.facebook)
   )
 
   authorProfiles = _.compact(authorProfiles)
@@ -16,7 +17,8 @@ export const getAuthorProperties = (primaryAuthor) => {
     name: primaryAuthor.name || null,
     sameAsArray: authorProfiles.length ? `["${_.join(authorProfiles, `", "`)}"]` : null,
     image: primaryAuthor.profile_image || null,
-    facebookUrl: primaryAuthor.facebook ? `https://www.facebook.com/${primaryAuthor.facebook.replace(/^\//, ``)}/` : null,
+    facebookUrl: primaryAuthor.facebook && primaryAuthor.facebook,
+    twitterUrl: primaryAuthor.twitter && primaryAuthor.twitter,
   }
 }
 

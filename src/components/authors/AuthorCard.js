@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { twitter } from '@tryghost/social-urls'
 import { AiOutlineFile, AiOutlineTwitter, AiOutlineHome, AiOutlineLink, AiOutlineUser } from 'react-icons/ai'
 
 import '../../styles/author-card.less'
 
 const AuthorCard = ({ author, page, template, pageContext }) => {
-  const authorTwitterUrl = author.twitter ? `https://twitter.com/${author.twitter.replace(/^@/, ``)}` : null
+  const authorTwitterUrl = author.twitter && twitter(author.twitter)
   const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
 
@@ -21,12 +22,35 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
             }
           </div>
           <div className="author-card-content">
-            {template === `author-template` ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1> : <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>}
+            {template === `author-template`
+              ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
+              : <Link to={`/author/${author.slug}`} className="author-card-name">{author.name}</Link>
+            }
             <div className="author-card-meta">
-              {author.postCount && <div className="author-card-item"><AiOutlineFile /><span>{author.postCount} Posts</span></div>}
-              {author.location && <div className="author-card-item location"><AiOutlineHome /><span>{author.location}</span></div>}
-              {author.website && <div className="author-card-item"><a href={author.website} target="_blank" rel="noopener noreferrer"><AiOutlineLink /><span>Website</span></a></div>}
-              {authorTwitterUrl && <div className="author-card-item"><a href={authorTwitterUrl} target="_blank" rel="noopener noreferrer"><AiOutlineTwitter /><span>Twitter</span></a></div>}
+              {author.postCount &&
+                <div className="author-card-item">
+                  <AiOutlineFile /><span>{author.postCount} Posts</span>
+                </div>
+              }
+              {author.location &&
+                <div className="author-card-item location">
+                  <AiOutlineHome /><span>{author.location}</span>
+                </div>
+              }
+              {author.website &&
+                <div className="author-card-item">
+                  <a href={author.website} target="_blank" rel="noopener noreferrer">
+                    <AiOutlineLink /><span>Website</span>
+                  </a>
+                </div>
+              }
+              {authorTwitterUrl &&
+                <div className="author-card-item">
+                  <a href={authorTwitterUrl} target="_blank" rel="noopener noreferrer">
+                    <AiOutlineTwitter /><span>Twitter</span>
+                  </a>
+                </div>
+              }
             </div>
             {author.bio && <p className="author-card-bio">{author.bio}</p>}
           </div>
