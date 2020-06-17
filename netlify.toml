@@ -4,15 +4,16 @@
 [build]
   base = "/"
   command = "gatsby build"
-  publish = "/public"
+  publish = "public/"
+  functions = "functions/"
 
 [template]
   incoming-hooks = ["Ghost"]
 
 
 [[redirects]]
-    from = "/ghost"
-    to = "https://hackersandslackers.app/ghost"
+    from = "/ghost/"
+    to = "https://hackersandslackers.app/ghost/"
     status = 301
 
 [[redirects]]
@@ -227,7 +228,7 @@
 
 [[redirects]]
     from = "/using-pandas-with-aws-lambda/"
-    to = "/pandas-with-aws-lambda/"
+    to = "/pandas-aws-lambda/"
     status = 301
 
 [[redirects]]
