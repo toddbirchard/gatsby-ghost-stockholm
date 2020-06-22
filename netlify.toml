@@ -5,7 +5,6 @@
   base = "/"
   command = "gatsby build"
   publish = "public/"
-  functions = "functions/"
 
 [template]
   incoming-hooks = ["Ghost"]
