@@ -3,6 +3,7 @@
 .error-template {
   .viewport {
     position: relative;
+    width: 1020px;
     max-width: 90%;
     margin: 0 auto;
 
@@ -55,6 +56,12 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
       padding: 0;
       list-style: none;
+      @media(max-width: @tablet-breakpoint) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      @media(max-width: @mobile-breakpoint) {
+        grid-template-columns: 1fr 1fr;
+      }
 
       .post-card {
         .feature-image {

@@ -7,9 +7,6 @@ import { AboutWidget,
   TrendingWidget,
   TwitterWidget,
   GithubWidget } from '.'
-import { AuthorTrendingWidget,
-  AuthorTwitterWidget,
-  AuthorWebsiteWidget } from './authors'
 
 /**
  *
@@ -17,9 +14,7 @@ import { AuthorTrendingWidget,
  *
 */
 
-const Sidebar = ({ site, template, authorData }) => {
-  const authorTwitter = authorData && authorData.authorTwitterProfile
-  const authorWebsite = authorData && authorData.ghostAuthor.website
+const Sidebar = ({ site, template }) => {
   const corePages = [`home-template`, `page-template`, `tag-template`]
   const isCorePage = corePages.includes(template)
 
@@ -27,14 +22,12 @@ const Sidebar = ({ site, template, authorData }) => {
     <>
       <aside className="sidebar">
         {isCorePage && <AboutWidget site={site} />}
-        {authorWebsite && <AuthorWebsiteWidget authorWebsite={authorWebsite} />}
         <SocialWidget site={site} />
-        {template === `author-template` ? <AuthorTrendingWidget authorData={authorData} /> : <TrendingWidget />}
-        {template !== `author-template` ? <TagsWidget /> : null}
+        <TrendingWidget />
+        <TagsWidget />
         {isCorePage ? <NewsletterWidget /> : null}
         {template === `home-template` ? <GithubWidget /> : null}
         {template === `home-template` ? <TwitterWidget /> : null}
-        {authorTwitter && <AuthorTwitterWidget data={authorTwitter} />}
       </aside>
     </>
   )

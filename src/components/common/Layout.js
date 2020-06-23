@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
+import { AuthorSidebar } from '../sidebar/authors'
 import config from '../../utils/siteConfig'
 
 /**
@@ -36,7 +37,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         <div className={hasSidebar ? `sidebar-container` : `container`}>
           {/* All the main content gets inserted here, index.js, post.js */}
           {children}
-          {hasSidebar && <Sidebar site={site} template={template} authorData={authorData} />}
+          {template === `author-template` ? <AuthorSidebar authorData={authorData} /> : <Sidebar site={site} template={template} authorData={authorData} />}
         </div>
       </div>
       <Footer navigation={site.navigation} site={site} template={template} />

@@ -49,6 +49,15 @@ module.exports = {
         name: `pages`,
       },
     },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, `src`, `data`),
+        name: `data`,
+      },
+    },
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-git`,
       options: {
