@@ -5,7 +5,7 @@ import { FaChartLine } from 'react-icons/fa'
 import config from '../../utils/siteConfig'
 
 const TrendingWidget = ({ data }) => {
-  const topPages = data.allMysqlWeeklyPageAnalytics.edges
+  const topPages = data.allMysqlWeeklyPostAnalytics.edges
 
   return (
     <div className="widget trending">
@@ -23,7 +23,7 @@ const TrendingWidget = ({ data }) => {
 
 TrendingWidget.propTypes = {
   data: PropTypes.shape({
-    allMysqlWeeklyPageAnalytics: PropTypes.object.isRequired,
+    allMysqlWeeklyPostAnalytics: PropTypes.object.isRequired,
   }).isRequired,
 }
 
@@ -31,7 +31,7 @@ const TrendingWidgetQuery = props => (
   <StaticQuery
     query={graphql`
           query TrendingPages {
-            allMysqlWeeklyPageAnalytics(limit: 10) {
+            allMysqlWeeklyPostAnalytics(limit: 10) {
               edges {
                 node {
                   title

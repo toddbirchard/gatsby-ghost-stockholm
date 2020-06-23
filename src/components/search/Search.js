@@ -9,7 +9,7 @@ import { HitsWrapper, Root } from './SearchStyles'
 import { Link } from 'gatsby'
 import { FaTags, FaSearch } from 'react-icons/fa'
 import PropTypes from "prop-types"
-import { searchClient, searchResults, searchStats } from './SearchClient'
+import { SearchClient, SearchResults, SearchStats } from './SearchClient'
 
 export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
   const ref = createRef()
@@ -33,7 +33,7 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
   return (
     <Root ref={ref} className="search-root">
       <InstantSearch
-        searchClient={searchClient}
+        searchClient={SearchClient}
         indexName="hackers_posts"
         onSearchStateChange={({ query }) => setQuery(query)}
         onSearchParameters={() => setFocus(true)} {...{ collapse, focus }}
@@ -53,11 +53,11 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
           <Index indexName="hackers_posts">
             <header>
               <div className="search-results-title">Search results</div>
-              <div className="search-results-count"><searchStats/></div>
+              <div className="search-results-count"><SearchStats/></div>
             </header>
-            <searchResults>
+            <SearchResults>
               <Hits hitComponent={PostHit(() => setFocus(false))}/>
-            </searchResults>
+            </SearchResults>
           </Index>
         </HitsWrapper>
       </InstantSearch>

@@ -6,7 +6,7 @@ const algoliaClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 )
 
-export const searchClient = {
+export const SearchClient = {
   search(requests) {
     if (requests.every(({ params }) => !params.query)) {
       return Promise.resolve({
@@ -24,10 +24,10 @@ export const searchClient = {
   },
 }
 
-export const searchResults = connectStateResults(
+export const SearchResults = connectStateResults(
   ({ searchState: state, searchResults: res, children }) => (res && res.nbHits > 0 ? children : `No results for '${state.query}'`)
 )
 
-export const searchStats = connectStateResults(
+export const SearchStats = connectStateResults(
   ({ searchResults: res }) => res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
 )

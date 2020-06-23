@@ -127,9 +127,9 @@ module.exports = {
             name: `monthly_page_analytics`,
           },
           {
-            statement: `SELECT * FROM weekly_page_analytics`,
+            statement: `SELECT * FROM weekly_post_analytics`,
             idFieldName: `id`,
-            name: `weekly_page_analytics`,
+            name: `weekly_post_analytics`,
           },
           {
             statement: `SELECT * FROM algolia_top_suggested_searches`,

@@ -3,49 +3,88 @@
 .error-template {
   .viewport {
     position: relative;
-    height: 500px;
-    max-height: 100%;
+    max-width: 90%;
+    margin: 0 auto;
 
-    .content-title {
-      color: #2c3c55;
-      font-family: @header-font;
-      font-size: 10em;
-      font-weight: unset;
-      @media (max-width: @mobile-breakpoint) {
-        font-size: 8.5em;
-      }
-    }
-
-    .content-body {
-      @media (max-width: @mobile-breakpoint) {
-        font-size: 0.9em;
-      }
-    }
-
-    a {
-      color: @theme-color;
-      font-family: @body-font-bold;
-      font-weight: 600;
-      transition: @transition;
-
-      &:hover {
-        color: @hover-color;
-      }
-    }
-
-    .error {
-      display: flex;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      flex-direction: column;
-      justify-content: space-between;
+    .not-found-header {
       width: max-content;
-      height: 100px;
       margin: auto;
       text-align: center;
+      height: 150px;
+      padding-top: 90px;
+
+      .title {
+        color: #2c3c55;
+        font-family: @header-font;
+        font-size: 9em;
+        display: block;
+        height: 70px;
+      }
+
+      .go-home {
+        display: block;
+        font-weight: 600;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: @theme-color;
+        font-family: @body-font-bold;
+        font-weight: 600;
+        transition: @transition;
+
+        &:hover {
+          color: @hover-color;
+        }
+      }
+    }
+
+    .trending-title {
+      color: #596675;
+      margin-bottom: 20px;
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    .trending-posts {
+      grid-gap: 15px;
+      display: grid;
+      grid-auto-rows: -webkit-min-content;
+      grid-auto-rows: min-content;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      padding: 0;
+      list-style: none;
+
+      .post-card {
+        .feature-image {
+          display: block;
+        }
+
+        .primary-tag {
+          margin-bottom: 7px;
+        }
+
+        .primary-tag a {
+          text-transform: uppercase;
+          font-size: .9em;
+        }
+
+        .post-card-title {
+          font-size: 1.1em;
+          line-height: 1.1;
+          font-family: @header-font-secondary;
+        }
+
+        .post-card-excerpt {
+          font-size: 1em;
+          margin-bottom: 0;
+        }
+
+        .post-card-detail {
+          padding: 20px;
+        }
+      }
     }
   }
 }

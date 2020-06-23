@@ -25,7 +25,8 @@
           "less",
           "nginx",
           "go",
-          "hcl"
+          "hcl",
+          "vim"
         ],
         "plugins": ["normalize-whitespace"],
         "theme": "default",

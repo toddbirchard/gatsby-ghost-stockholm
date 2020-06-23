@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import PostHit from './PostHit'
-import { searchClient, searchResults, searchStats } from '../../search/SearchClient'
+import { SearchClient, SearchResults, SearchStats } from '../../search/SearchClient'
 import { FaSearch, FaChartLine } from 'react-icons/fa'
 
 class SearchMenu extends React.Component {
@@ -32,7 +32,7 @@ class SearchMenu extends React.Component {
         >
           <div className="search-container">
             <InstantSearch
-              searchClient={searchClient}
+              searchClient={SearchClient}
               indexName="hackers_posts"
               searchState={{ query: this.state.query }}
               onSearchStateChange={({ query }) => this.setState(({ query: query }))}
@@ -52,11 +52,11 @@ class SearchMenu extends React.Component {
                 <Index indexName="hackers_posts">
                   <header>
                     <div className="search-results-title">Search results</div>
-                    <div className="search-results-count"><searchStats/></div>
+                    <div className="search-results-count"><SearchStats/></div>
                   </header>
-                  <searchResults>
+                  <SearchResults>
                     <Hits hitComponent={PostHit(() => this.setState({ focus: true }))}/>
-                  </searchResults>
+                  </SearchResults>
                 </Index>
               </HitsWrapper>
             </InstantSearch>
