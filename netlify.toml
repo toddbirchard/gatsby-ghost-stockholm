@@ -1,6 +1,24 @@
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
 
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    audit_url = 'https://hackersandslackers.com'
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+  [plugins.inputs]
+    contexts = [
+      'production',
+      'branch-deploy',
+      'deploy-preview']
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"
+  [plugins.inputs]
+    entryPoints = ["*.html"]
+
 [build]
   base = "/"
   command = "gatsby build"
