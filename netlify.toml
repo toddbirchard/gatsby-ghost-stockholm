@@ -14,9 +14,8 @@
 [template]
   incoming-hooks = ["Ghost"]
 
-
 [[redirects]]
-    from = "/ghost/"
+    from = "/ghost"
     to = "https://hackersandslackers.app/ghost/"
     status = 301
 
