@@ -16,12 +16,6 @@
   font-size: 14px !important;
 }
 
-.commento-root .commento-card p,
-.commento-root .commento-card a {
-  font-size: 14px !important;
-  line-height: 1.3 !important;
-}
-
 .commento-root .commento-body a {
   color: #6baaf2;
   font-weight: 600px;
@@ -37,14 +31,6 @@
   background: #eff3f8 !important;
   color: #5384a3 !important;
   font-size: 12px !important;
-}
-
-.commento-root pre {
-  margin: 20px 0;
-  padding: 15px;
-  border: 1px solid #e2e6ea;
-  border-radius: 5px;
-  background: #eff3f8;
 }
 
 .commento-root .commento-button-margin {
@@ -280,12 +266,21 @@
 }
 
 .commento-root .commento-card p {
-  margin: 5px 0 0 !important;
+  margin: 0 0 10px !important;
   line-height: 1.4 !important;
+  font-size: 14px !important;
 }
 
 .commento-root .commento-card .commento-body {
   font-size: 0.9em !important;
+}
+
+.commento-root .commento-card .commento-body pre {
+  background: #eff3f8 !important;
+  color: #5d94b7 !important;
+  padding: 15px !important;
+  margin: 15px 0 !important;
+  border-radius: 4px !important;
 }
 
 @media (max-width: 600px) {
