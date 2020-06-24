@@ -34,4 +34,3 @@ import './src/styles/app.less';
       }
     }
   }
-}
