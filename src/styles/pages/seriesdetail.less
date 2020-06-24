@@ -43,10 +43,11 @@
 
     .series-description {
       margin: 15px 0 0;
-      font-size: 1.1em;
-      line-height: 1.4;
+      font-size: 1.2em;
+      line-height: 1.3;
+      letter-spacing: -.5px;
       @media (max-width: @mobile-breakpoint) {
-        font-size: 0.95em;
+        font-size: 1em;
       }
     }
   }
@@ -155,6 +156,7 @@
         justify-content: space-between;
         margin: 0;
         padding: 22px 5px;
+        flex-direction: column;
       }
 
       &:last-of-type {
@@ -196,37 +198,47 @@
         .series-post-number {
           font-size: 0.9em;
           @media (max-width: @mobile-breakpoint) {
-            margin-right: 10px;
-            font-family: @body-font-bold;
+            display: none;
           }
         }
       }
 
       .series-post-title-text {
         font-size: 0.9em;
+        line-height: 1.1;
+        font-family: @body-font-bold;
         @media (max-width: @mobile-breakpoint) {
           font-weight: 600;
+          line-height: 1.3;
         }
       }
 
-      .series-post-card-excerpt {
+      .excerpt {
         -webkit-line-clamp: 2;
         line-height: 1.3;
+        margin-bottom: 10px;
+        font-size: 1em;
         transition: @transition;
         .line-clamp();
         @media (max-width: @mobile-breakpoint) {
           display: none;
         }
       }
-    }
-  }
-}
 
-.series-template {
-  .nav-wrapper {
-    max-width: 900px;
-    @media (max-width: @tablet-breakpoint) {
-      max-width: 86%;
+      .reading-time {
+        font-size: .8em;
+        font-family: @body-font-bold;
+        display: flex;
+        align-items: center;
+        @media (max-width: @mobile-breakpoint) {
+          margin-top: 10px;
+        }
+
+        svg {
+          margin-right: 5px;
+          font-size: .8em;
+        }
+      }
     }
   }
 }

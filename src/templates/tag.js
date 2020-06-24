@@ -9,11 +9,11 @@ import { InfoCard } from '../components/misc'
 import '../styles/pages/tag.less'
 
 /**
-* Tag page (/tag/:slug)
-*
-* Loads all posts for the requested tag incl. pagination.
-*
-*/
+ * Tag page (/tag/:slug)
+ *
+ * Loads all posts for the requested tag incl. pagination.
+ *
+ */
 
 const Tag = ({ data, location, pageContext }) => {
   const tag = data.ghostTag
@@ -30,11 +30,11 @@ const Tag = ({ data, location, pageContext }) => {
       />
       <Layout template="tag-template page-template" hasSidebar>
         <section className="post-feed">
-          <InfoCard tag={tag} count={pageCount} />
+          <InfoCard tag={tag} count={pageCount}/>
           {posts.map(({ node }) => (
-            <PostCard key={node.id} post={node} />
+            <PostCard key={node.id} post={node}/>
           ))}
-          <Pagination pageContext={pageContext} />
+          <Pagination pageContext={pageContext}/>
         </section>
       </Layout>
     </>
@@ -52,15 +52,14 @@ Tag.propTypes = {
         PropTypes.shape({
           title: PropTypes.string,
           slug: PropTypes.string,
-          primary_author: PropTypes.object.isRequired,
-          html: PropTypes.string.isRequired,
+          primary_author: PropTypes.object,
           feature_image: PropTypes.string,
           tags: PropTypes.arrayOf(
             PropTypes.shape({
               name: PropTypes.string.isRequired,
               slug: PropTypes.string.isRequired,
             })
-          ).isRequired,
+          ),
           published_at_pretty: PropTypes.string,
         }).isRequired,
       ),
@@ -75,20 +74,20 @@ Tag.propTypes = {
 export default Tag
 
 export const tagQuery = graphql`
-    query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
-        ghostTag(slug: { eq: $slug }) {
-            ...GhostTagFields
+  query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
+    ghostTag(slug: { eq: $slug }) {
+      ...GhostTagFields
+    }
+    allGhostPost(
+      sort: { order: DESC, fields: [published_at] },
+      filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
+      limit: $limit,
+      skip: $skip
+    ) {
+      edges {
+        node {
+          ...GhostPostFields
         }
-        allGhostPost(
-            sort: { order: DESC, fields: [published_at] },
-            filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
-            limit: $limit,
-            skip: $skip
-        ) {
-            edges {
-                node {
-                ...GhostPostFields
-                }
-            }
-        }
-      }`
+      }
+    }
+  }`

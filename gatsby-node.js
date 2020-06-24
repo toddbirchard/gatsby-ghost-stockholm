@@ -88,7 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pages = result.data.allGhostPage.edges
   const posts = result.data.allGhostPost.edges
   const series = result.data.internalTags.edges
-  const jupyter = result.data.jupyter.edges
+  // const jupyter = result.data.jupyter.edges
 
   // Load templates
   const indexTemplate = path.resolve(`./src/templates/index.js`)
@@ -97,11 +97,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = path.resolve(`./src/templates/page.js`)
   const postTemplate = path.resolve(`./src/templates/post.js`)
   const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
-  const jupyterTemplate = path.resolve(`./src/templates/notebook.js`)
+  // const jupyterTemplate = path.resolve(`./src/templates/notebook.js`)
 
   // Load Pages
   const aboutPage = path.resolve(`./src/pages/about.js`)
-  const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
+  // const jupyterArchive = path.resolve(`./src/pages/jupyterarchive.js`)
   const searchPage = path.resolve(`./src/pages/search.js`)
   const seriesArchivePage = path.resolve(`./src/pages/seriesarchive.js`)
 
@@ -258,7 +258,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create Jupyter Notebook posts
-  jupyter.forEach(({ node }) => {
+  /* jupyter.forEach(({ node }) => {
     // This part here defines, that our jupyter will use
     // a `/:slug/` permalink.
     node.title = node.name.split(`/`).pop().replace(`.ipynb`, ``)
@@ -279,7 +279,7 @@ exports.createPages = async ({ graphql, actions }) => {
         primaryTag: node.primary,
       },
     })
-  })
+  })*/
 
   // Create post pages
   posts.forEach(({ node }) => {
@@ -367,7 +367,7 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-  createPage({
+  /* createPage({
     path: `/jupyter/`,
     component: jupyterArchive,
     context: {
@@ -375,7 +375,7 @@ exports.createPages = async ({ graphql, actions }) => {
       title: `Jupyter Notebooks`,
       description: `Our collection of Jupyter notebooks.`,
     },
-  })
+  })*/
 
   createPage({
     path: `/about/`,

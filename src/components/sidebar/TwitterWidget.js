@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import { FaTwitter, FaUsers, FaRetweet, FaHeartbeat, FaCalendar, FaReply } from 'react-icons/fa'
+import { FaTwitter, FaUsers, FaRetweet, FaHeartbeat, FaReply } from 'react-icons/fa'
+import { AiOutlineCalendar } from 'react-icons/ai'
 
 const TwitterWidget = ({ data }) => {
   const tweets = data.tweets.edges
@@ -72,7 +73,7 @@ const TwitterWidget = ({ data }) => {
               <div className="tweet-footer">
                 <div className="retweets meta-item"><FaRetweet /> <span className="meta-count">{node.retweet_count}</span></div>
                 <div className="favorites meta-item"><FaHeartbeat /> <span className="meta-count">{node.favorite_count}</span></div>
-                <div className="date meta-item"><FaCalendar /> <span className="meta-count">{node.created_at.split(` `, 3).join(` `)}</span></div>
+                <div className="date meta-item"><AiOutlineCalendar /> <span className="meta-count">{node.created_at.split(` `, 3).join(` `)}</span></div>
               </div>
 
             </div>

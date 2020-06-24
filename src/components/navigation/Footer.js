@@ -103,7 +103,7 @@ const FooterQuery = props => (
   <StaticQuery
     query={graphql`
             query FooterQuery {
-              authors: allGhostAuthor(sort: {order: DESC, fields: postCount}) {
+              authors: allGhostAuthor(sort: {order: DESC, fields: postCount}, filter: {slug: {ne: "data-schema-author"}}) {
                 edges {
                   node {
                     url

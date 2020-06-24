@@ -7,16 +7,16 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
-import { FaEye, FaTags, FaCalendar, FaUserEdit } from 'react-icons/fa'
+import { AiOutlineEye, AiOutlineTags, AiOutlineCalendar, AiOutlineUser, AiTwotoneExperiment } from 'react-icons/ai'
 
 import '../styles/posts/post.less'
 
 /**
-* Single post view (/:slug)
-*
-* This file renders a single post and loads all the content.
-*
-*/
+ * Single post view (/:slug)
+ *
+ * This file renders a single post and loads all the content.
+ *
+ */
 
 const Post = ({ data, location }) => {
   const post = data.ghostPost
@@ -31,10 +31,17 @@ const Post = ({ data, location }) => {
     : null
   const authorFirstName = author.name.split(` `)[0]
   const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
+  const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
 
   return (
     <>
-      <MetaData location={location} data={data} type="article" />
+      <MetaData
+        data={data}
+        location={location}
+        title={post.title}
+        description={post.excerpt}
+        type="article"
+      />
       <Layout template="post-template">
         <div className="post-wrapper">
           <div className="post-head">
@@ -42,46 +49,61 @@ const Post = ({ data, location }) => {
             <div className="post-meta">
               <div className="meta-item author">
                 <Link to={authorUrl}>
-                  <FaUserEdit />
+                  <AiOutlineUser />
                   <span>{authorFirstName}</span>
                 </Link>
               </div>
               {tags &&
-                <div className="meta-item tag">
-                  <FaTags />
-                  <Tags post={post} limit={1} visibility="public" autolink separator="" permalink="/tag/:slug" classes={tags.ghostId} />
-                </div>}
+              <div className="meta-item tag">
+                <AiOutlineTags />
+                <Tags post={post} limit={1} visibility="public" autolink separator="" permalink="/tag/:slug"
+                  classes={tags.ghostId}/>
+              </div>}
               <div className="meta-item reading-time">
-                <FaEye />
+                <AiOutlineEye />
                 <span>{readingTime}</span>
               </div>
               <div className="meta-item date">
-                <FaCalendar />
+                <AiOutlineCalendar />
                 <span>{post.published_at_pretty}</span>
               </div>
             </div>
             <figure className="post-image">
               {retinaImage
-                ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} />
-                : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title} />}
+                ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title}/>
+                : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title}/>}
             </figure>
           </div>
 
           <article className="post">
-            {seriesPosts
-              ? <SeriesTOC seriesPosts={seriesPosts.edges} postCount={seriesPosts.totalCount} currentPost={post.slug} />
-              : null}
-            <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{ __html: post.html }} />
+            {seriesPosts &&
+              <SeriesTOC
+                seriesPosts={seriesPosts.edges}
+                postCount={seriesPosts.totalCount}
+                currentPost={post.slug}
+              />
+            }
+            {post.slug.includes(`lynx`) &&
+               <div className="post-roundup-blurb">
+                 <AiTwotoneExperiment /> <p>{lynxBlurb}</p>
+               </div>
+            }
+            <main
+              className="post-content content-body load-external-scripts"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
             <div className="post-tags">
-              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false} classes="post-tag-footer" />
+              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false}
+                classes="post-tag-footer"/>
             </div>
-            <AuthorCard author={author} page="post" />
+            <AuthorCard author={author}/>
           </article>
+
         </div>
         <section className="post-footer">
-          <Commento id={id} />
-          {relatedPosts && <RelatedPosts data={relatedPosts} />}
-          <SupportWidget />
+          <Commento id={id}/>
+          {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+          <SupportWidget/>
         </section>
       </Layout>
     </>)
@@ -110,9 +132,9 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
+  query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
-        ...GhostPostFields
+      ...GhostPostFields
     }
     ghostAuthor(slug: {eq: $primaryAuthor}) {
       postCount

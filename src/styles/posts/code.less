@@ -4,7 +4,7 @@
 .content-body > pre,
 .kg-code-card > pre {
   display: block;
-  padding: 20px;
+  padding: 15px 20px 20px;
   overflow-x: hidden;
   border-radius: 4px;
   background: #343b4a !important;
@@ -37,6 +37,10 @@
       border-radius: 0;
       white-space: pre !important;
       .mobile-horizontal-scroll-child();
+    }
+
+    &.language-vim {
+      white-space: unset;
     }
 
     .namespace {
@@ -388,6 +392,10 @@
 
       &.triple-quoted-string {
         color: #697798 !important;
+      }
+
+      &.selector {
+        font-weight: 600;
       }
     }
   }

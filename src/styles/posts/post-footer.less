@@ -1,9 +1,11 @@
 .post-footer {
-  width: 900px;
-  max-width: 90%;
+  max-width: 850px;
   margin: 40px auto 0;
+  @media (max-width: @tablet-breakpoint) {
+    margin: 40px 30px 0;
+  }
   @media (max-width: @mobile-breakpoint) {
-    margin: 40px auto 0;
+    margin: 40px 20px 0;
   }
 
   .related-posts {
@@ -22,9 +24,10 @@
       transition: all 0.2s ease-out;
       @media (max-width: @mobile-breakpoint) {
         display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin-bottom: 10px;
+        width: auto;
+        padding: 10px;
+        margin-bottom: 0;
+        justify-content: space-between;
       }
 
       &:hover {
@@ -47,10 +50,11 @@
       .related-post-image-wrapper {
         width: 100%;
         @media (max-width: @mobile-breakpoint) {
-          width: 185px;
-          max-width: 185px;
-          height: 103px;
+          height: 80px;
           overflow: hidden;
+          width: unset;
+          margin-right: 15px;
+          position: relative;
         }
 
         img {
@@ -58,6 +62,7 @@
           @media (max-width: @mobile-breakpoint) {
             width: unset;
             height: 100%;
+            margin-left: -20%;
           }
         }
       }
@@ -65,9 +70,15 @@
       .related-post-info {
         width: stretch;
         width: -moz-available;
-        padding: 20px;
         overflow: hidden;
         transition: @transition;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        @media (max-width: @mobile-breakpoint) {
+          padding: 5px 0;
+        }
 
         .related-post-title {
           -webkit-line-clamp: 2;
@@ -97,8 +108,9 @@
           white-space: nowrap;
           opacity: 0.9;
 
-          svg {
+          .tags-icon {
             margin-right: 5px;
+            min-width: 15px;
           }
 
           .tag-separator {
@@ -151,14 +163,14 @@
     .newsletter-section {
       @media (max-width: @mobile-breakpoint) {
         margin-bottom: 30px;
-        padding-bottom: 40px;
+        padding-bottom: 30px;
         border-bottom: 1px solid #dadada;
       }
     }
 
     .donate-section {
       .support-description {
-        margin-bottom: 52px;
+        margin-bottom: 60px;
         @media (max-width: @mobile-breakpoint) {
           margin-bottom: 30px;
         }
@@ -187,7 +199,7 @@
     }
 
     .support-description {
-      margin: 0 auto 10px;
+      margin: 0 auto 20px;
       color: lighten(@body-color, 5%);
       text-align: left;
       @media (max-width: @mobile-breakpoint) {

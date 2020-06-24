@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AuthorWebsiteWidget = ({ authorWebsite }) => (
+const AuthorWebsite = ({ authorWebsite }) => (
   <div className="widget website">
     <a href={authorWebsite} className="website-link" target="_blank" rel="noopener noreferrer">{authorWebsite}</a>
   </div>
 )
 
-AuthorWebsiteWidget.propTypes = {
+AuthorWebsite.propTypes = {
   authorWebsite: PropTypes.string,
 }
 
-export default AuthorWebsiteWidget
+export default AuthorWebsite

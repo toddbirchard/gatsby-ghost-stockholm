@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FaTwitter, FaUserFriends, FaHeartbeat } from 'react-icons/fa'
 
-const AuthorTwitterWidget = ({ data }) => {
+const AuthorTwitter = ({ data }) => {
   const twitterUsername = data && data.screen_name
   const twitterUrl = twitterUsername && `https://twitter.com/` + twitterUsername + `/`
   const twitterFollowUrl = twitterUsername && `https://twitter.com/intent/user?screen_name=` + twitterUsername
@@ -33,7 +33,7 @@ const AuthorTwitterWidget = ({ data }) => {
   )
 }
 
-AuthorTwitterWidget.propTypes = {
+AuthorTwitter.propTypes = {
   data: PropTypes.shape({
     screen_name: PropTypes.string,
     name: PropTypes.string,
@@ -45,4 +45,4 @@ AuthorTwitterWidget.propTypes = {
   }),
 }
 
-export default AuthorTwitterWidget
+export default AuthorTwitter

@@ -16,12 +16,6 @@
   font-size: 14px !important;
 }
 
-.commento-root .commento-card p,
-.commento-root .commento-card a {
-  font-size: 14px !important;
-  line-height: 1.3 !important;
-}
-
 .commento-root .commento-body a {
   color: #6baaf2;
   font-weight: 600px;
@@ -37,14 +31,6 @@
   background: #eff3f8 !important;
   color: #5384a3 !important;
   font-size: 12px !important;
-}
-
-.commento-root pre {
-  background: #eff3f8;
-  padding: 15px;
-  border-radius: 5px;
-  margin: 20px 0;
-  border: 1px solid #e2e6ea;
 }
 
 .commento-root .commento-button-margin {
@@ -125,7 +111,7 @@
   float: unset;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .commento-root .commento-options {
     width: 120px !important;
   }
@@ -174,10 +160,10 @@
   border-radius: 3px;
   background: #efe2e4;
   color: #9a6c6c !important;
-  font-family: 'TTCommons-Book', sans-serif;
   font-size: 14px !important;
-  line-height: 1.2 !important;
+  line-height: 1.5 !important;
   text-align: center;
+  font-weight: 600;
 }
 
 .commento-root #commento-logged-container {
@@ -206,7 +192,7 @@
   border-radius: 2px !important;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .commento-root #commento-main-area .commento-comments>div>.commento-card {
     padding: 20px !important;
   }
@@ -235,11 +221,11 @@
   background: white;
 }
 
-.commento-comments > div > .commento-card {
+.commento-comments>div>.commento-card {
   border-bottom: 1px solid #d7d7d7;
 }
 
-.commento-comments > div > .commento-card:last-of-type {
+.commento-comments>div>.commento-card:last-of-type {
   border-bottom: 0;
 }
 
@@ -280,15 +266,24 @@
 }
 
 .commento-root .commento-card p {
-  margin: 5px 0 0 !important;
+  margin: 0 0 10px !important;
   line-height: 1.4 !important;
+  font-size: 14px !important;
 }
 
 .commento-root .commento-card .commento-body {
   font-size: 0.9em !important;
 }
 
-@media(max-width: 600px) {
+.commento-root .commento-card .commento-body pre {
+  background: #eff3f8 !important;
+  color: #5d94b7 !important;
+  padding: 15px !important;
+  margin: 15px 0 !important;
+  border-radius: 4px !important;
+}
+
+@media (max-width: 600px) {
   .commento-root .commento-card .commento-body {
     margin: 0;
   }
@@ -606,7 +601,7 @@
   background: #171718cf;
 }
 
-.commento-login-box-container .commento-login-box {
+#commento-login-box {
   z-index: 100;
   position: absolute;
   top: 8px;
@@ -619,54 +614,54 @@
   transition: opacity .2s
 }
 
-.commento-login-box-container .commento-login-box hr {
+#commento-login-box hr {
   width: 80%;
   height: 1px;
   margin: 24px auto;
   border: none;
-  background: #d2d6da;
+  background: #e6eaee;
 }
 
-.commento-login-box-container .commento-login-box .commento-login-box-subtitle {
+#commento-login-box .commento-login-box-subtitle {
   margin: 12px 0;
   color: #868e96;
   text-align: center
 }
 
-.commento-login-box-container .commento-login-box button, .commento-login-box-container .commento-login-box html, .commento-login-box-container .commento-login-box input, .commento-login-box-container .commento-login-box textarea {
+#commento-login-box button, #commento-login-box html, #commento-login-box input, #commento-login-box textarea {
   font-family: 'Source Sans Pro', sans-serif
 }
 
-.commento-login-box-container .commento-login-box html {
+#commento-login-box html {
   background: #f8f9fa;
   color: #495057;
   font-size: 14px
 }
 
-.commento-login-box-container .commento-login-box body {
+#commento-login-box body {
   margin: 0
 }
 
-.commento-login-box-container .commento-login-box a {
+#commento-login-box a {
   text-decoration: none
 }
 
-.commento-login-box-container .commento-login-box a:hover {
+#commento-login-box a:hover {
   cursor: pointer
 }
 
-.commento-login-box-container .commento-login-box .commento-email-container .commento-email, .commento-login-box-container .commento-login-box .shadow {
+#commento-login-box .commento-email-container .commento-email, #commento-login-box .shadow {
   box-shadow: 0 1px 3px rgba(50, 50, 93, .15), 0 1px 0 rgba(0, 0, 0, .02)
 }
 
-.commento-login-box-container .commento-login-box .footer {
+#commento-login-box .footer {
   position: relative;
   bottom: 0;
   width: 100%;
   margin-top: 72px
 }
 
-.commento-login-box-container .commento-login-box .footer .copyright {
+#commento-login-box .footer .copyright {
   align-items: none;
   padding: 12px;
   background: #fff;
@@ -674,7 +669,7 @@
   text-align: center
 }
 
-.commento-login-box-container .commento-login-box .footer .footer-inner {
+#commento-login-box .footer .footer-inner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -682,24 +677,24 @@
   background: #fff
 }
 
-.commento-login-box-container .commento-login-box .footer .footer-inner .links {
+#commento-login-box .footer .footer-inner .links {
   display: flex;
   justify-content: center;
   width: 600px
 }
 
-.commento-login-box-container .commento-login-box .footer .footer-inner .link-group {
+#commento-login-box .footer .footer-inner .link-group {
   margin: 40px
 }
 
-.commento-login-box-container .commento-login-box .footer .footer-inner .link-group .header {
+#commento-login-box .footer .footer-inner .link-group .header {
   color: #adb5bd;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase
 }
 
-.commento-login-box-container .commento-login-box .footer .footer-inner .link {
+#commento-login-box .footer .footer-inner .link {
   display: block;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -707,51 +702,53 @@
   transition: all .2s
 }
 
-.commento-login-box-container .commento-login-box .footer .footer-inner .link:hover {
+#commento-login-box .footer .footer-inner .link:hover {
   color: #495057
 }
 
-@media only screen and (max-width:1000px) {
-  .commento-login-box-container .commento-login-box .footer .footer-inner .link-group {
+@media only screen and (max-width: 1000px) {
+  #commento-login-box .footer .footer-inner .link-group {
     display: block
   }
 
-  .commento-login-box-container .commento-login-box .footer .footer-inner .links {
+  #commento-login-box .footer .footer-inner .links {
     display: block;
     width: 90%
   }
 }
 
-.commento-login-box-container .commento-login-box .commento-email-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: 8px 0 30px;
-}
-
-.commento-login-box-container .commento-login-box .commento-email-container .commento-email {
+#commento-login-box .commento-email-container .commento-email {
   width: 100%;
   max-width: 400px;
   height: 40px;
   border-radius: 4px;
-  background: #fff
+  background: #fff;
+  display: flex;
 }
 
-.commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-input {
+#commento-login-box .commento-email-container .commento-email .commento-input {
   display: inline;
   height: -webkit-fill-available;
   height: moz-available;
   padding: 5px 5px 5px 10px;
   border: none;
   outline: 0;
-  background: #fff
+  background: #fff;
+  width: 100%;
+  transition: @transition;
 }
 
-.commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-input::placeholder {
-  color: #adb5bd
+#commento-login-box .commento-email-container .commento-email .commento-input:hover {
+  border-color: #0297f6;
+  background: lighten(@theme-color, 45%);
+  cursor: text;
 }
 
-.commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button {
+#commento-login-box .commento-email-container .commento-email .commento-input::placeholder {
+  color: #8ba6c7;
+}
+
+#commento-login-box .commento-email-container .commento-email .commento-email-button {
   width: unset;
   min-width: 110px;
   height: 40px;
@@ -775,61 +772,64 @@
   color: white;
 }
 
-.commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button:hover {
+#commento-login-box .commento-email-container .commento-email .commento-email-button:hover {
   color: #228be6
 }
 
-.commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button:disabled {
+#commento-login-box .commento-email-container .commento-email .commento-email-button:disabled {
   color: #868e96;
   cursor: default
 }
 
-.commento-login-box-container .commento-login-box .commento-forgot-link-container, .commento-login-box-container .commento-login-box .commento-login-link-container {
+#commento-login-box .commento-forgot-link-container, #commento-login-box .commento-login-link-container {
   width: calc(100% - 32px);
   margin: 8px 16px;
   text-align: center
 }
 
-.commento-login-box-container .commento-login-box .commento-forgot-link, .commento-login-box-container .commento-login-box .commento-login-link {
+#commento-login-box .commento-forgot-link, #commento-login-box .commento-login-link {
   border-bottom: none;
   font-size: 14px;
-  font-weight: 700
+  font-weight: 700;
+  color: #6784a4;
 }
 
-.commento-login-box-container .commento-login-box .commento-forgot-link {
-  color: #868e96;
+#commento-login-box .commento-forgot-link {
+  color: #6784a4;
   font-size: 13px;
   font-weight: 400
 }
 
-.commento-login-box-container .commento-login-box .commento-login-box-close {
+#commento-login-box .commento-login-box-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 16px;
-  height: 16px;
-  opacity: .3
+  top: 15px;
+  right: 15px;
+  width: 19px;
+  height: 22px;
+  opacity: .3;
+  transition: all .2s ease-out;
 }
 
-.commento-login-box-container .commento-login-box .commento-login-box-close:hover {
+#commento-login-box .commento-login-box-close:hover {
   cursor: pointer;
   opacity: 1
 }
 
-.commento-login-box-container .commento-login-box .commento-login-box-close:after, .commento-login-box-container .commento-login-box .commento-login-box-close:before {
+#commento-login-box .commento-login-box-close:after,
+#commento-login-box .commento-login-box-close:before {
   position: absolute;
   left: 7px;
   width: 2px;
-  height: 17px;
+  height: 23px;
   background-color: #495057;
   content: ' '
 }
 
-.commento-login-box-container .commento-login-box .commento-login-box-close:before {
+#commento-login-box .commento-login-box-close:before {
   transform: rotate(45deg)
 }
 
-.commento-login-box-container .commento-login-box .commento-login-box-close:after {
+#commento-login-box .commento-login-box-close:after {
   transform: rotate(-45deg)
 }
 
@@ -838,64 +838,71 @@
 *  Buttons
 *
 */
-.commento-oauth-buttons-container {
+.commento-oauth-buttons-container .commento-oauth-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 70%;
   margin: auto;
 }
 
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons {
-  display: contents;
-  z-index: 1;
-  position: absolute;
-  align-items: center
+#commento-login-box .commento-button {
+  width: fit-content !important;
+  padding: 5px 10px;
+  border: 0;
+  font-weight: 600;
+  border-radius: 3px;
+  transition: all .2s ease-out;
 }
 
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-google-button {
+#commento-login-box .commento-button:hover {
+  background: white !important;
+  color: black;
+}
+
+#commento-login-box .commento-oauth-buttons-container .commento-google-button {
   background: #dd4b39;
   font-size: 13px;
   text-transform: uppercase
 }
 
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-github-button {
+#commento-login-box .commento-oauth-buttons-container .commento-github-button {
   background: #000;
   font-size: 13px;
   text-transform: uppercase
 }
 
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-twitter-button {
+#commento-login-box .commento-oauth-buttons-container .commento-twitter-button {
   background: #00aced;
   font-size: 13px;
   text-transform: uppercase
 }
 
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-gitlab-button {
+#commento-login-box .commento-oauth-buttons-container .commento-gitlab-button {
   background: #fc6d26;
   font-size: 13px;
   text-transform: uppercase
 }
 
-.commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-sso-button {
+#commento-login-box .commento-oauth-buttons-container .commento-sso-button {
   width: 200px;
   background: #000;
   font-size: 13px;
   text-transform: uppercase
 }
 
-.commento-root .commento-login-box-container {
-  display: flex;
-  position: relative;
-  justify-content: center;
+#commento-login-box-container {
+  position: fixed;
   width: 100%;
-  height: 0;
-  overflow: visible
+  height: 100%;
+  overflow: visible;
+  background: rgba(0, 0, 0, .7);
 }
 
-.commento-root .commento-login-box-container .commento-login-box {
+#commento-login-box {
   z-index: 100;
-  position: absolute;
-  top: 8px;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 90%;
   max-width: 500px;
   min-height: 100px;
@@ -905,101 +912,65 @@
   transition: opacity .2s
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container {
-  display: flex;
-  justify-content: center
+#commento-login-box #commento-login-box-oauth-pretext {
+  margin: 15px 0 20px;
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons {
+#commento-login-box .commento-oauth-buttons .commento-oauth-buttons {
   display: contents;
   z-index: 1;
   position: absolute;
   align-items: center
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-google-button {
-  width: 70px;
-  background: #dd4b39;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-github-button {
-  width: 70px;
-  background: #000;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-twitter-button {
-  width: 70px;
-  background: #00aced;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-gitlab-button {
-  width: 70px;
-  background: #fc6d26;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-root .commento-login-box-container .commento-login-box .commento-oauth-buttons-container .commento-oauth-buttons .commento-sso-button {
-  width: 200px;
-  background: #000;
-  font-size: 13px;
-  text-transform: uppercase
-}
-
-.commento-root .commento-login-box-container .commento-login-box hr {
-  height: 1px;
-  margin: 24px 0;
-  border: none;
-  background: #e9ecef
-}
-
-.commento-root .commento-login-box-container .commento-login-box .commento-login-box-subtitle {
-  margin: 12px 0;
-  color: #868e96;
-  font-size: 15px;
+#commento-login-box .commento-login-box-subtitle {
+  color: #5d6369;
   text-align: center
 }
 
-.commento-root .commento-login-box-container .commento-login-box button, .commento-root .commento-login-box-container .commento-login-box html, .commento-root .commento-login-box-container .commento-login-box input, .commento-root .commento-login-box-container .commento-login-box textarea {
+#commento-login-box #commento-login-box-email-subtitle {
+  font-size: 1.1em !important;
+  margin: 15px 0;
+}
+
+#commento-login-box button,
+#commento-login-box html,
+#commento-login-box input,
+#commento-login-box textarea {
   font-family: 'Source Sans Pro', sans-serif
 }
 
-.commento-root .commento-login-box-container .commento-login-box html {
+#commento-login-box html {
   background: #f8f9fa;
   color: #495057;
   font-size: 14px
 }
 
-.commento-root .commento-login-box-container .commento-login-box body {
+#commento-login-box body {
   margin: 0
 }
 
-.commento-root .commento-login-box-container .commento-login-box a {
+#commento-login-box a {
   text-decoration: none
 }
 
-.commento-root .commento-login-box-container .commento-login-box a:hover {
+#commento-login-box a:hover {
   cursor: pointer
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email, .commento-root .commento-login-box-container .commento-login-box .shadow {
+#commento-login-box .commento-email-container .commento-email,
+#commento-login-box .shadow {
   box-shadow: 0 1px 3px rgba(50, 50, 93, .15), 0 1px 0 rgba(0, 0, 0, .02)
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer {
+#commento-login-box .footer {
   position: relative;
   bottom: 0;
   width: 100%;
   margin-top: 72px
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer .copyright {
+#commento-login-box .footer .copyright {
   align-items: none;
   padding: 12px;
   background: #fff;
@@ -1007,7 +978,7 @@
   text-align: center
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer .footer-inner {
+#commento-login-box .footer .footer-inner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1015,24 +986,24 @@
   background: #fff
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .links {
+#commento-login-box .footer .footer-inner .links {
   display: flex;
   justify-content: center;
   width: 600px
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .link-group {
+#commento-login-box .footer .footer-inner .link-group {
   margin: 40px
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .link-group .header {
+#commento-login-box .footer .footer-inner .link-group .header {
   color: #adb5bd;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .link {
+#commento-login-box .footer .footer-inner .link {
   display: block;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -1040,36 +1011,29 @@
   transition: all .2s
 }
 
-.commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .link:hover {
+#commento-login-box .footer .footer-inner .link:hover {
   color: #495057
 }
 
-@media only screen and (max-width:1000px) {
-  .commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .link-group {
+@media only screen and (max-width: 1000px) {
+  #commento-login-box .footer .footer-inner .link-group {
     display: block
   }
 
-  .commento-root .commento-login-box-container .commento-login-box .footer .footer-inner .links {
+  #commento-login-box .footer .footer-inner .links {
     display: block;
     width: 90%
   }
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container {
+#commento-login-box .commento-email-container {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 8px 0
+  margin: 8px 0 20px;
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 4px;
-  background: #fff
-}
-
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-input {
+#commento-login-box .commento-email-container .commento-email .commento-input {
   display: inline;
   padding: 5px 5px 5px 10px;
   border: none;
@@ -1077,11 +1041,11 @@
   background: #fff
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-input::placeholder {
+#commento-login-box .commento-email-container .commento-email .commento-input::placeholder {
   color: #adb5bd
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button {
+#commento-login-box .commento-email-button {
   width: unset;
   min-width: 110px;
   height: 40px;
@@ -1097,51 +1061,58 @@
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all .2s
+  transition: all .2s ease-out;
+  z-index: 10;
+  position: relative;
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button:hover {
-  color: #228be6
+#commento-login-box .commento-email-button:hover {
+  background: #228be6 !important;
+  color: white !important;
+  cursor: pointer;
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-email-container .commento-email .commento-email-button:disabled {
-  color: #868e96;
+#commento-login-box .commento-email-button:disabled {
+  color: #868e96  !important;
   cursor: default
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-forgot-link-container, .commento-root .commento-login-box-container .commento-login-box .commento-login-link-container {
+#commento-login-box .commento-forgot-link-container,
+#commento-login-box .commento-login-link-container {
   width: calc(100% - 32px);
-  margin: 16px;
+  margin: 10px;
   text-align: center
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-forgot-link, .commento-root .commento-login-box-container .commento-login-box .commento-login-link {
+#commento-login-box .commento-forgot-link,
+#commento-login-box .commento-login-link {
   border-bottom: none;
   font-size: 14px;
   font-weight: 700
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-forgot-link {
+#commento-login-box .commento-forgot-link {
   color: #868e96;
   font-size: 13px;
   font-weight: 400
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close {
+#commento-login-box .commento-login-box-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 16px;
-  height: 16px;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
   opacity: .3
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:hover {
+#commento-login-box .commento-login-box-close:hover {
   cursor: pointer;
   opacity: 1
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:after, .commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:before {
+#commento-login-box .commento-login-box-close:after,
+#commento-login-box .commento-login-box-close:before {
   position: absolute;
   left: 7px;
   width: 2px;
@@ -1150,10 +1121,10 @@
   content: ' '
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:before {
+#commento-login-box .commento-login-box-close:before {
   transform: rotate(45deg)
 }
 
-.commento-root .commento-login-box-container .commento-login-box .commento-login-box-close:after {
+#commento-login-box .commento-login-box-close:after {
   transform: rotate(-45deg)
 }

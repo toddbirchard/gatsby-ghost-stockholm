@@ -9,18 +9,16 @@ import { MetaData } from '../components/common/meta'
 import '../styles/pages/page.less'
 
 /**
-* Author page (/author/:slug)
-*
-* Loads all posts for the requested author incl. pagination.
-*
-*/
+ * Author page (/author/:slug)
+ *
+ * Loads all posts for the requested author incl. pagination.
+ *
+ */
 const Author = ({ data, location, pageContext }) => {
   const author = data.ghostAuthor
   const posts = data.allGhostPost.edges
   const authorData = data
   const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
-  // const authorTweets = data.authorTweets.edges
-  // const authorTwitterUser = data.authorTwitterProfile.user
 
   return (
     <>
@@ -32,14 +30,13 @@ const Author = ({ data, location, pageContext }) => {
         pageContext={pageContext}
       />
       <Layout template="author-template" hasSidebar authorData={authorData}>
-        <AuthorCard author={author} page="author-card-mobile" template="author-template" pageContext={pageContext} />
         <div className="author-container">
-          <AuthorCard author={author} page="author" template="author-template" pageContext={pageContext} />
+          <AuthorCard author={author} page="author" template="author-template" pageContext={pageContext}/>
           <section className="post-feed">
             {posts.map(({ node }) => (
-              <PostCard key={node.id} post={node} />
+              <PostCard key={node.id} post={node}/>
             ))}
-            <Pagination pageContext={pageContext} />
+            <Pagination pageContext={pageContext} metaTitle={false} />
           </section>
         </div>
       </Layout>
@@ -126,57 +123,57 @@ Author.propTypes = {
 export default Author
 
 export const pageQuery = graphql`
-    query GhostAuthorQuery($slug: String!, $twitterUsernameRegex: String, $limit: Int!, $skip: Int!) {
-        ghostAuthor(slug: { eq: $slug }) {
-            ...GhostAuthorFields
-            postCount
-        }
-        allGhostPost(
-            sort: { order: DESC, fields: [published_at] },
-            filter: {tags: {elemMatch: {slug: {ne: "hash-newsletter"}}}, authors: {elemMatch: {slug: {eq: $slug}}}},
-            limit: $limit,
-            skip: $skip
-        ) {
-            edges {
-                node {
-                ...GhostPostFields
-                }
-            }
-        }
-        authorTwitterProfile: twitterListsMembersAuthorTwitterProfiles(screen_name: {regex: $twitterUsernameRegex}) {
-          screen_name
-          name
-          description
-          followers_count
-          profile_image_url_https
-          statuses_count
-          favourites_count
-        }
-       authorTrendingPosts: allMysqlMonthlyPageAnalytics(sort: {fields: views, order: DESC}, filter: {author_slug: {eq: $slug}, views: {gt: 10}}, limit: 10) {
-        edges {
-          node {
-            title
-            url
-            views
-            slug
-          }
-        }
-      }
-      authorPocket: allPocketArticle(sort: {fields: readDay, order: DESC}, filter: {title: {nin: [null, ""]}}) {
-        edges {
-          node {
-            id
-            url
-            title
-            excerpt
-            is_article
-            has_image
-            word_count
-            time_read
-            articleDomain
-            domainFavicon
-          }
+  query GhostAuthorQuery($slug: String!, $twitterUsernameRegex: String, $limit: Int!, $skip: Int!) {
+    ghostAuthor(slug: { eq: $slug }) {
+      ...GhostAuthorFields
+      postCount
+    }
+    allGhostPost(
+      sort: { order: DESC, fields: [published_at] },
+      filter: {tags: {elemMatch: {slug: {ne: "hash-newsletter"}}}, authors: {elemMatch: {slug: {eq: $slug}}}},
+      limit: $limit,
+      skip: $skip
+    ) {
+      edges {
+        node {
+          ...GhostPostFields
         }
       }
     }
+    authorTwitterProfile: twitterListsMembersAuthorTwitterProfiles(screen_name: {regex: $twitterUsernameRegex}) {
+      screen_name
+      name
+      description
+      followers_count
+      profile_image_url_https
+      statuses_count
+      favourites_count
+    }
+    authorTrendingPosts: allMysqlMonthlyPageAnalytics(sort: {fields: views, order: DESC}, filter: {author_slug: {eq: $slug}, views: {gt: 10}}, limit: 10) {
+      edges {
+        node {
+          title
+          url
+          views
+          slug
+        }
+      }
+    }
+    authorPocket: allPocketArticle(sort: {fields: readDay, order: DESC}, filter: {title: {nin: [null, ""]}}) {
+      edges {
+        node {
+          id
+          url
+          title
+          excerpt
+          is_article
+          has_image
+          word_count
+          time_read
+          articleDomain
+          domainFavicon
+        }
+      }
+    }
+  }
 `

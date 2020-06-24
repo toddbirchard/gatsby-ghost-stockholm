@@ -22,10 +22,11 @@
           "jinja2",
           "handlebars",
           "ini",
-          "graphql",
           "less",
           "nginx",
-          "go"
+          "go",
+          "hcl",
+          "vim"
         ],
         "plugins": ["normalize-whitespace"],
         "theme": "default",

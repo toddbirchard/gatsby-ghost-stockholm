@@ -16,7 +16,6 @@ import algoliasearch from 'algoliasearch'
 import qs from 'qs'
 import { MetaData } from '../components/common/meta'
 import { Layout, PostCard } from '../components/common'
-
 import '../styles/pages/search.less'
 
 const DEBOUNCE_TIME = 700
@@ -95,7 +94,7 @@ const SearchPage = ({ data, location, pageContext }) => {
                       attribute="tags.name"
                       limit={20}
                       showMore
-                      showMoreLimit={50}
+                      showMoreLimit={40}
                     />
                   </Panel>
                   <Panel header="Authors">

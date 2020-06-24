@@ -1,27 +1,22 @@
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
 
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    audit_url = 'https://hackersandslackers.com'
+
 [build]
+  base = "/"
   command = "gatsby build"
-  publish = "/public"
+  publish = "public/"
 
 [template]
   incoming-hooks = ["Ghost"]
 
 [[redirects]]
-    from = "http://hackersandslackers.app/"
-    to = "https://hackersandslackers.app/"
-    status = 301
-
-
-[[redirects]]
     from = "/ghost"
-    to = "https://hackersandslackers.app/ghost"
-    status = 301
-
-[[redirects]]
-    from = "/ghost/"
-    to = "https://hackersandslackers.app/ghost"
+    to = "https://hackersandslackers.app/ghost/"
     status = 301
 
 [[redirects]]
@@ -165,11 +160,6 @@
     status = 301
 
 [[redirects]]
-    from = "https://hackersandslackers.com/code-snippet-corner-tuning-random-learning-hyperparameters-with-binary-search/"
-    to = "/tuning-machine-learning-hyperparameters-with-binary-search/"
-    status = 301
-
-[[redirects]]
     from = "/become-a-contributor/"
     to = "/join-us/"
     status = 301
@@ -241,7 +231,7 @@
 
 [[redirects]]
     from = "/using-pandas-with-aws-lambda/"
-    to = "/pandas-with-aws-lambda/"
+    to = "/pandas-aws-lambda/"
     status = 301
 
 [[redirects]]
@@ -648,7 +638,6 @@
         max-age=604800,
         no-cache,
         public'''
-
 
 [[headers]]
   for = "/images/bmc-new-btn-logo.svg"

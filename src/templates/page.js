@@ -8,14 +8,15 @@ import { MetaData } from '../components/common/meta'
 import '../styles/pages/page.less'
 
 /**
-* Single page (/:slug)
-*
-* This file renders a single page and loads all the content.
-*
-*/
+ * Single page (/:slug)
+ *
+ * This file renders a single page and loads all the content.
+ *
+ */
 const Page = ({ data, location, pageContext }) => {
   const page = data.ghostPage
-  const title = page.title
+  const pageNumber = pageContext.pageNumber
+  const title = pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
   const description = page.meta_description
 
   return (
@@ -31,14 +32,16 @@ const Page = ({ data, location, pageContext }) => {
         <main className={`post-content page-content ${pageContext.slug}`}>
           <div className="page-wrapper">
             {page.feature_image
-              ? <figure className="post-feature-image"><img className="lazyload" data-src={page.feature_image} alt={page.title} /></figure>
+              ? <figure className="post-feature-image">
+                <img className="lazyload" data-src={page.feature_image} alt={page.title}/>
+              </figure>
               : null}
-            <h1>{page.title}</h1>
+            <h1>{title}</h1>
             <section
               className="content-body load-external-scripts"
               dangerouslySetInnerHTML={{ __html: page.html }}
             />
-            {pageContext.slug === `about` ? <AuthorList page="about" /> : null}
+            {pageContext.slug === `about` ? <AuthorList page="about"/> : null}
           </div>
         </main>
       </Layout>
@@ -58,6 +61,7 @@ Page.propTypes = {
   }).isRequired,
   pageContext: PropTypes.shape({
     slug: PropTypes.string.isRequired,
+    pageNumber: PropTypes.number,
   }),
   location: PropTypes.object.isRequired,
 }
@@ -65,9 +69,9 @@ Page.propTypes = {
 export default Page
 
 export const pageQuery = graphql`
-    query($slug: String!) {
-        ghostPage(slug: { eq: $slug }) {
-            ...GhostPageFields
-        }
+  query($slug: String!) {
+    ghostPage(slug: { eq: $slug }) {
+      ...GhostPageFields
     }
+  }
 `

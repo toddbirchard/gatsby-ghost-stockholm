@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import Search from './Search'
+import Search from '../search/Search'
 import NavLinks from './NavLinks'
 import MobileMenu from './Mobile/MobileMenu'
+import SearchMenu from './Mobile/SearchMenu'
 
 /**
 * Navigation component
@@ -16,7 +17,7 @@ import MobileMenu from './Mobile/MobileMenu'
 *
 */
 
-const Navigation = ({ data, smallLogo, fullLogo, template }) => (
+const Navigation = ({ data, smallLogo }) => (
   <>
     <nav className="navigation">
       <div className="nav-wrapper">
@@ -25,16 +26,17 @@ const Navigation = ({ data, smallLogo, fullLogo, template }) => (
             <img className="lazyload" data-src={smallLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
           </Link>
           <Link to="/" className="mobile-logo">
-            <img className="lazyload" data-src={fullLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
+            <img className="lazyload" data-src={smallLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
           </Link>
           <div className="nav-links">
             <NavLinks navigation={data} />
           </div>
         </div>
-        {template !== `search-template` ? <div className="nav-right">
+        <div className="nav-right">
           <Search collapse className="search-widget" />
-        </div> : null }
-        <MobileMenu />
+          <SearchMenu />
+          <MobileMenu />
+        </div>
       </div>
     </nav>
   </>
@@ -48,7 +50,6 @@ Navigation.propTypes = {
     }).isRequired,
   ).isRequired,
   smallLogo: PropTypes.string,
-  fullLogo: PropTypes.string,
   template: PropTypes.string,
 }
 

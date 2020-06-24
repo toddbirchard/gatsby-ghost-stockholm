@@ -87,11 +87,12 @@
         display: block;
         margin: 0 0 12px;
         padding-left: 0;
-        color: #656f7d;
+        color: #5a626f;
         font-family: @body-font;
         line-height: 1.2;
         text-overflow: ellipsis;
         white-space: nowrap;
+        font-size: .9em;
         transition: @transition;
 
         &:hover {
@@ -193,8 +194,8 @@
         color: #88959b;
         font-size: 0.8em;
         letter-spacing: 0.5px;
-        text-align: center;
         letter-spacing: -.1px;
+        text-align: center;
       }
     }
 
@@ -205,7 +206,7 @@
       width: 33%;
       max-width: 280px;
       overflow: visible;
-      @media(max-width: @tablet-breakpoint) {
+      @media (max-width: @tablet-breakpoint) {
         width: 38%;
       }
       @media (max-width: @mobile-breakpoint) {
@@ -221,17 +222,15 @@
         outline: none;
         background: unset;
       }
+
       @media (max-width: @mobile-breakpoint) {
         max-width: 80%;
       }
 
       svg {
         color: #8f9fa8;
-        font-size: 2.1em;
+        font-size: 1.9em;
         transition: 0.2s all ease-out;
-        @media(max-width: @tablet-breakpoint) {
-          font-size: 2.4em;
-        }
 
         &:hover {
           -webkit-transform: scale(1.2);
@@ -246,14 +245,26 @@
 
 /* Post Template Footer */
 .post-template {
+
+  .site-footer {
+    width: 850px !important;
+    margin: auto;
+    @media (max-width: @tablet-breakpoint) {
+      width: auto !important;
+      margin: auto 30px;
+    }
+  }
+
   .footer-wrapper {
-    width: 900px !important;
+    width: auto;
+    max-width: unset;
 
     .widget.about {
       @media (max-width: @tablet-breakpoint) {
         width: 40% !important;
       }
-      @media (max-width: @mobile-breakpoint) {
+
+      @media (max-width: @tablet-breakpoint) {
         width: 100% !important;
       }
 
@@ -284,7 +295,8 @@
   }
 
   .copyright {
-    width: 900px !important;
+    width: auto !important;
+    max-width: unset;
   }
 }
 
@@ -296,6 +308,6 @@
 .series-template {
   .copyright,
   .footer-wrapper {
-    width: 1020px !important;
+    width: 900px !important;
   }
 }

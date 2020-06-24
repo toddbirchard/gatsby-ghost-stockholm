@@ -9,11 +9,11 @@ import { Layout } from '../components/common'
 import '../styles/ipynb.less'
 
 /**
-* Single notebook view (/jupyter/:slug)
-*
-* This file renders a single notebook and loads all the content.
-*
-*/
+ * Single notebook view (/jupyter/:slug)
+ *
+ * This file renders a single notebook and loads all the content.
+ *
+ */
 
 const JupyterNotebook = ({ data, pageContext }) => {
   const file = data.file
@@ -43,7 +43,7 @@ const JupyterNotebook = ({ data, pageContext }) => {
           </div>
           <main className="post-content content-body load-external-scripts" dangerouslySetInnerHTML={{
             __html: notebook.html,
-          }} />
+          }}/>
         </div>
       </Layout>
     </>
@@ -76,11 +76,11 @@ JupyterNotebook.propTypes = {
 
 export default JupyterNotebook
 
-export const JupyterNotebookQuery = graphql `
+export const JupyterNotebookQuery = graphql`
   query($id: String!) {
     file(id: {eq: $id}) {
-     childJupyterNotebook {
-       id
+      childJupyterNotebook {
+        id
         html
         internal {
           content
@@ -185,14 +185,14 @@ export const JupyterNotebookQuery = graphql `
           }
         }
         fileAbsolutePath
-     }
-     name
-     modifiedTime(formatString: "DD MMMM, YYYY")
-     gitRemote {
-       href
-       full_name
-     }
-     ext
-     relativePath
-   }
- }`
+      }
+      name
+      modifiedTime(formatString: "DD MMMM, YYYY")
+      gitRemote {
+        href
+        full_name
+      }
+      ext
+      relativePath
+    }
+  }`

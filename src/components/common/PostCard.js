@@ -10,44 +10,48 @@ const PostCard = ({ post }) => {
   const readingTime = readingTimeHelper(post)
   const authorFirstName = post.primary_author.name ? post.primary_author.name.split(` `)[0] : null
   const authorAvatar = post.primary_author.profile_image ? post.primary_author.profile_image : null
-  const publishDate = post.published_at_pretty
+  const createdDate = post.created_at_pretty
+  const featureImage = post.feature_image
+  const retinaImage = featureImage && featureImage.includes(`@2x`) ? featureImage : featureImage.substring(0, featureImage.lastIndexOf(`.`)) + `@2x.jpg`
 
   return (
-    <div className="post-card">
-      <Link to={url}>
-        <picture>
-          {post.feature_image && <img className="post-card-image lazyload" data-src={post.feature_image.replace(`.jpg`, `@2x.jpg`)} type="image/jpeg" alt={`Feature image for ${post.title}`} title={post.title} />}
-        </picture>
-      </Link>
-      {post.featured && <span>Featured</span>}
-      <div className="post-card-detail">
-        {post.tags ?
-          <div className={`primary-tag ${post.tags[0].slug}`}>
-            <Tags post={post} limit={1} visibility="public" autolink permalink="/tag/:slug" class=":slug" separator={null} classes={post.id} />
-          </div>
-          : null}
+    <>
+      <div className="post-card">
         <Link to={url}>
-          <h2 className="post-card-title">{post.title}</h2>
+          <picture>
+            {post.feature_image && <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} title={post.title} />}
+          </picture>
         </Link>
-        {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
-        <footer className="post-card-footer">
-          {post.primary_author ?
-            <div className="meta-item author">
-              {authorAvatar
-                ? <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
-                : <FaUserEdit /> }
-              <div>
-                <Link to={`/author/${post.primary_author.slug}`} className="author-name">{authorFirstName}</Link>
-                <div className="post-card-meta-info">
-                  <span>{publishDate}</span>
-                  <span>•</span>
-                  <span>{readingTime}</span>
+        {post.featured && <span>Featured</span>}
+        <div className="post-card-detail">
+          {post.tags ?
+            <div className={`primary-tag ${post.tags[0].slug}`}>
+              <Tags post={post} limit={1} visibility="public" autolink permalink="/tag/:slug" class=":slug" separator={null} classes={post.id} />
+            </div>
+            : null}
+          <Link to={url}>
+            <h2 className="post-card-title">{post.title}</h2>
+          </Link>
+          {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
+          <footer className="post-card-footer">
+            {post.primary_author ?
+              <div className="meta-items">
+                {authorAvatar
+                  ? <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
+                  : <FaUserEdit /> }
+                <div>
+                  <Link to={`/author/${post.primary_author.slug}`} className="author-name">{authorFirstName}</Link>
+                  <div className="post-card-meta-info">
+                    <span className="meta-item date">{createdDate}</span>
+                    <span className="meta-item separator">•</span>
+                    <span className="meta-item reading-time">{readingTime}</span>
+                  </div>
                 </div>
-              </div>
-            </div> : null}
-        </footer>
+              </div> : null}
+          </footer>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
@@ -65,7 +69,7 @@ PostCard.propTypes = {
       }),
     ),
     excerpt: PropTypes.string,
-    published_at_pretty: PropTypes.string,
+    created_at_pretty: PropTypes.string,
     primary_author: PropTypes.shape({
       name: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,

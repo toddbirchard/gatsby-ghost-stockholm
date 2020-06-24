@@ -49,6 +49,15 @@ module.exports = {
         name: `pages`,
       },
     },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.join(__dirname, `src`, `data`),
+        name: `data`,
+      },
+    },
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-git`,
       options: {
@@ -127,9 +136,9 @@ module.exports = {
             name: `monthly_page_analytics`,
           },
           {
-            statement: `SELECT * FROM weekly_page_analytics`,
+            statement: `SELECT * FROM weekly_post_analytics`,
             idFieldName: `id`,
-            name: `weekly_page_analytics`,
+            name: `weekly_post_analytics`,
           },
           {
             statement: `SELECT * FROM algolia_top_suggested_searches`,
@@ -251,42 +260,23 @@ module.exports = {
           require(`stylelint`)()],
       },
     },
-    `gatsby-plugin-split-css`,
     /**
      *  Netlify Plugins
      */
     `gatsby-plugin-netlify-cache`,
-    /*{
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: { "/*": [
-          `Referrer-Policy: no-referrer-when-downgrade`,
-          `Expect-CT: enforce,max-age=604800`,
-        ],
-        "/css/commento.css": [
-          `content-type: "text/css; charset=UTF-8`,
-          `Expect-CT: enforce,max-age=604800`,
-        ] },
-        // option to add more headers. `Link` headers are transformed by the below criteria
-        allPageHeaders: [`set-cookie: HttpOnly;Secure;SameSite=None`], // option to add headers for all pages. `Link` headers are transformed by the below criteria
-        mergeSecurityHeaders: true, // boolean to turn off the default security headers
-        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
-        mergeCachingHeaders: true, // boolean to turn off the default caching headers
-        transformHeaders: headers => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
-        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
-      },
-    },*/
     /**
      *  Utility Plugins
      */
     {
       resolve: `gatsby-plugin-ghost-manifest`,
       options: {
+        name: config.shortTitle,
         short_name: config.shortTitle,
+        description: config.siteDescriptionMeta,
         start_url: `/`,
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
-        display: `browser`,
+        display: `standalone`,
         icon: `static/${config.siteIcon}`,
         legacy: true,
         query: `
@@ -428,6 +418,8 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries,
         chunkSize: 100, // default: 1000
+        enablePartialUpdates: true,
+        matchFields: [`title`, `modified`],
       },
     },
     {
@@ -447,6 +439,5 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-preload-link-crossorigin`,
   ],
 }

@@ -11,7 +11,7 @@
     padding: 0 0 15px;
   }
   @media (max-width: @mobile-breakpoint) {
-    margin: 30px 20px 20px;
+    margin: 30px 0 20px;
   }
 
   .series-title {
@@ -37,7 +37,7 @@
     li {
       display: flex;
       justify-content: left;
-      margin: 8px 0;
+      margin: 10px 0;
       padding-left: 0;
       color: #687f99;
       line-height: 1;
@@ -67,7 +67,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         @media (max-width: @mobile-breakpoint) {
-          font-size: .9em;
+          font-size: 0.9em;
         }
       }
 
@@ -90,7 +90,7 @@
       }
 
       &::before {
-        min-width: 20px;
+        min-width: 30px;
         margin-right: 8px;
         color: #7f8a97;
         font-family: @body-font-bold;
@@ -99,8 +99,8 @@
         white-space: nowrap;
         content: counter(li, upper-roman) "." !important;
         @media (max-width: @mobile-breakpoint) {
-          min-width: 30px;
           margin-right: 2px;
+          font-size: 0.9em;
         }
       }
     }

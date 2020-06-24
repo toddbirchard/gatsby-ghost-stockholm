@@ -13,6 +13,7 @@ import AuthorMeta from './AuthorMeta'
 * JSON-LD (schema.org), Open Graph (Facebook) and Twitter properties.
 *
 */
+
 const MetaData = ({
   data,
   settings,
@@ -31,6 +32,7 @@ const MetaData = ({
       <ArticleMeta
         data={ghostPost}
         canonical={canonical}
+        type="Article"
       />
     )
   } else if (ghostTag) {

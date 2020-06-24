@@ -13,6 +13,9 @@
     height: 80px;
     margin-bottom: 0;
   }
+  @media(max-width: @mobile-breakpoint) {
+    box-shadow: unset;
+  }
 
   .nav-wrapper {
     display: flex;
@@ -40,13 +43,6 @@
       @media (max-width: @tablet-breakpoint) {
         justify-content: space-between;
         width: 100%;
-      }
-      @media (max-width: @mobile-breakpoint) {
-        position: absolute;
-        right: 0;
-        left: 0;
-        width: fit-content;
-        margin: 0 auto;
       }
 
       .logo {
@@ -128,8 +124,14 @@
 
     .nav-right {
       position: relative;
+      @media(max-width: @mobile-breakpoint) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+      }
 
-      svg {
+      .search-root > svg {
         position: absolute;
         top: 0;
         right: 10px;
@@ -139,18 +141,6 @@
         color: #b1b1b1;
         font-size: 1em;
         pointer-events: none;
-      }
-      @media (max-width: @tablet-breakpoint) {
-        display: none;
-      }
-    }
-
-    & > div:last-of-type {
-      display: none;
-      @media (max-width: @mobile-breakpoint) {
-        display: block;
-        position: absolute;
-        right: 5%;
       }
     }
   }
@@ -178,8 +168,10 @@
     max-width: 90%;
   }
 }
+
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
+
 @media (max-width: @tablet-breakpoint) {
   .home-template {
     .navigation {
@@ -194,11 +186,29 @@
     }
   }
 }
+
 @media (max-width: @mobile-breakpoint) {
   .home-template .navigation {
     margin-bottom: 20px !important;
+    background: unset;
+    box-shadow: unset;
   }
 }
+
+.series-template .nav-wrapper {
+  max-width: 900px;
+  @media (max-width: 900px) {
+    max-width: 95%;
+  }
+}
+
+.author-template .navigation {
+  @media (max-width: @tablet-breakpoint) {
+    background: unset;
+    box-shadow: unset;
+  }
+}
+
 /* Pagination
 /* ---------------------------------------------------------- */
 .pagination {
@@ -211,12 +221,11 @@
   background: none;
   max-width: 100%;
   overflow: hidden;
-  padding: 20px 0;
   @media (max-width: @tablet-breakpoint) {
     margin: 30px 0 0;
   }
   @media (max-width: @mobile-breakpoint) {
-    margin: 0 0 -20px;
+    margin: 20px 0 -5px;
   }
 
   .pagination-location {
@@ -233,13 +242,14 @@
     }
 
     h1 {
-      margin-bottom: 3px;
-      color: #525c63;
+      margin: -25px 0 3px;
+      color: #ecf1f8;
       letter-spacing: 0.5px;
       line-height: 1;
       white-space: nowrap;
       @media (max-width: @mobile-breakpoint) {
-        display: none;
+        margin: -14px 0 3px;
+        font-size: .8em;
       }
     }
   }

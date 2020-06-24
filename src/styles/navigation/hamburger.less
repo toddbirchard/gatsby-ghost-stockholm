@@ -1,11 +1,23 @@
 @import '../variables.less';
 @import '../mixins.less';
 
+.mobile-search-button {
+  display: none;
+  transition: @transition;
+  @media (max-width: @mobile-breakpoint) {
+    display: block;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 .hamburger-button {
   display: none;
   position: relative !important;
-  width: 21px;
-  height: 18px;
+  width: 26px;
+  height: 22px;
   @media (max-width: @mobile-breakpoint) {
     display: block;
   }
@@ -16,12 +28,11 @@
 
   .bm-burger-bars {
     height: 15% !important;
-    background: grey;
+    background: #7a8298;
     transition: @transition;
 
     &:hover {
-      background: @hover-color !important;
-      opacity: 1 !important;
+      opacity: 0.7;
     }
   }
 }
@@ -136,29 +147,29 @@
   }
 
   .bm-item-list {
-    height: 100%;
+    min-height: 100%;
     transition: @transition;
+    overflow: scroll;
 
     .accordion__panel {
-      padding: 0 10px 10px;
+      padding: 0 0 20px 20px;
       transition: @transition;
+
       .tag-link {
         display: block;
         margin-bottom: 10px;
-        font-size: .8em;
+        font-size: 0.8em;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
       }
     }
 
     .pages,
     .series,
     .sublinks {
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
+      min-height: 100%;
       margin: auto !important;
       outline: none;
       color: #fff !important;
@@ -166,14 +177,13 @@
 
       & > * {
         display: block;
-        margin-bottom: 10px;
       }
     }
 
     .pages,
     .series,
     .tags {
-      padding: 30px 27px;
+      padding: 40px;
     }
 
     .top-searches {
@@ -181,32 +191,38 @@
       position: absolute;
       top: 150%;
       width: stretch;
-      padding: 20px 40px 0 !important;
+      padding: 20px 30px 0 !important;
       background: white;
-      opacity: 0;
       transition: all 300ms cubic-bezier(0.000, 0.000, 0.000, 0.600);
-
-      .sublinks {
-        display: flex;
-        height: 700px;
-        transition: all 500ms cubic-bezier(0.000, 0.000, 0.000, 0.600);
-      }
+      top: 90px;
 
       .top-search-title {
-        margin-bottom: 25px;
+        margin-bottom: 40px;
         font-family: @body-font-bold;
         font-weight: 600;
-        letter-spacing: .5px;
+        letter-spacing: 1px;
+        font-size: .9em;
         text-transform: uppercase;
+        color: #5cc3a2;
+
+        svg {
+          margin-right: 5px;
+          font-size: 1.1em;
+        }
       }
 
       .search-suggestion {
         margin-bottom: 15px;
-        color: #3f4750;
+        color: #67717d;
         font-family: @body-font-bold;
-        line-height: 1;
+        line-height: 1.2;
         text-align: left;
         text-transform: uppercase;
+        background: unset;
+        border: unset;
+        font-size: .85em;
+        overflow: visible;
+        padding: 0;
 
         svg {
           margin-right: 5px;
@@ -214,6 +230,7 @@
 
         span {
           font-size: 0.9em;
+          line-height: 1.1;
           transition: @transition;
 
           &:hover {
@@ -235,9 +252,8 @@
     }
 
     .pages {
-
-      .navigation-link,
-      .accordion__button {
+      .accordion__button,
+      .navigation-link {
         display: flex;
         align-items: center;
         margin-bottom: 20px;
@@ -253,19 +269,23 @@
           cursor: pointer;
         }
 
-        &[aria-expanded="true"]{
-          svg {
+        &[aria-expanded="true"] {
+          .chevron {
             transform: scaleY(-1);
           }
         }
 
         span {
-          margin-right:5px;
+          margin-right: 8px;
+        }
+
+        .chevron {
+          font-size: 0.7em;
+          opacity: 0.5;
         }
 
         svg {
-          font-size: .8em;
-          opacity: .5;
+          margin-right: 5px;
         }
       }
     }
@@ -345,6 +365,15 @@
       border: 0;
       box-shadow: unset !important;
 
+      .ais-Hits-list {
+        grid-gap: 0;
+
+        .ais-Hits-item {
+          box-shadow: unset !important;
+          border-bottom: 1px solid #eaeaea;
+        }
+      }
+
       header {
         display: none;
       }
@@ -378,7 +407,7 @@
         color: #4a505c;
         font-size: 0.8em !important;
         letter-spacing: 0 !important;
-        line-height: 1.2 !important;
+        line-height: 1.3 !important;
       }
 
       .search-result-tag {
@@ -416,26 +445,25 @@
       display: block !important;
     }
 
-    svg {
+    & > svg {
       position: absolute;
-      top: 0;
-      right: 16px;
-      bottom: 0;
+      top: 24px;
+      right: 20px;
       margin: auto;
       color: #b3b3b3;
-      font-size: 0.9em !important;
+      font-size: 1.1em!important;
     }
 
     .ais-SearchBox-form {
       input {
         width: 100% !important;
         margin: 0 !important;
-        padding: 12px !important;
+        padding: 12px 20px !important;
         .input-field-interactions();
         border: 1px solid #dcdada;
         color: #636a75;
         font-family: @body-font-bold !important;
-        font-size: .9em !important;
+        font-size: 0.9em !important;
         font-weight: 300;
         letter-spacing: 1px;
         transition: all 0.2s ease-out;
@@ -474,27 +502,15 @@
     cursor: pointer;
   }
 }
-
 /*
 *
 * Search active state
 *
 */
-.full-width {
-  width: 100% !important;
-  overflow-x: hidden;
-
+.mobile-menu {
   .search-container {
     height: 100%;
     margin: 0 !important;
-
-    & > div > svg {
-      display: none;
-    }
-
-    svg {
-      display: none;
-    }
 
     input {
       height: 70px;
@@ -504,29 +520,20 @@
       border-left: 0 !important;
       font-size: 1em !important;
     }
-  }
 
-  .bm-item,
-  .bm-item-list {
-    padding: 0 !important;
-  }
+    .bm-item,
+    .bm-item-list {
+      padding: 0 !important;
+    }
 
-  .bm-cross-button {
-    display: block;
-    opacity: 1;
-  }
+    .bm-cross-button {
+      display: block;
+      opacity: 1;
+    }
 
-  .pages,
-  .tags {
-    opacity: 0;
-  }
-
-  .top-searches {
-    top: 90px !important;
-    opacity: 1 !important;
-
-    .sublinks {
-      height: 250px !important;
+    .pages,
+    .tags {
+      opacity: 0;
     }
   }
 

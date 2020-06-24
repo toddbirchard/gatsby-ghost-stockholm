@@ -1,4 +1,5 @@
-export { default as AuthorTwitterWidget } from './AuthorTwitter'
+export { default as AuthorSidebar } from './AuthorSidebar'
+export { default as AuthorTwitter } from './AuthorTwitter'
 export { default as AuthorPocket } from './AuthorPocket'
-export { default as AuthorTrendingWidget } from './AuthorTrending'
-export { default as AuthorWebsiteWidget } from './AuthorWebsite'
+export { default as AuthorTrending } from './AuthorTrending'
+export { default as AuthorWebsite } from './AuthorWebsite'
