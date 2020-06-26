@@ -10,7 +10,7 @@ const NotFoundPage = ({ data }) => {
 
   return (
     <>
-      <Layout template="error-template">
+      <Layout template="error-template" hasSidebar={false}>
         <header className="not-found-header">
           <h1 className="title">404</h1>
           <p className="go-home">Page not found, <Link to="/">return home</Link> to start over.</p>
