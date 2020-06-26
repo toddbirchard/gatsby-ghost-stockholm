@@ -45,9 +45,9 @@ const generateItem = function generateItem(siteUrl, post) {
   return item
 }
 
-const generateRSSFeed = function generateRSSFeed(siteConfig) {
+function generateRssFeed(siteConfig, rssQuery, title, url) {
   return {
-    serialize: ({ query: { allGhostPost } }) => allGhostPost.edges.map(edge => Object.assign({}, generateItem(siteConfig.siteUrl, edge.node))),
+    serialize: ({ query: { allGhostPost } }) => allGhostPost.edges.map(edge => Object.assign({}, generateItem(url, edge.node))),
     setup: ({ query: { ghostSettings } }) => {
       const siteTitle = ghostSettings.title || `No Title`
       const siteDescription = ghostSettings.description || `No Description`
@@ -69,54 +69,11 @@ const generateRSSFeed = function generateRSSFeed(siteConfig) {
         ...feed,
       }
     },
-    query: `
-        {
-            allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}}) {
-                edges {
-                    node {
-                        # Main fields
-                        id
-                        title
-                        slug
-                        featured
-                        feature_image
-
-                        # Dates unformatted
-                        created_at
-                        published_at
-                        updated_at
-
-                        # SEO
-                        excerpt
-                        meta_title
-                        meta_description
-
-                        # Authors
-                        authors {
-                            name
-                        }
-                        primary_author {
-                            name
-                        }
-                        tags {
-                            name
-                            visibility
-                        }
-
-                        # Content
-                        html
-
-                        # Additional fields
-                        url
-                        canonical_url
-                    }
-                }
-            }
-        }`,
+    query: rssQuery,
     output: `/rss.xml`,
-    title: siteConfig.siteTitleMeta,
-    link: siteConfig.social.feedly,
+    title: title,
+    link: url,
   }
 }
 
-module.exports = generateRSSFeed
+module.exports = generateRssFeed

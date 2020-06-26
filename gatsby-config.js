@@ -4,8 +4,8 @@ require(`dotenv`).config({
 const queries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
-const generateRSSFeed = require(`./src/utils/rss/generate-feed`)
-const generateAuthorRSSFeed = require(`./src/utils/rss/author-feed`)
+const siteRSSFeed = require(`./src/utils/rss/site-feed`)
+const authorRSSFeed = require(`./src/utils/rss/author-feed`)
 
 let ghostConfig
 
@@ -302,8 +302,8 @@ module.exports = {
                 }
               `,
         feeds: [
-          generateRSSFeed(config),
-          generateAuthorRSSFeed(config, `todd`, `Todd Birchard`),
+          siteRSSFeed,
+          authorRSSFeed,
         ],
       },
     },
