@@ -66,7 +66,6 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         <meta name="twitter:data1" content={author.name} />
         {primaryTag && <meta name="twitter:label2" content="Filed under" />}
         {primaryTag && <meta name="twitter:data2" content={primaryTag} />}
-
         {settings.twitter && <meta name="twitter:site" content={`https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`} />}
         {settings.twitter && <meta name="twitter:creator" content={settings.twitter} />}
         <script type="application/ld+json">{`
@@ -75,9 +74,9 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
                         "@type": "Article",
                         "author": {
                             "@type": "Person",
-                            "hasOccupation": "${author.title}",
                             "name": "${author.name}",
-                            "sameAs: "${author.website}",
+                            ${author.title && `"hasOccupation: "${author.title}",`}
+                            ${author.website && `"sameAs: "${author.website}",`}
                             ${author.image ? author.sameAsArray ? `"image": "${author.image}",` : `"image": "${author.image}"` : ``}
                             ${author.sameAsArray ? `"sameAs": ${author.sameAsArray}` : ``}
                         },
