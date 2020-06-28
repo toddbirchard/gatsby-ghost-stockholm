@@ -75,7 +75,9 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
                         "@type": "Article",
                         "author": {
                             "@type": "Person",
+                            "hasOccupation": "${author.title}",
                             "name": "${author.name}",
+                            "
                             ${author.image ? author.sameAsArray ? `"image": "${author.image}",` : `"image": "${author.image}"` : ``}
                             ${author.sameAsArray ? `"sameAs": ${author.sameAsArray}` : ``}
                         },
@@ -93,6 +95,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
                         "publisher": {
                             "@type": "Organization",
                             "name": "${settings.title}",
+                            "founder": "${author.name}",
                             "logo": {
                                 "@type": "ImageObject",
                                 "url": "${publisherLogo}",
