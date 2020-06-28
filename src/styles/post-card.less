@@ -71,11 +71,16 @@
 
   .post-card-image {
     width: 100%;
+    min-height: 392px;
     background: @text-color-light no-repeat center center;
     background-size: cover;
     transition: opacity 0.2s ease-out;
     @media (max-width: 1040px) {
       height: auto !important;
+      min-height: 256px;
+    }
+    @media(max-width: @tablet-breakpoint) {
+      min-height: unset;
     }
 
     &:hover {

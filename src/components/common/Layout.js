@@ -18,6 +18,8 @@ import config from '../../utils/siteConfig'
 
 const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => {
   const site = data.ghostSettings
+  const corePages = [`home-template`, `page-template`, `tag-template`]
+  const isCorePage = corePages.includes(template)
 
   return (
     <>
@@ -37,7 +39,8 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         <div className={hasSidebar ? `sidebar-container` : `container`}>
           {/* All the main content gets inserted here, index.js, post.js */}
           {children}
-          {template === `author-template` ? <AuthorSidebar authorData={authorData} /> : <Sidebar site={site} template={template} authorData={authorData} />}
+          {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
+          {isCorePage && <Sidebar site={site} template={template} authorData={authorData} />}
         </div>
       </div>
       <Footer navigation={site.navigation} site={site} template={template} />

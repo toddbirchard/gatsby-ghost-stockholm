@@ -19,14 +19,25 @@ const PostCard = ({ post }) => {
       <div className="post-card">
         <Link to={url}>
           <picture>
-            {post.feature_image && <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} title={post.title} />}
+            {post.feature_image &&
+              <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} title={post.title} />
+            }
           </picture>
         </Link>
         {post.featured && <span>Featured</span>}
         <div className="post-card-detail">
           {post.tags ?
             <div className={`primary-tag ${post.tags[0].slug}`}>
-              <Tags post={post} limit={1} visibility="public" autolink permalink="/tag/:slug" class=":slug" separator={null} classes={post.id} />
+              <Tags
+                post={post}
+                limit={1}
+                visibility="public"
+                autolink
+                permalink="/tag/:slug/"
+                class=":slug"
+                separator={null}
+                classes={post.id}
+              />
             </div>
             : null}
           <Link to={url}>
@@ -34,7 +45,7 @@ const PostCard = ({ post }) => {
           </Link>
           {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
           <footer className="post-card-footer">
-            {post.primary_author ?
+            {post.primary_author &&
               <div className="meta-items">
                 {authorAvatar
                   ? <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
@@ -47,7 +58,7 @@ const PostCard = ({ post }) => {
                     <span className="meta-item reading-time">{readingTime}</span>
                   </div>
                 </div>
-              </div> : null}
+              </div> }
           </footer>
         </div>
       </div>
