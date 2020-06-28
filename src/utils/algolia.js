@@ -46,6 +46,7 @@ const allPostQuery = `{
           slug
         }
         primary_author {
+          slug
           name
           profile_image
         }

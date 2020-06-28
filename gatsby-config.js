@@ -419,7 +419,7 @@ module.exports = {
         queries,
         chunkSize: 100, // default: 1000
         enablePartialUpdates: true,
-        matchFields: [`title`, `modified`],
+        matchFields: [`title`, `slug`, `feature_image` `modified`],
       },
     },
     {
