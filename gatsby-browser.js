@@ -11,33 +11,31 @@ import './src/styles/app.less';
  * ES6 modules are here used because PrismJS should not work with CommonJs.
  */
 
-let path = location.pathname;
+export const onRouteUpdate = ({location}) => {
 
-// Determine if post
-if ((path.split('/').length - 1) === 2) {
-  // Code Syntax Highlighting
-  Prism.plugins.NormalizeWhitespace.setDefaults({
-    'remove-trailing': true,
-    'remove-indent': true,
-    'left-trim': true,
-    'right-trim': true
-  });
-  Prism.highlightAll();
-  // Enable lightbox on images
-  let images = document.querySelectorAll('.kg-image-card img');
-  if (images.length > 0) {
-    for (let image in images) {
-      if (image < images.length) {
-        images[image].onclick = () => {
-          let html = `<img src="` + images[image].getAttribute('src') + `" />`;
-          const instance = basicLightbox.create(html, {
-            onShow: (instance) => {
-              instance.element().style.opacity = 1
-            },
-            onClose: (instance) => {
-              instance.element().style.opacity = 0
-            }
-          }).show()
+  let path = location.pathname;
+  if ((path.split('/').length - 1) === 2) {
+
+    // Code Syntax Highlighting
+    Prism.plugins.NormalizeWhitespace.setDefaults({'remove-trailing': true, 'remove-indent': true, 'left-trim': true, 'right-trim': true});
+    Prism.highlightAll();
+
+    // Enable lightbox on images
+    let images = document.querySelectorAll('.kg-image-card img');
+    if (images.length > 0) {
+      for (let image in images) {
+        if (image < images.length) {
+          images[image].onclick = () => {
+            let html = `<img src="` + images[image].getAttribute('src') + `" alt="` + images[image].getAttribute('alt') + `" />`;
+            const instance = basicLightbox.create(html, {
+              onShow: (instance) => {
+                instance.element().style.opacity = 1
+              },
+              onClose: (instance) => {
+                instance.element().style.opacity = 0
+              }
+            }).show()
+          }
         }
       }
     }

@@ -33,7 +33,7 @@ const PostCard = ({ post }) => {
                 limit={1}
                 visibility="public"
                 autolink
-                permalink="/tag/:slug"
+                permalink="/tag/:slug/"
                 class=":slug"
                 separator={null}
                 classes={post.id}
