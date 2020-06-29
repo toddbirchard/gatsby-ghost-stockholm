@@ -14,7 +14,6 @@ module.exports = {
   themeColor: `#0297f6`, // Used for Offline Manifest
   mobileLogo: `/images/logo-small@2x.png`, // OPTIONAL: Swap logo in header with mobile-friendly logo
   introVideo: `https://vimeo.com/265866802`, // OPTIONAL: Video URL to be used in "about" page
-  founder: `Todd Birchard`,
   social: {
     twitter: `https://twitter.com/hackersslackers/`,
     github: `https://github.com/hackersandslackers`,
@@ -24,6 +23,7 @@ module.exports = {
     feedly: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
   },
   creator: {
+    name: `Todd Birchard`,
     twitter: `@toddrbirchard`,
   },
   links: {

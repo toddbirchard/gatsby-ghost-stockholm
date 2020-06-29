@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { StaticQuery, graphql } from 'gatsby'
-
 import ImageMeta from './ImageMeta'
 import getAuthorProperties from './getAuthorProperties'
 import config from '../../../utils/siteConfig'
@@ -40,6 +39,7 @@ const AuthorMeta = ({ data, settings, canonical, pageContext }) => {
                         "@context": "https://schema.org/",
                         "@type": "Person",
                         "name": "${data.name}",
+                        ${author.title ? `"hasOccupation": "${author.title}",` : ``}
                         ${author.sameAsArray ? `"sameAs": ${author.sameAsArray},` : ``}
                         "url": "${canonical}",
                         ${shareImage ? `"image": {

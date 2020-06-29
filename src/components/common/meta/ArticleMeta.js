@@ -92,7 +92,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
             "publisher": {
               "@type": "Organization",
               "name": "${settings.title}",
-              "founder": "${config.founder}",
+              "founder": "${config.creator.name}",
               "logo": {
                 "@type": "ImageObject",
                 "url": "${publisherLogo}",
