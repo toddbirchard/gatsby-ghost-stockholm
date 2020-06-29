@@ -14,7 +14,7 @@ import { tags as tagsHelper } from '@tryghost/helpers'
 const ArticleMetaGhost = ({ data, settings, canonical }) => {
   const ghostPost = data
   settings = settings.ghostSettings
-
+  const title = ghostPost.meta_title ? ghostPost.meta_title.replace(/[\""]/g, `\\"`) : ghostPost.title.replace(/[\""]/g, `\\"`)
   const author = getAuthorProperties(ghostPost.primary_author)
   const publicTags = _.map(tagsHelper(ghostPost, { visibility: `public`, fn: tag => tag }), `name`)
   const primaryTag = publicTags[0] || ``
@@ -24,15 +24,14 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
   return (
     <>
       <Helmet>
-        <title>{ghostPost.meta_title || ghostPost.title}</title>
+        <title>{title}</title>
         <meta name="description" content={ghostPost.meta_description || ghostPost.excerpt} />
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="article" />
         <meta property="og:title"
           content={
             ghostPost.og_title ||
-            ghostPost.meta_title ||
-            ghostPost.title
+            title
           }
         />
         <meta property="og:description"
@@ -50,8 +49,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         <meta name="twitter:title"
           content={
             ghostPost.twitter_title ||
-            ghostPost.meta_title ||
-            ghostPost.title
+            title
           }
         />
         <meta name="twitter:description"
@@ -69,46 +67,46 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         {settings.twitter && <meta name="twitter:site" content={`https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`} />}
         {settings.twitter && <meta name="twitter:creator" content={settings.twitter} />}
         <script type="application/ld+json">{`
-                    {
-                        "@context": "https://schema.org/",
-                        "@type": "Article",
-                        "author": {
-                            "@type": "Person",
-                            "name": "${author.name}",
-                            ${author.title ? `"hasOccupation: "${author.title}",` : ``}
-                            ${author.website ? `"url: "${author.website}",` : ``}
-                            ${author.image ? author.sameAsArray ? `"image": "${author.image}",` : `"image": "${author.image}"` : ``}
-                            ${author.sameAsArray ? `"sameAs": ${author.sameAsArray}` : ``}
-                        },
-                        ${publicTags.length ? `"keywords": "${_.join(publicTags, `, `)}",` : ``}
-                        "headline": "${ghostPost.meta_title || ghostPost.title}",
-                        "url": "${canonical}",
-                        "datePublished": "${ghostPost.published_at}",
-                        "dateModified": "${ghostPost.updated_at}",
-                        ${shareImage ? `"image": {
-                                "@type": "ImageObject",
-                                "url": "${shareImage}",
-                                "width": "${config.shareImageWidth}",
-                                "height": "${config.shareImageHeight}"
-                            },` : ``}
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "${settings.title}",
-                            "founder": "${config.founder}",
-                            "logo": {
-                                "@type": "ImageObject",
-                                "url": "${publisherLogo}",
-                                "width": 60,
-                                "height": 60
-                            }
-                        },
-                        "description": "${ghostPost.meta_description || ghostPost.excerpt}",
-                        "mainEntityOfPage": {
-                            "@type": "WebPage",
-                            "@id": "${config.siteUrl}"
-                        }
-                    }
-                `}</script>
+          {
+            "@context": "https://schema.org/",
+            "@type": "Article",
+            "author": {
+              "@type": "Person",
+              "name": "${author.name}",
+              ${author.title ? `"hasOccupation: "${author.title}",` : ``}
+              ${author.website ? `"url: "${author.website}",` : ``}
+              ${author.image ? author.sameAsArray ? `"image": "${author.image}",` : `"image": "${author.image}"` : ``}
+              ${author.sameAsArray ? `"sameAs": ${author.sameAsArray}` : ``}
+            },
+            ${publicTags.length ? `"keywords": "${_.join(publicTags, `, `)}",` : ``}
+            "headline": "${title}",
+            "url": "${canonical}",
+            "datePublished": "${ghostPost.published_at}",
+            "dateModified": "${ghostPost.updated_at}",
+            ${shareImage ? `"image": {
+                "@type": "ImageObject",
+                "url": "${shareImage}",
+                "width": "${config.shareImageWidth}",
+                "height": "${config.shareImageHeight}"
+              },` : ``}
+            "publisher": {
+              "@type": "Organization",
+              "name": "${settings.title}",
+              "founder": "${config.founder}",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "${publisherLogo}",
+                "width": 60,
+                "height": 60
+              }
+            },
+            "description": "${ghostPost.meta_description || ghostPost.excerpt}",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "${config.siteUrl}"
+            }
+          }`}
+        </script>
       </Helmet>
       <ImageMeta image={shareImage} />
     </>
