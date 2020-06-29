@@ -1,6 +1,6 @@
 {
   "development": {
-    "apiUrl": "https://dev.hackersandslackers.site",
+    "apiUrl": "https://hackersandslackers.site",
     "contentApiKey": "3f19ea80431d097862483b511b"
   },
   "production": {
