@@ -22,7 +22,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
   return (
     <>
       <Helmet>
-        <title>{title}</title>
+        <title>{ghostPost.meta_title || ghostPost.title}</title>
         <meta name="description" content={ghostPost.meta_description || ghostPost.excerpt} />
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="article" />

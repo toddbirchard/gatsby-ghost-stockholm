@@ -9,8 +9,6 @@ import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/
 import { AuthorCard } from '../components/authors'
 import { AiOutlineEye, AiOutlineTags, AiOutlineCalendar, AiOutlineUser, AiTwotoneExperiment } from 'react-icons/ai'
 
-import '../styles/posts/post.less'
-
 /**
  * Single post view (/:slug)
  *
