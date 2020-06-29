@@ -29,7 +29,8 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         <meta property="og:title"
           content={
             ghostPost.og_title ||
-            title
+            ghostPost.twitter_title ||
+            ghostPost.title
           }
         />
         <meta property="og:description"
@@ -47,7 +48,8 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         <meta name="twitter:title"
           content={
             ghostPost.twitter_title ||
-            title
+            ghostPost.og_title ||
+            ghostPost.title
           }
         />
         <meta name="twitter:description"
