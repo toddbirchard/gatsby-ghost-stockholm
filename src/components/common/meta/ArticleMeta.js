@@ -4,17 +4,15 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import url from 'url'
-
 import getAuthorProperties from './getAuthorProperties'
 import ImageMeta from './ImageMeta'
 import config from '../../../utils/siteConfig'
-
 import { tags as tagsHelper } from '@tryghost/helpers'
 
 const ArticleMetaGhost = ({ data, settings, canonical }) => {
   const ghostPost = data
   settings = settings.ghostSettings
-  const title = ghostPost.meta_title ? ghostPost.meta_title.replace(/[\""]/g, `\\"`) : ghostPost.title.replace(/[\""]/g, `\\"`)
+  const title = ghostPost.meta_title ? ghostPost.replace(/"/g, `\\"`) : ghostPost.title.replace(/"/g, `\\"`)
   const author = getAuthorProperties(ghostPost.primary_author)
   const publicTags = _.map(tagsHelper(ghostPost, { visibility: `public`, fn: tag => tag }), `name`)
   const primaryTag = publicTags[0] || ``
