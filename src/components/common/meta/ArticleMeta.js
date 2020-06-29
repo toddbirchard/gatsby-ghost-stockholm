@@ -12,7 +12,7 @@ import { tags as tagsHelper } from '@tryghost/helpers'
 const ArticleMetaGhost = ({ data, settings, canonical }) => {
   const ghostPost = data
   settings = settings.ghostSettings
-  const title = ghostPost.meta_title ? ghostPost.replace(/"/g, `\\"`) : ghostPost.title.replace(/"/g, `\\"`)
+  const title = ghostPost.meta_title ? ghostPost.meta_title.replace(/"/g, `\\"`) : ghostPost.title.replace(/"/g, `\\"`)
   const author = getAuthorProperties(ghostPost.primary_author)
   const publicTags = _.map(tagsHelper(ghostPost, { visibility: `public`, fn: tag => tag }), `name`)
   const primaryTag = publicTags[0] || ``
