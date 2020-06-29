@@ -50,7 +50,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react": "^7.20.1",
     "eslint-plugin-standard": "^4.0.1",
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-source-github": "0.0.2",
@@ -115,7 +115,7 @@
     "react-helmet": "6.1.0",
     "react-icons": "^3.10.0",
     "react-instantsearch-dom": "^6.6.0",
-    "react-player": "^2.3.1",
+    "react-player": "^2.4.0",
     "sharp": "^0.25.4",
     "styled-components": "^5.1.1"
   }
