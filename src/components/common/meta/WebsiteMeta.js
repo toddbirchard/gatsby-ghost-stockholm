@@ -71,8 +71,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
                       "logo": {
                           "@type": "ImageObject",
                           "url": "${publisherLogo}",
-                          "width": 60,
-                          "height": 60
+                          "width": 738,
+                          "height": 151
                       }
                   },
                   "mainEntityOfPage": {
