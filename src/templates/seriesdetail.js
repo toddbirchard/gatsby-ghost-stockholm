@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { SeriesPostCard } from '../components/misc'
 import { MetaData } from '../components/common/meta'
-
 import '../styles/pages/seriesdetail.less'
 
 /**

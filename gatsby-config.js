@@ -62,7 +62,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-json`,
-    {
+    /*{
       resolve: `gatsby-source-git`,
       options: {
         name: `jupyter`,
@@ -70,7 +70,7 @@ module.exports = {
         branch: `master`,
         patterns: `*.ipynb`,
       },
-    },
+    },*/
     {
       resolve: `gatsby-source-ghost`,
       options: process.env.NODE_ENV === `development`
@@ -237,7 +237,6 @@ module.exports = {
     /**
      *  Transformer Plugins
      */
-    `@gatsby-contrib/gatsby-transformer-ipynb`,
     /**
      *  Font Plugins
      */
