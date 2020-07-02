@@ -230,8 +230,8 @@
     status = 301
 
 [[redirects]]
-    from = "/using-pandas-with-aws-lambda/"
-    to = "/pandas-aws-lambda/"
+    from = "/pandas-aws-lambda/"
+    to = "/using-pandas-with-aws-lambda/"
     status = 301
 
 [[redirects]]
