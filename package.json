@@ -32,6 +32,7 @@
   "scripts": {
     "serve": "gatsby build && NODE_ENV=production gatsby serve",
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build:lambda": "netlify-lambda build backend",
     "dev": "gatsby develop",
     "lint": "eslint . --ext .js --cache",
     "test": "echo \"Error: no test specified\" && exit 1"
