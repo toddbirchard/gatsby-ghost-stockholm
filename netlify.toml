@@ -13,6 +13,7 @@
   functions = "functions"
 
 [build.environment]
+  GO_IMPORT_PATH = "github.com/toddbirchard/netlify-metadata-scraper"
   GO_VERSION = "1.14.2"
 
 [template]
