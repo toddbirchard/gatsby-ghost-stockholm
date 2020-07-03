@@ -8,7 +8,7 @@
 
 [build]
   base = "/"
-  command = "gatsby build"
+  command = "make build"
   publish = "public"
   functions = "functions"
 
