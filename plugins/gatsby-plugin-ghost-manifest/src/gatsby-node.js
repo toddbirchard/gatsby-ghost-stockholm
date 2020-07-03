@@ -22,7 +22,7 @@ exports.onPostBuild = async ({ graphql }, pluginOptions) => {
   let { icon, ...manifest } = pluginOptions
 
   const { data } = await graphql(pluginOptions.query)
-  const siteTitle = data.allGhostSettings.edges[0].node.title || `No Title`
+  const siteTitle = data.ghostSettings.title || `No Title`
   manifest = {
     ...manifest,
     name: siteTitle,
