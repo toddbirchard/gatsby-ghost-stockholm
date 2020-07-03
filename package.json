@@ -52,7 +52,6 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-standard": "^4.0.1",
     "gatsby-plugin-eslint": "^2.0.8",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.10",
     "gatsby-source-github": "0.0.2",
     "less": "^3.11.3",
     "qs": "^6.9.4",
