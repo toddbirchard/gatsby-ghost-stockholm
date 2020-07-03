@@ -7,11 +7,39 @@ const NavLinks = ({ navigation }) => (
   <>
     {navigation.map((navItem, i) => {
       if (navItem.url.includes(`/rss`)) {
-        return <a className="navigation-link rss" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
-      } else if (navItem.url.includes(config.siteUrl)) {
-        return <Link className={`navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`} key={i} >{navItem.label}</Link>
+        return (
+          <a
+            className="navigation-link rss"
+            href={navItem.url}
+            key={i}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {navItem.label}
+          </a>
+        )
+      } else if (navItem.url.includes(`coffee`)) {
+        return (
+          <a
+            className="navigation-link donate"
+            href={navItem.url}
+            key={i} target="_blank"
+            rel="noopener noreferrer"
+          >
+            {navItem.label}
+          </a>
+        )
       } else {
-        return <a className="navigation-link donate" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">{navItem.label}</a>
+        console.log(navItem.url.replace(config.siteAdminUrl, ``))
+        return (
+          <Link
+            className={`navigation-link ${navItem.label}`}
+            to={navItem.url.replace(config.siteAdminUrl, ``)}
+            key={i}
+          >
+            {navItem.label}
+          </Link>
+        )
       }
     })}
   </>
