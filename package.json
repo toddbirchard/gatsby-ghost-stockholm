@@ -32,7 +32,7 @@
   "scripts": {
     "serve": "gatsby build && NODE_ENV=production gatsby serve",
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
-    "build:lambda": "netlify-lambda build backend",
+    "build:lambda": "netlify-lambda build go-src/scrapemeta && go get go-src/scrapemeta",
     "dev": "gatsby develop",
     "lint": "eslint . --ext .js --cache",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -101,6 +101,7 @@
     "gatsby-transformer-json": "^2.4.10",
     "lazysizes": "^5.2.2",
     "lodash": "4.17.15",
+    "netlify-lambda": "^1.6.3",
     "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
