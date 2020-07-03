@@ -274,7 +274,7 @@ module.exports = {
         icon: `static/${config.siteIcon}`,
         categories: config.categories,
         lang: config.lang,
-        legacy: true,
+        legacy: false,
         query: `
             {
               ghostSettings {
