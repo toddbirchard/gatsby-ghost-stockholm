@@ -134,7 +134,7 @@
   color: @body-color;
   font-family: @body-font-book;
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.6em;
   @media (max-width: @mobile-breakpoint) {
   }
 }
@@ -232,6 +232,33 @@
     background: white;
     color: @theme-color !important;
     cursor: pointer !important;
+  }
+}
+
+.figcaption() {
+  width: stretch;
+  width: -moz-available;
+  margin: 0 auto;
+  padding: 8px 0 0;
+  color: #7c838e;
+  font-family: @body-font;
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+  @media (max-width: @mobile-breakpoint) {
+    display: block;
+    width: 87% !important;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  a {
+    .link();
   }
 }
 
