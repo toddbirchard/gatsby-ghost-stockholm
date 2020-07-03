@@ -180,3 +180,23 @@ table {
     }
   }
 }
+
+// Side-by-side table comparison
+.compare-tables {
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: @tablet-breakpoint) {
+    display: block !important;
+    margin-right: calc(-50vw + 50%)!important;
+    margin-left: calc(-50vw + 50%)!important;
+  }
+
+  .tableContainer.compare {
+    max-width: 49%;
+    max-height: unset;
+    height: fit-content;
+    @media(max-width: tablet-breakpoint) {
+      max-width: unset;
+    }
+  }
+}

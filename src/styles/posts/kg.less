@@ -43,7 +43,7 @@
       min-width: 50%;
       padding: 20px;
       @media (max-width: @mobile-breakpoint) {
-        padding: 15px;
+        padding: 20px 15px;
       }
 
       .kg-bookmark-title {
@@ -58,7 +58,7 @@
         line-height: 1.2;
         text-decoration: none;
         @media (max-width: @mobile-breakpoint) {
-          font-size: 1.1em;
+          font-size: 1em;
         }
       }
 
@@ -99,11 +99,14 @@
 
         .kg-bookmark-author {
           margin-bottom: 4px;
-        }
+          @media(max-width: @mobile-breakpoint) {
+            margin-bottom: 0;
+          }
 
-        .kg-bookmark-author:after {
-          margin: 0 6px;
-          content: "•";
+          &:after {
+            margin: 0 6px;
+            content: "•";
+          }
         }
 
         .kg-bookmark-author,
