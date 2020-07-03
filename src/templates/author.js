@@ -17,8 +17,7 @@ import '../styles/pages/page.less'
 const Author = ({ data, location, pageContext }) => {
   const author = data.ghostAuthor
   const baseTitle = author.name + `'s posts'`
-  const pageNumber = pageContext.pageNumber
-  const title = pageContext.pageNumber > 0 ? baseTitle + ` (page ` + pageNumber + ` of ` + pageContext.numberOfPages + `)` : baseTitle
+  const title = pageContext.humanPageNumber > 1 ? baseTitle + ` (page ` + pageContext.humanPageNumber + ` of ` + pageContext.numberOfPages + `)` : baseTitle
   const posts = data.allGhostPost.edges
   const authorData = data
 

@@ -7,12 +7,11 @@ import ImageMeta from './ImageMeta'
 import getAuthorProperties from './getAuthorProperties'
 import config from '../../../utils/siteConfig'
 
-const AuthorMeta = ({ data, settings, canonical, pageContext }) => {
+const AuthorMeta = ({ data, title, settings, canonical, pageContext }) => {
   settings = settings.ghostSettings
 
   const author = getAuthorProperties(data)
   const shareImage = author.image || _.get(settings, `cover_image`, null)
-  const title = `${data.name} - ${settings.title}`
   const description = data.bio || config.siteDescriptionMeta || settings.description
   const previousPagePath = pageContext ? pageContext.previousPagePath : null
   const nextPagePath = pageContext ? pageContext.nextPagePath : null
@@ -69,6 +68,7 @@ AuthorMeta.propTypes = {
     website: PropTypes.string,
     twitter: PropTypes.string,
   }).isRequired,
+  title: PropTypes.string.isRequired,
   settings: PropTypes.shape({
     ghostSettings: PropTypes.object.isRequired,
     twitter: PropTypes.string,

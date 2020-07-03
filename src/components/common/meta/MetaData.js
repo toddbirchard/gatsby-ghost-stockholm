@@ -38,6 +38,7 @@ const MetaData = ({
     return (
       <WebsiteMeta
         data={ghostTag}
+        title={title}
         canonical={canonical}
         pageContext={pageContext}
         type="Series"
@@ -47,6 +48,7 @@ const MetaData = ({
     return (
       <AuthorMeta
         data={ghostAuthor}
+        title={title}
         canonical={canonical}
         pageContext={pageContext}
         type="profile"
