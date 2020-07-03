@@ -640,6 +640,18 @@
         public'''
 
 [[headers]]
+  for = "https://secure.gaug.es/"
+  [headers.values]
+    set-cookie = "HttpOnly;Secure;SameSite=None"
+
+
+[[headers]]
+  for = "http://gaug.es/"
+  [headers.values]
+    set-cookie = "HttpOnly;Secure;SameSite=None"
+
+
+[[headers]]
   for = "/images/bmc-new-btn-logo.svg"
   [headers.values]
     content-type = "image/svg+xml"

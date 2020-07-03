@@ -367,16 +367,6 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   })
 
-  /* createPage({
-    path: `/jupyter/`,
-    component: jupyterArchive,
-    context: {
-      slug: `jupyter`,
-      title: `Jupyter Notebooks`,
-      description: `Our collection of Jupyter notebooks.`,
-    },
-  })*/
-
   createPage({
     path: `/about/`,
     component: aboutPage,

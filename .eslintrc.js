@@ -20,7 +20,6 @@ module.exports = {
     `plugin:ghost/ember`,
     `plugin:react/recommended`,
     `plugin:promise/recommended`,
-    `plugin:jsx-a11y/recommended`,
     `eslint:recommended`,
   ],
   settings: {
@@ -37,7 +36,6 @@ module.exports = {
   },
   rules: {
     "ghost/sort-imports-es6-autofix/sort-imports-es6": 0,
-    "ghost/ember/use-ember-get-and-set": 0,
     "no-console": `off`,
     indent: [
       `error`, 2,
@@ -53,17 +51,6 @@ module.exports = {
       `error`,
       `as-needed`, {
         requireReturnForObjectLiteral: true,
-      },
-    ],
-    "jsx-a11y/alt-text": [
-      1, {
-        elements: [
-          `img`, `object`, `area`, `input[type="image"]`,
-        ],
-        img: [`Image`],
-        object: [`Object`],
-        area: [`Area`],
-        "input[type=\"image\"]": [`InputImage`],
       },
     ],
     "jsx-quotes": [
