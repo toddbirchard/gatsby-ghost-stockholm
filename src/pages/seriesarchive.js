@@ -127,7 +127,7 @@ export default SeriesArchive
 
 export const seriesQuery = graphql`
     query GhostSeriesArchiveQuery($slug: String) {
-        datascience: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql"]}}) {
+        datascience: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql", "web-scraping-with-python"]}}) {
           edges {
             node {
               id

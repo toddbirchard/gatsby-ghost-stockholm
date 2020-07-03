@@ -62,15 +62,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-json`,
-    /*{
-      resolve: `gatsby-source-git`,
-      options: {
-        name: `jupyter`,
-        remote: config.links.githubJupyterRepo,
-        branch: `master`,
-        patterns: `*.ipynb`,
-      },
-    },*/
     {
       resolve: `gatsby-source-ghost`,
       options: process.env.NODE_ENV === `development`

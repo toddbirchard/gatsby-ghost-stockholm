@@ -30,7 +30,6 @@ const NavLinks = ({ navigation }) => (
           </a>
         )
       } else {
-        console.log(navItem.url.replace(config.siteAdminUrl, ``))
         return (
           <Link
             className={`navigation-link ${navItem.label}`}
