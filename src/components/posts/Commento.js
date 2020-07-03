@@ -37,7 +37,7 @@ const Commento = ({ id }) => {
 }
 
 Commento.propTypes = {
-  id: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
 }
 
 export default Commento

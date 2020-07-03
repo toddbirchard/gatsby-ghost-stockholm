@@ -24,9 +24,7 @@ const Post = ({ data, location }) => {
   const relatedPosts = data.relatedPosts
   const readingTime = readingTimeHelper(post)
   const seriesPosts = data.seriesPosts
-  const authorUrl = post.primary_author.slug
-    ? `/author/${post.primary_author.slug}/`
-    : null
+  const authorUrl = post.primary_author.slug && `/author/${post.primary_author.slug}/`
   const authorFirstName = author.name.split(` `)[0]
   const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
@@ -94,7 +92,7 @@ const Post = ({ data, location }) => {
               <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false}
                 classes="post-tag-footer"/>
             </div>
-            <AuthorCard author={author}/>
+            <AuthorCard author={author} page={`post`}/>
           </article>
 
         </div>
