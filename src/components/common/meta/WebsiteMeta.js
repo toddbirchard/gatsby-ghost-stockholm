@@ -53,7 +53,6 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
         <link rel="icon" type="image/png" sizes="192x192" href="images/icons/icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="384x384" href="images/icons/icon-384x384.png" />
         <link rel="icon" type="image/png" sizes="512x512" href="images/icons/icon-512x512.png" />
-        <link rel="manifest" href="/manifest.json" />
         <script type="application/ld+json">{`
               {
                   "@context": "https://schema.org/",

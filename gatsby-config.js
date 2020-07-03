@@ -272,6 +272,8 @@ module.exports = {
         theme_color: config.themeColor,
         display: `standalone`,
         icon: `static/${config.siteIcon}`,
+        categories: config.categories,
+        lang: config.lang,
         legacy: true,
         query: `
             {
