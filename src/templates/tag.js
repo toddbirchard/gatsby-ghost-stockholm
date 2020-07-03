@@ -18,12 +18,16 @@ import '../styles/pages/tag.less'
 const Tag = ({ data, location, pageContext }) => {
   const tag = data.ghostTag
   const posts = data.allGhostPost.edges
+  const pageNumber = pageContext.pageNumber
+  const baseTitle = tag.name
+  const title = pageContext.pageNumber > 0 ? baseTitle + ` (page ` + pageNumber + ` of ` + pageContext.numberOfPages + `)` : baseTitle
   const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
 
   return (
     <>
       <MetaData
         data={data}
+        title={title}
         location={location}
         pageContext={pageContext}
         type="website"

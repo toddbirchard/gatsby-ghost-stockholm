@@ -36,6 +36,7 @@ module.exports = {
   },
   rules: {
     "ghost/sort-imports-es6-autofix/sort-imports-es6": 0,
+    "ghost/ember/use-ember-get-and-set": `off`,
     "no-console": `off`,
     indent: [
       `error`, 2,
