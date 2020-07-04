@@ -10,73 +10,64 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-        {
-            allGhostPost(sort: { order: ASC, fields: published_at }) {
-                edges {
-                    node {
-                        slug
-                        primary_tag {
-                          slug
-                          name
-                        }
-                        primary_author {
-                          slug
-                        }
-                        tags {
-                          slug
-                          name
-                          visibility
-                        }
-                    }
-                }
+    {
+      allGhostPost(sort: {order: ASC, fields: published_at}, filter: {slug: {ne: "data-schema"}}) {
+        edges {
+          node {
+            slug
+            primary_tag {
+              slug
+              name
             }
-            allGhostTag(sort: { order: ASC, fields: name }) {
-                edges {
-                    node {
-                        slug
-                        postCount
-                    }
-                }
+            primary_author {
+              slug
             }
-            allGhostAuthor(sort: { order: ASC, fields: name }) {
-                edges {
-                    node {
-                        slug
-                        url
-                        postCount
-                        twitter
-                    }
-                }
+            tags {
+              slug
+              name
+              visibility
             }
-            allGhostPage {
-                edges {
-                    node {
-                        slug
-                        url
-                    }
-                }
-            }
-            internalTags: allGhostTag(sort: {order: ASC, fields: name}, filter: {visibility: {eq: "internal"}}) {
-              edges {
-                node {
-                  slug
-                  url
-                  name
-                  postCount
-                }
-              }
-            }
-            jupyter: allFile(filter: {ext: {eq: ".ipynb"}}) {
-              edges {
-                node {
-                  id
-                  name
-                }
-              }
-            }
+          }
         }
-    `)
-
+      }
+      allGhostTag(sort: {order: ASC, fields: name}, filter: {slug: {ne: "data-schema"}}) {
+        edges {
+          node {
+            slug
+            postCount
+          }
+        }
+      }
+      allGhostAuthor(sort: {order: ASC, fields: name}, filter: {slug: {ne: "data-schema-author"}}) {
+        edges {
+          node {
+            slug
+            url
+            postCount
+            twitter
+          }
+        }
+      }
+      allGhostPage {
+        edges {
+          node {
+            slug
+            url
+          }
+        }
+      }
+      series: allGhostTag(sort: {order: ASC, fields: name}, filter: {visibility: {eq: "internal"}}) {
+        edges {
+          node {
+            slug
+            url
+            name
+            postCount
+          }
+        }
+      }
+    }`
+  )
   // Check for any errors
   if (result.errors) {
     throw new Error(result.errors)
@@ -87,7 +78,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const authors = result.data.allGhostAuthor.edges
   const pages = result.data.allGhostPage.edges
   const posts = result.data.allGhostPost.edges
-  const series = result.data.internalTags.edges
+  const series = result.data.series.edges
   // const jupyter = result.data.jupyter.edges
 
   // Load templates
