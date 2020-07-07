@@ -76,8 +76,9 @@ public
 yarn-error.log
 .netlify/
 
-# Local Netlify folder
+# Netlify
 .netlify
+functions/*
 
 #jetbrains
 .idea
