@@ -72,6 +72,7 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl) {
     query: rssQuery,
     output: feedUrl,
     title: title,
+    url: feedUrl,
   }
 }
 

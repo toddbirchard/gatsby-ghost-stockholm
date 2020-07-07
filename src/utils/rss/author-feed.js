@@ -38,6 +38,10 @@ const authorRssQuery = `{
 
                 # Content
                 html
+
+                # Additional fields
+                url
+                canonical_url
             }
         }
     }
