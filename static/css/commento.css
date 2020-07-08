@@ -427,7 +427,6 @@
 }
 
 @media (max-width: 600px) {
-
   .commento-root #commento-textarea-root::placeholder,
   .commento-root textarea::placeholder {
     font-size: 15px;
