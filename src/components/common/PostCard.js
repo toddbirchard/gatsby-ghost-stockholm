@@ -12,7 +12,6 @@ const PostCard = ({ post }) => {
   const authorAvatar = post.primary_author.profile_image ? post.primary_author.profile_image : null
   const createdDate = post.created_at_pretty
   const featureImage = post.feature_image
-  const retinaImage = featureImage && featureImage.includes(`@2x`) ? featureImage : featureImage.substring(0, featureImage.lastIndexOf(`.`)) + `@2x.jpg`
 
   return (
     <>
@@ -20,7 +19,7 @@ const PostCard = ({ post }) => {
         <Link to={url}>
           <picture>
             {post.feature_image &&
-              <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title} title={post.title} />
+              <img className="post-card-image lazyload" data-src={featureImage} alt={post.title} title={post.title} />
             }
           </picture>
         </Link>

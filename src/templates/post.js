@@ -19,7 +19,7 @@ import { AiOutlineEye, AiOutlineTags, AiOutlineCalendar, AiOutlineUser, AiTwoton
 const Post = ({ data, location }) => {
   const post = data.ghostPost
   const tags = data.ghostPost.tags
-  const author = data.ghostAuthor
+  const author = data.ghostPost.primary_author
   const id = data.ghostPost.id
   const relatedPosts = data.relatedPosts
   const readingTime = readingTimeHelper(post)
@@ -112,13 +112,20 @@ Post.propTypes = {
       title: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
-      primary_author: PropTypes.object.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired })),
       published_at_pretty: PropTypes.string,
+      primary_author: PropTypes.shape({
+        name: PropTypes.string,
+        slug: PropTypes.string,
+        bio: PropTypes.string,
+        profile_image: PropTypes.string,
+        twitter: PropTypes.string,
+        facebook: PropTypes.string,
+        website: PropTypes.string,
+      }).isRequired,
     }).isRequired,
-    ghostAuthor: PropTypes.object.isRequired,
     relatedPosts: PropTypes.objectOf(PropTypes.array),
     seriesPosts: PropTypes.object,
   }).isRequired,
@@ -128,21 +135,9 @@ Post.propTypes = {
 export default Post
 
 export const postQuery = graphql`
-  query($slug: String!, $tags: [String], $primaryAuthor: String!, $seriesSlug: String) {
+  query($slug: String!, $tags: [String], $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
       ...GhostPostFields
-    }
-    ghostAuthor(slug: {eq: $primaryAuthor}) {
-      postCount
-      location
-      facebook
-      cover_image
-      bio
-      name
-      slug
-      twitter
-      website
-      profile_image
     }
     relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {in: $tags}}, slug: {ne: $slug}}) {
       edges {

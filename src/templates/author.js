@@ -127,7 +127,6 @@ export const pageQuery = graphql`
   query GhostAuthorQuery($slug: String!, $twitterUsernameRegex: String, $limit: Int!, $skip: Int!) {
     ghostAuthor(slug: { eq: $slug }) {
       ...GhostAuthorFields
-      postCount
     }
     allGhostPost(
       sort: { order: DESC, fields: [published_at] },

@@ -36,7 +36,6 @@ AuthorSidebar.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string,
     twitter: PropTypes.string,
-    facebook: PropTypes.string,
   }).isRequired,
   template: PropTypes.string.isRequired,
   authorData: PropTypes.object,

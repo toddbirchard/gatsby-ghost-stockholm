@@ -27,9 +27,9 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
               : <Link to={`/author/${author.slug}/`} className="author-card-name">{author.name}</Link>
             }
             <div className="author-card-meta">
-              {author.postCount &&
+              {author.count.posts &&
                 <div className="author-card-item">
-                  <AiOutlineFile /><span>{author.postCount} Posts</span>
+                  <AiOutlineFile /><span>{author.count.posts} Posts</span>
                 </div>
               }
               {author.location &&
@@ -68,7 +68,9 @@ AuthorCard.propTypes = {
     website: PropTypes.string,
     twitter: PropTypes.string,
     facebook: PropTypes.string,
-    postCount: PropTypes.number,
+    count: PropTypes.shape({
+      posts: PropTypes.number,
+    }),
     location: PropTypes.string,
     slug: PropTypes.string.isRequired,
   }).isRequired,

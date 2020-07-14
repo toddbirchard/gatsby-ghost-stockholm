@@ -53,6 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             slug
             url
+            feature_image
           }
         }
       }

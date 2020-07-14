@@ -24,7 +24,9 @@ export const ghostAuthorFields = graphql`
         location
         website
         twitter
-        facebook
+        count {
+          posts
+        }
     }
 `
 
@@ -65,20 +67,16 @@ export const ghostPostFields = graphql`
             name
             slug
             bio
-            # email
             profile_image
             twitter
-            facebook
             website
         }
         primary_author {
             name
             slug
             bio
-            # email
             profile_image
             twitter
-            facebook
             website
         }
 
@@ -109,7 +107,6 @@ export const ghostPostFields = graphql`
         # Additional fields
         url
         uuid
-        page
         comment_id
     }
 `
@@ -145,48 +142,6 @@ export const ghostPageFields = graphql`
         twitter_image
         twitter_title
 
-        # Authors
-        authors {
-            name
-            slug
-            bio
-            # email
-            profile_image
-            twitter
-            facebook
-            website
-        }
-        primary_author {
-            name
-            slug
-            bio
-            # email
-            profile_image
-            twitter
-            facebook
-            website
-        }
-
-        # Tags
-        primary_tag {
-            name
-            slug
-            description
-            feature_image
-            meta_description
-            meta_title
-            visibility
-        }
-        tags {
-            name
-            slug
-            description
-            feature_image
-            meta_description
-            meta_title
-            visibility
-        }
-
         # Content
         plaintext
         html
@@ -194,9 +149,6 @@ export const ghostPageFields = graphql`
         # Additional fields
         url
         uuid
-        page
-        codeinjection_foot
-        codeinjection_styles
         comment_id
     }
 `
@@ -213,8 +165,6 @@ export const ghostSettingsFields = graphql`
         twitter
         lang
         timezone
-        codeinjection_foot
-        codeinjection_styles
         navigation {
             label
             url
