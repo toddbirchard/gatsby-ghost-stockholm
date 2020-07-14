@@ -78,6 +78,7 @@ export const ghostPostFields = graphql`
             profile_image
             twitter
             website
+            location
         }
 
         # Tags

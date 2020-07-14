@@ -8,6 +8,7 @@ import '../../styles/author-card.less'
 
 const AuthorCard = ({ author, page, template, pageContext }) => {
   const authorTwitterUrl = author.twitter && twitter(author.twitter)
+  const authorPostCount = author.postCount
   const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
 
@@ -27,9 +28,9 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
               : <Link to={`/author/${author.slug}/`} className="author-card-name">{author.name}</Link>
             }
             <div className="author-card-meta">
-              {author.count.posts &&
+              {authorPostCount &&
                 <div className="author-card-item">
-                  <AiOutlineFile /><span>{author.count.posts} Posts</span>
+                  <AiOutlineFile /><span>{authorPostCount} Posts</span>
                 </div>
               }
               {author.location &&
@@ -68,10 +69,8 @@ AuthorCard.propTypes = {
     website: PropTypes.string,
     twitter: PropTypes.string,
     facebook: PropTypes.string,
-    count: PropTypes.shape({
-      posts: PropTypes.number,
-    }),
     location: PropTypes.string,
+    postCount: PropTypes.number,
     slug: PropTypes.string.isRequired,
   }).isRequired,
   pageContext: PropTypes.object,
