@@ -26,7 +26,8 @@
           "nginx",
           "go",
           "hcl",
-          "vim"
+          "vim",
+          "makefile"
         ],
         "plugins": ["normalize-whitespace"],
         "theme": "default",
