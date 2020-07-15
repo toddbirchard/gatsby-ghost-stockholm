@@ -60,8 +60,8 @@ func getPageMetaData(doc *goquery.Document) string {
 	// Find the review items
 	title := doc.Find("title").First().Text()
 	image, imgExists := doc.Find("meta[property=\"og:image\"]").First().Attr("content")
-	description, descExists := doc.Find("meta name=\"description\"").First().Attr("content")
-	favicon, iconExists := doc.Find("link rel=\"shortcut\"").First().Attr("href")
+	description, descExists := doc.Find("meta[name=\"description\"]").First().Attr("content")
+	favicon, iconExists := doc.Find("link[rel=\"shortcut icon\"]").First().Attr("href")
 
 	// Log errors for missing meta items
 	var errors []bool
