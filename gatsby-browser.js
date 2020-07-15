@@ -62,13 +62,14 @@ function enableLightboxImages() {
 // -------------------------------------------
 
 function scrapeUrlMetadata() {
-  console.log('on author page');
-  let url = document.getElementById('author-website').getAttribute('href');
+  let linkElement = document.getElementById('author-website');
+  let url = linkElement.getAttribute('href');
   if (url) {
     let client = new HttpClient();
     let endpoint = 'https://hackersandslackers.com/.netlify/functions/scrapemeta?url=' + url;
     client.get(endpoint, function(response) {
-      console.log('response = ' + response)
+      data = JSON.parse(response)
+      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div><div class="website-description">' + data['Description'] + '</div><img src="' + data['Image'] + '" alt="' + data['Title'] + '" />'
     });
   }
 }
