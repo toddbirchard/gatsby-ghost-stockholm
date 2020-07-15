@@ -24,7 +24,7 @@
 
 [[redirects]]
     from = "/ghost"
-    to = "https://hackersandslackers.app/ghost/"
+    to = "https://hackersandslackers.app/ghost"
     status = 301
 
 [[redirects]]
