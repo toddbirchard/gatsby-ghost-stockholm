@@ -61,8 +61,8 @@ function enableLightboxImages() {
 // -------------------------------------------
 function scrapeUrlMetadata() {
   let linkElement = document.getElementById('author-website');
-  let url = linkElement.getAttribute('href');
   if (url) {
+    let url = linkElement.getAttribute('href');
     let client = new HttpClient();
     let endpoint = 'https://hackersandslackers.com/.netlify/functions/scrapemeta?url=' + url;
     client.get(endpoint, function(response) {
