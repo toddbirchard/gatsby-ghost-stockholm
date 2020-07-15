@@ -127,54 +127,54 @@ export default SeriesArchive
 
 export const seriesQuery = graphql`
     query GhostSeriesArchiveQuery($slug: String) {
-        datascience: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql", "web-scraping-with-python"]}}) {
-          edges {
-            node {
-              id
-              slug
-              postCount
-              feature_image
-              description
-              name
-            }
+      datascience: allGhostTag(sort: {order: ASC, fields: meta_title}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql", "web-scraping-with-python"]}}) {
+        edges {
+          node {
+            id
+            slug
+            postCount
+            feature_image
+            description
+            name
           }
         }
-        software: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["building-flask-apps", "starting-django", "mastering-sqlalchemy", "graphql-hype", "mongodb-cloud"]}}) {
-          edges {
-            node {
-              id
-              slug
-              postCount
-              feature_image
-              description
-              name
-            }
+      }
+      software: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["build-flask-apps", "starting-django", "mastering-sqlalchemy", "graphql-hype", "working-with-mysql"]}}) {
+        edges {
+          node {
+            id
+            slug
+            postCount
+            feature_image
+            description
+            name
           }
         }
-        cloud: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["the-rise-of-google-cloud", "create-an-aws-api"]}}) {
-          edges {
-            node {
-              id
-              slug
-              postCount
-              feature_image
-              description
-              name
-            }
+      }
+      cloud: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["the-rise-of-google-cloud", "create-an-aws-api", "mongodb-cloud"]}}) {
+        edges {
+          node {
+            id
+            slug
+            postCount
+            feature_image
+            description
+            name
           }
         }
-        analysis: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["adventures-in-excel", "microsoft-powerpivot", "hacking-tableau-server"]}}) {
-          edges {
-            node {
-              id
-              slug
-              postCount
-              feature_image
-              description
-              name
-            }
+      }
+      analysis: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["adventures-in-excel", "microsoft-powerpivot", "hacking-tableau-server"]}}) {
+        edges {
+          node {
+            id
+            slug
+            postCount
+            feature_image
+            description
+            name
           }
         }
+      }
         ghostPage(slug: {eq: $slug}) {
           ...GhostPageFields
         }

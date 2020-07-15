@@ -472,6 +472,11 @@
     status = 301
 
 [[redirects]]
+    from = "/series/building-flask-apps/"
+    to = "/series/build-flask-apps/"
+    status = 301
+
+[[redirects]]
     from = "/rss/"
     to = "/rss.xml"
     status = 301

@@ -4,7 +4,12 @@
 .seriesarchive-template {
 
   .courses {
-    padding: 0 10px;
+    @media (max-width: @tablet-breakpoint) {
+      padding: 0 10px;
+    }
+    @media (max-width: @mobile-breakpoint) {
+      padding: 0 20px;
+    }
   }
 
   .course-section-title {
@@ -13,16 +18,23 @@
     padding-bottom: 12px;
     margin: 50px 0 0;
     font-weight: 200;
+    @media (max-width: @mobile-breakpoint) {
+      font-size: 1.5em;
+      line-height: 1.2;
+      padding-bottom: 6px;
+    }
   }
 
   .series-grid {
-    grid-gap: 20px;
+    grid-gap: 15px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: 20px 0 0;
+    @media (max-width: @tablet-breakpoint) {
+      grid-template-columns: 1fr 1fr;
+    }
     @media (max-width: @mobile-breakpoint) {
       grid-template-columns: 1fr;
-      margin: 30px 0 !important;
     }
 
     .series-card {
@@ -69,15 +81,19 @@
       margin-bottom: 7px;
       color: lighten(@header-font-color, 10%);
       font-family: @body-font-bold;
-      font-size: 1.2em;
+      font-size: 1.1em;
       line-height: 1.2;
+      letter-spacing: .5px;
       transition: @transition;
+      @media(max-width: @mobile-breakpoint) {
+        letter-spacing: .7px;
+      }
     }
 
     .series-card-description {
       -webkit-line-clamp: 3;
       .line-clamp();
-      margin: 10px 0 15px !important;
+      margin: 10px 0 !important;
       color: #464a54;
       font-family: @body-font;
       line-height: 1.3 !important;
