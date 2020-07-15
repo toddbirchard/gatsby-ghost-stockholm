@@ -25,7 +25,6 @@ export const onRouteUpdate = ({location}) => {
 
 // Posts
 // -------------------------------------------
-
 function codeSyntaxHighlight() {
   Prism.plugins.NormalizeWhitespace.setDefaults({
     'remove-trailing': true,
@@ -60,7 +59,6 @@ function enableLightboxImages() {
 
 // Authors
 // -------------------------------------------
-
 function scrapeUrlMetadata() {
   let linkElement = document.getElementById('author-website');
   let url = linkElement.getAttribute('href');
