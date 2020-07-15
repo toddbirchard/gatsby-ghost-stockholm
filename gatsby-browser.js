@@ -67,7 +67,7 @@ function scrapeUrlMetadata() {
     let endpoint = 'https://hackersandslackers.com/.netlify/functions/scrapemeta?url=' + url;
     client.get(endpoint, function(response) {
       let data = JSON.parse(response)
-      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div><div class="website-description">' + data['Description'] + '</div><img src="' + data['Image'] + '" alt="' + data['Title'] + '" />'
+      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div><div class="website-description">' + data['Description'] + '</div><img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
     });
   }
 }
