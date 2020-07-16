@@ -39,7 +39,9 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
         onSearchParameters={() => setFocus(true)} {...{ collapse, focus }}
       >
         <Configure hitsPerPage={10} analytics={true}/>
+        <label id="search-input-label" htmlFor="search-input">Search Posts</label>
         <SearchBox
+          id="search-input"
           searchAsYouType={true}
           placeholder="Search all posts..."
           onFocus={() => setFocus(true)} {...{ collapse, focus }}
