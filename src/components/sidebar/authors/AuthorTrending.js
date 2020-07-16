@@ -24,7 +24,13 @@ const AuthorTrending = ({ authorTopPosts }) => (
 )
 
 AuthorTrending.propTypes = {
-  authorTopPosts: PropTypes.object.isRequired,
+  authorTopPosts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      url: PropTypes.string,
+      views: PropTypes.number,
+    }),
+  ),
 }
 
 export default AuthorTrending

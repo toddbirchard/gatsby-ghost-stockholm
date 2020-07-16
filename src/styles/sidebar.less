@@ -137,6 +137,7 @@
         border: unset;
         outline: none;
         background: unset;
+
       }
 
       svg {
@@ -177,6 +178,9 @@
     }
 
     &.newsletter {
+      position: relative;
+      overflow: hidden;
+
       .newsletter-description {
         margin-bottom: 10px;
         font-family: @body-font-book;
@@ -187,7 +191,7 @@
       input {
         width: stretch;
         width: -moz-available;
-        margin: 8px 0 0;
+        margin: 8px 0;
         font-size: 0.9em;
         transition: @transition;
         .input-text-fields();
@@ -195,17 +199,19 @@
 
       button {
         width: fit-content;
-        margin-top: 13px;
-        padding: 9px;
+        padding: 6px;
         border: 0;
         border-radius: 2px;
         outline: none;
         background: @theme-color;
         color: white;
-        font-size: 0.8em;
+        font-size: 0.9em;
         line-height: 1;
         text-align: right;
         transition: all 0.2s ease-out;
+        width: 100%;
+        margin: 0;
+        text-align: center;
 
         &:hover {
           background: @hover-color !important;
