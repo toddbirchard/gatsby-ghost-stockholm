@@ -79,7 +79,6 @@ yarn-error.log
 # Netlify
 .netlify
 functions/*
-functions
 
 #jetbrains
 .idea
