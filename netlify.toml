@@ -1,9 +1,6 @@
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
 
-  [plugins.inputs]
-    audit_url = 'https://hackersandslackers.com'
-
 [build]
   base = "/"
   command = "make build"
