@@ -95,6 +95,7 @@
     "gatsby-source-mysql": "^2.2.3",
     "gatsby-source-pocket": "^2.3.1",
     "gatsby-source-twitter": "^3.2.2",
+    "gatsby-theme-ghost-commento": "^1.2.2",
     "gatsby-transformer-json": "^2.4.11",
     "lazysizes": "^5.2.2",
     "lodash": "4.17.19",

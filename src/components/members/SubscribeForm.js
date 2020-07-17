@@ -56,25 +56,27 @@ class SubscribeForm extends React.Component {
     const text = this.props.text
 
     return (
-      <form className={this.state.message} data-members-form="subscribe" onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <HiddenLabel htmlFor="email">{text(`EMAIL`)}</HiddenLabel>
-          <input id="email" name="email" type="email" value={this.state.value}
-            onChange={this.handleChange} className="subscribe-email"
-            data-members-email placeholder={text(`YOUR_EMAIL`)} autoComplete="false" />
-          <button className="button primary" type="submit" value="Submit">
-            <span className="button-content">{text(`SUBSCRIBE`)}</span>
-            <span className="button-loader"><LoaderIcon /></span>
-            <FaArrowRight />
-          </button>
-        </div>
+      <div className={this.state.message}>
         <div className="message-success">
           <div><strong>{`${text(`GREAT`)}!`}</strong> {text(`CHECK_YOUR_INBOX`)}.</div>
         </div>
         <div className="message-error">
           {text(`ENTER_VALID_EMAIL`)}!
         </div>
-      </form>
+        <form  data-members-form="subscribe" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <HiddenLabel htmlFor="email">{text(`EMAIL`)}</HiddenLabel>
+            <input id="email" name="email" type="email" value={this.state.value}
+                   onChange={this.handleChange} className="subscribe-email"
+                   data-members-email placeholder={text(`YOUR_EMAIL`)} autoComplete="false" />
+            <button className="button primary" type="submit" value="Submit">
+              <span className="button-content">{text(`SUBSCRIBE`)}</span>
+              <span className="button-loader"><LoaderIcon /></span>
+              <FaArrowRight />
+            </button>
+          </div>
+        </form>
+      </div>
     )
   }
 }

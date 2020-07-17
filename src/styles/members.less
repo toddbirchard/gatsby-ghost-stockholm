@@ -22,12 +22,7 @@
 }
 
 .subscribe-form form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
-    max-width: 460px;
 }
 
 .subscribe-form .form-group {
@@ -109,55 +104,29 @@
 .subscribe-form .success .message-success,
 .subscribe-form .invalid .message-error,
 .subscribe-form .error .message-error {
-  max-width: 400px;
   color: #1a6359;
   font-size: 1.2em;
   line-height: 1.2em;
   text-align: center;
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 0 15px #505f68;
+  padding: 35px;
 }
 
-.subscribe-form .success .message-success {
-  position: absolute;
-  display: flex;
-  background: @hover-color;
-  top: 0;
-  height: 100%;
-  margin: 0;
-  padding: 0 30px;
-  max-height: 100%;
-  align-items: center;
-}
+.success .message-success {
+    background: @hover-color;
+  }
 
 .subscribe-form .invalid .message-error,
 .subscribe-form .error .message-error {
     display: block;
-}
-
-
-@media (max-width: 650px) {
-    .subscribe-form-title {
-        font-size: 2.4rem;
-    }
-
-    .subscribe-form-description {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 500px) {
-    .subscribe-form form {
-        flex-direction: column;
-    }
-
-    .subscribe-form .form-group {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .subscribe-form button {
-        margin: 10px 0 0 0;
-        width: 100%;
-    }
 }
 
 
@@ -293,7 +262,6 @@
     margin: 0 auto 50px;
     max-width: 650px;
     color: #fff;
-    font-family: Georgia, serif;
     font-size: 2.4rem;
     line-height: 1.3em;
     font-weight: 300;
@@ -301,9 +269,6 @@
 }
 
 .subscribe-overlay form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
     max-width: 540px;
 }
@@ -357,10 +322,4 @@
 
 .subscribe-overlay .loading .button-loader {
     top: 5px;
-}
-
-@media (max-width: 500px) {
-    .subscribe-overlay button {
-        margin: 12px 0 0;
-    }
 }
