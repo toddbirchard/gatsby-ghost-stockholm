@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-
 import { useLang, get } from './utils/use-lang'
-
 import { SubscribeForm } from '.'
 
 // The actual component

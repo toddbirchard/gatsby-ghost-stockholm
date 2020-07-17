@@ -32,7 +32,7 @@ class SubscribeForm extends React.Component {
     event.preventDefault()
 
     const cmsUrl = this.props.url
-    const postURL = `${cmsUrl}/members/api/send-magic-link/`
+    const postURL = `${cmsUrl}members/api/send-magic-link/`
 
     const values = {
       email: this.state.value,

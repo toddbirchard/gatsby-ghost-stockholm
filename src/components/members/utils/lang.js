@@ -8,7 +8,7 @@ const lang = {
     SUBSCRIBE_OVERLAY: `Stay up to date! Get all the latest & greatest posts delivered straight to your inbox`,
     SUBSCRIBE_SECTION: `Are you into data to the point where it's almost embarrassing? Toss us your email and we'll promise to only give you the good stuff.`,
     SUBSCRIBE_TO: `Subscribe to`,
-    YOUR_EMAIL: `noreply@hackersandslackers.com`,
+    YOUR_EMAIL: `youremail@example.com`,
   },
   de: {
     CHECK_YOUR_INBOX: `Öffne dein Postfach und klicke auf den Bestätigungs-Link`,
