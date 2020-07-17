@@ -438,6 +438,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
-    `gatsby-theme-ghost-commento`
+    `gatsby-theme-ghost-commento`,
   ],
 }
