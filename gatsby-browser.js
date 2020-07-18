@@ -5,6 +5,10 @@ import 'lazysizes';
 import config from './src/utils/siteConfig'
 import './src/styles/app.less';
 
+
+const scrapeEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.scrape : config.lambda.scrape
+const userEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.user : config.lambda.user
+
 export const onRouteUpdate = ({location}) => {
   // Route detection
   getUserSession() // All routes
@@ -57,8 +61,7 @@ function scrapeUrlMetadata() {
   if (linkElement) {
     let url = linkElement.getAttribute('href');
     let client = new HttpClient();
-    let endpoint = config.lambda.scrape + url;
-    client.get(endpoint, function(response) {
+    client.get(scrapeEndpoint + url, function(response) {
       let data = JSON.parse(response)
       linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div>' + '<div class="website-description">' + data['Description'] + '</div>' + '<img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
     });
@@ -81,10 +84,9 @@ let HttpClient = function() {
 // -------------------------------------------
 function getUserSession() {
   let client = new XMLHttpRequest();
-  const endpoint = config.lambda.user;
   const sessionCookies = document.cookie;
   if (sessionCookies) {
-      client.open('POST', endpoint, true);
+      client.open('POST', userEndpoint, true);
       client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
       client.onload = function() {
         let data = JSON.parse(this.responseText);
