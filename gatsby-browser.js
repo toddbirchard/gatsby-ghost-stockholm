@@ -2,7 +2,7 @@
 import Prism from 'prismjs';
 import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
-import config from './utils/siteConfig'
+import config from './src/utils/siteConfig'
 import './src/styles/app.less';
 
 /*
