@@ -72,7 +72,7 @@ let HttpClient = function() {
       if (httpRequest.readyState == 4 && httpRequest.status == 200)
         callback(httpRequest.responseText);
       }
-    httpRequest.open("GET", url, true);
+    httpRequest.open("GET", url, false);
     httpRequest.send(null);
   }
 }
@@ -84,7 +84,7 @@ function getUserSession() {
   const endpoint = config.lambda.user;
   const sessionCookie = document.cookie;
   if (sessionCookie) {
-      client.open('POST', endpoint, true);
+      client.open('POST', endpoint, false);
       client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
       client.onload = function() {
         let data = JSON.parse(this.responseText);

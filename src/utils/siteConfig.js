@@ -36,6 +36,5 @@ module.exports = {
   links: {
     buyMeACoffee: `https://www.buymeacoffee.com/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
-    githubJupyterRepo: `https://github.com/hackersandslackers/hackers-jupyter-posts`,
   },
 }
