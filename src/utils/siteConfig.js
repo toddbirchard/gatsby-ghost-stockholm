@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: `https://hackersandslackers.com`, // Site domain. Do not include a trailing slash!
+  siteUrl: `https://hackersandslackers.com`, // Do not include a trailing slash.
   siteRss: `https://hackersandslackers.com/rss.xml`,
   siteMap: `https://hackersandslackers.com/sitemap.xml`,
   siteAdminUrl: `https://hackersandslackers.app`,

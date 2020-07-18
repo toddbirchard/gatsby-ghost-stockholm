@@ -18,22 +18,17 @@ export const onRouteUpdate = ({location}) => {
   getUserSession() // All routes
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
-    codeSyntaxHighlight();  // Code Syntax Highlighting
-    enableLightboxImages();  // Enable lightbox on post images
+    codeSyntaxHighlight(); // Code Syntax Highlighting
+    enableLightboxImages(); // Enable lightbox on post images
   } else if (path.indexOf('author')) {
-    scrapeUrlMetadata();  // Author website widget
+    scrapeUrlMetadata(); // Author website widget
   }
 }
 
 // Posts
 // -------------------------------------------
 function codeSyntaxHighlight() {
-  Prism.plugins.NormalizeWhitespace.setDefaults({
-    'remove-trailing': true,
-    'remove-indent': true,
-    'left-trim': true,
-    'right-trim': true
-  });
+  Prism.plugins.NormalizeWhitespace.setDefaults({'remove-trailing': true, 'remove-indent': true, 'left-trim': true, 'right-trim': true});
   Prism.highlightAll();
 }
 
@@ -58,7 +53,6 @@ function enableLightboxImages() {
   }
 }
 
-
 // Authors
 // -------------------------------------------
 function scrapeUrlMetadata() {
@@ -69,9 +63,7 @@ function scrapeUrlMetadata() {
     let endpoint = config.lambda.scrape + url;
     client.get(endpoint, function(response) {
       let data = JSON.parse(response)
-      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div>'
-                              + '<div class="website-description">' + data['Description'] + '</div>'
-                              + '<img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
+      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div>' + '<div class="website-description">' + data['Description'] + '</div>' + '<img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
     });
   }
 }
@@ -88,15 +80,22 @@ let HttpClient = function() {
   }
 }
 
-
-
 // Members
 // -------------------------------------------
 function getUserSession() {
   let client = new HttpClient();
   let endpoint = config.lambda.user;
-  client.get(endpoint, function(response) {
-    let data = JSON.parse(response);
-    console.log(data);
-  });
+  let cookie = browser.cookies.get({'name': '__stripe_mid'});
+  if (cookie) {
+    client.setRequestHeader('Content-type', 'application/json');
+    client.open('POST', endpoint, true);
+    client.onload = function() {
+      let data = JSON.parse(this.responseText);
+      console.log(data);
+      console.log(this.responseText);
+    }
+    client.send({'cookie': cookie});
+  } else {
+    console.log('No cookie found.');
+  }
 }
