@@ -5,15 +5,7 @@ import 'lazysizes';
 import config from './src/utils/siteConfig'
 import './src/styles/app.less';
 
-/*
- * NOTICE: ES6 module exports are not officially supported because of NodeJs
- * https://github.com/gatsbyjs/gatsby/pull/9239
- *
- * ES6 modules are here used because PrismJS should not work with CommonJs.
- */
-
 export const onRouteUpdate = ({location}) => {
-
   // Route detection
   getUserSession() // All routes
   let path = location.pathname;
@@ -28,7 +20,12 @@ export const onRouteUpdate = ({location}) => {
 // Posts
 // -------------------------------------------
 function codeSyntaxHighlight() {
-  Prism.plugins.NormalizeWhitespace.setDefaults({'remove-trailing': true, 'remove-indent': true, 'left-trim': true, 'right-trim': true});
+  Prism.plugins.NormalizeWhitespace.setDefaults({
+    'remove-trailing': true,
+    'remove-indent': true,
+    'left-trim': true,
+    'right-trim': true
+  });
   Prism.highlightAll();
 }
 
@@ -83,18 +80,18 @@ let HttpClient = function() {
 // Members
 // -------------------------------------------
 function getUserSession() {
-  let client = new HttpClient();
-  let endpoint = config.lambda.user;
-  let cookie = browser.cookies.get({'name': '__stripe_mid'});
-  if (cookie) {
-    client.setRequestHeader('Content-type', 'application/json');
-    client.open('POST', endpoint, true);
-    client.onload = function() {
-      let data = JSON.parse(this.responseText);
-      console.log(data);
-      console.log(this.responseText);
-    }
-    client.send({'cookie': cookie});
+  let client = new XMLHttpRequest();
+  const endpoint = config.lambda.user;
+  const sessionCookie = document.cookie;
+  if (sessionCookie) {
+      client.open('POST', endpoint, true);
+      client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
+      client.onload = function() {
+        let data = JSON.parse(this.responseText);
+        console.log(data);
+        console.log(this.responseText);
+      }
+      client.send(sessionCookie);
   } else {
     console.log('No cookie found.');
   }

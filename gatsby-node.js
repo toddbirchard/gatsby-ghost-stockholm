@@ -11,7 +11,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      posts: allGhostPost(sort: {order: ASC, fields: published_at}, filter: {slug: {ne: "data-schema"}}) {
+      posts: allGhostPost(sort: {order: ASC, fields: published_at}, filter: {slug: {ne: "data-schema"}, primary_tag: {slug: {ne: "roundup"}}}) {
         edges {
           node {
             slug
@@ -85,8 +85,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const tags = result.data.allGhostTag.edges
   const authors = result.data.allGhostAuthor.edges
   const pages = result.data.allGhostPage.edges
-  const posts = result.data.allGhostPost.edges
+  const posts = result.data.posts.edges
   const series = result.data.series.edges
+  const lynx = result.data.lynx.edges
 
   // Load templates
   const indexTemplate = path.resolve(`./src/templates/index.js`)
@@ -253,6 +254,18 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  lynx.forEach(({ node }) => {
+    node.url = `/roundup/${node.slug}/`
+
+    createPage({
+      path: node.url,
+      component: postTemplate,
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
+
   // Create post pages
   posts.forEach(({ node }) => {
     // This part here defines, that our posts will use
@@ -263,10 +276,6 @@ exports.createPages = async ({ graphql, actions }) => {
     node.tagSlugs = []
     node.primary = null
     node.primary_tag_name
-
-    if (node.url.includes(`lynx`)) {
-      node.url = `/roundup/${node.slug}/`
-    }
 
     node.tags.forEach(function (element, index) {
       node.tagSlugs.push(element.slug)
@@ -293,7 +302,6 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.slug,
         tags: node.tagSlugs,
         url: node.url,
-        primaryAuthor: node.primary_author.slug,
         primaryTag: node.primary,
         seriesSlug: node.series,
         seriesTitle: node.name,
