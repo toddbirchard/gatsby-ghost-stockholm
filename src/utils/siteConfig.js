@@ -25,6 +25,10 @@ module.exports = {
     medium: `https://hackingandslacking.com`,
     feedly: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
   },
+  lambda: {
+    scrape: `https://hackersandslackers.com/.netlify/functions/scrape?url=`,
+    user: `https://hackersandslackers.com/.netlify/functions/user`,
+  },
   creator: {
     name: `Todd Birchard`,
     twitter: `@toddrbirchard`,

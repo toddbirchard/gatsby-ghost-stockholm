@@ -2,6 +2,7 @@
 import Prism from 'prismjs';
 import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
+import config from './utils/siteConfig'
 import './src/styles/app.less';
 
 /*
@@ -13,9 +14,10 @@ import './src/styles/app.less';
 
 export const onRouteUpdate = ({location}) => {
 
+  // Route detection
+  getUserSession() // All routes
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
-    // Posts
     codeSyntaxHighlight();  // Code Syntax Highlighting
     enableLightboxImages();  // Enable lightbox on post images
   } else if (path.indexOf('author')) {
@@ -64,22 +66,37 @@ function scrapeUrlMetadata() {
   if (linkElement) {
     let url = linkElement.getAttribute('href');
     let client = new HttpClient();
-    let endpoint = 'https://hackersandslackers.com/.netlify/functions/scrapemeta?url=' + url;
+    let endpoint = config.lambda.scrape + url;
     client.get(endpoint, function(response) {
       let data = JSON.parse(response)
-      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div><div class="website-description">' + data['Description'] + '</div><img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
+      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div>'
+                              + '<div class="website-description">' + data['Description'] + '</div>'
+                              + '<img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
     });
   }
 }
 
 let HttpClient = function() {
-  this.get = function(url, aCallback) {
+  this.get = function(url, callback) {
     let httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
       if (httpRequest.readyState == 4 && httpRequest.status == 200)
-        aCallback(httpRequest.responseText);
+        callback(httpRequest.responseText);
       }
     httpRequest.open("GET", url, true);
     httpRequest.send(null);
   }
+}
+
+
+
+// Members
+// -------------------------------------------
+function getUserSession() {
+  let client = new HttpClient();
+  let endpoint = config.lambda.user;
+  client.get(endpoint, function(response) {
+    let data = JSON.parse(response);
+    console.log(data);
+  });
 }
