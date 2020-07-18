@@ -25,7 +25,7 @@ func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 func CreateRequest(request events.APIGatewayProxyRequest) *http.Request {
 	endpoint, err := url.Parse("https://hackersandslackers.app/members/api/member/")
 	var headers = http.Header{}
-	headers.Set("cookie", request.Body)
+	headers.Set("cookie", string(request.Body))
 	if err != nil {
 		log.Fatal(err)
 	}

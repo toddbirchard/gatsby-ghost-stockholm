@@ -72,7 +72,7 @@ let HttpClient = function() {
       if (httpRequest.readyState == 4 && httpRequest.status == 200)
         callback(httpRequest.responseText);
       }
-    httpRequest.open("GET", url, false);
+    httpRequest.open("GET", url, true);
     httpRequest.send(null);
   }
 }
@@ -82,16 +82,17 @@ let HttpClient = function() {
 function getUserSession() {
   let client = new XMLHttpRequest();
   const endpoint = config.lambda.user;
-  const sessionCookie = document.cookie;
-  if (sessionCookie) {
-      client.open('POST', endpoint, false);
+  const sessionCookies = document.cookie;
+  if (sessionCookies) {
+      client.open('POST', endpoint, true);
       client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
+      console.log('cookies sent client = ' + sessionCookies);
       client.onload = function() {
         let data = JSON.parse(this.responseText);
         console.log(data);
         console.log(this.responseText);
       }
-      client.send(sessionCookie);
+      client.send(sessionCookies);
   } else {
     console.log('No cookie found.');
   }
