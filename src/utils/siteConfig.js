@@ -26,8 +26,8 @@ module.exports = {
     feedly: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
   },
   lambda: {
-    scrape: `https://hackersandslackers.com/.netlify/functions/scrape?url=`,
-    user: `https://hackersandslackers.com/.netlify/functions/user`,
+    scrape: `https://hackersandslackers.dev/.netlify/functions/scrape?url=`,
+    user: `https://hackersandslackers.dev/.netlify/functions/user`,
   },
   creator: {
     name: `Todd Birchard`,
