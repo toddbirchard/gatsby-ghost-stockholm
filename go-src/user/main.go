@@ -31,7 +31,12 @@ func CreateRequest(request events.APIGatewayProxyRequest) *http.Request {
 	}
 	log.Println(endpoint)
 	log.Println(headers)
-	req := &http.Request{URL: endpoint, Header: headers}
+	req := &http.Request{
+		URL: endpoint,
+		Header: headers,
+		Method: "GET",
+		Close: true,
+	}
 	return req
 }
 
@@ -49,6 +54,7 @@ func GetUserSession(req *http.Request) string {
 
 	// Parse response
 	data, bodyErr := ioutil.ReadAll(res.Body)
+	log.Println(data)
 	if bodyErr != nil {
 		log.Fatal(bodyErr)
 	}
