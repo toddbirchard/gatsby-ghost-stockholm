@@ -86,11 +86,9 @@ function getUserSession() {
   if (sessionCookies) {
       client.open('POST', endpoint, true);
       client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
-      console.log('cookies sent client = ' + sessionCookies);
       client.onload = function() {
         let data = JSON.parse(this.responseText);
         console.log(data);
-        console.log(this.responseText);
       }
       client.send(sessionCookies);
   } else {
