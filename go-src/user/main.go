@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"io/ioutil"
@@ -26,12 +25,12 @@ func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 func CreateRequest(request events.APIGatewayProxyRequest) *http.Request {
 	endpoint, err := url.Parse("https://hackersandslackers.app/members/api/member/")
 	var headers = http.Header{}
-	headers.Add("cookie", request.Body)
+	headers.Set("cookie", request.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(endpoint)
-	fmt.Println(headers)
+	log.Println(endpoint)
+	log.Println(headers)
 	req := &http.Request{URL: endpoint, Header: headers}
 	return req
 }
