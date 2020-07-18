@@ -29,7 +29,6 @@ func CreateRequest(request events.APIGatewayProxyRequest) *http.Request {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println(endpoint)
 	log.Println(headers)
 	req := &http.Request{
 		URL: endpoint,
@@ -48,7 +47,7 @@ func GetUserSession(req *http.Request) string {
 		log.Fatal(reqError)
 	}
 	if res.StatusCode != 200 {
-		log.Fatal("status code error: %i", res.StatusCode)
+		log.Fatal("status code error: ", res.StatusCode)
 	}
 	defer res.Body.Close()
 
