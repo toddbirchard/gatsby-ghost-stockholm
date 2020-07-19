@@ -37,7 +37,7 @@ const Author = ({ data, location, pageContext }) => {
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>
             ))}
-            <Pagination pageContext={pageContext} metaTitle={title} />
+            <Pagination pageContext={pageContext} metaTitle={title} template="author-template"/>
           </section>
         </div>
       </Layout>

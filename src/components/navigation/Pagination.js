@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 
-const Pagination = ({ pageContext, metaTitle }) => {
+const Pagination = ({ pageContext, metaTitle, template }) => {
   const { previousPagePath, nextPagePath, humanPageNumber, numberOfPages } = pageContext
   const title = pageContext.pageNumber > 0 ? metaTitle + ` (page ` + pageContext.pageNumber + ` of ` + numberOfPages + `)` : metaTitle
 
@@ -13,7 +13,9 @@ const Pagination = ({ pageContext, metaTitle }) => {
           {previousPagePath && <Link to={previousPagePath} rel="prev" className="prev">Previous</Link>}
         </div>
         <div className="pagination-location">
-          {title && <h1>{title}</h1> }
+          {template === `home-template`
+            ? title && <h1>{title}</h1>
+            : null }
           <span className="page-count">Page {humanPageNumber} of {numberOfPages}</span>
         </div>
         {nextPagePath && <Link to={nextPagePath} rel="next" className="next">Next</Link>}
@@ -25,6 +27,7 @@ const Pagination = ({ pageContext, metaTitle }) => {
 Pagination.propTypes = {
   pageContext: PropTypes.object.isRequired,
   metaTitle: PropTypes.string,
+  template: PropTypes.string,
 }
 
 export default Pagination
