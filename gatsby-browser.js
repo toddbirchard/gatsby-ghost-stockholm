@@ -11,7 +11,6 @@ const userEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.la
 // Events
 // -------------------------------------------
 export const onClientEntry = () => {
-  console.log("Initial load complete!");
   getUserSession() // Check user logged-in state
 }
 
@@ -97,10 +96,8 @@ function getUserSession() {
       client.open('POST', userEndpoint, true);
       client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
       client.onload = function() {
-        console.log(this.responseText);
         if (this.responseText) {
           let data = JSON.parse(this.responseText);
-          console.log(data);
         }
       }
       client.send(sessionCookies);
