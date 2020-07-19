@@ -36,7 +36,7 @@ const Index = ({ data, location, pageContext }) => {
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>
             ))}
-            <Pagination pageContext={pageContext} metaTitle={baseTitle}/>
+            <Pagination pageContext={pageContext} metaTitle={baseTitle} template="home-template"/>
           </section>
         </main>
       </Layout>

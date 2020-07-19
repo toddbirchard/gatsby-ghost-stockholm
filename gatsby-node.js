@@ -341,7 +341,7 @@ exports.createPages = async ({ graphql, actions }) => {
     component: searchPage,
     context: {
       slug: `search`,
-      title: `Search all posts`,
+      title: `Search all Posts`,
       description: `Search for coding tutorials about Data Science, Software Engineering, Python, JavaScript, and more.`,
       metaDescription: `Search for coding tutorials about Data Science, Software Engineering, Python, JavaScript, and more.`,
     },
