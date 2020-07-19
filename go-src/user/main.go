@@ -19,6 +19,8 @@ func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	userData, dataErr := GetUserSession(req)
 	if dataErr != nil {
 		log.Fatal(dataErr)
+	} else {
+		log.Println(userData)
 	}
 
 	return &events.APIGatewayProxyResponse{
@@ -49,7 +51,6 @@ func GetUserSession(req *http.Request) (string, error) {
 
 	// Parse response
 	data, bodyErr := ioutil.ReadAll(res.Body)
-	log.Println(data)
 	if bodyErr != nil {
 		return "", bodyErr
 	}
