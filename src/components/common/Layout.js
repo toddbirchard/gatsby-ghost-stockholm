@@ -26,7 +26,6 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
     <>
       <Helmet>
         <html lang={site.lang} />
-        <style type="text/css">{`${site.codeinjection_styles}`}</style>
         <body className={template} />
       </Helmet>
 
@@ -64,9 +63,9 @@ const DefaultLayoutSettingsQuery = props => (
   <StaticQuery
     query={graphql`
             query GhostSettings {
-                ghostSettings {
-                    ...GhostSettingsFields
-                }
+              ghostSettings {
+                ...GhostSettingsFields
+              }
             }
         `}
     render={data => <DefaultLayout data={data} {...props} />}
