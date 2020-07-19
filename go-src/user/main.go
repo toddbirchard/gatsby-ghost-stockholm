@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -11,23 +12,35 @@ import (
 	"time"
 )
 
+type UserResponse struct {
+	Data      string
+	Errors    []string
+}
+
 func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	var errors []string
+
+	// Construct HTTP Request
 	req, requestErr := CreateRequest(request)
 	if requestErr != nil {
+		errors = append(errors, fmt.Sprintf("Request error: %s", requestErr))
 		log.Fatal(requestErr)
 	}
 
-	userData, dataErr := GetUserSession(req)
-	if dataErr != nil {
-		log.Fatal(dataErr)
-	} else {
-		log.Println(userData)
+	// Fetch session data
+	sessionData, sessionErr := GetUserSession(req)
+	if sessionErr != nil {
+		errors = append(errors, fmt.Sprintf("Session error: %s", sessionErr))
+		log.Fatal(sessionErr)
 	}
+
+	// Construct final response
+	response := CreateResponse(sessionData, errors)
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Headers:    map[string]string{"Content-Type": "application/json"},
-		Body:       userData,
+		Body:       response,
 	}, nil
 }
 
@@ -44,23 +57,34 @@ func CreateRequest(request events.APIGatewayProxyRequest) (*http.Request, error)
 
 func GetUserSession(req *http.Request) (string, error) {
 	// Request account information by session token.
-	client := Client()
-	res, reqError := client.Do(req)
-	if reqError != nil {
-		log.Fatal(reqError)
+	client := HttpClient()
+	sessionResponse, sessionError := client.Do(req)
+	if sessionError != nil {
+		log.Fatal(sessionError)
 	}
 
 	// Parse response
-	data, bodyErr := ioutil.ReadAll(res.Body)
-	if bodyErr != nil {
-		errResponse := fmt.Sprintf("{error: %s}", bodyErr)
-		return errResponse, bodyErr
+	data, dataErr := ioutil.ReadAll(sessionResponse.Body)
+	if dataErr != nil {
+		errResponse := fmt.Sprintf("{error: %s}", dataErr)
+		return errResponse, dataErr
 	}
 	return string(data), nil
 }
 
-func Client() *http.Client {
-	// Create HTTP client
+func CreateResponse(data string, errors []string) string {
+	responseData := &UserResponse{
+		Data:   data,
+		Errors: errors,
+	}
+	response, err := json.Marshal(responseData)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return string(response)
+}
+
+func HttpClient() *http.Client {
 	client := &http.Client{
 		Timeout: 30 * time.Second,
 	}
