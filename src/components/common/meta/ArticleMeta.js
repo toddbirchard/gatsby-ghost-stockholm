@@ -44,7 +44,6 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         <meta property="article:published_time" content={ghostPost.published_at} />
         <meta property="article:modified_time" content={ghostPost.updated_at} />
         {publicTags.map((keyword, i) => (<meta property="article:tag" content={keyword} key={i} />))}
-
         <meta name="twitter:title"
           content={
             ghostPost.twitter_title ||
