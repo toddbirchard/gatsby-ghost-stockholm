@@ -74,7 +74,6 @@ typings/
 .cache/
 public
 yarn-error.log
-.netlify/
 
 # Netlify
 .netlify
