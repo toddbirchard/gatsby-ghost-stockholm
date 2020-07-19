@@ -12,9 +12,9 @@ import (
 	"time"
 )
 
-type UserResponse struct {
-	Data      string
-	Errors    []string
+type SessionResponse struct {
+	Data   string
+	Errors []string
 }
 
 func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
@@ -45,41 +45,41 @@ func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 }
 
 func CreateRequest(request events.APIGatewayProxyRequest) (*http.Request, error) {
+	// Construct HTTP request to fetch session data.
 	endpoint := "https://hackersandslackers.app/members/api/member/"
-	req, err := http.NewRequest("GET", endpoint, nil)
-	if err != nil {
-		return nil, err
+	req, reqErr := http.NewRequest("GET", endpoint, nil)
+	if reqErr != nil {
+		return nil, reqErr
 	}
 	req.Header.Add("cookie", string(request.Body))
-	log.Println(req.Header)
 	return req, nil
 }
 
 func GetUserSession(req *http.Request) (string, error) {
-	// Request account information by session token.
+	// Request user session information by token.
 	client := HttpClient()
 	sessionResponse, sessionError := client.Do(req)
 	if sessionError != nil {
 		log.Fatal(sessionError)
 	}
 
-	// Parse response
+	// Parse session response
 	data, dataErr := ioutil.ReadAll(sessionResponse.Body)
 	if dataErr != nil {
-		errResponse := fmt.Sprintf("{error: %s}", dataErr)
-		return errResponse, dataErr
+		return "", dataErr
 	}
 	return string(data), nil
 }
 
 func CreateResponse(data string, errors []string) string {
-	responseData := &UserResponse{
+	// Construct JSON response of data & errors.
+	responseData := &SessionResponse{
 		Data:   data,
 		Errors: errors,
 	}
-	response, err := json.Marshal(responseData)
-	if err != nil {
-		log.Fatal(err)
+	response, resErr := json.Marshal(responseData)
+	if resErr != nil {
+		log.Fatal(resErr)
 	}
 	return string(response)
 }
