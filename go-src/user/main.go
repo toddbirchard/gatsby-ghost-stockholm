@@ -7,13 +7,19 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"net/url"
 	"time"
 )
 
 func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	req := CreateRequest(request)
-	userData := GetUserSession(req)
+	req, requestErr := CreateRequest(request)
+	if requestErr != nil {
+		log.Fatal(requestErr)
+	}
+
+	userData, dataErr := GetUserSession(req)
+	if dataErr != nil {
+		log.Fatal(dataErr)
+	}
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
@@ -22,42 +28,32 @@ func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	}, nil
 }
 
-func CreateRequest(request events.APIGatewayProxyRequest) *http.Request {
-	endpoint, err := url.Parse("https://hackersandslackers.app/members/api/member/")
-	var headers = http.Header{}
-	headers.Set("cookie", string(request.Body))
+func CreateRequest(request events.APIGatewayProxyRequest) (*http.Request, error) {
+	endpoint := "https://hackersandslackers.app/members/api/member/"
+	req, err := http.NewRequest("GET", endpoint, nil)
 	if err != nil {
-		log.Fatal(err)
+		return nil, err
 	}
-	log.Println(headers)
-	req := &http.Request{
-		URL: endpoint,
-		Header: headers,
-		Method: "GET",
-		Close: true,
-	}
-	return req
+	req.Header.Add("cookie", string(request.Body))
+	log.Println(req.Header)
+	return req, nil
 }
 
-func GetUserSession(req *http.Request) string {
+func GetUserSession(req *http.Request) (string, error) {
 	// Request account information by session token.
 	client := Client()
 	res, reqError := client.Do(req)
 	if reqError != nil {
 		log.Fatal(reqError)
 	}
-	if res.StatusCode != 200 {
-		log.Fatal("status code error: ", res.StatusCode)
-	}
-	defer res.Body.Close()
 
 	// Parse response
 	data, bodyErr := ioutil.ReadAll(res.Body)
 	log.Println(data)
 	if bodyErr != nil {
-		log.Fatal(bodyErr)
+		return "", bodyErr
 	}
-	return string(data)
+	return string(data), nil
 }
 
 func Client() *http.Client {
