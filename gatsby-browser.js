@@ -97,8 +97,10 @@ function getUserSession() {
       client.open('POST', userEndpoint, true);
       client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
       client.onload = function() {
-        let data = JSON.parse(this.responseText);
-        console.log(data);
+        if (this.responseText) {
+          let data = JSON.parse(this.responseText);
+          console.log(data);
+        }
       }
       client.send(sessionCookies);
   }
