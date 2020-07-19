@@ -18,7 +18,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
-import config from '../../../utils/siteConfig'
 import { FaChevronDown } from 'react-icons/fa'
 import { FiRss } from 'react-icons/fi'
 
@@ -56,7 +55,12 @@ class MobileMenu extends React.Component {
                 </AccordionItemHeading>
                 <AccordionItemPanel >
                   {this.tags.map(({ node }) => (
-                    <Link to={`/tag/${ node.slug }`} className="tag-link" key={ node.id }>{ node.name }</Link>
+                    <Link
+                      to={`/tag/${ node.slug }`}
+                      className="tag-link"
+                      key={ node.id }>
+                      { node.name }
+                    </Link>
                   ))}
                 </AccordionItemPanel>
               </AccordionItem>
@@ -68,7 +72,13 @@ class MobileMenu extends React.Component {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   {this.series.map(({ node }) => (
-                    <Link to={`/series/${ node.slug }`} className="tag-link" key={ node.ghostId }>{ node.meta_title }</Link>
+                    <Link
+                      to={`/series/${ node.slug }`}
+                      className="tag-link"
+                      key={ node.ghostId }
+                    >
+                      { node.meta_title }
+                    </Link>
                   ))}
                 </AccordionItemPanel>
               </AccordionItem>
@@ -80,14 +90,33 @@ class MobileMenu extends React.Component {
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                   {this.authors.map(({ node }) => (
-                    <Link to={`/author/${ node.slug }`} className="tag-link" key={ node.id }>{ node.name }</Link>
+                    <Link
+                      to={`/author/${ node.slug }`}
+                      className="tag-link"
+                      key={ node.id }
+                    >
+                      { node.name }
+                    </Link>
                   ))}
                 </AccordionItemPanel>
               </AccordionItem>
             </Accordion>
-            <Link className={`navigation-link`} to={`/join-us/`}><AiOutlineUserAdd />Join</Link>
-            <a className={`navigation-link`} href={config.social.feedly}><FiRss />RSS</a>
-            <a className={`navigation-link`} href="https://www.buymeacoffee.com/hackersslackers"><AiOutlineDollarCircle /> Donate</a>
+            <Link to="/join-us/" className={`navigation-link`}>
+              <AiOutlineUserAdd />
+              <span>Join</span>
+            </Link>
+            <Link to="/rss.xml" className={`navigation-link`} >
+              <FiRss />
+              <span>RSS</span>
+            </Link>
+            <a
+              className={`navigation-link`}
+              href="https://www.buymeacoffee.com/hackersslackers"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AiOutlineDollarCircle /> Donate
+            </a>
           </div>
         </Menu>
       </>

@@ -6,6 +6,7 @@ import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import { AuthorSidebar } from '../sidebar/authors'
 import config from '../../utils/siteConfig'
+import '../../styles/app.less'
 
 /**
  * Main layout component
@@ -37,10 +38,10 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
 
       <div className="viewport">
         <div className={hasSidebar ? `sidebar-container` : `container`}>
-          {/* All the main content gets inserted here, index.js, post.js */}
+          {/* All main content gets inserted here (index.js, post.js, etc). */}
           {children}
           {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
-          {isCorePage && <Sidebar site={site} template={template} authorData={authorData} />}
+          {isCorePage && <Sidebar site={site} template={template} />}
         </div>
       </div>
       <Footer navigation={site.navigation} site={site} template={template} />

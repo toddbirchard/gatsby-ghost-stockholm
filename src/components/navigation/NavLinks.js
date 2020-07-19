@@ -23,7 +23,8 @@ const NavLinks = ({ navigation }) => (
           <a
             className="navigation-link donate"
             href={navItem.url}
-            key={i} target="_blank"
+            key={i}
+            target="_blank"
             rel="noopener noreferrer"
           >
             {navItem.label}
@@ -33,7 +34,7 @@ const NavLinks = ({ navigation }) => (
         return (
           <Link
             className={`navigation-link ${navItem.label}`}
-            to={navItem.url.replace(config.siteAdminUrl, ``)}
+            to={navItem.url.replace(config.siteUrl, ``)}
             key={i}
           >
             {navItem.label}

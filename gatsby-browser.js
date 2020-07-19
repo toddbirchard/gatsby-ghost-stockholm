@@ -3,15 +3,20 @@ import Prism from 'prismjs';
 import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
 import config from './src/utils/siteConfig'
-import './src/styles/app.less';
-
 
 const scrapeEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.scrape : config.lambda.scrape
 const userEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.user : config.lambda.user
 
+
+// Events
+// -------------------------------------------
+export const onClientEntry = () => {
+  console.log("Initial load complete!");
+  getUserSession() // Check user logged-in state
+}
+
 export const onRouteUpdate = ({location}) => {
   // Route detection
-  getUserSession() // All routes
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
     codeSyntaxHighlight(); // Code Syntax Highlighting
@@ -21,6 +26,7 @@ export const onRouteUpdate = ({location}) => {
   }
 }
 
+// -------------------------------------------
 // Posts
 // -------------------------------------------
 function codeSyntaxHighlight() {
@@ -54,6 +60,7 @@ function enableLightboxImages() {
   }
 }
 
+// -------------------------------------------
 // Authors
 // -------------------------------------------
 function scrapeUrlMetadata() {
@@ -80,6 +87,7 @@ let HttpClient = function() {
   }
 }
 
+// -------------------------------------------
 // Members
 // -------------------------------------------
 function getUserSession() {
@@ -93,7 +101,5 @@ function getUserSession() {
         console.log(data);
       }
       client.send(sessionCookies);
-  } else {
-    console.log('No cookie found.');
   }
 }
