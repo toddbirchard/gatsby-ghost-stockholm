@@ -19,8 +19,8 @@ export const onRouteUpdate = ({location}) => {
   // Route detection
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
-    codeSyntaxHighlight(); // Code Syntax Highlighting
-    enableLightboxImages(); // Enable lightbox on post images
+    codeSyntaxHighlight(); // Code syntax highlighting
+    enableLightboxImages(); // Image lightboxes
   } else if (path.indexOf('author')) {
     scrapeUrlMetadata(); // Author website widget
   }

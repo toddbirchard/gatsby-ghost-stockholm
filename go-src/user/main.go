@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"io/ioutil"
@@ -52,7 +53,8 @@ func GetUserSession(req *http.Request) (string, error) {
 	// Parse response
 	data, bodyErr := ioutil.ReadAll(res.Body)
 	if bodyErr != nil {
-		return "", bodyErr
+		errResponse := fmt.Sprintf("{error: %s}", bodyErr)
+		return errResponse, bodyErr
 	}
 	return string(data), nil
 }
