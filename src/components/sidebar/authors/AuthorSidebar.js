@@ -31,13 +31,7 @@ const AuthorSidebar = ({ authorData }) => {
 }
 
 AuthorSidebar.propTypes = {
-  site: PropTypes.shape({
-    logo: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    twitter: PropTypes.string,
-  }).isRequired,
-  template: PropTypes.string.isRequired,
+  template: PropTypes.string,
   authorData: PropTypes.object,
 }
 

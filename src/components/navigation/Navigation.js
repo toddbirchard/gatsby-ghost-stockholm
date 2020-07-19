@@ -25,11 +25,9 @@ const Navigation = ({ data, smallLogo }) => (
           <Link to="/" className="logo">
             <img className="lazyload" data-src={smallLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
           </Link>
-          <Link to="/" className="mobile-logo">
-            <img className="lazyload" data-src={smallLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
-          </Link>
           <div className="nav-links">
             <NavLinks navigation={data} />
+
           </div>
         </div>
         <div className="nav-right">

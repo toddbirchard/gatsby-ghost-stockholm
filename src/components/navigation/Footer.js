@@ -34,7 +34,7 @@ const Footer = ({ navigation, site, data }) => {
               {navigation.map((navItem, i) => {
                 if (navItem.url.includes(config.siteUrl)) {
                   return <dd key={i}>
-                    <Link className={`footer-navigation-link ${navItem.label}`} to={`/${navItem.url.split(`/`).pop()}/`}>
+                    <Link className={`footer-navigation-link ${navItem.label}`} to={navItem.url.replace(config.siteUrl, ``)}>
                       {navItem.label}
                     </Link>
                   </dd>

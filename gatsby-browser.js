@@ -2,27 +2,30 @@
 import Prism from 'prismjs';
 import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
-import './src/styles/app.less';
+import config from './src/utils/siteConfig'
 
-/*
- * NOTICE: ES6 module exports are not officially supported because of NodeJs
- * https://github.com/gatsbyjs/gatsby/pull/9239
- *
- * ES6 modules are here used because PrismJS should not work with CommonJs.
- */
+const scrapeEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.scrape : config.lambda.scrape
+const userEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.user : config.lambda.user
+
+
+// Events
+// -------------------------------------------
+export const onClientEntry = () => {
+  getUserSession() // Check user logged-in state
+}
 
 export const onRouteUpdate = ({location}) => {
-
+  // Route detection
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
-    // Posts
-    codeSyntaxHighlight();  // Code Syntax Highlighting
-    enableLightboxImages();  // Enable lightbox on post images
+    codeSyntaxHighlight(); // Code syntax highlighting
+    enableLightboxImages(); // Image lightboxes
   } else if (path.indexOf('author')) {
-    scrapeUrlMetadata();  // Author website widget
+    scrapeUrlMetadata(); // Author website widget
   }
 }
 
+// -------------------------------------------
 // Posts
 // -------------------------------------------
 function codeSyntaxHighlight() {
@@ -56,7 +59,7 @@ function enableLightboxImages() {
   }
 }
 
-
+// -------------------------------------------
 // Authors
 // -------------------------------------------
 function scrapeUrlMetadata() {
@@ -64,22 +67,39 @@ function scrapeUrlMetadata() {
   if (linkElement) {
     let url = linkElement.getAttribute('href');
     let client = new HttpClient();
-    let endpoint = 'https://hackersandslackers.com/.netlify/functions/scrapemeta?url=' + url;
-    client.get(endpoint, function(response) {
+    client.get(scrapeEndpoint + url, function(response) {
       let data = JSON.parse(response)
-      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div><div class="website-description">' + data['Description'] + '</div><img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
+      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div>' + '<div class="website-description">' + data['Description'] + '</div>' + '<img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
     });
   }
 }
 
 let HttpClient = function() {
-  this.get = function(url, aCallback) {
+  this.get = function(url, callback) {
     let httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = function() {
       if (httpRequest.readyState == 4 && httpRequest.status == 200)
-        aCallback(httpRequest.responseText);
+        callback(httpRequest.responseText);
       }
     httpRequest.open("GET", url, true);
     httpRequest.send(null);
+  }
+}
+
+// -------------------------------------------
+// Members
+// -------------------------------------------
+function getUserSession() {
+  let client = new XMLHttpRequest();
+  const sessionCookies = document.cookie;
+  if (sessionCookies) {
+      client.open('POST', userEndpoint, true);
+      client.setRequestHeader('Content-type', 'text/plain;charset=utf-8');
+      client.onload = function() {
+        if (this.responseText) {
+          let data = JSON.parse(this.responseText);
+        }
+      }
+      client.send(sessionCookies);
   }
 }

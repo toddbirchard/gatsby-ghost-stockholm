@@ -49,12 +49,12 @@
         width: 40px;
         height: 40px;
         margin-right: 40px;
-        transition: all 0.2s ease-out;
+        transition: @transition;
         @media (max-width: 920px) {
           margin-right: 30px;
         }
         @media (max-width: @mobile-breakpoint) {
-          display: none;
+          width: 37px;
         }
 
         &:hover {
@@ -64,25 +64,6 @@
 
         img {
           width: 100%;
-        }
-      }
-
-      .mobile-logo {
-        display: none;
-        transition: @transition;
-        @media (max-width: @mobile-breakpoint) {
-          display: block;
-          width: unset;
-          height: 37px;
-        }
-
-        &:hover {
-          cursor: pointer;
-          opacity: 0.7;
-        }
-
-        img {
-          height: 100%;
         }
       }
 

@@ -37,7 +37,7 @@ const Author = ({ data, location, pageContext }) => {
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>
             ))}
-            <Pagination pageContext={pageContext} metaTitle={false} />
+            <Pagination pageContext={pageContext} metaTitle={title} />
           </section>
         </div>
       </Layout>
@@ -64,12 +64,6 @@ Author.propTypes = {
           title: PropTypes.string,
           primary_author: PropTypes.object,
           feature_image: PropTypes.string,
-          tags: PropTypes.arrayOf(
-            PropTypes.shape({
-              name: PropTypes.string.isRequired,
-              slug: PropTypes.string.isRequired,
-            })
-          ).isRequired,
           published_at_pretty: PropTypes.string,
         }),
       ),
@@ -108,11 +102,13 @@ Author.propTypes = {
       statuses_count: PropTypes.string,
       favourites_count: PropTypes.string,
     }),
-    authorTrendingPosts: PropTypes.shape({
-      title: PropTypes.string,
-      url: PropTypes.string,
-      views: PropTypes.number,
-    }),
+    authorTrendingPosts: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        url: PropTypes.string,
+        views: PropTypes.number,
+      }),
+    ),
     authorPocket: PropTypes.object,
   }).isRequired,
   location: PropTypes.shape({
@@ -127,6 +123,7 @@ export const pageQuery = graphql`
   query GhostAuthorQuery($slug: String!, $twitterUsernameRegex: String, $limit: Int!, $skip: Int!) {
     ghostAuthor(slug: { eq: $slug }) {
       ...GhostAuthorFields
+      postCount
     }
     allGhostPost(
       sort: { order: DESC, fields: [published_at] },

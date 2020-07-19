@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: `https://hackersandslackers.com`, // Site domain. Do not include a trailing slash!
+  siteUrl: `https://hackersandslackers.com`, // Do not include a trailing slash.
   siteRss: `https://hackersandslackers.com/rss.xml`,
   siteMap: `https://hackersandslackers.com/sitemap.xml`,
   siteAdminUrl: `https://hackersandslackers.app`,
@@ -25,6 +25,10 @@ module.exports = {
     medium: `https://hackingandslacking.com`,
     feedly: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
   },
+  lambda: {
+    scrape: `https://hackersandslackers.dev/.netlify/functions/scrape?url=`,
+    user: `https://hackersandslackers.dev/.netlify/functions/user`,
+  },
   creator: {
     name: `Todd Birchard`,
     twitter: `@toddrbirchard`,
@@ -32,6 +36,5 @@ module.exports = {
   links: {
     buyMeACoffee: `https://www.buymeacoffee.com/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
-    githubJupyterRepo: `https://github.com/hackersandslackers/hackers-jupyter-posts`,
   },
 }

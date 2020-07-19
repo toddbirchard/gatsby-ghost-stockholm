@@ -31,7 +31,7 @@ const Tag = ({ data, location, pageContext }) => {
         pageContext={pageContext}
         type="website"
       />
-      <Layout template="tag-template page-template" hasSidebar>
+      <Layout template="tag-template" hasSidebar>
         <section className="post-feed">
           <InfoCard tag={tag} count={pageCount}/>
           {posts.map(({ node }) => (
