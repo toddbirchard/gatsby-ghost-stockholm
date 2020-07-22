@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { AuthorList } from '../components/authors'
 import { MetaData } from '../components/common/meta'
-
 import '../styles/pages/page.less'
 
 /**
