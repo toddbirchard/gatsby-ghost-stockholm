@@ -78,7 +78,7 @@ export default Tag
 
 export const tagQuery = graphql`
   query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
-    ghostTag(slug: { eq: $slug }, filter: {slug: {ne: "data-schema"}}) {
+    ghostTag(slug: { eq: $slug }) {
       ...GhostTagFields
     }
     allGhostPost(
