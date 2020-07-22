@@ -121,7 +121,7 @@ export default Author
 
 export const pageQuery = graphql`
   query GhostAuthorQuery($slug: String!, $twitterUsernameRegex: String, $limit: Int!, $skip: Int!) {
-    ghostAuthor(slug: { eq: $slug }, filter: {slug: {ne: "data-schema-author"}}) {
+    ghostAuthor(slug: { eq: $slug }) {
       ...GhostAuthorFields
       postCount
     }
