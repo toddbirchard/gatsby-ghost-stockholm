@@ -34,6 +34,9 @@ exports.createPages = async ({ graphql, actions }) => {
             primary_tag {
               slug
             }
+            tags {
+              slug
+            }
           }
         }
       }
@@ -256,12 +259,21 @@ exports.createPages = async ({ graphql, actions }) => {
 
   lynx.forEach(({ node }) => {
     node.url = `/roundup/${node.slug}/`
+    node.tagSlugs = []
+    node.series = null
+
+    node.tags.forEach(function (element) {
+      node.tagSlugs.push(element.slug)
+    })
 
     createPage({
       path: node.url,
       component: postTemplate,
       context: {
         slug: node.slug,
+        url: node.url,
+        tags: node.tagSlugs,
+        seriesSlug: node.series,
       },
     })
   })

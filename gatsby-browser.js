@@ -4,8 +4,8 @@ import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
 import config from './src/utils/siteConfig'
 
-const scrapeEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.scrape : config.lambda.scrape
-const userEndpoint = process.env.NODE_ENV === 'development' ? 'dev.' + config.lambda.user : config.lambda.user
+const scrapeEndpoint = config.lambda.scrape
+const userEndpoint = config.lambda.user
 
 
 // Events
