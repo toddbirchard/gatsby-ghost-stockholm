@@ -20,7 +20,8 @@ export const onRouteUpdate = ({location}) => {
   if ((path.split('/').length - 1) === 2) {
     codeSyntaxHighlight(); // Code syntax highlighting
     enableLightboxImages(); // Image lightboxes
-  } else if (path.indexOf('author')) {
+  }
+  if (path.indexOf('author')) {
     scrapeUrlMetadata(); // Author website widget
   }
 }
