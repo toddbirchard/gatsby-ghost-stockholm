@@ -644,13 +644,13 @@
         public'''
 
 [[headers]]
-  for = "https://secure.gaug.es/"
+  for = "https://secure.gaug.es/track.gif"
   [headers.values]
     set-cookie = "HttpOnly;Secure;SameSite=None"
 
 
 [[headers]]
-  for = "http://gaug.es/"
+  for = "http://secure.gaug.es/track.js"
   [headers.values]
     set-cookie = "HttpOnly;Secure;SameSite=None"
 

@@ -437,7 +437,5 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-offline`,
-    `gatsby-theme-ghost-commento`,
   ],
 }
