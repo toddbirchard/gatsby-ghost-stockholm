@@ -648,9 +648,13 @@
   [headers.values]
     set-cookie = "HttpOnly;Secure;SameSite=None"
 
-
 [[headers]]
   for = "http://secure.gaug.es/track.js"
+  [headers.values]
+    set-cookie = "HttpOnly;Secure;SameSite=None"
+
+[[headers]]
+  for = "http://secure.gaug.es/*"
   [headers.values]
     set-cookie = "HttpOnly;Secure;SameSite=None"
 
