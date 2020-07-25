@@ -54,12 +54,13 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
       const feed = {
         title: siteTitle,
         description: siteDescription,
-        // generator: `Ghost ` + data.safeVersion,
         generator: `Ghost 2.9`,
         feed_url: `${siteConfig.siteUrl}/rss/`,
         site_url: `${siteConfig.siteUrl}/`,
         image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
         ttl: `60`,
+        match: matchPattern,
+        link: externalLink,
         custom_namespaces: {
           content: `http://purl.org/rss/1.0/modules/content/`,
           media: `http://search.yahoo.com/mrss/`,
@@ -71,10 +72,6 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
     },
     query: rssQuery,
     output: feedUrl,
-    title: title,
-    url: feedUrl,
-    match: matchPattern,
-    link: externalLink,
   }
 }
 

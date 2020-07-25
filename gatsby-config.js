@@ -292,14 +292,14 @@ module.exports = {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
-                {
-                  ghostSettings {
-                    title
-                    description
-                    url
-                  }
-                }
-              `,
+          {
+            ghostSettings {
+              title
+              description
+              url
+            }
+          }
+        `,
         feeds: [
           siteRSSFeed,
           authorRSSFeed,
