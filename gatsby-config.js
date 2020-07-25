@@ -231,16 +231,15 @@ module.exports = {
     /**
      *  Font Plugins
      */
-    {
+    /*{
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         custom: {
           families: [`TTNormsPro-DemiBold`, `TTNormsPro-Bold`, `AvenirNextLTPro-Regular`, `AvenirNextLTPro-Medium`, `dm`],
           urls: [`/css/fonts.css`],
         },
-        timeout: 10000,
       },
-    },
+    },*/
     /**
      *  Style Plugins
      */
@@ -434,5 +433,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
+    `gatsby-plugin-preload-fonts`,
   ],
 }

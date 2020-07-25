@@ -59,8 +59,6 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
         site_url: `${siteConfig.siteUrl}/`,
         image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
         ttl: `60`,
-        match: matchPattern,
-        link: externalLink,
         custom_namespaces: {
           content: `http://purl.org/rss/1.0/modules/content/`,
           media: `http://search.yahoo.com/mrss/`,
@@ -70,6 +68,8 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
         ...feed,
       }
     },
+    match: matchPattern,
+    link: externalLink,
     query: rssQuery,
     output: feedUrl,
   }

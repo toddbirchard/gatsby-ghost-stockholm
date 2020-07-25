@@ -34,7 +34,8 @@
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
     "dev": "gatsby develop",
     "lint": "eslint . --ext .js --cache",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "devDependencies": {
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
@@ -88,7 +89,6 @@
     "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-segment-js": "^3.3.0",
     "gatsby-plugin-styled-components": "^3.3.10",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.3.22",
     "gatsby-source-ghost": "4.0.5",
     "gatsby-source-mysql": "^2.2.3",

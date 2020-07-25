@@ -45,6 +45,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
         {settings.twitter ? <meta name="twitter:site" content={settings.twitter} /> : null}
         {config.creator.twitter ? <meta name="twitter:creator" content={config.creator.twitter} /> : null}
         {googleVerificationID ? <meta name="google-site-verification" content={googleVerificationID} /> : null}
+        <link href="/css/fonts.css" rel="preload" media="all" />
         <script type="application/ld+json">{`
               {
                   "@context": "https://schema.org/",
