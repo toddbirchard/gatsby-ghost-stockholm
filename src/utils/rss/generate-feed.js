@@ -45,7 +45,7 @@ const generateItem = function generateItem(siteUrl, post) {
   return item
 }
 
-function generateRssFeed(siteConfig, rssQuery, title, feedUrl) {
+function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, externalLink) {
   return {
     serialize: ({ query: { allGhostPost } }) => allGhostPost.edges.map(edge => Object.assign({}, generateItem(feedUrl, edge.node))),
     setup: ({ query: { ghostSettings } }) => {
@@ -73,6 +73,8 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl) {
     output: feedUrl,
     title: title,
     url: feedUrl,
+    match: matchPattern,
+    link: externalLink,
   }
 }
 

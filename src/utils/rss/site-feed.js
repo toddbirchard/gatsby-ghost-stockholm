@@ -2,6 +2,7 @@ const generateRssFeed = require(`./generate-feed`)
 const siteConfig = require(`../siteConfig`)
 
 const siteTitle = siteConfig.siteTitleMeta
+const matchPattern = undefined
 const feedUrl = `/rss.xml`
 const siteRssQuery = `{
     allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}}) {
@@ -48,6 +49,6 @@ const siteRssQuery = `{
 }
 `
 
-const siteRssFeed = generateRssFeed(siteConfig, siteRssQuery, siteTitle, feedUrl)
+const siteRssFeed = generateRssFeed(siteConfig, siteRssQuery, siteTitle, feedUrl, matchPattern)
 
 module.exports = siteRssFeed
