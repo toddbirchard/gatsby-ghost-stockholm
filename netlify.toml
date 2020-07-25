@@ -496,8 +496,6 @@
   for = "/fonts/*"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
         max-age=604800,
         no-cache,
@@ -507,8 +505,6 @@
   for = "/fonts/TTNormsPro-Bold.woff2"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
@@ -518,8 +514,6 @@
   for = "/fonts/TTNormsPro-Bold.woff"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
@@ -529,8 +523,6 @@
   for = "/fonts/TTNormsPro-DemiBold.woff2"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
@@ -540,8 +532,6 @@
   for = "/fonts/TTNormsPro-DemiBold.woff"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
@@ -551,8 +541,6 @@
   for = "/fonts/AvenirNextLTPro-Medium.woff2"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
@@ -562,8 +550,6 @@
   for = "/fonts/AvenirNextLTPro-Medium.woff"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
@@ -573,8 +559,6 @@
   for = "/fonts/AvenirNextLTPro-Regular.woff2"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
@@ -584,8 +568,6 @@
   for = "/fonts/AvenirNextLTPro-Regular.woff"
   [headers.values]
     crossorigin = "anonymous"
-    type = "font/woff2"
-    accept = "application/font-woff2"
     cache-control = '''
     max-age=604800,
     no-cache,
