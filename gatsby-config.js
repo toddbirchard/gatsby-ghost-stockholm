@@ -229,12 +229,9 @@ module.exports = {
       },
     },
     /**
-     *  Transformer Plugins
-     */
-    /**
      *  Font Plugins
      */
-    /*{
+    {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         custom: {
@@ -243,7 +240,7 @@ module.exports = {
         },
         timeout: 10000,
       },
-    },*/
+    },
     /**
      *  Style Plugins
      */
