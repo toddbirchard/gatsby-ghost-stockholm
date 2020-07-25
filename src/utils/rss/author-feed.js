@@ -4,6 +4,7 @@ const siteConfig = require(`../siteConfig`)
 const authorSlug = `todd`
 const feedUrl = `/author/${authorSlug}/rss.xml`
 const matchPattern = `\/author\/todd`
+const externalLink = undefined
 const authorRssQuery = `{
     allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}, primary_author: {slug: {eq: "todd"}}}) {
         edges {
@@ -49,6 +50,6 @@ const authorRssQuery = `{
 }
 `
 
-const authorRssFeed = generateRssFeed(siteConfig, authorRssQuery, `Todd Birchard`, feedUrl, matchPattern)
+const authorRssFeed = generateRssFeed(siteConfig, authorRssQuery, `Todd Birchard`, feedUrl, matchPattern, externalLink)
 
 module.exports = authorRssFeed
