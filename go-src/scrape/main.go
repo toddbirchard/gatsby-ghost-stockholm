@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -13,74 +12,52 @@ import (
 )
 
 type Metadata struct {
-	Title       string
-	Image       string
-	Description string
-	Favicon     string
+	Title, Image, Description, Favicon string
 }
 
-func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	params := request.QueryStringParameters
-	url := params["url"]
-	pageData := makePageRequest(url)
-	metadataJsonResponse := getPageMetaData(pageData)
+func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	url := request.QueryStringParameters["url"]
+	html := Fetch(url)
+	meta := ParseMetaData(html)
+	response := CreateResponse(meta)
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Headers:    map[string]string{"Content-Type": "application/json"},
-		Body:       metadataJsonResponse,
+		Body:       response,
 	}, nil
 }
 
-func makePageRequest(url string) *goquery.Document {
-	// Create HTTP client with timeout
-	client := &http.Client{
-		Timeout: 30 * time.Second,
+func Fetch(url string) *goquery.Document {
+	// Get HTML of target URL
+	client := HttpClient()
+	resp, respErr := client.Get(url)
+	if respErr != nil {
+		log.Fatal(respErr)
 	}
+	defer resp.Body.Close()
 
-	// Make request
-	res, err := client.Get(url)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer res.Body.Close()
-	if res.StatusCode != 200 {
-		log.Fatal("status code error: %d %s", res.StatusCode, res.Status)
-	}
-
-	// Load the HTML document
-	doc, err := goquery.NewDocumentFromReader(res.Body)
-	if err != nil {
-		log.Fatal(err)
+	// Load HTML document
+	doc, docErr := goquery.NewDocumentFromReader(resp.Body)
+	if docErr != nil {
+		log.Fatal(docErr)
 	}
 	return doc
 }
 
-func getPageMetaData(doc *goquery.Document) string {
-	// Find the review items
+func ParseMetaData(doc *goquery.Document) *Metadata {
+	// Scrape metadata elements
 	title := doc.Find("title").First().Text()
-	image, imgExists := doc.Find("meta[property=\"og:image\"]").First().Attr("content")
-	description, descExists := doc.Find("meta[name=\"description\"]").First().Attr("content")
-	favicon, iconExists := doc.Find("link[rel=\"shortcut icon\"]").First().Attr("href")
+	image, _ := doc.Find("meta[property=\"og:image\"]").First().Attr("content")
+	description, _ := doc.Find("meta[name=\"description\"]").First().Attr("content")
+	favicon, _ := doc.Find("link[rel=\"shortcut icon\"]").First().Attr("href")
 
-	// Log errors for missing meta items
-	var errors []bool
-	errors = append(errors, imgExists, descExists, iconExists)
-	for i := range errors {
-		if errors[i] == false {
-			fmt.Printf("Index %d was false.\n", i)
-		}
-	}
+	metadata := &Metadata{title, image, description, favicon}
+	return metadata
+}
 
-	// Create metadata response
-	metadata := &Metadata{
-		Title: title,
-		Image: image,
-		Description: description,
-		Favicon: favicon,
-	}
-
-	// Return response
+func CreateResponse(metadata *Metadata) string {
+	// Construct JSON string response
 	response, err := json.Marshal(metadata)
 	if err != nil {
 		log.Fatal(err)
@@ -88,7 +65,14 @@ func getPageMetaData(doc *goquery.Document) string {
 	return string(response)
 }
 
+func HttpClient() *http.Client {
+	client := &http.Client{
+		Timeout: 30 * time.Second,
+	}
+	return client
+}
+
 func main() {
-	// Make the handler available
-	lambda.Start(handler)
+	// Make the Handler available
+	lambda.Start(Handler)
 }
