@@ -231,15 +231,7 @@ module.exports = {
     /**
      *  Font Plugins
      */
-    /*{
-      resolve: `gatsby-plugin-web-font-loader`,
-      options: {
-        custom: {
-          families: [`TTNormsPro-DemiBold`, `TTNormsPro-Bold`, `AvenirNextLTPro-Regular`, `AvenirNextLTPro-Medium`, `dm`],
-          urls: [`/css/fonts.css`],
-        },
-      },
-    },*/
+    `gatsby-plugin-preload-fonts`,
     /**
      *  Style Plugins
      */
@@ -258,7 +250,7 @@ module.exports = {
      */
     `gatsby-plugin-netlify-cache`,
     /**
-     *  Utility Plugins
+     *  SEO & Feed Plugins
      */
     {
       resolve: `gatsby-plugin-ghost-manifest`,
@@ -395,7 +387,10 @@ module.exports = {
         stripQueryString: true,
       },
     },
-    /* Analytics */
+    `gatsby-plugin-react-helmet`,
+    /**
+     *  Analytics Plugins
+     */
     {
       resolve: `gatsby-plugin-segment-js`,
       options: {
@@ -405,7 +400,9 @@ module.exports = {
         delayLoad: true,
       },
     },
-    /* Search */
+    /**
+     *  Search Plugins
+     */
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
@@ -429,10 +426,10 @@ module.exports = {
         },
       },
     },
-    /* Misc */
+    /**
+     *  Misc Plugins
+     */
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-preload-fonts`,
   ],
 }

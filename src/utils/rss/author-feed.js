@@ -1,11 +1,11 @@
 const generateRssFeed = require(`./generate-feed`)
 const siteConfig = require(`../siteConfig`)
 
-const authorSlug = `todd`
-const feedUrl = `/author/${authorSlug}/rss.xml`
+const feedTitle = `Todd Birchard`
+const feedUrl = `/author/todd/rss.xml`
 const matchPattern = `\/author\/todd`
 const externalLink = undefined
-const authorRssQuery = `{
+const feedRssQuery = `{
     allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}, primary_author: {slug: {eq: "todd"}}}) {
         edges {
             node {
@@ -47,9 +47,8 @@ const authorRssQuery = `{
             }
         }
     }
-}
-`
+}`
 
-const authorRssFeed = generateRssFeed(siteConfig, authorRssQuery, `Todd Birchard`, feedUrl, matchPattern, externalLink)
+const authorRssFeed = generateRssFeed(siteConfig, feedRssQuery, feedTitle, feedUrl, matchPattern, externalLink)
 
 module.exports = authorRssFeed

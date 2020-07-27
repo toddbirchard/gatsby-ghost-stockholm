@@ -18,7 +18,6 @@ const generateItem = function generateItem(siteUrl, post) {
     custom_elements: [],
   }
   let imageUrl
-
   if (post.feature_image) {
     imageUrl = post.feature_image
 
@@ -72,6 +71,7 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
     link: externalLink,
     query: rssQuery,
     output: feedUrl,
+    title: title,
   }
 }
 
