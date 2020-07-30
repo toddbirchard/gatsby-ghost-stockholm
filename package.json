@@ -84,6 +84,7 @@
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
     "gatsby-plugin-less": "^4.0.3",
     "gatsby-plugin-netlify-cache": "^1.2.0",
+    "gatsby-plugin-no-sourcemaps": "^2.2.0",
     "gatsby-plugin-postcss": "^2.3.11",
     "gatsby-plugin-preload-fonts": "^1.2.19",
     "gatsby-plugin-react-helmet": "3.3.10",
