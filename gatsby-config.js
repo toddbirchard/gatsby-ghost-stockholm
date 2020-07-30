@@ -431,6 +431,5 @@ module.exports = {
      */
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-no-sourcemaps`,
   ],
 }
