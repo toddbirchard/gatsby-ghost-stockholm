@@ -19,7 +19,6 @@ const Author = ({ data, location, pageContext }) => {
   const baseTitle = author.name + `'s posts'`
   const title = pageContext.humanPageNumber > 1 ? baseTitle + ` (page ` + pageContext.humanPageNumber + ` of ` + pageContext.numberOfPages + `)` : baseTitle
   const posts = data.allGhostPost.edges
-  const authorData = data
 
   return (
     <>
@@ -30,7 +29,7 @@ const Author = ({ data, location, pageContext }) => {
         location={location}
         pageContext={pageContext}
       />
-      <Layout template="author-template" hasSidebar authorData={authorData}>
+      <Layout template="author-template" hasSidebar authorData={data}>
         <div className="author-container">
           <AuthorCard author={author} page="author" template="author-template" pageContext={pageContext}/>
           <section className="post-feed">

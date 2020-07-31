@@ -43,7 +43,7 @@ const AboutPage = ({ data, location, pageContext }) => {
                   className="about-video"
                   controls="true"
                   config={{
-                    vimdeo: {
+                    vimeo: {
                       width: `100%`,
                     },
                   }}

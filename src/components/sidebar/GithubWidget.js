@@ -94,7 +94,8 @@ const GithubWidgetQuery = props => (
                 }
               }
             }
-          }`}
+          }`
+    }
     render={data => <GithubWidget data={data} {...props} />}
   />
 )

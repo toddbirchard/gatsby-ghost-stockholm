@@ -37,7 +37,6 @@ const SeriesDetail = ({ data, location }) => {
         </header>
         <section className="post-feed">
           {posts.map(({ node }, index) => (
-            // The tag below includes the markup for each post - components/common/PostCard.js
             <SeriesPostCard key={node.id} post={node} count={index}/>
           ))}
         </section>
