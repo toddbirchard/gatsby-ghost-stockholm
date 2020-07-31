@@ -6,7 +6,7 @@ const matchPattern = undefined
 const feedUrl = `/rss.xml`
 const externalLink = `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`
 const feedRssQuery = `{
-    allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}}) {
+    allGhostPost(sort: {order: DESC, fields: published_at}, filter: primary_author: {slug: {eq: "todd"}}}) {
         edges {
             node {
                 # Main fields

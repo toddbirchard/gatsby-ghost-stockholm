@@ -5,7 +5,6 @@ const queries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
 const siteRSSFeed = require(`./src/utils/rss/site-feed`)
-const authorRSSFeed = require(`./src/utils/rss/author-feed`)
 
 let ghostConfig
 
@@ -290,7 +289,6 @@ module.exports = {
         `,
         feeds: [
           siteRSSFeed,
-          authorRSSFeed,
         ],
       },
     },
