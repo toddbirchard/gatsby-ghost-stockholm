@@ -3,7 +3,7 @@ const siteConfig = require(`../siteConfig`)
 
 const feedTitle = `Todd Birchard`
 const feedUrl = `/author/todd/rss.xml`
-const matchPattern = `\/author\/todd`
+const matchPattern = `^/author/todd`
 const externalLink = undefined
 const feedRssQuery = `{
     allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}, primary_author: {slug: {eq: "todd"}}}) {

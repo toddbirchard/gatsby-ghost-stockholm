@@ -4,7 +4,7 @@ import { Configure,
   InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
-import { HitsWrapper } from './SearchStyles'
+import { HitsWrapper } from '../../search/SearchStyles'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
