@@ -54,9 +54,7 @@
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-source-github": "0.0.2",
     "less": "^3.12.2",
-    "qs": "^6.9.4",
-    "stylelint": "^13.6.1",
-    "stylelint-config-standard": "^20.0.0"
+    "qs": "^6.9.4"
   },
   "dependencies": {
     "@babel/core": "^7.11.0",
@@ -110,6 +108,8 @@
     "react-instantsearch-dom": "^6.7.0",
     "react-player": "^2.6.0",
     "sharp": "^0.25.4",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
   }
 }
