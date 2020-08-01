@@ -27,7 +27,6 @@ const Navigation = ({ data, smallLogo }) => (
           </Link>
           <div className="nav-links">
             <NavLinks navigation={data} />
-
           </div>
         </div>
         <div className="nav-right">

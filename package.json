@@ -58,6 +58,7 @@
     "@babel/core": "^7.11.0",
     "@babel/highlight": "^7.10.4",
     "@babel/runtime": "^7.11.0",
+    "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
     "@tryghost/helpers": "1.1.27",
     "@tryghost/helpers-gatsby": "1.0.31",
     "@tryghost/social-urls": "^0.1.9",
@@ -89,14 +90,15 @@
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-source-ghost": "4.0.5",
+    "gatsby-source-github": "0.0.2",
     "gatsby-source-mysql": "^2.2.3",
     "gatsby-source-pocket": "^2.3.1",
-    "gatsby-source-github": "0.0.2",
     "gatsby-source-twitter": "^3.2.2",
     "gatsby-transformer-json": "^2.4.11",
     "lazysizes": "^5.2.2",
     "lodash": "4.17.19",
     "mitt": "^2.1.0",
+    "netlify-identity-widget": "^1.9.1",
     "prismjs": "^1.20.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
@@ -110,7 +112,6 @@
     "sharp": "^0.25.4",
     "styled-components": "^5.1.1",
     "stylelint": "^13.6.1",
-    "stylelint-config-standard": "^20.0.0",
-    "@danbruegge/gatsby-plugin-stylelint": "^4.1.0"
+    "stylelint-config-standard": "^20.0.0"
   }
 }
