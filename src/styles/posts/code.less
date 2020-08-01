@@ -7,7 +7,7 @@
   padding: 15px 20px 20px;
   overflow-x: hidden;
   border-radius: 4px;
-  background: #343b4a !important;
+  background: #f6f7f9 !important;
   color: unset !important;
   font-family: @monospace-font !important;
   font-size: 0.85em !important;
@@ -21,6 +21,7 @@
     .mobile-full-width();
     padding: 15px 25px;
     border-radius: 0 !important;
+    border-bottom: 1px solid #dde1e9;
   }
 
   &::-webkit-scrollbar {
@@ -28,7 +29,7 @@
   }
 
   code {
-    color: #dde3ea !important;
+    color: #424f64 !important;
     font-family: @monospace-font !important;
     line-height: 1.3 !important;
     text-shadow: unset !important;
@@ -90,7 +91,7 @@
     }
 
     .function {
-      color: #88C0D0 !important;
+      color: #61b7c5 !important;
       font-weight: 900 !important;
     }
 
@@ -101,12 +102,12 @@
     .keyword,
     .literal,
     .symbol {
-      color: #7ea8d2 !important;
+      color: #5d8cbb !important;
       font-weight: 900 !important;
     }
 
     .number {
-      color: #B48EAD !important;
+      color: #c38eb8 !important;
       font-weight: 900;
     }
 
@@ -115,7 +116,7 @@
     }
 
     .string {
-      color: #cbf9ab !important;
+      color: #37947c !important;
     }
 
     .title {
@@ -155,7 +156,10 @@
     }
 
     .comment {
-      color: #767e8f !important;
+      color: #a2a7ba !important;
+      font-weight: bold;
+      letter-spacing: .5px;
+      font-size: .95em;
     }
 
     .doctag {
@@ -196,7 +200,7 @@
     }
 
     .variable {
-      color: #D8DEE9 !important;
+      color: #6188d0 !important;
     }
 
     .template-variable {
@@ -346,7 +350,7 @@
       }
 
       &.attr-value {
-        color: #c3e88d !important;
+        color: #51a08a !important;
       }
 
       &.attr-name {
@@ -354,7 +358,7 @@
       }
 
       &.punctuation {
-        color: #b9e4ef;
+        color: #3f7987;
       }
 
       &.class-name {
@@ -363,35 +367,39 @@
       }
 
       &.table.class-name {
-        color: #7ea8d2 !important;
+        color: #6482a0 !important;
       }
 
       &.constant {
-        color: #ebcb8b !important;
+        color: #576d8c !important;
       }
 
       &.operator {
         background: none !important;
-        color: #D8DEE9 !important;
+        color: #8e9bc1 !important;
+        font-weight: bold;
       }
 
       &.atrule,
       &.property {
-        color: #8FBCBB !important;
+        color: #7ab6b4;
         font-weight: bold;
       }
 
       &.boolean {
-        color: #b48ead !important;
+        color: #c38eb8 !important;
         font-weight: 600;
       }
 
       &.builtin {
-        color: #EBCB8B !important;
+        color: #5b7190 !important;
+        font-weight: 600;
       }
 
       &.triple-quoted-string {
-        color: #697798 !important;
+        color: #a2a9b9 !important;
+        font-weight: 600;
+        letter-spacing: .3px;
       }
 
       &.selector {
@@ -407,13 +415,8 @@ pre[class*="language-toml"] {
   }
 
   .token.property {
-    color: #8FBCBB !important;
+    color: #826787 !important;
     font-weight: 500 !important;
-  }
-
-  .token.property {
-    color: #B48EAD !important;
-    font-weight: 900;
   }
 }
 
@@ -423,6 +426,16 @@ pre[class*="language-toml"] {
 
 pre[class*="language-shell"] {
   .token.function {
-    color: #ebcb8b !important;
+    color: #d0a349 !important;
+  }
+
+  .variable {
+    font-weight: 600;
+  }
+}
+
+pre[class*="language-json"] {
+  .token.property{
+    color: #7c8cae !important;
   }
 }

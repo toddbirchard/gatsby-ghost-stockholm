@@ -23,7 +23,7 @@ const Navigation = ({ data, smallLogo }) => (
       <div className="nav-wrapper">
         <div className="nav-left">
           <Link to="/" className="logo">
-            <img className="lazyload" data-src={smallLogo} alt={`${data.title} Logo`} title={`${data.title} Logo`} />
+            <img src={smallLogo} alt={`Hackers and Slackers Logo`} title={`Hackers and Slackers Logo`} />
           </Link>
           <div className="nav-links">
             <NavLinks navigation={data} />
@@ -42,7 +42,6 @@ const Navigation = ({ data, smallLogo }) => (
 Navigation.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,

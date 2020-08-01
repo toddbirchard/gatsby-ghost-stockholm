@@ -5,7 +5,7 @@ import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC, Commento, SupportWidget } from '../components/posts'
+import { RelatedPosts, SeriesTOC, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { AiOutlineEye, AiOutlineTags, AiOutlineCalendar, AiOutlineUser, AiTwotoneExperiment } from 'react-icons/ai'
 
@@ -20,7 +20,6 @@ const Post = ({ data, location }) => {
   const post = data.ghostPost
   const tags = data.ghostPost.tags
   const author = data.ghostPost.primary_author
-  const id = data.ghostPost.id
   const relatedPosts = data.relatedPosts
   const readingTime = readingTimeHelper(post)
   const seriesPosts = data.seriesPosts
@@ -97,7 +96,7 @@ const Post = ({ data, location }) => {
 
         </div>
         <section className="post-footer">
-          <Commento id={id}/>
+          {/*<Commento id={id}/>*/}
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
         </section>

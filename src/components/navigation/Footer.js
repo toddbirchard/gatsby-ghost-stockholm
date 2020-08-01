@@ -102,36 +102,37 @@ Footer.propTypes = {
 const FooterQuery = props => (
   <StaticQuery
     query={graphql`
-            query FooterQuery {
-              authors: allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}) {
-                edges {
-                  node {
-                    name
-                    slug
-                    id
-                    count {
-                      posts
-                    }
+      query FooterQuery {
+        authors: allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}, sort: {fields: id, order: ASC}) {
+            edges {
+                node {
+                  name
+                  slug
+                  id
+                  count {
+                    posts
                   }
                 }
               }
-              tags: allGhostTag(limit: 12, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
-                edges {
-                  node {
-                    name
-                    slug
-                  }
+            }
+            tags: allGhostTag(limit: 12, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}}) {
+              edges {
+                node {
+                  name
+                  slug
                 }
               }
-              series: allGhostTag(limit: 7, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 3}, slug: {nin: "adventures-in-excel"}}) {
-                edges {
-                  node {
-                    slug
-                    name
-                  }
+            }
+            series: allGhostTag(limit: 7, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 3}, slug: {nin: "adventures-in-excel"}}) {
+              edges {
+                node {
+                  slug
+                  name
                 }
               }
-            }`}
+            }
+          }
+    `}
     render={data => <Footer data={data} {...props} />}
   />
 )
