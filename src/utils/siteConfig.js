@@ -27,7 +27,7 @@ module.exports = {
   },
   lambda: {
     scrape: `https://hackersandslackers.com/.netlify/functions/scrape?url=`,
-    user: `https://hackersandslackers.com/.netlify/functions/user`,
+    auth: `https://hackersandslackers.com/.netlify/functions/auth`,
   },
   creator: {
     name: `Todd Birchard`,
