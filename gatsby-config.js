@@ -230,7 +230,7 @@ module.exports = {
     /**
      *  Font Plugins
      */
-    `gatsby-plugin-preload-fonts`,
+    // `gatsby-plugin-preload-fonts`,
     /**
      *  Style Plugins
      */
@@ -244,6 +244,7 @@ module.exports = {
           require(`stylelint`)()],
       },
     },
+    `@danbruegge/gatsby-plugin-stylelint`,
     /*{
       resolve: `gatsby-plugin-purgecss`,
       options: {

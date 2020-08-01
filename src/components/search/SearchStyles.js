@@ -18,8 +18,6 @@ const collapse = css`
   ${props => props.focus && focus}
   margin-left: ${props => (props.focus ? `-1.6em` : `-1em`)};
   padding-left: ${props => (props.focus ? `1.6em` : `1em`)};
-  ::placeholder {
-  }
 `
 
 const expand = css`
@@ -33,8 +31,7 @@ export const Input = styled.input`
   border: none;
   font-size: 1em;
   background: transparent;
-  {highlight-next-line}
-  ${props => (props.collapse ? collapse : expand)};
+  ${props => (props.collapse ? collapse : expand)}
 `
 
 export const HitsWrapper = styled.div`
@@ -62,8 +59,6 @@ export const HitsWrapper = styled.div`
   }
   ul {
     list-style: none;
-  }
-  mark {
   }
   header {
     display: flex;
