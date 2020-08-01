@@ -4,7 +4,7 @@
 .page-template {
   .page-content {
     h1 {
-      margin: 10px 0 25px 0;
+      margin: 10px 0 25px;
       color: @header-font-color;
       font-family: @body-font-book;
       font-size: 2.5em;
@@ -26,8 +26,8 @@
         overflow-x: hidden;
       }
 
-      .content-body p,
-      & > p {
+      & > p,
+      .content-body p {
         .body-font();
         margin: 0 0 25px;
 
@@ -36,9 +36,19 @@
         }
       }
 
-      .content-body ul,
-      & > ul {
+      & > ul,
+      .content-body ul {
         .lists();
+      }
+    }
+
+    .post-feature-image {
+      margin-bottom: 20px;
+      border: 1px solid #ececec;
+
+      img {
+        width: 100%;
+        margin-bottom: 0;
       }
     }
 
@@ -82,7 +92,6 @@
         padding: 40px;
       }
     }
-
 
     .viewport {
       @media (max-width: @tablet-breakpoint) {
@@ -160,10 +169,10 @@
         .body-font();
 
         a {
-         color: #6baaf2;
-         font-family: @body-font-bold;
-         transition: @transition;
-       }
+          color: #6baaf2;
+          font-family: @body-font-bold;
+          transition: @transition;
+        }
       }
 
       hr {
@@ -175,13 +184,12 @@
         margin-bottom: 2px;
         color: #71757b;
         font-family: @body-font-bold;
-        font-size: .9em;
+        font-size: 0.9em;
 
         svg {
           margin-right: 3px;
         }
       }
-
 
       .message {
         margin: 15px 0 0;
