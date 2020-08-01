@@ -7,7 +7,13 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
-import { AiOutlineEye, AiOutlineTags, AiOutlineCalendar, AiOutlineUser, AiTwotoneExperiment } from 'react-icons/ai'
+import {
+  AiOutlineEye,
+  AiOutlineTags,
+  AiOutlineCalendar,
+  AiOutlineUser,
+  AiTwotoneExperiment,
+} from 'react-icons/ai'
 
 /**
  * Single post view (/:slug)
@@ -51,7 +57,13 @@ const Post = ({ data, location }) => {
               {tags &&
               <div className="meta-item tag">
                 <AiOutlineTags />
-                <Tags post={post} limit={1} visibility="public" autolink separator="" permalink="/tag/:slug"
+                <Tags
+                  post={post}
+                  limit={1}
+                  visibility="public"
+                  autolink
+                  separator={null}
+                  permalink="/tag/:slug"
                   classes={tags.ghostId}/>
               </div>}
               <div className="meta-item reading-time">
@@ -88,8 +100,14 @@ const Post = ({ data, location }) => {
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
             <div className="post-tags">
-              <Tags post={post} visibility="public" permalink="/tag/:slug" autolink separator={false} suffix={false}
-                classes="post-tag-footer"/>
+              <Tags
+                post={post}
+                visibility="public"
+                permalink="/tag/:slug"
+                autolink
+                separator={null}
+                suffix={false}
+                classes={`post-tag-footer ${tags.ghostId}`}/>
             </div>
             <AuthorCard author={author} page={`post`}/>
           </article>
@@ -141,7 +159,7 @@ export const postQuery = graphql`
     relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {in: $tags}}, slug: {ne: $slug}}) {
       edges {
         node {
-          id
+          ghostId
           feature_image
           title
           slug

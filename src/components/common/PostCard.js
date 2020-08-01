@@ -35,7 +35,6 @@ const PostCard = ({ post }) => {
                 permalink="/tag/:slug/"
                 class=":slug"
                 separator={null}
-                classes={post.id}
               />
             </div>
             : null}
