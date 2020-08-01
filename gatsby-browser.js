@@ -5,7 +5,7 @@ import 'lazysizes';
 import config from './src/utils/siteConfig'
 
 const scrapeEndpoint = config.lambda.scrape
-const userEndpoint = config.lambda.user
+const userEndpoint = config.lambda.auth
 
 
 // Events
