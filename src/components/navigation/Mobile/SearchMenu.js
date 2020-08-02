@@ -97,7 +97,7 @@ const SearchMenuQuery = props => (
   <StaticQuery
     query={graphql`
           query MobileSearchQuery {
-            topSearches: allMysqlAlgoliaTopSearches(limit: 8) {
+            topSearches: allMysqlAlgoliaTopSearches(limit: 16) {
               edges {
                 node {
                   search
