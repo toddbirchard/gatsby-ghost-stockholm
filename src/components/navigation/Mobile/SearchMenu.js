@@ -39,6 +39,9 @@ class SearchMenu extends React.Component {
               onSearchParameters={() => this.setState({ focus: true })}
             >
               <Configure hitsPerPage={10} analytics={true}/>
+              <label id="search-input-label" className="search-label" htmlFor="search-input">
+                Search Posts
+              </label>
               <SearchBox
                 searchAsYouType={true}
                 placeholder="Search all posts..."
@@ -48,7 +51,10 @@ class SearchMenu extends React.Component {
                 }}
               />
               <FaSearch />
-              <HitsWrapper show={(this.state.query.length > 0 && this.state.focus)} className="search-results">
+              <HitsWrapper
+                show={(this.state.query.length > 0 && this.state.focus)}
+                className="search-results"
+              >
                 <Index indexName="hackers_posts">
                   <header>
                     <div className="search-results-title">Search results</div>
@@ -65,7 +71,11 @@ class SearchMenu extends React.Component {
             <div className="top-search-title"><FaChartLine /> Trending Searches</div>
             <div className="sublinks">
               {this.topSearches.map(({ node }) => (
-                <button className="search-suggestion" key={node.search} onClick={ () => this.setState({ query: node.search }) }>
+                <button
+                  className="search-suggestion"
+                  key={node.search}
+                  onClick={ () => this.setState({ query: node.search }) }
+                >
                   { node.search }
                 </button>
               ))}

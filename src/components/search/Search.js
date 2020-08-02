@@ -39,7 +39,13 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
         onSearchParameters={() => setFocus(true)} {...{ collapse, focus }}
       >
         <Configure hitsPerPage={10} analytics={true}/>
-        <label id="search-input-label" htmlFor="search-input">Search Posts</label>
+        <label
+          id="search-input-label"
+          className="search-label"
+          htmlFor="search-input"
+        >
+          Search Posts
+        </label>
         <SearchBox
           id="search-input"
           searchAsYouType={true}
@@ -51,7 +57,11 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
           }}
         />
         <FaSearch className="search-icon" />
-        <HitsWrapper show={(searchQuery.length > 0 && focus) || (!!forcedQuery)} asGrid={hitsAsGrid} className="search-results">
+        <HitsWrapper
+          show={(searchQuery.length > 0 && focus) || (!!forcedQuery)}
+          asGrid={hitsAsGrid}
+          className="search-results"
+        >
           <Index indexName="hackers_posts">
             <header>
               <div className="search-results-title">Search results</div>
