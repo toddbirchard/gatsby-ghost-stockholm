@@ -419,7 +419,7 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries,
         chunkSize: 100, // default: 1000
-        enablePartialUpdates: true,
+        enablePartialUpdates: false,
         matchFields: [`title`, `slug`, `modified`],
       },
     },

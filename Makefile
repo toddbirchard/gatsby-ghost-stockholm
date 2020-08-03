@@ -6,11 +6,13 @@ This is the Stockholm project Makefile.
 Usage:
 
 make build           - Build site & Lambdas for production.
+make serve           - Build & serve production build locally.
 make reset           - Purge cache & reinstall modules.
+make update          - Update npm production dependencies.
 endef
 export HELP
 
-.PHONY: build clean help
+.PHONY: build serve clean update help
 
 all help:
 	@echo "$$HELP"
@@ -23,6 +25,12 @@ build:
 	GO111MODULE=on
 	GOBIN=${PWD}/functions go install ./...
 
+.PHONY: serve
+serve:
+	gatsby clean
+	gatsby build
+	gatsby serve
+
 .PHONY: reset
 reset:
 	gatsby clean
@@ -30,3 +38,8 @@ reset:
 	rm -rf "node_modules"
 	npm i
 	npm audit fix
+
+.PHONY: update
+update:
+	ncu -u --dep=prod
+	npm i
