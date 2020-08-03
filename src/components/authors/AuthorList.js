@@ -28,7 +28,7 @@ const AuthorCardsQuery = props => (
   <StaticQuery
     query={graphql`
           query AuthorCardsQuery {
-            allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}) {
+            allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}, sort: {fields: id, order: ASC}) {
               edges {
                 node {
                   name

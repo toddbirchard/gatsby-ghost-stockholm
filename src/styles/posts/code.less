@@ -1,6 +1,11 @@
 @import "../mixins.less";
 @import "../variables.less";
 
+@code-gold: #d0a349;
+@code-mint: #88C0D0;
+@code-monarch: #D08770;
+@code-frost: #5E81AC;
+
 .content-body > pre,
 .kg-code-card > pre {
   display: block;
@@ -57,20 +62,20 @@
     }
 
     .selector-id {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
       font-weight: bold !important;
     }
 
     .selector-class {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .selector-attr {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .selector-pseudo {
-      color: #88C0D0 !important;
+      color: @code-mint !important;
     }
 
     .addition {
@@ -83,11 +88,11 @@
 
     .built_in,
     .type {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .class {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .function {
@@ -96,7 +101,7 @@
     }
 
     .function > .title {
-      color: #88C0D0 !important;
+      color: @code-mint !important;
     }
 
     .keyword,
@@ -120,7 +125,7 @@
     }
 
     .title {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .params {
@@ -132,7 +137,7 @@
     }
 
     .code {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .emphasis {
@@ -140,7 +145,7 @@
     }
 
     .formula {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .strong {
@@ -163,12 +168,12 @@
     }
 
     .doctag {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .meta,
     .meta-keyword {
-      color: #5E81AC !important;
+      color: @code-frost !important;
     }
 
     .meta-string {
@@ -176,7 +181,7 @@
     }
 
     .attr {
-      color: #8FBCBB !important;
+      color: @code-mint !important;
     }
 
     .attribute {
@@ -192,7 +197,7 @@
     }
 
     .section {
-      color: #88C0D0 !important;
+      color: @code-mint !important;
     }
 
     .tag {
@@ -208,11 +213,11 @@
     }
 
     .template-tag {
-      color: #5E81AC !important;
+      color: @code-frost !important;
     }
 
     .abnf .attribute {
-      color: #88C0D0 !important;
+      color: @code-mint !important;
     }
 
     .abnf .symbol {
@@ -220,7 +225,7 @@
     }
 
     .apache .attribute {
-      color: #88C0D0 !important;
+      color: @code-mint !important;
     }
 
     .apache .section {
@@ -228,23 +233,23 @@
     }
 
     .arduino .built_in {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .aspectj .meta {
-      color: #D08770;
+      color: @code-monarch;
     }
 
     .aspectj > .title {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .bnf .attribute {
-      color: #8FBCBB;
+      color: @code-mint;
     }
 
     .clojure .name {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .clojure .symbol {
@@ -252,27 +257,27 @@
     }
 
     .coq .built_in {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .cpp .meta-string {
-      color: #8FBCBB;
+      color: @code-mint;
     }
 
     .css .built_in {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .css .keyword {
-      color: #D08770;
+      color: @code-monarch;
     }
 
     .diff .meta {
-      color: #8FBCBB;
+      color: @code-mint;
     }
 
     .ebnf .attribute {
-      color: #8FBCBB;
+      color: @code-mint;
     }
 
     .glsl .built_in {
@@ -280,47 +285,47 @@
     }
 
     .groovy .meta:not(:first-child) {
-      color: #D08770;
+      color: @code-monarch;
     }
 
     .haxe .meta {
-      color: #D08770;
+      color: @code-monarch;
     }
 
     .java .meta {
-      color: #D08770;
+      color: @code-monarch;
     }
 
     .ldif .attribute {
-      color: #8FBCBB;
+      color: @code-mint;
     }
 
     .lisp .name {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .lua .built_in {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .moonscript .built_in {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .nginx .attribute {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .nginx .section {
-      color: #5E81AC;
+      color: @code-frost;
     }
 
     .pf .built_in {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .processing .built_in {
-      color: #88C0D0;
+      color: @code-mint;
     }
 
     .scss .keyword {
@@ -332,16 +337,16 @@
     }
 
     .swift .meta {
-      color: #D08770;
+      color: @code-monarch;
     }
 
     .vim .built_in {
-      color: #88C0D0;
+      color: @code-mint;
       font-style: italic;
     }
 
     .yaml .meta {
-      color: #D08770 !important;
+      color: @code-monarch !important;
     }
 
     .token {
@@ -362,7 +367,7 @@
       }
 
       &.class-name {
-        color: #d0a349 !important;
+        color: @code-gold !important;
         font-weight: 600;
       }
 
@@ -430,7 +435,7 @@ pre[class*="language-toml"] {
 
 pre[class*="language-shell"] {
   .token.function {
-    color: #d0a349 !important;
+    color: @code-gold !important;
   }
 
   .variable {
@@ -458,7 +463,7 @@ pre[class*="language-ini"] {
 pre[class*="language-html"],
 pre[class*="language-jinja2"] {
   .token.attr-name {
-    color: #d0a349 !important;
+    color: @code-gold !important;
   }
 
   .token.tag > .tag {
