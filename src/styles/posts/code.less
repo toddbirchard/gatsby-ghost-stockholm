@@ -354,7 +354,7 @@
       }
 
       &.attr-name {
-        color: white !important;
+        color: white;
       }
 
       &.punctuation {
@@ -362,7 +362,7 @@
       }
 
       &.class-name {
-        color: #ffde86 !important;
+        color: #d0a349 !important;
         font-weight: 600;
       }
 
@@ -404,6 +404,10 @@
 
       &.selector {
         font-weight: 600;
+      }
+
+      &.decorator {
+        font-weight: bold;
       }
     }
   }
@@ -448,5 +452,34 @@ pre[class*="language-ini"] {
 
   .token.selector {
     color: #6482a0!important;
+  }
+}
+
+pre[class*="language-html"],
+pre[class*="language-jinja2"] {
+  .token.attr-name {
+    color: #d0a349 !important;
+  }
+
+  .token.tag > .tag {
+    font-weight: bold;
+
+    .punctuation {
+      font-weight: 500;
+    }
+  }
+
+  .token.jinja2 {
+    font-weight: bold;
+  }
+
+  .jinja2 .token.delimiter.punctuation,
+  .jinja2 .keyword {
+    color: #7792b4 !important;
+  }
+
+  .jinja2 .token.variable,
+  .jinja2 .token.string {
+    color: #8baad8 !important;
   }
 }
