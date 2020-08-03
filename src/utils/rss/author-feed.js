@@ -1,8 +1,8 @@
 const generateRssFeed = require(`./generate-feed`)
 const siteConfig = require(`../siteConfig`)
 
-const feedTitle = `Todd Birchard`
-const feedUrl = `/author/todd/rss.xml`
+const feedTitle = `Todd Birchard - Hackers and Slackers`
+const feedUrl = siteConfig.siteUrl
 const matchPattern = `^/author/todd`
 const externalLink = undefined
 const feedRssQuery = `{

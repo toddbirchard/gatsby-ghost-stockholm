@@ -3,7 +3,7 @@ const siteConfig = require(`../siteConfig`)
 
 const feedTitle = siteConfig.siteTitleMeta
 const matchPattern = undefined
-const feedUrl = `/rss.xml`
+const feedUrl = siteConfig.siteUrl
 const externalLink = `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`
 const feedRssQuery = `{
   allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_author: {slug: {eq: "todd"}}}) {
@@ -20,9 +20,6 @@ const feedRssQuery = `{
         excerpt
         meta_title
         meta_description
-        authors {
-          name
-        }
         primary_author {
           name
         }

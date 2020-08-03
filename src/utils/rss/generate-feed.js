@@ -70,7 +70,7 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
     match: matchPattern,
     link: externalLink,
     query: rssQuery,
-    output: feedUrl,
+    output: `/rss`,
     title: title,
   }
 }

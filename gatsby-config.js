@@ -295,6 +295,7 @@ module.exports = {
               title
               description
               url
+              logo
             }
           }
         `,
