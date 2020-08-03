@@ -56,7 +56,7 @@ const SearchPage = ({ data, location, pageContext }) => {
         <div className="search-container">
           <InstantSearch
             searchClient={searchClient}
-            indexName="hackers_posts_all"
+            indexName="hackers_posts"
             createURL={createURL}
             hitsPerPage={40}
             analytics
@@ -78,11 +78,11 @@ const SearchPage = ({ data, location, pageContext }) => {
                   </div>
                   <SortBy
                     items={[
-                      { value: `hackers_posts_all`, label: `Relevance` },
-                      { value: `hackers_posts_all_published_at_desc`, label: `Published (desc)` },
-                      { value: `hackers_posts_all_published_at_asc`, label: `Published (asc)` },
+                      { value: `hackers_posts`, label: `Relevance` },
+                      { value: `hackers_posts_published_at_desc`, label: `Published (desc)` },
+                      { value: `hackers_posts_published_at_asc`, label: `Published (asc)` },
                     ]}
-                    defaultRefinement="hackers_posts_all"
+                    defaultRefinement="hackers_posts"
                   />
                 </div>
               </div>

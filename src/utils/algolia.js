@@ -9,37 +9,11 @@ const postQuery = `{
         feature_image
         excerpt
         meta_description
-        tags {
-          name
-          slug
-        }
-        primary_tag {
-          name
-        }
-        primary_author {
-          name
-        }
-        published_at
-      }
-    }
-  }
-}
-`
-const allPostQuery = `{
-  posts: allGhostPost(filter: {visibility: {eq: "public"}, primary_tag: {visibility: {eq: "public"}}}) {
-    edges {
-      node {
-        objectID: ghostId
-        id
-        slug
-        title
-        feature_image
-        excerpt
-        meta_description
         published_at
         created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
         tags {
           name
+          slug
         }
         primary_tag {
           name
@@ -67,11 +41,6 @@ const queries = [
     query: postQuery,
     transformer: ({ data }) => flatten(data.posts.edges), // optional
     indexName: `hackers_posts`,
-  },
-  {
-    query: allPostQuery,
-    transformer: ({ data }) => flatten(data.posts.edges), // optional
-    indexName: `hackers_posts_all`,
   },
 ]
 
