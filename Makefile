@@ -43,3 +43,4 @@ reset:
 update:
 	ncu -u --dep=prod
 	npm i
+	npm audit fix
