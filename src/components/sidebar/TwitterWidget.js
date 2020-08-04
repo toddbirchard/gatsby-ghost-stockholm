@@ -17,8 +17,16 @@ const TwitterWidget = ({ data }) => {
             <FaTwitter className="twitter-avatar" />
             <div className="profile-details">
               <div className="profile-details">
-                <a href={twitterProfileURL} className="twitter-name" target="_blank" rel="noopener noreferrer">{`@${twitterProfile.screen_name}`}</a>
-                <div className="twitter-followers"><FaUsers /> <span>{twitterProfile.followers_count} Followers</span></div>
+                <a
+                  href={twitterProfileURL}
+                  className="twitter-name"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  {`@${twitterProfile.screen_name}`}
+                </a>
+                <div className="twitter-followers">
+                  <FaUsers /> <span>{twitterProfile.followers_count} Followers</span>
+                </div>
               </div>
             </div>
           </div>
@@ -35,7 +43,9 @@ const TwitterWidget = ({ data }) => {
                       <div className="twitter-avatar">
                         <img className="lazyload" data-src={node.user.profile_image_url_https} alt="twitter-avatar" />
                       </div>
-                      <a href={node.user.url} className="twitter-name" rel="nofollow noreferrer">@{node.user.screen_name}</a>
+                      <a href={node.user.url} className="twitter-name" rel="nofollow noreferrer">
+                        @{node.user.screen_name}
+                      </a>
                     </div>
                     <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
                     {node.entities.urls &&
@@ -59,7 +69,14 @@ const TwitterWidget = ({ data }) => {
                       {node.entities.hashtags.length > 0 ?
                         <div className="tweet-hastags">
                           {node.entities.hashtags.map(({ text }) => (
-                            <a href={`https://twitter.com/hashtag/${text}`} key={`${node.id}-${text}`} className="hashtag" rel="nofollow noreferrer">#{text}</a>
+                            <a
+                              href={`https://twitter.com/hashtag/${text}`}
+                              key={`${node.id}-${text}`}
+                              className="hashtag"
+                              rel="nofollow noreferrer"
+                            >
+                                #{text}
+                            </a>
                           ))}
                         </div>
                         : null}
@@ -71,9 +88,18 @@ const TwitterWidget = ({ data }) => {
                     </div>}
 
               <div className="tweet-footer">
-                <div className="retweets meta-item"><FaRetweet /> <span className="meta-count">{node.retweet_count}</span></div>
-                <div className="favorites meta-item"><FaHeartbeat /> <span className="meta-count">{node.favorite_count}</span></div>
-                <div className="date meta-item"><AiOutlineCalendar /> <span className="meta-count">{node.created_at.split(` `, 3).join(` `)}</span></div>
+                <div className="retweets meta-item">
+                  <FaRetweet />
+                  <span className="meta-count">{node.retweet_count}</span>
+                </div>
+                <div className="favorites meta-item">
+                  <FaHeartbeat />
+                  <span className="meta-count">{node.favorite_count}</span>
+                </div>
+                <div className="date meta-item">
+                  <AiOutlineCalendar />
+                  <span className="meta-count">{node.created_at.split(` `, 3).join(` `)}</span>
+                </div>
               </div>
 
             </div>
