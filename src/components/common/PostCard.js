@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Tags } from '@tryghost/helpers-gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { FaUserEdit } from 'react-icons/fa'
 
@@ -25,18 +24,16 @@ const PostCard = ({ post }) => {
         </Link>
         {post.featured && <span>Featured</span>}
         <div className="post-card-detail">
-          {post.tags ?
-            <div className={`primary-tag ${post.tags[0].slug}`}>
-              <Tags
-                post={post}
-                limit={1}
-                visibility="public"
-                autolink
-                permalink="/tag/:slug/"
-                class=":slug"
-                separator={null}
-              />
-            </div>
+          {post.primary_tag ?
+            <Link
+              to={`/tag/${post.primary_tag.slug}/`}
+              className="primary-tag"
+              style={{
+                background: post.primary_tag.accent_color,
+                border: `1px solid ${post.primary_tag.accent_color}`,
+              }}>
+              {post.primary_tag.name}
+            </Link>
             : null}
           <Link to={url}>
             <h2 className="post-card-title">{post.title}</h2>
@@ -85,8 +82,9 @@ PostCard.propTypes = {
       profile_image: PropTypes.string,
     }).isRequired,
     primary_tag: PropTypes.shape({
-      name: PropTypes.string,
-      slug: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+      accent_color: PropTypes.string,
     }),
   }).isRequired,
 }

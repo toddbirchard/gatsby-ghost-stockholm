@@ -1,18 +1,13 @@
 @import "../mixins.less";
 @import "../variables.less";
 
-@code-gold: #d0a349;
-@code-mint: #88C0D0;
-@code-monarch: #D08770;
-@code-frost: #5E81AC;
-
 .content-body > pre,
 .kg-code-card > pre {
   display: block;
   padding: 15px 20px 20px;
   overflow-x: hidden;
   border-radius: 4px;
-  background: #f6f7f9 !important;
+  background: @card-background-color !important;
   color: unset !important;
   font-family: @monospace-font !important;
   font-size: 0.85em !important;

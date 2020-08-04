@@ -25,22 +25,21 @@
   .primary-tag {
     margin-bottom: 10px;
     line-height: 1;
+    color: white;
+    font-family: @header-font-secondary;
+    display: block;
+    width: fit-content;
+    padding: 4px 6px;
+    border-radius: 3px;
+    letter-spacing: .5px;
+    @media(max-width: @mobile-breakpoint) {
+      font-size: 1em;
+    }
 
-    a {
-      color: #607fa2;
-      font-family: @header-font-secondary;
-      font-size: 1.1em;
-      @media(max-width: @mobile-breakpoint) {
-        font-size: 1em;
-      }
-
-      &:hover {
-        color: @hover-color;
-
-        * {
-          color: @hover-color;
-        }
-      }
+    &:hover {
+      border-color: @theme-color !important;
+      color: @theme-color !important;
+      background: white !important;
     }
   }
 
@@ -128,7 +127,7 @@
       align-items: center;
       color: #646f7d;
       font-family: @body-font-bold;
-      font-size: .9em;
+      font-size: 0.9em;
       line-height: 1;
       white-space: nowrap;
       transition: @transition;

@@ -91,6 +91,7 @@ export const ghostPostFields = graphql`
             meta_description
             meta_title
             visibility
+            accent_color
         }
         tags {
             name
