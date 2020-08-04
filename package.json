@@ -55,9 +55,9 @@
     "qs": "^6.9.4"
   },
   "dependencies": {
-    "@babel/core": "^7.11.0",
+    "@babel/core": "^7.11.1",
     "@babel/highlight": "^7.10.4",
-    "@babel/runtime": "^7.11.0",
+    "@babel/runtime": "^7.11.1",
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
     "@tryghost/helpers": "1.1.28",
     "@tryghost/helpers-gatsby": "1.0.32",

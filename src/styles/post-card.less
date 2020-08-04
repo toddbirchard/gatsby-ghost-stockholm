@@ -32,8 +32,10 @@
     padding: 4px 6px;
     border-radius: 3px;
     letter-spacing: .5px;
+    font-size: .9em;
     @media(max-width: @mobile-breakpoint) {
-      font-size: 1em;
+      font-size: .85em;
+      padding: 3px 5px;
     }
 
     &:hover {
@@ -59,7 +61,7 @@
       font-size: 1.6em;
     }
     @media (max-width: 400px) {
-      font-size: 1.5em;
+      font-size: 1.4em;
     }
 
     &:hover {
@@ -108,6 +110,7 @@
         margin: 10px auto 30px;
       }
       @media (max-width: @mobile-breakpoint) {
+        display: none;
         margin: 10px auto 20px;
         font-size: 1.05em;
       }
@@ -121,6 +124,9 @@
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
+    @media(max-width: @mobile-breakpoint) {
+        margin: 20px 0 0;
+    }
 
     .meta-items {
       display: flex;

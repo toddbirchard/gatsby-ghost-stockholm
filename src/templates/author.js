@@ -91,7 +91,7 @@ Author.propTypes = {
           }),
         ),
       }),
-    }).isRequired,
+    }),
     authorTwitterProfile: PropTypes.shape({
       screen_name: PropTypes.string,
       name: PropTypes.string,
