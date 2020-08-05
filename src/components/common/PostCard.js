@@ -18,7 +18,12 @@ const PostCard = ({ post }) => {
         <Link to={url}>
           <picture>
             {post.feature_image &&
-              <img className="post-card-image lazyload" data-src={featureImage} alt={post.title} title={post.title} />
+              <img
+                className="post-card-image lazyload"
+                data-src={featureImage}
+                alt={post.title}
+                title={post.title}
+              />
             }
           </picture>
         </Link>
@@ -31,14 +36,14 @@ const PostCard = ({ post }) => {
               style={{
                 background: post.primary_tag.accent_color,
                 border: `1px solid ${post.primary_tag.accent_color}`,
-              }}>
-              {post.primary_tag.name}
-            </Link>
+              }}> {post.primary_tag.name} </Link>
             : null}
           <Link to={url}>
             <h2 className="post-card-title">{post.title}</h2>
           </Link>
-          {post.excerpt && <section className="post-card-excerpt">{post.excerpt}</section>}
+          {post.excerpt
+            && <p className="post-card-excerpt">{post.excerpt}</p>
+          }
           <footer className="post-card-footer">
             {post.primary_author &&
               <div className="meta-items">
