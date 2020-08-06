@@ -27,9 +27,9 @@ const NotFoundPage = ({ data }) => {
                 </Link>
                 <div className="post-card-detail">
                   {node.primary_tag_slug &&
-                    <div className="primary-tag">
-                      <Link to={`/tag/${node.primary_tag_slug}`}>{node.primary_tag_slug}</Link>
-                    </div>
+                      <Link to={`/tag/${node.primary_tag_slug}`} className="primary-tag">
+                        {node.primary_tag_slug}
+                      </Link>
                   }
                   <Link to={node.url}>
                     <h3 className="post-card-title">{node.title}</h3>
