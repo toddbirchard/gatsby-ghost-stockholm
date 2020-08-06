@@ -6,7 +6,7 @@
 
   [plugins.inputs]
     entryPoints = ["*.html"]
-    recursive = true
+    recursive = false
     fontDisplay = "swap"
     inlineCss = false
     inlineFonts = false
