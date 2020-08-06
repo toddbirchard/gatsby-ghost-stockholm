@@ -1,5 +1,14 @@
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
+  package = "netlify-plugin-subfont"
+
+  [plugins.inputs]
+  entryPoints = ["*.html"]
+  recursive = true
+  fontDisplay = "swap"
+  inlineCss = false
+  inlineFonts = false
+  fallbacks = true
 
 [build]
   base = "/"
