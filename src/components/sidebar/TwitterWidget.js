@@ -33,27 +33,19 @@ const TwitterWidget = ({ data }) => {
           {tweets.map(({ node }) => (
             <div className="tweet" key={node.id}>
 
-              {node.retweeted &&
-                <div className="retweeted-tweet">
-                  <div className="retweeted-header">
-                    <FaRetweet /> <span>{`${node.user.name} retweeted`}</span>
-                  </div>
-                  <div className="retweeted-body">
-                    <div className="tweet-header">
-                      <div className="twitter-avatar">
-                        <img className="lazyload" data-src={node.user.profile_image_url_https} alt="twitter-avatar" />
-                      </div>
-                      <a href={node.user.url} className="twitter-name" rel="nofollow noreferrer">
-                        @{node.user.screen_name}
-                      </a>
-                    </div>
-                    <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
-                    {node.entities.urls &&
+              {node.retweeted_status &&
+                 <div className="retweeted-tweet">
+                   <div className="retweeted-header">
+                     <FaRetweet /> <span>{`${node.user.name} retweeted`}</span>
+                   </div>
+                   <div className="retweeted-body">
+                     <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
+                     {node.entities.urls &&
                       node.entities.urls.map(({ url }) => (
                         <a href={url} className="tweet-link" key={url} rel="nofollow noreferrer">{ url }</a>
                       ))}
-                  </div>
-                </div>}
+                   </div>
+                 </div> }
 
               {node.in_reply_to_screen_name &&
                   <div className="reply-tweet">
@@ -61,9 +53,10 @@ const TwitterWidget = ({ data }) => {
                       <FaReply /> <span>{`Replying to @${node.in_reply_to_screen_name}`}</span>
                     </div>
                     <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
-                  </div>}
+                  </div>
+              }
 
-              {!node.retweeted && !node.in_reply_to_screen_name &&
+              {!node.retweeted_status && !node.in_reply_to_screen_name &&
                     <div>
                       <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
                       {node.entities.hashtags.length > 0 ?
@@ -85,7 +78,8 @@ const TwitterWidget = ({ data }) => {
                           <a href={url} className="tweet-link" key={`${node.id}`} rel="nofollow noreferrer">{url}</a>
                         ))
                         : null}
-                    </div>}
+                    </div>
+              }
 
               <div className="tweet-footer">
                 <div className="retweets meta-item">
@@ -121,6 +115,7 @@ TwitterWidget.propTypes = {
           created_at: PropTypes.string,
           id: PropTypes.string,
           retweeted: PropTypes.bool,
+          retweeted_status: PropTypes.object,
           user: PropTypes.shape({
             name: PropTypes.string.isRequired,
             url: PropTypes.string.isRequired,
@@ -186,6 +181,15 @@ const TwitterQuery = props => (
                 }
               }
               in_reply_to_screen_name
+              retweeted_status {
+                retweeted
+                user {
+                  screen_name
+                  url
+                  profile_image_url_https
+                }
+              }
+              source
             }
           }
         }

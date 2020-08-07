@@ -203,10 +203,13 @@ button {
 .sidebar-container {
   grid-gap: 30px;
   display: grid;
-  grid-template-columns: 2.4fr 1fr;
+  grid-template-columns: 2.1fr 1fr;
   width: 1020px;
   max-width: 95%;
   margin: 0 auto;
+  @media(max-width: 950px) {
+    grid-gap: 20px;
+  }
   @media (max-width: @tablet-breakpoint) {
     grid-template-columns: 1fr;
     max-width: 100%;
@@ -228,6 +231,9 @@ button {
   grid-auto-rows: min-content;
   grid-template-columns: 1fr;
   margin: 0 auto;
+  @media(max-width: 950px) {
+    grid-gap: 20px;
+  }
   @media (max-width: @tablet-breakpoint) {
     width: 92%;
   }

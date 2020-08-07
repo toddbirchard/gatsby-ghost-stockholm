@@ -56,14 +56,6 @@ module.exports = {
         name: `pages`,
       },
     },
-
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.join(__dirname, `src`, `data`),
-        name: `data`,
-      },
-    },
     {
       resolve: `gatsby-source-ghost`,
       options: process.env.NODE_ENV === `development`
