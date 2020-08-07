@@ -114,7 +114,6 @@ const Post = ({ data, location }) => {
 
         </div>
         <section className="post-footer">
-          {/*<Commento id={id}/>*/}
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
         </section>
