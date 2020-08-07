@@ -7,28 +7,46 @@ import config from './src/utils/siteConfig'
 const scrapeEndpoint = config.lambda.scrape
 const userEndpoint = config.lambda.auth
 
-
-// Events
-// -------------------------------------------
-export const onClientEntry = () => {
-  getUserSession() // Check user logged-in state
+// Client to create HTTP requests
+let HttpClient = function() {
+  this.get = function(url, callback) {
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function() {
+      if (httpRequest.readyState == 4 && httpRequest.status == 200)
+        callback(httpRequest.responseText);
+      }
+    httpRequest.open("GET", url, true);
+    httpRequest.send(null);
+  }
 }
 
+
+// -------------------------------------------
+// Events
+// -------------------------------------------
+
+// Trigger upon first page load
+export const onClientEntry = () => {
+  getUserSession()
+}
+
+// Trigger upon page load
 export const onRouteUpdate = ({location}) => {
-  // Route detection
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
-    codeSyntaxHighlight(); // Code syntax highlighting
-    enableLightboxImages(); // Image lightboxes
+    codeSyntaxHighlight();
+    enableLightboxImages();
   }
   if (path.indexOf('author')) {
-    scrapeUrlMetadata(); // Author website widget
+    scrapeUrlMetadata();
   }
 }
 
 // -------------------------------------------
 // Posts
 // -------------------------------------------
+
+// PrismaJS code snippet highlighting
 function codeSyntaxHighlight() {
   Prism.plugins.NormalizeWhitespace.setDefaults({
     'remove-trailing': true,
@@ -39,6 +57,7 @@ function codeSyntaxHighlight() {
   Prism.highlightAll();
 }
 
+// Lightbox funxtionality for post images
 function enableLightboxImages() {
   let images = document.querySelectorAll('.kg-image-card img');
   if (images.length > 0) {
@@ -70,26 +89,21 @@ function scrapeUrlMetadata() {
     let client = new HttpClient();
     client.get(scrapeEndpoint + url, function(response) {
       let data = JSON.parse(response)
-      linkElement.innerHTML = '<div class="website-title">' + data['Title'] + '</div>' + '<div class="website-description">' + data['Description'] + '</div>' + '<img src="' + data['Image'] + '" alt="' + data['Title'] + '" class="website-image" />'
+      linkElement.innerHTML = ('<div class="website-title">'
+                              + data['Title'] + '</div>'
+                              + '<div class="website-description">'
+                              + data['Description'] + '</div>' +
+                              '<img src="' + data['Image'] + '" alt="'
+                              + data['Title'] + '" class="website-image" />')
     });
-  }
-}
-
-let HttpClient = function() {
-  this.get = function(url, callback) {
-    let httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function() {
-      if (httpRequest.readyState == 4 && httpRequest.status == 200)
-        callback(httpRequest.responseText);
-      }
-    httpRequest.open("GET", url, true);
-    httpRequest.send(null);
   }
 }
 
 // -------------------------------------------
 // Members
 // -------------------------------------------
+
+// Determine if user is logged in
 function getUserSession() {
   let client = new XMLHttpRequest();
   const sessionCookies = document.cookie;

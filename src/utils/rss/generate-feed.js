@@ -54,7 +54,7 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
         title: siteTitle,
         description: siteDescription,
         generator: `Ghost 2.9`,
-        feed_url: `${siteConfig.siteUrl}/rss/`,
+        feed_url: `${siteConfig.siteUrl}/rss.xml`,
         site_url: `${siteConfig.siteUrl}/`,
         image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
         ttl: `60`,
@@ -70,7 +70,7 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
     match: matchPattern,
     link: externalLink,
     query: rssQuery,
-    output: `/rss`,
+    output: `/rss.xml`,
     title: title,
   }
 }

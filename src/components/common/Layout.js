@@ -44,7 +44,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         </div>
       </div>
       <Footer navigation={site.navigation} site={site} template={template} />
-      <script src="https://ghostboard.io/t/5b6d07675e853714ea2d75ea.js" type="text/javascript" async></script>
+      <script defer src="https://ghostboard.io/t/5b6d07675e853714ea2d75ea.js" type="text/javascript" async></script>
       <noscript><img src="https://ghostboard.io/api/noscript/5b6d07675e853714ea2d75ea/pixel.gif" alt="" border="0" /></noscript>
     </>
   )

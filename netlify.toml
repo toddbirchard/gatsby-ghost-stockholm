@@ -663,8 +663,7 @@
 [[headers]]
     for = "/rss.xml"
     [headers.values]
-      content-type = "text/xml; charset=utf-8"
-
+      content-type = "application/xml; charset=utf-8"
 
 [build.processing]
   skip_processing = false
