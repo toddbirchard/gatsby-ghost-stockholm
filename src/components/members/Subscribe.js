@@ -13,8 +13,8 @@ const Subscribe = ({ data }) => {
 
   return (
     <React.Fragment>
-      <h3 className="subscribe-form-title">{text(`SUBSCRIBE`)}</h3>
-      <p className="subscribe-form-description">{text(`SUBSCRIBE_SECTION`)}</p>
+      <h4 className="widget-title">{text(`SUBSCRIBE`)}</h4>
+      <p className="widget-description">{text(`SUBSCRIBE_SECTION`)}</p>
       <SubscribeForm url={cmsUrl} text={text}/>
     </React.Fragment>
   )

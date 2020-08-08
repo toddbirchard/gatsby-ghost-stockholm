@@ -5,6 +5,7 @@ import { AboutWidget,
   SocialWidget,
   TagsWidget,
   TrendingWidget,
+  CoffeeWidget,
   TwitterWidget,
   GithubWidget } from '.'
 
@@ -22,6 +23,7 @@ const Sidebar = ({ site, template }) => (
       <TrendingWidget />
       <TagsWidget />
       <NewsletterWidget />
+      <CoffeeWidget />
       {template === `home-template` ? <GithubWidget /> : null}
       {template === `home-template` ? <TwitterWidget /> : null}
     </aside>

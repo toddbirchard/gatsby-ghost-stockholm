@@ -21,6 +21,58 @@
       padding: 20px;
     }
 
+    .widget-title {
+      margin: 0 0 6px;
+      padding: 0;
+      color: @body-color;
+      font-size: 1.2em;
+      line-height: 1;
+      font-weight: 600;
+      text-align: left;
+      letter-spacing: .5px;
+    }
+
+    .widget-description {
+      margin: 15px 0 !important;
+      color: @body-color;
+      line-height: 1.3em !important;
+      font-size: 0.9em;
+      text-align: left;
+    }
+
+    .widget-button {
+      padding: 3px;
+      border: 0;
+      border-radius: 3px;
+      outline: none;
+      background: @button-color;
+      color: white;
+      font-size: 0.9em;
+      line-height: 1;
+      transition: all 0.2s ease-out;
+      width: 100%;
+      margin: 0;
+      text-align: center;
+      height: 37px;
+
+      .button-content {
+        margin-right: 5px;
+        font-family: @body-font-bold;
+      }
+
+      .coffee-icon {
+        width: 18px;
+        margin-left: 10px;
+      }
+
+
+      &:hover {
+        background: @hover-color !important;
+        color: white !important;
+        cursor: pointer;
+      }
+    }
+
     p {
       margin: 0;
       line-height: 1;
@@ -195,28 +247,7 @@
         .input-text-fields();
       }
 
-      button {
-        padding: 3px;
-        border: 0;
-        border-radius: 3px;
-        outline: none;
-        background: @theme-color;
-        color: white;
-        font-size: 0.9em;
-        line-height: 1;
-        transition: all 0.2s ease-out;
-        width: 100%;
-        margin: 0;
-        text-align: center;
-        height: 37px;
 
-
-        &:hover {
-          background: @hover-color !important;
-          color: white !important;
-          cursor: pointer;
-        }
-      }
     }
 
     &.series {

@@ -34,7 +34,7 @@ module.exports = {
     twitter: `@toddrbirchard`,
   },
   links: {
-    buyMeACoffee: `https://www.buymeacoffee.com/hackersslackers`,
+    buyMeACoffee: `https://buymeacoff.ee/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
   },
 }

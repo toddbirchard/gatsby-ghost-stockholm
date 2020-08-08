@@ -58,6 +58,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-source-ghost`,
+      apiUrl: process.env.GHOST_API_URL,
+      contentApiKey: process.env.GHOST_CONTENT_API_KEY,
+      version: `v3`,
       options: process.env.NODE_ENV === `development`
         ? ghostConfig.development
         : ghostConfig.production,
@@ -133,6 +136,11 @@ module.exports = {
             statement: `SELECT * FROM algolia_top_suggested_searches`,
             idFieldName: `search`,
             name: `algolia_top_searches`,
+          },
+          {
+            statement: `SELECT * FROM coffee`,
+            idFieldName: `id`,
+            name: `donations`,
           },
         ],
       },
@@ -237,16 +245,6 @@ module.exports = {
       },
     },
     `@danbruegge/gatsby-plugin-stylelint`,
-    /*{
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
-        whitelist: [`.page-template`], // Don't remove this selector
-        // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-      },
-    },*/
     /**
      *  Netlify Plugins
      */

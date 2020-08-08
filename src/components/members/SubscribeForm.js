@@ -1,17 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { FaArrowRight, FaRegTimesCircle } from 'react-icons/fa'
 import LoaderIcon from './icons/loader-icon'
-
-const HiddenLabel = styled.label`
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    clip: rect(1px,1px,1px,1px);
-    border: 0;
-    overflow: hidden;
-`
 
 class SubscribeForm extends React.Component {
   constructor(props) {
@@ -76,7 +66,7 @@ class SubscribeForm extends React.Component {
         </div>
         <form data-members-form="subscribe" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <HiddenLabel htmlFor="email">{text(`EMAIL`)}</HiddenLabel>
+            <label className="hidden-label" htmlFor="email">{text(`EMAIL`)}</label>
             <input
               id="email"
               name="email"
@@ -87,7 +77,7 @@ class SubscribeForm extends React.Component {
               placeholder={text(`YOUR_EMAIL`)}
               autoComplete="false"
             />
-            <button className="button primary" type="submit" value="Submit">
+            <button className="widget-button" type="submit" value="Submit">
               <span className="button-content">{text(`SUBSCRIBE`)}</span>
               <span className="button-loader"><LoaderIcon /></span>
               <FaArrowRight />
