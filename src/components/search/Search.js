@@ -16,16 +16,18 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
   const [searchQuery, setQuery] = useState(forcedQuery ? forcedQuery : ``)
   const [focus, setFocus] = useState(false)
   const PostHit = clickHandler => ({ hit }) => (
-    <div className="search-result">
-      <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload"/>
-      <div className="search-result-details">
-        <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
-        <div className="search-result-tag">
-          <FaTags />
-          <span>{hit.primary_tag.name}</span>
+    <Link to={`/${hit.slug}/`} onClick={clickHandler}>
+      <div className="search-result">
+        <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload"/>
+        <div className="search-result-details">
+          <div className="search-result-title">{hit.title}</div>
+          <div className="search-result-tag">
+            <FaTags />
+            <span>{hit.primary_tag.name}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 
   const focusFalse = () => setFocus(false)
