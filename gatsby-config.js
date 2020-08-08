@@ -138,7 +138,7 @@ module.exports = {
             name: `algolia_top_searches`,
           },
           {
-            statement: `SELECT * FROM coffee`,
+            statement: `SELECT * FROM donations`,
             idFieldName: `id`,
             name: `donations`,
           },
