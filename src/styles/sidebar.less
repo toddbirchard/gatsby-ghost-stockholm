@@ -22,18 +22,17 @@
     }
 
     .widget-title {
-      margin: 0 0 6px;
       padding: 0;
       color: @body-color;
       font-size: 1.2em;
       line-height: 1;
       font-weight: 600;
       text-align: left;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
     }
 
     .widget-description {
-      margin: 10px 0 !important;
+      margin: 5px 0 15px !important;
       color: @body-color;
       line-height: 1.3em !important;
       font-size: 0.9em;
@@ -45,14 +44,15 @@
     }
 
     .donations {
-      margin-top: 25px;
+      margin: 25px 0 20px;
 
       .donation {
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e2e5ee;
         display: flex;
         align-items: center;
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #e2e5ee;
+
         &:last-of-type {
           border-bottom: unset;
         }
@@ -60,30 +60,24 @@
         .contributor {
           margin-right: 15px;
           width: 100%;
+
+          * {
+            color: @body-color;
+          }
+
+          a:hover {
+            color: @hover-color;
+          }
         }
 
         .name {
           font-family: @body-font-bold;
           margin-bottom: 3px;
-          font-size: .95em;
-        }
-
-        .message {
-          font-size: .8em;
-          line-height: 1.25;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          display: -webkit-box;
-          width: -webkit-fill-available;
-          overflow: hidden;
-          width: 100%;
+          font-size: 0.95em;
         }
 
         .contributed {
-          // border: 1px solid #e8ab20;
           border-radius: 50%;
-          min-width: 40px;
-          height: 40px;
           display: flex;
           align-items: center;
           text-align: center;
@@ -95,14 +89,13 @@
             margin: auto;
 
             * {
-              color: #e8ab20;
+              color: #dfa31b;
             }
 
             .count {
               font-weight: bold;
               font-family: @header-font;
               margin-right: 3px;
-              font-size: .8em;
               line-height: 1;
             }
 
@@ -138,7 +131,6 @@
         width: 18px;
         margin-left: 10px;
       }
-
 
       &:hover {
         background: @hover-color !important;
@@ -209,12 +201,12 @@
 
       .website-title {
         font-family: @body-font-bold;
-        font-size: .95em;
+        font-size: 0.95em;
         line-height: 1.2;
       }
 
       .website-description {
-        font-size: .8em;
+        font-size: 0.8em;
         line-height: 1.2em;
         margin: 10px 0;
       }
@@ -224,7 +216,7 @@
         cursor: pointer;
 
         img {
-          opacity: .7;
+          opacity: 0.7;
         }
       }
     }
@@ -247,7 +239,7 @@
       .description {
         margin: 15px 0 0;
         font-family: @body-font-bold;
-        font-size: .95em;
+        font-size: 0.95em;
         line-height: 1.35;
         text-align: center;
       }
@@ -263,7 +255,6 @@
         border: unset;
         outline: none;
         background: unset;
-
       }
 
       svg {
@@ -304,7 +295,6 @@
     }
 
     &.newsletter {
-
       .newsletter-description {
         margin-bottom: 15px;
         font-family: @body-font-book;
@@ -320,8 +310,6 @@
         transition: @transition;
         .input-text-fields();
       }
-
-
     }
 
     &.series {

@@ -20,10 +20,11 @@ const CoffeeWidget = ({ data }) => {
         <p className="widget-description">{donateCopy}</p>
         <div className="donations">
           {donations.map(({ node }) => (
-            <div key={node.id} className="donation">
+            <div className="donation" key={node.id}>
               <div className="contributor">
-                <div className="name">{node.name}</div>
-                <p className="message">{node.message}</p>
+                <a rel="noopener noreferrer" target="_blank" href={node.link}>
+                  <div className="name">{node.name}</div>
+                </a>
               </div>
               <div className="contributed">
                 <div>
@@ -50,11 +51,10 @@ CoffeeWidget.propTypes = {
     coffees: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string.isRequired,
+          id: PropTypes.string,
           name: PropTypes.string.isRequired,
           count: PropTypes.number.isRequired,
           message: PropTypes.string,
-          email: PropTypes.string,
           link: PropTypes.string.isRequired,
         }),
       ),
@@ -66,7 +66,7 @@ const CoffeeWidgetQuery = props => (
   <StaticQuery
     query={graphql`
       query coffeeQuery {
-        coffees: allMysqlDonations(limit: 3, sort: {fields: count, order: DESC}) {
+        coffees: allMysqlDonations(limit: 5, sort: {fields: count, order: DESC}) {
           edges {
             node {
               email
