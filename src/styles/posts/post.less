@@ -326,12 +326,12 @@
         color: #615649;
         font-family: @body-font;
         line-height: 1.4;
+        font-size: .95em;
         @media (max-width: @mobile-breakpoint) {
           margin-right: calc(-50vw + 50%) !important;
           margin-left: calc(-50vw + 50%) !important;
           padding: 60px 20px 14px;
           border-radius: 0;
-          font-size: 1em;
         }
 
         p,
@@ -494,6 +494,10 @@
         text-align: right;
         @media (max-width: @mobile-breakpoint) {
           width: 90%;
+        }
+
+        a {
+          .link();
         }
       }
 
