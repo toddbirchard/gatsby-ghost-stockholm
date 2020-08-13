@@ -138,7 +138,7 @@ module.exports = {
             name: `algolia_top_searches`,
           },
           {
-            statement: `SELECT * FROM donations WHERE message IS NOT NULL`,
+            statement: `SELECT * FROM donations WHERE message <> ''`,
             idFieldName: `id`,
             name: `donations`,
           },
