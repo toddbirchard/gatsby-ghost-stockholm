@@ -57,7 +57,7 @@
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
     "@tryghost/helpers": "1.1.29",
     "@tryghost/helpers-gatsby": "1.0.33",
-    "@tryghost/social-urls": "^0.1.11",
+    "@tryghost/social-urls": "^0.1.12",
     "algoliasearch": "^4.4.0",
     "algoliasearch-helper": "^3.2.2",
     "babel-plugin-prismjs": "^2.0.1",
