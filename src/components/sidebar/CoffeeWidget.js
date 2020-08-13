@@ -10,28 +10,29 @@ import { FiCoffee } from 'react-icons/fi'
 
 const CoffeeWidget = ({ data }) => {
   const coffeeImg = `/images/bmc-new-btn-logo.svg`
-  const donateCopy = `If Hackers and Slackers has been helpful to you, feel free to buy us a coffee to keep us going :).`
   const donations = data.coffees.edges
 
   return (
     <>
       <div className="coffee widget">
         <h4 className="widget-title">Top Contributors</h4>
-        <p className="widget-description">{donateCopy}</p>
         <div className="donations">
           {donations.map(({ node }) => (
             <div className="donation" key={node.id}>
-              <div className="contributor">
-                <a rel="noopener noreferrer" target="_blank" href={node.link}>
-                  <div className="name">{node.name}</div>
-                </a>
-              </div>
-              <div className="contributed">
-                <div>
-                  <span className="count">{node.count}</span>
-                  <FiCoffee />
+              <div>
+                <div className="contributor-name">
+                  <a rel="noopener noreferrer" target="_blank" href={node.link}>
+                    <div className="name">{node.name}</div>
+                  </a>
+                </div>
+                <div className="number-coffees">
+                  <div>
+                    <span className="count">{node.count}</span>
+                    <FiCoffee />
+                  </div>
                 </div>
               </div>
+              <p>{node.message}</p>
             </div>
           ))}
         </div>

@@ -50,60 +50,71 @@
         margin-bottom: 8px;
         padding-bottom: 8px;
         border-bottom: 1px solid #e2e5ee;
-        display: flex;
-        align-items: center;
 
-        &:last-of-type {
-          border-bottom: unset;
-        }
-
-        .contributor {
-          margin-right: 15px;
-          width: 100%;
-
-          * {
-            color: @body-color;
-          }
-
-          a:hover {
-            color: @hover-color;
-          }
-        }
-
-        .name {
-          font-family: @body-font-bold;
-          margin-bottom: 3px;
-          font-size: 0.95em;
-        }
-
-        .contributed {
-          border-radius: 50%;
+        & > div {
           display: flex;
           align-items: center;
-          text-align: center;
 
-          div {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            margin: auto;
+          &:last-of-type {
+            border-bottom: unset;
+          }
+
+          .contributor-name {
+            margin-right: 15px;
+            width: 100%;
 
             * {
-              color: #dfa31b;
+              color: @body-color;
             }
 
-            .count {
-              font-weight: bold;
-              font-family: @header-font;
-              margin-right: 3px;
-              line-height: 1;
+            a:hover {
+              color: @hover-color;
             }
+          }
 
-            svg {
-              font-size: 1em;
+          .name {
+            font-family: @body-font-bold;
+            font-size: 0.95em;
+          }
+
+          .number-coffees {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            div {
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
+              margin: auto;
+
+              * {
+                color: #dfa31b;
+              }
+
+              .count {
+                font-weight: bold;
+                font-family: @header-font;
+                margin-right: 3px;
+                line-height: 1;
+              }
+
+              svg {
+                font-size: 1em;
+              }
             }
           }
         }
+      }
+
+      p {
+        line-height: 1.35;
+        font-size: .85em;
+        margin: 5px 0;
+        text-align: justify;
+        -webkit-line-clamp: 3;
+        .line-clamp();
       }
     }
 
