@@ -55,7 +55,7 @@
     "@babel/highlight": "^7.10.4",
     "@babel/runtime": "^7.11.2",
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
-    "@tryghost/helpers": "1.1.29",
+    "@tryghost/helpers": "1.1.30",
     "@tryghost/helpers-gatsby": "1.0.33",
     "@tryghost/social-urls": "^0.1.11",
     "algoliasearch": "^4.4.0",
