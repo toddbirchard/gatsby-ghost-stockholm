@@ -18,12 +18,10 @@ const CoffeeWidget = ({ data }) => {
         <h4 className="widget-title">Top Contributors</h4>
         <div className="donations">
           {donations.map(({ node }) => (
-            <div className="donation" key={node.id}>
+            <a rel="noopener noreferrer" target="_blank" href={node.link} className="donation" key={node.id}>
               <div>
                 <div className="contributor-name">
-                  <a rel="noopener noreferrer" target="_blank" href={node.link}>
-                    <div className="name">{node.name}</div>
-                  </a>
+                  <div className="name">{node.name}</div>
                 </div>
                 <div className="number-coffees">
                   <div>
@@ -33,7 +31,7 @@ const CoffeeWidget = ({ data }) => {
                 </div>
               </div>
               <p>{node.message}</p>
-            </div>
+            </a>
           ))}
         </div>
         <a rel="noopener noreferrer" target="_blank" href={config.links.buyMeACoffee}>
@@ -53,7 +51,7 @@ CoffeeWidget.propTypes = {
       edges: PropTypes.arrayOf(
         PropTypes.shape({
           id: PropTypes.string,
-          name: PropTypes.string.isRequired,
+          name: PropTypes.string,
           count: PropTypes.number.isRequired,
           message: PropTypes.string,
           link: PropTypes.string.isRequired,

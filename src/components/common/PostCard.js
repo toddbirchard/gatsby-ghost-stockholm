@@ -11,21 +11,25 @@ const PostCard = ({ post }) => {
   const authorAvatar = post.primary_author.profile_image ? post.primary_author.profile_image : null
   const createdDate = post.created_at_pretty
   const featureImage = post.feature_image
+  const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile%402x`)
 
   return (
     <>
       <div className="post-card">
         <Link to={url}>
-          <picture>
-            {post.feature_image &&
-              <img
-                className="post-card-image lazyload"
-                data-src={featureImage}
-                alt={post.title}
-                title={post.title}
-              />
-            }
-          </picture>
+
+          {post.feature_image &&
+              <picture>
+                <source media="(max-width:600px)" data-srcset={featureImageMobile} />
+                <img
+                  className="post-card-image lazyload"
+                  data-src={featureImage}
+                  alt={post.title}
+                  title={post.title}
+                />
+              </picture>
+          }
+
         </Link>
         {post.featured && <span>Featured</span>}
         <div className="post-card-detail">

@@ -31,8 +31,9 @@ const Post = ({ data, location }) => {
   const seriesPosts = data.seriesPosts
   const authorUrl = post.primary_author.slug && `/author/${post.primary_author.slug}/`
   const authorFirstName = author.name.split(` `)[0]
-  const retinaImage = post.feature_image && post.feature_image.indexOf(`@2x`) === -1 ? post.feature_image.replace(`.jpg`, `@2x.jpg`) : null
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
+  const featureImage = post.feature_image
+  const featureImageMobile = post.featureImage && post.featureImage.replace(`@2x`, `_mobile%402x`)
 
   return (
     <>
@@ -75,11 +76,17 @@ const Post = ({ data, location }) => {
                 <span>{post.published_at_pretty}</span>
               </div>
             </div>
-            <figure className="post-image">
-              {retinaImage
-                ? <img className="post-card-image lazyload" data-src={retinaImage} alt={post.title}/>
-                : <img className="post-card-image lazyload" data-src={post.feature_image} alt={post.title}/>}
-            </figure>
+            {post.feature_image &&
+                <picture className="post-image">
+                  <source media="(max-width:600px)" data-srcset={featureImageMobile} />
+                  <img
+                    className="post-card-image lazyload"
+                    data-src={featureImage}
+                    alt={post.title}
+                    title={post.title}
+                  />
+                </picture>
+            }
           </div>
 
           <article className="post">

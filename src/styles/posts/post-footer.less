@@ -86,11 +86,12 @@
           height: 40px;
           margin: 0 0 20px;
           color: #616f7d;
-          font-size: 1.05em;
+          font-size: 1em;
           line-height: 1.25;
-          font-family: @header-font-secondary;
+          letter-spacing: .5px;
+          font-family: @body-font-medium;
           @media (max-width: @tablet-breakpoint) {
-            font-size: 1em;
+            font-size: .95em;
           }
           @media (max-width: @mobile-breakpoint) {
             margin: 0 0 15px;
@@ -170,7 +171,9 @@
 
     .donate-section {
       .support-description {
-        margin-bottom: 60px;
+        margin-bottom: 75px;
+        line-height: 1.5;
+        font-size: .9em;
         @media (max-width: @mobile-breakpoint) {
           margin-bottom: 30px;
         }

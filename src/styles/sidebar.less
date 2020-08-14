@@ -25,15 +25,15 @@
       color: @body-color;
       font-size: 1.2em;
       line-height: 1;
-      font-weight: 600;
       text-align: left;
       letter-spacing: 0.5px;
+      font-family: @header-font-secondary;
     }
 
     .widget-description {
       margin: 5px 0 15px !important;
       color: @body-color;
-      line-height: 1.3em !important;
+      line-height: 1.5em !important;
       font-size: 0.9em;
       text-align: left;
     }
@@ -43,12 +43,21 @@
     }
 
     .donations {
-      margin: 25px 0 20px;
+      margin: 5px 0 0;
 
       .donation {
-        margin-bottom: 14px;
-        padding-bottom: 14px;
+        padding: 14px 5px;
         border-bottom: 1px solid #e2e5ee;
+        display: block;
+        transition: @transition;
+
+        &:hover {
+          background: @hover-color;
+
+          * {
+            color: white !important;
+          }
+        }
 
         &:last-of-type {
           border-bottom: unset;
@@ -65,14 +74,10 @@
             * {
               color: @body-color;
             }
-
-            a:hover {
-              color: @hover-color;
-            }
           }
 
           .name {
-            font-family: @body-font-bold;
+            font-family: @body-font-medium;
             font-size: 0.95em;
           }
 
@@ -114,6 +119,7 @@
         margin: 5px 0;
         -webkit-line-clamp: 3;
         .line-clamp();
+        color: @body-color;
       }
     }
 
@@ -178,7 +184,6 @@
         display: flex;
         align-items: center;
         color: #5cc3a2;
-        font-weight: 600;
 
         span {
           font-size: 0.95em;
@@ -249,9 +254,9 @@
 
       .description {
         margin: 15px 0 0;
-        font-family: @body-font-bold;
+        font-family: @body-font;
         font-size: 0.95em;
-        line-height: 1.35;
+        line-height: 1.4;
         text-align: center;
         @media (max-width: @smallscreen-breakpoint) {
           font-size: 0.9em;
@@ -297,7 +302,7 @@
         padding: 4px 10px;
         border: 1px solid #d7dee7;
         color: #78849c;
-        font-family: @body-font-bold;
+        font-family: @body-font;
         font-size: 0.85em !important;
         line-height: 1.5em;
         text-align: center;
@@ -315,7 +320,7 @@
     &.newsletter {
       .newsletter-description {
         margin-bottom: 15px;
-        font-family: @body-font-book;
+        font-family: @body-font;
         line-height: 1.35;
         font-size: 0.9em;
       }
@@ -389,7 +394,7 @@
         border-bottom: 1px solid #e7e7e7;
         color: lighten(@header-font-color, 15%);
         font-size: 0.85em;
-        font-weight: 600;
+        font-family: @body-font-medium;
         line-height: 1.3;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -441,8 +446,7 @@
         .twitter-name {
           display: block;
           color: #606c8c;
-          font-family: @body-font;
-          font-weight: 600;
+          font-family: @body-font-bold;
           line-height: 1;
         }
 
@@ -471,7 +475,6 @@
         color: #94a4b6;
         font-family: @body-font-bold;
         font-size: 0.9em;
-        font-weight: 600;
         line-height: 1;
         white-space: nowrap;
 
@@ -566,7 +569,6 @@
           color: #6baaf2;
           font-family: @body-font-bold;
           font-size: 0.9em;
-          font-weight: 600;
           line-height: 1;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -591,7 +593,7 @@
         .tweet-content {
           margin: 0;
           color: #7a8496;
-          font-family: @body-font-bold !important;
+          font-family: @body-font !important;
           font-size: 0.9em;
           line-height: 1.35;
         }
@@ -615,7 +617,6 @@
         display: flex;
         align-items: center;
         color: #718aa8;
-        font-weight: 600;
         line-height: 1;
         margin-right: 20px;
         font-size: 0.85em;
@@ -739,7 +740,7 @@
 
           .repo-name {
             color: @body-color;
-            font-family: @body-font-bold;
+            font-family: @header-font-secondary;
             line-height: 1;
           }
 
