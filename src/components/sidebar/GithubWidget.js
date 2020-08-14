@@ -25,8 +25,8 @@ const GithubWidget = ({ data }) => {
               rel="noopener noreferrer">
               {`@${githubOrg.login}`}
             </a>
-            <div className="github-org-meta">
-              <div className="meta-item"><FaProjectDiagram /> {githubRepoSummary} </div>
+            <div className="github-org-meta meta-item">
+              <FaProjectDiagram /> <span>{githubRepoSummary}</span>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ const SeriesPostCard = ({ post, count }) => {
             </Link>
           </h2>
           <div className="excerpt">{post.excerpt}</div>
-          <div className="reading-time"><FaClock /> {readingTime}</div>
+          <div className="reading-time"><FaClock /> <span>{readingTime}</span></div>
         </div>
       </div>
     </>

@@ -36,7 +36,7 @@ const TwitterWidget = ({ data }) => {
               {node.retweeted_status &&
                  <div className="retweeted-tweet">
                    <div className="retweeted-header">
-                     <FaRetweet /> <span>{`${node.user.name} retweeted`}</span>
+                     <FaRetweet /> <span>{`${node.user.screen_name} retweeted`}</span>
                    </div>
                    <div className="retweeted-body">
                      <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
