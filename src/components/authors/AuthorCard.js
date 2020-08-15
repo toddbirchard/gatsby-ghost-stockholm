@@ -8,6 +8,7 @@ import '../../styles/author-card.less'
 
 const AuthorCard = ({ author, page, template, pageContext }) => {
   const authorTwitterUrl = author.twitter && twitter(author.twitter)
+  const authorGithub = author.facebook
   const authorPostCount = author.postCount
   const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
@@ -42,6 +43,13 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
                 <div className="author-card-item">
                   <a href={author.website} target="_blank" rel="noopener noreferrer">
                     <AiOutlineLink /><span>Website</span>
+                  </a>
+                </div>
+              }
+              {authorGithub &&
+                <div className="author-card-item">
+                  <a href={authorGithub} target="_blank" rel="noopener noreferrer">
+                    <AiOutlineLink /><span>Github</span>
                   </a>
                 </div>
               }

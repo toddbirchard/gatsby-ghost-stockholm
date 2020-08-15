@@ -33,7 +33,7 @@ const Post = ({ data, location }) => {
   const authorFirstName = author.name.split(` `)[0]
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
-  const featureImageMobile = post.featureImage && post.featureImage.replace(`@2x`, `_mobile%402x`)
+  const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
 
   return (
     <>
@@ -78,7 +78,10 @@ const Post = ({ data, location }) => {
             </div>
             {post.feature_image &&
                 <picture className="post-image">
-                  <source media="(max-width:600px)" data-srcset={featureImageMobile} />
+                  <source
+                    media="(max-width:600px)"
+                    data-srcset={featureImageMobile}
+                  />
                   <img
                     className="post-card-image lazyload"
                     data-src={featureImage}
