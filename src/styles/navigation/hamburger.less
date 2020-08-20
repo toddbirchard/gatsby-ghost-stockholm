@@ -148,8 +148,8 @@
 
   .bm-item-list {
     min-height: 100%;
-    transition: @transition;
     overflow: scroll;
+    transition: @transition;
 
     .accordion__panel {
       padding: 0 0 20px 20px;
@@ -194,20 +194,19 @@
       z-index: 2;
       position: absolute;
       top: 150%;
+      top: 90px;
       width: stretch;
       padding: 20px 30px 0 !important;
       background: white;
       transition: all 300ms cubic-bezier(0.000, 0.000, 0.000, 0.600);
-      top: 90px;
 
       .top-search-title {
         margin-bottom: 30px;
-        font-family: @body-font-bold;
-        font-weight: 600;
-        letter-spacing: 1px;
-        font-size: 0.85em;
-        text-transform: uppercase;
         color: #69bba1;
+        font-family: @body-font-bold;
+        font-size: 0.85em;
+        font-weight: 600;
+        text-transform: uppercase;
 
         svg {
           margin-right: 5px;
@@ -217,16 +216,16 @@
 
       .search-suggestion {
         margin-bottom: 15px;
+        padding: 0;
+        overflow: visible;
+        border: unset;
+        background: unset;
         color: #67717d;
         font-family: @body-font-medium;
+        font-size: 0.85em;
         line-height: 1.2;
         text-align: left;
         text-transform: uppercase;
-        background: unset;
-        border: unset;
-        font-size: 0.85em;
-        overflow: visible;
-        padding: 0;
 
         svg {
           margin-right: 5px;
@@ -373,8 +372,8 @@
         grid-gap: 0;
 
         .ais-Hits-item {
-          box-shadow: unset !important;
           border-bottom: 1px solid #eaeaea;
+          box-shadow: unset !important;
         }
       }
 
@@ -463,19 +462,18 @@
         width: 100% !important;
         margin: 0 !important;
         .input-field-interactions();
-        border: 1px solid #dcdada;
-        color: #636a75;
-        font-family: @body-font-medium !important;
-        font-size: 0.9em !important;
-        font-weight: 300;
-        letter-spacing: 1px;
-        transition: all 0.2s ease-out;
         height: 70px;
         padding: 25px 15px !important;
+        border: 1px solid #dcdada;
         border-top: 0 !important;
         border-right: 0 !important;
         border-left: 0 !important;
+        color: #636a75;
+        font-family: @body-font-medium !important;
+        font-size: 0.9em !important;
         font-size: 1em !important;
+        font-weight: 300;
+        transition: all 0.2s ease-out;
 
         &:focus,
         &:hover {
@@ -511,6 +509,7 @@
     cursor: pointer;
   }
 }
+
 /*
 *
 * Search active state
