@@ -18,29 +18,18 @@ import { MetaData } from '../components/common/meta'
 import { Layout, PostCard } from '../components/common'
 import '../styles/pages/search.less'
 
-const DEBOUNCE_TIME = 700
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
 )
 const createURL = state => `?${qs.stringify(state)}`
-const searchStateToUrl = ({ location }, searchState) => (searchState ? `${location.pathname}${createURL(searchState)}` : ``)
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
 const SearchPage = ({ data, location, pageContext }) => {
   const title = pageContext.title
   const description = pageContext.description
   const [searchState, setSearchState] = useState(urlToSearchState(location))
-  const [debouncedSetState, setDebouncedSetState] = useState(null)
   const onSearchStateChange = (updatedSearchState) => {
-    clearTimeout(debouncedSetState)
-
-    setDebouncedSetState(
-      setTimeout(() => {
-        history.push(searchStateToUrl(updatedSearchState), updatedSearchState)
-      }, DEBOUNCE_TIME)
-    )
-
     setSearchState(updatedSearchState)
   }
 

@@ -10,8 +10,8 @@
       max-width: 90%;
     }
     @media (max-width: @mobile-breakpoint) {
-      margin: 0 auto;
       max-width: 92%;
+      margin: 0 auto;
     }
   }
 
@@ -120,8 +120,8 @@
         margin-right: 10px;
       }
       @media (max-width: @mobile-breakpoint) {
-        margin: 0 0 10px;
         height: unset;
+        margin: 0 0 10px;
       }
 
       .search-icon {
@@ -135,10 +135,10 @@
         color: #a6b6c7;
         opacity: 0.8;
         @media (max-width: @mobile-breakpoint) {
-          font-size: 0.8em;
           right: 15px;
           width: 17px;
           height: 17px;
+          font-size: 0.8em;
         }
       }
     }
@@ -148,8 +148,8 @@
       width: 100%;
       @media (max-width: @mobile-breakpoint) {
         width: 100%;
-        margin-bottom: 0;
         height: fit-content;
+        margin-bottom: 0;
       }
 
       .ais-SearchBox-input {
@@ -166,9 +166,9 @@
         .input-text-fields();
         height: 50px;
         @media (max-width: @mobile-breakpoint) {
+          height: unset;
           padding: 12px !important;
           font-size: 1em;
-          height: unset;
         }
       }
     }
@@ -249,16 +249,15 @@
           }
 
           .ais-RefinementList-count {
+            min-width: 12px;
             margin-left: 0;
-            padding: 2px;
-            font-weight: 600;
+            padding: 3px 4px 1px;
             border-radius: 3px;
             background: #a2a8bb;
             color: white;
-            font-size: 0.65em;
             font-family: @body-font-bold;
+            font-size: 0.65em;
             line-height: 1;
-            min-width: 12px;
             text-align: center;
           }
         }
@@ -350,8 +349,8 @@
   }
 
   .ais-Hits {
-    margin: 0 10px 0 0;
     width: 100%;
+    margin: 0 10px 0 0;
     @media (max-width: @tablet-breakpoint) {
       margin: 0 !important;
     }
@@ -367,8 +366,8 @@
         grid-template-columns: 1fr 1fr 1fr;
       }
       @media (max-width: @mobile-breakpoint) {
-        grid-template-columns: 1fr 1fr;
         grid-gap: 15px;
+        grid-template-columns: 1fr 1fr;
       }
       @media (max-width: 500px) {
         grid-template-columns: 1fr;
@@ -391,11 +390,12 @@
         }
 
         .primary-tag {
-          color: #607fa2 !important;
+          margin-bottom: 5px;
           padding: unset;
           background: unset;
+          color: #607fa2 !important;
+          font-family: @body-font-bold;
           font-size: 0.85em;
-          margin-bottom: 5px;
 
           &:hover {
             color: @hover-color !important;
@@ -405,11 +405,11 @@
         .post-card-title {
           -webkit-line-clamp: 2;
           .line-clamp();
-          font-family: @header-font-secondary;
-          font-size: 1.1em;
+          min-height: 36px;
+          font-family: @body-font-bold;
+          font-size: 1em;
           letter-spacing: -.5px;
           line-height: 1.2;
-          min-height: 42px;
         }
 
         .post-card-excerpt {
@@ -430,8 +430,8 @@
           }
 
           .author-name {
-            font-size: 1em;
             margin-bottom: 2px;
+            font-size: 1em;
           }
 
           .meta-item {

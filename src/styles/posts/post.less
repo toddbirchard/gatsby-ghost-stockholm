@@ -31,8 +31,8 @@
         padding: 0;
       }
       @media (max-width: @mobile-breakpoint) {
-        padding: 0 25px;
         flex-direction: column;
+        padding: 0 25px;
       }
 
       .post-title {
@@ -53,9 +53,9 @@
           font-size: 1.9em;
         }
         @media (max-width: @mobile-breakpoint) {
+          order: 1;
           margin: 0 auto;
           text-align: left;
-          order: 1;
         }
       }
     }
@@ -97,11 +97,11 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: left;
+        order: 2;
         width: auto;
         max-width: none;
         margin: 10px 0 40px;
         padding: 0;
-        order: 2;
       }
 
       .tags {
@@ -310,6 +310,7 @@
         font-weight: 600;
         white-space: nowrap;
       }
+
       /* Start of Protip box */
       .protip {
         position: relative;
@@ -321,8 +322,8 @@
         box-shadow: -2px 2px 0 #ede2db;
         color: #615649;
         font-family: @body-font;
-        line-height: 1.4;
         font-size: .95em;
+        line-height: 1.4;
         @media (max-width: @mobile-breakpoint) {
           margin-right: calc(-50vw + 50%) !important;
           margin-left: calc(-50vw + 50%) !important;
@@ -386,12 +387,12 @@
 
         code {
           padding: 4px 6px;
-          font-size: .85em;
           border: 0;
           border-radius: 3px;
           background: #f9e3d1;
           color: #987960;
           font-family: @monospace-font;
+          font-size: .85em;
           text-shadow: unset;
           white-space: normal;
         }
@@ -436,12 +437,12 @@
         padding: 15px;
         overflow: hidden;
         border-left: 0.4em solid #e7ebf1;
+        border-radius: 3px;
         background: @card-background-color;
         color: #767f86;
         font-family: @body-font-medium;
         font-size: 0.9em;
         line-height: 1.5;
-        border-radius: 3px;
         @media (max-width: @mobile-breakpoint) {
           margin: 20px auto;
         }
@@ -527,13 +528,13 @@
       .post-tag-footer a {
         display: inline-block;
         margin-right: 10px;
-        padding: 6px 8px;
+        padding: 7px 8px 5px;
         border: 1px solid #c7cbd1;
         border-radius: 3px;
         color: #7a8595 !important;
         font-family: @body-font-medium;
-        font-size: 0.8em;
-        line-height: 1.2;
+        font-size: 0.85em;
+        line-height: 1;
         transition: all 0.2s ease-out;
         @media (max-width: @tablet-breakpoint) {
           margin-right: 7px;
@@ -551,41 +552,41 @@
   }
 
   .post-roundup-blurb {
-    padding: 15px 30px;
-    background: 0 0;
-    border-top: 0;
-    margin: 30px 0;
-    width: auto;
     display: flex;
-    justify-content: left;
     align-items: center;
+    justify-content: left;
+    width: auto;
     min-height: 35px;
+    margin: 30px 0;
+    padding: 15px 30px;
+    border-top: 0;
     border-bottom: 0;
     border-left: 5px solid #c8dec8;
-    background: #e9f3e9;
     border-radius: 3px;
+    background: 0 0;
+    background: #e9f3e9;
     box-shadow: -2px 2px 0 #d5e6d7;
     @media(max-width: @mobile-breakpoint) {
       padding: 15px 20px;
     }
 
     svg {
-      font-size: 30px;
       margin-right: 20px;
       color: #9dc29f;
+      font-size: 30px;
       @media(max-width: @mobile-breakpoint) {
-        font-size: 30px;
-        margin-right: 15px;
-        color: #9dc29f;
         min-width: 30px;
         min-height: 30px;
+        margin-right: 15px;
+        color: #9dc29f;
+        font-size: 30px;
       }
     }
 
     p {
-      font-size: .9em;
       color: #69826b;
       font-family: @body-font-bold;
+      font-size: .9em;
     }
   }
 
@@ -596,8 +597,8 @@
     }
     @media(max-width: @mobile-breakpoint) {
       padding-bottom: 20px !important;
-      box-shadow: unset;
       border: unset;
+      box-shadow: unset;
     }
 
     .nav-wrapper {
