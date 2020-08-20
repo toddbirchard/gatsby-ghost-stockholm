@@ -13,7 +13,8 @@
     @media (max-width: @mobile-breakpoint) {
       width: 90%;
       max-width: unset;
-      margin: 40px auto 10px;
+      margin: 40px auto 20px;
+      border-top: unset;
     }
 
     .link-grid {
@@ -47,7 +48,7 @@
     padding: 50px 0 10px;
     @media (max-width: @mobile-breakpoint) {
       display: block;
-      padding: 50px 20px 10px;
+      padding: 0;
     }
 
     .widget {
@@ -70,8 +71,9 @@
         font-size: 1.2em;
         text-align: right;
         @media (max-width: @mobile-breakpoint) {
-          margin-bottom: 15px;
+          margin-bottom: 30px;
           border-bottom: 0;
+          font-size: 1.3em;
           text-align: left;
         }
       }
@@ -94,6 +96,9 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         transition: @transition;
+        @media(max-width: @mobile-breakpoint) {
+          font-size: .95em;
+        }
 
         &:hover {
           color: white;
@@ -134,7 +139,7 @@
         .description {
           color: #4c5c71;
           font-family: @body-font;
-          line-height: 1.4;
+          line-height: 1.5;
           @media (max-width: @mobile-breakpoint) {
             max-width: 90%;
           }
@@ -190,7 +195,7 @@
       line-height: 1.4;
       @media (max-width: @mobile-breakpoint) {
         width: 100%;
-        font-size: 0.85em;
+        font-size: 0.8em;
         text-align: center;
       }
     }
@@ -220,13 +225,16 @@
       }
 
       @media (max-width: @mobile-breakpoint) {
-        max-width: 80%;
+        max-width: 100%;
       }
 
       svg {
         color: #8f9fa8;
         font-size: 1.9em;
         transition: 0.2s all ease-out;
+        @media (max-width: @mobile-breakpoint) {
+          font-size: 2em;
+        }
 
         &:hover {
           -webkit-transform: scale(1.2);
@@ -240,61 +248,60 @@
 }
 
 /* Post Template Footer */
-.post-template {
 
-  .site-footer {
-    width: 850px !important;
-    margin: auto;
-    @media (max-width: @tablet-breakpoint) {
-      width: auto !important;
-      margin: auto 30px;
-    }
-  }
-
-  .footer-wrapper {
-    width: auto;
-    max-width: unset;
-
-    .widget.about {
-      @media (max-width: @tablet-breakpoint) {
-        width: 40% !important;
-      }
-
-      @media (max-width: @tablet-breakpoint) {
-        width: 100% !important;
-      }
-
-      .social button {
-        font-size: 0.8em;
-      }
-    }
-
-    .widget.authors {
-      display: block;
-      @media (max-width: @tablet-breakpoint) {
-        display: none;
-      }
-      @media (max-width: @mobile-breakpoint) {
-        display: block;
-        width: unset;
-      }
-    }
-
-    .widget.series {
-      @media (max-width: @tablet-breakpoint) {
-        width: 30%;
-      }
-      @media (max-width: @mobile-breakpoint) {
-        width: unset;
-      }
-    }
-  }
-
-  .copyright {
+.site-footer {
+  width: 850px !important;
+  margin: auto;
+  @media (max-width: @tablet-breakpoint) {
     width: auto !important;
-    max-width: unset;
+    margin: auto 30px;
   }
 }
+
+.footer-wrapper {
+  width: auto;
+  max-width: unset;
+
+  .widget.about {
+    @media (max-width: @tablet-breakpoint) {
+      width: 40% !important;
+    }
+
+    @media (max-width: @tablet-breakpoint) {
+      width: 100% !important;
+    }
+
+    .social button {
+      font-size: 0.8em;
+    }
+  }
+
+  .widget.authors {
+    display: block;
+    @media (max-width: @tablet-breakpoint) {
+      display: none;
+    }
+    @media (max-width: @mobile-breakpoint) {
+      display: block;
+      width: unset;
+    }
+  }
+
+  .widget.series {
+    @media (max-width: @tablet-breakpoint) {
+      width: 30%;
+    }
+    @media (max-width: @mobile-breakpoint) {
+      width: unset;
+    }
+  }
+}
+
+.copyright {
+  width: auto !important;
+  max-width: unset;
+}
+
 
 .viewport {
   position: relative;
@@ -305,5 +312,8 @@
   .copyright,
   .footer-wrapper {
     width: 900px !important;
+    @media(max-width: @mobile-breakpoint) {
+      width: unset !important;
+    }
   }
 }

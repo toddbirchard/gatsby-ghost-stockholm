@@ -7,15 +7,15 @@
   position: relative;
   height: 90px;
   margin-bottom: 30px;
-  background: #ffffff;
   border-bottom: 1px solid #e1ebf2;
+  background: #ffffff;
   @media (max-width: @tablet-breakpoint) {
     height: 80px;
     margin-bottom: 0;
   }
   @media(max-width: @mobile-breakpoint) {
-    box-shadow: unset;
     border-bottom: 0;
+    box-shadow: unset;
   }
 
   .nav-wrapper {
@@ -36,6 +36,7 @@
     }
     @media (max-width: @mobile-breakpoint) {
       max-width: 88%;
+      margin: auto 20px;
     }
 
     .nav-left {
@@ -85,7 +86,7 @@
           letter-spacing: 0.5px;
           transition: @transition;
           @media (max-width: @smallscreen-breakpoint) {
-            font-size: .95em;
+            font-size: 0.95em;
           }
           @media (max-width: @tablet-breakpoint) {
             margin: 0 0 0 25px;
@@ -104,8 +105,8 @@
       position: relative;
       @media(max-width: @mobile-breakpoint) {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
         width: 100px;
       }
 
@@ -129,6 +130,7 @@
   @media (max-width: @tablet-breakpoint) {
     margin-bottom: 0;
   }
+
 }
 
 .join-template {
@@ -149,7 +151,6 @@
 
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
-
 @media (max-width: @tablet-breakpoint) {
   .home-template {
     .navigation {
@@ -164,7 +165,6 @@
     }
   }
 }
-
 @media (max-width: @mobile-breakpoint) {
   .home-template .navigation {
     margin-bottom: 20px !important;
@@ -173,10 +173,25 @@
   }
 }
 
-.series-template .nav-wrapper {
-  max-width: 900px;
-  @media (max-width: 900px) {
-    max-width: 95%;
+.series-template {
+  .navigation {
+    @media(max-width: 920px) {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .nav-wrapper {
+      max-width: 900px;
+      @media(max-width: 920px) {
+        max-width: 850px;
+      }
+      @media (max-width: 900px) {
+        max-width: 95%;
+      }
+      @media(max-width: @mobile-breakpoint) {
+        width: -webkit-fill-available;
+      }
+    }
   }
 }
 
@@ -194,11 +209,11 @@
   position: relative;
   align-items: center;
   justify-content: space-between;
+  max-width: 100%;
   height: 23px;
   margin: 25px 0 0;
-  background: none;
-  max-width: 100%;
   overflow: hidden;
+  background: none;
   @media (max-width: @tablet-breakpoint) {
     margin: 30px 0 0;
   }
@@ -227,7 +242,7 @@
       white-space: nowrap;
       @media (max-width: @mobile-breakpoint) {
         margin: -14px 0 3px;
-        font-size: .8em;
+        font-size: 0.8em;
       }
     }
   }

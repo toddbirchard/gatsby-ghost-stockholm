@@ -8,11 +8,9 @@
   @media (max-width: @mobile-breakpoint) {
     .mobile-full-width();
     .mobile-horizontal-scroll();
-    width: 111%;
-    min-width: 100%;
+    width: 120%;
+    min-width: 120%;
     max-width: 115%;
-    margin-right: calc(-45vw + 54%) !important;
-    margin-left: calc(-49vw + 50%) !important;
   }
 }
 
@@ -59,7 +57,7 @@ table {
         text-transform: uppercase;
         @media (max-width: @mobile-breakpoint) {
           padding: 12px 8px;
-          font-size: 0.8em;
+          font-size: 0.75em;
         }
       }
 
@@ -91,8 +89,8 @@ table {
       }
 
       a {
-        color: #585a61;
         border-bottom: 1px solid @theme-color;
+        color: #585a61;
         font-weight: 500;
       }
     }
@@ -193,8 +191,8 @@ table {
 
   .tableContainer.compare {
     max-width: 49%;
-    max-height: unset;
     height: fit-content;
+    max-height: unset;
     @media(max-width: tablet-breakpoint) {
       max-width: unset;
     }

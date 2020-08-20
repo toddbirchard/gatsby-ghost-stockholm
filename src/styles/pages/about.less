@@ -9,7 +9,7 @@
 
   h1 {
     @media (max-width: @mobile-breakpoint) {
-      margin: 35px 0 25px;
+      margin: 55px 0 25px;
     }
   }
 
@@ -59,6 +59,10 @@
       font-family: @body-font;
       font-size: 2em;
       font-weight: unset;
+      @media(max-width: @mobile-breakpoint) {
+        padding-bottom: 10px;
+        font-size: 1.8em;
+      }
     }
   }
 }
