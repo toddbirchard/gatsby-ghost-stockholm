@@ -297,51 +297,50 @@ module.exports = {
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
-        query: `
-                {
-                  allGhostPost(filter: {tags: {elemMatch: {slug: {nin: "roundup"}}}}) {
-                      edges {
-                        node {
+        query: `{
+          allGhostPost(filter: {tags: {elemMatch: {slug: {nin: "roundup"}}}}) {
+              edges {
+                  node {
+                    id
+                    slug
+                    updated_at
+                    created_at
+                    feature_image
+                  }
+                }
+              }
+              allGhostPage {
+                  edges {
+                      node {
                           id
                           slug
                           updated_at
                           created_at
                           feature_image
-                        }
                       }
-                    }
-                    allGhostPage {
-                        edges {
-                            node {
-                                id
-                                slug
-                                updated_at
-                                created_at
-                                feature_image
-                            }
-                        }
-                    }
-                    allGhostTag(filter: {visibility: {eq: "public"}}) {
-                      edges {
-                        node {
+                  }
+              }
+              allGhostTag(filter: {visibility: {eq: "public"}}) {
+                edges {
+                  node {
+                    id
+                    slug
+                    feature_image
+                    description
+                    name
+                  }
+                }
+              }
+              allGhostAuthor {
+                  edges {
+                      node {
                           id
                           slug
-                          feature_image
-                          description
-                          name
-                        }
+                          profile_image
                       }
-                    }
-                    allGhostAuthor {
-                        edges {
-                            node {
-                                id
-                                slug
-                                profile_image
-                            }
-                        }
-                    }
-                }`,
+                  }
+               }
+            }`,
         mapping: {
           allGhostPost: {
             sitemap: `posts`,

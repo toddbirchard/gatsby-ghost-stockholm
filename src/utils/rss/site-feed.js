@@ -2,8 +2,8 @@ const generateRssFeed = require(`./generate-feed`)
 const siteConfig = require(`../siteConfig`)
 
 const feedTitle = siteConfig.siteTitleMeta
-const matchPattern = undefined
 const feedUrl = siteConfig.siteUrl
+const matchPattern = undefined
 const externalLink = `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`
 const feedRssQuery = `{
   allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_author: {slug: {eq: "todd"}}}) {

@@ -9,7 +9,7 @@
 
   h1 {
     @media (max-width: @mobile-breakpoint) {
-      margin: 55px 0 25px;
+      margin: 35px 0 25px;
     }
   }
 
@@ -26,11 +26,12 @@
     margin-bottom: 30px;
     padding-top: 59.25%;
     @media (max-width: @mobile-breakpoint) {
-      .mobile-full-width();
       position: absolute;
       top: 0;
       left: 0;
-      width: 103%;
+      width: 100%!important;
+      height: 51vw!important;
+      margin: 10px auto;
       padding-top: 0 !important;
     }
 
@@ -40,8 +41,11 @@
       width: 100%;
       border: 1px solid #d0d8df;
       @media (max-width: @mobile-breakpoint) {
-        width: 100% !important;
-        height: 57vw !important;
+        right: 0;
+        left: 0;
+        width: 90%!important;
+        height: 51vw!important;
+        margin: auto;
       }
 
       div {

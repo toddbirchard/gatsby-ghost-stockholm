@@ -30,7 +30,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
             }
             <div className="author-card-meta">
               {authorPostCount &&
-                <div className="author-card-item">
+                <div className="author-card-item postcount">
                   <AiOutlineFile /><span>{authorPostCount} Posts</span>
                 </div>
               }

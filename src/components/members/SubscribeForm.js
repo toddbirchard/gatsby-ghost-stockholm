@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FaArrowRight, FaRegTimesCircle } from 'react-icons/fa'
 import LoaderIcon from './icons/loader-icon'
+import fetch from 'node-fetch'
 
 class SubscribeForm extends React.Component {
   constructor(props) {

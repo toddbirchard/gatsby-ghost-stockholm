@@ -7,11 +7,11 @@ import { Configure,
 import { useClickOutside } from '../../utils/hooks'
 import { HitsWrapper, Root } from './SearchStyles'
 import { Link } from 'gatsby'
-import { FaTags, FaSearch } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa'
 import PropTypes from "prop-types"
 import { SearchClient, SearchResults, SearchStats } from './SearchClient'
 
-export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
+const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
   const ref = createRef()
   const [searchQuery, setQuery] = useState(forcedQuery ? forcedQuery : ``)
   const [focus, setFocus] = useState(false)
@@ -21,10 +21,15 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
         <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload"/>
         <div className="search-result-details">
           <div className="search-result-title">{hit.title}</div>
-          <div className="search-result-tag">
-            <FaTags />
-            <span>{hit.primary_tag.name}</span>
-          </div>
+          {hit.primary_tag ?
+            <Link
+              to={`/tag/${hit.primary_tag.slug}/`}
+              className="primary-tag"
+              style={{
+                background: hit.primary_tag.accent_color,
+                border: `1px solid ${hit.primary_tag.accent_color}`,
+              }}> {hit.primary_tag.name} </Link>
+            : null}
         </div>
       </div>
     </Link>
@@ -78,6 +83,9 @@ export default function Search({ collapse, hitsAsGrid, forcedQuery }) {
     </Root>
   )
 }
+
+Search.displayName = `Search`
+export default Search
 
 Search.propTypes = {
   forcedQuery: PropTypes.string,

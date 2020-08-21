@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import {
   Link,
   StaticQuery,
@@ -68,10 +67,10 @@ const Footer = ({ navigation, site, data }) => {
               ))}
             </dl>
           </div>
-        </div>
-        <div className="copyright">
-          <SocialWidget site={site} />
-          <p>{config.siteCopyright}</p>
+          <div className="copyright">
+            <SocialWidget site={site} />
+            <p>{config.siteCopyright}</p>
+          </div>
         </div>
       </footer>
     </>

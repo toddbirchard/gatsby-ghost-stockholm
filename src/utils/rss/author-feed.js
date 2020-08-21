@@ -3,7 +3,7 @@ const siteConfig = require(`../siteConfig`)
 
 const feedTitle = `Todd Birchard - Hackers and Slackers`
 const feedUrl = siteConfig.siteUrl
-const matchPattern = `^/author/todd`
+const matchPattern = undefined
 const externalLink = undefined
 const feedRssQuery = `{
     allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {ne: "roundup"}}, primary_author: {slug: {eq: "todd"}}}) {

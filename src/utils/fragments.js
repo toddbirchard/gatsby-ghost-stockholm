@@ -80,6 +80,7 @@ export const ghostPostFields = graphql`
             twitter
             website
             location
+            postCount
         }
 
         # Tags

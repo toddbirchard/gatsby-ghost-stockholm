@@ -102,25 +102,18 @@
         opacity: 0.9;
       }
 
-      .search-result-tag {
+      .primary-tag {
         display: block;
-        color: #526171;
-        font-family: @body-font-bold;
-        font-size: 0.9em;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 3px 4px 1px;
+        border-radius: 2px;
+        color: #fff;
+        font-family: @body-font-medium;
+        font-size: 0.85em;
         line-height: 1;
-        opacity: 0.8;
-
-        svg {
-          position: relative !important;
-          right: unset;
-          width: unset;
-          margin-right: 5px;
-          color: #728295;
-          font-size: 0.8em;
-        }
 
         span {
-          font-family: @header-font-secondary;
           font-size: .9em;
         }
       }
@@ -160,7 +153,7 @@
   }
 
   input {
-    width: 298px !important;
+    width: 315px !important;
     .input-text-fields();
     margin-bottom: 0;
     padding: 14px 10px 10px!important;

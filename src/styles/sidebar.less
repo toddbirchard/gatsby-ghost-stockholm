@@ -23,18 +23,18 @@
     .widget-title {
       padding: 0;
       color: @light-header-color;
+      font-family: @header-font-secondary;
       font-size: 1.2em;
+      letter-spacing: 0.5px;
       line-height: 1;
       text-align: left;
-      letter-spacing: 0.5px;
-      font-family: @header-font-secondary;
     }
 
     .widget-description {
       margin: 10px 0 !important;
       color: @body-color;
-      line-height: 1.5em!important;
       font-size: .85em;
+      line-height: 1.5em!important;
       text-align: left;
     }
 
@@ -46,9 +46,9 @@
       margin: 5px 0 0;
 
       .donation {
+        display: block;
         padding: 14px 5px;
         border-bottom: 1px solid #e2e5ee;
-        display: block;
         transition: @transition;
 
         &:hover {
@@ -68,8 +68,8 @@
           align-items: center;
 
           .contributor-name {
-            margin-right: 15px;
             width: 100%;
+            margin-right: 15px;
 
             * {
               color: @body-color;
@@ -82,11 +82,11 @@
           }
 
           .number-coffees {
-            border-radius: 50%;
             display: flex;
             align-items: center;
-            text-align: center;
+            border-radius: 50%;
             font-size: .9em;
+            text-align: center;
 
             div {
               display: flex;
@@ -99,9 +99,9 @@
               }
 
               .count {
-                font-weight: bold;
-                font-family: @header-font;
                 margin-right: 5px;
+                font-family: @header-font;
+                font-weight: bold;
                 line-height: 1;
               }
 
@@ -114,16 +114,19 @@
       }
 
       p {
-        line-height: 1.35;
-        font-size: .85em;
-        margin: 5px 0;
         -webkit-line-clamp: 3;
-        .line-clamp();
+        margin: 5px 0;
         color: @body-color;
+        font-size: .85em;
+        line-height: 1.35;
+        .line-clamp();
       }
     }
 
     .widget-button {
+      width: 100%;
+      height: 37px;
+      margin: 0;
       padding: 3px;
       border: 0;
       border-radius: 2px;
@@ -132,15 +135,12 @@
       color: white;
       font-size: 0.9em;
       line-height: 1;
-      transition: all 0.2s ease-out;
-      width: 100%;
-      margin: 0;
       text-align: center;
-      height: 37px;
+      transition: all 0.2s ease-out;
 
       .button-content {
         margin-right: 5px;
-        font-family: @body-font-bold;
+        font-family: @body-font-medium;
       }
 
       .coffee-icon {
@@ -222,9 +222,9 @@
       }
 
       .website-description {
+        margin: 10px 0;
         font-size: 0.8em;
         line-height: 1.2em;
-        margin: 10px 0;
       }
 
       &:hover {
@@ -302,7 +302,7 @@
         padding: 4px 10px;
         border: 1px solid #d7dee7;
         color: #78849c;
-        font-family: @body-font;
+        font-family: @body-font-medium;
         font-size: 0.85em !important;
         line-height: 1.5em;
         text-align: center;
@@ -321,8 +321,8 @@
       .newsletter-description {
         margin-bottom: 15px;
         font-family: @body-font;
-        line-height: 1.35;
         font-size: 0.9em;
+        line-height: 1.35;
       }
 
       input {
@@ -393,15 +393,15 @@
         overflow: hidden;
         border-bottom: 1px solid #e7e7e7;
         color: lighten(@header-font-color, 15%);
-        font-size: 0.85em;
         font-family: @body-font-medium;
+        font-size: 0.85em;
         line-height: 1.3;
         text-overflow: ellipsis;
         white-space: nowrap;
         @media (max-width: @smallscreen-breakpoint) {
+          max-width: 240px;
           padding: 5px 0 10px;
           font-size: 0.8em;
-          max-width: 240px;
         }
 
         &:first-of-type {
@@ -541,11 +541,11 @@
       }
 
       .twitter-profile-description {
+        margin-bottom: 15px;
         color: #87929e;
+        font-family: @body-font-medium;
         font-size: 0.9em;
         line-height: 1.3;
-        margin-bottom: 15px;
-        font-family: @body-font-medium;
       }
 
       .tweet {
@@ -616,16 +616,16 @@
       .meta-item {
         display: flex;
         align-items: center;
-        color: #718aa8;
-        line-height: 1;
         margin-right: 20px;
-        font-size: 0.85em;
+        color: #718aa8;
         font-family: @body-font-medium;
+        font-size: 0.85em;
+        line-height: 1;
 
         .meta-count {
+          height: 8px;
           font-family: @body-font-bold;
           line-height: 1;
-          height: 8px;
         }
 
         svg {
@@ -716,10 +716,10 @@
         .meta-item {
           display: flex;
           align-items: center;
-          font-family: @body-font-bold;
-          white-space: nowrap;
           margin-right: 15px;
           color: #94a4b6;
+          font-family: @body-font-bold;
+          white-space: nowrap;
 
           &:last-of-type {
             margin-right: 0;
@@ -778,8 +778,8 @@
             white-space: nowrap;
 
             .meta-item {
-              font-size: 0.95em;
               margin: 10px 20px 10px 0;
+              font-size: 0.95em;
             }
 
             .repo-stargazers {

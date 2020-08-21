@@ -3,7 +3,7 @@
 
 .search-template {
   .container {
-    width: 1200px;
+    width: 1100px;
     max-width: 95%;
     margin: 20px auto 0;
     @media (max-width: @tablet-breakpoint) {
@@ -16,9 +16,9 @@
   }
 
   .nav-wrapper {
-    max-width: 1200px;
-    @media (max-width: 1200px) {
-      width: 1200px;
+    max-width: 1100px;
+    @media (max-width: 1100px) {
+      width: 1100px;
       max-width: 95%;
     }
     @media (max-width: @tablet-breakpoint) {
@@ -29,12 +29,9 @@
 
   .search-header {
     margin-bottom: 20px;
-    padding: 40px;
+    padding: 30px;
     background: white;
     box-shadow: @box-shadow;
-    @media (max-width: 900px) {
-      padding: 40px 30px;
-    }
     @media (max-width: @mobile-breakpoint) {
       min-width: 92% !important;
       .mobile-full-width();
@@ -43,10 +40,10 @@
 
     h1 {
       height: 30px;
-      margin: 0 0 20px;
+      margin: 10px 0 20px;
       color: @header-font-color;
       font-family: @body-font;
-      font-size: 2.3em;
+      font-size: 2em;
       font-weight: normal;
     }
 
@@ -91,7 +88,7 @@
       .ais-MenuSelect-select,
       .ais-SortBy-select {
         margin: 0 !important;
-        padding: 10px 15px !important;
+        padding: 15px 15px 10px !important;
         .select-dropdown();
         .input-text-fields();
         min-width: 250px;
@@ -156,11 +153,11 @@
         width: 100% !important;
         max-width: stretch;
         margin: 0 !important;
-        padding: 15px !important;
+        padding: 15px 15px 10px !important;
         border: 1px solid #dfdede;
         border-radius: 0;
         background: #fcfcfd !important;
-        font-size: 1.2em;
+        font-size: 1em;
         line-height: normal;
         transition: all 0.2s ease-out;
         .input-text-fields();
@@ -182,6 +179,7 @@
       }
 
       .ais-MenuSelect {
+        padding: 15px 15px 10px!important;
         @media (max-width: @mobile-breakpoint) {
           margin-bottom: 5px;
         }
@@ -197,7 +195,7 @@
 
     .search-sidebar {
       grid-auto-rows: min-content;
-      min-width: 230px;
+      min-width: 200px;
       height: fit-content;
       padding: 20px;
       background: white;
@@ -243,6 +241,7 @@
           }
 
           .ais-RefinementList-labelText {
+            width: 80%;
             margin: 0 8px;
             font-size: 0.8em;
             line-height: 1;
@@ -251,12 +250,9 @@
           .ais-RefinementList-count {
             min-width: 12px;
             margin-left: 0;
-            padding: 3px 4px 1px;
-            border-radius: 3px;
-            background: #a2a8bb;
-            color: white;
+            color: #99a4bd;
             font-family: @body-font-bold;
-            font-size: 0.65em;
+            font-size: 0.75em;
             line-height: 1;
             text-align: center;
           }
@@ -390,16 +386,10 @@
         }
 
         .primary-tag {
-          margin-bottom: 5px;
-          padding: unset;
-          background: unset;
-          color: #607fa2 !important;
-          font-family: @body-font-bold;
-          font-size: 0.85em;
-
-          &:hover {
-            color: @hover-color !important;
-          }
+          height: unset;
+          margin-bottom: 8px;
+          padding: 3px 4px 1px;
+          font-size: 0.8em
         }
 
         .post-card-title {
@@ -482,17 +472,6 @@
 
   .ais-Pagination-item--disabled {
     opacity: 0.2;
-  }
-
-  .ais-Menu-showMore {
-    -webkit-appearance: none;
-    border: 0;
-    background: none;
-    color: #7687a2;
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.2s ease-out;
   }
 
   .ais-SearchBox-reset {

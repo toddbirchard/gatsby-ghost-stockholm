@@ -121,7 +121,6 @@ const Post = ({ data, location }) => {
             </div>
             <AuthorCard author={author} page={`post`}/>
           </article>
-
         </div>
         <section className="post-footer">
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
@@ -150,6 +149,7 @@ Post.propTypes = {
         twitter: PropTypes.string,
         facebook: PropTypes.string,
         website: PropTypes.string,
+        postCount: PropTypes.number,
       }).isRequired,
     }).isRequired,
     relatedPosts: PropTypes.objectOf(PropTypes.array),

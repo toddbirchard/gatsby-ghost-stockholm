@@ -18,6 +18,7 @@ const postQuery = `{
         primary_tag {
           name
           slug
+          accent_color
         }
         primary_author {
           slug

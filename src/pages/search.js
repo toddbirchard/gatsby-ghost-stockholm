@@ -40,6 +40,7 @@ const SearchPage = ({ data, location, pageContext }) => {
         location={location}
         title={title}
         description={description}
+        type="website"
       />
       <Layout template="search-template" hasSidebar={false}>
         <div className="search-container">
@@ -81,9 +82,10 @@ const SearchPage = ({ data, location, pageContext }) => {
                   <Panel header="Tags">
                     <RefinementList
                       attribute="tags.name"
-                      limit={20}
+                      limit={100}
                       showMore
-                      showMoreLimit={40}
+                      showMoreLimit={30}
+                      transformItems={items => items.filter(item => item.label.indexOf(`#`) === -1 && item.count > 1)}
                     />
                   </Panel>
                   <Panel header="Authors">

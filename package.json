@@ -94,6 +94,7 @@
     "lazysizes": "^5.2.2",
     "lodash": "4.17.20",
     "netlify-identity-widget": "^1.9.1",
+    "node-fetch": "^2.6.0",
     "prismjs": "^1.21.0",
     "prop-types": "^15.7.2",
     "qs": "^6.9.4",
