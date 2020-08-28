@@ -1,6 +1,6 @@
 module.exports = {
   siteUrl: `https://hackersandslackers.com`, // Do not include a trailing slash.
-  siteRss: `https://hackersandslackers.com/rss`,
+  siteRss: `https://hackersandslackers.com/rss.xml`,
   siteMap: `https://hackersandslackers.com/sitemap.xml`,
   siteAdminUrl: `https://hackersandslackers.app`,
   postsPerPage: 8, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)

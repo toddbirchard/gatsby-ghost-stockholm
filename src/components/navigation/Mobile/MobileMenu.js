@@ -105,7 +105,7 @@ class MobileMenu extends React.Component {
               <AiOutlineUserAdd />
               <span>Join</span>
             </Link>
-            <Link to="/rss" className={`navigation-link`} >
+            <Link to="/rss.xml" className={`navigation-link`} >
               <FiRss />
               <span>RSS</span>
             </Link>
