@@ -470,6 +470,11 @@
     to = "/series/build-flask-apps/"
     status = 301
 
+[[redirects]]
+    from = "/rss"
+    to = "/rss.xml"
+    status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

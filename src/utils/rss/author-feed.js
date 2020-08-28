@@ -49,6 +49,13 @@ const feedRssQuery = `{
     }
 }`
 
-const authorRssFeed = generateRssFeed(siteConfig, feedRssQuery, feedTitle, feedUrl, matchPattern, externalLink)
+const authorRssFeed = generateRssFeed(
+  siteConfig,
+  feedRssQuery,
+  feedTitle,
+  feedUrl,
+  matchPattern,
+  externalLink
+)
 
 module.exports = authorRssFeed
