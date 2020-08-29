@@ -70,6 +70,7 @@ module.exports = {
         functions: `ignore`,
       },
     ],
+    "react/display-name": "off",
     "react/prop-types": [
       `warn`, {
         ignore: [`children`],

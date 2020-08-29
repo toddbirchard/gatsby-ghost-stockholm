@@ -85,10 +85,21 @@ const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
 }
 
 Search.displayName = `Search`
-export default Search
 
 Search.propTypes = {
   forcedQuery: PropTypes.string,
   collapse: PropTypes.bool.isRequired,
   hitsAsGrid: PropTypes.object,
+  hit: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    feature_image: PropTypes.string,
+    primary_tag: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      accent_color: PropTypes.string.isRequired,
+    }),
+  }),
 }
+
+export default Search
