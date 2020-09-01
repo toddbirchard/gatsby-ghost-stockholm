@@ -52,7 +52,7 @@
     "less": "^3.12.2"
   },
   "dependencies": {
-    "@babel/core": "^7.11.4",
+    "@babel/core": "^7.11.5",
     "@babel/highlight": "^7.10.4",
     "@babel/runtime": "^7.11.2",
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
