@@ -533,7 +533,7 @@
     public'''
 
 [[headers]]
-  for = "/fonts/AvenirNextLTPro-Medium.woff2"
+  for = "/fonts/CamphorPro-Medium.woff2"
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
@@ -542,7 +542,7 @@
     public'''
 
 [[headers]]
-  for = "/fonts/AvenirNextLTPro-Medium.woff"
+  for = "/fonts/CamphorPro-Medium.woff"
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
@@ -551,7 +551,7 @@
     public'''
 
 [[headers]]
-  for = "/fonts/AvenirNextLTPro-Regular.woff2"
+  for = "/fonts/CamphorPro-Regular.woff2"
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
@@ -560,13 +560,31 @@
     public'''
 
 [[headers]]
-  for = "/fonts/AvenirNextLTPro-Regular.woff"
+  for = "/fonts/CamphorPro-Regular.woff"
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
     max-age=604800,
     no-cache,
     public'''
+
+[[headers]]
+  for = "/fonts/CamphorPro-Bold.woff2"
+  [headers.values]
+    crossorigin = "anonymous"
+    cache-control = '''
+        max-age=604800,
+        no-cache,
+        public'''
+
+[[headers]]
+  for = "/fonts/CamphorPro-Bold.woff"
+  [headers.values]
+    crossorigin = "anonymous"
+    cache-control = '''
+        max-age=604800,
+        no-cache,
+        public'''
 
 [[headers]]
   for = "/css/fonts.css"
