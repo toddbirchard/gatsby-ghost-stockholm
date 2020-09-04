@@ -2,7 +2,7 @@ const generateRssFeed = require(`./generate-feed`)
 const siteConfig = require(`../siteConfig`)
 
 const feedTitle = siteConfig.siteTitleMeta
-const feedUrl = siteConfig.siteUrl + `/author/todd`
+const feedUrl = siteConfig.siteUrl
 const matchPattern = undefined
 const externalLink = `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`
 const feedRssQuery = `{

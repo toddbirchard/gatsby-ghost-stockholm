@@ -16,9 +16,8 @@ const PostCard = ({ post }) => {
   return (
     <>
       <div className="post-card">
-        <Link to={url}>
-
-          {post.feature_image &&
+        {post.feature_image &&
+            <Link to={url}>
               <picture>
                 <source
                   media="(max-width:600px)"
@@ -31,12 +30,10 @@ const PostCard = ({ post }) => {
                   title={post.title}
                 />
               </picture>
-          }
-
-        </Link>
-        {post.featured && <span>Featured</span>}
+            </Link>
+        }
         <div className="post-card-detail">
-          {post.primary_tag ?
+          {post.primary_tag &&
             <Link
               to={`/tag/${post.primary_tag.slug}/`}
               className="primary-tag"
@@ -44,12 +41,12 @@ const PostCard = ({ post }) => {
                 background: post.primary_tag.accent_color,
                 border: `1px solid ${post.primary_tag.accent_color}`,
               }}> {post.primary_tag.name} </Link>
-            : null}
+          }
           <Link to={url}>
             <h2 className="post-card-title">{post.title}</h2>
           </Link>
-          {post.excerpt
-            && <p className="post-card-excerpt">{post.excerpt}</p>
+          {post.excerpt &&
+            <p className="post-card-excerpt">{post.excerpt}</p>
           }
           <footer className="post-card-footer">
             {post.primary_author &&
