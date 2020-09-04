@@ -39,7 +39,7 @@
   "devDependencies": {
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
-    "babel-preset-gatsby": "^0.5.4",
+    "babel-preset-gatsby": "^0.5.8",
     "cssnano": "^4.1.10",
     "eslint": "6.8.0",
     "eslint-loader": "3.0.2",
@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.20.5",
+    "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-standard": "^4.0.1",
     "less": "^3.12.2"
   },
