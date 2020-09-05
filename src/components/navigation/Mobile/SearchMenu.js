@@ -23,7 +23,7 @@ class SearchMenu extends React.Component {
     return (
       <>
         <Menu
-          right width={ `85%` }
+          right width={ `90%` }
           burgerButtonClassName={ `mobile-search-button` }
           customBurgerIcon={ <img src="/images/search.svg" alt="search-icon" /> }
           className="mobile-menu"
@@ -97,7 +97,7 @@ const SearchMenuQuery = props => (
   <StaticQuery
     query={graphql`
           query MobileSearchQuery {
-            topSearches: allMysqlAlgoliaTopSearches(limit: 16) {
+            topSearches: allMysqlAlgoliaTopSearches(limit: 12) {
               edges {
                 node {
                   search

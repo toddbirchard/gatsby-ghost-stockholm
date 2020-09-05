@@ -14,23 +14,23 @@
 }
 
 .subscribe-email {
+  -webkit-appearance: none;
   display: block;
-  padding: 10px;
   width: 100%;
+  padding: 10px;
   border: #ced5da 1px solid;
+  border-radius: 5px;
   color: @body-color;
   font-size: 1.8rem;
-  line-height: 1em;
   font-weight: normal;
-  user-select: text;
-  border-radius: 5px;
+  line-height: 1em;
   transition: border-color 0.15s linear;
-  -webkit-appearance: none;
+  user-select: text;
 }
 
 .subscribe-email:focus {
-  outline: 0;
   border-color: @body-color;
+  outline: 0;
 }
 
 .subscribe-form button:active,
@@ -49,10 +49,10 @@
 }
 
 .subscribe-form .loading .button-loader {
+  display: inline-block;
   position: absolute;
   top: 0;
   left: 50%;
-  display: inline-block;
   margin-left: -19px;
   transform: scale(0.7);
 }
@@ -65,24 +65,24 @@
 .subscribe-form .error .announcement,
 .subscribe-form .invalid .announcement,
 .subscribe-form .success .announcement {
-  font-size: 1.1em;
-  line-height: 1.2em;
+  z-index: 1000;
   position: fixed;
-  justify-content: space-between;
-  align-items: center;
   top: 0;
   left: 0;
+  align-items: center;
+  justify-content: space-between;
   width: -webkit-fill-available;
   margin: 0;
-  z-index: 1000;
-  box-shadow: 0 0 15px #505f68;
   padding: 30px;
+  box-shadow: 0 0 15px #505f68;
+  font-size: 1.1em;
+  line-height: 1.2em;
   transition: @transition;
 
   .summary {
-    font-weight: 600;
     display: inline-block;
     margin-right: 5px;
+    font-weight: 600;
   }
 
   .close-announcement {
@@ -112,20 +112,20 @@
 /* 10. Subscribe Message and Overlay
 /* ---------------------------------------------------------- */
 .subscribe-success-message {
-  position: fixed;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  z-index: 9000;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 9000;
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 0;
+  transform: translateY(-175%);
+  background: @hover-color;
   color: #fff;
   text-align: center;
-  background: @hover-color;
   transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
-  transform: translateY(-175%);
 }
 
 .subscribe-success .subscribe-success-message {
@@ -135,53 +135,53 @@
 
 .subscribe-success-message.close {
   visibility: hidden;
-  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
   transform: translateY(-175%);
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .subscribe-close-overlay {
+  display: block;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  display: block;
 }
 
 .subscribe-close-button {
+  display: block;
+  z-index: 2000;
   position: absolute;
   top: 16px;
   right: 20px;
-  z-index: 2000;
-  display: block;
   width: 40px;
   height: 40px;
 }
 
 .subscribe-close-button:before {
-  content: "";
+  display: block;
   position: absolute;
   top: 20px;
   right: 4px;
-  display: block;
   width: 32px;
   height: 1px;
-  background: #fff;
-  opacity: 0.8;
   transform: rotate(45deg);
+  background: #fff;
+  content: "";
+  opacity: 0.8;
 }
 
 .subscribe-close-button:after {
-  content: "";
+  display: block;
   position: absolute;
   top: 20px;
   right: 4px;
-  display: block;
   width: 32px;
   height: 1px;
-  background: #fff;
-  opacity: 0.8;
   transform: rotate(-45deg);
+  background: #fff;
+  content: "";
+  opacity: 0.8;
 }
 
 .subscribe-close-button:hover,
@@ -190,19 +190,19 @@
 }
 
 .subscribe-overlay {
+  display: flex;
+  z-index: 2000;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2000;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   background: rgba(9,10,11,0.97);
   opacity: 0;
-  transition: opacity 0.2s ease-in;
   pointer-events: none;
+  transition: opacity 0.2s ease-in;
 }
 
 .subscribe-overlay:target {
@@ -221,8 +221,8 @@
 
 .subscribe-overlay .subscribe-form {
   border: none;
-  color: #fff;
   background: none;
+  color: #fff;
 }
 
 .subscribe-overlay-logo {
@@ -240,18 +240,18 @@
 }
 
 .subscribe-overlay-description {
-  margin: 0 auto 50px;
   max-width: 650px;
+  margin: 0 auto 50px;
   color: #fff;
   font-size: 2.4rem;
-  line-height: 1.3em;
   font-weight: 300;
+  line-height: 1.3em;
   opacity: 0.8;
 }
 
 .subscribe-overlay form {
-  margin: 0 auto;
   max-width: 540px;
+  margin: 0 auto;
 }
 
 .subscribe-overlay .form-group {
@@ -259,40 +259,39 @@
 }
 
 .subscribe-overlay .subscribe-email {
+  -webkit-appearance: none;
   display: block;
-  padding: 14px 20px;
   width: 100%;
+  padding: 14px 20px;
   border: none;
+  border-radius: 8px;
   color: @body-color;
   font-size: 2rem;
-  line-height: 1em;
   font-weight: normal;
-  letter-spacing: 0.5px;
-  user-select: text;
-  border-radius: 8px;
+  line-height: 1em;
   transition: border-color 0.15s linear;
-  -webkit-appearance: none;
+  user-select: text;
 }
 
 .subscribe-email:focus {
-  outline: 0;
   border-color: @body-color;
+  outline: 0;
 }
 
 .subscribe-overlay button {
+  -webkit-font-smoothing: subpixel-antialiased;
   display: inline-block;
+  height: 52px;
   margin: 0 0 0 15px;
   padding: 0 25px;
-  height: 52px;
+  border-radius: 8px;
   outline: none;
+  background: @theme-color;
   color: #fff;
   font-size: 1.7rem;
-  line-height: 38px;
   font-weight: 400;
+  line-height: 38px;
   text-align: center;
-  background: @theme-color;
-  border-radius: 8px;
-  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .subscribe-overlay button:active,
@@ -305,10 +304,10 @@
 }
 
 .hidden-label {
-  position: absolute;
-  height: 1px;
-  width: 1px;
   clip: rect(1px,1px,1px,1px);
-  border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
+  border: 0;
 }

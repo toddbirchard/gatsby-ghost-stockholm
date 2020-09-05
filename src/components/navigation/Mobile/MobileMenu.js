@@ -34,7 +34,7 @@ class MobileMenu extends React.Component {
       <>
         <Menu
           right
-          width={ `85%` }
+          width={ `90%` }
           isOpen={ false }
           burgerButtonClassName={ `hamburger-button` }
           crossClassName={ `hamburger-cross-bar` }

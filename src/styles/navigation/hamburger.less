@@ -114,7 +114,9 @@
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: 0 !important;
+  right: -20px !important;
+  background: white;
+  box-shadow: 0 0 10px black;
   transition: all 0.2s ease-out !important;
 }
 
@@ -402,8 +404,8 @@
       }
 
       .search-result-details {
-        width: stretch;
-        padding: 13px;
+        width: 53%;
+        padding: 12px;
       }
 
       .search-result-title {
@@ -420,6 +422,7 @@
         color: #4d525a;
         font-family: @header-font-secondary !important;
         font-size: 0.7em !important;
+        line-height: 1;
         text-align: left;
 
         svg {
@@ -451,7 +454,7 @@
     & > svg {
       position: absolute;
       top: 24px;
-      right: 20px;
+      right: 36px;
       margin: auto;
       color: #8d9eae;
       font-size: 1.1em!important;
