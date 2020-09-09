@@ -204,6 +204,7 @@
     .support-description {
       margin: 0 auto 20px;
       color: lighten(@body-color, 5%);
+      font-size: .9em;
       text-align: left;
       @media (max-width: @mobile-breakpoint) {
         max-width: unset;
@@ -225,13 +226,14 @@
     input {
       display: block;
       width: stretch;
+      height: 15px;
       margin: 0 auto 10px;
-      font-size: 0.9em;
+      font-size: 0.85em;
+      line-height: 1;
       .input-text-fields();
       @media (max-width: @mobile-breakpoint) {
         width: stretch;
         padding: 11px;
-        font-size: 0.9em;
       }
     }
 
@@ -240,8 +242,12 @@
       width: stretch;
       height: 40px;
       border-radius: 3px;
-      font-family: @body-font-medium;
-      font-size: 1em;
+      font-family: @body-font;
+      font-size: .9em;
+
+      svg {
+        margin-left: 5px;
+      }
     }
   }
 }
