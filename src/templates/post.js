@@ -7,6 +7,8 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
+import { Comments } from '../components/posts/comments'
+
 import {
   AiOutlineEye,
   AiOutlineTags,
@@ -122,6 +124,7 @@ const Post = ({ data, location }) => {
             <AuthorCard author={author} page={`post`}/>
           </article>
         </div>
+        <Comments />
         <section className="post-footer">
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>

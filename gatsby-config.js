@@ -249,6 +249,12 @@ module.exports = {
      *  Netlify Plugins
      */
     `gatsby-plugin-netlify-cache`,
+    {
+      resolve: `gatsby-plugin-netlify-identity`,
+      options: {
+        url: `https://hackersandslackers.com/.netlify/identity`, // required!
+      },
+    },
     /**
      *  SEO & Feed Plugins
      */
