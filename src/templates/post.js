@@ -8,6 +8,8 @@ import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, SupportWidget } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { Comments } from '../components/posts/comments'
+import netlifyIdentity from 'netlify-identity-widget'
+import Auth from '../components/common/Auth'
 
 import {
   AiOutlineEye,
@@ -23,6 +25,8 @@ import {
  * This file renders a single post and loads all the content.
  *
  */
+
+netlifyIdentity.init()
 
 const Post = ({ data, location }) => {
   const post = data.ghostPost
@@ -125,6 +129,7 @@ const Post = ({ data, location }) => {
           </article>
         </div>
         <Comments />
+        <Auth />
         <section className="post-footer">
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
