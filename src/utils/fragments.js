@@ -36,6 +36,7 @@ export const ghostPostFields = graphql`
     fragment GhostPostFields on GhostPost {
         # Main fields
         id
+        ghostId
         title
         slug
         featured

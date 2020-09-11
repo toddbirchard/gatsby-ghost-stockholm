@@ -12,13 +12,16 @@ function encode(data) {
 class Comments extends React.Component {
   constructor(props) {
     super(props)
-    this.commentId = props.commentId
+    console.log(props.data)
+    this.postId = props.data.ghostPost.ghostId
+    this.commentId = props.data.ghostPost.comment_id
     this.identity = props.identity
     this.isLoggedIn = props.identity && props.identity.isLoggedIn
     this.user = props.identity.currentUser
     this.state = {
-      commentId: props.commentId,
-      commentEmail: this.user ? this.user.email : ``,
+      postId: this.postId,
+      commentId: this.commentId,
+      userEmail: this.user ? this.user.email : ``,
       commentBody: ``,
     }
   }
@@ -42,7 +45,9 @@ class Comments extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    const { commentBody, commentId, commentEmail } = this.state
+    const { commentBody, commentId, userEmail } = this.state
+    console.log(this.state)
+    console.log(this.identity)
     return (
       <>
         <div id="comments">
@@ -56,8 +61,8 @@ class Comments extends React.Component {
           >
             <label className="hidden-label" htmlFor="commentId">Comment ID</label>
             <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-            <label className="hidden-label" htmlFor="commentEmail">Email</label>
-            <input id="commentEmail" name="commentEmail" type="email" value={commentEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            <label className="hidden-label" htmlFor="userEmail">Email</label>
+            <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             <label className="hidden-label" htmlFor="commentAddress" >Address</label>
             <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
             <label className="hidden-label" htmlFor="commentBody">Post comment</label>

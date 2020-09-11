@@ -127,7 +127,7 @@ const Post = ({ data, location }) => {
           </article>
         </div>
         <section className="post-footer">
-          <Comments commentId={data.comment_id} identity={identity}/>
+          <Comments data={data} identity={identity}/>
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
         </section>
@@ -139,6 +139,7 @@ Post.propTypes = {
   data: PropTypes.shape({
     ghostPost: PropTypes.shape({
       id: PropTypes.string.isRequired,
+      ghostId: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
