@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import CommentSubmitButton from "./CommentSubmit"
 import "react-netlify-identity-widget/styles.css"
 
 const Comments = ({ commentId, identity }) => {
@@ -27,31 +27,10 @@ const Comments = ({ commentId, identity }) => {
             />
           </div>
         </form>
-        {isLoggedIn ? <SubmitComment /> : <SubmitComment /> }
+        <CommentSubmitButton isLoggedIn={isLoggedIn} />
       </div>
     </>
 
-  )
-}
-const SubmitComment = ({ children }) => {
-  const identity = useIdentityContext()
-  const [dialog, setDialog] = React.useState(false)
-
-  const isLoggedIn = identity && identity.isLoggedIn
-  return (
-    <>
-      {isLoggedIn
-        ? <button className="login-button submit-comment" type="submit">
-          SUBMIT
-        </button>
-        :
-        <div className="login-button submit-comment" onClick={() => setDialog(true)}>
-          LOG IN
-        </div>
-      }
-      <main>{children}</main>
-      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
-    </>
   )
 }
 
