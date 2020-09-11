@@ -1,10 +1,30 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import CommentSubmit from "./CommentSubmit"
+import fetch from 'node-fetch'
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+    .join(`&`)
+}
 
 const Comments = ({ commentId, identity }) => {
   const isLoggedIn = identity && identity.isLoggedIn
   const user = identity.currentUser
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch(`/`, {
+      method: `POST`,
+      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+      body: encode({
+        'form-name': form.getAttribute(`name`),
+      }),
+    })
+      .catch(error => console.log(error))
+  }
+
   console.log(user)
 
   return (
@@ -16,12 +36,14 @@ const Comments = ({ commentId, identity }) => {
           data-netlify="true"
           netlify-honeypot="address"
           method="post"
+          onSubmit={handleSubmit}
         >
-          <label className="hidden-label"></label><input name="comment-id" type="text" value={commentId} style={{ visibility: `hidden` }}/>
-          <label className="hidden-label"></label><input name="address" type="hidden" />
-          <label className="hidden-label" htmlFor="message">Post comment</label>
+          <label className="hidden-label" htmlFor="comment-id"></label><input id="comment-id" name="comment-id" type="text" value={commentId} style={{ visibility: `hidden` }}/>
+          <label className="hidden-label" htmlFor="comment-address"></label><input id="comment-address" name="address" type="hidden" />
+          <label className="hidden-label" htmlFor="comment-body">Post comment</label>
           <textarea
-            name="message"
+            id="comment-body"
+            name="comment-body"
             placeholder={`What'd you think?`}
             rows="5"
           ></textarea>
