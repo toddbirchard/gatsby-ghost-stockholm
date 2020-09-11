@@ -31,9 +31,12 @@ class Comments extends React.Component {
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
       body: encode({
         'form-name': form.getAttribute(`name`),
+        ...this.state,
       }),
     })
+      .then(() => console.log(this.state))
       .catch(error => console.log(error))
+    e.preventDefault()
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
