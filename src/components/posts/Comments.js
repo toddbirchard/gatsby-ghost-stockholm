@@ -9,10 +9,17 @@ function encode(data) {
     .join(`&`)
 }
 
-const Comments = ({ commentId, identity }) => {
-  const isLoggedIn = identity && identity.isLoggedIn
-  const user = identity.currentUser
-  const handleSubmit = (e) => {
+class Comments extends React.Component {
+  constructor(props) {
+    super(props)
+    this.commentId = props.commentId
+    this.identity = props.identity
+    this.isLoggedIn = props.identity && props.identity.isLoggedIn
+    this.user = props.identity.currentUser
+    this.state = { commentId: ``, commentBody: `` }
+  }
+
+  handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
     fetch(`/`, {
@@ -25,39 +32,41 @@ const Comments = ({ commentId, identity }) => {
       .catch(error => console.log(error))
   }
 
-  console.log(user)
-
-  return (
-    <>
-      <div id="comments">
-        <form
-          name="comments"
-          netlify
-          data-netlify="true"
-          netlify-honeypot="address"
-          method="post"
-          onSubmit={handleSubmit}
-        >
-          <label className="hidden-label" htmlFor="comment-id">
-            <input id="comment-id" name="comment-id" type="text" value={commentId} style={{ visibility: `hidden` }}/>
-          </label>
-          <label className="hidden-label" htmlFor="comment-address">
-            <input id="comment-address" name="address" type="hidden" />
-          </label>
-          <label className="hidden-label" htmlFor="comment-body">
-            Post comment
+  handleChange = e => this.setState({ [e.target.name]: e.target.value })
+  
+  render() {
+    const { commentId, commentBody } = this.state
+    return (
+      <>
+        <div id="comments">
+          <form
+            name="comments"
+            netlify
+            data-netlify="true"
+            netlify-honeypot="address"
+            method="post"
+            onSubmit={this.handleSubmit}
+          >
+            <label className="hidden-label" htmlFor="commentId">Comment ID</label>
+            <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            <label className="hidden-label" htmlFor="commentAddress" >Address</label>
+            <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
+            <label className="hidden-label" htmlFor="commentBody">Post comment</label>
             <textarea
-              id="comment-body"
-              name="comment-body"
+              id="commentBody"
+              name="commentBody"
               placeholder={`What'd you think?`}
               rows="5"
+              required
+              value={commentBody}
+              onChange={this.handleChange}
             ></textarea>
-          </label>
-          <CommentSubmit isLoggedIn={isLoggedIn} />
-        </form>
-      </div>
-    </>
-  )
+            <CommentSubmit isLoggedIn={this.isLoggedIn} />
+          </form>
+        </div>
+      </>
+    )
+  }
 }
 
 Comments.propTypes = {
