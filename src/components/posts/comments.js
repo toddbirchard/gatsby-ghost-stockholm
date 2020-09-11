@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 import CommentSubmitButton from "./CommentSubmit"
 import "react-netlify-identity-widget/styles.css"
+import "@reach/tabs/styles.css"
 
 const Comments = ({ commentId, identity }) => {
   const isLoggedIn = identity && identity.isLoggedIn

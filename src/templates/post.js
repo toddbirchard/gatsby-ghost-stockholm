@@ -127,7 +127,7 @@ const Post = ({ data, location }) => {
           </article>
         </div>
         <section className="post-footer">
-          <Comments id={data.comment_id} identity={identity}/>
+          <Comments commentId={data.comment_id} identity={identity}/>
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
         </section>
