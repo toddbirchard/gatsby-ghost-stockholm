@@ -4,27 +4,29 @@ import CommentSubmit from "./CommentSubmit"
 
 const Comments = ({ commentId, identity }) => {
   const isLoggedIn = identity && identity.isLoggedIn
+  const user = identity.currentUser
+  console.log(user)
+
   return (
     <>
       <div id="comments">
         <form
           name="comments"
+          netlify
           data-netlify="true"
-          netlify-honeypot="email"
-          action="#"
-          method="POST"
+          netlify-honeypot="address"
+          method="post"
         >
-          <label className="hidden-label"><input name="comment-id" type="text" />{commentId}</label>
-          <label className="hidden-label"><input name="email" type="email" /></label>
+          <label className="hidden-label"></label><input name="comment-id" type="text" value={commentId} style={{ visibility: `hidden` }}/>
+          <label className="hidden-label"></label><input name="address" type="hidden" />
           <label className="hidden-label" htmlFor="message">Post comment</label>
           <textarea
             name="message"
             placeholder={`What'd you think?`}
             rows="5"
-            autoComplete="false"
-          />
+          ></textarea>
+          <CommentSubmit isLoggedIn={isLoggedIn} />
         </form>
-        <CommentSubmit isLoggedIn={isLoggedIn} />
       </div>
     </>
   )
