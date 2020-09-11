@@ -49,7 +49,7 @@ class Comments extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    const { commentBody, commentId, userEmail } = this.state
+    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole } = this.state
     console.log(this.state)
     console.log(this.identity)
     return (
@@ -63,22 +63,54 @@ class Comments extends React.Component {
             method="post"
             onSubmit={this.handleSubmit}
           >
-            <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-            <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-            <label className="hidden-label" htmlFor="userEmail">Email</label>
-            <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-            <label className="hidden-label" htmlFor="commentAddress" >Address</label>
-            <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
-            <label className="hidden-label" htmlFor="commentBody">Post comment</label>
-            <textarea
-              id="commentBody"
-              name="commentBody"
-              placeholder={`What'd you think?`}
-              rows="5"
-              required
-              value={commentBody}
-              onChange={this.handleChange}
-            ></textarea>
+            <fieldset>
+              <label className="hidden-label" htmlFor="commentId">Comment ID</label>
+              <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset>
+              <label className="hidden-label" htmlFor="userId">User ID</label>
+              <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset>
+              <label className="hidden-label" htmlFor="userEmail">User Email</label>
+              <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset>
+              <label className="hidden-label" htmlFor="userName">User Name</label>
+              <input id="userName" name="userName" type="text" value={userName} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset>
+              <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
+              <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset>
+              <label className="hidden-label" htmlFor="userRole">User Role</label>
+              <input id="userRole" name="userRole" type="text" value={userRole} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset>
+              <label className="hidden-label" htmlFor="commentAddress" >Address</label>
+              <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
+            </fieldset>
+
+            <fieldset>
+              <label className="hidden-label" htmlFor="commentBody">Post comment</label>
+              <textarea
+                id="commentBody"
+                name="commentBody"
+                placeholder={`What'd you think?`}
+                rows="5"
+                required
+                value={commentBody}
+                onChange={this.handleChange}
+              ></textarea>
+            </fieldset>
+
             <CommentSubmit isLoggedIn={this.isLoggedIn} />
           </form>
         </div>
