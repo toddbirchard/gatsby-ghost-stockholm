@@ -8,11 +8,11 @@ const CommentSubmit = ({ isLoggedIn, children }) => {
   return (
     <>
       {isLoggedIn
-        ? <button className="login-button submit-comment" type="submit" label="submit">
+        ? <button className="login-button comment-btn" type="submit" label="submit">
           SUBMIT
         </button>
         :
-        <div className="login-button submit-comment" onClick={() => setDialog(true)}>
+        <div className="login-button comment-btn" onClick={() => setDialog(true)}>
           LOG IN
         </div>
       }

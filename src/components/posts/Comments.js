@@ -38,15 +38,21 @@ const Comments = ({ commentId, identity }) => {
           method="post"
           onSubmit={handleSubmit}
         >
-          <label className="hidden-label" htmlFor="comment-id"></label><input id="comment-id" name="comment-id" type="text" value={commentId} style={{ visibility: `hidden` }}/>
-          <label className="hidden-label" htmlFor="comment-address"></label><input id="comment-address" name="address" type="hidden" />
-          <label className="hidden-label" htmlFor="comment-body">Post comment</label>
-          <textarea
-            id="comment-body"
-            name="comment-body"
-            placeholder={`What'd you think?`}
-            rows="5"
-          ></textarea>
+          <label className="hidden-label" htmlFor="comment-id">
+            <input id="comment-id" name="comment-id" type="text" value={commentId} style={{ visibility: `hidden` }}/>
+          </label>
+          <label className="hidden-label" htmlFor="comment-address">
+            <input id="comment-address" name="address" type="hidden" />
+          </label>
+          <label className="hidden-label" htmlFor="comment-body">
+            Post comment
+            <textarea
+              id="comment-body"
+              name="comment-body"
+              placeholder={`What'd you think?`}
+              rows="5"
+            ></textarea>
+          </label>
           <CommentSubmit isLoggedIn={isLoggedIn} />
         </form>
       </div>
