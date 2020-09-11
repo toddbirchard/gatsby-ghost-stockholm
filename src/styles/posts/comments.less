@@ -1,11 +1,12 @@
 #comments {
-  display: none;
-  
+  margin: 15px 0;
+
   textarea {
     --webkit-appearance: none;
     display: block;
     width: -webkit-fill-available;
-    padding: 10px;
+    height: 18px;
+    padding: 15px;
     overflow: hidden;
     border: 1px solid #e7edf1;
     border: 0;
@@ -27,14 +28,25 @@
         opacity: .5;
       }
     }
+
+    &:focus {
+      height: 200px;
+      border: 1px solid @theme-color;
+      background: white;
+
+      &::placeholder {
+        opacity: 0;
+      }
+    }
   }
 
-  button {
+  .submit-comment,
+  .login-button {
     margin-top: 10px;
     float: right;
-    border: unset;
-    background: unset;
-    color: #7b8185;
+    border: unset !important;
+    background: unset !important;
+    color: #7b8185 !important;
 
     &:hover {
       color: @theme-color;

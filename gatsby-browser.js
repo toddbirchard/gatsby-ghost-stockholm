@@ -58,7 +58,7 @@ function codeSyntaxHighlight() {
   Prism.highlightAll();
 }
 
-// Lightbox funxtionality for post images
+// Lightbox functionality for post images
 function enableLightboxImages() {
   let images = document.querySelectorAll('.kg-image-card img');
   if (images.length > 0) {

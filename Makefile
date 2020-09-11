@@ -7,12 +7,13 @@ Usage:
 
 make build           - Build site & Lambdas for production.
 make serve           - Build & serve production build locally.
+make clean           - Purge cache & modules.
 make reset           - Purge cache & reinstall modules.
 make update          - Update npm production dependencies.
 endef
 export HELP
 
-.PHONY: build serve clean update help
+.PHONY: build serve clean reset update help
 
 all help:
 	@echo "$$HELP"
@@ -31,6 +32,12 @@ serve:
 	gatsby clean
 	gatsby build
 	gatsby serve
+
+.PHONY: clean
+reset:
+	gatsby clean
+	find . -maxdepth 1 -name "package-lock.json" -delete
+	rm -rf "node_modules"
 
 .PHONY: reset
 reset:

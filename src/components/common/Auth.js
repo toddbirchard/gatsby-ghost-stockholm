@@ -4,8 +4,6 @@ import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget
 import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
 
 import {
-  Route,
-  Redirect,
   withRouter,
 } from 'react-router-dom'
 
@@ -54,6 +52,7 @@ const netlifyAuth = {
 
 const AuthButton = withRouter(
   ({ history }) => (netlifyAuth.isAuthenticated ? (
+
     <p>
         Welcome!{` `}
       <button
@@ -69,29 +68,23 @@ const AuthButton = withRouter(
   ))
 )
 
-function PrivateRoute({ component: Component, ...rest }) {
+/*function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
       render={props => (netlifyAuth.isAuthenticated ? (
         <Component {...props} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: `/login`,
-            state: { from: props.location },
-          }}
-        />
-      ))
+      ) : null)
       }
     />
   )
-}
+}*/
 
 class Login extends React.Component {
   state = { redirectToReferrer: false };
 
   login = () => {
+    this.event.preventDefault()
     netlifyAuth.authenticate(() => {
       this.setState({ redirectToReferrer: false })
     })
@@ -99,11 +92,10 @@ class Login extends React.Component {
 
   render() {
     let { from } = this.props.location.state || { from: { pathname: `/` } }
-    let { redirectToReferrer } = this.state
 
-    if (redirectToReferrer) {
+    /*if (redirectToReferrer) {
       return <Redirect to={from} />
-    }
+    }*/
 
     return (
       <div>

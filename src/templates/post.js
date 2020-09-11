@@ -9,6 +9,7 @@ import { RelatedPosts, SeriesTOC, SupportWidget, Comments } from '../components/
 import { AuthorCard } from '../components/authors'
 import netlifyIdentity from 'netlify-identity-widget'
 import Auth from '../components/common/Auth'
+import { useIdentityContext } from "react-netlify-identity-widget"
 
 import {
   AiOutlineEye,
@@ -39,6 +40,7 @@ const Post = ({ data, location }) => {
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
   const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
+  const identity = useIdentityContext()
 
   return (
     <>
@@ -128,7 +130,7 @@ const Post = ({ data, location }) => {
           </article>
         </div>
         <section className="post-footer">
-          <Comments />
+          <Comments id={data.comment_id} identity={identity}/>
           <Auth />
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
@@ -159,6 +161,7 @@ Post.propTypes = {
         postCount: PropTypes.number,
       }).isRequired,
     }).isRequired,
+    comment_id: PropTypes.string,
     relatedPosts: PropTypes.objectOf(PropTypes.array),
     seriesPosts: PropTypes.object,
   }).isRequired,

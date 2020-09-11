@@ -1,60 +1,56 @@
 import React from "react"
-import fetch from 'node-fetch'
+import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
-class Comments extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      value: ``,
-      message: ``,
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+const Comments = ({ commentId, identity }) => {
+  const isLoggedIn = identity && identity.isLoggedIn
+  return (
+    <>
+      <div id="comments">
+        <form
+          name="comments"
+          data-netlify="true"
+          netlify-honeypot="email"
+          action="#"
+          method="POST"
+        >
+          <div className="form-group">
+            <label className="hidden-label"><input name="comment-id" type="text" />{commentId}</label>
+            <label className="hidden-label"><input name="email" type="email" /></label>
+            <label className="hidden-label" htmlFor="message">Post comment</label>
+            <textarea
+              name="message"
+              placeholder={`What'd you think?`}
+              rows="5"
+              autoComplete="false"
+            />
+          </div>
+        </form>
+        {isLoggedIn ? <SubmitComment /> : <SubmitComment /> }
+      </div>
+    </>
 
-  handleSubmit(event) {
-    // event.preventDefault()
+  )
+}
+const SubmitComment = ({ children }) => {
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
 
-    const postURL = `example.com/members/api/send-magic-link/`
-
-    const values = {
-      email: this.state.value,
-      emailType: `subscribe`,
-      labels: [],
-    }
-
-    fetch(postURL, {
-      method: `POST`,
-      mode: `cors`,
-      headers: { 'Content-Type': `application/json` },
-      body: JSON.stringify(values),
-    }).then(() => {
-      this.setState({ message: `success` })
-    }).catch(() => {
-      this.setState({ message: `error` })
-    })
-  }
-
-  render() {
-    return (
-      <>
-        <div id="comments">
-          <form name="comments" data-netlify="true" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label className="hidden-label" htmlFor="message">Post comment</label>
-              <textarea
-                name="message"
-                placeholder={`What'd you think?`}
-                autoComplete="false"
-              />
-              <button className="submit-comment" type="submit" value="Submit">
-                <span className="button-content">{`Submit`}</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </>
-    )
-  }
+  const isLoggedIn = identity && identity.isLoggedIn
+  return (
+    <>
+      {isLoggedIn
+        ? <button className="login-button submit-comment" onClick={() => setDialog(true)}>
+          SUBMIT
+        </button>
+        :
+        <button className="login-button submit-comment" onClick={() => setDialog(true)}>
+          LOG IN
+        </button>
+      }
+      <main>{children}</main>
+      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
+    </>
+  )
 }
 
 export default Comments
