@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import "react-netlify-identity-widget/styles.css"
 
 const Comments = ({ commentId, identity }) => {
   const isLoggedIn = identity && identity.isLoggedIn

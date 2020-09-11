@@ -34,7 +34,7 @@ serve:
 	gatsby serve
 
 .PHONY: clean
-reset:
+clean:
 	gatsby clean
 	find . -maxdepth 1 -name "package-lock.json" -delete
 	rm -rf "node_modules"

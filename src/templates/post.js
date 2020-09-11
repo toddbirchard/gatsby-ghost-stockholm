@@ -7,8 +7,6 @@ import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { RelatedPosts, SeriesTOC, SupportWidget, Comments } from '../components/posts'
 import { AuthorCard } from '../components/authors'
-import netlifyIdentity from 'netlify-identity-widget'
-import Auth from '../components/common/Auth'
 import { useIdentityContext } from "react-netlify-identity-widget"
 import {
   AiOutlineEye,
@@ -25,7 +23,7 @@ import {
  *
  */
 
-netlifyIdentity.init()
+// netlifyIdentity.init()
 
 const Post = ({ data, location }) => {
   const post = data.ghostPost
