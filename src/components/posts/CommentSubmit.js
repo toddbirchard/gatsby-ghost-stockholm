@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import IdentityModal from "react-netlify-identity-widget"
-import "react-netlify-identity-widget/styles.css"
+// import "react-netlify-identity-widget/styles.css"
 
 const CommentSubmit = ({ isLoggedIn, children }) => {
   const [dialog, setDialog] = React.useState(false)

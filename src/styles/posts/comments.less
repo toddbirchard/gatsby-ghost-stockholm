@@ -1,6 +1,14 @@
 #comments {
   margin: 15px 0;
 
+  &:hover,
+  &focus {
+    .submit-comment,
+    .login-button {
+      opacity: 1;
+    }
+  }
+
   textarea {
     --webkit-appearance: none;
     display: block;
@@ -16,7 +24,7 @@
     box-shadow: @box-shadow;
     color: @body-color;
     font-family: unset;
-    font-size: 1em;
+    font-size: .9em;
     transition: @transition;
 
     &:hover {
@@ -48,6 +56,8 @@
     background: unset !important;
     color: #7b8185 !important;
     font-family: @body-font-medium;
+    opacity: 0;
+    transition: @transition;
 
     &:hover {
       color: @theme-color;
