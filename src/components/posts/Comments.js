@@ -17,10 +17,14 @@ class Comments extends React.Component {
     this.commentId = props.data.ghostPost.comment_id
     this.identity = props.identity
     this.isLoggedIn = props.identity && props.identity.isLoggedIn
-    this.user = props.identity.currentUser
+    this.user = props.identity.user
     this.state = {
       postId: this.postId,
       commentId: this.commentId,
+      userId: this.user ? this.user.id : ``,
+      userName: this.user ? this.user.user_metadata.full_name : ``,
+      userAvatar: this.user ? this.user.user_metadata.avatar_url : ``,
+      userRole: this.user ? this.user.role : ``,
       userEmail: this.user ? this.user.email : ``,
       commentBody: ``,
     }
