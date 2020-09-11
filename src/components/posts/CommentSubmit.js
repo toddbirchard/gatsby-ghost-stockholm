@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import IdentityModal from "react-netlify-identity-widget"
 import "react-netlify-identity-widget/styles.css"
 
-const CommentSubmitButton = ({ isLoggedIn, children }) => {
+const CommentSubmit = ({ isLoggedIn, children }) => {
   const [dialog, setDialog] = React.useState(false)
 
   return (
@@ -23,7 +23,7 @@ const CommentSubmitButton = ({ isLoggedIn, children }) => {
   )
 }
 
-CommentSubmitButton.propTypes = {
+CommentSubmit.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
 }
 
