@@ -40,13 +40,13 @@ const SubmitComment = ({ children }) => {
   return (
     <>
       {isLoggedIn
-        ? <button className="login-button submit-comment" onClick={() => setDialog(true)}>
+        ? <button className="login-button submit-comment" type="submit">
           SUBMIT
         </button>
         :
-        <button className="login-button submit-comment" onClick={() => setDialog(true)}>
+        <div className="login-button submit-comment" onClick={() => setDialog(true)}>
           LOG IN
-        </button>
+        </div>
       }
       <main>{children}</main>
       <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />

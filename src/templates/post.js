@@ -10,7 +10,6 @@ import { AuthorCard } from '../components/authors'
 import netlifyIdentity from 'netlify-identity-widget'
 import Auth from '../components/common/Auth'
 import { useIdentityContext } from "react-netlify-identity-widget"
-
 import {
   AiOutlineEye,
   AiOutlineTags,
@@ -131,7 +130,6 @@ const Post = ({ data, location }) => {
         </div>
         <section className="post-footer">
           <Comments id={data.comment_id} identity={identity}/>
-          <Auth />
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
         </section>
