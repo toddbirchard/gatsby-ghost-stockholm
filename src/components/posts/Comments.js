@@ -16,7 +16,7 @@ class Comments extends React.Component {
     this.identity = props.identity
     this.isLoggedIn = props.identity && props.identity.isLoggedIn
     this.user = props.identity.currentUser
-    this.state = { commentId: ``, commentBody: `` }
+    this.state = { commentId: ``, commentBody: ``, commentEmail: `` }
   }
 
   handleSubmit = (e) => {
@@ -33,9 +33,9 @@ class Comments extends React.Component {
   }
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
-  
+
   render() {
-    const { commentId, commentBody } = this.state
+    const { commentBody } = this.state
     return (
       <>
         <div id="comments">
@@ -48,7 +48,9 @@ class Comments extends React.Component {
             onSubmit={this.handleSubmit}
           >
             <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-            <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            <input id="commentId" name="commentId" type="text" value={this.commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            <label className="hidden-label" htmlFor="commentEmail">Email</label>
+            <input id="commentEmail" name="commentEmail" type="email" value={this.user.email} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             <label className="hidden-label" htmlFor="commentAddress" >Address</label>
             <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
             <label className="hidden-label" htmlFor="commentBody">Post comment</label>
