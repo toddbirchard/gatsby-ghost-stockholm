@@ -27,4 +27,4 @@ CommentSubmit.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
 }
 
-export default CommentSubmitButton
+export default CommentSubmit
