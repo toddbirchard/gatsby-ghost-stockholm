@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types'
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
 const Comments = ({ commentId, identity }) => {
@@ -51,6 +52,11 @@ const SubmitComment = ({ children }) => {
       <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
     </>
   )
+}
+
+Comments.propTypes = {
+  commentId: PropTypes.string.isRequired,
+  identity: PropTypes.object,
 }
 
 export default Comments
