@@ -1,0 +1,43 @@
+#comments {
+  display: none;
+  
+  textarea {
+    --webkit-appearance: none;
+    display: block;
+    width: -webkit-fill-available;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid #e7edf1;
+    border: 0;
+    border: 1px solid @theme-color;
+    border-radius: 3px;
+    background: white;
+    box-shadow: @box-shadow;
+    color: @body-color;
+    font-family: unset;
+    font-size: 1em;
+    transition: @transition;
+
+    &:hover {
+      border: 1px solid @theme-color;
+      background: #e3f2fe;
+
+      &::placeholder {
+        color: @theme-color;
+        opacity: .5;
+      }
+    }
+  }
+
+  button {
+    margin-top: 10px;
+    float: right;
+    border: unset;
+    background: unset;
+    color: #7b8185;
+
+    &:hover {
+      color: @theme-color;
+    }
+  }
+}

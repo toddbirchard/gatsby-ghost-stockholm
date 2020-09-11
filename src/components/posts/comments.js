@@ -1,28 +1,60 @@
-// src/components/Layout.js
 import React from "react"
-import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
-import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
+import fetch from 'node-fetch'
 
-export const Comments = ({ children }) => {
-  const identity = useIdentityContext()
-  const [dialog, setDialog] = React.useState(false)
-  const name =
-    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || `NoName`
+class Comments extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: ``,
+      message: ``,
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-  console.log(JSON.stringify(identity))
-  const isLoggedIn = identity && identity.isLoggedIn
-  return (
-    <>
-      <div className="login-button">
-        {` `}
-        <div className="btn" onClick={() => setDialog(true)}>
-          {isLoggedIn ? `Hello ${name}, Log out here!` : `LOG IN`}
+  handleSubmit(event) {
+    // event.preventDefault()
+
+    const postURL = `example.com/members/api/send-magic-link/`
+
+    const values = {
+      email: this.state.value,
+      emailType: `subscribe`,
+      labels: [],
+    }
+
+    fetch(postURL, {
+      method: `POST`,
+      mode: `cors`,
+      headers: { 'Content-Type': `application/json` },
+      body: JSON.stringify(values),
+    }).then(() => {
+      this.setState({ message: `success` })
+    }).catch(() => {
+      this.setState({ message: `error` })
+    })
+  }
+
+  render() {
+    return (
+      <>
+        <div id="comments">
+          <form name="comments" data-netlify="true" onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label className="hidden-label" htmlFor="message">Post comment</label>
+              <textarea
+                name="message"
+                placeholder={`What'd you think?`}
+                autoComplete="false"
+              />
+              <button className="submit-comment" type="submit" value="Submit">
+                <span className="button-content">{`Submit`}</span>
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
-      <main>{children}</main>
-      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
-    </>
-  )
+      </>
+    )
+  }
 }
 
 export default Comments

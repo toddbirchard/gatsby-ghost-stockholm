@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import { useLang, get } from './utils/use-lang'
 import { SubscribeForm } from '.'
 
-// The actual component
 const Subscribe = ({ data }) => {
   const site = data.ghostSettings
   const cmsUrl = site.url

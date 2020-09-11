@@ -5,9 +5,8 @@ import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC, SupportWidget } from '../components/posts'
+import { RelatedPosts, SeriesTOC, SupportWidget, Comments } from '../components/posts'
 import { AuthorCard } from '../components/authors'
-import { Comments } from '../components/posts/comments'
 import netlifyIdentity from 'netlify-identity-widget'
 import Auth from '../components/common/Auth'
 
@@ -128,9 +127,9 @@ const Post = ({ data, location }) => {
             <AuthorCard author={author} page={`post`}/>
           </article>
         </div>
-        <Comments />
-        <Auth />
         <section className="post-footer">
+          <Comments />
+          <Auth />
           {relatedPosts && <RelatedPosts data={relatedPosts}/>}
           <SupportWidget/>
         </section>

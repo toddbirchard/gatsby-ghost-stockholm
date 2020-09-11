@@ -1,20 +1,33 @@
 import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
+import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import "react-netlify-identity-widget/styles.css" // delete if you want to bring your own CSS
+
 import {
-  BrowserRouter as Router,
   Route,
   Redirect,
   withRouter,
 } from 'react-router-dom'
 
-function Auth() {
+export const Auth = ({ children }) => {
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
+  const name =
+    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || `NoName`
+
+  console.log(JSON.stringify(identity))
+  const isLoggedIn = identity && identity.isLoggedIn
   return (
-    <Router>
-      <div>
-        <Route path="/" />
-        <PrivateRoute path="/protected" />
+    <>
+      <div className="login-button">
+        {` `}
+        <div className="btn" onClick={() => setDialog(true)}>
+          {isLoggedIn ? `Hello ${name}, Log out here!` : `LOG IN`}
+        </div>
       </div>
-    </Router>
+      <main>{children}</main>
+      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
+    </>
   )
 }
 
@@ -80,7 +93,7 @@ class Login extends React.Component {
 
   login = () => {
     netlifyAuth.authenticate(() => {
-      this.setState({ redirectToReferrer: true })
+      this.setState({ redirectToReferrer: false })
     })
   };
 
