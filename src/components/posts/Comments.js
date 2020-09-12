@@ -13,12 +13,14 @@ class Comments extends React.Component {
   constructor(props) {
     super(props)
     this.postId = props.data.ghostPost.ghostId
+    this.postSlug = props.data.ghostPost.slug,
     this.commentId = props.data.ghostPost.comment_id
     this.identity = props.identity
     this.isLoggedIn = props.identity && props.identity.isLoggedIn
     this.user = props.identity.user
     this.state = {
       postId: this.postId,
+      postSlug: this.postSlug,
       commentId: this.commentId,
       userId: this.user ? this.user.id : ``,
       userName: this.user ? this.user.user_metadata.full_name : ``,
@@ -48,7 +50,7 @@ class Comments extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId } = this.state
+    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId, postSlug } = this.state
     return (
       <>
         <div id="comments">
@@ -68,6 +70,11 @@ class Comments extends React.Component {
             <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="userId">User ID</label>
               <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset className="hidden-label">
+              <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
+              <input id="postSlug" name="postSlug" type="text" value={postSlug} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
             <fieldset className="hidden-label">

@@ -142,6 +142,11 @@ module.exports = {
             idFieldName: `id`,
             name: `donations`,
           },
+          {
+            statement: `SELECT * FROM hackers_prod.comments`,
+            idFieldName: `id`,
+            name: `comments`,
+          },
         ],
       },
     },
