@@ -12,7 +12,6 @@ function encode(data) {
 class Comments extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props.data)
     this.postId = props.data.ghostPost.ghostId
     this.commentId = props.data.ghostPost.comment_id
     this.identity = props.identity
@@ -41,7 +40,7 @@ class Comments extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => console.log(this.state))
+      .then(() => this.setState({ commentBody: `` }))
       .catch(error => console.log(error))
     e.preventDefault()
   }
@@ -50,8 +49,6 @@ class Comments extends React.Component {
 
   render() {
     const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole } = this.state
-    console.log(this.state)
-    console.log(this.identity)
     return (
       <>
         <div id="comments">
