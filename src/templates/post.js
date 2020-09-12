@@ -194,15 +194,6 @@ export const postQuery = graphql`
       }
       totalCount
     },
-    comments: allMysqlComments(sort: {fields: created_at, order: DESC}, filter: {post_slug: {eq: $slug}}) {
-      edges {
-        node {
-          body
-          user_name
-          user_avatar
-          created_at(formatString: "DD MMMM, YYYY")
-        }
-      }
-    }
+    
   }
 `
