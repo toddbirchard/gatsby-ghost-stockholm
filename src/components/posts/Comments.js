@@ -60,37 +60,37 @@ class Comments extends React.Component {
             method="post"
             onSubmit={this.handleSubmit}
           >
-            <fieldset>
+            <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="commentId">Comment ID</label>
               <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
-            <fieldset>
+            <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="userId">User ID</label>
               <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
-            <fieldset>
+            <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="userEmail">User Email</label>
               <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
-            <fieldset>
+            <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="userName">User Name</label>
               <input id="userName" name="userName" type="text" value={userName} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
-            <fieldset>
+            <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
               <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
-            <fieldset>
+            <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="userRole">User Role</label>
               <input id="userRole" name="userRole" type="text" value={userRole} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
-            <fieldset>
+            <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="commentAddress" >Address</label>
               <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
             </fieldset>
@@ -110,6 +110,19 @@ class Comments extends React.Component {
 
             <CommentSubmit isLoggedIn={this.isLoggedIn} />
           </form>
+          <div className="user-comments">
+            <div className="comment">
+              <img className="user-avatar" src="https://hackersandslackers-cdn.storage.googleapis.com/2020/04/todd@2x.jpg" />
+              <div className="comment-main">
+                <div className="user-name">Todd Birchard</div>
+                <p className="comment-body">Starboard scuppers topgallant league gun run a shot across the bow furl heave to pirate take a caulk. Fore carouser coxswain jack maroon furl transom Arr crimp skysail. Code of conduct pressgang bilged on her anchor quarterdeck to go on account flogging Buccaneer topsail sheet lateen sail.</p>
+                <div className="comment-buttons">
+                  <button>Reply</button>
+                  <button>Like</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </>
     )

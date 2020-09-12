@@ -64,4 +64,33 @@
       opacity: .8;
     }
   }
+
+  .user-comments {
+    display: none;
+    margin-top: 20px;
+        
+    .comment {
+      display: flex;
+      justify-content: space-between;
+
+      .user-avatar {
+        width: 80px;
+        height: 80px;
+        margin-right: 25px;
+        border-radius: 50%;
+      }
+
+      .user-name {
+        margin-bottom: 5px;
+        font-family: @body-font-medium;
+        font-size: 1.3em;
+      }
+
+      .comment-body {
+        margin-bottom: 5px;
+        font-size: .95em;
+        line-height: 1.4;
+      }
+    }
+  }
 }
