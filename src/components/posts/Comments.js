@@ -48,7 +48,7 @@ class Comments extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole } = this.state
+    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId } = this.state
     return (
       <>
         <div id="comments">
@@ -68,6 +68,11 @@ class Comments extends React.Component {
             <fieldset className="hidden-label">
               <label className="hidden-label" htmlFor="userId">User ID</label>
               <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            </fieldset>
+
+            <fieldset className="hidden-label">
+              <label className="hidden-label" htmlFor="postId">Post ID</label>
+              <input id="postId" name="postId" type="text" value={postId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
             </fieldset>
 
             <fieldset className="hidden-label">
