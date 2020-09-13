@@ -27,6 +27,7 @@ Comment.propTypes = {
     user_name: PropTypes.string.isRequired,
     user_avatar: PropTypes.string.isRequired,
     user_email: PropTypes.string.isRequired,
+    user_role: PropTypes.string,
     created_at: PropTypes.string.isRequired,
   }).isRequired,
 }

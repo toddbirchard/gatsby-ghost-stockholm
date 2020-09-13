@@ -165,6 +165,8 @@ Post.propTypes = {
         body: PropTypes.string.isRequired,
         user_name: PropTypes.string.isRequired,
         user_avatar: PropTypes.string.isRequired,
+        user_email: PropTypes.string.isRequired,
+        user_role: PropTypes.string,
         created_at: PropTypes.string.isRequired,
       }),
     ),
@@ -209,6 +211,7 @@ export const postQuery = graphql`
           body
           user_name
           user_avatar
+          user_role
           created_at(fromNow: true)
         }
       }
