@@ -5,7 +5,6 @@ import Comment from "./Comment"
 
 const Comments = ({ data, identity, comments }) => {
   const post = data.ghostPost
-  const authorEmail = post.primary_author.email
 
   return (
     <>
@@ -13,7 +12,7 @@ const Comments = ({ data, identity, comments }) => {
         {comments &&
         <div className="user-comments">
           {comments.map(({ node }) => (
-            <Comment key={node.id} comment={node} authorEmail={authorEmail} />
+            <Comment key={node.id} comment={node} />
           ))}
         </div> }
         <CommentForm post={post} identity={identity} />

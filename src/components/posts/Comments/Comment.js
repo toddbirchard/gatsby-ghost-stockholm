@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Comment = ({ comment, authorEmail }) => (
+const Comment = ({ comment }) => (
   <div className="comment">
     <img className="user-avatar" src={comment.user_avatar} />
     <div className="comment-main">
       <div className="comment-head">
         <div className="comment-author">
           <span className="user-name">{comment.user_name}</span>
-          <span className="badge author">Author</span>
+          {comment.user_role && <span className="badge author">Author</span> }
         </div>
         <div className="comment-date">{comment.created_at}</div>
       </div>
