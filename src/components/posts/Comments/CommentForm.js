@@ -26,6 +26,7 @@ class CommentForm extends React.Component {
       userId: this.user ? this.user.id : ``,
       userName: this.user ? this.user.user_metadata.full_name : ``,
       userAvatar: this.user ? this.user.user_metadata.avatar_url : ``,
+      userProvider: this.user ? this.user.app_metadata ? this.user.app_metadata.provider : `` : ``,
       userRole: this.user ? this.user.role : ``,
       userEmail: this.user ? this.user.email : ``,
       commentBody: ``,
@@ -51,7 +52,7 @@ class CommentForm extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId, postSlug } = this.state
+    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId, postSlug, userProvider } = this.state
     return (
       <>
         <form
@@ -103,6 +104,11 @@ class CommentForm extends React.Component {
           </fieldset>
 
           <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="userProvider">User Provider</label>
+            <input id="userProvider" name="userProvider" type="text" value={userProvider} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+          </fieldset>
+
+          <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="commentAddress" >Address</label>
             <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
           </fieldset>
@@ -127,6 +133,12 @@ class CommentForm extends React.Component {
 }
 
 CommentForm.propTypes = {
+  post: PropTypes.shape({
+    ghostId: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    primary_author: PropTypes.string.isRequired,
+    comment_id: PropTypes.string.isRequired,
+  }).isRequired,
   commentId: PropTypes.string.isRequired,
   identity: PropTypes.object,
 }
