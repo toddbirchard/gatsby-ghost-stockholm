@@ -76,6 +76,7 @@ export const ghostPostFields = graphql`
         primary_author {
             name
             slug
+            email
             bio
             profile_image
             twitter
