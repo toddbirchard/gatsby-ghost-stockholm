@@ -22,6 +22,7 @@ class CommentForm extends React.Component {
     this.state = {
       postId: this.postId,
       postSlug: this.postSlug,
+      authorName: this.authorName,
       commentId: this.commentId,
       userId: this.user ? this.user.id : ``,
       userName: this.user ? this.user.user_metadata.full_name : ``,
