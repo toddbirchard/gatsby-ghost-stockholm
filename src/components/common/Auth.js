@@ -12,7 +12,6 @@ export const Auth = ({ children }) => {
   const name =
     (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || `NoName`
 
-  console.log(JSON.stringify(identity))
   const isLoggedIn = identity && identity.isLoggedIn
   return (
     <>

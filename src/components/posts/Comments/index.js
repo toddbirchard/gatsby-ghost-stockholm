@@ -5,8 +5,6 @@ import Comment from "./Comment"
 
 const Comments = ({ data, identity, comments }) => {
   const post = data.ghostPost
-  console.log(`gfgdg`)
-  console.log(comments)
 
   return (
     <>
