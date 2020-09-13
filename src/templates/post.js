@@ -38,6 +38,7 @@ const Post = ({ data, location }) => {
   const featureImage = post.feature_image
   const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
   const identity = useIdentityContext()
+  const comments = data.comments.edges
 
   return (
     <>
@@ -50,53 +51,53 @@ const Post = ({ data, location }) => {
       />
       <Layout template="post-template">
         <div className="post-wrapper">
-          <div className="post-head">
-            <h1 className="post-title">{post.title}</h1>
-            <div className="post-meta">
-              <div className="meta-item author">
-                <Link to={authorUrl}>
-                  <AiOutlineUser />
-                  <span>{authorFirstName}</span>
-                </Link>
-              </div>
-              {tags &&
-              <div className="meta-item tag">
-                <AiOutlineTags />
-                <Tags
-                  post={post}
-                  limit={1}
-                  visibility="public"
-                  autolink
-                  separator={null}
-                  permalink="/tag/:slug"
-                  classes={tags.ghostId}/>
-              </div>}
-              <div className="meta-item reading-time">
-                <AiOutlineEye />
-                <span>{readingTime}</span>
-              </div>
-              <div className="meta-item date">
-                <AiOutlineCalendar />
-                <span>{post.published_at_pretty}</span>
-              </div>
-            </div>
-            {post.feature_image &&
-                <picture className="post-image">
-                  <source
-                    media="(max-width:600px)"
-                    data-srcset={featureImageMobile}
-                  />
-                  <img
-                    className="post-card-image lazyload"
-                    data-src={featureImage}
-                    alt={post.title}
-                    title={post.title}
-                  />
-                </picture>
-            }
-          </div>
 
           <article className="post">
+            <div className="post-head">
+              <h1 className="post-title">{post.title}</h1>
+              <div className="post-meta">
+                <div className="meta-item author">
+                  <Link to={authorUrl}>
+                    <AiOutlineUser />
+                    <span>{authorFirstName}</span>
+                  </Link>
+                </div>
+                {tags &&
+                <div className="meta-item tag">
+                  <AiOutlineTags />
+                  <Tags
+                    post={post}
+                    limit={1}
+                    visibility="public"
+                    autolink
+                    separator={null}
+                    permalink="/tag/:slug"
+                    classes={tags.ghostId}/>
+                </div>}
+                <div className="meta-item reading-time">
+                  <AiOutlineEye />
+                  <span>{readingTime}</span>
+                </div>
+                <div className="meta-item date">
+                  <AiOutlineCalendar />
+                  <span>{post.published_at_pretty}</span>
+                </div>
+              </div>
+              {post.feature_image &&
+                  <picture className="post-image">
+                    <source
+                      media="(max-width:600px)"
+                      data-srcset={featureImageMobile}
+                    />
+                    <img
+                      className="post-card-image lazyload"
+                      data-src={featureImage}
+                      alt={post.title}
+                      title={post.title}
+                    />
+                  </picture>
+              }
+            </div>
             {seriesPosts &&
               <SeriesTOC
                 seriesPosts={seriesPosts.edges}
@@ -125,12 +126,13 @@ const Post = ({ data, location }) => {
             </div>
             <AuthorCard author={author} page={`post`}/>
           </article>
+          <section className="post-footer">
+            <Comments data={data} identity={identity} comments={comments} />
+            {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+            <SupportWidget/>
+          </section>
         </div>
-        <section className="post-footer">
-          <Comments data={data} identity={identity}/>
-          {relatedPosts && <RelatedPosts data={relatedPosts}/>}
-          <SupportWidget/>
-        </section>
+
       </Layout>
     </>)
 }
@@ -158,7 +160,14 @@ Post.propTypes = {
         postCount: PropTypes.number,
       }).isRequired,
     }).isRequired,
-    comment_id: PropTypes.string,
+    comments: PropTypes.arrayOf(
+      PropTypes.shape({
+        body: PropTypes.string.isRequired,
+        user_name: PropTypes.string.isRequired,
+        user_avatar: PropTypes.string.isRequired,
+        created_at: PropTypes.string.isRequired,
+      }),
+    ),
     relatedPosts: PropTypes.objectOf(PropTypes.array),
     seriesPosts: PropTypes.object,
   }).isRequired,
@@ -194,6 +203,15 @@ export const postQuery = graphql`
       }
       totalCount
     },
-    
+    comments: allMysqlComments(sort: {fields: created_at, order: DESC}, filter: {post_slug: {eq: $slug}}) {
+      edges {
+        node {
+          body
+          user_name
+          user_avatar
+          created_at(formatString: "DD MMMM, YYYY")
+        }
+      }
+    }
   }
 `

@@ -2,94 +2,135 @@
   margin: 15px 0;
 
   &:hover,
-  &focus {
-    .submit-comment,
-    .login-button {
+  &:focus {
+    .comment-btn,
+    .submit-comment {
       opacity: 1;
     }
   }
 
-  textarea {
-    --webkit-appearance: none;
+  form {
     display: block;
-    width: -webkit-fill-available;
-    height: 18px;
-    padding: 15px;
-    overflow: hidden;
-    border: 1px solid #e7edf1;
-    border: 0;
-    border: 1px solid @theme-color;
-    border-radius: 3px;
-    background: white;
-    box-shadow: @box-shadow;
-    color: @body-color;
-    font-family: unset;
-    font-size: .9em;
-    transition: @transition;
+    position: relative;
 
-    &:hover {
-      border: 1px solid @theme-color;
-      background: #e3f2fe;
-
-      &::placeholder {
-        color: @theme-color;
-        opacity: .5;
-      }
-    }
-
-    &:focus {
-      height: 200px;
-      border: 1px solid @theme-color;
+    textarea {
+      --webkit-appearance: none;
+      display: block;
+      width: -webkit-fill-available;
+      height: 25px;
+      padding: 15px;
+      overflow: hidden;
+      border: 1px solid #e7edf1;
+      border-radius: 3px;
       background: white;
+      box-shadow: @box-shadow;
+      color: @body-color;
+      font-family: unset;
+      font-size: 0.9em;
+      transition: @transition;
 
       &::placeholder {
-        opacity: 0;
+        font-size: 1.3em;
+      }
+
+      &:hover {
+        border: 1px solid @theme-color;
+        background: #e3f2fe;
+
+        &::placeholder {
+          color: @theme-color;
+          opacity: 0.5;
+        }
+      }
+
+      &:focus {
+        height: 200px;
+        border: 1px solid @theme-color;
+        background: white;
+
+        &::placeholder {
+          opacity: 0;
+        }
       }
     }
-  }
 
-  .comment-btn {
-    width: fit-content;
-    margin: 10px 0 0 auto;
-    border: unset !important;
-    background: unset !important;
-    color: #7b8185 !important;
-    font-family: @body-font-medium;
-    opacity: 0;
-    transition: @transition;
+    .comment-btn {
+      z-index: 1;
+      position: absolute;
+      right: 13px;
+      bottom: 14px;
+      width: fit-content;
+      height: 18px;
+      margin: 0 auto;
+      padding: 4px 6px;
+      border: 1px solid #7b8185;
+      border-radius: 2px;
+      background: unset !important;
+      color: #7b8185 !important;
+      font-family: @body-font-medium;
+      opacity: 0;
+      transition: @transition;
 
-    &:hover {
-      color: @theme-color;
-      cursor: pointer;
-      opacity: .8;
+      &:hover {
+        border: 1px solid @theme-color !important;
+        color: @theme-color !important;
+        cursor: pointer;
+        opacity: 0.8;
+      }
     }
   }
 
   .user-comments {
-    display: none;
-    margin-top: 20px;
-        
+    width: 95%;
+    margin: 40px 0;
+
     .comment {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #dde0e6;
+
+      &:last-of-type {
+        margin-bottom: unset;
+        padding-bottom: unset;
+        border-bottom: unset;
+      }
 
       .user-avatar {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         margin-right: 25px;
         border-radius: 50%;
+        @media(max-width: @mobile-breakpoint) {
+          width: 60px;
+          height: 60px;
+          margin-right: 20px;
+        }
       }
 
-      .user-name {
-        margin-bottom: 5px;
-        font-family: @body-font-medium;
-        font-size: 1.3em;
-      }
+      .comment-main {
+        width: 100%;
 
-      .comment-body {
-        margin-bottom: 5px;
-        font-size: .95em;
-        line-height: 1.4;
+        .user-name {
+          margin-bottom: 5px;
+          font-family: @body-font-medium;
+          font-size: 1.3em;
+        }
+
+        .comment-body {
+          margin-bottom: 10px;
+          font-size: 0.95em;
+          line-height: 1.4;
+        }
+
+        .comment-buttons {
+          display: none;
+
+          .comment-button {
+            margin-right: 10px;
+          }
+        }
       }
     }
   }
