@@ -79,6 +79,7 @@ export const ghostPostFields = graphql`
             bio
             profile_image
             twitter
+            facebook
             website
             location
             postCount

@@ -3,26 +3,35 @@
 }
 
 [data-reach-dialog-overlay] {
-  background: hsla(0, 0%, 0%, 0.5);
+  z-index: 2;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   overflow: auto;
+  background: hsla(0, 0%, 0%, 0.75);
 }
 
 [data-reach-dialog-content] {
+  z-index: 10;
+  margin: 10vh auto;
+  padding: 2rem;
   border: unset !important;
   border-radius: 5px !important;
-  box-shadow: @box-shadow;
-
-  /* width: 90vw; */ /* disabled for mobile */
-  margin: 10vh auto;
-  background: white;
-  padding: 2rem;
   outline: none;
-
+  background: white;
+  box-shadow: @box-shadow;
+  @media(max-width: @mobile-breakpoint) {
+    position: fixed;
+    width: -webkit-fill-available;
+    max-width: unset !important;
+    height: 100%;
+    margin: 0 auto;
+    padding: 3rem;
+    overflow: hidden;
+    border-radius: 0 !important;
+  }
 }
 
 ::-webkit-input-placeholder {
@@ -53,12 +62,6 @@
   font-weight: 500;
 }
 
-@media (min-width: 480px) {
-  [data-reach-dialog-content] {
-    width: 50vw;
-  }
-}
-
 @-webkit-keyframes RNIW_fadeIn {
   0% {
     opacity: 0;
@@ -80,8 +83,8 @@
 }
 
 .RNIW_infoText {
-  text-align: center;
   margin: 32px 0;
+  text-align: center;
 }
 
 .RNIW_infoTextEmail {
@@ -90,19 +93,20 @@
 }
 
 .RNIW_saving {
+  -webkit-animation: RNIW_loading 20s linear infinite;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABQCAMAAACeYYN3AAAAxlBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////DTx3aAAAAQnRSTlMAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEGgjKRfAAACk0lEQVR4AYXQDXP5WhAG8CUhiSQqSv4RRRMVL1Fa1VZf3PL9v9Tde9wc9M8+P8/M7s6czJiHgNIvVCJO6YiAMlAiWckASiQrm4bJMZTDrmbBIEC9qpgVjp6n4B+oyEwCzKrMQBVaQIlkpmXZln1dhQB+49gOh5dLexlV6MhsAqyazEQVugCqsOK5nsQmwPWZ53ucvyczSGb4l9T9OsdnLgFOXVZFFd4AqEKrIasR4AdBI2hw1GR6VzMwSWY2A60ZNDl6KnUC3KbMRhXeAqhCpyXzCAjarNVucdqXVEhWaRfCdsj5vQcE1EOZQ7Jy+EcUlklWi2Q3BLQ6nagTcTra2Y0qrHZirRN3OOezTUAjvq4bd7suqpDfSGJUoXcnCwiIerIqqlC96vf6HD1ZsUcE3PYH/QGnrx3uYnqoQn4l6aMK/XtZi4BuIrNIZqVJkiapkhx37Y6AcDgcpsNU44Nz3OuoQn4jSVGFNw+ykID+SGaTzM5G2YiTFVM73AMConE2zjhj7XAXs4EqHE/4d12GKgwmsoiAZCpzSObMptPZdHZVSkCc5/ksnym8cPRUmiQzpvNcmedzTl4o7qlBsuZc1iVg9ChDFdYWshEBveV/FssFZ/l7Z7eowsfl0/JJ4UXj43A/ogpbT7IeAZNnWQ1VuJJNCBi8HKxeVhw9tRaq8JkfrV/WHDULxb1CFbbX7HX9yllfck9A/ipzSea+yeYEJO+yEFX4tim8b94VXjj/zzdU4Z/NmY/NB+fkTglYfMg8knmfsiUBD1+yCFX4+X309f3FOds/UYVR8fH2e6vwovExIuB5K/NJ5v8jWxGQ/chiVOF2d+pn98M5zt3WJFm83+/2O4UXjprabkzAWn+o56k9qvBfX4hMaM+SxOMAAAAASUVORK5CYII=);
-  background-repeat: repeat-x;
-  background-size: contain;
   background-origin: border-box;
   background-position: 0% 0%;
-  -webkit-animation: RNIW_loading 20s linear infinite;
+  background-repeat: repeat-x;
+  background-size: contain;
   animation: RNIW_loading 20s linear infinite;
   pointer-events: none;
+
+  &::after {
+    content: '\2026';
+  }
 }
 
-.RNIW_saving::after {
-  content: '\2026';
-}
 
 @-webkit-keyframes RNIW_loading {
   0% {
@@ -125,56 +129,62 @@
 }
 
 .RNIW_btn {
+  -webkit-transition: background-color 0.2s ease;
   display: block;
   position: relative;
   width: 100%;
   height: auto;
   margin: 14px 0 0;
   padding: 6px;
-
-  /* outline: 0; */
-  cursor: pointer;
   border: 2px solid rgb(14, 30, 37);
   border-radius: 4px;
   background-color: #2d3b41;
   color: #fff;
-  -webkit-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+
+  /* outline: 0; */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
   transition: @transition;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
-.RNIW_btn:hover,
-.RNIW_btn:focus {
-  text-decoration: none;
-}
 
 .RNIW_btnClose {
   position: absolute;
   top: 5px;
   right: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  margin: 0;
   margin: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
   background: #fff;
-  color: #a3a9ac;
+  color: #a3a9ac !important;
+  @media(max-width: @mobile-breakpoint) {
+    top: 15px;
+    right: 5px;
+  }
 
   &::before {
-    content: '\D7';
     font-size: 35px;
+    font-weight: 300;
     line-height: 9px;
-    font-weight: 400;
+    content: '\D7';
+    @media(max-width: @mobile-breakpoint) {
+      font-size: 50px;
+    }
   }
 
   &:hover,
@@ -193,21 +203,21 @@
 }
 
 .RNIW_btnHeader {
-  font-size: 16px;
-  line-height: 24px;
-  background: #fff;
-  color: #a3a9ac;
+  margin: 0;
   border: 0;
   border-bottom: 2px solid #e9ebeb;
   border-radius: 4px 4px 0 0;
-  margin: 0;
+  background: #fff;
+  color: #a3a9ac;
+  font-size: 16px;
+  line-height: 24px;
 
   &:focus,
   /* .RNIW_btnHeader.active { */
   [aria-selected="true"].RNIW_btnHeader {
+    border-color: rgb(14, 30, 37);
     background: #fff;
     color: rgb(14, 30, 37);
-    border-color: rgb(14, 30, 37);
     font-weight: 700;
   }
 
@@ -222,6 +232,7 @@
 }
 
 .RNIW_btnLink {
+  -webkit-transition: border-color 0.2s ease;
   display: block;
   position: relative;
   width: auto;
@@ -229,28 +240,25 @@
   margin: 14px auto 0;
   padding: 6px;
   padding-bottom: 0;
-  outline: 0;
-  cursor: pointer;
-  color: rgb(14, 30, 37);
   border: none;
   border-bottom: 2px solid #e9ebeb;
   border-radius: 0;
+  outline: 0;
   background-color: inherit;
-  -webkit-transition: border-color 0.2s ease;
-  transition: border-color 0.2s ease;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: rgb(14, 30, 37);
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
   text-align: center;
   white-space: nowrap;
-}
+  cursor: pointer;
+  transition: border-color 0.2s ease;
 
-.RNIW_btnLink:hover,
-.RNIW_btnLink:focus {
-  background-color: inherit;
-  border-color: #a3a9ac;
+  &:hover,
+  &:focus {
+    border-color: #a3a9ac;
+    background-color: inherit;
+  }
 }
 
 .RNIW_formGroup {
@@ -264,6 +272,10 @@
 
 .RNIW_formControl {
   -webkit-box-sizing: border-box;
+  -webkit-box-shadow: none;
+  -webkit-transition: -webkit-box-shadow ease-in-out 0.15s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -273,29 +285,25 @@
   border: 2px solid #e9ebeb;
   border-radius: 4px;
   background: #fff;
-  color: rgb(14, 30, 37);
-  -webkit-box-shadow: none;
   box-shadow: none;
+  color: rgb(14, 30, 37);
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-  -webkit-transition: -webkit-box-shadow ease-in-out 0.15s;
   transition: -webkit-box-shadow ease-in-out 0.15s;
   transition: box-shadow ease-in-out 0.15s;
   transition: box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
 
 .RNIW_inputFieldIcon {
+  display: inline-block;
   position: absolute;
   top: 12px;
   left: 12px;
-  display: inline-block;
   width: 16px;
   height: 16px;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
   pointer-events: none;
 }
 
@@ -320,55 +328,55 @@
 } */
 
 .RNIW_hr {
+  margin: 32px 0 -1px;
+  overflow: visible;
   border: 0;
   border-top: 2px solid #e9ebeb;
-  margin: 32px 0 -1px;
   text-align: center;
-  overflow: visible;
 
   &::before {
-    content: 'or';
-    position: relative;
     display: inline-block;
+    position: relative;
+    top: -11px;
+    padding: 4px;
+    background-color: #fff;
+    color: rgb(14, 30, 37);
     font-size: 12px;
     font-weight: 800;
     line-height: 1;
     text-transform: uppercase;
-    background-color: #fff;
-    color: rgb(14, 30, 37);
-    padding: 4px;
-    top: -11px;
+    content: 'or';
   }
 }
 
 
 .RNIW_btnProvider {
-  padding-left: 40px;
   padding-right: 40px;
+  padding-left: 40px;
 
   &::before {
-    content: '';
-    position: absolute;
     display: inline-block;
-    vertical-align: middle;
-    width: 32px;
-    height: 40px;
-    background-repeat: no-repeat;
-    background-position: left center;
+    position: absolute;
     top: -2px;
     left: 14px;
+    width: 32px;
+    height: 40px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    content: '';
   }
 }
 
 .providerGoogle {
-  background-color: #4285f4;
   border-color: #366dc7;
+  background-color: #4285f4;
 
   &:hover,
   &:focus {
-    color: #366dc7;
-    background-color: white;
     border-color: #366dc7;
+    background-color: white;
+    color: #366dc7;
 
     * {
       color: #366dc7;
@@ -378,14 +386,14 @@
 
 
 .providerGitHub {
-  background-color: #333;
   border-color: #000;
+  background-color: #333;
 
   &:hover,
   &:focus {
-    color: #000;
-    background-color: white;
     border-color: #000;
+    background-color: white;
+    color: #000;
 
     * {
       color: #000;
@@ -403,9 +411,9 @@
 
 .providersGroup {
   pre {
-    white-space: normal;
-    line-height: 1.3;
-    font-size: .9em;
     margin-top: 20px;
+    font-size: .8em;
+    line-height: 1.3;
+    white-space: normal;
   }
 }

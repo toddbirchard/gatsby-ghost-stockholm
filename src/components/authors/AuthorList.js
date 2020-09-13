@@ -36,6 +36,7 @@ const AuthorCardsQuery = props => (
                   profile_image
                   slug
                   twitter
+                  facebook
                   website
                   location
                   cover_image

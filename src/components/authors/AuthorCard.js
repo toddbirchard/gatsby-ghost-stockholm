@@ -2,13 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { twitter } from '@tryghost/social-urls'
-import { AiOutlineFile, AiOutlineTwitter, AiOutlineHome, AiOutlineLink, AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineFile,
+  AiOutlineTwitter,
+  AiOutlineHome,
+  AiOutlineLink,
+  AiOutlineUser,
+  AiOutlineGithub } from 'react-icons/ai'
 
 import '../../styles/author-card.less'
 
 const AuthorCard = ({ author, page, template, pageContext }) => {
   const authorTwitterUrl = author.twitter && twitter(author.twitter)
-  const authorGithub = author.facebook
+  const authorGithub = author.facebook && author.facebook.replace(`https://www.facebook.com/`, ``)
   const authorPostCount = author.postCount
   const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
@@ -49,7 +54,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
               {authorGithub &&
                 <div className="author-card-item">
                   <a href={authorGithub} target="_blank" rel="noopener noreferrer">
-                    <AiOutlineLink /><span>Github</span>
+                    <AiOutlineGithub /><span>Github</span>
                   </a>
                 </div>
               }
@@ -61,7 +66,9 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
                 </div>
               }
             </div>
-            {author.bio && <p className="author-card-bio">{author.bio}</p>}
+            {author.bio &&
+              <p className="author-card-bio">{author.bio}</p>
+            }
           </div>
         </div>
       </div>
