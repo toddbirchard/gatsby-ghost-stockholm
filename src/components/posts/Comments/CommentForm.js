@@ -14,7 +14,7 @@ class CommentForm extends React.Component {
     super(props)
     this.postId = props.post.ghostId
     this.postSlug = props.post.slug,
-    this.authorEmail = props.post.primary_author.email,
+    this.authorName = props.post.primary_author.name,
     this.commentId = props.post.comment_id
     this.identity = props.identity
     this.isLoggedIn = props.identity && props.identity.isLoggedIn
@@ -52,7 +52,7 @@ class CommentForm extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId, postSlug, userProvider, authorEmail } = this.state
+    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId, postSlug, userProvider, authorName } = this.state
     return (
       <>
         <form
@@ -84,8 +84,8 @@ class CommentForm extends React.Component {
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorEmail">Author Email</label>
-            <input id="authorEmail" name="authorEmail" type="text" value={authorEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
+            <label className="hidden-label" htmlFor="authorName">Author Name</label>
+            <input id="authorName" name="authorName" type="text" value={authorName} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
           </fieldset>
 
           <fieldset className="hidden-label">
