@@ -5,20 +5,18 @@ import Comment from "./Comment"
 
 const Comments = ({ data, identity, comments }) => {
   const post = data.ghostPost
-  console.log(comments)
+  const authorEmail = post.primary_author.email
 
   return (
     <>
       <div id="comments">
-
-        <CommentForm post={post} identity={identity} />
         {comments &&
         <div className="user-comments">
           {comments.map(({ node }) => (
-            <Comment key={node.id} comment={node}/>
+            <Comment key={node.id} comment={node} authorEmail={authorEmail} />
           ))}
-        </div>
-        }
+        </div> }
+        <CommentForm post={post} identity={identity} />
       </div>
     </>
   )

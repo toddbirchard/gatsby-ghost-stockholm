@@ -209,7 +209,7 @@ export const postQuery = graphql`
           body
           user_name
           user_avatar
-          created_at(formatString: "DD MMMM, YYYY")
+          created_at(fromNow: true)
         }
       }
     }

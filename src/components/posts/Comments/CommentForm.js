@@ -14,6 +14,7 @@ class CommentForm extends React.Component {
     super(props)
     this.postId = props.post.ghostId
     this.postSlug = props.post.slug,
+    this.postAuthor = props.post.primary_author,
     this.commentId = props.post.comment_id
     this.identity = props.identity
     this.isLoggedIn = props.identity && props.identity.isLoggedIn

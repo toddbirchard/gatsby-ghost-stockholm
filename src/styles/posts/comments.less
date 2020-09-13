@@ -1,5 +1,5 @@
 #comments {
-  margin: 15px 0;
+  margin: 0 0 60px;
 
   &:hover,
   &:focus {
@@ -70,9 +70,24 @@
       font-family: @body-font-medium;
       opacity: 0;
       transition: @transition;
+      @media(max-width: @mobile-breakpoint) {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: -webkit-fill-available;
+        margin: 10px 0 0;
+        border: unset !important;
+        border: unset;
+        text-align: right;
+        opacity: 1;
+
+        &:hover {
+          border: unset !important;
+        }
+      }
 
       &:hover {
-        border: 1px solid @theme-color !important;
+        border: 1px solid @theme-color;
         color: @theme-color !important;
         cursor: pointer;
         opacity: 0.8;
@@ -82,7 +97,7 @@
 
   .user-comments {
     width: 95%;
-    margin: 40px 0;
+    margin: 0 0 40px;
 
     .comment {
       display: flex;
@@ -100,32 +115,64 @@
       .user-avatar {
         width: 70px;
         height: 70px;
-        margin-right: 25px;
+        margin-right: 20px;
         border-radius: 50%;
         @media(max-width: @mobile-breakpoint) {
           width: 60px;
           height: 60px;
-          margin-right: 20px;
         }
       }
 
       .comment-main {
         width: 100%;
 
-        .user-name {
-          margin-bottom: 5px;
-          font-family: @body-font-medium;
-          font-size: 1.3em;
+        .comment-head {
+          margin-bottom: 8px;
+
+          .comment-author {
+            display: flex;
+            align-items: center;
+
+            * {
+              display: inline-block;
+            }
+
+            .user-name {
+              font-family: @body-font-medium;
+              font-size: 1.3em;
+            }
+
+            .badge.author {
+              height: 10px;
+              margin-top: -4px;
+              margin-left: 8px;
+              padding: 4px 5px;
+              border-radius: 2px;
+              background: #66bb5a;
+              color: white;
+              font-family: @body-font-medium;
+              font-size: .75em;
+              line-height: 1;
+            }
+          }
+
+          .comment-date {
+            margin-top: 2px;
+            font-family: @body-font-medium;
+            font-size: .9em;
+            line-height: 1;
+            opacity: .7;
+          }
         }
 
         .comment-body {
-          margin-bottom: 10px;
-          font-size: 0.95em;
+          font-size: 0.9em;
           line-height: 1.4;
         }
 
         .comment-buttons {
           display: none;
+          margin-top: 10px;
 
           .comment-button {
             margin-right: 10px;
