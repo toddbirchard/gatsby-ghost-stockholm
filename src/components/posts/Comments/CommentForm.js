@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import CommentSubmit from "./CommentSubmit"
 import fetch from 'node-fetch'
 import Editor from "rich-markdown-editor"
+import CommentSubmit from "./CommentSubmit"
 
 function encode(data) {
   return Object.keys(data)
@@ -35,7 +35,6 @@ class CommentForm extends React.Component {
 
   handleClick = (e) => {
     e.target.classList.add(`open`)
-    console.log(e.target)
   }
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
   handleSubmit = (e) => {

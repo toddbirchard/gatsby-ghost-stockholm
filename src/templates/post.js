@@ -5,7 +5,7 @@ import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC, SupportWidget, Comments } from '../components/posts'
+import { RelatedPost, SeriesTOC, SupportWidget, Comments } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import { useIdentityContext } from "react-netlify-identity-widget"
 import {
@@ -29,7 +29,7 @@ const Post = ({ data, location }) => {
   const post = data.ghostPost
   const tags = data.ghostPost.tags
   const author = data.ghostPost.primary_author
-  const relatedPosts = data.relatedPosts
+  const relatedPosts = data.relatedPosts.edges
   const readingTime = readingTimeHelper(post)
   const seriesPosts = data.seriesPosts
   const authorUrl = post.primary_author.slug && `/author/${post.primary_author.slug}/`
@@ -128,7 +128,11 @@ const Post = ({ data, location }) => {
           </article>
           <section className="post-footer">
             <Comments data={data} identity={identity} comments={comments} />
-            {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+            <div className="related-posts">
+              {relatedPosts.map(({ node }) => (
+                <RelatedPost key={`${node.ghostId}_related`} post={node} />
+              ))}
+            </div>
             <SupportWidget/>
           </section>
         </div>
@@ -160,16 +164,14 @@ Post.propTypes = {
         postCount: PropTypes.number,
       }).isRequired,
     }).isRequired,
-    comments: PropTypes.arrayOf(
-      PropTypes.shape({
-        body: PropTypes.string.isRequired,
-        user_name: PropTypes.string.isRequired,
-        user_avatar: PropTypes.string.isRequired,
-        user_email: PropTypes.string.isRequired,
-        user_role: PropTypes.string,
-        created_at: PropTypes.string.isRequired,
-      }),
-    ),
+    comments: PropTypes.shape({
+      body: PropTypes.string,
+      user_name: PropTypes.string,
+      user_avatar: PropTypes.string,
+      user_email: PropTypes.string,
+      user_role: PropTypes.string,
+      created_at: PropTypes.string,
+    }),
     relatedPosts: PropTypes.objectOf(PropTypes.array),
     seriesPosts: PropTypes.object,
   }).isRequired,
