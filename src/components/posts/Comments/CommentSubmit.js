@@ -23,7 +23,7 @@ const CommentSubmit = ({ isLoggedIn, children }) => {
 }
 
 CommentSubmit.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool,
 }
 
 export default CommentSubmit

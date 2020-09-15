@@ -16,13 +16,13 @@
     padding: 15px;
     overflow: hidden;
     border: unset;
+    border: 1px solid white;
+    border-radius: 3px;
     background: unset;
-    color: @body-color;
     box-shadow: @box-shadow;
+    color: @body-color;
     font-family: unset;
     font-size: 0.9em;
-    border-radius: 3px;
-    border: 1px solid white;
     transition: @transition;
 
     @media(max-width: @mobile-breakpoint) {
@@ -49,21 +49,26 @@
       }
     }
 
-    &.ProseMirror-focused {
+    &.ProseMirror-Focused {
       border: 1px solid @theme-color;
-      background: white;
-      height: 200px;
+    }
 
-      .ProseMirror {
-        &::placeholder {
-          opacity: 0;
-        }
-      }
+    &.open {
+      height: 200px;
+      background: white;
+
+      /*.placeholder {
+        opacity: 0;
+      }*/
 
       .comment-btn {
         border: 1px solid #7b8185 !important;
         color: #7b8185 !important;
       }
+    }
+
+    p {
+      width: fit-content;
     }
   }
 
@@ -71,9 +76,9 @@
     display: block;
     position: relative;
 
-  &.open .ProseMirror {
+    &.open .ProseMirror {
       height: 200px;
-  }
+    }
 
     .ProseMirror {
       width: stretch;
@@ -126,10 +131,6 @@
         }
       }
     }
-  }
-
-  #commentBody {
-
   }
 
   .user-comments {

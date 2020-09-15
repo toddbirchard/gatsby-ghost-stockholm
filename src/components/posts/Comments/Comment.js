@@ -24,9 +24,9 @@ const Comment = ({ comment }) => (
 Comment.propTypes = {
   comment: PropTypes.shape({
     body: PropTypes.string.isRequired,
-    user_name: PropTypes.string.isRequired,
-    user_avatar: PropTypes.string.isRequired,
-    user_email: PropTypes.string.isRequired,
+    user_name: PropTypes.string,
+    user_avatar: PropTypes.string,
+    user_email: PropTypes.string,
     user_role: PropTypes.string,
     created_at: PropTypes.string.isRequired,
   }).isRequired,

@@ -12,7 +12,7 @@ const Comments = ({ data, identity, comments }) => {
         {comments &&
         <div className="user-comments">
           {comments.map(({ node }) => (
-            <Comment key={node.id} comment={node} />
+            <Comment key={node.post_id} comment={node} />
           ))}
         </div> }
         <CommentForm post={post} identity={identity} />

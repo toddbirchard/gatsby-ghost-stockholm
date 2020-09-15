@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import CommentSubmit from "./CommentSubmit"
 import fetch from 'node-fetch'
 import Editor from "rich-markdown-editor"
-import { debounce } from "lodash"
 
 function encode(data) {
   return Object.keys(data)
@@ -11,87 +10,89 @@ function encode(data) {
     .join(`&`)
 }
 
-const CommentForm = ({ post, identity }) => {
-  const postId = post.ghostId
-  const postSlug = post.slug
-  const authorName = post.primary_author && post.primary_author.name
-  const commentId = post.comment_id
-  const user = identity.user
-  const userId = user ? user.id : ``
-  const userName = user ? user.user_metadata.full_name : ``
-  const userAvatar = user ? user.user_metadata.avatar_url : ``
-  const userProvider = user ? user.app_metadata ? this.user.app_metadata.provider : `` : ``
-  const userRole = user ? user.role : ``
-  const userEmail = user ? user.email : ``
-  const isLoggedIn = user && user.isLoggedIn
-  const [value, setValue] = React.useState(``)
+class CommentForm extends React.Component {
+  constructor(props) {
+    super(props)
 
-  const handleSubmit = async function* (e) {
-    const wait = function (time) {
-      return new Promise((a, r) => {
-        e.preventDefault()
-        setTimeout(() => a(), time)
-        const form = e.target
-        fetch(`/`, {
-          method: `POST`,
-          headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-          body: encode({
-            'form-name': form.getAttribute(`name`),
-            commentBody: value,
-            postId: postId,
-            postSlug: postSlug,
-            authorName: authorName,
-            commentId: commentId,
-            userId: userId,
-            userName: userName,
-            userAvatar: userAvatar,
-            userProvider: userProvider,
-            userRole: userRole,
-            userEmail: userEmail,
-          }),
-        })
-          .then(() => this.setState({ commentBody: `` }))
-          .catch(error => console.log(error))
-      })
+    this.postId = props.post.ghostId
+    this.postSlug = props.post.slug,
+    this.authorName = props.post.primary_author.name,
+    this.commentId = props.post.comment_id
+    this.identity = props.identity
+    this.isLoggedIn = props.identity && props.identity.isLoggedIn
+    this.user = props.identity.user
+    this.userId = this.user ? this.user.id : ``,
+    this.userName = this.user ? this.user.user_metadata.full_name : ``,
+    this.userAvatar = this.user ? this.user.user_metadata.avatar_url : ``,
+    this.userProvider = this.user ? this.user.app_metadata ? this.user.app_metadata.provider : `` : ``,
+    this.userRole = this.user ? this.user.role : ``,
+    this.userEmail = this.user ? this.user.email : ``,
+    this.state = {
+      commentBody: ``,
+      isFocused: ``,
     }
   }
 
-  const handleClick = (e) => {
-    e.target.className = `open`
-    this.setState({ open: `open` })
+  handleClick = (e) => {
+    e.target.classList.add(`open`)
+    console.log(e.target)
+  }
+  handleChange = e => this.setState({ [e.target.name]: e.target.value })
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch(`/`, {
+      method: `POST`,
+      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+      body: encode({
+        'form-name': form.getAttribute(`name`),
+        commentBody: this.value,
+        postId: this.postId,
+        postSlug: this.postSlug,
+        authorName: this.this.authorName,
+        commentId: this.commentId,
+        userId: this.userId,
+        userName: this.userName,
+        userAvatar: this.userAvatar,
+        userProvider: this.userProvider,
+        userRole: this.userRole,
+        userEmail: this.userEmail,
+      }),
+    })
+      .then(() => this.setState({ commentBody: `` }))
+      .catch(error => console.log(error))
   }
 
-  const handleChange = debounce(value => {
-    const text = value()
-    localStorage.setItem(`saved`, text)
-  }, 250)
-
-  return (
-    <>
-      <form
-        name="comments"
-        netlify="true"
-        data-netlify="true"
-        netlify-honeypot="address"
-        method="post"
-        onSubmit={handleSubmit}
-      >
-        <fieldset>
-          <label className="hidden-label" htmlFor="commentBody">Post comment</label>
-          <Editor
-            id="commentBody"
-            name="commentBody"
-            value={value}
-            onChange={handleChange}
-            readOnly={false}
-            placeholder={`What'd you think?`}
-            onClick={handleClick}
-          />
-        </fieldset>
-        <CommentSubmit isLoggedIn={isLoggedIn}/>
-      </form>
-    </>
-  )
+  render() {
+    return (
+      <>
+        <form
+          name="comments"
+          netlify="true"
+          data-netlify="true"
+          netlify-honeypot="address"
+          method="post"
+          onSubmit={this.handleSubmit}
+          className={this.state.isFocused}
+          onClick={this.handleClick}
+        >
+          <fieldset>
+            <label className="hidden-label" htmlFor="commentBody">Post comment</label>
+            <Editor
+              id="commentBody"
+              name="commentBody"
+              value={this.value}
+              onChange={this.andleChange}
+              readOnly={false}
+              placeholder={`What'd you think?`}
+              onClick={this.handleClick}
+            />
+          </fieldset>
+          <CommentSubmit isLoggedIn={this.isLoggedIn}/>
+        </form>
+      </>
+    )
+  }
 }
 
 CommentForm.propTypes = {
