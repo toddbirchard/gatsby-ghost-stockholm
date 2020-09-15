@@ -53,7 +53,7 @@ class CommentForm extends React.Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   render() {
-    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId, postSlug, userProvider, authorName } = this.state
+    const { commentBody } = this.state
     return (
       <>
         <form
@@ -64,55 +64,6 @@ class CommentForm extends React.Component {
           method="post"
           onSubmit={this.handleSubmit}
         >
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-            <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userId">User ID</label>
-            <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
-            <input id="postSlug" name="postSlug" type="text" value={postSlug} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="postId">Post ID</label>
-            <input id="postId" name="postId" type="text" value={postId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorName">Author Name</label>
-            <input id="authorName" name="authorName" type="text" value={authorName} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userEmail">User Email</label>
-            <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userName">User Name</label>
-            <input id="userName" name="userName" type="text" value={userName} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
-            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userRole">User Role</label>
-            <input id="userRole" name="userRole" type="text" value={userRole} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userProvider">User Provider</label>
-            <input id="userProvider" name="userProvider" type="text" value={userProvider} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="commentAddress" >Address</label>
