@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from 'prop-types'
 import CommentSubmit from "./CommentSubmit"
 import fetch from 'node-fetch'
+import Editor from "rich-markdown-editor"
+import { debounce } from "lodash"
 
 function encode(data) {
   return Object.keys(data)
@@ -9,143 +11,96 @@ function encode(data) {
     .join(`&`)
 }
 
-class CommentForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.postId = props.post.ghostId
-    this.postSlug = props.post.slug,
-    this.authorName = props.post.primary_author.name,
-    this.commentId = props.post.comment_id
-    this.identity = props.identity
-    this.isLoggedIn = props.identity && props.identity.isLoggedIn
-    this.user = props.identity.user
-    this.state = {
-      postId: this.postId,
-      postSlug: this.postSlug,
-      authorName: this.authorName,
-      commentId: this.commentId,
-      userId: this.user ? this.user.id : ``,
-      userName: this.user ? this.user.user_metadata.full_name : ``,
-      userAvatar: this.user ? this.user.user_metadata.avatar_url : ``,
-      userProvider: this.user ? this.user.app_metadata ? this.user.app_metadata.provider : `` : ``,
-      userRole: this.user ? this.user.role : ``,
-      userEmail: this.user ? this.user.email : ``,
-      commentBody: ``,
+const CommentForm = ({ post, identity }) => {
+  const postId = post.ghostId
+  const postSlug = post.slug
+  const authorName = post.primary_author && post.primary_author.name
+  const commentId = post.comment_id
+  const user = identity.user
+  const userId = user ? user.id : ``
+  const userName = user ? user.user_metadata.full_name : ``
+  const userAvatar = user ? user.user_metadata.avatar_url : ``
+  const userProvider = user ? user.app_metadata ? this.user.app_metadata.provider : `` : ``
+  const userRole = user ? user.role : ``
+  const userEmail = user ? user.email : ``
+  const isLoggedIn = user && user.isLoggedIn
+  const [value, setValue] = React.useState(``)
+
+  const handleSubmit = async function* (e) {
+    const wait = function (time) {
+      return new Promise((a, r) => {
+        e.preventDefault()
+        setTimeout(() => a(), time)
+        const form = e.target
+        fetch(`/`, {
+          method: `POST`,
+          headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+          body: encode({
+            'form-name': form.getAttribute(`name`),
+            commentBody: value,
+            postId: postId,
+            postSlug: postSlug,
+            authorName: authorName,
+            commentId: commentId,
+            userId: userId,
+            userName: userName,
+            userAvatar: userAvatar,
+            userProvider: userProvider,
+            userRole: userRole,
+            userEmail: userEmail,
+          }),
+        })
+          .then(() => this.setState({ commentBody: `` }))
+          .catch(error => console.log(error))
+      })
     }
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    fetch(`/`, {
-      method: `POST`,
-      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({
-        'form-name': form.getAttribute(`name`),
-        ...this.state,
-      }),
-    })
-      .then(() => this.setState({ commentBody: `` }))
-      .catch(error => console.log(error))
-    e.preventDefault()
+  const handleClick = (e) => {
+    e.target.className = `open`
+    this.setState({ open: `open` })
   }
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value })
+  const handleChange = debounce(value => {
+    const text = value()
+    localStorage.setItem(`saved`, text)
+  }, 250)
 
-  render() {
-    const { commentBody, commentId, userId, userEmail, userName, userAvatar, userRole, postId, postSlug, userProvider, authorName } = this.state
-    return (
-      <>
-        <form
-          name="comments"
-          netlify
-          data-netlify="true"
-          netlify-honeypot="address"
-          method="post"
-          onSubmit={this.handleSubmit}
-        >
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-            <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userId">User ID</label>
-            <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
-            <input id="postSlug" name="postSlug" type="text" value={postSlug} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="postId">Post ID</label>
-            <input id="postId" name="postId" type="text" value={postId} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorName">Author Name</label>
-            <input id="authorName" name="authorName" type="text" value={authorName} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userEmail">User Email</label>
-            <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userName">User Name</label>
-            <input id="userName" name="userName" type="text" value={userName} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
-            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userRole">User Role</label>
-            <input id="userRole" name="userRole" type="text" value={userRole} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userProvider">User Provider</label>
-            <input id="userProvider" name="userProvider" type="text" value={userProvider} style={{ visibility: `hidden` }} onChange={this.handleChange}/>
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentAddress" >Address</label>
-            <input id="commentAddress" name="address" type="hidden" onChange={this.handleChange} />
-          </fieldset>
-
-          <fieldset>
-            <label className="hidden-label" htmlFor="commentBody">Post comment</label>
-            <textarea
-              id="commentBody"
-              name="commentBody"
-              placeholder={`What'd you think?`}
-              rows="5"
-              required
-              value={commentBody}
-              onChange={this.handleChange}
-            ></textarea>
-          </fieldset>
-          <CommentSubmit isLoggedIn={this.isLoggedIn} />
-        </form>
-      </>
-    )
-  }
+  return (
+    <>
+      <form
+        name="comments"
+        netlify="true"
+        data-netlify="true"
+        netlify-honeypot="address"
+        method="post"
+        onSubmit={handleSubmit}
+      >
+        <fieldset>
+          <label className="hidden-label" htmlFor="commentBody">Post comment</label>
+          <Editor
+            id="commentBody"
+            name="commentBody"
+            value={value}
+            onChange={handleChange}
+            readOnly={false}
+            placeholder={`What'd you think?`}
+            onClick={handleClick}
+          />
+        </fieldset>
+        <CommentSubmit isLoggedIn={isLoggedIn}/>
+      </form>
+    </>
+  )
 }
 
 CommentForm.propTypes = {
   post: PropTypes.shape({
     ghostId: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    primary_author: PropTypes.string.isRequired,
+    primary_author: PropTypes.object,
     comment_id: PropTypes.string.isRequired,
   }).isRequired,
-  commentId: PropTypes.string.isRequired,
   identity: PropTypes.object,
 }
 

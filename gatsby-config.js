@@ -1,8 +1,6 @@
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-const autoprefixer = require(`autoprefixer`)
-const browserslist = require(`browserslist`)
 const queries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
@@ -246,7 +244,7 @@ module.exports = {
       options: {
         javascriptEnabled: true,
         postCssPlugins: [
-          autoprefixer({ browsers: browserslist() }),
+          require(`autoprefixer`)(),
           require(`cssnano`)({ preset: `default` }),
           require(`stylelint`)()],
       },
