@@ -15,30 +15,30 @@ html {
   -ms-text-size-adjust: none;
   overflow-x: hidden;
   overflow-y: scroll;
-}
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  background: @background-color;
-  color: @body-color;
-  font-family: @body-font;
-  font-size: 16px;
-  font-style: normal;
-  letter-spacing: 0;
-  line-height: 1.3em;
-  text-rendering: optimizelegibility;
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background: @background-color;
+    color: @body-color;
+    font-family: @body-font;
+    font-size: 16px;
+    font-style: normal;
+    letter-spacing: 0;
+    line-height: 1.3em;
+    text-rendering: optimizelegibility;
 
-  * {
-    &::selection {
-      background: @theme-color;
-      color: white;
-    }
+    * {
+      &::selection {
+        background: @theme-color;
+        color: white;
+      }
 
-    &::-moz-selection {
-      background: @theme-color;
-      color: white;
+      &::-moz-selection {
+        background: @theme-color;
+        color: white;
+      }
     }
   }
 }

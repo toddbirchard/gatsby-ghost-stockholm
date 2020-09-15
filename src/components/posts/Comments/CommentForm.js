@@ -13,7 +13,6 @@ function encode(data) {
 class CommentForm extends React.Component {
   constructor(props) {
     super(props)
-
     this.postId = props.post.ghostId
     this.postSlug = props.post.slug,
     this.authorName = props.post.primary_author.name,
