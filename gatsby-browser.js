@@ -4,7 +4,6 @@ import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
 import config from './src/utils/siteConfig'
 
-
 const scrapeEndpoint = config.lambda.scrape
 const userEndpoint = config.lambda.auth
 
@@ -25,12 +24,6 @@ let HttpClient = function() {
 // -------------------------------------------
 // Events
 // -------------------------------------------
-
-// Trigger upon first page load
-export const onClientEntry = () => {
-  getUserSession()
-}
-
 // Trigger upon page load
 export const onRouteUpdate = ({location}) => {
   let path = location.pathname;
@@ -53,7 +46,10 @@ function codeSyntaxHighlight() {
     'remove-trailing': true,
     'remove-indent': true,
     'left-trim': true,
-    'right-trim': true
+    'right-trim': true,
+    'indent': 2,
+    'tabs-to-spaces': 4,
+	  'spaces-to-tabs': 4
   });
   Prism.highlightAll();
 }

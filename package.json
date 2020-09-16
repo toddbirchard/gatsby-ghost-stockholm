@@ -76,7 +76,6 @@
     "gatsby-plugin-advanced-sitemap": "^1.5.6",
     "gatsby-plugin-algolia": "^0.11.2",
     "gatsby-plugin-canonical-urls": "^2.3.11",
-    "gatsby-plugin-create-client-paths": "^2.3.11",
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-feed": "2.5.12",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",

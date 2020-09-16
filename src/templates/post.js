@@ -151,7 +151,12 @@ Post.propTypes = {
       slug: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
-      tags: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired })),
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+        })
+      ),
       published_at_pretty: PropTypes.string,
       primary_author: PropTypes.shape({
         name: PropTypes.string,

@@ -1,10 +1,7 @@
 import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
-import "react-netlify-identity-widget/styles.css"
-import {
-  withRouter,
-} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 export const Auth = ({ children }) => {
   const identity = useIdentityContext()
