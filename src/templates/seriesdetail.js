@@ -9,9 +9,9 @@ import '../styles/pages/seriesdetail.less'
 /**
  * Series detail page (/tag/:slug)
  *
- * Loads all posts for the requested tag incl. pagination.
- *
+ * Loads all posts belonging to a `series` of posts.
  */
+
 const SeriesDetail = ({ data, location }) => {
   const tag = data.ghostTag
   const tagName = tag.name.replace(`#`, ``)

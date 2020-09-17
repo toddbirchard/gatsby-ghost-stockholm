@@ -37,7 +37,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
 
       <div className="viewport">
         <div className={hasSidebar ? `sidebar-container` : `container`}>
-          {/* All main content gets inserted here (index.js, post.js, etc). */}
+          {/* All main content gets inserted here (comments.js, post.js, etc). */}
           {children}
           {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
           {isCorePage && <Sidebar site={site} template={template} />}

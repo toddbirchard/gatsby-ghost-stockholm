@@ -1,10 +1,12 @@
 import React from "react"
 import PropTypes from 'prop-types'
+import { useIdentityContext } from "react-netlify-identity-widget"
 import CommentForm from "./CommentForm"
 import Comment from "./Comment"
 
-const Comments = ({ data, identity, comments }) => {
+const Comments = ({ data, comments }) => {
   const post = data.ghostPost
+  const identity = useIdentityContext()
 
   return (
     <>

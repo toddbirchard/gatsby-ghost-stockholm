@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import fetch from 'node-fetch'
 import Editor from "rich-markdown-editor"
@@ -10,33 +10,25 @@ function encode(data) {
     .join(`&`)
 }
 
-class CommentForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.postId = props.post.ghostId
-    this.postSlug = props.post.slug
-    this.authorName = props.post.primary_author.name
-    this.commentId = props.post.comment_id
-    this.userId = this.user ? this.user.id : ``
-    this.identity = props.identity
-    this.isLoggedIn = props.identity && props.identity.isLoggedIn
-    this.user = props.identity.user
-    this.userName = this.user ? this.user.user_metadata.full_name : ``
-    this.userAvatar = this.user ? this.user.user_metadata.avatar_url : ``
-    this.userProvider = this.user ? this.user.app_metadata ? this.user.app_metadata.provider : `` : ``
-    this.userRole = this.user ? this.user.role : ``
-    this.userEmail = this.user ? this.user.email : ``
-    this.state = {
-      commentBody: ``,
-      isFocused: ``,
-    }
-  }
+const CommentForm = ({ post }) => {
+  const postId = post.ghostId
+  const postSlug = post.slug
+  const authorName = post.primary_author.name
+  const commentId = post.comment_id
+  const userId = user ? user.id : ``
+  const identity = identity
+  const user = identity.user
+  const userName = user ? user.user_metadata.full_name : ``
+  const userAvatar = user ? user.user_metadata.avatar_url : ``
+  const userProvider = user ? user.app_metadata ? user.app_metadata.provider : `` : ``
+  const userRole = user ? user.role : ``
+  const userEmail = user ? user.email : ``
+  const [value, setValue] = useState(``)
 
-  handleClick = (e) => {
+  const handleClick = (e) => {
     e.target.classList.add(`open`)
   }
-  handleChange = e => this.setState({ [e.target.name]: e.target.value })
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
     fetch(`/`, {
@@ -44,53 +36,50 @@ class CommentForm extends React.Component {
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
       body: encode({
         'form-name': form.getAttribute(`name`),
-        commentBody: this.value,
-        postId: this.postId,
-        postSlug: this.postSlug,
-        authorName: this.this.authorName,
-        commentId: this.commentId,
-        userId: this.userId,
-        userName: this.userName,
-        userAvatar: this.userAvatar,
-        userProvider: this.userProvider,
-        userRole: this.userRole,
-        userEmail: this.userEmail,
+        commentBody: value,
+        postId: postId,
+        postSlug: postSlug,
+        authorName: authorName,
+        commentId: commentId,
+        userId: userId,
+        userName: userName,
+        userAvatar: userAvatar,
+        userProvider: userProvider,
+        userRole: userRole,
+        userEmail: userEmail,
       }),
     })
-      .then(() => this.setState({ commentBody: `` }))
+      .then(() => setValue(``))
       .catch(error => console.log(error))
   }
 
-  render() {
-    return (
-      <>
-        <form
-          name="comments"
-          netlify
-          data-netlify="true"
-          netlify-honeypot="address"
-          method="post"
-          onSubmit={this.handleSubmit}
-          className={this.state.isFocused}
-          onClick={this.handleClick}
-        >
-          <fieldset>
-            <label className="hidden-label" htmlFor="commentBody">Post comment</label>
-            <Editor
-              id="commentBody"
-              name="commentBody"
-              value={this.value}
-              onChange={this.handleChange}
-              readOnly={false}
-              placeholder={`What'd you think?`}
-              onClick={this.handleClick}
-            />
-          </fieldset>
-          <CommentSubmit isLoggedIn={this.isLoggedIn}/>
-        </form>
-      </>
-    )
-  }
+  return (
+    <>
+      <form
+        name="comments"
+        netlify
+        data-netlify="true"
+        netlify-honeypot="address"
+        method="post"
+        onSubmit={handleSubmit}
+        onClick={handleClick}
+      >
+        <fieldset>
+          <label className="hidden-label" htmlFor="commentBody">Post comment</label>
+          <Editor
+            id="commentBody"
+            name="commentBody"
+            value={value}
+            onChange={() => setValue(value)}
+            readOnly={false}
+            placeholder={`What'd you think?`}
+            onClick={handleClick}
+          />
+        </fieldset>
+        <CommentSubmit />
+      </form>
+    </>
+  )
 }
 
 CommentForm.propTypes = {

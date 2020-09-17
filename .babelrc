@@ -27,7 +27,8 @@
           "go",
           "hcl",
           "vim",
-          "makefile"
+          "makefile",
+          "markdown"
         ],
         "plugins": ["normalize-whitespace"],
         "theme": "default",
@@ -35,5 +36,14 @@
       }
     ]
   ],
-  "presets": ["babel-preset-gatsby"]
+  "presets": [
+    [
+      "babel-preset-gatsby",
+      {
+        "targets": {
+          "browsers": [">1%", "not dead"]
+        }
+      }
+    ]
+  ]
 }

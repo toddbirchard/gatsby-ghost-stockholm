@@ -1,9 +1,11 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import IdentityModal from "react-netlify-identity-widget"
+import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
-const CommentSubmit = ({ isLoggedIn, children }) => {
+const CommentSubmit = ({ children }) => {
   const [dialog, setDialog] = React.useState(false)
+  const identity = useIdentityContext()
+  const isLoggedIn = identity && identity.isLoggedIn
 
   return (
     <>

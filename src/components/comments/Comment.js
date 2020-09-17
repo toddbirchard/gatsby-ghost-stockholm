@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Comment = ({ comment }) => (
   <div className="comment">
-    <img className="user-avatar" src={comment.user_avatar} />
+    <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`} />
     <div className="comment-main">
       <div className="comment-head">
         <div className="comment-author">
