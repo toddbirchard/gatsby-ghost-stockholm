@@ -14,18 +14,18 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props)
     this.postId = props.post.ghostId
-    this.postSlug = props.post.slug,
-    this.authorName = props.post.primary_author.name,
+    this.postSlug = props.post.slug
+    this.authorName = props.post.primary_author.name
     this.commentId = props.post.comment_id
+    this.userId = this.user ? this.user.id : ``
     this.identity = props.identity
     this.isLoggedIn = props.identity && props.identity.isLoggedIn
     this.user = props.identity.user
-    this.userId = this.user ? this.user.id : ``,
-    this.userName = this.user ? this.user.user_metadata.full_name : ``,
-    this.userAvatar = this.user ? this.user.user_metadata.avatar_url : ``,
-    this.userProvider = this.user ? this.user.app_metadata ? this.user.app_metadata.provider : `` : ``,
-    this.userRole = this.user ? this.user.role : ``,
-    this.userEmail = this.user ? this.user.email : ``,
+    this.userName = this.user ? this.user.user_metadata.full_name : ``
+    this.userAvatar = this.user ? this.user.user_metadata.avatar_url : ``
+    this.userProvider = this.user ? this.user.app_metadata ? this.user.app_metadata.provider : `` : ``
+    this.userRole = this.user ? this.user.role : ``
+    this.userEmail = this.user ? this.user.email : ``
     this.state = {
       commentBody: ``,
       isFocused: ``,
@@ -66,7 +66,7 @@ class CommentForm extends React.Component {
       <>
         <form
           name="comments"
-          netlify="true"
+          netlify
           data-netlify="true"
           netlify-honeypot="address"
           method="post"
@@ -80,7 +80,7 @@ class CommentForm extends React.Component {
               id="commentBody"
               name="commentBody"
               value={this.value}
-              onChange={this.andleChange}
+              onChange={this.handleChange}
               readOnly={false}
               placeholder={`What'd you think?`}
               onClick={this.handleClick}

@@ -11,7 +11,6 @@ const CommentSubmit = ({ isLoggedIn, children }) => {
         ? <button
           className="comment-btn submit"
           type="submit"
-          label="submit"
         >
           SUBMIT
         </button>
