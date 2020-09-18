@@ -233,10 +233,6 @@ module.exports = {
       },
     },
     /**
-     *  Font Plugins
-     */
-    // `gatsby-plugin-preload-fonts`,
-    /**
      *  Style Plugins
      */
     {
@@ -244,9 +240,9 @@ module.exports = {
       options: {
         javascriptEnabled: true,
         postCssPlugins: [
-          require(`autoprefixer`)(),
+          // require(`autoprefixer`),
           require(`cssnano`)({ preset: `default` }),
-          require(`stylelint`)()],
+          require(`stylelint`)],
       },
     },
     `@danbruegge/gatsby-plugin-stylelint`,

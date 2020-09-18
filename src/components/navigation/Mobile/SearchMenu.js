@@ -1,14 +1,14 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import { Configure,
   Hits,
   InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
 import { HitsWrapper } from '../../search/SearchStyles'
-import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
-import PostHit from './PostHit'
 import { SearchClient, SearchResults, SearchStats } from '../../search/SearchClient'
 import { FaSearch, FaChartLine } from 'react-icons/fa'
 
@@ -18,6 +18,18 @@ class SearchMenu extends React.Component {
     this.topSearches = props.data.topSearches.edges
     this.state = { query: `` }
   }
+
+  PostHit = clickHandler => ({ hit }) => (
+    <div className="search-result">
+      <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload"/>
+      <div className="search-result-details">
+        <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
+        <div className="search-result-tag">
+          <span>{hit.primary_tag.name}</span>
+        </div>
+      </div>
+    </div>
+  )
 
   render() {
     return (
@@ -61,7 +73,7 @@ class SearchMenu extends React.Component {
                     <div className="search-results-count"><SearchStats/></div>
                   </header>
                   <SearchResults>
-                    <Hits hitComponent={PostHit(() => this.setState({ focus: true }))}/>
+                    <Hits hitComponent={this.PostHit(() => this.setState({ focus: true }))}/>
                   </SearchResults>
                 </Index>
               </HitsWrapper>

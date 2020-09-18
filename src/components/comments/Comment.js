@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Comment = ({ comment }) => (
   <div className="comment">
-    <img className="user-avatar" src={comment.user_avatar} />
+    <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`} />
     <div className="comment-main">
       <div className="comment-head">
         <div className="comment-author">
@@ -24,9 +24,9 @@ const Comment = ({ comment }) => (
 Comment.propTypes = {
   comment: PropTypes.shape({
     body: PropTypes.string.isRequired,
-    user_name: PropTypes.string.isRequired,
-    user_avatar: PropTypes.string.isRequired,
-    user_email: PropTypes.string.isRequired,
+    user_name: PropTypes.string,
+    user_avatar: PropTypes.string,
+    user_email: PropTypes.string,
     user_role: PropTypes.string,
     created_at: PropTypes.string.isRequired,
   }).isRequired,

@@ -9,15 +9,34 @@
     }
   }
 
-  form {
+  .ProseMirror {
+    --webkit-appearance: none;
     display: block;
-    position: relative;
+    height: 25px;
+    padding: 15px;
+    overflow: hidden;
+    border: unset;
+    border: 1px solid white;
+    border-radius: 3px;
+    background: unset;
+    box-shadow: @box-shadow;
+    color: @body-color;
+    font-family: unset;
+    font-size: 0.9em;
+    transition: @transition;
+
+    @media(max-width: @mobile-breakpoint) {
+      height: 16px;
+      font-size: 0.8em;
+    }
+
+    &::placeholder {
+      font-size: 1.3em;
+    }
 
     &:hover {
-      textarea{
-        border: 1px solid @theme-color;
-        background: #e3f2fe;
-      }
+      border: 1px solid @theme-color;
+      background: #e3f2fe;
 
       &::placeholder {
         color: @theme-color;
@@ -30,54 +49,46 @@
       }
     }
 
-    textarea {
-      --webkit-appearance: none;
-      display: block;
-      height: 21px;
-      padding: 15px;
-      overflow: hidden;
-      border: 1px solid white;
-      border-radius: 3px;
+    &.ProseMirror-Focused {
+      border: 1px solid @theme-color;
+    }
+
+    &.open {
+      height: 200px;
       background: white;
-      box-shadow: @box-shadow;
-      color: @body-color;
-      font-family: unset;
-      font-size: 0.9em;
-      transition: @transition;
-      @media(max-width: @mobile-breakpoint) {
-        height: 16px;
-        font-size: 0.8em;
-      }
 
-      &::placeholder {
-        font-size: 1.3em;
-      }
+      /*.placeholder {
+        opacity: 0;
+      }*/
 
-      &:focus {
-        height: 200px;
-        border: 1px solid @theme-color;
-        background: white;
-
-        &::placeholder {
-          opacity: 0;
-        }
-
-        .comment-btn {
-          border: 1px solid #7b8185 !important;
-          color: #7b8185 !important;
-        }
+      .comment-btn {
+        border: 1px solid #7b8185 !important;
+        color: #7b8185 !important;
       }
     }
 
-    textarea {
-      width: -webkit-fill-available;
+    p {
+      width: fit-content;
+    }
+  }
+
+  form {
+    display: block;
+    position: relative;
+
+    &.open .ProseMirror {
+      height: 200px;
+    }
+
+    .ProseMirror {
+      width: stretch;
     }
 
     .comment-btn {
       z-index: 1;
       position: absolute;
-      right: 13px;
-      bottom: 14px;
+      right: 0px;
+      bottom: -40px;
       width: fit-content;
       height: 16px;
       margin: 0 auto;
@@ -94,7 +105,7 @@
         position: relative;
         top: 0;
         right: 0;
-        width: -webkit-fill-available;
+        width: stretch;
         margin: 10px 0 0;
         border: unset;
         text-align: right;
@@ -210,4 +221,8 @@
       }
     }
   }
+}
+
+.post-template div > button > span > svg {
+  margin-top: -15px;
 }

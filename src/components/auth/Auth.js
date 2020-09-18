@@ -1,10 +1,6 @@
 import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
-import "react-netlify-identity-widget/styles.css"
-import {
-  withRouter,
-} from 'react-router-dom'
 
 export const Auth = ({ children }) => {
   const identity = useIdentityContext()
@@ -48,7 +44,7 @@ const netlifyAuth = {
   },
 }
 
-const AuthButton = withRouter(
+/*const AuthButton = withRouter(
   ({ history }) => (netlifyAuth.isAuthenticated ? (
 
     <p>
@@ -64,7 +60,7 @@ const AuthButton = withRouter(
   ) : (
     <p>You are not logged in.</p>
   ))
-)
+)*/
 
 /*function PrivateRoute({ component: Component, ...rest }) {
   return (
@@ -78,7 +74,7 @@ const AuthButton = withRouter(
   )
 }*/
 
-class Login extends React.Component {
+/*class Login extends React.Component {
   state = { redirectToReferrer: false };
 
   login = () => {
@@ -91,9 +87,9 @@ class Login extends React.Component {
   render() {
     let { from } = this.props.location.state || { from: { pathname: `/` } }
 
-    /*if (redirectToReferrer) {
+    if (redirectToReferrer) {
       return <Redirect to={from} />
-    }*/
+    }
 
     return (
       <div>
@@ -103,4 +99,4 @@ class Login extends React.Component {
     )
   }
 }
-export default Auth
+export default Auth*/

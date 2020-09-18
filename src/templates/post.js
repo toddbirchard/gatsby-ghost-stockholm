@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { RelatedPosts, SeriesTOC, SupportWidget, Comments } from '../components/posts'
+import {
+  RelatedPost,
+  SeriesTOC,
+  SupportWidget,
+} from '../components/posts'
+// import { Comments } from '../components/comments'
 import { AuthorCard } from '../components/authors'
-import { useIdentityContext } from "react-netlify-identity-widget"
+import Prism from "prismjs"
 import {
   AiOutlineEye,
   AiOutlineTags,
@@ -23,13 +28,11 @@ import {
  *
  */
 
-// netlifyIdentity.init()
-
 const Post = ({ data, location }) => {
   const post = data.ghostPost
   const tags = data.ghostPost.tags
   const author = data.ghostPost.primary_author
-  const relatedPosts = data.relatedPosts
+  const relatedPosts = data.relatedPosts.edges
   const readingTime = readingTimeHelper(post)
   const seriesPosts = data.seriesPosts
   const authorUrl = post.primary_author.slug && `/author/${post.primary_author.slug}/`
@@ -37,8 +40,10 @@ const Post = ({ data, location }) => {
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
   const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
-  const identity = useIdentityContext()
-  const comments = data.comments.edges
+  // const comments = data.comments.edges
+  useEffect(() => {
+    Prism.highlightAll()
+  })
 
   return (
     <>
@@ -127,8 +132,12 @@ const Post = ({ data, location }) => {
             <AuthorCard author={author} page={`post`}/>
           </article>
           <section className="post-footer">
-            <Comments data={data} identity={identity} comments={comments} />
-            {relatedPosts && <RelatedPosts data={relatedPosts}/>}
+            {/*<Comments data={data} comments={comments} />*/}
+            <div className="related-posts">
+              {relatedPosts.map(({ node }) => (
+                <RelatedPost key={`${node.ghostId}_related`} post={node} />
+              ))}
+            </div>
             <SupportWidget/>
           </section>
         </div>
@@ -147,7 +156,12 @@ Post.propTypes = {
       slug: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
-      tags: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired, slug: PropTypes.string.isRequired })),
+      tags: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+        })
+      ),
       published_at_pretty: PropTypes.string,
       primary_author: PropTypes.shape({
         name: PropTypes.string,
@@ -162,12 +176,12 @@ Post.propTypes = {
     }).isRequired,
     comments: PropTypes.arrayOf(
       PropTypes.shape({
-        body: PropTypes.string.isRequired,
-        user_name: PropTypes.string.isRequired,
-        user_avatar: PropTypes.string.isRequired,
-        user_email: PropTypes.string.isRequired,
+        body: PropTypes.string,
+        user_name: PropTypes.string,
+        user_avatar: PropTypes.string,
+        user_email: PropTypes.string,
         user_role: PropTypes.string,
-        created_at: PropTypes.string.isRequired,
+        created_at: PropTypes.string,
       }),
     ),
     relatedPosts: PropTypes.objectOf(PropTypes.array),

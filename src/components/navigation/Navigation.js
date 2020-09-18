@@ -25,9 +25,7 @@ const Navigation = ({ data, smallLogo }) => (
           <Link to="/" className="logo">
             <img src={smallLogo} alt={`Hackers and Slackers Logo`} title={`Hackers and Slackers Logo`} />
           </Link>
-          <div className="nav-links">
-            <NavLinks navigation={data} />
-          </div>
+          <NavLinks navigation={data} />
         </div>
         <div className="nav-right">
           <Search collapse className="search-widget" />
