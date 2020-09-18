@@ -245,7 +245,7 @@ module.exports = {
           require(`stylelint`)],
       },
     },
-    // `@danbruegge/gatsby-plugin-stylelint`,
+    `@danbruegge/gatsby-plugin-stylelint`,
     /**
      *  Netlify Plugins
      */
