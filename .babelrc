@@ -30,7 +30,7 @@
           "makefile",
           "markdown"
         ],
-        "plugins": ["normalize-whitespace"],
+        "plugins": ["normalize-whitespace", "custom-class"],
         "theme": "default",
         "css": false
       }

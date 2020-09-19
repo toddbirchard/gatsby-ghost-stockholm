@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
+import { Comments } from '../components/comments'
 import {
   RelatedPost,
   SeriesTOC,
   SupportWidget,
+  PostContent,
 } from '../components/posts'
-// import { Comments } from '../components/comments'
 import { AuthorCard } from '../components/authors'
-import Prism from "prismjs"
 import {
   AiOutlineEye,
   AiOutlineTags,
@@ -39,11 +39,9 @@ const Post = ({ data, location }) => {
   const authorFirstName = author.name.split(` `)[0]
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
+  const comments = data.comments.edges
+  const authors = data.authors.edges
   const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
-  // const comments = data.comments.edges
-  useEffect(() => {
-    Prism.highlightAll()
-  })
 
   return (
     <>
@@ -58,6 +56,8 @@ const Post = ({ data, location }) => {
         <div className="post-wrapper">
 
           <article className="post">
+
+            {/*    Post head     */}
             <div className="post-head">
               <h1 className="post-title">{post.title}</h1>
               <div className="post-meta">
@@ -103,6 +103,8 @@ const Post = ({ data, location }) => {
                   </picture>
               }
             </div>
+
+            {/*  Series table of contents  */}
             {seriesPosts &&
               <SeriesTOC
                 seriesPosts={seriesPosts.edges}
@@ -110,15 +112,18 @@ const Post = ({ data, location }) => {
                 currentPost={post.slug}
               />
             }
+
+            {/*  Lynx blurb  */}
             {post.slug.includes(`lynx`) &&
                <div className="post-roundup-blurb">
                  <AiTwotoneExperiment /> <p>{lynxBlurb}</p>
                </div>
             }
-            <main
-              className="post-content content-body load-external-scripts"
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
+
+            {/*  Lynx blurb  */}
+            <PostContent html={ post.html } />
+
+            {/*  Tags  */}
             <div className="post-tags">
               <Tags
                 post={post}
@@ -129,10 +134,15 @@ const Post = ({ data, location }) => {
                 suffix={false}
                 classes={`post-tag-footer ${tags.ghostId}`}/>
             </div>
+
+            {/*  Post Author Details  */}
             <AuthorCard author={author} page={`post`}/>
+
           </article>
+
+          {/*  Comments, related posts, & donation widgets   */}
           <section className="post-footer">
-            {/*<Comments data={data} comments={comments} />*/}
+            <Comments data={data} comments={comments} moderators={authors} />
             <div className="related-posts">
               {relatedPosts.map(({ node }) => (
                 <RelatedPost key={`${node.ghostId}_related`} post={node} />
@@ -140,11 +150,14 @@ const Post = ({ data, location }) => {
             </div>
             <SupportWidget/>
           </section>
-        </div>
 
+        </div>
       </Layout>
-    </>)
+    </>
+  )
 }
+
+;
 
 Post.propTypes = {
   data: PropTypes.shape({
@@ -182,6 +195,11 @@ Post.propTypes = {
         user_email: PropTypes.string,
         user_role: PropTypes.string,
         created_at: PropTypes.string,
+      }),
+    ),
+    authors: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
       }),
     ),
     relatedPosts: PropTypes.objectOf(PropTypes.array),
@@ -227,6 +245,13 @@ export const postQuery = graphql`
           user_avatar
           user_role
           created_at(fromNow: true)
+        }
+      }
+    },
+    authors: allGhostAuthor {
+      edges {
+        node {
+          name
         }
       }
     }

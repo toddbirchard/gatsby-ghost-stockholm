@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import fetch from 'node-fetch'
-import Editor from "rich-markdown-editor"
+import Editor from "@hackersandslackers/react-md-render"
 import CommentSubmit from "./CommentSubmit"
 
 function encode(data) {
@@ -10,16 +10,15 @@ function encode(data) {
     .join(`&`)
 }
 
-const CommentForm = ({ post }) => {
+const CommentForm = ({ post, identity }) => {
   const postId = post.ghostId
   const postSlug = post.slug
   const authorName = post.primary_author.name
   const commentId = post.comment_id
   const userId = user ? user.id : ``
-  const identity = identity
   const user = identity.user
   const userName = user ? user.user_metadata.full_name : ``
-  const userAvatar = user ? user.user_metadata.avatar_url : ``
+  const userAvatar = user ? user.user_metadata.user_avatar : ``
   const userProvider = user ? user.app_metadata ? user.app_metadata.provider : `` : ``
   const userRole = user ? user.role : ``
   const userEmail = user ? user.email : ``

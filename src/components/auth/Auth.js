@@ -2,9 +2,9 @@ import React from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
-export const Auth = ({ children }) => {
-  const identity = useIdentityContext()
+const Auth = ({ children }) => {
   const [dialog, setDialog] = React.useState(false)
+  const identity = useIdentityContext()
   const name =
     (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || `NoName`
 
@@ -99,4 +99,6 @@ const netlifyAuth = {
     )
   }
 }
-export default Auth*/
+*/
+
+export default Auth
