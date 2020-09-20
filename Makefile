@@ -37,7 +37,7 @@ serve:
 clean:
 	gatsby clean
 	find . -maxdepth 1 -name "package-lock.json" -delete
-	rm yarn-error.log
+	rm package-lock.log
 	rm -rf "node_modules"
 
 .PHONY: reset
@@ -45,11 +45,11 @@ reset:
 	gatsby clean
 	find . -maxdepth 1 -name "package-lock.json" -delete
 	rm -rf "node_modules"
-	yarn
+	npm i
 	npm audit fix
 
 .PHONY: update
 update:
 	ncu -u --dep=prod
-	yarn
+	npm i
 	npm audit fix
