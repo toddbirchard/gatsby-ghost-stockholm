@@ -44,6 +44,7 @@ typings/
 # Optional npm cache directory
 .npm
 .npmrc
+.npmrc-backup
 
 # Optional eslint cache
 .eslintcache

@@ -155,21 +155,5 @@ export const pageQuery = graphql`
         }
       }
     }
-    authorPocket: allPocketArticle(sort: {fields: readDay, order: DESC}, filter: {title: {nin: [null, ""]}}) {
-      edges {
-        node {
-          id
-          url
-          title
-          excerpt
-          is_article
-          has_image
-          word_count
-          time_read
-          articleDomain
-          domainFavicon
-        }
-      }
-    }
   }
 `

@@ -9,7 +9,7 @@ const Comments = ({ data, comments, moderators }) => {
 
   return (
     <>
-      <div id="comments">
+      <div id="comments" className="markdown-render">
         {comments &&
         <div className="user-comments">
           {comments.map(({ node }) => (

@@ -1,104 +1,124 @@
 #comments {
-  margin: 0 0 60px;
+  margin: 0 0 40px;
 
-  &:hover,
-  &:focus {
+  &:focus,
+  &:hover {
     .comment-btn,
     .submit-comment {
       opacity: 1;
     }
   }
 
-  .ProseMirror {
-    --webkit-appearance: none;
-    display: block;
-    height: 25px;
-    padding: 15px;
+  .react-mde {
     overflow: hidden;
-    border: unset;
-    border: 1px solid white;
-    border-radius: 3px;
-    background: unset;
-    box-shadow: @box-shadow;
-    color: @body-color;
-    font-family: unset;
-    font-size: 0.9em;
+    border-radius: 4px;
+    background: white;
     transition: @transition;
-
-    @media(max-width: @mobile-breakpoint) {
-      height: 16px;
-      font-size: 0.8em;
-    }
-
-    &::placeholder {
-      font-size: 1.3em;
-    }
 
     &:hover {
       border: 1px solid @theme-color;
-      background: #e3f2fe;
 
-      &::placeholder {
-        color: @theme-color;
-        opacity: 0.5;
+      /*background: #e3f2fe;*/
+      .mde-tabs button {
+        color: #427fa7;
+
+        &.open {
+          border-color: #427fa7;
+        }
+
+        .svg-icon {
+          color: #427fa7 !important;
+        }
       }
+    }
 
-      .comment-btn {
+    &:focus {
+      background: white !important;
+
+      .mde-tabs button {
+        border-color: unset !important;
+        color: unset !important;
+
+        .svg-icon {
+          color: unset !important;
+        }
+      }
+    }
+
+    .mde-text {
+      --webkit-appearance: none;
+      border: none;
+      outline: none;
+      background: none;
+      font-family: @body-font;
+    }
+  }
+
+  .mde-header {
+    height: 0;
+    overflow: hidden;
+    border-bottom: unset;
+    background: none;
+    opacity: 0;
+    transition: @transition;
+
+    .mde-tabs button {
+      color: #767f91;
+      transition: @transition;
+
+      &:hover {
         border-color: @theme-color;
-        color: @theme-color !important;
+        color: @theme-color;
       }
     }
 
-    &.ProseMirror-Focused {
-      border: 1px solid @theme-color;
-    }
-
-    &.open {
-      height: 200px;
-      background: white;
-
-      /*.placeholder {
-        opacity: 0;
-      }*/
-
-      .comment-btn {
-        border: 1px solid #7b8185 !important;
-        color: #7b8185 !important;
-      }
-    }
-
-    p {
-      width: fit-content;
+    .mde-header-group {
+      opacity: 0.7;
     }
   }
 
   form {
     display: block;
     position: relative;
+    height: 50px;
+    transition: @transition;
 
-    &.open .ProseMirror {
+    &.open {
       height: 200px;
+      margin-bottom: 110px;
+
+      .mde-header {
+        display: flex;
+        height: 42px;
+        opacity: 1;
+      }
+
+      .comment-btn {
+        display: block;
+      }
     }
 
-    .ProseMirror {
+    .mde-header {
       width: stretch;
     }
 
+    .mde-text {
+      height: -webkit-fill-available !important;
+    }
+
     .comment-btn {
+      display: none;
       z-index: 1;
-      position: absolute;
-      right: 0px;
-      bottom: -40px;
       width: fit-content;
       height: 16px;
-      margin: 0 auto;
+      margin: 20px 0 0 auto;
       padding: 4px 6px;
       border: 1px solid #7b8185;
       border-radius: 2px;
       background: unset !important;
       color: #7b8185 !important;
       font-family: @body-font-medium;
-      font-size: .9em;
+      font-size: 0.9em;
       opacity: 0;
       transition: @transition;
       @media(max-width: @mobile-breakpoint) {
@@ -191,7 +211,7 @@
               background: #66bb5a;
               color: white;
               font-family: @body-font-medium;
-              font-size: .75em;
+              font-size: 0.75em;
               line-height: 1;
             }
           }
@@ -199,9 +219,9 @@
           .comment-date {
             margin-top: 2px;
             font-family: @body-font-bold;
-            font-size: .9em;
+            font-size: 0.9em;
             line-height: 1;
-            opacity: .5;
+            opacity: 0.5;
           }
         }
 

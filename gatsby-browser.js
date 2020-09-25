@@ -2,6 +2,7 @@
 import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
 import config from './src/utils/siteConfig'
+import Prism from 'prismjs'
 
 
 // Client to create HTTP requests
@@ -25,7 +26,7 @@ let HttpClient = function() {
 export const onRouteUpdate = ({location}) => {
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
-    codeSyntaxHighlight();
+    // codeSyntaxHighlight();
     enableLightboxImages();
   }
   if (path.indexOf('author')) {
@@ -39,7 +40,6 @@ export const onRouteUpdate = ({location}) => {
 
 // PrismaJS code snippet highlighting
 function codeSyntaxHighlight() {
-  Prism.plugins.customClass.prefix(`prism--`)
   Prism.plugins.NormalizeWhitespace.setDefaults({
     'remove-trailing': true,
     'remove-indent': true,

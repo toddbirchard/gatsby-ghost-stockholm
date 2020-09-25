@@ -10,7 +10,6 @@ import {
   RelatedPost,
   SeriesTOC,
   SupportWidget,
-  PostContent,
 } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import {
@@ -121,7 +120,10 @@ const Post = ({ data, location }) => {
             }
 
             {/*  Lynx blurb  */}
-            <PostContent html={ post.html } />
+            <main
+              className="post-content content-body load-external-scripts"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
 
             {/*  Tags  */}
             <div className="post-tags">
@@ -156,8 +158,6 @@ const Post = ({ data, location }) => {
     </>
   )
 }
-
-;
 
 Post.propTypes = {
   data: PropTypes.shape({

@@ -1,7 +1,9 @@
 import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import fetch from 'node-fetch'
-import Editor from "@hackersandslackers/react-md-render"
+import ReactMde from "react-mde"
+import * as Showdown from "showdown"
+import "react-mde/lib/styles/css/react-mde-all.css"
 import CommentSubmit from "./CommentSubmit"
 
 function encode(data) {
@@ -9,6 +11,13 @@ function encode(data) {
     .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
     .join(`&`)
 }
+
+const converter = new Showdown.Converter({
+  tables: true,
+  simplifiedAutoLink: true,
+  strikethrough: true,
+  tasklists: true,
+})
 
 const CommentForm = ({ post, identity }) => {
   const postId = post.ghostId
@@ -22,10 +31,16 @@ const CommentForm = ({ post, identity }) => {
   const userProvider = user ? user.app_metadata ? user.app_metadata.provider : `` : ``
   const userRole = user ? user.role : ``
   const userEmail = user ? user.email : ``
+  const ref = React.useRef()
   const [value, setValue] = useState(``)
+  const [selectedTab, setSelectedTab] = React.useState(`write`)
 
   const handleClick = (e) => {
+    console.log(e)
+    console.log(ref)
+    console.log(`poop`)
     e.target.classList.add(`open`)
+    ref.current.classList.add(`open`)
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -61,16 +76,19 @@ const CommentForm = ({ post, identity }) => {
         netlify-honeypot="address"
         method="post"
         onSubmit={handleSubmit}
+        ref={ref}
         onClick={handleClick}
       >
         <fieldset>
           <label className="hidden-label" htmlFor="commentBody">Post comment</label>
-          <Editor
+          <ReactMde
             id="commentBody"
             name="commentBody"
             value={value}
-            onChange={() => setValue(value)}
-            readOnly={false}
+            onChange={setValue}
+            selectedTab={selectedTab}
+            onTabChange={setSelectedTab}
+            generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
             placeholder={`What'd you think?`}
             onClick={handleClick}
           />

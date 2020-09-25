@@ -65,7 +65,7 @@ module.exports = {
         ? ghostConfig.development
         : ghostConfig.production,
     },
-    {
+    /*{
       resolve: `gatsby-source-pocket`,
       options: {
         consumerKey: process.env.POCKET_CONSUMER_KEY,
@@ -78,7 +78,7 @@ module.exports = {
         favouriteFilter: false,
         searchFilter: false,
       },
-    },
+    },*/
     {
       resolve: `gatsby-source-twitter`,
       options: {
