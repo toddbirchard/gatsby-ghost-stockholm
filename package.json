@@ -110,7 +110,7 @@
     "sharp": "^0.26.1",
     "showdown": "^1.9.1",
     "styled-components": "^5.2.0",
-    "stylelint": "^13.7.1",
+    "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0"
   },
   "license": "MIT"
