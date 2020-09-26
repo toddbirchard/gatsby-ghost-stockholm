@@ -19,6 +19,7 @@ import {
   AiOutlineUser,
   AiTwotoneExperiment,
 } from 'react-icons/ai'
+import Prism from "prismjs"
 
 /**
  * Single post view (/:slug)
@@ -41,6 +42,9 @@ const Post = ({ data, location }) => {
   const comments = data.comments.edges
   const authors = data.authors.edges
   const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
+  React.useEffect(() => {
+    Prism.highlightAll()
+  })
 
   return (
     <>
@@ -55,7 +59,6 @@ const Post = ({ data, location }) => {
         <div className="post-wrapper">
 
           <article className="post">
-
             {/*    Post head     */}
             <div className="post-head">
               <h1 className="post-title">{post.title}</h1>

@@ -10,7 +10,6 @@
   }
 
   .react-mde {
-    overflow: hidden;
     border-radius: 4px;
     background: white;
     transition: @transition;
@@ -81,6 +80,7 @@
     display: block;
     position: relative;
     height: 50px;
+    max-height: 250px;
     transition: @transition;
 
     &.open {
@@ -93,6 +93,16 @@
         opacity: 1;
       }
 
+      .mde-textarea-wrapper {
+        height: 200px;
+
+        .mde-text {
+          color: @body-color;
+          font-size: unset;
+          line-height: unset;
+        }
+      }
+
       .comment-btn {
         display: block;
       }
@@ -102,8 +112,16 @@
       width: stretch;
     }
 
+    .mde-textarea-wrapper {
+      height: fit-content;
+      transition: @transition;
+    }
+
     .mde-text {
       height: -webkit-fill-available !important;
+      color: #9ea4ac;
+      font-size: 1.1em;
+      line-height: 1.8;
     }
 
     .comment-btn {
@@ -138,7 +156,7 @@
 
       &:hover {
         border: 1px solid @theme-color;
-        color: @theme-color !important;
+        // color: @theme-color !important;
         cursor: pointer;
         opacity: 0.5;
       }

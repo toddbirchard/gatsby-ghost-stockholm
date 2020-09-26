@@ -13,9 +13,14 @@ const Comments = ({ data, comments, moderators }) => {
         {comments &&
         <div className="user-comments">
           {comments.map(({ node }) => (
-            <Comment key={node.comment_id} comment={node} moderators={moderators} />
+            <Comment
+              key={node.comment_id}
+              comment={node}
+              moderators={moderators}
+            />
           ))}
-        </div> }
+        </div>
+        }
         <CommentForm post={post} identity={identity} />
       </div>
     </>

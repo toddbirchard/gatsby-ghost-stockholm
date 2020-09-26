@@ -32,15 +32,13 @@ const CommentForm = ({ post, identity }) => {
   const userRole = user ? user.role : ``
   const userEmail = user ? user.email : ``
   const ref = React.useRef()
-  const [value, setValue] = useState(``)
+  const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
 
   const handleClick = (e) => {
-    console.log(e)
-    console.log(ref)
-    console.log(`poop`)
     e.target.classList.add(`open`)
     ref.current.classList.add(`open`)
+    value === `Have something to say?` ? setValue(``) : null
   }
   const handleSubmit = (e) => {
     e.preventDefault()
