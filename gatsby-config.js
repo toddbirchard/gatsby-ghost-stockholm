@@ -235,6 +235,7 @@ module.exports = {
     /**
      *  Style Plugins
      */
+    `@danbruegge/gatsby-plugin-stylelint`,
     {
       resolve: `gatsby-plugin-less`,
       options: {
@@ -242,10 +243,11 @@ module.exports = {
         postCssPlugins: [
           // require(`autoprefixer`),
           require(`cssnano`)({ preset: `default` }),
-          require(`stylelint`)],
+          require(`stylelint`),
+        ],
       },
     },
-    `@danbruegge/gatsby-plugin-stylelint`,
+    `gatsby-plugin-styled-components`,
     /**
      *  Netlify Plugins
      */
@@ -435,7 +437,6 @@ module.exports = {
     /**
      *  Misc Plugins
      */
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-force-trailing-slashes`,
   ],
 }
