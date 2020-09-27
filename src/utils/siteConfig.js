@@ -36,5 +36,6 @@ module.exports = {
   links: {
     buyMeACoffee: `https://buymeacoff.ee/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
+    commentsApi: `https://hackersandslackers.tools/members/comments`,
   },
 }

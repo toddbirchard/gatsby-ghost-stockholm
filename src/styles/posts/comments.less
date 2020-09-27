@@ -29,6 +29,14 @@
           border-color: #427fa7;
         }
 
+        &.closed textarea {
+          background: lighten(@theme-color, 45%) !important;
+
+          &::placeholder {
+            color: lighten(@theme-color, 20%) !important;
+          }
+        }
+
         .svg-icon {
           color: #427fa7 !important;
         }

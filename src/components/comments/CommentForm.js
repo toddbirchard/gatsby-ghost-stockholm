@@ -5,6 +5,7 @@ import ReactMde from "react-mde"
 import * as Showdown from "showdown"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import CommentSubmit from "./CommentSubmit"
+import config from '../../utils/siteConfig'
 
 function encode(data) {
   return Object.keys(data)
@@ -34,17 +35,31 @@ const CommentForm = ({ post, identity }) => {
   const ref = React.useRef()
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
+  console.log(encode({
+    commentBody: value,
+    postId: postId,
+    postSlug: postSlug,
+    authorName: authorName,
+    commentId: commentId,
+    userId: userId,
+    userName: userName,
+    userAvatar: userAvatar,
+    userProvider: userProvider,
+    userRole: userRole,
+    userEmail: userEmail,
+  }))
 
   // const handleChange = e => this.setState({ [e.target.name]: e.target.value })
   const handleClick = (e) => {
     e.target.classList.add(`open`)
     ref.current.classList.add(`open`)
+    ref.current.classList.remove(`closed`)
     value === `Have something to say?` ? setValue(``) : null
   }
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    fetch(`/`, {
+    fetch(config.links.commentsApi, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
       body: encode({
@@ -77,6 +92,7 @@ const CommentForm = ({ post, identity }) => {
         onSubmit={handleSubmit}
         ref={ref}
         onClick={handleClick}
+        className="closed"
       >
 
         <fieldset className="hidden-label">
