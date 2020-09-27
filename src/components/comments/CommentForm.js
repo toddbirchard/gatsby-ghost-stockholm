@@ -81,52 +81,52 @@ const CommentForm = ({ post, identity }) => {
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-          <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="userId">User ID</label>
-          <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
-          <input id="postSlug" name="postSlug" type="text" value={postSlug} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="postSlug" name="postSlug" type="text" value={postSlug} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="postId">Post ID</label>
-          <input id="postId" name="postId" type="text" value={postId} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="postId" name="postId" type="text" value={postId} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="userEmail">User Email</label>
-          <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="userName">User Name</label>
-          <input id="userName" name="userName" type="text" value={userName} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="userName" name="userName" type="text" value={userName} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
-          <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="userRole">User Role</label>
-          <input id="userRole" name="userRole" type="text" value={userRole} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="userRole" name="userRole" type="text" value={userRole} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="userProvider">User Provider</label>
-          <input id="userProvider" name="userProvider" type="text" value={userProvider} style={{ visibility: `hidden` }} onChange={handleChange}/>
+          <input id="userProvider" name="userProvider" type="text" value={userProvider} style={{ visibility: `hidden` }}/>
         </fieldset>
 
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="commentAddress" >Address</label>
-          <input id="commentAddress" name="address" type="hidden" onChange={handleChange} />
+          <input id="commentAddress" name="address" type="hidden" />
         </fieldset>
         <fieldset>
 
