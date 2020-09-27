@@ -154,6 +154,7 @@ const CommentForm = ({ post, identity }) => {
             generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
             placeholder={`What'd you think?`}
             onClick={handleClick}
+
           />
         </fieldset>
         <CommentSubmit />
