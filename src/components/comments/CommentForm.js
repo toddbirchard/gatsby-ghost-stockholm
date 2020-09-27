@@ -35,6 +35,7 @@ const CommentForm = ({ post, identity }) => {
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
 
+  // const handleChange = e => this.setState({ [e.target.name]: e.target.value })
   const handleClick = (e) => {
     e.target.classList.add(`open`)
     ref.current.classList.add(`open`)
@@ -77,11 +78,71 @@ const CommentForm = ({ post, identity }) => {
         ref={ref}
         onClick={handleClick}
       >
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="commentId">Comment ID</label>
+          <input id="commentId" name="commentId" type="text" value={commentId} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="userId">User ID</label>
+          <input id="userId" name="userId" type="text" value={userId} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
+          <input id="postSlug" name="postSlug" type="text" value={postSlug} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="postId">Post ID</label>
+          <input id="postId" name="postId" type="text" value={postId} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="userEmail">User Email</label>
+          <input id="userEmail" name="userEmail" type="email" value={userEmail} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="userName">User Name</label>
+          <input id="userName" name="userName" type="text" value={userName} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
+          <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="userRole">User Role</label>
+          <input id="userRole" name="userRole" type="text" value={userRole} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="userProvider">User Provider</label>
+          <input id="userProvider" name="userProvider" type="text" value={userProvider} style={{ visibility: `hidden` }} onChange={handleChange}/>
+        </fieldset>
+
+        <fieldset className="hidden-label">
+          <label className="hidden-label" htmlFor="commentAddress" >Address</label>
+          <input id="commentAddress" name="address" type="hidden" onChange={handleChange} />
+        </fieldset>
         <fieldset>
-          <label className="hidden-label" htmlFor="commentBody">Post comment</label>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="commentBody">Post comment</label>
+            <textarea
+              id="commentBody"
+              name="commentBody"
+              rows="5"
+              required
+              value={value}
+            >
+            </textarea>
+          </fieldset>
+
           <ReactMde
-            id="commentBody"
-            name="commentBody"
             value={value}
             onChange={setValue}
             selectedTab={selectedTab}
