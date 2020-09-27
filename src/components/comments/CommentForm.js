@@ -61,7 +61,8 @@ const CommentForm = ({ post, identity }) => {
     const form = e.target
     fetch(config.links.commentsApi, {
       method: `POST`,
-      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+      // headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+      headers: { 'Content-Type': `application/json` },
       body: encode({
         'form-name': form.getAttribute(`name`),
         commentBody: value,
