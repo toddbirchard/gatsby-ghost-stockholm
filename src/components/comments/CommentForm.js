@@ -5,7 +5,7 @@ import ReactMde from "react-mde"
 import * as Showdown from "showdown"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import CommentSubmit from "./CommentSubmit"
-import config from '../../utils/siteConfig'
+// import config from '../../utils/siteConfig'
 
 function encode(data) {
   return Object.keys(data)
@@ -46,7 +46,21 @@ const CommentForm = ({ post, identity }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    fetch(config.links.commentsApi, {
+    console.log(encode({
+      'form-name': form.getAttribute(`name`),
+      commentBody: value,
+      postId: postId,
+      postSlug: postSlug,
+      authorName: authorName,
+      commentId: commentId,
+      userId: userId,
+      userName: userName,
+      userAvatar: userAvatar,
+      userProvider: userProvider,
+      userRole: userRole,
+      userEmail: userEmail,
+    }))
+    fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
       // headers: { 'Content-Type': `application/json` },
@@ -154,7 +168,6 @@ const CommentForm = ({ post, identity }) => {
             generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
             placeholder={`What'd you think?`}
             onClick={handleClick}
-
           />
         </fieldset>
         <CommentSubmit />
