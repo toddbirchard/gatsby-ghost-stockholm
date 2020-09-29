@@ -1,5 +1,4 @@
 #comments {
-  display: none;
   margin: 0 0 40px;
 
   &:focus,
@@ -143,14 +142,14 @@
       z-index: 1;
       width: fit-content;
       height: 16px;
-      margin: 20px 0 0 auto;
-      padding: 4px 6px;
+      margin: 17px 0 0 auto;
+      padding: 6px;
       border: 1px solid #7b8185;
       border-radius: 2px;
       background: unset !important;
       color: #7b8185 !important;
-      font-family: @body-font-medium;
-      font-size: 0.9em;
+      font-family: @body-font;
+      font-size: 1.2em;
       opacity: 0;
       transition: @transition;
       @media(max-width: @mobile-breakpoint) {
@@ -176,7 +175,7 @@
       }
 
       &.submit {
-        height: 25px;
+        height: 30px;
 
         &:hover {
           border: 1px solid @theme-color;

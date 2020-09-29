@@ -5,7 +5,6 @@ import ReactMde from "react-mde"
 import * as Showdown from "showdown"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import CommentSubmit from "./CommentSubmit"
-// import config from '../../utils/siteConfig'
 
 function encode(data) {
   return Object.keys(data)
@@ -30,13 +29,11 @@ const CommentForm = ({ post, identity }) => {
   const userName = user ? user.user_metadata.full_name : ``
   const userAvatar = user ? user.user_metadata.user_avatar : ``
   const userProvider = user ? user.app_metadata ? user.app_metadata.provider : `` : ``
-  const userRole = user ? user.role : ``
   const userEmail = user ? user.email : ``
   const ref = React.useRef()
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
 
-  // const handleChange = e => this.setState({ [e.target.name]: e.target.value })
   const handleClick = (e) => {
     e.target.classList.add(`open`)
     ref.current.classList.add(`open`)
@@ -46,24 +43,9 @@ const CommentForm = ({ post, identity }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    console.log(encode({
-      'form-name': form.getAttribute(`name`),
-      commentBody: value,
-      postId: postId,
-      postSlug: postSlug,
-      authorName: authorName,
-      commentId: commentId,
-      userId: userId,
-      userName: userName,
-      userAvatar: userAvatar,
-      userProvider: userProvider,
-      userRole: userRole,
-      userEmail: userEmail,
-    }))
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      // headers: { 'Content-Type': `application/json` },
       body: encode({
         'form-name': form.getAttribute(`name`),
         commentBody: value,
@@ -75,7 +57,6 @@ const CommentForm = ({ post, identity }) => {
         userName: userName,
         userAvatar: userAvatar,
         userProvider: userProvider,
-        userRole: userRole,
         userEmail: userEmail,
       }),
     })
@@ -130,11 +111,6 @@ const CommentForm = ({ post, identity }) => {
         <fieldset className="hidden-label">
           <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
           <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="userRole">User Role</label>
-          <input id="userRole" name="userRole" type="text" value={userRole} />
         </fieldset>
 
         <fieldset className="hidden-label">
