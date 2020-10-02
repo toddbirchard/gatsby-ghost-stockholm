@@ -1,16 +1,18 @@
 #comments {
   margin: 0 0 40px;
 
-  &:focus,
-  &:hover {
-    .comment-btn,
-    .submit-comment {
-      opacity: 1;
+  .form-container {
+    &:focus,
+    &:hover {
+      .comment-btn,
+      .submit-comment {
+        opacity: 1;
+      }
     }
   }
 
   #commentBody,
-  .hidden  {
+  .hidden {
     visibility: hidden;
   }
 
@@ -22,7 +24,6 @@
     &:hover {
       border: 1px solid @theme-color;
 
-      /*background: #e3f2fe;*/
       .mde-tabs button {
         color: #427fa7;
 
@@ -67,12 +68,13 @@
   }
 
   .mde-header {
-    height: 0;
     overflow: hidden;
     border-bottom: unset;
     background: none;
     opacity: 0;
-    transition: @transition;
+    height: 1px;
+    display: block;
+    transition: all .4s ease-out;
 
     .mde-tabs button {
       color: #767f91;
@@ -89,16 +91,58 @@
     }
   }
 
-  form {
-    display: block;
+  .form-container {
     position: relative;
-    height: 50px;
-    max-height: 250px;
     transition: @transition;
 
+    .success-message {
+      z-index: 1;
+      position: absolute;
+      background: #b3deae;
+      display: block;
+      opacity: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      transition: opacity .4s ease-out;
+
+      &.active {
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+      }
+
+      .message {
+        width: fit-content;
+        height: fit-content;
+        margin: auto;
+        font-size: 1.6em;
+        display: flex;
+        align-items: center;
+        color: #658558;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+
+        .icon {
+          margin-right: 10px;
+          font-size: .7em;
+          color: #658558;
+        }
+      }
+    }
+
+    form {
+      height: 50px;
+      max-height: 250px;
+      position: relative;
+    }
+
     &.open {
-      height: 200px;
-      margin-bottom: 110px;
+      height: 244px;
+      margin-bottom: 67px;
 
       .mde-header {
         display: flex;
@@ -117,7 +161,7 @@
       }
 
       .comment-btn {
-        display: block;
+        margin: 17px 0 0 auto;
       }
     }
 
@@ -138,25 +182,22 @@
     }
 
     .comment-btn {
-      display: none;
-      z-index: 1;
+      z-index: 2;
       width: fit-content;
       height: 16px;
-      margin: 17px 0 0 auto;
+      margin: -40px 10px 0 auto;
       padding: 6px;
-      border: 1px solid #7b8185;
+      font-size: 1em;
+      background: #0298f6;
+      color: white;
       border-radius: 2px;
-      background: unset !important;
-      color: #7b8185 !important;
       font-family: @body-font;
-      font-size: 1.2em;
       opacity: 0;
       transition: @transition;
       @media(max-width: @mobile-breakpoint) {
         position: relative;
         top: 0;
         right: 0;
-        width: stretch;
         margin: 10px 0 0;
         border: unset;
         text-align: right;
@@ -169,9 +210,7 @@
 
       &:hover {
         border: 1px solid @theme-color;
-        // color: @theme-color !important;
         cursor: pointer;
-        opacity: 0.5;
       }
 
       &.submit {

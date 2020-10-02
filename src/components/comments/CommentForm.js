@@ -2,9 +2,10 @@ import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import fetch from 'node-fetch'
 import ReactMde from "react-mde"
-import * as Showdown from "showdown"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import CommentSubmit from "./CommentSubmit"
+import { FaCheck } from 'react-icons/fa'
+import * as Showdown from "showdown"
 
 function encode(data) {
   return Object.keys(data)
@@ -17,6 +18,9 @@ const converter = new Showdown.Converter({
   simplifiedAutoLink: true,
   strikethrough: true,
   tasklists: true,
+  code: true,
+  ghMentions: true,
+  emoji: true,
 })
 
 const CommentForm = ({ post, identity }) => {
@@ -31,6 +35,7 @@ const CommentForm = ({ post, identity }) => {
   const userProvider = user ? user.app_metadata ? user.app_metadata.provider : `` : ``
   const userEmail = user ? user.email : ``
   const ref = React.useRef()
+  const messageRef = React.useRef()
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
 
@@ -43,6 +48,7 @@ const CommentForm = ({ post, identity }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
+
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
@@ -61,93 +67,104 @@ const CommentForm = ({ post, identity }) => {
       }),
     })
       .then(() => setValue(``))
+      .then(messageRef.current.classList.add(`active`))
       .catch(error => console.log(error))
   }
 
   return (
     <>
-      <form
-        name="comments"
-        netlify
-        data-netlify="true"
-        netlify-honeypot="address"
-        method="post"
-        onSubmit={handleSubmit}
+      <div
+        className="form-container closed"
         ref={ref}
         onClick={handleClick}
-        className="closed"
       >
 
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-          <input id="commentId" name="commentId" type="text" value={commentId} />
-        </fieldset>
+        <div className="success-message" ref={messageRef}>
+          <div className="message">
+            <FaCheck className="icon" /> <span className="">Submitted!</span>
+          </div>
+        </div>
 
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="userId">User ID</label>
-          <input id="userId" name="userId" type="text" value={userId} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
-          <input id="postSlug" name="postSlug" type="text" value={postSlug} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="postId">Post ID</label>
-          <input id="postId" name="postId" type="text" value={postId} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="userEmail">User Email</label>
-          <input id="userEmail" name="userEmail" type="email" value={userEmail} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="userName">User Name</label>
-          <input id="userName" name="userName" type="text" value={userName} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
-          <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="userProvider">User Provider</label>
-          <input id="userProvider" name="userProvider" type="text" value={userProvider} />
-        </fieldset>
-
-        <fieldset className="hidden-label">
-          <label className="hidden-label" htmlFor="commentAddress" >Address</label>
-          <input id="commentAddress" name="address" type="hidden" />
-        </fieldset>
-        <fieldset>
+        <form
+          name="comments"
+          netlify
+          data-netlify="true"
+          netlify-honeypot="address"
+          method="post"
+          onSubmit={handleSubmit}
+        >
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentBody">Post comment</label>
-            <textarea
-              id="commentBody"
-              name="commentBody"
-              rows="5"
-              required
-              value={value}
-            >
-            </textarea>
+            <label className="hidden-label" htmlFor="commentId">Comment ID</label>
+            <input id="commentId" name="commentId" type="text" value={commentId} />
           </fieldset>
 
-          <ReactMde
-            value={value}
-            onChange={setValue}
-            selectedTab={selectedTab}
-            onTabChange={setSelectedTab}
-            generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
-            placeholder={`What'd you think?`}
-            onClick={handleClick}
-          />
-        </fieldset>
-        <CommentSubmit />
-      </form>
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="userId">User ID</label>
+            <input id="userId" name="userId" type="text" value={userId} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
+            <input id="postSlug" name="postSlug" type="text" value={postSlug} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="postId">Post ID</label>
+            <input id="postId" name="postId" type="text" value={postId} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="userEmail">User Email</label>
+            <input id="userEmail" name="userEmail" type="email" value={userEmail} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="userName">User Name</label>
+            <input id="userName" name="userName" type="text" value={userName} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
+            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="userProvider">User Provider</label>
+            <input id="userProvider" name="userProvider" type="text" value={userProvider} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="commentAddress" >Address</label>
+            <input id="commentAddress" name="address" type="hidden" />
+          </fieldset>
+          <fieldset>
+
+            <fieldset className="hidden-label">
+              <label className="hidden-label" htmlFor="commentBody">Post comment</label>
+              <textarea
+                id="commentBody"
+                name="commentBody"
+                rows="5"
+                required
+                value={value}
+              >
+              </textarea>
+            </fieldset>
+
+            <ReactMde
+              value={value}
+              onChange={setValue}
+              selectedTab={selectedTab}
+              onTabChange={setSelectedTab}
+              generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
+              placeholder={`What'd you think?`}
+              onClick={handleClick}
+            />
+          </fieldset>
+          <CommentSubmit />
+        </form>
+      </div>
     </>
   )
 }

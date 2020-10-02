@@ -1,9 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import * as Showdown from "showdown"
+
+const converter = new Showdown.Converter({
+  tables: true,
+  simplifiedAutoLink: true,
+  strikethrough: true,
+  tasklists: true,
+  code: true,
+  ghMentions: true,
+  emoji: true,
+})
 
 const Comment = ({ comment, moderators }) => {
   const isAdmin = comment && comment.user_role
   const isModerator = moderators.includes(comment.user_name)
+  const commentBody = converter.makeHtml(comment.body)
 
   return (
     <div className="comment">
@@ -20,7 +32,7 @@ const Comment = ({ comment, moderators }) => {
           </div>
           <div className="comment-date">{comment.created_at}</div>
         </div>
-        <p className="comment-body">{comment.body}</p>
+        <div className="comment-body" dangerouslySetInnerHTML={{ __html: commentBody }} />
         <div className="comment-buttons">
           <button className="comment-button reply">Reply</button>
           <button className="comment-button like">Like</button>
