@@ -34,6 +34,10 @@
         &.closed textarea {
           background: lighten(@theme-color, 45%) !important;
 
+          &:hover {
+            cursor: pointer;
+          }
+
           &::placeholder {
             color: lighten(@theme-color, 20%) !important;
           }
@@ -184,26 +188,29 @@
     .comment-btn {
       z-index: 2;
       width: fit-content;
-      height: 17px;
-      margin: -42px 10px 0 auto;
-      padding: 7px 8px;
-      font-size: 1em;
+      font-size: .9em;
       background: #0298f6;
       color: white;
       border-radius: 2px;
       font-family: @body-font;
       opacity: 0;
       transition: @transition;
+      box-shadow: inset 0 0 0 1px @theme-color;
+      height: 20px;
+      margin: -50px 0 0 auto;
+      padding: 15px 10px;
       @media(max-width: @mobile-breakpoint) {
         position: relative;
         top: 0;
         right: 0;
-        margin: 10px 0 0;
         text-align: right;
         opacity: 1;
+        border-radius: 0 2px 2px 0 !important;
 
         &:hover {
           border: 0 !important;
+          background: white;
+          color: @theme-color;
         }
       }
 
@@ -222,11 +229,7 @@
   }
 
   .user-comments {
-    width: 95%;
-    margin: 0 auto 40px;
-    @media(max-width: @smallscreen-breakpoint) {
-      width: 90%;
-    }
+    margin-bottom: 40px;
 
     .comment {
       display: flex;
@@ -279,7 +282,7 @@
               margin-left: 8px;
               padding: 4px 5px;
               border-radius: 2px;
-              background: #66bb5a;
+              background: #87d86f;
               color: white;
               font-family: @body-font-medium;
               font-size: 0.75em;
