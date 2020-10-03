@@ -9,6 +9,20 @@
         opacity: 1;
       }
     }
+
+    .logged-out {
+      @media (max-width: @mobile-breakpoint) {
+        fieldset {
+          display: none;
+        }
+      }
+
+      .login {
+        margin: 0 0 0 auto;
+        border-radius: 3px;
+        padding: 12px 10px;
+      }
+    }
   }
 
   #commentBody,
@@ -31,15 +45,18 @@
           border-color: #427fa7;
         }
 
-        &.closed textarea {
-          background: lighten(@theme-color, 45%) !important;
+        &.closed {
 
-          &:hover {
-            cursor: pointer;
-          }
+          textarea {
+            background: lighten(@theme-color, 45%) !important;
 
-          &::placeholder {
-            color: lighten(@theme-color, 20%) !important;
+            &:hover {
+              cursor: pointer;
+            }
+
+            &::placeholder {
+              color: lighten(@theme-color, 20%) !important;
+            }
           }
         }
 
@@ -68,6 +85,9 @@
       outline: none;
       background: none;
       font-family: @body-font;
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 1em;
+      }
     }
   }
 
@@ -199,7 +219,7 @@
       height: 20px;
       margin: -50px 0 0 auto;
       padding: 15px 10px;
-      @media(max-width: @mobile-breakpoint) {
+      @media (max-width: @mobile-breakpoint) {
         position: relative;
         top: 0;
         right: 0;
@@ -249,7 +269,7 @@
         height: 70px;
         margin-right: 20px;
         border-radius: 50%;
-        @media(max-width: @mobile-breakpoint) {
+        @media (max-width: @mobile-breakpoint) {
           width: 50px;
           min-width: 50px;
           height: 50px;
@@ -291,11 +311,11 @@
           }
 
           .comment-date {
-            margin-top: 2px;
-            font-family: @body-font-bold;
+            margin-top: 4px;
+            font-family: @body-font-medium;
             font-size: 0.9em;
             line-height: 1;
-            opacity: 0.5;
+            opacity: 0.6;
           }
         }
 

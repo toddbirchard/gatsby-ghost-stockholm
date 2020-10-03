@@ -100,6 +100,7 @@ const CommentForm = ({ post }) => {
           netlify-honeypot="address"
           method="post"
           onSubmit={handleSubmit}
+          className={isLoggedIn ? `logged-in` : `logged-out`}
         >
 
           <fieldset className="hidden-label">
