@@ -16,11 +16,11 @@ const CommentSubmit = ({ children }) => {
           SUBMIT
         </button>
         :
-        <div
+        <button
           className="comment-btn login"
         >
           Sign in to Comment
-        </div>
+        </button>
       }
       <main>{children}</main>
     </>
