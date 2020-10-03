@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@danbruegge/gatsby-plugin-stylelint": "^4.1.0",
-    "acorn": "^8.0.1",
+    "acorn": "^8.0.3",
     "autoprefixer": "^10.0.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-gatsby": "^0.5.10",
