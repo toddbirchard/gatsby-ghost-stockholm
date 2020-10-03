@@ -19,7 +19,7 @@ const CommentSubmit = ({ children }) => {
         <div
           className="comment-btn login"
         >
-          LOG IN
+          Sign in to Comment
         </div>
       }
       <main>{children}</main>

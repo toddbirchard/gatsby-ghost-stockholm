@@ -161,7 +161,7 @@
       }
 
       .comment-btn {
-        margin: 17px 0 0 auto;
+        margin: 18px 0 0 auto;
       }
     }
 
@@ -184,9 +184,9 @@
     .comment-btn {
       z-index: 2;
       width: fit-content;
-      height: 16px;
-      margin: -40px 10px 0 auto;
-      padding: 6px;
+      height: 17px;
+      margin: -42px 10px 0 auto;
+      padding: 7px 8px;
       font-size: 1em;
       background: #0298f6;
       color: white;
@@ -199,7 +199,6 @@
         top: 0;
         right: 0;
         margin: 10px 0 0;
-        border: unset;
         text-align: right;
         opacity: 1;
 
@@ -209,23 +208,25 @@
       }
 
       &:hover {
-        border: 1px solid @theme-color;
         cursor: pointer;
       }
 
       &.submit {
         height: 30px;
 
-        &:hover {
+        /*&:hover {
           border: 1px solid @theme-color;
-        }
+        }*/
       }
     }
   }
 
   .user-comments {
     width: 95%;
-    margin: 0 0 40px;
+    margin: 0 auto 40px;
+    @media(max-width: @smallscreen-breakpoint) {
+      width: 90%;
+    }
 
     .comment {
       display: flex;
