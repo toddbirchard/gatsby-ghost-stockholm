@@ -7,6 +7,7 @@ import {
 } from 'gatsby'
 import config from '../../utils/siteConfig'
 import SocialWidget from '../sidebar/SocialWidget'
+import AuthButton from "../auth/AuthButton"
 
 const Footer = ({ navigation, site, data }) => {
   const authorLinks = data.authors.edges
@@ -45,6 +46,7 @@ const Footer = ({ navigation, site, data }) => {
                   </dd>
                 }
               })}
+              <AuthButton styleClass="footer-navigation-link" />
             </dl>
             <dl className="widget series">
               <dt className="footer-widget-title">Series</dt>
