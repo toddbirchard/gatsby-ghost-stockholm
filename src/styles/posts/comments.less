@@ -18,9 +18,11 @@
       }
 
       .login {
-        margin: 0 0 0 auto;
-        border-radius: 3px;
-        padding: 12px 10px;
+        @media (max-width: @mobile-breakpoint) {
+          margin: 0 0 0 auto;
+          border-radius: 3px;
+          padding: 12px 10px;
+        }
       }
     }
   }
@@ -236,14 +238,6 @@
 
       &:hover {
         cursor: pointer;
-      }
-
-      &.submit {
-        height: 30px;
-
-        /*&:hover {
-          border: 1px solid @theme-color;
-        }*/
       }
     }
   }
