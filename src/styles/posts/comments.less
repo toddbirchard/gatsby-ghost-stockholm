@@ -10,8 +10,18 @@
       }
     }
 
-    &.logged-in .closed .comment-btn {
-      display: none;
+    &.logged-in {
+      .closed {
+        .comment-btn {
+          display: none;
+        }
+      }
+
+      .open {
+        .comment-btn {
+          height: 35px;
+        }
+      }
     }
 
     &.logged-out {
@@ -198,7 +208,7 @@
       }
 
       .comment-btn {
-        margin: 18px 0 0 auto;
+        margin: 15px 0 0 auto;
       }
     }
 
@@ -241,15 +251,11 @@
         text-align: right;
         opacity: 1;
         border-radius: 0 2px 2px 0 !important;
-
-        &:hover {
-          border: 0 !important;
-          background: white;
-          color: @theme-color !important;
-        }
       }
-
       &:hover {
+        border: 0 !important;
+        background: white !important;
+        color: @theme-color !important;
         cursor: pointer;
       }
     }
