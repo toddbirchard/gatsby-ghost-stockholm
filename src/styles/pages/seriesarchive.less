@@ -2,7 +2,6 @@
 @import '../mixins.less';
 
 .seriesarchive-template {
-
   .courses {
     @media (max-width: @tablet-breakpoint) {
       padding: 0 10px;
@@ -14,7 +13,6 @@
 
   .course-section-title {
     font-size: 1.8em;
-    border-bottom: 1px solid #dde0e8;
     padding-bottom: 12px;
     margin: 50px 0 0;
     font-weight: 200;
@@ -40,9 +38,9 @@
     .series-card {
       display: block;
       overflow: hidden;
-      border: 1px solid #d3dbe1;
       border-radius: 5px;
       background: white;
+      box-shadow: 0 0 3px rgba(39,44,49,.1);
       transition: @transition;
 
       * {
@@ -85,7 +83,7 @@
       line-height: 1.2;
       transition: @transition;
       font-weight: unset;
-      @media(max-width: @mobile-breakpoint) {
+      @media (max-width: @mobile-breakpoint) {
         letter-spacing: .7px;
       }
     }
