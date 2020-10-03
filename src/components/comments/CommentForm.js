@@ -30,7 +30,7 @@ const CommentForm = ({ post }) => {
   const authorName = post.primary_author.name
   const commentId = post.comment_id
   const identity = useIdentityContext()
-  const user = identity.user
+  const [user, setUser] = React.useState(identity.user)
   const userId = user ? user.id : ``
   const userName = user ? user.user_metadata.full_name : ``
   const userAvatar = user ? user.user_metadata.user_avatar : ``
@@ -100,7 +100,6 @@ const CommentForm = ({ post }) => {
           netlify-honeypot="address"
           method="post"
           onSubmit={handleSubmit}
-
         >
 
           <fieldset className="hidden-label">
@@ -174,7 +173,13 @@ const CommentForm = ({ post }) => {
           <CommentSubmit />
         </form>
       </div>
-      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
+      <IdentityModal
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+        onLogin={() => setUser(user)}
+        onSignup={() => setUser(user)}
+        onLogout={() => setUser(null)}
+      />
     </>
   )
 }
