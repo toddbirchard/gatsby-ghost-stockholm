@@ -32,7 +32,10 @@ const Comment = ({ comment, moderators }) => {
           </div>
           <div className="comment-date">{comment.created_at}</div>
         </div>
-        <div className="comment-body" dangerouslySetInnerHTML={{ __html: commentBody }} />
+        <div
+          className="comment-body"
+          dangerouslySetInnerHTML={{ __html: commentBody }}
+        />
         <div className="comment-buttons">
           <button className="comment-button reply">Reply</button>
           <button className="comment-button like">Like</button>

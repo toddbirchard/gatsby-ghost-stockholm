@@ -1,9 +1,8 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import { useIdentityContext } from "react-netlify-identity-widget"
 
 const CommentSubmit = ({ children }) => {
-  const [dialog, setDialog] = React.useState(false)
   const identity = useIdentityContext()
   const isLoggedIn = identity && identity.isLoggedIn
 
@@ -19,13 +18,11 @@ const CommentSubmit = ({ children }) => {
         :
         <div
           className="comment-btn login"
-          onClick={() => setDialog(true)}
         >
           LOG IN
         </div>
       }
       <main>{children}</main>
-      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
     </>
   )
 }

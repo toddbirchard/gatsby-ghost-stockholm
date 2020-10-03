@@ -6,6 +6,7 @@ import "react-mde/lib/styles/css/react-mde-all.css"
 import CommentSubmit from "./CommentSubmit"
 import { FaCheck } from 'react-icons/fa'
 import * as Showdown from "showdown"
+import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
 function encode(data) {
   return Object.keys(data)
@@ -23,13 +24,14 @@ const converter = new Showdown.Converter({
   emoji: true,
 })
 
-const CommentForm = ({ post, identity }) => {
+const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
   const authorName = post.primary_author.name
   const commentId = post.comment_id
-  const userId = user ? user.id : ``
+  const identity = useIdentityContext()
   const user = identity.user
+  const userId = user ? user.id : ``
   const userName = user ? user.user_metadata.full_name : ``
   const userAvatar = user ? user.user_metadata.user_avatar : ``
   const userProvider = user ? user.app_metadata ? user.app_metadata.provider : `` : ``
@@ -38,12 +40,18 @@ const CommentForm = ({ post, identity }) => {
   const messageRef = React.useRef()
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
+  const [dialog, setDialog] = React.useState(false)
+  const isLoggedIn = identity && identity.isLoggedIn
 
   const handleClick = (e) => {
-    e.target.classList.add(`open`)
-    ref.current.classList.add(`open`)
-    ref.current.classList.remove(`closed`)
-    value === `Have something to say?` ? setValue(``) : null
+    if (isLoggedIn) {
+      e.target.classList.add(`open`)
+      ref.current.classList.add(`open`)
+      ref.current.classList.remove(`closed`)
+      value === `Have something to say?` ? setValue(``) : null
+    } else {
+      setDialog(true)
+    }
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -165,6 +173,7 @@ const CommentForm = ({ post, identity }) => {
           <CommentSubmit />
         </form>
       </div>
+      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
     </>
   )
 }

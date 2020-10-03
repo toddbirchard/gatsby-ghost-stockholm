@@ -1,11 +1,9 @@
 import React from "react"
 import PropTypes from 'prop-types'
-import { useIdentityContext } from "react-netlify-identity-widget"
 import { CommentForm, Comment } from "./"
 
 const Comments = ({ data, comments, moderators }) => {
   const post = data.ghostPost
-  const identity = useIdentityContext()
 
   return (
     <>
@@ -21,7 +19,7 @@ const Comments = ({ data, comments, moderators }) => {
           ))}
         </div>
         }
-        <CommentForm post={post} identity={identity} />
+        <CommentForm post={post} />
       </div>
     </>
   )
