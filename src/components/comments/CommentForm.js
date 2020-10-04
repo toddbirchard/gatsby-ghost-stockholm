@@ -30,12 +30,12 @@ const CommentForm = ({ post }) => {
   const authorName = post.primary_author.name
   const commentId = post.comment_id
   const identity = useIdentityContext()
-  const [user, setUser] = React.useState(identity.user)
-  const userId = user ? user.id : ``
-  const userName = user ? user.user_metadata.full_name : ``
-  const userAvatar = user ? user.user_metadata.user_avatar : ``
-  const userProvider = user ? user.app_metadata ? user.app_metadata.provider : `` : ``
-  const userEmail = user ? user.email : ``
+  const user = identity.user
+  const [userId, setUserId] = useState(user ? user.id : ``)
+  const [userName, setUserName] = useState(user ? user.user_metadata.full_name : ``)
+  const [userAvatar, setUserAvatar] = useState(user ? user.user_metadata.user_avatar : ``)
+  const [userProvider, setUserProvider] = useState(user ? user.app_metadata.provider : ``)
+  const [userEmail, setUserEmail] = useState(user ? user.email : ``)
   const ref = React.useRef()
   const messageRef = React.useRef()
   const [value, setValue] = useState(`Have something to say?`)
@@ -75,8 +75,24 @@ const CommentForm = ({ post }) => {
       }),
     })
       .then(() => setValue(``))
+      .then(ref.current.classList.add(`closed`))
+      .then(ref.current.classList.remove(`open`))
       .then(messageRef.current.classList.add(`active`))
       .catch(error => console.log(error))
+  }
+  const handleLogin = (u) => {
+    setUserId(u.id)
+    setUserName(u.user_metadata.full_name)
+    setUserAvatar(u.user_metadata.user_avatar)
+    setUserProvider(u.app_metadata.provider)
+    setUserEmail(u.email)
+  }
+  const handleLogout = () => {
+    setUserId(``)
+    setUserName(``)
+    setUserAvatar(``)
+    setUserProvider(``)
+    setUserEmail(``)
   }
 
   return (
@@ -104,42 +120,42 @@ const CommentForm = ({ post }) => {
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-            <input id="commentId" name="commentId" type="text" value={commentId} />
+            <input id="commentId" name="commentId" type="text" value={commentId} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userId">User ID</label>
-            <input id="userId" name="userId" type="text" value={userId} />
+            <label className="hidden-label" htmlFor="userId" >User ID</label>
+            <input id="userId" name="userId" type="text" value={userId} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
-            <input id="postSlug" name="postSlug" type="text" value={postSlug} />
+            <input id="postSlug" name="postSlug" type="text" value={postSlug} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="postId">Post ID</label>
-            <input id="postId" name="postId" type="text" value={postId} />
+            <input id="postId" name="postId" type="text" value={postId} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userEmail">User Email</label>
-            <input id="userEmail" name="userEmail" type="email" value={userEmail} />
+            <input id="userEmail" name="userEmail" type="email" value={userEmail} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userName">User Name</label>
-            <input id="userName" name="userName" type="text" value={userName} />
+            <input id="userName" name="userName" type="text" value={userName} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
-            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} />
+            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userProvider">User Provider</label>
-            <input id="userProvider" name="userProvider" type="text" value={userProvider} />
+            <input id="userProvider" name="userProvider" type="text" value={userProvider} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
@@ -179,9 +195,9 @@ const CommentForm = ({ post }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={() => setUser(user)}
-        onSignup={() => setUser(user)}
-        onLogout={() => setUser(null)}
+        onLogin={u => handleLogin(u)}
+        onSignup={u => handleLogin(u)}
+        onLogout={() => handleLogout()}
       />
     </>
   )
