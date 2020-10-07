@@ -98,6 +98,7 @@
         transition: @transition;
         @media (max-width: @mobile-breakpoint) {
           font-size: .95em;
+          text-align: left;
         }
 
         &:hover {
@@ -140,6 +141,9 @@
           color: #4c5c71;
           font-family: @body-font;
           line-height: 1.5;
+          @media (max-width: @tablet-breakpoint) {
+            font-size: .9em;
+          }
           @media (max-width: @mobile-breakpoint) {
             max-width: 90%;
           }

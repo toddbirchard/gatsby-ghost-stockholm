@@ -95,7 +95,7 @@ module.exports = {
               include_rts: true,
               exclude_replies: false,
               tweet_mode: `extended`,
-              count: 10,
+              count: 30,
             },
           },
           AuthorTwitterProfiles: {
@@ -105,7 +105,7 @@ module.exports = {
               include_rts: true,
               exclude_replies: false,
               tweet_mode: `extended`,
-              count: 20,
+              count: 30,
             },
           },
         },

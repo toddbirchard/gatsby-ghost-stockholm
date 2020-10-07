@@ -1,4 +1,5 @@
 import React, { createRef, useState } from 'react'
+import PropTypes from "prop-types"
 import { Configure,
   Hits,
   InstantSearch,
@@ -6,34 +7,14 @@ import { Configure,
   Index } from 'react-instantsearch-dom'
 import { useClickOutside } from '../../utils/hooks'
 import { HitsWrapper, Root } from './SearchStyles'
-import { Link } from 'gatsby'
 import { FaSearch } from 'react-icons/fa'
-import PropTypes from "prop-types"
 import { SearchClient, SearchResults, SearchStats } from './SearchClient'
+import { SearchHit } from './'
 
 const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
   const ref = createRef()
   const [searchQuery, setQuery] = useState(forcedQuery ? forcedQuery : ``)
   const [focus, setFocus] = useState(false)
-  const PostHit = clickHandler => ({ hit }) => (
-    <Link to={`/${hit.slug}/`} onClick={clickHandler}>
-      <div className="search-result">
-        <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload"/>
-        <div className="search-result-details">
-          <div className="search-result-title">{hit.title}</div>
-          {hit.primary_tag ?
-            <Link
-              to={`/tag/${hit.primary_tag.slug}/`}
-              className="primary-tag"
-              style={{
-                background: hit.primary_tag.accent_color,
-                border: `1px solid ${hit.primary_tag.accent_color}`,
-              }}> {hit.primary_tag.name} </Link>
-            : null}
-        </div>
-      </div>
-    </Link>
-  )
 
   const focusFalse = () => setFocus(false)
   useClickOutside(ref, focusFalse)
@@ -45,7 +26,7 @@ const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
         onSearchStateChange={({ query }) => setQuery(query)}
         onSearchParameters={() => setFocus(true)} {...{ collapse, focus }}
       >
-        <Configure hitsPerPage={10} analytics={true}/>
+        <Configure hitsPerPage={10} analytics={true} />
         <label
           id="search-input-label"
           className="search-label"
@@ -75,7 +56,7 @@ const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
               <div className="search-results-count"><SearchStats/></div>
             </header>
             <SearchResults>
-              <Hits hitComponent={PostHit(() => setFocus(false))}/>
+              <Hits hitComponent={SearchHit}/>
             </SearchResults>
           </Index>
         </HitsWrapper>
