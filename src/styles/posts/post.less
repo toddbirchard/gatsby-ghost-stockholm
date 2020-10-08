@@ -297,6 +297,10 @@
         width: 100%;
         margin: 0 auto 30px;
         box-shadow: @box-shadow;
+        @media (max-width: @mobile-breakpoint) {
+          .mobile-full-width();
+          min-width: 120%;
+        }
       }
 
       .plotly-graph {
