@@ -2,24 +2,39 @@
 @import '../mixins.less';
 
 .seriesarchive-template {
+  #navigation {
+    @media (max-width: @tablet-breakpoint) {
+      margin-bottom: 0;
+      border-bottom: unset;
+    }
+
+    .nav-wrapper {
+      width: @smallscreen-breakpoint;
+    }
+  }
+
+  .container {
+    width: @smallscreen-breakpoint;
+  }
+
   .courses {
     @media (max-width: @tablet-breakpoint) {
       padding: 0 10px;
     }
     @media (max-width: @mobile-breakpoint) {
-      padding: 0 20px;
+      padding: 0;
+      width: -webkit-fill-available;
+      margin: 0 25px;
     }
   }
 
   .course-section-title {
-    font-size: 1.8em;
-    padding-bottom: 12px;
+    font-size: 1.9em;
     margin: 50px 0 0;
     font-weight: 200;
     @media (max-width: @mobile-breakpoint) {
-      font-size: 1.5em;
+      font-size: 1.7em;
       line-height: 1.2;
-      padding-bottom: 6px;
     }
   }
 
@@ -33,6 +48,8 @@
     }
     @media (max-width: @mobile-breakpoint) {
       grid-template-columns: 1fr;
+      grid-gap: 20px;
+      margin: 10px 0 0;
     }
 
     .series-card {
@@ -40,7 +57,7 @@
       overflow: hidden;
       border-radius: 5px;
       background: white;
-      box-shadow: 0 0 3px rgba(39, 44, 49, .1);
+      box-shadow: 0 0 3px rgba(39, 44, 49, .15);
       transition: @transition;
 
       * {
@@ -49,8 +66,12 @@
 
       &:hover {
         border-color: #bee8ff;
-        background: #e7f7ff;
+        background: lighten(@theme-color, 15%);
         cursor: pointer;
+
+        * {
+          color: white !important;
+        }
 
         .series-card-image {
           opacity: 0.7;
@@ -59,7 +80,7 @@
         .series-card-count,
         .series-card-description,
         .series-card-title {
-          color: #4381a1 !important;
+          color: #4381a1;
         }
       }
 
@@ -67,6 +88,9 @@
         height: 170px;
         background-position-y: center;
         background-size: cover;
+        @media(max-width: @mobile-breakpoint) {
+          height: 190px;
+        }
       }
     }
 
@@ -106,6 +130,22 @@
       font-size: 0.8em;
       line-height: 1;
       text-align: right;
+    }
+  }
+
+  .site-footer {
+    @media (max-width: @mobile-breakpoint) {
+      width: -webkit-fill-available;
+      margin: 0 30px;
+    }
+
+    .footer-wrapper {
+      width: @smallscreen-breakpoint;
+      max-width: 90%;
+      @media(max-width: @mobile-breakpoint) {
+        max-width: 100%;
+        margin: 60px auto 30px;
+      }
     }
   }
 }

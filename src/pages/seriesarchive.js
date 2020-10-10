@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { CourseCard } from '../components/misc'
-
 import '../styles/pages/seriesarchive.less'
 import '../styles/pages/page.less'
 
@@ -40,7 +39,7 @@ const SeriesArchive = ({ data, location, pageContext }) => {
           </div>
           <p>{description}</p>
         </div>
-        <div className="courses">
+        <main className="courses">
           <h2 className="course-section-title">Data Science & Engineering</h2>
           <div className="series-grid">
             {dataScienceCourses.map(({ node }) => (
@@ -65,7 +64,7 @@ const SeriesArchive = ({ data, location, pageContext }) => {
               <CourseCard course={node} key={node.id} />
             ))}
           </div>
-        </div>
+        </main>
       </Layout>
     </>
   )
@@ -73,6 +72,7 @@ const SeriesArchive = ({ data, location, pageContext }) => {
 
 SeriesArchive.propTypes = {
   data: PropTypes.shape({
+    ghostPage: PropTypes.object.isRequired,
     datascience: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -113,7 +113,6 @@ SeriesArchive.propTypes = {
         name: PropTypes.string.isRequired,
       })
     ).isRequired,
-    ghostPage: PropTypes.object.isRequired,
   }).isRequired,
   pageContext: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -127,6 +126,9 @@ export default SeriesArchive
 
 export const seriesQuery = graphql`
     query GhostSeriesArchiveQuery($slug: String) {
+      ghostPage(slug: {eq: $slug}) {
+        ...GhostPageFields
+      }
       datascience: allGhostTag(sort: {order: ASC, fields: meta_title}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql", "web-scraping-with-python"]}}) {
         edges {
           node {
@@ -175,7 +177,4 @@ export const seriesQuery = graphql`
           }
         }
       }
-        ghostPage(slug: {eq: $slug}) {
-          ...GhostPageFields
-        }
     }`

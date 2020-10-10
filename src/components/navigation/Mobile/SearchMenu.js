@@ -22,10 +22,20 @@ class SearchMenu extends React.Component {
   PostHit = clickHandler => ({ hit }) => (
     <div className="search-result">
       <div className="image-wrapper">
-        <img data-src={hit.feature_image} alt={hit.slug} className="search-result-image lazyload"/>
+        <img
+          data-src={hit.feature_image}
+          alt={hit.slug}
+          className="search-result-image lazyload"
+        />
       </div>
       <div className="search-result-details">
-        <Link to={`/${hit.slug}/`} onClick={clickHandler} className="search-result-title">{hit.title}</Link>
+        <Link
+          to={`/${hit.slug}/`}
+          onClick={clickHandler}
+          className="search-result-title"
+        >
+          {hit.title}
+        </Link>
         <div className="search-result-tag">
           <span>{hit.primary_tag.name}</span>
         </div>

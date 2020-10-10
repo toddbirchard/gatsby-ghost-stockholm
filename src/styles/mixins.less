@@ -57,7 +57,7 @@
 .input-text-fields() {
   padding: 10px;
   border: 1px solid #c7d0d5;
-  border-radius: 2px !important;
+  border-radius: 3px !important;
   background: #f2f4f7;
   font-family: @body-font;
   .input-field-interactions();
@@ -85,7 +85,6 @@
 
 .info-card() {
   width: stretch;
-  width: available;
   width: -moz-available;
   padding: 40px !important;
   background: white;
@@ -98,12 +97,13 @@
   }
   @media (max-width: @mobile-breakpoint) {
     margin-bottom: 0;
+    padding: 40px 6%!important;
   }
 
   .page-title-card {
     display: flex;
     align-items: center;
-    margin: 0 0 8px !important;
+    margin: 0 0 12px !important;
     color: #697386;
     font-size: 1.2em;
     line-height: 1;
@@ -155,7 +155,7 @@
 
 .body-h3() {
   margin: 40px 0 5px;
-  font-family: @header-font-secondary;
+  font-family: @body-font-medium;
   font-size: 1.2em;
 }
 

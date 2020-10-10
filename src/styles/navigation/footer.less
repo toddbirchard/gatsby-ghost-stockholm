@@ -44,7 +44,7 @@
   .footer-widgets {
     display: flex;
     justify-content: space-between;
-    padding: 50px 0 10px;
+    padding: 50px 0 0;
     @media (max-width: @mobile-breakpoint) {
       display: block;
       padding: 0;
@@ -111,6 +111,7 @@
         max-width: 280px;
         @media (max-width: @tablet-breakpoint) {
           width: 38%;
+          max-width: 240px;
         }
         @media (max-width: @mobile-breakpoint) {
           width: 100% !important;
@@ -125,7 +126,7 @@
           margin-bottom: 25px;
           transition: all 0.2s ease-out;
           @media (max-width: @mobile-breakpoint) {
-            max-width: 210px;
+            max-width: 230px;
           }
 
           &:hover {
@@ -142,10 +143,12 @@
           font-family: @body-font;
           line-height: 1.5;
           @media (max-width: @tablet-breakpoint) {
-            font-size: .9em;
+            font-size: .95em;
+            line-height: 1.6;
           }
           @media (max-width: @mobile-breakpoint) {
             max-width: 90%;
+            font-size: 1em;
           }
           @media (max-width: 500px) {
             width: 100%;
@@ -182,7 +185,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 30px auto 0;
-    padding: 30px 0 0;
+    padding: 0;
     @media (max-width: @mobile-breakpoint) {
       flex-direction: column;
       margin: 0;

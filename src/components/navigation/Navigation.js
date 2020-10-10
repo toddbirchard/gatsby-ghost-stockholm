@@ -19,7 +19,7 @@ import SearchMenu from './Mobile/SearchMenu'
 
 const Navigation = ({ data, smallLogo }) => (
   <>
-    <nav className="navigation">
+    <nav className="navigation" id="navigation">
       <div className="nav-wrapper">
         <div className="nav-left">
           <Link to="/" className="logo">
