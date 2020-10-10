@@ -8,7 +8,6 @@ import { AiOutlineFile,
   AiOutlineLink,
   AiOutlineUser,
   AiOutlineGithub } from 'react-icons/ai'
-
 import '../../styles/author-card.less'
 
 const AuthorCard = ({ author, page, template, pageContext }) => {
@@ -24,7 +23,12 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
         <div className="author-card-head">
           <div className="author-card-image">
             {author.profile_image
-              ? <img className="lazyload" data-src={author.profile_image} alt={`${author.name}'s avatar`} title={author.name} />
+              ? <img
+                className="lazyload"
+                data-src={author.profile_image}
+                alt={`${author.name}'s avatar`}
+                title={author.name}
+              />
               : <AiOutlineUser />
             }
           </div>
@@ -33,7 +37,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
               ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
               : <Link to={`/author/${author.slug}/`} className="author-card-name">{author.name}</Link>
             }
-            <div className="author-card-meta">
+            <div className="author-card-meta Posts">
               {authorPostCount &&
                 <div className="author-card-item postcount">
                   <AiOutlineFile /><span>{authorPostCount} Posts</span>
@@ -52,14 +56,14 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
                 </div>
               }
               {authorGithub &&
-                <div className="author-card-item">
+                <div className="author-card-item github">
                   <a href={authorGithub} target="_blank" rel="noopener noreferrer">
                     <AiOutlineGithub /><span>Github</span>
                   </a>
                 </div>
               }
               {authorTwitterUrl &&
-                <div className="author-card-item">
+                <div className="author-card-item twitter">
                   <a href={authorTwitterUrl} target="_blank" rel="noopener noreferrer">
                     <AiOutlineTwitter /><span>Twitter</span>
                   </a>

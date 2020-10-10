@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout } from '../components/common'
-import { SeriesPostCard } from '../components/misc'
-import { MetaData } from '../components/common/meta'
+import {graphql} from 'gatsby'
+import {Layout} from '../components/common'
+import {SeriesPostCard} from '../components/misc'
+import {MetaData} from '../components/common/meta'
 import '../styles/pages/seriesdetail.less'
 
 /**
@@ -12,7 +12,7 @@ import '../styles/pages/seriesdetail.less'
  * Loads all posts belonging to a `series` of posts.
  */
 
-const SeriesDetail = ({ data, location }) => {
+const SeriesDetail = ({data, location}) => {
   const tag = data.ghostTag
   const tagName = tag.name.replace(`#`, ``)
   const posts = data.allGhostPost.edges
@@ -31,16 +31,17 @@ const SeriesDetail = ({ data, location }) => {
           <figure className="series-feature-image">
             <img className="lazyload" data-src={tag.feature_image} alt={tag.name}/>
           </figure> : null}
-        <header className="series-header">
-          <h1 className="series-title">{tagName}</h1>
-          {tag.description ? <p className="series-description">{tag.description}</p> : null}
-        </header>
-        <section className="post-feed">
-          {posts.map(({ node }, index) => (
-            <SeriesPostCard key={node.id} post={node} count={index}/>
-          ))}
-        </section>
-
+        <main>
+          <header className="series-header">
+            <h1 className="series-title">{tagName}</h1>
+            {tag.description ? <p className="series-description">{tag.description}</p> : null}
+          </header>
+          <section className="post-feed">
+            {posts.map(({node}, index) => (
+              <SeriesPostCard key={node.id} post={node} count={index}/>
+            ))}
+          </section>
+        </main>
       </Layout>
     </>
   )

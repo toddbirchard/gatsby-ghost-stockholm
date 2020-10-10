@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { FaChartLine } from 'react-icons/fa'
 import config from '../../utils/siteConfig'
 
-const TrendingAuthorWidget = ({ authorData }) => {
+const AuthorTrendingPosts = ({ authorData }) => {
   const topPages = authorData.authorTrendingPosts.edges
 
   return (
@@ -15,17 +15,20 @@ const TrendingAuthorWidget = ({ authorData }) => {
       </div>
       <div className="widget-content">
         {topPages.map(({ node }) => (
-          <Link to={`${node.url.split(config.siteUrl).pop()}`} className="link" key={node.title}>{`${node.title.split(` | `)[0].split(` - `)[0]}`}</Link>
+          <Link
+            to={`${node.url.split(config.siteUrl).pop()}`}
+            className="link"
+            key={node.title}>{`${node.title.split(` | `)[0].split(` - `)[0]}`}</Link>
         ))}
       </div>
     </div>
   )
 }
 
-TrendingAuthorWidget.propTypes = {
+AuthorTrendingPosts.propTypes = {
   authorData: PropTypes.shape({
     authorTrendingPosts: PropTypes.object.isRequired,
   }).isRequired,
 }
 
-export default TrendingAuthorWidget
+export default AuthorTrendingPosts

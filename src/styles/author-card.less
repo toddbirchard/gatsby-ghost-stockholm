@@ -116,7 +116,7 @@
       margin: 0;
       color: @body-color;
       font-family: @body-font;
-      font-size: 0.95em !important;
+      font-size: 0.95em;
       line-height: 1.5em;
     }
   }
@@ -205,7 +205,8 @@
 
     .author-card-bio {
       @media (max-width: @mobile-breakpoint) {
-        font-size: 0.9em !important;
+        font-size: 1em;
+        line-height: 1.6 !important;
       }
     }
 
@@ -241,9 +242,8 @@
   @media (max-width: @tablet-breakpoint) {
     display: block;
     width: 90%;
-    margin: 20px auto 40px !important;
-    padding: 0 0 30px;
-    border-bottom: 1px solid #d4dae2;
+    margin: 50px auto !important;
+    padding: 0;
     background: unset;
     box-shadow: none;
 
@@ -277,6 +277,7 @@
 
     .author-card-bio {
       max-width: 90%;
+      font-size: 1em;
     }
   }
   @media (max-width: @mobile-breakpoint) {
