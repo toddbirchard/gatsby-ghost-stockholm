@@ -393,7 +393,9 @@
 
       .search-result {
         align-items: unset !important;
-        padding: 12px;
+        padding: 12px 0;
+        margin: 0 12px;
+        width: 87%;
 
         &:hover {
           background: @hover-color;
@@ -412,6 +414,7 @@
 
         .search-result-details {
           padding: unset;
+          width: -webkit-fill-available;
         }
       }
 

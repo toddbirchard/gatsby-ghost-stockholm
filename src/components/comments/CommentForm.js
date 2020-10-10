@@ -41,7 +41,7 @@ const CommentForm = ({ post }) => {
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
   const [dialog, setDialog] = React.useState(false)
-  const isLoggedIn = identity && identity.isLoggedIn
+  const isLoggedIn = identity.isLoggedIn
 
   const handleClick = (e) => {
     if (isLoggedIn) {

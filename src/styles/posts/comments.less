@@ -36,12 +36,18 @@
           margin: 0 0 0 auto;
           border-radius: 3px;
           padding: 12px 10px;
+          height: 40px;
         }
       }
 
-      .success-message {
-        display: none !important;
+      form {
+        @media (max-width: @mobile-breakpoint) {
+          height: 40px;
+        }
       }
+    }
+    .success-message {
+      display: none !important;
     }
   }
 
@@ -251,6 +257,7 @@
         text-align: right;
         opacity: 1;
       }
+
       &:hover {
         border: 0 !important;
         background: white !important;

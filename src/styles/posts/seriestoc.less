@@ -2,12 +2,12 @@
   position: relative;
   width: stretch;
   width: -moz-available;
-  margin: -15px 0 30px;
+  margin: 40px 0 20px;
   padding: 20px 0;
   overflow: hidden;
   border-bottom: 1px solid #eaeaea;
   @media (max-width: @tablet-breakpoint) {
-    margin: 20px 0;
+    margin: 50px 0;
     padding: 0 0 15px;
   }
   @media (max-width: @mobile-breakpoint) {
@@ -65,6 +65,10 @@
         line-height: 1.3;
         text-overflow: ellipsis;
         white-space: nowrap;
+        @media(max-width: @mobile-breakpoint) {
+          white-space: unset;
+          font-size: .9em;
+        }
       }
 
       * {
