@@ -38,6 +38,7 @@ const CommentForm = ({ post }) => {
   const [userEmail, setUserEmail] = useState(user ? user.email : ``)
   const ref = React.useRef()
   const messageRef = React.useRef()
+  const textAreaRef = React.useRef()
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
   const [dialog, setDialog] = React.useState(false)
@@ -177,6 +178,7 @@ const CommentForm = ({ post }) => {
             </fieldset>
 
             <ReactMde
+              ref={textAreaRef}
               value={value}
               onChange={setValue}
               selectedTab={selectedTab}
@@ -184,9 +186,10 @@ const CommentForm = ({ post }) => {
               generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
               placeholder={`What'd you think?`}
               onClick={handleClick}
-              minEditorHeight={200}
+              minEditorHeight={50}
               maxEditorHeight={200}
-              minPreviewHeight={200}
+              minPreviewHeight={50}
+              initialEditorHeight={50}
             />
           </fieldset>
           <CommentSubmit />

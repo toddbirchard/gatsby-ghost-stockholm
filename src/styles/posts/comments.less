@@ -187,22 +187,24 @@
 
     form {
       height: 50px;
-      max-height: 250px;
       position: relative;
     }
 
     &.open {
-      height: 244px;
-      margin-bottom: 67px;
+      height: auto;
+      margin-bottom: 105px;
 
       .mde-header {
         display: flex;
         height: 42px;
         opacity: 1;
+        @media(max-width: @mobile-breakpoint) {
+          display: none;
+        }
       }
 
       .mde-textarea-wrapper {
-        height: 200px;
+        // height: 200px;
 
         .mde-text {
           color: @body-color;
@@ -232,6 +234,7 @@
       color: #9ea4ac;
       font-size: 1.1em;
       line-height: 1.8;
+      resize: none;
     }
 
     .comment-btn {
