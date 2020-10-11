@@ -165,18 +165,6 @@ const CommentForm = ({ post }) => {
           </fieldset>
           <fieldset>
 
-            <fieldset className="hidden-label">
-              <label className="hidden-label" htmlFor="commentBody">Post comment</label>
-              <textarea
-                id="commentBody"
-                name="commentBody"
-                rows="5"
-                required
-                value={value}
-              >
-              </textarea>
-            </fieldset>
-
             <ReactMde
               ref={textAreaRef}
               value={value}

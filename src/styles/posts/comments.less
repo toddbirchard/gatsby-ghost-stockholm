@@ -19,7 +19,7 @@
 
       .open {
         .comment-btn {
-          height: 35px;
+          height: 40px;
         }
       }
     }
@@ -34,7 +34,7 @@
       .login {
         @media (max-width: @mobile-breakpoint) {
           margin: 0 0 0 auto;
-          border-radius: 3px;
+
           padding: 12px 10px;
           height: 40px;
         }
@@ -192,7 +192,7 @@
 
     &.open {
       height: auto;
-      margin-bottom: 105px;
+      margin-bottom: 115px;
 
       .mde-header {
         display: flex;
@@ -215,7 +215,7 @@
 
       .comment-btn {
         margin: 15px 0 0 auto;
-        height: 30px;
+        height: 40px;
         padding: 3px 10px 0;
       }
     }
@@ -235,6 +235,9 @@
       font-size: 1.1em;
       line-height: 1.8;
       resize: none;
+      @media(max-width: @mobile-breakpoint) {
+        font-size: 1em;
+      }
     }
 
     .comment-btn {
@@ -243,7 +246,7 @@
       font-size: .95em;
       background: #0298f6;
       color: white;
-      border-radius: 2px;
+      border-radius: 3px;
       font-family: @body-font-medium;
       opacity: 0;
       transition: @transition;
