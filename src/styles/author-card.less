@@ -29,24 +29,28 @@
     font-family: @header-font-secondary;
     font-size: 1.4em;
     font-weight: unset;
-
-    span {
-      margin-left: 5px;
-      font-size: 0.7em !important;
-      opacity: 0.8;
+    @media(max-width: @mobile-breakpoint) {
+      font-size: 1.3em;
     }
   }
 
+  .post-count {
+    margin-left: 8px;
+    font-family: @body-font-medium;
+    font-size: 0.8em !important;
+    opacity: 0.7;
+  }
+
   .author-card-image {
-    width: 90px;
-    min-width: 90px;
-    height: 90px;
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
     overflow: hidden;
-    border-radius: 3px;
+    border-radius: 50%;
     @media (max-width: @mobile-breakpoint) {
-      width: 70px;
-      min-width: 70px;
-      height: 70px;
+      width: 50px;
+      min-width: 50px;
+      height: 50px;
     }
 
     img {
@@ -75,7 +79,7 @@
       overflow: hidden;
       @media (max-width: @mobile-breakpoint) {
         flex-wrap: wrap;
-        margin: 13px 0 10px;
+        margin: 10px 0;
       }
 
       .author-card-item {
@@ -84,14 +88,9 @@
         margin-right: 20px;
         color: @secondary-font-color;
         font-family: @body-font-bold;
-        font-size: 0.9em !important;
+        font-size: 0.95em !important;
         line-height: 1;
         white-space: nowrap;
-        @media (max-width: @mobile-breakpoint) {
-          display: block;
-          margin: 0 25px 6px 0;
-          font-size: 1em;
-        }
 
         &.location {
           @media (max-width: @mobile-breakpoint) {
@@ -102,6 +101,8 @@
         span {
           opacity: 0.8;
           @media (max-width: @mobile-breakpoint) {
+            display: inline-block;
+            height: 12px;
             font-weight: unset;
           }
         }
@@ -176,7 +177,7 @@
   }
 }
 
-.post {
+/*.post {
   .author-card {
     justify-content: left;
     margin: 30px auto 0;
@@ -238,7 +239,7 @@
       }
     }
   }
-}
+}*/
 
 .author-card.author {
   margin-bottom: 20px !important;
@@ -325,16 +326,40 @@
   }
 }
 
-.about {
-  .author-card-meta {
+.about,
+.post {
+
+  .author-card-name {
     @media (max-width: 500px) {
-      flex-direction: column;
+      font-size: 1.2em;
     }
   }
 
   .author-card-item {
     @media (max-width: 500px) {
-      margin: 0 25px 8px 0 !important;
+      margin: 0 15px 0 0 !important;
+      font-size: .9em !important;
+
+      &:last-of-type {
+        margin: 0 !important;
+      }
+
+      span {
+        display: inline-block;
+        height: 9px !important;
+        font-size: .9em;
+      }
+
+      svg {
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .author-card-bio {
+    @media (max-width: 500px) {
+      width: 89vw;
+      margin: 15px 0 0 -64px !important;
     }
   }
 }

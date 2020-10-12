@@ -174,7 +174,7 @@ const CommentForm = ({ post }) => {
               generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
               placeholder={`What'd you think?`}
               onClick={handleClick}
-              minEditorHeight={50}
+              minEditorHeight={100}
               maxEditorHeight={200}
               minPreviewHeight={50}
               initialEditorHeight={50}

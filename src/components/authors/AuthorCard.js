@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { twitter } from '@tryghost/social-urls'
-import { AiOutlineFile,
-  AiOutlineTwitter,
+import { AiOutlineTwitter,
   AiOutlineHome,
   AiOutlineLink,
   AiOutlineUser,
@@ -35,39 +34,49 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
           <div className="author-card-content">
             {template === `author-template`
               ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
-              : <Link to={`/author/${author.slug}/`} className="author-card-name">{author.name}</Link>
+              : <div><Link to={`/author/${author.slug}/`} className="author-card-name">{author.name}</Link> <span className="post-count">{authorPostCount} Posts</span></div>
             }
             <div className="author-card-meta Posts">
-              {authorPostCount &&
+              {/*authorPostCount &&
                 <div className="author-card-item postcount">
                   <AiOutlineFile /><span>{authorPostCount} Posts</span>
                 </div>
-              }
+              */}
               {author.location &&
                 <div className="author-card-item location">
                   <AiOutlineHome /><span>{author.location}</span>
                 </div>
               }
               {author.website &&
-                <div className="author-card-item">
-                  <a href={author.website} target="_blank" rel="noopener noreferrer">
-                    <AiOutlineLink /><span>Website</span>
+                  <a
+                    href={author.website}
+                    className="author-card-item"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <AiOutlineLink /><span>Site</span>
                   </a>
-                </div>
               }
               {authorGithub &&
-                <div className="author-card-item github">
-                  <a href={authorGithub} target="_blank" rel="noopener noreferrer">
-                    <AiOutlineGithub /><span>Github</span>
+                  <a
+                    href={authorGithub}
+                    className="author-card-item github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <AiOutlineGithub />
+                    <span>Github</span>
                   </a>
-                </div>
               }
               {authorTwitterUrl &&
-                <div className="author-card-item twitter">
-                  <a href={authorTwitterUrl} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={authorTwitterUrl}
+                    className="author-card-item twitter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <AiOutlineTwitter /><span>Twitter</span>
                   </a>
-                </div>
               }
             </div>
             {author.bio &&

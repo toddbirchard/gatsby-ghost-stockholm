@@ -301,6 +301,7 @@
         @media (max-width: @mobile-breakpoint) {
           .mobile-full-width();
           min-width: 120%;
+          max-height: 350px;
         }
       }
 
@@ -527,7 +528,9 @@
       width: 100%;
       max-width: 100%;
       height: fit-content;
-      margin: 40px 0 20px;
+      margin: 40px 0;
+      padding: 0 0 30px 0;
+      border-bottom: 2px dotted #eaeaea;
       @media (max-width: @tablet-breakpoint) {
         width: auto;
       }

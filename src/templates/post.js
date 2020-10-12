@@ -141,7 +141,7 @@ const Post = ({ data, location }) => {
             </div>
 
             {/*  Post Author Details  */}
-            <AuthorCard author={author} page={`post`}/>
+            <AuthorCard author={author} />
 
           </article>
 
