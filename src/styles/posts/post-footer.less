@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
-    @media (max-width: @mobile-breakpoint) {
+    @media (max-width: 500px) {
       flex-direction: column;
     }
 
@@ -23,9 +23,13 @@
       background: white;
       box-shadow: @box-shadow;
       transition: all 0.2s ease-out;
-      @media (max-width: @mobile-breakpoint) {
+      @media (max-width: 500px) {
         width: 100%;
         margin-bottom: 20px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
       }
 
       &:hover {
@@ -48,22 +52,8 @@
       .related-post-image-wrapper {
         width: 100%;
 
-        /*@media (max-width: @mobile-breakpoint) {
-          position: relative;
-          width: unset;
-          height: 80px;
-          margin-right: 15px;
-          overflow: hidden;
-        }*/
-
         img {
           width: 100%;
-
-          /*@media (max-width: @mobile-breakpoint) {
-            width: unset;
-            height: 100%;
-            margin-left: -20%;
-          }*/
         }
       }
 
@@ -77,6 +67,9 @@
         overflow: hidden;
         transition: @transition;
         @media (max-width: @mobile-breakpoint) {
+          padding: 10px;
+        }
+        @media (max-width: 500px) {
           padding: 15px;
         }
 
@@ -93,11 +86,17 @@
             font-size: .95em;
           }
 
-          /*@media (max-width: @mobile-breakpoint) {
-            height: 34px;
-            margin: 0 0 15px;
+          @media (max-width: @mobile-breakpoint) {
+            -webkit-line-clamp: 3;
+            height: 57px;
             font-size: .9em;
-          }*/
+          }
+
+          @media (max-width: 500px) {
+            -webkit-line-clamp: 2;
+            height: 40px;
+            font-size: 1.1em;
+          }
         }
 
         .related-post-tags {
@@ -122,6 +121,19 @@
 
           .tag {
             font-family: @body-font-medium;
+            @media(max-width: @mobile-breakpoint) {
+              &:last-of-type,
+              .tag-separator {
+                display: none;
+              }
+            }
+            @media(max-width: 500px) {
+              font-family: @body-font-bold;
+              &:last-of-type,
+              .tag-separator {
+                display: inline;
+              }
+            }
           }
         }
       }
@@ -156,13 +168,13 @@
       width: 43%;
       overflow: hidden;
       @media (max-width: @mobile-breakpoint) {
-        display: none;
         width: 100%;
       }
     }
 
     .newsletter-section {
       @media (max-width: @mobile-breakpoint) {
+        display: none;
         margin-bottom: 30px;
         padding-bottom: 30px;
         border-bottom: 1px solid #dadada;
