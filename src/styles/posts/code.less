@@ -2,27 +2,27 @@
 @import "../variables.less";
 
 .content-body > pre,
-.kg-code-card > pre[class*="language-"],
+.kg-code-card > pre,
 .kg-code-card > code[class*="language-"] {
-  font-family: @monospace-font !important;
-  font-size: 0.85em !important;
-  color: #d8dee9;
-  text-shadow: none;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  line-height: 1.5;
   -moz-tab-size: 4;
-  tab-size: 4;
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
-  overflow-x: hidden;
-  hyphens: none;
   margin: 0;
   padding: 15px 20px 20px;
+  overflow-x: hidden;
+  color: #d8dee9;
+  font-family: @monospace-font !important;
+  font-size: 0.85em !important;
+  hyphens: none;
+  line-height: 1.5;
+  direction: ltr;
+  text-align: left;
+  text-shadow: none;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  tab-size: 4;
   @media (max-width: @mobile-breakpoint) {
     .mobile-horizontal-scroll();
     .mobile-full-width();
@@ -34,8 +34,8 @@
 
   &::selection,
   &::mozselection {
-    text-shadow: none;
     background: none;
+    text-shadow: none;
   }
 
   &::-webkit-scrollbar {
@@ -89,8 +89,8 @@
     .token.url,
     .language-css .token.string,
     .style .token.string {
-      color: #80a2c1;
       background: none;
+      color: #80a2c1;
     }
 
     .token.atrule,
@@ -133,8 +133,8 @@
 }
 
 .content-body > pre[class*="language-"] {
-  padding: 20px;
   margin: 0;
+  padding: 20px;
   overflow: auto;
   background: #2e3440;
 }
@@ -142,8 +142,8 @@
 :not(pre) > code[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
-  color: #d8dee9;
   background: #2e3440;
+  color: #d8dee9;
 }
 
 /*********************************************************
@@ -161,22 +161,22 @@ pre[data-line] {
 }
 
 pre[class*="language-"] > code[class*="language-"] {
-  position: relative;
   z-index: 1;
+  position: relative;
 }
 
 .line-highlight {
+  z-index: 0;
   position: absolute;
-  left: 0;
   right: 0;
-  padding: inherit 0;
+  left: 0;
   margin-top: 1em;
+  padding: inherit 0;
   background: #3b4251;
   box-shadow: inset 5px 0 0 #d8dee9;
-  z-index: 0;
-  pointer-events: none;
   line-height: inherit;
   white-space: pre;
+  pointer-events: none;
 }
 
 .content-body > pre {
