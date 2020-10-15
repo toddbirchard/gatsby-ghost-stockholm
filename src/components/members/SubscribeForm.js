@@ -73,10 +73,11 @@ class SubscribeForm extends React.Component {
               name="email"
               type="email"
               value={this.state.value}
-              onChange={this.handleChange} className="subscribe-email"
+              onChange={this.handleChange}
+              className="subscribe-email"
               data-members-email
-              placeholder={text(`YOUR_EMAIL`)}
-              autoComplete="false"
+              placeholder="Your email"
+              autoComplete="true"
             />
             <button className="widget-button" type="submit" value="Submit">
               <span className="button-content">{text(`SUBSCRIBE`)}</span>

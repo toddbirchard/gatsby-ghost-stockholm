@@ -29,16 +29,35 @@ const SupportWidget = () => {
             action="/subscribed/"
           >
             <fieldset>
-              <label className="hidden-label" htmlFor="name">Post Slug</label>
-              <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
+              <label className="hidden-label" htmlFor="name">Name</label>
+              <input
+                className="subscribe-input-class"
+                type="name"
+                name="name"
+                placeholder="Your name"
+                required
+              />
             </fieldset>
             <fieldset>
-              <label className="hidden-label" htmlFor="email">Post Slug</label>
-              <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
+              <label className="hidden-label" htmlFor="email">Email</label>
+              <input
+                className="subscribe-input-class"
+                type="email"
+                name="email"
+                placeholder="Your email address"
+                required
+              />
             </fieldset>
             <fieldset>
-              <label className="hidden-label" htmlFor="phone-number">Post Slug</label>
-              <input className="hidden-label" type="phone" name="phone-number" placeholder="Your phone number" style={{ visibility: `hidden` }} autoComplete="off" />
+              <label className="hidden-label" htmlFor="phone-number">Phone</label>
+              <input
+                className="hidden-label"
+                type="phone"
+                name="phone-number"
+                placeholder="Your phone number"
+                style={{ visibility: `hidden` }}
+                autoComplete="off"
+              />
             </fieldset>
             <button type="submit">Sign Up <FaArrowRight /></button>
           </form>
