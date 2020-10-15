@@ -32,6 +32,12 @@
     @media(max-width: @mobile-breakpoint) {
       font-size: 1.3em;
     }
+
+    span {
+      margin-left: 5px;
+      font-size: .6em;
+      opacity: .6;
+    }
   }
 
   .post-count {
@@ -241,6 +247,18 @@
   }
 }*/
 
+.author-card.post {
+  box-shadow: none !important;
+  @media (max-width: @smallscreen-breakpoint) {
+    width: auto;
+    padding: 0 8%;
+  }
+  @media(max-width: @mobile-breakpoint) {
+    width: auto;
+    padding: 0 30px;
+  }
+}
+
 .author-card.author {
   margin-bottom: 20px !important;
   padding: 40px 5%;
@@ -271,6 +289,8 @@
       font-family: @body-font-bold;
       font-size: 1.5em;
       font-weight: 600;
+
+
     }
 
     .author-card-meta {

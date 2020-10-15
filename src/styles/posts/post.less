@@ -19,6 +19,10 @@
     position: relative;
     max-width: @post-max-width;
     margin: 0 auto;
+    @media(max-width: @smallscreen-breakpoint) {
+      max-width: unset;
+      margin: 0 auto;
+    }
 
 
     .post-head {
@@ -32,7 +36,6 @@
       }
       @media (max-width: @mobile-breakpoint) {
         flex-direction: column;
-        padding: 0 25px;
       }
 
       .post-title {
@@ -48,13 +51,14 @@
         font-weight: unset;
         line-height: 1.1;
         text-align: center;
-        @media (max-width: @tablet-breakpoint) {
-          margin: 60px 40px 0;
+        @media (max-width: @smallscreen-breakpoint) {
+          padding: 0 8%;
           font-size: 1.9em;
         }
         @media (max-width: @mobile-breakpoint) {
           order: 1;
           margin: 0 auto;
+          padding: 0 30px;
           font-size: 1.8em;
           text-align: left;
         }
@@ -69,7 +73,7 @@
       background-position-y: center !important;
       background-size: cover !important;
       box-shadow: 0 1px 3px rgba(39, 44, 49, 0.1);
-      @media (max-width: @tablet-breakpoint) {
+      @media (max-width: @smallscreen-breakpoint) {
         margin: 0 30px;
         .mobile-full-width();
       }
@@ -94,6 +98,9 @@
       width: fit-content;
       max-width: 780px;
       margin: 15px auto 0;
+      @media(max-width: @smallscreen-breakpoint) {
+        padding: 0 8%;
+      }
       @media (max-width: @mobile-breakpoint) {
         flex-wrap: wrap;
         align-items: center;
@@ -102,7 +109,7 @@
         width: auto;
         max-width: none;
         margin: 10px 0 40px;
-        padding: 0;
+        padding: 0 30px;
       }
 
       .tags {
@@ -204,13 +211,13 @@
     padding-bottom: 40px;
     background: white;
     box-shadow: @box-shadow;
-    @media (max-width: @tablet-breakpoint) {
-      width: auto;
+    @media (max-width: @smallscreen-breakpoint) {
+      width: 100%;
       margin: 0 0 30px;
-      padding: 0 40px 40px;
+      padding: 0 0 40px;
     }
     @media (max-width: @mobile-breakpoint) {
-      padding: 0 30px 30px;
+      padding: 0 0 30px;
     }
 
     hr {
@@ -220,11 +227,13 @@
     .post-content {
       position: relative;
       margin-top: 60px;
-      @media (max-width: @tablet-breakpoint) {
+      @media (max-width: @smallscreen-breakpoint) {
         margin-top: 40px;
+        padding: 0 8%;
       }
       @media (max-width: @mobile-breakpoint) {
         margin-top: 40px;
+        padding: 0 30px;
       }
 
       h2 {
@@ -531,8 +540,13 @@
       margin: 40px 0;
       padding: 0 0 30px 0;
       border-bottom: 2px dotted #eaeaea;
-      @media (max-width: @tablet-breakpoint) {
+      @media (max-width: @smallscreen-breakpoint) {
         width: auto;
+        margin: 40px 8%;
+      }
+      @media(max-width: @mobile-breakpoint) {
+        margin: 0 30px 30px;
+        padding: 0 0 30px;
       }
 
       * {
@@ -554,7 +568,7 @@
         font-size: 0.9em;
         line-height: 1;
         transition: all 0.2s ease-out;
-        @media (max-width: @tablet-breakpoint) {
+        @media (max-width: @smallscreen-breakpoint) {
           margin: 0 8px 8px 0;
         }
 
@@ -574,7 +588,7 @@
     justify-content: left;
     width: auto;
     min-height: 35px;
-    margin: 30px 0;
+    margin: 60px 0;
     padding: 15px 30px;
     border-top: 0;
     border-bottom: 0;

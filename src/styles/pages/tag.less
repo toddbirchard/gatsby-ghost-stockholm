@@ -7,18 +7,22 @@
 
   .info-card {
     .info-card();
+    @media(max-width: @mobile-breakpoint) {
+      margin-bottom: 10px;
+      padding: 20px 6% 40px !important;
+    }
 
     .info-card-wrapper {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       @media (max-width: @mobile-breakpoint) {
         align-items: flex-start;
       }
 
       .tag-image {
-        margin-right: 20px;
         height: 80px;
+        margin-right: 20px;
       }
 
       .card-details {
@@ -28,8 +32,8 @@
       svg {
         display: inline;
         margin-right: 20px;
-        font-size: 3em;
         color: #687286;
+        font-size: 3em;
       }
     }
   }
