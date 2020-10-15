@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useIdentityContext } from "react-netlify-identity-widget"
 import { AboutWidget,
   NewsletterWidget,
   SocialWidget,
@@ -13,20 +14,25 @@ import { AboutWidget,
  * Sidebar
 */
 
-const Sidebar = ({ site, template }) => (
-  <>
-    <aside className="sidebar">
-      <AboutWidget site={site} />
-      <SocialWidget site={site} />
-      <TrendingWidget />
-      <TagsWidget />
-      <NewsletterWidget />
-      <CoffeeWidget />
-      {template === `home-template` ? <GithubWidget /> : null}
-      {template === `home-template` ? <TwitterWidget /> : null}
-    </aside>
-  </>
-)
+const Sidebar = ({ site, template }) => {
+  const identity = useIdentityContext()
+  const user = identity.user
+
+  return (
+    <>
+      <aside className="sidebar">
+        <AboutWidget site={site} />
+        <SocialWidget site={site} />
+        <TrendingWidget />
+        <TagsWidget />
+        {user ? null : <NewsletterWidget /> }
+        <CoffeeWidget />
+        {template === `home-template` ? <GithubWidget /> : null}
+        {template === `home-template` ? <TwitterWidget /> : null}
+      </aside>
+    </>
+  )
+}
 
 Sidebar.propTypes = {
   site: PropTypes.shape({

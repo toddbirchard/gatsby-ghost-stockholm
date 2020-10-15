@@ -37,7 +37,7 @@ const TrendingWidgetQuery = props => (
   <StaticQuery
     query={graphql`
           query TrendingPages {
-            allMysqlWeeklyPostAnalytics(limit: 10) {
+            allMysqlWeeklyPostAnalytics(limit: 8) {
               edges {
                 node {
                   title

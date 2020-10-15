@@ -45,6 +45,7 @@ const CommentForm = ({ post }) => {
   const isLoggedIn = identity.isLoggedIn
 
   const handleClick = (e) => {
+    console.log(user)
     if (isLoggedIn) {
       e.target.classList.add(`open`)
       ref.current.classList.add(`open`)

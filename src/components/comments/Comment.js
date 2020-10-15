@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as Showdown from "showdown"
+import { AiOutlineUser } from 'react-icons/ai'
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -19,7 +20,10 @@ const Comment = ({ comment, moderators }) => {
 
   return (
     <div className="comment">
-      <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
+      { comment.user_avatar
+        ? <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
+        : <AiOutlineUser className="user-avatar" />
+      }
       <div className="comment-main">
         <div className="comment-head">
           <div className="comment-author">
