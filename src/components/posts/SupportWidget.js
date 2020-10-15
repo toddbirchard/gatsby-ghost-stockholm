@@ -20,10 +20,26 @@ const SupportWidget = () => {
         <div className="newsletter-section">
           <span className="post-footer-title">Monthly Newsletter</span>
           <p className="support-description">{newsletterCopy}</p>
-          <form name="newsletter" method="POST" netlify="true" data-netlify="true" netlify-honeypot="phone-number" action="/subscribed/">
-            <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
-            <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
-            <input className="phone-number" type="phone" name="phone-number" placeholder="Your phone number" style={{ display: `none` }} autoComplete="off" />
+          <form
+            name="newsletter"
+            method="POST"
+            netlify="true"
+            data-netlify="true"
+            netlify-honeypot="phone-number"
+            action="/subscribed/"
+          >
+            <fieldset>
+              <label className="hidden-label" htmlFor="name">Post Slug</label>
+              <input className="subscribe-input-class" type="name" name="name" placeholder="Your name" required />
+            </fieldset>
+            <fieldset>
+              <label className="hidden-label" htmlFor="email">Post Slug</label>
+              <input className="subscribe-input-class" type="email" name="email" placeholder="Your email address" required />
+            </fieldset>
+            <fieldset>
+              <label className="hidden-label" htmlFor="phone-number">Post Slug</label>
+              <input className="hidden-label" type="phone" name="phone-number" placeholder="Your phone number" style={{ visibility: `hidden` }} autoComplete="off" />
+            </fieldset>
             <button type="submit">Sign Up <FaArrowRight /></button>
           </form>
         </div>

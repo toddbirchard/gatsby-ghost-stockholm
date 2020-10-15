@@ -10,9 +10,7 @@ import { AboutWidget,
   GithubWidget } from '.'
 
 /**
- *
  * Sidebar
- *
 */
 
 const Sidebar = ({ site, template }) => (

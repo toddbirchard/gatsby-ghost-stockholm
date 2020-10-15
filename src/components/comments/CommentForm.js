@@ -63,16 +63,16 @@ const CommentForm = ({ post }) => {
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
       body: encode({
         'form-name': form.getAttribute(`name`),
-        commentBody: value,
         postId: postId,
         postSlug: postSlug,
         authorName: authorName,
-        commentId: commentId,
         userId: userId,
         userName: userName,
         userAvatar: userAvatar,
         userProvider: userProvider,
         userEmail: userEmail,
+        commentId: commentId,
+        commentBody: value,
       }),
     })
       .then(() => setValue(``))
@@ -160,9 +160,15 @@ const CommentForm = ({ post }) => {
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentAddress" >Address</label>
+            <label className="hidden-label" htmlFor="commentAddress">Address</label>
             <input id="commentAddress" name="address" type="hidden" />
           </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="commentBody">Comment</label>
+            <textarea id="commentBody" name="commentBody" value={value}></textarea>
+          </fieldset>
+
           <fieldset>
 
             <ReactMde
