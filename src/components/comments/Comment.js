@@ -20,7 +20,7 @@ const Comment = ({ comment, moderators }) => {
 
   return (
     <div className="comment">
-      { comment.user_avatar
+      { comment.user_avatar === undefined
         ? <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
         : <AiOutlineUser className="user-avatar" />
       }

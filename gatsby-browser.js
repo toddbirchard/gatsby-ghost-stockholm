@@ -2,7 +2,6 @@
 import * as basicLightbox from 'basiclightbox';
 import 'lazysizes';
 import config from './src/utils/siteConfig'
-import Prism from 'prismjs'
 
 
 // Client to create HTTP requests
@@ -22,11 +21,11 @@ let HttpClient = function() {
 // -------------------------------------------
 // Events
 // -------------------------------------------
+
 // Trigger upon page load
 export const onRouteUpdate = ({location}) => {
   let path = location.pathname;
   if ((path.split('/').length - 1) === 2) {
-    // codeSyntaxHighlight();
     enableLightboxImages();
   }
   if (path.indexOf('author')) {
@@ -37,20 +36,6 @@ export const onRouteUpdate = ({location}) => {
 // -------------------------------------------
 // Posts
 // -------------------------------------------
-
-// PrismaJS code snippet highlighting
-function codeSyntaxHighlight() {
-  Prism.plugins.NormalizeWhitespace.setDefaults({
-    'remove-trailing': true,
-    'remove-indent': true,
-    'left-trim': true,
-    'right-trim': true,
-    'indent': 2,
-    'tabs-to-spaces': 4,
-    'spaces-to-tabs': 4
-  });
-  Prism.highlightAll();
-}
 
 // Lightbox functionality for post images
 function enableLightboxImages() {
@@ -98,6 +83,7 @@ function scrapeUrlMetadata() {
 // -------------------------------------------
 // Members
 // -------------------------------------------
+
 // Determine if user is logged in
 function getUserSession() {
   let client = new XMLHttpRequest();

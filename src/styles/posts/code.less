@@ -10,8 +10,8 @@
   -ms-hyphens: none;
   padding: 15px 20px 20px;
   overflow-x: hidden;
-  background: #2e3440;
-  color: #d8dee9;
+  background: @nord0;
+  color: @nord6;
   font-family: @monospace-font !important;
   font-size: 0.85em !important;
   hyphens: none;
@@ -54,11 +54,11 @@
     .token.prolog,
     .token.doctype,
     .token.cdata {
-      color: #606e87;
+      color: @nord2;
     }
 
     .token.punctuation {
-      color: #81a1c1;
+      color: @nord9;
     }
 
     .token.property,
@@ -68,7 +68,8 @@
     .token.constant,
     .token.symbol,
     .token.deleted {
-      color: #b48ead;
+      color: @nord15;
+      font-weight: bold;
     }
 
     .token.selector,
@@ -77,11 +78,11 @@
     .token.char,
     .token.builtin,
     .token.inserted {
-      color: #a2bf8c;
+      color: lighten(@nord14, 10%);
     }
 
     .token.triple-quoted-string {
-      color: #8e96a5;
+      color: @nord4;
     }
 
     .token.operator,
@@ -90,24 +91,25 @@
     .language-css .token.string,
     .style .token.string {
       background: none;
-      color: #80a2c1;
+      color: @nord9;
     }
 
     .token.atrule,
     .token.attr-value,
     .token.keyword {
-      color: #81a1c1;
+      color: @nord9;
       font-weight: bold;
     }
 
     .token.function {
-      color: #8fbcbc;
+      color: @nord7;
+      font-weight: bold;
     }
 
     .token.regex,
     .token.important,
     .token.variable {
-      color: #ee9900;
+      color: @nord13;
     }
 
     .token.important,
@@ -121,6 +123,28 @@
 
     .token.entity {
       cursor: help;
+    }
+
+    .token.decorator {
+      font-weight: bold;
+    }
+  }
+
+  &.language-jinja2,
+  .language-html {
+    .token.variable {
+      color: @nord6;
+    }
+
+    .token.attr-name {
+      color: @nord13;
+    }
+    .token.attr-value {
+      color: lighten(@nord14, 10%);
+      font-weight: normal;
+    }
+    .token.doctype .name {
+      color: @nord5;
     }
   }
 }
@@ -136,14 +160,14 @@
   margin: 0;
   padding: 20px;
   overflow: auto;
-  background: #2e3440;
+  background: @nord0;
 }
 
 :not(pre) > code[class*="language-"] {
   padding: .1em;
   border-radius: .3em;
-  background: #2e3440;
-  color: #d8dee9;
+  background: @nord0;
+  color: @nord4;
 }
 
 /*********************************************************
@@ -172,15 +196,16 @@ pre[class*="language-"] > code[class*="language-"] {
   left: 0;
   margin-top: 1em;
   padding: inherit 0;
-  background: #3b4251;
-  box-shadow: inset 5px 0 0 #d8dee9;
+  background: @nord1;
+  box-shadow: inset 5px 0 0 @nord4;
   line-height: inherit;
   white-space: pre;
   pointer-events: none;
 }
 
 .content-body > pre {
-  margin: 30px 0 !important;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
   border-radius: 4px;
-  background: #2e3440;
+  background: @nord0;
 }

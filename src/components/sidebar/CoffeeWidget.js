@@ -15,7 +15,7 @@ const CoffeeWidget = ({ data }) => {
   return (
     <>
       <div className="coffee widget">
-        <h4 className="widget-title">Top Contributors</h4>
+        <h4 className="widget-title">Contributors</h4>
         <div className="donations">
           {donations.map(({ node }) => (
             <a rel="noopener noreferrer" target="_blank" href={node.link} className="donation" key={node.id}>
@@ -30,12 +30,12 @@ const CoffeeWidget = ({ data }) => {
                   </div>
                 </div>
               </div>
-              <p>{node.message}</p>
+              <p>{node.message.replace(`\\`, ``)}</p>
             </a>
           ))}
         </div>
         <a rel="noopener noreferrer" target="_blank" href={config.links.buyMeACoffee}>
-          <button className="widget-button" >
+          <button className="widget-button coffee-button" >
             <span className="button-content">Buy me a coffee</span>
             <img src={coffeeImg} className="coffee-icon" alt="Buy us a coffee" />
           </button>
