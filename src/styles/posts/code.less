@@ -54,7 +54,7 @@
     .token.prolog,
     .token.doctype,
     .token.cdata {
-      color: @nord2;
+      color: lighten(@nord3, 20%);
     }
 
     .token.punctuation {
@@ -76,13 +76,16 @@
     .token.attr-name,
     .token.string,
     .token.char,
-    .token.builtin,
     .token.inserted {
       color: lighten(@nord14, 10%);
     }
 
+    .token.builtin {
+      color: @nord13;
+    }
+
     .token.triple-quoted-string {
-      color: @nord4;
+      color: lighten(@nord3, 20%);
     }
 
     .token.operator,
@@ -130,8 +133,9 @@
     }
   }
 
+  // jinja2
   &.language-jinja2,
-  .language-html {
+  &.language-html {
     .token.variable {
       color: @nord6;
     }
@@ -145,6 +149,13 @@
     }
     .token.doctype .name {
       color: @nord5;
+    }
+  }
+
+  // JSON
+  &.language-json {
+    .token.property {
+      color: @nord14;
     }
   }
 }
