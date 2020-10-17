@@ -36,7 +36,7 @@ const CommentForm = ({ post }) => {
   const [userAvatar, setUserAvatar] = useState(user ? user.user_metadata.avatar_url : ``)
   const [userProvider, setUserProvider] = useState(user ? user.app_metadata.provider : ``)
   const [userEmail, setUserEmail] = useState(user ? user.email : ``)
-  const [userRole, setUserRole] = useState(user ? user.app_metadata.roles[0] : ``)
+  const [userRole, setUserRole] = useState(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
   const ref = React.useRef()
   const messageRef = React.useRef()
   const textAreaRef = React.useRef()
@@ -51,7 +51,7 @@ const CommentForm = ({ post }) => {
     setUserAvatar(user ? user.user_metadata.avatar_url : ``)
     setUserProvider(user ? user.app_metadata.provider : ``)
     setUserEmail(user ? user.email : ``)
-    setUserRole(user ? user.app_metadata.roles[0] : ``)
+    setUserRole(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
     console.log(user)
   })
 
