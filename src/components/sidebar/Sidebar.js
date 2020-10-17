@@ -16,7 +16,7 @@ import { AboutWidget,
 
 const Sidebar = ({ site, template }) => {
   const identity = useIdentityContext()
-  const user = identity.user
+  const user = !identity.user
 
   return (
     <>
@@ -25,7 +25,7 @@ const Sidebar = ({ site, template }) => {
         <SocialWidget site={site} />
         <TrendingWidget />
         <TagsWidget />
-        {user ? null : <NewsletterWidget /> }
+        {user && <NewsletterWidget /> }
         <CoffeeWidget />
         {template === `home-template` ? <GithubWidget /> : null}
         {template === `home-template` ? <TwitterWidget /> : null}

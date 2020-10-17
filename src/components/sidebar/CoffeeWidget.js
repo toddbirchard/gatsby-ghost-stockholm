@@ -65,7 +65,7 @@ const CoffeeWidgetQuery = props => (
   <StaticQuery
     query={graphql`
       query coffeeQuery {
-        coffees: allMysqlDonations(limit: 5, sort: {fields: count, order: DESC}) {
+        coffees: allMysqlDonations(limit: 5, sort: {fields: created_at, order: DESC}) {
           edges {
             node {
               email
