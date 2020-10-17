@@ -33,9 +33,10 @@ const CommentForm = ({ post }) => {
   let user = identity.user
   const [userId, setUserId] = useState(user ? user.id : ``)
   const [userName, setUserName] = useState(user ? user.user_metadata.full_name : ``)
-  const [userAvatar, setUserAvatar] = useState(user ? user.user_metadata.user_avatar : ``)
+  const [userAvatar, setUserAvatar] = useState(user ? user.user_metadata.avatar_url : ``)
   const [userProvider, setUserProvider] = useState(user ? user.app_metadata.provider : ``)
   const [userEmail, setUserEmail] = useState(user ? user.email : ``)
+  const [userRole, setUserRole] = useState(user ? user.app_metadata.roles[0] : ``)
   const ref = React.useRef()
   const messageRef = React.useRef()
   const textAreaRef = React.useRef()
@@ -47,9 +48,10 @@ const CommentForm = ({ post }) => {
   useEffect(() => {
     setUserId(user ? user.id : ``)
     setUserName(user ? user.user_metadata.full_name : ``)
-    setUserAvatar(user ? user.user_metadata.user_avatar : ``)
+    setUserAvatar(user ? user.user_metadata.avatar_url : ``)
     setUserProvider(user ? user.app_metadata.provider : ``)
     setUserEmail(user ? user.email : ``)
+    setUserRole(user ? user.app_metadata.roles[0] : ``)
     console.log(user)
   })
 
@@ -166,6 +168,11 @@ const CommentForm = ({ post }) => {
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userProvider">User Provider</label>
             <input id="userProvider" name="userProvider" type="text" value={userProvider} readOnly />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="userRole">User Role</label>
+            <input id="userRole" name="userRole" type="text" value={userRole} readOnly />
           </fieldset>
 
           <fieldset className="hidden-label">
