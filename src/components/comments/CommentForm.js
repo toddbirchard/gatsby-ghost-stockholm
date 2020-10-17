@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from 'prop-types'
 import fetch from 'node-fetch'
 import ReactMde from "react-mde"
@@ -29,8 +29,8 @@ const CommentForm = ({ post }) => {
   const postSlug = post.slug
   const authorName = post.primary_author.name
   const commentId = post.comment_id
-  const identity = useIdentityContext()
-  const user = identity.user
+  let identity = useIdentityContext()
+  let user = identity.user
   const [userId, setUserId] = useState(user ? user.id : ``)
   const [userName, setUserName] = useState(user ? user.user_metadata.full_name : ``)
   const [userAvatar, setUserAvatar] = useState(user ? user.user_metadata.user_avatar : ``)
@@ -44,8 +44,16 @@ const CommentForm = ({ post }) => {
   const [dialog, setDialog] = React.useState(false)
   const isLoggedIn = identity.isLoggedIn
 
-  const handleClick = (e) => {
+  useEffect(() => {
+    setUserId(user ? user.id : ``)
+    setUserName(user ? user.user_metadata.full_name : ``)
+    setUserAvatar(user ? user.user_metadata.user_avatar : ``)
+    setUserProvider(user ? user.app_metadata.provider : ``)
+    setUserEmail(user ? user.email : ``)
     console.log(user)
+  })
+
+  const handleClick = (e) => {
     if (isLoggedIn) {
       e.target.classList.add(`open`)
       ref.current.classList.add(`open`)
