@@ -166,7 +166,7 @@ const MobileMenuQuery = props => (
                 }
               }
             }
-            series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}}) {
+            series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {ne: "adventures-in-excel", nin: "code-snippet-corner"}}) {
               edges {
                 node {
                   ghostId
