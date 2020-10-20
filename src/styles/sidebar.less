@@ -269,22 +269,12 @@
       justify-content: space-between;
 
       button {
-        -webkit-appearance: none;
-        padding: unset;
-        border: unset;
-        outline: none;
-        background: unset;
-      }
+        .social-button();
 
-      svg {
-        font-size: 2.1em;
-        transition: @transition;
-        @media (max-width: @smallscreen-breakpoint) {
-          font-size: 1.9em;
+        &:hover {
+          cursor: pointer;
         }
       }
-
-      .social-buttons();
     }
 
     &.tags {
@@ -331,7 +321,8 @@
         width: -moz-available;
         height: 18px !important;
         margin: 0 0 8px;
-        font-size: 0.9em;
+        font-size: 0.8em;
+        color: @body-color;
         transition: @transition;
         .input-text-fields();
         padding: 8px 10px !important;
@@ -415,7 +406,7 @@
         color: lighten(@header-font-color, 15%);
         font-family: @body-font-medium;
         font-size: 0.85em;
-        line-height: 1.35;
+        line-height: 1.4;
         text-overflow: ellipsis;
         @media (max-width: @smallscreen-breakpoint) {
           max-width: 240px;

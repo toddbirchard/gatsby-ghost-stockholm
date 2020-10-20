@@ -114,20 +114,24 @@
 
           .tag-separator {
             margin-right: 5px;
+            @media(max-width: @mobile-breakpoint) {
+              display: none !important;
+            }
+            @media(max-width: 500px) {
+              display: inline !important;
+            }
           }
 
           .tag {
             font-family: @body-font-medium;
             @media(max-width: @mobile-breakpoint) {
-              &:last-of-type,
-              .tag-separator {
+              &:last-of-type {
                 display: none;
               }
             }
             @media(max-width: 500px) {
               font-family: @body-font-bold;
-              &:last-of-type,
-              .tag-separator {
+              &:last-of-type {
                 display: inline;
               }
             }

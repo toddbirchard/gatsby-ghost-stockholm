@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useIdentityContext } from "react-netlify-identity-widget"
 import { AboutWidget,
   NewsletterWidget,
   SocialWidget,
@@ -15,8 +14,6 @@ import { AboutWidget,
 */
 
 const Sidebar = ({ site, template }) => {
-  const identity = useIdentityContext()
-  const user = !identity.user
 
   return (
     <>
@@ -25,7 +22,7 @@ const Sidebar = ({ site, template }) => {
         <SocialWidget site={site} />
         <TrendingWidget />
         <TagsWidget />
-        {user && <NewsletterWidget /> }
+        <NewsletterWidget />
         <CoffeeWidget />
         {template === `home-template` ? <GithubWidget /> : null}
         {template === `home-template` ? <TwitterWidget /> : null}

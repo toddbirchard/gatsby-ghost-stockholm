@@ -97,7 +97,7 @@
   }
   @media (max-width: @mobile-breakpoint) {
     margin-bottom: 0;
-    padding: 40px 6%!important;
+    padding: 40px 6% !important;
   }
 
   .page-title-card {
@@ -235,7 +235,7 @@
   -webkit-box-orient: vertical;
   display: -webkit-box;
   width: stretch;
-  overflow-x: hidden;
+  overflow-y: hidden;
   text-overflow: ellipsis;
 }
 
@@ -264,48 +264,60 @@
   }
 }
 
-.social-buttons() {
-  a {
-    height: 25px;
-    transition: @transition;
+.social-button() {
+  -webkit-appearance: none;
+  padding: unset;
+  border: unset;
+  outline: none;
+  background: unset;
+  transition: @transition;
 
-    &:hover {
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
-      cursor: pointer;
+  svg {
+    font-size: 2.1em;
+    color: #a1adc6;
+    transition: @transition;
+    @media (max-width: @smallscreen-breakpoint) {
+      font-size: 1.9em;
     }
   }
 
-  .medium svg {
-    color: lighten(@medium-color, 10%);
-  }
+  &:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    cursor: pointer !important;
 
-  .facebook svg {
-    color: lighten(@facebook-color, 20%);
-  }
+    &.medium svg,
+    &.medium {
+      color: lighten(@medium-color, 10%) !important;
+    }
 
-  .twitter svg {
-    color: lighten(@twitter-color, 10%);
-  }
+    &.facebook svg {
+      color: lighten(@facebook-color, 20%) !important;
+    }
 
-  .angellist,
-  .github svg {
-    color: lighten(@github-color, 10%);
-  }
+    &.twitter svg {
+      color: lighten(@twitter-color, 10%);
+    }
 
-  .rss svg {
-    color: lighten(@rss-color, 20%);
-  }
+    &.angellist,
+    &.github svg {
+      color: lighten(@github-color, 10%) !important;
+    }
 
-  .feedly svg {
-    color: #60d293;
-  }
+    &.rss svg {
+      color: lighten(@rss-color, 20%) !important;
+    }
 
-  .pocket svg {
-    color: lighten(#f14861, 10%);
-  }
+    &.feedly svg {
+      color: #60d293 !important;
+    }
 
-  .linkedin svg {
-    color: lighten(@linkedin-color, 10%);
+    &.pocket svg {
+      color: lighten(#f14861, 10%) !important;
+    }
+
+    &.linkedin svg {
+      color: lighten(@linkedin-color, 10%) !important;
+    }
   }
 }
