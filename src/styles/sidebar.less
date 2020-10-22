@@ -16,8 +16,10 @@
     background: #fff 50%;
     box-shadow: @box-shadow;
     transition: all 0.5s ease;
+    max-width: 260px;
     @media (max-width: @smallscreen-breakpoint) {
       padding: 20px;
+      max-width: 240px;
     }
 
     .widget-title {
@@ -399,7 +401,6 @@
       .link {
         -webkit-line-clamp: 2;
         .line-clamp();
-        max-width: 269px;
         margin: 10px 0;
         padding: 8px 0 12px;
         border-bottom: 1px solid #e7e7e7;
@@ -409,7 +410,6 @@
         line-height: 1.4;
         text-overflow: ellipsis;
         @media (max-width: @smallscreen-breakpoint) {
-          max-width: 240px;
           padding: 5px 0 10px;
           font-size: 0.8em;
         }
