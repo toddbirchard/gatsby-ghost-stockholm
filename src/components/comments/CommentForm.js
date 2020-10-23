@@ -56,41 +56,42 @@ const CommentForm = ({ post }) => {
   })
 
   const handleClick = (e) => {
-    if (isLoggedIn) {
+    if (isLoggedIn){
       e.target.classList.add(`open`)
       ref.current.classList.add(`open`)
       ref.current.classList.remove(`closed`)
       value === `Have something to say?` ? setValue(``) : null
-    } else {
-      setDialog(true)
     }
   }
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-
-    fetch(`/`, {
-      method: `POST`,
-      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({
-        'form-name': form.getAttribute(`name`),
-        postId: postId,
-        postSlug: postSlug,
-        authorName: authorName,
-        userId: userId,
-        userName: userName,
-        userAvatar: userAvatar,
-        userProvider: userProvider,
-        userEmail: userEmail,
-        commentId: commentId,
-        commentBody: value,
-      }),
-    })
-      .then(() => setValue(``))
-      .then(ref.current.classList.add(`closed`))
-      .then(ref.current.classList.remove(`open`))
-      .then(messageRef.current.classList.add(`active`))
-      .catch(error => console.log(error))
+    if (user.id !== `` && value !== `Have something to say?` && value !== ``) {
+      fetch(`/`, {
+        method: `POST`,
+        headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+        body: encode({
+          'form-name': form.getAttribute(`name`),
+          postId: postId,
+          postSlug: postSlug,
+          authorName: authorName,
+          userId: userId,
+          userName: userName,
+          userAvatar: userAvatar,
+          userProvider: userProvider,
+          userEmail: userEmail,
+          commentId: commentId,
+          commentBody: value,
+        }),
+      })
+        .then(() => setValue(``))
+        .then(ref.current.classList.add(`closed`))
+        .then(ref.current.classList.remove(`open`))
+        .then(messageRef.current.classList.add(`active`))
+        .catch(error => console.log(error))
+    } else {
+      setDialog(true)
+    }
   }
   const handleLogin = (u) => {
     setUserId(u.id)
