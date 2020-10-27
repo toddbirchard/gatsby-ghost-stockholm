@@ -45,7 +45,8 @@ const TwitterWidget = ({ data }) => {
                         <a href={url} className="tweet-link" key={url} rel="nofollow noreferrer">{ url }</a>
                       ))}
                    </div>
-                 </div> }
+                 </div>
+              }
 
               {node.in_reply_to_screen_name &&
                   <div className="reply-tweet">
@@ -60,7 +61,7 @@ const TwitterWidget = ({ data }) => {
                     <div>
                       <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
                       {node.entities.hashtags.length > 0 ?
-                        <div className="tweet-hastags">
+                        <div className="tweet-hashtags">
                           {node.entities.hashtags.map(({ text }) => (
                             <a
                               href={`https://twitter.com/hashtag/${text}`}
@@ -116,6 +117,7 @@ TwitterWidget.propTypes = {
           id: PropTypes.string,
           retweeted: PropTypes.bool,
           retweeted_status: PropTypes.object,
+          in_reply_to_screen_name: PropTypes.string,
           user: PropTypes.shape({
             name: PropTypes.string.isRequired,
             url: PropTypes.string.isRequired,
