@@ -66,7 +66,9 @@ const CommentForm = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    if (user.id !== `` && value !== `Have something to say?` && value !== ``) {
+    if (userId === `` || userEmail.indexOf(`.ru`) > 0) {
+      setDialog(true)
+    } else if (value !== `Have something to say?` || value !== ``) {
       fetch(`/`, {
         method: `POST`,
         headers: { 'Content-Type': `application/x-www-form-urlencoded` },
@@ -89,8 +91,6 @@ const CommentForm = ({ post }) => {
         .then(ref.current.classList.remove(`open`))
         .then(messageRef.current.classList.add(`active`))
         .catch(error => console.log(error))
-    } else {
-      setDialog(true)
     }
   }
   const handleLogin = (u) => {
