@@ -109,7 +109,7 @@
     "react-player": "^2.6.2",
     "sharp": "^0.26.2",
     "showdown": "^1.9.1",
-    "styled-components": "^5.2.0",
+    "styled-components": "^5.2.1",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0"
   }
