@@ -4,8 +4,8 @@ import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget
 
 const AuthButton = ({ styleClass }) => {
   const [dialog, setDialog] = React.useState(false)
-  const identity = useIdentityContext()
-  const isLoggedIn = identity && identity.isLoggedIn
+  let identity = useIdentityContext()
+  let isLoggedIn = identity && identity.isLoggedIn
   const [user, setUser] = React.useState(isLoggedIn)
 
   return (

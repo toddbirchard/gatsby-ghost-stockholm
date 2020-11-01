@@ -23,7 +23,7 @@ const Auth = ({ children }) => {
   )
 }
 
-const netlifyAuth = {
+/*const netlifyAuth = {
   isAuthenticated: false,
   user: null,
   authenticate(callback) {
@@ -43,7 +43,7 @@ const netlifyAuth = {
     })
   },
 }
-
+*/
 /*const AuthButton = withRouter(
   ({ history }) => (netlifyAuth.isAuthenticated ? (
 

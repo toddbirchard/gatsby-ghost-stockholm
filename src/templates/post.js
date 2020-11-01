@@ -240,7 +240,7 @@ export const postQuery = graphql`
       }
       totalCount
     },
-    comments: allMysqlComments(sort: {fields: created_at, order: DESC}, filter: {post_slug: {eq: $slug}}) {
+    comments: allMysqlComments(sort: {fields: created_at, order: ASC}, filter: {post_slug: {eq: $slug}}) {
       edges {
         node {
           body

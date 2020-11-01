@@ -52,7 +52,6 @@ const CommentForm = ({ post }) => {
     setUserProvider(user ? user.app_metadata.provider : ``)
     setUserEmail(user ? user.email : ``)
     setUserRole(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
-    console.log(user)
   })
 
   const handleClick = (e) => {

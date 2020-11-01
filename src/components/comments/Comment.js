@@ -13,14 +13,15 @@ const converter = new Showdown.Converter({
   emoji: true,
 })
 
-const Comment = ({ comment, moderators }) => {
-  const isAdmin = comment && comment.user_role
-  const isModerator = moderators.includes(comment.user_name)
+const Comment = ({ comment }) => {
+  const authorIsAdmin = comment && comment.user_role
+  const authorIsModerator = comment.user_role
   const commentBody = converter.makeHtml(comment.body)
+  const authorAvatar = comment.user_avatar === undefined ? null : comment.user_avatar
 
   return (
     <div className="comment">
-      { comment.user_avatar
+      { authorAvatar
         ? <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
         : <AiOutlineUser className="user-avatar" />
       }
@@ -28,9 +29,9 @@ const Comment = ({ comment, moderators }) => {
         <div className="comment-head">
           <div className="comment-author">
             <span className="user-name">{comment.user_name}</span>
-            {isAdmin
+            {authorIsAdmin
               ? <span className="badge author">Author</span>
-              : isModerator
+              : authorIsModerator
                 ? <span className="badge moderator">Moderator</span>
                 : null }
           </div>

@@ -48,7 +48,9 @@ const NewsletterWidget = () => (
             autoComplete="off"
           />
         </fieldset>
-        <button type="submit" className="newsletter-button">Sign Up <FaArrowRight /></button>
+        <button type="submit" className="newsletter-button">
+          <span>Sign Up</span> <FaArrowRight />
+        </button>
       </form>
     </div>
   </>
