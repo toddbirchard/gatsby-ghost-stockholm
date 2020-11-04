@@ -51,7 +51,7 @@
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/highlight": "^7.10.4",
-    "@babel/runtime": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
     "@reach/dialog": "^0.11.2",
     "@reach/tabs": "^0.11.2",
     "@reach/visually-hidden": "^0.11.1",
