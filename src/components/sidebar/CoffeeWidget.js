@@ -15,7 +15,7 @@ const CoffeeWidget = ({ data }) => {
   return (
     <>
       <div className="coffee widget">
-        <h4 className="widget-title">Contributors</h4>
+        <h4 className="widget-title">Donations</h4>
         <div className="donations">
           {donations.map(({ node }) => (
             <a rel="noopener noreferrer" target="_blank" href={node.link} className="donation" key={node.id}>

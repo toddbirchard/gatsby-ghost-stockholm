@@ -12,14 +12,14 @@
   }
 
   .widget {
-    padding: 25px;
+    padding: 20px;
     background: #fff 50%;
     border-radius: 4px;
     box-shadow: @box-shadow;
     transition: all 0.5s ease;
     max-width: 260px;
     @media (max-width: @smallscreen-breakpoint) {
-      padding: 20px;
+      /* padding: 20px;*/
       max-width: 240px;
     }
 
@@ -27,9 +27,10 @@
       margin-bottom: 15px;
       padding: 0;
       color: @light-header-color;
-      font-family: @header-font-secondary;
+      font-family: @header-font;
+      font-weight: normal;
       font-size: 1.1em;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       line-height: 1;
       text-align: left;
     }
@@ -47,7 +48,7 @@
     }
 
     .donations {
-      margin: 5px 0 0;
+      margin: 0 0 10px;
 
       .donation {
         display: block;
@@ -119,11 +120,12 @@
 
       p {
         -webkit-line-clamp: 3;
-        margin: 5px 0;
+        margin: 5px 0 0;
         color: @body-color;
         font-size: .85em;
         line-height: 1.35;
         .line-clamp();
+        width: 90%;
       }
     }
 
@@ -280,7 +282,7 @@
       }
     }
 
-    &.tags {
+    &.tags .tag-cloud {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;

@@ -59,8 +59,8 @@ const Post = ({ data, location }) => {
       />
       <Layout template="post-template">
         <div className="post-wrapper">
-
           <article className="post">
+
             {/*    Post head     */}
             <div className="post-head">
               <h1 className="post-title">{post.title}</h1>
@@ -92,6 +92,8 @@ const Post = ({ data, location }) => {
                   <span>{post.published_at_pretty}</span>
                 </div>
               </div>
+
+              {/* Feature image  */}
               {post.feature_image &&
                   <picture className="post-image">
                     <source
@@ -105,8 +107,7 @@ const Post = ({ data, location }) => {
                       alt={post.title}
                       title={post.title}
                     />
-                  </picture>
-              }
+                  </picture> }
             </div>
 
             {/*  Series table of contents  */}
