@@ -15,11 +15,10 @@ const PostCard = ({ post }) => {
   const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
   const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
 
-
   return (
     <>
       <div className="post-card">
-        {post.feature_image &&
+        {featureImage &&
             <Link to={url}>
               <picture>
                 <source
