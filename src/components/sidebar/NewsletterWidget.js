@@ -12,7 +12,7 @@ const NewsletterWidget = () => (
       <form
         name="newsletter"
         method="POST"
-        netlify="true"
+        netlify
         data-netlify="true"
         netlify-honeypot="phone-number"
         action="/subscribed/"

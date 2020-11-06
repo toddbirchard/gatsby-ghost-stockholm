@@ -41,7 +41,9 @@ const Post = ({ data, location }) => {
   const featureImage = post.feature_image
   const comments = data.comments.edges
   const authors = data.authors.edges
-  const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
+  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
+  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
+  const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
   React.useEffect(() => {
     Prism.highlightAll()
   })
@@ -94,8 +96,9 @@ const Post = ({ data, location }) => {
                   <picture className="post-image">
                     <source
                       media="(max-width:600px)"
-                      data-srcset={featureImageMobile}
+                      data-srcset={featureMobileImage}
                     />
+                    <source data-srcset={featureRetinaImage} />
                     <img
                       className="post-card-image lazyload"
                       data-src={featureImage}

@@ -11,7 +11,10 @@ const PostCard = ({ post }) => {
   const authorAvatar = post.primary_author.profile_image ? post.primary_author.profile_image : null
   const createdDate = post.created_at_pretty
   const featureImage = post.feature_image
-  const featureImageMobile = featureImage && featureImage.replace(`@2x`, `_mobile@2x`)
+  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
+  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
+  const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
+
 
   return (
     <>
@@ -21,8 +24,9 @@ const PostCard = ({ post }) => {
               <picture>
                 <source
                   media="(max-width:600px)"
-                  data-srcset={featureImageMobile}
+                  data-srcset={featureMobileImage}
                 />
+                <source data-srcset={featureRetinaImage} />
                 <img
                   className="post-card-image lazyload"
                   data-src={featureImage}
