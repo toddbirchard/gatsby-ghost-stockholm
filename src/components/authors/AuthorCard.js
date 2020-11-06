@@ -15,6 +15,9 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
   const authorPostCount = author.postCount
   const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
+  const authorAvatar = author.profile_image
+  const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)
+  const authorAvatarRetinaImage = authorAvatarSlash && [authorAvatar.slice(0, authorAvatarSlash), `/_retina`, authorAvatar.slice(authorAvatarSlash)].join(``)
 
   return (
     <>
@@ -22,12 +25,16 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
         <div className="author-card-head">
           <div className="author-card-image">
             {author.profile_image
-              ? <img
-                className="lazyload"
-                data-src={author.profile_image}
-                alt={`${author.name}'s avatar`}
-                title={author.name}
-              />
+              ?
+              <picture>
+                <source data-srcset={authorAvatarRetinaImage} />
+                <img
+                  className="lazyload"
+                  data-src={authorAvatar}
+                  alt={`${author.name}'s avatar`}
+                  title={author.name}
+                />
+              </picture>
               : <AiOutlineUser />
             }
           </div>

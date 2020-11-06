@@ -193,8 +193,10 @@ table {
     max-width: 49%;
     height: fit-content;
     max-height: unset;
-    @media (max-width: tablet-breakpoint) {
+    @media (max-width: @tablet-breakpoint) {
       max-width: unset;
+      width: -webkit-fit-content !important;
+      margin: 0 40px 40px !important;
     }
   }
 }

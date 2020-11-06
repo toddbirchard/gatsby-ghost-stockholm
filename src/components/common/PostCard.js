@@ -14,6 +14,8 @@ const PostCard = ({ post }) => {
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
   const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
   const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
+  const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)
+  const authorAvatarRetinaImage = authorAvatarSlash && [authorAvatar.slice(0, authorAvatarSlash), `/_retina`, authorAvatar.slice(authorAvatarSlash)].join(``)
 
   return (
     <>
@@ -55,7 +57,14 @@ const PostCard = ({ post }) => {
             {post.primary_author &&
               <div className="meta-items">
                 {authorAvatar
-                  ? <img src={authorAvatar} alt={authorFirstName} className="author-avatar" />
+                  ? <picture>
+                    <source data-srcset={authorAvatarRetinaImage} />
+                    <img
+                      data-src={authorAvatar}
+                      alt={authorFirstName}
+                      className="author-avatar lazyload"
+                    />
+                  </picture>
                   : <FaUserEdit /> }
                 <div>
                   <Link to={`/author/${post.primary_author.slug}`} className="author-name">{authorFirstName}</Link>
