@@ -52,7 +52,7 @@ CoffeeWidget.propTypes = {
         PropTypes.shape({
           id: PropTypes.string,
           name: PropTypes.string,
-          count: PropTypes.number.isRequired,
+          count: PropTypes.number,
           message: PropTypes.string,
           link: PropTypes.string.isRequired,
         }),
