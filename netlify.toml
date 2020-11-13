@@ -8,7 +8,7 @@
   functions = "/functions"
 
 [build.environment]
-  GO_VERSION = "1.15.2"
+  GO_VERSION = "1.15.3"
 
 [template]
   incoming-hooks = ["Ghost"]
