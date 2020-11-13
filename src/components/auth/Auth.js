@@ -1,5 +1,5 @@
 import React from 'react'
-import netlifyIdentity from 'netlify-identity-widget'
+// import netlifyIdentity from 'netlify-identity-widget'
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
 const Auth = ({ children }) => {

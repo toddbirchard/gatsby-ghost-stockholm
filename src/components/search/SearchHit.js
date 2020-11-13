@@ -8,7 +8,6 @@ const SearchHit = ({ hit }) => {
   const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
   const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
 
-
   return (
     <Link to={`/${hit.slug}/`}>
       <div className="search-result">

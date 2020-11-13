@@ -13,23 +13,20 @@ import { AboutWidget,
  * Sidebar
 */
 
-const Sidebar = ({ site, template }) => {
-
-  return (
-    <>
-      <aside className="sidebar">
-        <AboutWidget site={site} />
-        <SocialWidget site={site} />
-        <TrendingWidget />
-        <TagsWidget />
-        <NewsletterWidget />
-        <CoffeeWidget />
-        {template === `home-template` ? <GithubWidget /> : null}
-        {template === `home-template` ? <TwitterWidget /> : null}
-      </aside>
-    </>
-  )
-}
+const Sidebar = ({ site, template }) => (
+  <>
+    <aside className="sidebar">
+      <AboutWidget site={site} />
+      <SocialWidget site={site} />
+      <TrendingWidget />
+      <TagsWidget />
+      <NewsletterWidget />
+      <CoffeeWidget />
+      {template === `home-template` ? <GithubWidget /> : null}
+      {template === `home-template` ? <TwitterWidget /> : null}
+    </aside>
+  </>
+)
 
 Sidebar.propTypes = {
   site: PropTypes.shape({

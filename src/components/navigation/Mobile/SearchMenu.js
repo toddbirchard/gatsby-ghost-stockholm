@@ -6,7 +6,7 @@ import {
   Hits,
   InstantSearch,
   SearchBox,
-  Index
+  Index,
 } from 'react-instantsearch-dom'
 import { HitsWrapper } from '../../search/SearchStyles'
 import { StaticQuery, graphql } from 'gatsby'
@@ -21,7 +21,7 @@ class SearchMenu extends React.Component {
     this.state = { query: `` }
   }
 
-  PostHit = clickHandler => ({hit}) => {
+  PostHit = clickHandler => ({ hit }) => {
     const featureImage = hit.feature_image
     const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
     const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
@@ -34,12 +34,11 @@ class SearchMenu extends React.Component {
               media="(max-width:600px)"
               data-srcset={featureMobileImage}
             />
-            <source data-srcset={featureRetinaImage} />
             <img
               className="search-result-image lazyload"
               data-src={featureImage}
-              alt={post.title}
-              title={post.title}
+              alt={hit.title}
+              title={hit.title}
             />
           </picture>
         </div>
@@ -74,9 +73,9 @@ class SearchMenu extends React.Component {
             <InstantSearch
               searchClient={SearchClient}
               indexName="hackers_posts"
-              searchState={{query: this.state.query}}
-              onSearchStateChange={({query}) => this.setState(({query: query}))}
-              onSearchParameters={() => this.setState({focus: true})}
+              searchState={{ query: this.state.query }}
+              onSearchStateChange={({ query }) => this.setState(({ query: query }))}
+              onSearchParameters={() => this.setState({ focus: true })}
             >
               <Configure hitsPerPage={10} analytics={true}/>
               <label id="search-input-label" className="search-label" htmlFor="search-input">
@@ -85,7 +84,7 @@ class SearchMenu extends React.Component {
               <SearchBox
                 searchAsYouType={true}
                 placeholder="Search all posts..."
-                onFocus={() => this.setState({focus: true})}
+                onFocus={() => this.setState({ focus: true })}
                 translations={{
                   placeholder: `Search all posts`,
                 }}
@@ -101,7 +100,7 @@ class SearchMenu extends React.Component {
                     <div className="search-results-count"><SearchStats/></div>
                   </header>
                   <SearchResults>
-                    <Hits hitComponent={this.PostHit(() => this.setState({focus: true}))}/>
+                    <Hits hitComponent={this.PostHit(() => this.setState({ focus: true }))}/>
                   </SearchResults>
                 </Index>
               </HitsWrapper>
@@ -110,11 +109,11 @@ class SearchMenu extends React.Component {
           <div className="top-searches">
             <div className="top-search-title"><FaChartLine/> Trending Searches</div>
             <div className="sublinks">
-              {this.topSearches.map(({node}) => (
+              {this.topSearches.map(({ node }) => (
                 <button
                   className="search-suggestion"
                   key={node.search}
-                  onClick={() => this.setState({query: node.search})}
+                  onClick={() => this.setState({ query: node.search })}
                 >
                   {node.search}
                 </button>
