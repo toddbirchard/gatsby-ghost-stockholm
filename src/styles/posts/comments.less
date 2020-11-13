@@ -23,9 +23,15 @@
         }
       }
 
-      form {
+      &.open form {
         @media (max-width: @mobile-breakpoint) {
           padding-bottom: 60px;
+        }
+
+        .comment-btn {
+          padding: 15px 10px;
+          border-radius: 3px;
+          opacity: 1;
         }
       }
     }
@@ -38,7 +44,10 @@
       }
 
       .comment-btn {
+        height: 40px;
+        padding: 10px;
         border-radius: 3px;
+        line-height: 1;
         opacity: 1;
       }
 
@@ -212,7 +221,7 @@
       @media(max-width: @mobile-breakpoint) {
         margin-bottom: 0px;
       }
-      
+
       form {
         height: 100px;
       }
