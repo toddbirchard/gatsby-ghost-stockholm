@@ -29,8 +29,8 @@ const CommentForm = ({ post }) => {
   const postSlug = post.slug
   const authorName = post.primary_author.name
   const commentId = post.comment_id
-  let identity = useIdentityContext()
-  let user = identity.user
+  const identity = useIdentityContext()
+  const user = identity.user
   const ref = React.useRef()
   const messageRef = React.useRef()
   const textAreaRef = React.useRef()
@@ -56,7 +56,6 @@ const CommentForm = ({ post }) => {
 
   const handleClick = (e) => {
     if (isLoggedIn){
-      e.target.classList.add(`open`)
       ref.current.classList.add(`open`)
       ref.current.classList.remove(`closed`)
     }
