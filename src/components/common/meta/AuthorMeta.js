@@ -31,6 +31,7 @@ const AuthorMeta = ({ data, title, settings, canonical, pageContext }) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:url" content={canonical} />
+        <link rel="canonical" href={canonical} />
         {settings.twitter && <meta name="twitter:site" content={`https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`} />}
         {settings.twitter && <meta name="twitter:creator" content={settings.twitter} />}
         <script type="application/ld+json">{`
