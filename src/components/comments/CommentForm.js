@@ -59,7 +59,9 @@ const CommentForm = ({ post }) => {
       e.target.classList.add(`open`)
       ref.current.classList.add(`open`)
       ref.current.classList.remove(`closed`)
-      value === `Have something to say?` ? setValue(``) : null
+    }
+    if (value === `Have something to say?`){
+      setValue(``)
     }
   }
   const handleSubmit = (e) => {
@@ -185,23 +187,20 @@ const CommentForm = ({ post }) => {
             <textarea id="commentBody" name="commentBody" value={value}></textarea>
           </fieldset>
 
-          <fieldset>
-
-            <ReactMde
-              ref={textAreaRef}
-              value={value}
-              onChange={setValue}
-              selectedTab={selectedTab}
-              onTabChange={setSelectedTab}
-              generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
-              placeholder={`What'd you think?`}
-              onClick={handleClick}
-              minEditorHeight={100}
-              maxEditorHeight={200}
-              minPreviewHeight={50}
-              initialEditorHeight={50}
-            />
-          </fieldset>
+          <ReactMde
+            ref={textAreaRef}
+            value={value}
+            onChange={setValue}
+            selectedTab={selectedTab}
+            onTabChange={setSelectedTab}
+            generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
+            placeholder={`What'd you think?`}
+            onClick={handleClick}
+            minEditorHeight={100}
+            maxEditorHeight={200}
+            minPreviewHeight={50}
+            initialEditorHeight={50}
+          />
           <CommentSubmit />
         </form>
       </div>
