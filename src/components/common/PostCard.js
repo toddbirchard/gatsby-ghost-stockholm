@@ -13,7 +13,8 @@ const PostCard = ({ post }) => {
   const featureImage = post.feature_image
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
   const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
-  const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
+  const featureRetinaImagePath = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
+  const featureRetinaImage = featureRetinaImagePath && featureRetinaImagePath.indexOf(`@2x`) !== -1 ? featureRetinaImagePath : featureRetinaImagePath.replace(`.jpg`, `@2x.jpg`)
   const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)
   const authorAvatarRetinaImage = authorAvatarSlash && [authorAvatar.slice(0, authorAvatarSlash), `/_retina`, authorAvatar.slice(authorAvatarSlash)].join(``)
 
