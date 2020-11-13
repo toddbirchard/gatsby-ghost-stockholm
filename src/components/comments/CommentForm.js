@@ -67,7 +67,7 @@ const CommentForm = ({ post }) => {
     e.preventDefault()
     const form = e.target
     if (userId === `` || userEmail.indexOf(`.ru`) > 0) {
-      setDialog(true)
+      console.log(`Invalid user`)
     } else if (value !== `Have something to say?` || value !== ``) {
       fetch(`/`, {
         method: `POST`,
@@ -86,7 +86,7 @@ const CommentForm = ({ post }) => {
           commentBody: value,
         }),
       })
-        .then(() => setValue(``))
+        .then(() => setValue(`Have something else to say?`))
         .then(ref.current.classList.add(`closed`))
         .then(ref.current.classList.remove(`open`))
         .then(messageRef.current.classList.add(`active`))
@@ -110,17 +110,18 @@ const CommentForm = ({ post }) => {
 
   return (
     <>
+      <div className="success-message" ref={messageRef}>
+        <div className="message">
+          <FaCheck className="icon" /> <span className="">Comment Submitted!</span>
+        </div>
+        <p>Thanks for contributing! Your comment will be visible shortly.</p>
+      </div>
+
       <div
         className={`form-container closed ${isLoggedIn ? `logged-in` : `logged-out`}`}
         ref={ref}
         onClick={handleClick}
       >
-
-        <div className="success-message" ref={messageRef}>
-          <div className="message">
-            <FaCheck className="icon" /> <span className="">Submitted!</span>
-          </div>
-        </div>
 
         <form
           name="comments"

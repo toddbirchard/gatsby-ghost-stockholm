@@ -168,47 +168,6 @@
     position: relative;
     transition: @transition;
 
-    .success-message {
-      display: block;
-      z-index: 3;
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      background: #b3deae;
-      opacity: 0;
-      transition: opacity .4s ease-out;
-
-      &.active {
-        width: 100%;
-        height: 100%;
-        opacity: 1;
-      }
-
-      .message {
-        display: flex;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        align-items: center;
-        width: fit-content;
-        height: fit-content;
-        margin: auto;
-        color: #658558;
-        font-size: 1.6em;
-        @media (max-width: @mobile-breakpoint) {
-          font-size: 1.1em;
-        }
-
-        .icon {
-          margin-right: 10px;
-          color: #658558;
-          font-size: .7em;
-        }
-      }
-    }
 
     form {
       position: relative;
@@ -403,4 +362,60 @@
 
 .post-template div > button > span > svg {
   margin-top: -15px;
+}
+
+.success-message {
+  display: flex !important;
+  z-index: 100;
+  position: fixed;
+  top: -43px;
+  right: 0;
+  left: 0;
+  flex-direction: column;
+  width: 1px;
+  width: 100%;
+  height: 1px;
+  padding: 15px 0;
+  overflow: hidden;
+  background: #b7e6b7;
+  box-shadow: 0 0 10px 2px rgba(#2d6327, 0.66);
+
+  opacity: 0;
+  transition: all .4s ease-out;
+
+  .message {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto;
+    color: #256424;
+    font-family: @body-font-medium;
+    font-size: 1.6em;
+    text-align: center;
+    @media (max-width: @mobile-breakpoint) {
+      font-size: 1.3em;
+    }
+
+    .icon {
+      margin-right: 10px;
+      color: #256424;
+      font-size: .9em;
+    }
+  }
+
+  p {
+    max-width: 90%;
+    margin: auto;
+    color: #256424;
+    font-size: .85em;
+    text-align: center;
+  }
+}
+
+
+.active {
+  top: 0;
+  height: 70px;
+  opacity: 1;
 }
