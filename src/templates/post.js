@@ -42,7 +42,7 @@ const Post = ({ data, location }) => {
   const comments = data.comments.edges
   const authors = data.authors.edges
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
-  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
+  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
   const featureRetinaImagePath = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
   const featureRetinaImage = featureRetinaImagePath && featureRetinaImagePath.indexOf(`@2x`) !== -1 ? featureRetinaImagePath : featureRetinaImagePath.replace(`.jpg`, `@2x.jpg`)
   React.useEffect(() => {

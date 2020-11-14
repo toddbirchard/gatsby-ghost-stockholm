@@ -17,6 +17,11 @@ const Page = ({ data, location, pageContext }) => {
   const pageNumber = pageContext.pageNumber
   const title = pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
   const description = page.meta_description
+  const featureImage = page.feature_image
+  const featureImageSlash = page.feature_image && page.feature_image.lastIndexOf(`/`)
+  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
+  const featureRetinaImagePath = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
+  const featureRetinaImage = featureRetinaImagePath && featureRetinaImagePath.indexOf(`@2x`) !== -1 ? featureRetinaImagePath : featureRetinaImagePath.replace(`.jpg`, `@2x.jpg`)
 
   return (
     <>
@@ -32,7 +37,19 @@ const Page = ({ data, location, pageContext }) => {
           <div className="page-wrapper">
             {page.feature_image
               ? <figure className="post-feature-image">
-                <img className="lazyload" data-src={page.feature_image} alt={page.title}/>
+                <picture className="post-image">
+                  <source
+                    media="(max-width:600px)"
+                    data-srcset={featureMobileImage}
+                  />
+                  <source data-srcset={featureRetinaImage} />
+                  <img
+                    className="post-card-image lazyload"
+                    data-src={featureImage}
+                    alt={page.title}
+                    title={page.title}
+                  />
+                </picture>
               </figure>
               : null}
             <h1>{title}</h1>

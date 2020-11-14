@@ -7,8 +7,7 @@ import { AiOutlineTags } from 'react-icons/ai'
 const RelatedPost = ({ post }) => {
   const featureImage = post.feature_image
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
-  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
-  const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
+  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
   return (
     <>
       <Link
@@ -18,11 +17,7 @@ const RelatedPost = ({ post }) => {
       >
         {post.feature_image &&
         <picture className="related-post-image-wrapper">
-          <source
-            media="(max-width:600px)"
-            data-srcset={featureMobileImage}
-          />
-          <source data-srcset={featureRetinaImage} />
+          <source data-srcset={featureMobileImage} />
           <img
             className="related-post-image lazyload"
             data-src={featureImage}
