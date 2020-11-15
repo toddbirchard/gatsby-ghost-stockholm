@@ -13,11 +13,11 @@ const AuthButton = ({ styleClass }) => {
       {user
         ? <a
           className={styleClass}
-          onClick={() => setDialog(true)}
+          onClick={() => identity.logoutUser}
         > Sign out</a>
         : <a
           className={styleClass}
-          onClick={() => identity.logoutUser}
+          onClick={() => setDialog(true)}
         > Sign up </a>
       }
       <IdentityModal
