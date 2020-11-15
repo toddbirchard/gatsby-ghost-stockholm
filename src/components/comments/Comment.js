@@ -20,7 +20,7 @@ const Comment = ({ comment }) => {
   const authorAvatar = comment.user_avatar === undefined ? null : comment.user_avatar
 
   return (
-    <div className="comment">
+    <div className="comment" key={comment.comment_id}>
       { authorAvatar
         ? <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
         : <AiOutlineUser className="user-avatar" />
@@ -52,6 +52,7 @@ const Comment = ({ comment }) => {
 
 Comment.propTypes = {
   comment: PropTypes.shape({
+    comment_id: PropTypes.string,
     body: PropTypes.string.isRequired,
     user_name: PropTypes.string,
     user_avatar: PropTypes.string,

@@ -341,10 +341,6 @@ exports.createPages = async ({ graphql, actions }) => {
     component: seriesArchivePage,
     context: {
       slug: `series`,
-      title: `Series'`,
-      description: `When we find a topic we hold true to our hearts, we'll occasionally cling long enough to produce a series. These publications cover topics from start to finish, just enough to arm readers with enough to be dangerous. We may not be a 500 dollar online bootcamp, but we do explain things like human beings, and occasionally even drop the F bomb. Trust us, it's way more fun (and perhaps effective) to stick to something this way.`,
-      metaTitle: `Series and multi-part tutorials about software.`,
-      metaDescription: `Explore full topics in software development and data science by following our dedicated multi-part series'.`,
     },
   })
 
@@ -353,9 +349,6 @@ exports.createPages = async ({ graphql, actions }) => {
     component: searchPage,
     context: {
       slug: `search`,
-      title: `Search all Posts`,
-      description: `Search for coding tutorials about Data Science, Software Engineering, Python, JavaScript, and more.`,
-      metaDescription: `Search for coding tutorials about Data Science, Software Engineering, Python, JavaScript, and more.`,
     },
   })
 
@@ -364,9 +357,6 @@ exports.createPages = async ({ graphql, actions }) => {
     component: aboutPage,
     context: {
       slug: `about`,
-      title: `About Us`,
-      description: `Hackers and Slackers is a community which values technology, life, and improving the latter with the former.`,
-      metaDescription: `Hackers and Slackers is a community which values technology, life, and improving the latter with the former.`,
     },
   })
 }

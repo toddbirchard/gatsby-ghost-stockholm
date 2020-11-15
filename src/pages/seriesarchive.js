@@ -10,18 +10,18 @@ import '../styles/pages/page.less'
 /**
 * Series page (/series/)
 *
-* Lists all multi-part post series.
+* Lists multi-part post series.
 *
 */
 
-const SeriesArchive = ({ data, location, pageContext }) => {
+const SeriesArchive = ({ data, location }) => {
   const dataScienceCourses = data.datascience.edges
   const softwareCourses = data.software.edges
   const analysisCourses = data.analysis.edges
   const cloudCourses = data.cloud.edges
-  const title = pageContext.title
-  const description = pageContext.description
-  const metaDescription = pageContext.metaDescription
+  const title = data.ghostPage.title
+  const description = data.ghostPage.description
+  const metaDescription = data.ghostPage.metaDescription
 
   return (
     <>
@@ -73,59 +73,60 @@ const SeriesArchive = ({ data, location, pageContext }) => {
 SeriesArchive.propTypes = {
   data: PropTypes.shape({
     ghostPage: PropTypes.object.isRequired,
-    datascience: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        postCount: PropTypes.number.isRequired,
-        feature_image: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    software: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        postCount: PropTypes.number.isRequired,
-        feature_image: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    cloud: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        postCount: PropTypes.number.isRequired,
-        feature_image: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    analysis: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        slug: PropTypes.string.isRequired,
-        postCount: PropTypes.number.isRequired,
-        feature_image: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-  }).isRequired,
-  pageContext: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    metaDescription: PropTypes.string,
+    datascience: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+          postCount: PropTypes.number.isRequired,
+          feature_image: PropTypes.string.isRequired,
+          description: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ),
+    }).isRequired,
+    software: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+          postCount: PropTypes.number.isRequired,
+          feature_image: PropTypes.string.isRequired,
+          description: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ),
+    }).isRequired,
+    cloud: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+          postCount: PropTypes.number.isRequired,
+          feature_image: PropTypes.string.isRequired,
+          description: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ),
+    }).isRequired,
+    analysis: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+          postCount: PropTypes.number.isRequired,
+          feature_image: PropTypes.string.isRequired,
+          description: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        }),
+      ),
+    }).isRequired,
   }),
-  location: PropTypes.object,
+  location: PropTypes.object.isRequired,
 }
 
-export default SeriesArchive
-
 export const seriesQuery = graphql`
-    query GhostSeriesArchiveQuery($slug: String) {
+    query seriesPage($slug: String) {
       ghostPage(slug: {eq: $slug}) {
         ...GhostPageFields
       }
@@ -178,3 +179,5 @@ export const seriesQuery = graphql`
         }
       }
     }`
+
+export default SeriesArchive

@@ -54,7 +54,7 @@ CoffeeWidget.propTypes = {
           name: PropTypes.string,
           count: PropTypes.number,
           message: PropTypes.string,
-          link: PropTypes.string.isRequired,
+          link: PropTypes.string,
         }),
       ),
     }),

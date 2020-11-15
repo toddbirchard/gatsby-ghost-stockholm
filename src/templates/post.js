@@ -39,7 +39,6 @@ const Post = ({ data, location }) => {
   const authorFirstName = author.name.split(` `)[0]
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
-  const comments = data.comments.edges
   const authors = data.authors.edges
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
   const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
@@ -82,7 +81,8 @@ const Post = ({ data, location }) => {
                     autolink
                     separator={null}
                     permalink="/tag/:slug"
-                    classes={tags.ghostId}/>
+                    classes={tags.ghostId}
+                  />
                 </div>}
                 <div className="meta-item reading-time">
                   <AiOutlineEye />
@@ -152,7 +152,7 @@ const Post = ({ data, location }) => {
 
           {/*  Comments, related posts, & donation widgets   */}
           <section className="post-footer">
-            <Comments data={data} comments={comments} moderators={authors} />
+            <Comments data={data} comments={data.comments} moderators={authors} />
             <div className="related-posts">
               {relatedPosts.map(({ node }) => (
                 <RelatedPost key={`${node.ghostId}_related`} post={node} />
@@ -195,21 +195,26 @@ Post.propTypes = {
         postCount: PropTypes.number,
       }).isRequired,
     }).isRequired,
-    comments: PropTypes.arrayOf(
-      PropTypes.shape({
-        body: PropTypes.string,
-        user_name: PropTypes.string,
-        user_avatar: PropTypes.string,
-        user_email: PropTypes.string,
-        user_role: PropTypes.string,
-        created_at: PropTypes.string,
-      }),
-    ),
-    authors: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-      }),
-    ),
+    comments: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          comment_id: PropTypes.string,
+          body: PropTypes.string,
+          user_name: PropTypes.string,
+          user_avatar: PropTypes.string,
+          user_email: PropTypes.string,
+          user_role: PropTypes.string,
+          created_at: PropTypes.string,
+        }),
+      ),
+    }),
+    authors: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+        }),
+      ),
+    }),
     relatedPosts: PropTypes.objectOf(PropTypes.array),
     seriesPosts: PropTypes.object,
   }).isRequired,
@@ -248,6 +253,7 @@ export const postQuery = graphql`
     comments: allMysqlComments(sort: {fields: created_at, order: ASC}, filter: {post_slug: {eq: $slug}}) {
       edges {
         node {
+          comment_id
           body
           user_name
           user_avatar

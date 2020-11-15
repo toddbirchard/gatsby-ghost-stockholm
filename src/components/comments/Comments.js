@@ -2,8 +2,9 @@ import React from "react"
 import PropTypes from 'prop-types'
 import { CommentForm, Comment } from "./"
 
-const Comments = ({ data, comments, moderators }) => {
+const Comments = ({ data, moderators }) => {
   const post = data.ghostPost
+  const comments = data.comments && data.comments.edges
 
   return (
     <>
@@ -28,7 +29,18 @@ const Comments = ({ data, comments, moderators }) => {
 Comments.propTypes = {
   data: PropTypes.object.isRequired,
   identity: PropTypes.object,
-  comments: PropTypes.array,
+  comments: PropTypes.shape({
+    edges: PropTypes.arrayOf(
+      PropTypes.shape({
+        body: PropTypes.string,
+        user_name: PropTypes.string,
+        user_avatar: PropTypes.string,
+        user_email: PropTypes.string,
+        user_role: PropTypes.string,
+        created_at: PropTypes.string,
+      }),
+    ),
+  }),
   moderators: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

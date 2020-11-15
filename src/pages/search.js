@@ -25,9 +25,9 @@ const searchClient = algoliasearch(
 const createURL = state => `?${qs.stringify(state)}`
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
-const SearchPage = ({ data, location, pageContext }) => {
-  const title = pageContext.title
-  const description = pageContext.description
+const SearchPage = ({ data, location }) => {
+  const title = data.ghostPage.title
+  const description = data.ghostPage.description
   const [searchState, setSearchState] = useState(urlToSearchState(location))
   const onSearchStateChange = (updatedSearchState) => {
     setSearchState(updatedSearchState)
@@ -131,7 +131,7 @@ SearchPage.propTypes = {
 }
 
 export const SearchPageQuery = graphql`
-    query SearchPageQuery($slug: String) {
+    query searchPage($slug: String) {
         ghostPage(slug: {eq: $slug}) {
           ...GhostPageFields
         }

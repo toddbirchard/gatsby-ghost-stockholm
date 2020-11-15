@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import { AuthorSidebar } from '../sidebar/authors'
+import { IdentityContextProvider } from "react-netlify-identity"
 import config from '../../utils/siteConfig'
 import '../../styles/app.less'
 
@@ -21,31 +22,34 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
   const site = data.ghostSettings
   const corePages = [`home-template`, `page-template`, `tag-template`]
   const isCorePage = corePages.includes(template)
+  const authUrl = `https://hackersandslackers.com/.netlify/identity`
 
   return (
     <>
-      <Helmet>
-        <html lang={site.lang} />
-        <body className={template} />
-      </Helmet>
+      <IdentityContextProvider url={authUrl}>
+        <Helmet>
+          <html lang={site.lang} />
+          <body className={template} />
+        </Helmet>
 
-      <Navigation
-        data={site.navigation}
-        navClass="site-nav-item"
-        smallLogo={config.mobileLogo}
-      />
+        <Navigation
+          data={site.navigation}
+          navClass="site-nav-item"
+          smallLogo={config.mobileLogo}
+        />
 
-      <div className="viewport">
-        <div className={hasSidebar ? `sidebar-container` : `container`}>
-          {/* All main content gets inserted here (comments.js, post.js, etc). */}
-          {children}
-          {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
-          {isCorePage && <Sidebar site={site} template={template} />}
+        <div className="viewport">
+          <div className={hasSidebar ? `sidebar-container` : `container`}>
+            {/* All main content gets inserted here (comments.js, post.js, etc). */}
+            {children}
+            {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
+            {isCorePage && <Sidebar site={site} template={template} />}
+          </div>
         </div>
-      </div>
-      <Footer navigation={site.navigation} site={site} template={template} />
-      <script defer src="https://ghostboard.io/t/5b6d07675e853714ea2d75ea.js" type="text/javascript" async></script>
-      <noscript><img src="https://ghostboard.io/api/noscript/5b6d07675e853714ea2d75ea/pixel.gif" alt="" border="0" /></noscript>
+        <Footer navigation={site.navigation} site={site} template={template} />
+        <script defer src="https://ghostboard.io/t/5b6d07675e853714ea2d75ea.js" type="text/javascript" async></script>
+        <noscript><img src="https://ghostboard.io/api/noscript/5b6d07675e853714ea2d75ea/pixel.gif" alt="" border="0" /></noscript>
+      </IdentityContextProvider>
     </>
   )
 }

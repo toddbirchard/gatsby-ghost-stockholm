@@ -30,7 +30,8 @@ const CommentForm = ({ post }) => {
   const authorName = post.primary_author.name
   const commentId = post.comment_id
   const identity = useIdentityContext()
-  const user = identity.user
+  const user = identity.user_id
+  const isLoggedIn = identity.isLoggedIn
   const ref = React.useRef()
   const messageRef = React.useRef()
   const textAreaRef = React.useRef()
@@ -43,7 +44,6 @@ const CommentForm = ({ post }) => {
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
   const [dialog, setDialog] = React.useState(false)
-  const isLoggedIn = identity.isLoggedIn
 
   useEffect(() => {
     setUserId(user ? user.id : ``)
@@ -54,7 +54,7 @@ const CommentForm = ({ post }) => {
     setUserRole(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
   })
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     if (isLoggedIn){
       ref.current.classList.add(`open`)
       ref.current.classList.remove(`closed`)
@@ -134,47 +134,47 @@ const CommentForm = ({ post }) => {
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-            <input id="commentId" name="commentId" type="text" value={commentId} readOnly />
+            <input id="commentId" name="commentId" type="text" value={commentId} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userId" >User ID</label>
-            <input id="userId" name="userId" type="text" value={userId} readOnly />
+            <input id="userId" name="userId" type="text" value={userId} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
-            <input id="postSlug" name="postSlug" type="text" value={postSlug} readOnly />
+            <input id="postSlug" name="postSlug" type="text" value={postSlug} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="postId">Post ID</label>
-            <input id="postId" name="postId" type="text" value={postId} readOnly />
+            <input id="postId" name="postId" type="text" value={postId} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userEmail">User Email</label>
-            <input id="userEmail" name="userEmail" type="email" value={userEmail} readOnly />
+            <input id="userEmail" name="userEmail" type="email" value={userEmail} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userName">User Name</label>
-            <input id="userName" name="userName" type="text" value={userName} readOnly />
+            <input id="userName" name="userName" type="text" value={userName} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
-            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} readOnly />
+            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userProvider">User Provider</label>
-            <input id="userProvider" name="userProvider" type="text" value={userProvider} readOnly />
+            <input id="userProvider" name="userProvider" type="text" value={userProvider} />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userRole">User Role</label>
-            <input id="userRole" name="userRole" type="text" value={userRole} readOnly />
+            <input id="userRole" name="userRole" type="text" value={userRole} />
           </fieldset>
 
           <fieldset className="hidden-label">
@@ -184,7 +184,7 @@ const CommentForm = ({ post }) => {
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="commentBody">Comment</label>
-            <textarea id="commentBody" name="commentBody" value={value}></textarea>
+            <textarea id="commentBody" name="commentBody" value={value} ></textarea>
           </fieldset>
 
           <ReactMde
