@@ -66,9 +66,9 @@ const CommentForm = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    if (userId === `` || userEmail.indexOf(`.ru`) > 0) {
+    if (userEmail.indexOf(`.ru`) > 0) {
       console.log(`Invalid user`)
-    } else if (value !== `Have something to say?` || value !== ``) {
+    } else if (userId && value !== `Have something to say?` && value !== `` && value !== undefined) {
       fetch(`/`, {
         method: `POST`,
         headers: { 'Content-Type': `application/x-www-form-urlencoded` },

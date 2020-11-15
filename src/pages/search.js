@@ -26,8 +26,8 @@ const createURL = state => `?${qs.stringify(state)}`
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
 const SearchPage = ({ data, location }) => {
-  const title = data.searchPage.title
-  const description = data.searchPage.description
+  const metaTitle = data.searchPage.meta_title
+  const metaDescription = data.searchPage.meta_description
   const [searchState, setSearchState] = useState(urlToSearchState(location))
   const onSearchStateChange = (updatedSearchState) => {
     setSearchState(updatedSearchState)
@@ -38,8 +38,8 @@ const SearchPage = ({ data, location }) => {
       <MetaData
         data={data}
         location={location}
-        title={title}
-        description={description}
+        title={metaTitle}
+        description={metaDescription}
         type="website"
       />
       <Layout template="search-template" hasSidebar={false}>

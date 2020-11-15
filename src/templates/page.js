@@ -16,7 +16,8 @@ const Page = ({ data, location, pageContext }) => {
   const page = data.ghostPage
   const pageNumber = pageContext.pageNumber
   const title = pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
-  const description = page.meta_description
+  const metaTitle = page.meta_title
+  const metaDescription = page.meta_description
   const featureImage = page.feature_image
   const featureImageSlash = page.feature_image && page.feature_image.lastIndexOf(`/`)
   const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
@@ -28,8 +29,8 @@ const Page = ({ data, location, pageContext }) => {
       <MetaData
         data={data}
         location={location}
-        title={title}
-        description={description}
+        title={metaTitle}
+        description={metaDescription}
         type="website"
       />
       <Layout template="page-template" hasSidebar>
@@ -70,6 +71,7 @@ Page.propTypes = {
     ghostPage: PropTypes.shape({
       slug: PropTypes.string.isRequired,
       title: PropTypes.string,
+      meta_title: PropTypes.string,
       meta_description: PropTypes.string,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,

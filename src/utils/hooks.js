@@ -1,17 +1,18 @@
 import { useEffect } from 'react'
 
-export const useClickOutside = (ref, handler, events) => {
+export const useClickOutside = (boxRef, menuRef, handler, events) => {
   if (!events) {
     events = [`mousedown`, `touchstart`]
   }
-  const detectClickOutside = event => !ref.current.contains(event.target) && handler()
+  const detectClickOutside = event => !menuRef.current.contains(event.target) && handler()
+
   useEffect(() => {
     for (const event of events) {
-      document.addEventListener(event, detectClickOutside)
+      window.addEventListener(event, detectClickOutside)
     }
     return () => {
       for (const event of events) {
-        document.removeEventListener(event, detectClickOutside)
+        window.removeEventListener(event, detectClickOutside)
       }
     }
   })

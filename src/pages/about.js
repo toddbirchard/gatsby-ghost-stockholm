@@ -17,8 +17,8 @@ import '../styles/pages/about.less'
 *
 */
 const AboutPage = ({ data, location }) => {
-  const title = data.aboutPage.title
-  const description = data.aboutPage.description
+  const metaTitle = data.aboutPage.meta_title
+  const metaDescription = data.aboutPage.meta_description
   const introVideo = config.introVideo
 
   return (
@@ -26,8 +26,8 @@ const AboutPage = ({ data, location }) => {
       <MetaData
         data={data}
         location={location}
-        title={title}
-        description={description}
+        title={metaTitle}
+        description={metaDescription}
         type="website"
       />
       <Layout template="page-template" hasSidebar>
@@ -67,7 +67,7 @@ AboutPage.propTypes = {
     aboutPage: PropTypes.shape({
       slug: PropTypes.string.isRequired,
       title: PropTypes.string,
-      description: PropTypes.string,
+      meta_title: PropTypes.string,
       meta_description: PropTypes.string,
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,

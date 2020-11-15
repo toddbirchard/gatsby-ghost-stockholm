@@ -12,14 +12,15 @@ import { SearchClient, SearchResults, SearchStats } from './SearchClient'
 import { SearchHit } from './'
 
 const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
-  const ref = createRef()
+  const boxRef = createRef()
+  const menuRef = createRef()
   const [searchQuery, setQuery] = useState(forcedQuery ? forcedQuery : ``)
   const [focus, setFocus] = useState(false)
-
   const focusFalse = () => setFocus(false)
-  useClickOutside(ref, focusFalse)
+  useClickOutside(menuRef, boxRef, focusFalse)
+
   return (
-    <Root ref={ref} className="search-root">
+    <Root ref={boxRef} className="search-root">
       <InstantSearch
         searchClient={SearchClient}
         indexName="hackers_posts"
@@ -49,6 +50,7 @@ const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
           show={(searchQuery.length > 0 && focus) || (!!forcedQuery)}
           asGrid={hitsAsGrid}
           className="search-results"
+          ref={menuRef}
         >
           <Index indexName="hackers_posts">
             <header>

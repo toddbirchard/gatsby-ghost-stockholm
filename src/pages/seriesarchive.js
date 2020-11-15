@@ -20,15 +20,16 @@ const SeriesArchive = ({ data, location }) => {
   const analysisCourses = data.analysis.edges
   const cloudCourses = data.cloud.edges
   const title = data.seriesPage.title
+  const metaTitle = data.seriesPage.meta_title
+  const metaDescription = data.seriesPage.meta_description
   const html = data.seriesPage.html
-  const metaDescription = data.seriesPage.metaDescription
 
   return (
     <>
       <MetaData
         data={data}
         location={location}
-        title={title}
+        title={metaTitle}
         description={metaDescription}
         type="series"
       />
