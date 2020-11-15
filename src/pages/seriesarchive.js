@@ -19,9 +19,9 @@ const SeriesArchive = ({ data, location }) => {
   const softwareCourses = data.software.edges
   const analysisCourses = data.analysis.edges
   const cloudCourses = data.cloud.edges
-  const title = data.ghostPage.title
-  const description = data.ghostPage.description
-  const metaDescription = data.ghostPage.metaDescription
+  const title = data.seriesPage.title
+  const html = data.seriesPage.html
+  const metaDescription = data.seriesPage.metaDescription
 
   return (
     <>
@@ -37,7 +37,10 @@ const SeriesArchive = ({ data, location }) => {
           <div className="page-title-card">
             <h1>{title}</h1>
           </div>
-          <p>{description}</p>
+          <div
+            className="post-content content-body load-external-scripts"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </div>
         <main className="courses">
           <h2 className="course-section-title">Data Science & Engineering</h2>
@@ -72,7 +75,7 @@ const SeriesArchive = ({ data, location }) => {
 
 SeriesArchive.propTypes = {
   data: PropTypes.shape({
-    ghostPage: PropTypes.object.isRequired,
+    seriesPage: PropTypes.object.isRequired,
     datascience: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -127,7 +130,7 @@ SeriesArchive.propTypes = {
 
 export const seriesQuery = graphql`
     query seriesPage($slug: String) {
-      ghostPage(slug: {eq: $slug}) {
+      seriesPage: ghostPage(slug: {eq: $slug}) {
         ...GhostPageFields
       }
       datascience: allGhostTag(sort: {order: ASC, fields: meta_title}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql", "web-scraping-with-python"]}}) {

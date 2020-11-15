@@ -36,6 +36,7 @@
       min-width: 92% !important;
       .mobile-full-width();
       max-width: stretch !important;
+      padding: 30px 20px;
     }
 
     h1 {
@@ -45,6 +46,9 @@
       font-family: @body-font;
       font-size: 2em;
       font-weight: normal;
+      @media(max-width: @mobile-breakpoint) {
+        margin: 0 0 10px;
+      }
     }
 
     .ais-SearchBox-submit {
@@ -401,6 +405,9 @@
           font-size: 1em;
           letter-spacing: -.5px;
           line-height: 1.2;
+          @media (max-width: @mobile-breakpoint) {
+            font-size: 1.2em !important;
+          }
         }
 
         .post-card-excerpt {

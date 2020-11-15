@@ -26,8 +26,8 @@ const createURL = state => `?${qs.stringify(state)}`
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
 const SearchPage = ({ data, location }) => {
-  const title = data.ghostPage.title
-  const description = data.ghostPage.description
+  const title = data.searchPage.title
+  const description = data.searchPage.description
   const [searchState, setSearchState] = useState(urlToSearchState(location))
   const onSearchStateChange = (updatedSearchState) => {
     setSearchState(updatedSearchState)
@@ -121,7 +121,7 @@ Hit.propTypes = {
 
 SearchPage.propTypes = {
   data: PropTypes.shape({
-    ghostPage: PropTypes.object.isRequired,
+    searchPage: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.object,
   pageContext: PropTypes.shape({
@@ -132,7 +132,7 @@ SearchPage.propTypes = {
 
 export const SearchPageQuery = graphql`
     query searchPage($slug: String) {
-        ghostPage(slug: {eq: $slug}) {
+        searchPage: ghostPage(slug: {eq: $slug}) {
           ...GhostPageFields
         }
     }`

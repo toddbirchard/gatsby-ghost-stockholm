@@ -24,7 +24,7 @@
   .about-video-wrapper {
     position: relative;
     margin-bottom: 30px;
-    padding-top: 59.25%;
+    padding-top: 57.25%;
     @media (max-width: @mobile-breakpoint) {
       position: absolute;
       top: 0;
@@ -39,7 +39,20 @@
       position: absolute;
       top: 0;
       width: 100%;
+
+      /* max-height: 322px; */
+      height: 31vw;
+      max-height: 337px;
       border: 1px solid #d0d8df;
+      @media (max-width: 1050px) {
+        height: 201vw !important;
+        max-height: 31vw!important;
+
+      }
+      @media (max-width: @tablet-breakpoint) {
+        height: 51vw !important;
+        max-height: 403px !important;
+      }
       @media (max-width: @mobile-breakpoint) {
         right: 0;
         left: 0;
@@ -59,7 +72,7 @@
 
     .author-list-title {
       font-family: @body-font;
-      font-size: 2.2em;
+      font-size: 2em;
       font-weight: unset;
       @media (max-width: @mobile-breakpoint) {
         padding-bottom: 0;

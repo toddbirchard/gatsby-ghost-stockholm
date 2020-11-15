@@ -17,8 +17,8 @@ import '../styles/pages/about.less'
 *
 */
 const AboutPage = ({ data, location }) => {
-  const title = data.ghostPage.title
-  const description = data.ghostPage.description
+  const title = data.aboutPage.title
+  const description = data.aboutPage.description
   const introVideo = config.introVideo
 
   return (
@@ -39,7 +39,7 @@ const AboutPage = ({ data, location }) => {
                 <ReactPlayer
                   url={introVideo}
                   width="100%"
-                  height="357px"
+                  // height="337px"
                   className="about-video"
                   controls="true"
                   config={{
@@ -64,7 +64,7 @@ const AboutPage = ({ data, location }) => {
 
 AboutPage.propTypes = {
   data: PropTypes.shape({
-    ghostPage: PropTypes.shape({
+    aboutPage: PropTypes.shape({
       slug: PropTypes.string.isRequired,
       title: PropTypes.string,
       description: PropTypes.string,
@@ -79,7 +79,7 @@ AboutPage.propTypes = {
 
 export const AboutPageQuery = graphql`
     query aboutPage($slug: String) {
-      ghostPage(slug: {eq: $slug}) {
+      aboutPage: ghostPage(slug: {eq: $slug}) {
         ...GhostPageFields
       }
   }`
