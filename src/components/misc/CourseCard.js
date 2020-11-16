@@ -9,6 +9,9 @@ const CourseCard = ({ course, page }) => {
   const description = course.description
   const postCount = course.postCount
   const courseTags = page && page.tags
+  const tags = courseTags && courseTags.filter(function (tag) {
+    return tag.name.indexOf(`#`) === -1
+  })
   console.log(page)
   console.log(courseTags)
 
@@ -18,13 +21,13 @@ const CourseCard = ({ course, page }) => {
         <div className="series-card-image" style={{ backgroundImage: `url(${image})` }}> </div>
         <div className="series-card-info">
           <h3 className="series-card-title">{name}</h3>
-          <p className="series-card-description">{description}</p>
-          {courseTags &&
-            <div>
-              {courseTags.map(({ node }) => (
-                <div key={node.slug}>{node.name}</div>
+          {tags !== undefined ?
+            <div className="series-topics">
+              {tags.map(tag => (
+                <div className="topic" key={tag.slug}>{tag.name}</div>
               )) }
-            </div> }
+            </div> : null }
+          <p className="series-card-description">{description}</p>
 
           <span className="series-card-count">{postCount} Posts</span>
         </div>
@@ -43,21 +46,17 @@ CourseCard.propTypes = {
     name: PropTypes.string.isRequired,
   }).isRequired,
   page: PropTypes.shape({
-    edges: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string,
-        slug: PropTypes.string,
-        tags: PropTypes.shape({
-          edges: PropTypes.arrayOf(
-            PropTypes.shape({
-              name: PropTypes.string,
-              slug: PropTypes.string,
-              visibility: PropTypes.string,
-            }),
-          ),
+    title: PropTypes.string,
+    slug: PropTypes.string,
+    tags: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string,
+          slug: PropTypes.string,
+          visibility: PropTypes.string,
         }),
-      }),
-    ),
+      ),
+    }),
   }),
 }
 
