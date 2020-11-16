@@ -23,6 +23,21 @@ const SeriesArchive = ({ data, location }) => {
   const metaTitle = data.seriesPage.meta_title
   const metaDescription = data.seriesPage.meta_description
   const html = data.seriesPage.html
+  const seriesDetailPages = data.seriesDetail.edges
+
+  function getSeriesDetail(slug) {
+    let seriesDetailPage = undefined
+    seriesDetailPages.forEach((seriesDetail, i) => {
+      if (seriesDetail.node.slug === slug) {
+        seriesDetailPage = seriesDetail
+        console.log(seriesDetail)
+      }
+    })
+    if (seriesDetailPage) {
+      return seriesDetailPage.node
+    }
+    return seriesDetailPage
+  }
 
   return (
     <>
@@ -47,25 +62,29 @@ const SeriesArchive = ({ data, location }) => {
           <h2 className="course-section-title">Data Science & Engineering</h2>
           <div className="series-grid">
             {dataScienceCourses.map(({ node }) => (
-              <CourseCard course={node} key={node.id} />
+              <CourseCard course={node} page={getSeriesDetail(node.slug)} key={node.id} />
             ))}
           </div>
           <h2 className="course-section-title">Software Engineering</h2>
           <div className="series-grid">
             {softwareCourses.map(({ node }) => (
-              <CourseCard course={node} key={node.id} />
+              <CourseCard
+                course={node}
+                page={getSeriesDetail(node.slug)}
+                key={node.id}
+              />
             ))}
           </div>
           <h2 className="course-section-title">Data Analysis</h2>
           <div className="series-grid">
             {analysisCourses.map(({ node }) => (
-              <CourseCard course={node} key={node.id} />
+              <CourseCard course={node} page={getSeriesDetail(node.slug)} key={node.id} />
             ))}
           </div>
           <h2 className="course-section-title">Cloud Architecture</h2>
           <div className="series-grid">
             {cloudCourses.map(({ node }) => (
-              <CourseCard course={node} key={node.id} />
+              <CourseCard course={node} page={getSeriesDetail(node.slug)} key={node.id} />
             ))}
           </div>
         </main>
@@ -77,6 +96,23 @@ const SeriesArchive = ({ data, location }) => {
 SeriesArchive.propTypes = {
   data: PropTypes.shape({
     seriesPage: PropTypes.object.isRequired,
+    seriesDetail: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          slug: PropTypes.string,
+          tags: PropTypes.shape({
+            edges: PropTypes.arrayOf(
+              PropTypes.shape({
+                name: PropTypes.string,
+                slug: PropTypes.string,
+                visibility: PropTypes.string,
+              }),
+            ),
+          }),
+        }),
+      ),
+    }),
     datascience: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -86,7 +122,7 @@ SeriesArchive.propTypes = {
           feature_image: PropTypes.string.isRequired,
           description: PropTypes.string.isRequired,
           name: PropTypes.string.isRequired,
-        })
+        }),
       ),
     }).isRequired,
     software: PropTypes.shape({
@@ -133,6 +169,19 @@ export const seriesQuery = graphql`
     query seriesPage($slug: String) {
       seriesPage: ghostPage(slug: {eq: $slug}) {
         ...GhostPageFields
+      }
+      seriesDetail: allGhostPage(filter: {tags: {elemMatch: {visibility: {eq: "internal"}}}}) {
+        edges {
+          node {
+            title
+            slug
+            tags {
+              name
+              slug
+              visibility
+            }
+          }
+        }
       }
       datascience: allGhostTag(sort: {order: ASC, fields: meta_title}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql", "web-scraping-with-python"]}}) {
         edges {
