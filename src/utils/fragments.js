@@ -154,13 +154,18 @@ export const ghostPageFields = graphql`
 
         # Tags
         primary_tag {
-            name
-            slug
-            description
-            feature_image
-            meta_description
-            meta_title
-            visibility
+          name
+          slug
+          description
+          feature_image
+          meta_description
+          meta_title
+          visibility
+        }
+        tags {
+          name
+          slug
+          visibility
         }
 
         # Additional fields
