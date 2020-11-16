@@ -152,6 +152,17 @@ export const ghostPageFields = graphql`
         plaintext
         html
 
+        # Tags
+        primary_tag {
+            name
+            slug
+            description
+            feature_image
+            meta_description
+            meta_title
+            visibility
+        }
+
         # Additional fields
         url
         uuid

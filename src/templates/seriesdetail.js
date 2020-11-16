@@ -13,9 +13,10 @@ import '../styles/pages/seriesdetail.less'
  */
 
 const SeriesDetail = ({ data, location }) => {
-  const tag = data.ghostTag
+  const tag = data.seriesTag
   const tagName = tag.name.replace(`#`, ``)
   const posts = data.allGhostPost.edges
+  const page = data.seriesPage
 
   return (
     <>
@@ -34,7 +35,13 @@ const SeriesDetail = ({ data, location }) => {
         <main>
           <header className="series-header">
             <h1 className="series-title">{tagName}</h1>
-            {tag.description ? <p className="series-description">{tag.description}</p> : null}
+            {page
+              ? <main
+                className="post-content content-body load-external-scripts"
+                dangerouslySetInnerHTML={{ __html: page.html }}
+              />
+              : <p className="series-description">{tag.description}</p>
+            }
           </header>
           <section className="post-feed">
             {posts.map(({ node }, index) => (
@@ -49,10 +56,18 @@ const SeriesDetail = ({ data, location }) => {
 
 SeriesDetail.propTypes = {
   data: PropTypes.shape({
-    ghostTag: PropTypes.shape({
+    seriesTag: PropTypes.shape({
       name: PropTypes.string.isRequired,
       description: PropTypes.string,
       feature_image: PropTypes.string,
+    }),
+    seriesPage: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      ghostId: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      excerpt: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
+      html: PropTypes.string.isRequired,
     }),
     allGhostPost: PropTypes.shape({
       edges: PropTypes.arrayOf(
@@ -83,8 +98,11 @@ export default SeriesDetail
 
 export const pageQuery = graphql`
   query GhostSeriesQuery($slug: String!) {
-    ghostTag(slug: { eq: $slug }) {
+    seriesTag: ghostTag(slug: { eq: $slug }) {
       ...GhostTagFields
+    }
+    seriesPage: ghostPage(slug: { eq: $slug }) {
+      ...GhostPageFields
     }
     allGhostPost(
       sort: { order: ASC, fields: [published_at] },
