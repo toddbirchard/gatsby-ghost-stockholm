@@ -12,10 +12,11 @@ const SeriesPostCard = ({ post, count }) => {
   return (
     <>
       <div className="series-post-card">
+        <div className="series-post-number">{postNumber}</div>
         <div className="series-post-card-detail">
           <h2 className="series-post-card-title">
             <Link to={route}>
-              <span className="series-post-number">{postNumber}:</span> <span className="series-post-title-text">{post.title}</span>
+              <span className="series-post-title-text">{post.title}</span>
             </Link>
           </h2>
           <div className="excerpt">{post.excerpt}</div>
