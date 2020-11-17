@@ -280,8 +280,7 @@
     margin-bottom: 40px;
 
     .comment {
-      display: flex;
-      justify-content: space-between;
+
       margin-bottom: 30px;
       padding-bottom: 30px;
       border-bottom: 1px solid #dde0e6;
@@ -292,29 +291,32 @@
         border-bottom: unset;
       }
 
-      .user-avatar {
-        width: 50px;
-        min-width: 50px;
-        height: 50px;
-        margin-right: 20px;
-        border-radius: 50%;
-        @media (max-width: @mobile-breakpoint) {
-          width: 40px;
-          min-width: 40px;
-          height: 40px;
-          margin-right: 15px;
-        }
-      }
-
       .comment-main {
         width: 100%;
 
         .comment-head {
+          display: flex;
+          align-items: center;
           margin-bottom: 12px;
+
+          .user-avatar {
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            @media (max-width: @mobile-breakpoint) {
+              width: 40px;
+              min-width: 40px;
+              height: 40px;
+              margin-right: 15px;
+            }
+          }
 
           .comment-author {
             display: flex;
             align-items: center;
+            line-height: 1;
 
             * {
               display: inline-block;
@@ -322,7 +324,7 @@
 
             .user-name {
               font-family: @body-font-medium;
-              font-size: 1.3em;
+              font-size: 1.2em;
             }
 
             .badge.author {
@@ -349,13 +351,8 @@
         }
 
         .comment-body {
-          font-size: .85em;
+          font-size: .9em;
           line-height: 1.75;
-          @media(max-width: @mobile-breakpoint) {
-            width: 83vw;
-            margin-top: 15px;
-            margin-left: -14vw;
-          }
         }
 
         .comment-buttons {

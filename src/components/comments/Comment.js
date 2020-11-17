@@ -21,21 +21,23 @@ const Comment = ({ comment }) => {
 
   return (
     <div className="comment" key={comment.comment_id}>
-      { authorAvatar
-        ? <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
-        : <AiOutlineUser className="user-avatar" />
-      }
       <div className="comment-main">
         <div className="comment-head">
-          <div className="comment-author">
-            <span className="user-name">{comment.user_name}</span>
-            {authorIsAdmin
-              ? <span className="badge author">Author</span>
-              : authorIsModerator
-                ? <span className="badge moderator">Moderator</span>
-                : null }
+          { authorAvatar
+            ? <img className="user-avatar" src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
+            : <AiOutlineUser className="user-avatar" />
+          }
+          <div>
+            <div className="comment-author">
+              <span className="user-name">{comment.user_name}</span>
+              {authorIsAdmin
+                ? <span className="badge author">Author</span>
+                : authorIsModerator
+                  ? <span className="badge moderator">Moderator</span>
+                  : null }
+            </div>
+            <div className="comment-date">{comment.created_at}</div>
           </div>
-          <div className="comment-date">{comment.created_at}</div>
         </div>
         <div
           className="comment-body"
