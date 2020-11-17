@@ -31,7 +31,7 @@ const CommentForm = ({ post }) => {
   const identity = useIdentityContext()
   const user = identity.user_id
   const isLoggedIn = identity.isLoggedIn
-  const ref = React.useRef()
+  const formRef = React.useRef()
   const messageRef = React.useRef()
   const textAreaRef = React.useRef()
   const [userId, setUserId] = useState(user ? user.id : ``)
@@ -41,9 +41,11 @@ const CommentForm = ({ post }) => {
   const [userEmail, setUserEmail] = useState(user ? user.email : ``)
   const [userRole, setUserRole] = useState(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
   const [value, setValue] = useState(`Have something to say?`)
+  const [formVisibility, setFormVisibility] = useState(isLoggedIn ? `logged-in` : `logged-out`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
   const [dialog, setDialog] = React.useState(false)
   console.log(`Comment form identity = ` + identity)
+  console.log(`Comment form isLoggedIn = ` + isLoggedIn)
 
   useEffect(() => {
     setUserId(user ? user.id : ``)
@@ -56,9 +58,10 @@ const CommentForm = ({ post }) => {
   })
 
   const handleClick = () => {
+    console.log(`Click event user = ` + user)
     if (isLoggedIn){
-      ref.current.classList.add(`open`)
-      ref.current.classList.remove(`closed`)
+      formRef.current.classList.add(`open`)
+      formRef.current.classList.remove(`closed`)
       if (value === `Have something to say?`){
         setValue(``)
       }
@@ -94,8 +97,8 @@ const CommentForm = ({ post }) => {
         }),
       })
         .then(() => setValue(`Have something else to say?`))
-        .then(ref.current.classList.add(`closed`))
-        .then(ref.current.classList.remove(`open`))
+        .then(formRef.current.classList.add(`closed`))
+        .then(formRef.current.classList.remove(`open`))
         .then(messageRef.current.classList.add(`active`))
         .catch(error => console.log(error))
     }
@@ -107,6 +110,7 @@ const CommentForm = ({ post }) => {
     setUserAvatar(u.user_metadata.user_avatar)
     setUserProvider(u.app_metadata.provider)
     setUserEmail(u.email)
+    setFormVisibility(`logged-in`)
   }
   const handleLogout = () => {
     console.log(`logged out: ` + user)
@@ -115,6 +119,7 @@ const CommentForm = ({ post }) => {
     setUserAvatar(``)
     setUserProvider(``)
     setUserEmail(``)
+    setFormVisibility(`logged-out`)
   }
 
   return (
@@ -127,8 +132,8 @@ const CommentForm = ({ post }) => {
       </div>
 
       <div
-        className={`form-container closed ${isLoggedIn ? `logged-in` : `logged-out`}`}
-        ref={ref}
+        className={`form-container closed ${formVisibility}`}
+        ref={formRef}
         onClick={handleClick}
       >
 
