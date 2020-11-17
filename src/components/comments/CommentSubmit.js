@@ -9,12 +9,11 @@ const CommentSubmit = ({ children }) => {
   return (
     <>
       {isLoggedIn
-        ? <button
+        ? <input
           className="comment-btn submit"
           type="submit"
-        >
-          SUBMIT
-        </button>
+          value="Submit"
+        />
         :
         <button
           className="comment-btn login"
