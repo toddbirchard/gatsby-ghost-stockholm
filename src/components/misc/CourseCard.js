@@ -13,7 +13,6 @@ const CourseCard = ({ course, page }) => {
     return tag.name.indexOf(`#`) === -1
   })
   console.log(page)
-  console.log(courseTags)
 
   return (
     <>
