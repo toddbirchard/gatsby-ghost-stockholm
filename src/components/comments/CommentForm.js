@@ -58,6 +58,8 @@ const CommentForm = ({ post }) => {
     if (isLoggedIn){
       ref.current.classList.add(`open`)
       ref.current.classList.remove(`closed`)
+    } else {
+      setDialog(true)
     }
     if (value === `Have something to say?`){
       setValue(``)
