@@ -5,8 +5,7 @@ import { Link } from "gatsby"
 const SearchHit = ({ hit }) => {
   const featureImage = hit.feature_image
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
-  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``)
-  const featureRetinaImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
+  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
 
   return (
     <Link to={`/${hit.slug}/`}>
@@ -17,7 +16,6 @@ const SearchHit = ({ hit }) => {
               media="(max-width:600px)"
               data-srcset={featureMobileImage}
             />
-            <source data-srcset={featureRetinaImage} />
             <img
               className="search-result-image lazyload"
               data-src={featureImage}

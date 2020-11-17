@@ -124,7 +124,7 @@ const FooterQuery = props => (
                 }
               }
             }
-            series: allGhostTag(limit: 7, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 3}, slug: {ne: "adventures-in-excel", nin: "code-snippet-corner"}}) {
+            series: allGhostTag(limit: 8, sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 2}, slug: {ne: "adventures-in-excel", nin: ["code-snippet-corner", "hacking-tableau-server", "mongodb-cloud", "the-rise-of-google-cloud", "create-an-aws-api"]}}) {
               edges {
                 node {
                   slug
