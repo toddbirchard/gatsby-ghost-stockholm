@@ -22,7 +22,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
   const site = data.ghostSettings
   const corePages = [`home-template`, `page-template`, `tag-template`]
   const isCorePage = corePages.includes(template)
-  const authUrl = `https://hackersandslackers.com/.netlify/identity`
+  const authUrl = `https://hackersandslackers.com`
 
   return (
     <>
