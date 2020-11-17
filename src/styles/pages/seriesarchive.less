@@ -33,7 +33,7 @@
     font-size: 1.9em;
     font-weight: 200;
     @media (max-width: @mobile-breakpoint) {
-      font-size: 1.7em;
+      font-size: 1.6em;
       line-height: 1.2;
     }
   }
@@ -126,15 +126,17 @@
 
     .series-topics {
       display: flex;
-      margin-bottom: 15px;
+      flex-wrap: wrap;
+      margin: 15px 0 10px;
 
       .topic {
         margin-right: 9px;
         margin-bottom: 4px;
         color: lighten(@body-color, 20%);
         font-family: @body-font-medium;
-        font-size: .75em;
+        font-size: .8em;
         line-height: 1;
+        white-space: nowrap;
       }
     }
 

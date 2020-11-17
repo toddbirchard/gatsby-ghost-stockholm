@@ -12,7 +12,6 @@ const CourseCard = ({ course, page }) => {
   const tags = courseTags && courseTags.filter(function (tag) {
     return tag.name.indexOf(`#`) === -1
   })
-  console.log(page)
 
   return (
     <>
