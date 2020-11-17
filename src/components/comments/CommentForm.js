@@ -51,6 +51,7 @@ const CommentForm = ({ post }) => {
     setUserProvider(user ? user.app_metadata.provider : ``)
     setUserEmail(user ? user.email : ``)
     setUserRole(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
+    console.log(user)
   })
 
   const handleClick = () => {
@@ -67,9 +68,13 @@ const CommentForm = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
+    console.log(`form submit attempted.`)
+    console.log(`userId = ` + userId)
+    console.log(`value = ` + value)
     if (userEmail.indexOf(`.ru`) > 0) {
       console.log(`Invalid user`)
     } else if (userId && value !== `Have something to say?` && value !== `` && value !== undefined) {
+      console.log(`form submission passed`)
       fetch(`/`, {
         method: `POST`,
         headers: { 'Content-Type': `application/x-www-form-urlencoded` },
@@ -95,6 +100,7 @@ const CommentForm = ({ post }) => {
     }
   }
   const handleLogin = (u) => {
+    console.log(`logged in: ` + u)
     setUserId(u.id)
     setUserName(u.user_metadata.full_name)
     setUserAvatar(u.user_metadata.user_avatar)
@@ -102,6 +108,7 @@ const CommentForm = ({ post }) => {
     setUserEmail(u.email)
   }
   const handleLogout = () => {
+    console.log(`logged out: ` + user)
     setUserId(``)
     setUserName(``)
     setUserAvatar(``)
