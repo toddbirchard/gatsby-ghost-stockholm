@@ -7,6 +7,7 @@ const AuthButton = ({ styleClass }) => {
   let identity = useIdentityContext()
   let isLoggedIn = identity && identity.isLoggedIn
   const [user, setUser] = React.useState(isLoggedIn)
+  console.log(`Footer identity = ` + identity)
 
   return (
     <>

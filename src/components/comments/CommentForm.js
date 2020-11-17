@@ -43,6 +43,7 @@ const CommentForm = ({ post }) => {
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
   const [dialog, setDialog] = React.useState(false)
+  console.log(`Comment form identity = ` + identity)
 
   useEffect(() => {
     setUserId(user ? user.id : ``)
