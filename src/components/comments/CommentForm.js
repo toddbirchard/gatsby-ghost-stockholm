@@ -192,7 +192,7 @@ const CommentForm = ({ post }) => {
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="commentBody">Comment</label>
-            <textarea id="commentBody" name="commentBody" value={value} ></textarea>
+            <textarea id="commentBody" name="commentBody" value={value}></textarea>
           </fieldset>
 
           <ReactMde
