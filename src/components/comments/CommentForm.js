@@ -43,8 +43,6 @@ const CommentForm = ({ post }) => {
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
   const [dialog, setDialog] = React.useState(false)
-  console.log(`Comment form identity = ` + identity)
-  console.log(`Comment form isLoggedIn = ` + isLoggedIn)
 
   useEffect(() => {
     setUserId(user ? user.id : ``)
@@ -60,8 +58,6 @@ const CommentForm = ({ post }) => {
       formRef.current.classList.add(`logged-out`)
       formRef.current.classList.remove(`logged-in`)
     }
-    console.log(`user = ` + user)
-    console.log(`isLoggedIn = ` + isLoggedIn)
   })
 
   const handleClick = () => {
@@ -78,7 +74,6 @@ const CommentForm = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    console.log(`form submit attempted.`)
     if (userEmail.indexOf(`.ru`) > 0) {
       console.log(`Invalid user`)
     } else if (isLoggedIn && value !== `Have something to say?` && value !== `` && value !== undefined) {
@@ -107,7 +102,6 @@ const CommentForm = ({ post }) => {
     }
   }
   const handleLogin = (u) => {
-    console.log(`logged in: ` + u)
     setUserId(u.id)
     setUserName(u.user_metadata.full_name)
     setUserAvatar(u.user_metadata.user_avatar)
@@ -115,7 +109,6 @@ const CommentForm = ({ post }) => {
     setUserEmail(u.email)
   }
   const handleLogout = () => {
-    console.log(`logged out: ` + user)
     setUserId(``)
     setUserName(``)
     setUserAvatar(``)
