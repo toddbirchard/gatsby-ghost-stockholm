@@ -6,15 +6,24 @@ const AuthButton = ({ styleClass }) => {
   const [dialog, setDialog] = React.useState(false)
   const identity = useIdentityContext()
   const isLoggedIn = identity && identity.isLoggedIn
-  const [user, setUser] = React.useState(isLoggedIn)
-  console.log(`Footer identity = ` + identity)
+  const [userSession, setUserSession] = React.useState(isLoggedIn)
+
+  const handleLogout = (u) => {
+    console.log(`logging user out: ` + u)
+    identity.logoutUser
+    setUserSession(identity.isLoggedIn)
+  }
+  const handleLogin = (u) => {
+    console.log(`logging user in: ` + u)
+    setUserSession(identity.isLoggedIn)
+  }
 
   return (
     <>
-      {user
+      {userSession
         ? <a
           className={styleClass}
-          onClick={() => identity.logoutUser}
+          onClick={u => handleLogout(u)}
         > Sign out</a>
         : <a
           className={styleClass}
@@ -24,8 +33,9 @@ const AuthButton = ({ styleClass }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={() => setUser(identity.isLoggedIn)}
-        onSignup={() => setUser(identity.isLoggedIn)}
+        onLogin={u => handleLogin(u)}
+        onSignup={u => handleLogin(u)}
+        onLogout={u => handleLogout(u)}
       />
     </>
   )
