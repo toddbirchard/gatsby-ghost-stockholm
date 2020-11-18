@@ -55,6 +55,13 @@ const CommentForm = ({ post }) => {
     setUserEmail(user ? user.email : ``)
     setUserRole(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
     setFormVisibility(isLoggedIn ? `logged-in` : `logged-out`)
+    if (isLoggedIn) {
+      formRef.current.classList.add(`logged-in`)
+      formRef.current.classList.remove(`logged-out`)
+    } else {
+      formRef.current.classList.add(`logged-in`)
+      formRef.current.classList.remove(`logged-out`)
+    }
     console.log(`user = ` + user)
     console.log(`isLoggedIn = ` + isLoggedIn)
   })
