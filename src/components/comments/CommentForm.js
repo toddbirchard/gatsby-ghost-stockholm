@@ -59,8 +59,8 @@ const CommentForm = ({ post }) => {
       formRef.current.classList.add(`logged-in`)
       formRef.current.classList.remove(`logged-out`)
     } else {
-      formRef.current.classList.add(`logged-in`)
-      formRef.current.classList.remove(`logged-out`)
+      formRef.current.classList.add(`logged-out`)
+      formRef.current.classList.remove(`logged-in`)
     }
     console.log(`user = ` + user)
     console.log(`isLoggedIn = ` + isLoggedIn)
