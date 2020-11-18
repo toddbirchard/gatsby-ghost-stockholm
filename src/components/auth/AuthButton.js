@@ -10,12 +10,15 @@ const AuthButton = ({ styleClass }) => {
 
   const handleLogout = (u) => {
     console.log(`logging user out: ` + u)
-    identity.logoutUser
-    setUserSession(identity.isLoggedIn)
+    identity.logoutUser()
+      .then(() => setUserSession(identity.isLoggedIn))
+      .catch(error => console.log(error))
+    console.log(`userSession: ` + userSession)
   }
   const handleLogin = (u) => {
     console.log(`logging user in: ` + u)
     setUserSession(identity.isLoggedIn)
+    console.log(`userSession: ` + userSession)
   }
 
   return (
