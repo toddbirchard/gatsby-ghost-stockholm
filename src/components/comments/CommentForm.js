@@ -54,7 +54,9 @@ const CommentForm = ({ post }) => {
     setUserProvider(user ? user.app_metadata.provider : ``)
     setUserEmail(user ? user.email : ``)
     setUserRole(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
-    console.log(user)
+    setFormVisibility(isLoggedIn ? `logged-in` : `logged-out`)
+    console.log(`user = ` + user)
+    console.log(`isLoggedIn = ` + isLoggedIn)
   })
 
   const handleClick = () => {
@@ -77,7 +79,7 @@ const CommentForm = ({ post }) => {
     console.log(`value = ` + value)
     if (userEmail.indexOf(`.ru`) > 0) {
       console.log(`Invalid user`)
-    } else if (userId && value !== `Have something to say?` && value !== `` && value !== undefined) {
+    } else if (isLoggedIn && value !== `Have something to say?` && value !== `` && value !== undefined) {
       console.log(`form submission passed`)
       fetch(`/`, {
         method: `POST`,
