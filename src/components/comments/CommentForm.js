@@ -29,7 +29,7 @@ const CommentForm = ({ post }) => {
   const authorName = post.primary_author.name
   const commentId = post.comment_id
   const identity = useIdentityContext()
-  const user = identity.user_id
+  const user = identity.user
   const isLoggedIn = identity.isLoggedIn
   const formRef = React.useRef()
   const messageRef = React.useRef()
