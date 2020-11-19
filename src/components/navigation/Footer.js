@@ -71,7 +71,7 @@ const Footer = ({ navigation, site, data }) => {
           </div>
           <div className="copyright">
             <SocialWidget site={site} />
-            <p>{config.siteCopyright}</p>
+            <div>{config.siteCopyright}</div>
           </div>
         </div>
       </footer>

@@ -30,7 +30,6 @@ const SeriesArchive = ({ data, location }) => {
     seriesDetailPages.forEach((seriesDetail, i) => {
       if (seriesDetail.node.slug === slug) {
         seriesDetailPage = seriesDetail
-        console.log(seriesDetail)
       }
     })
     if (seriesDetailPage) {

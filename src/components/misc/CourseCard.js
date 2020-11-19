@@ -26,7 +26,6 @@ const CourseCard = ({ course, page }) => {
               )) }
             </div> : null }
           <p className="series-card-description">{description}</p>
-
           <span className="series-card-count">{postCount} Posts</span>
         </div>
       </Link>
