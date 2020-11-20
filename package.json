@@ -75,7 +75,7 @@
     "gatsby-plugin-canonical-urls": "^2.4.0",
     "gatsby-plugin-catch-links": "2.4.0",
     "gatsby-plugin-eslint": "^2.0.8",
-    "gatsby-plugin-feed": "2.7.0",
+    "gatsby-plugin-feed": "2.8.0",
     "gatsby-plugin-force-trailing-slashes": "1.0.4",
     "gatsby-plugin-less": "^4.1.0",
     "gatsby-plugin-netlify-cache": "^1.2.0",
