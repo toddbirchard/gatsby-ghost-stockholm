@@ -39,7 +39,6 @@ const CommentForm = ({ post }) => {
   const [userAvatar, setUserAvatar] = useState(user ? user.user_metadata.avatar_url : ``)
   const [userProvider, setUserProvider] = useState(user ? user.app_metadata.provider : ``)
   const [userEmail, setUserEmail] = useState(user ? user.email : ``)
-  const [userRole, setUserRole] = useState(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
   const [dialog, setDialog] = React.useState(false)
@@ -50,7 +49,6 @@ const CommentForm = ({ post }) => {
     setUserAvatar(user ? user.user_metadata.avatar_url : ``)
     setUserProvider(user ? user.app_metadata.provider : ``)
     setUserEmail(user ? user.email : ``)
-    setUserRole(user && user.app_metadata.roles ? user.app_metadata.roles[0] : ``)
     if (isLoggedIn) {
       formRef.current.classList.add(`logged-in`)
       formRef.current.classList.remove(`logged-out`)
@@ -74,9 +72,7 @@ const CommentForm = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    if (userEmail.indexOf(`.ru`) > 0) {
-      console.log(`Invalid user`)
-    } else if (isLoggedIn && value !== `Have something to say?` && value !== `` && value !== undefined) {
+    if (isLoggedIn && value !== `Have something to say?` && value !== `` && value !== undefined && userEmail.indexOf(`.ru`) > 0) {
       fetch(`/`, {
         method: `POST`,
         headers: { 'Content-Type': `application/x-www-form-urlencoded` },
@@ -178,11 +174,6 @@ const CommentForm = ({ post }) => {
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userProvider">User Provider</label>
             <input id="userProvider" name="userProvider" type="text" value={userProvider} />
-          </fieldset>
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userRole">User Role</label>
-            <input id="userRole" name="userRole" type="text" value={userRole} />
           </fieldset>
 
           <fieldset className="hidden-label">
