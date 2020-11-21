@@ -98,7 +98,7 @@
         white-space: nowrap;
         transition: @transition;
         @media (max-width: @mobile-breakpoint) {
-          font-size: 1em;
+          font-size: 1.05em;
           text-align: left;
         }
 
@@ -183,7 +183,7 @@
     }
   }
 
-  .copyright {
+  .subfooter {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -192,10 +192,10 @@
     @media (max-width: @mobile-breakpoint) {
       flex-direction: column;
       margin: 0;
-      padding: 40px 0 0;
+      padding: 50px 0 0;
     }
 
-    p {
+    .copyright {
       color: lighten(@body-color, 20%);
       font-size: 0.9em;
       line-height: 1.4;
@@ -322,11 +322,22 @@
 .search-template {
   .site-footer {
     width: 1100px !important;
+    max-width: 90%;
+    @media (max-width: @mobile-breakpoint) {
+      max-width: unset;
+      width: unset !important;
+    }
 
     .footer-wrapper {
       width: unset;
       max-width: unset;
       border-top: 1px solid #d8e0e6;
+      @media (max-width: @mobile-breakpoint) {
+        width: 80%;
+        max-width: unset;
+        margin: 80px auto 30px;
+        border-top: unset;
+      }
     }
   }
 }

@@ -46,7 +46,7 @@
       font-family: @body-font;
       font-size: 2em;
       font-weight: normal;
-      @media(max-width: @mobile-breakpoint) {
+      @media (max-width: @mobile-breakpoint) {
         margin: 0 0 10px;
       }
     }
@@ -355,6 +355,10 @@
     @media (max-width: @tablet-breakpoint) {
       margin: 0 !important;
     }
+    @media (max-width: @mobile-breakpoint) {
+      width: 95%;
+      margin: 10px auto 0 !important;
+    }
 
     .ais-Hits-list {
       grid-gap: 10px;
@@ -367,7 +371,7 @@
         grid-template-columns: 1fr 1fr 1fr;
       }
       @media (max-width: @mobile-breakpoint) {
-        grid-gap: 15px;
+        grid-gap: 20px;
         grid-template-columns: 1fr 1fr;
       }
       @media (max-width: 500px) {
@@ -406,7 +410,7 @@
           letter-spacing: -.5px;
           line-height: 1.2;
           @media (max-width: @mobile-breakpoint) {
-            font-size: 1.2em !important;
+            font-size: 1.3em !important;
           }
         }
 
@@ -449,20 +453,16 @@
     display: flex;
     justify-content: space-between;
     width: 500px;
-    max-width: 80%;
+    max-width: 90%;
     margin: 50px auto auto;
     padding: 0;
     list-style: none;
-    list-style: none;
 
-    li {
-      padding-left: 0;
-      line-height: 1;
-    }
-
-    a {
+    .ais-Pagination-item > .ais-Pagination-link {
       -webkit-transition: all 0.2s ease-out;
-      padding: 6px 12px;
+      padding: 6px 9px;
+      height: 15px;
+      display: block;
       border-radius: 3px;
       color: #8992aa;
       font-family: @body-font-bold;
@@ -471,6 +471,12 @@
       text-decoration: none;
       transition: all 0.2s ease-out;
 
+      &.ais-Pagination-link--selected {
+        a {
+          background: #ebecf0;
+        }
+      }
+
       &:hover {
         background: @hover-color;
         color: white !important;
@@ -478,8 +484,16 @@
     }
   }
 
-  .ais-Pagination-item--disabled {
-    opacity: 0.2;
+  .ais-Pagination-item--previousPage,
+  .ais-Pagination-item--nextPage {
+    a, span {
+      padding: 6px !important;
+      height: 18px !important;
+    }
+
+    &.ais-Pagination-item--disabled {
+      display: none;
+    }
   }
 
   .ais-SearchBox-reset {

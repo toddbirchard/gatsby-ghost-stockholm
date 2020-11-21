@@ -6,20 +6,22 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from 'react-accessible-accordion'
-import { AiOutlineHome,
+import {
+  AiOutlineHome,
   AiOutlineInfoCircle,
   AiOutlineSearch,
   AiOutlineTags,
   AiOutlineBook,
   AiOutlineUser,
   AiOutlineUserAdd,
-  AiOutlineDollarCircle } from "react-icons/ai"
+  AiOutlineDollarCircle
+} from "react-icons/ai"
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { StaticQuery, graphql } from 'gatsby'
-import { slide as Menu } from 'react-burger-menu'
-import { FaChevronDown } from 'react-icons/fa'
-import { FiRss } from 'react-icons/fi'
+import {Link} from 'gatsby'
+import {StaticQuery, graphql} from 'gatsby'
+import {slide as Menu} from 'react-burger-menu'
+import {FaChevronDown} from 'react-icons/fa'
+import {FiRss} from 'react-icons/fi'
 
 class MobileMenu extends React.Component {
   constructor(props) {
@@ -34,32 +36,32 @@ class MobileMenu extends React.Component {
       <>
         <Menu
           right
-          width={ `90%` }
-          isOpen={ false }
-          burgerButtonClassName={ `hamburger-button` }
-          crossClassName={ `hamburger-cross-bar` }
+          width={`90%`}
+          isOpen={false}
+          burgerButtonClassName={`hamburger-button`}
+          crossClassName={`hamburger-cross-bar`}
           className="mobile-menu"
-          htmlClassName={ `menu-lock-screen` }
+          htmlClassName={`menu-lock-screen`}
           disableAutoFocus
         >
           <div className="pages">
-            <Link className={`navigation-link`} to={`/`}><AiOutlineHome />Home</Link>
-            <Link className={`navigation-link`} to={`/about/`}><AiOutlineInfoCircle />About</Link>
-            <Link className={`navigation-link`} to={`/search/`}><AiOutlineSearch />Search</Link>
+            <Link className={`navigation-link`} to={`/`}><AiOutlineHome/>Home</Link>
+            <Link className={`navigation-link`} to={`/about/`}><AiOutlineInfoCircle/>About</Link>
+            <Link className={`navigation-link`} to={`/search/`}><AiOutlineSearch/>Search</Link>
             <Accordion allowZeroExpanded>
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span><AiOutlineTags />Tags</span> <FaChevronDown className="chevron" />
+                    <span><AiOutlineTags/>Tags</span> <FaChevronDown className="chevron"/>
                   </AccordionItemButton>
                 </AccordionItemHeading>
-                <AccordionItemPanel >
-                  {this.tags.map(({ node }) => (
+                <AccordionItemPanel>
+                  {this.tags.map(({node}) => (
                     <Link
-                      to={`/tag/${ node.slug }`}
+                      to={`/tag/${node.slug}`}
                       className="tag-link"
-                      key={ node.id }>
-                      { node.name }
+                      key={node.id}>
+                      {node.name}
                     </Link>
                   ))}
                 </AccordionItemPanel>
@@ -67,17 +69,17 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span><AiOutlineBook />Series</span> <FaChevronDown className="chevron" />
+                    <span><AiOutlineBook/>Series</span> <FaChevronDown className="chevron"/>
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                  {this.series.map(({ node }) => (
+                  {this.series.map(({node}) => (
                     <Link
-                      to={`/series/${ node.slug }`}
+                      to={`/series/${node.slug}`}
                       className="tag-link"
-                      key={ node.ghostId }
+                      key={node.ghostId}
                     >
-                      { node.meta_title }
+                      {node.meta_title}
                     </Link>
                   ))}
                 </AccordionItemPanel>
@@ -85,28 +87,28 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span><AiOutlineUser />Authors</span> <FaChevronDown className="chevron" />
+                    <span><AiOutlineUser/>Authors</span> <FaChevronDown className="chevron"/>
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                  {this.authors.map(({ node }) => (
+                  {this.authors.map(({node}) => (
                     <Link
-                      to={`/author/${ node.slug }`}
+                      to={`/author/${node.slug}`}
                       className="tag-link"
-                      key={ node.id }
+                      key={node.id}
                     >
-                      { node.name }
+                      {node.name}
                     </Link>
                   ))}
                 </AccordionItemPanel>
               </AccordionItem>
             </Accordion>
             <Link to="/join-us/" className={`navigation-link`}>
-              <AiOutlineUserAdd />
+              <AiOutlineUserAdd/>
               <span>Join</span>
             </Link>
-            <Link to="/rss.xml" className={`navigation-link`} >
-              <FiRss />
+            <Link to="/rss.xml" className={`navigation-link`}>
+              <FiRss/>
               <span>RSS</span>
             </Link>
             <a
@@ -115,7 +117,7 @@ class MobileMenu extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <AiOutlineDollarCircle /> Donate
+              <AiOutlineDollarCircle/> Donate
             </a>
           </div>
         </Menu>
@@ -176,7 +178,7 @@ const MobileMenuQuery = props => (
                 }
               }
             }
-            authors: allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}) {
+            authors: allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}, sort: {fields: id, order: ASC}) {
               edges {
                 node {
                   name

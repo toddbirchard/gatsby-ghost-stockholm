@@ -31,7 +31,12 @@ const Author = ({ data, location, pageContext }) => {
       />
       <Layout template="author-template" hasSidebar authorData={data}>
         <div className="author-container">
-          <AuthorCard author={author} page="author" template="author-template" pageContext={pageContext}/>
+          <AuthorCard
+            author={author}
+            page="author"
+            template="author-template"
+            pageContext={pageContext
+            }/>
           <section className="post-feed">
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>
@@ -108,7 +113,6 @@ Author.propTypes = {
         views: PropTypes.number,
       }),
     ),
-    authorPocket: PropTypes.object,
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,

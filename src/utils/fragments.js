@@ -25,6 +25,8 @@ export const ghostAuthorFields = graphql`
         location
         website
         twitter
+        facebook
+        postCount
         count {
           posts
         }
