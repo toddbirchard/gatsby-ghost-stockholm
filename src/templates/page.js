@@ -18,7 +18,6 @@ const Page = ({ data, location, pageContext }) => {
   const title = pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
   const metaTitle = page.meta_title
   const metaDescription = page.meta_description
-  const featureImage = page.feature_image
 
   return (
     <>

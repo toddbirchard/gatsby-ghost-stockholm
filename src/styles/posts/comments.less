@@ -14,17 +14,20 @@
       &.closed {
         .comment-btn {
           margin: -52px 0 0 auto;
+          border-radius: 0 3px 3px 0 !important;
           @media (max-width: @mobile-breakpoint) {
             display: none;
           }
         }
 
         &.open {
+          border-radius: 0 3px 3px 0 !important;
           @media (max-width: @mobile-breakpoint) {
             display: block;
             height: 40px;
             margin: 20px 0 0 auto;
             padding: 12px 10px;
+            border-radius: 3px !important;
           }
 
           .react-mde {
@@ -36,7 +39,6 @@
         }
 
         form {
-
           .comment-btn {
             padding: 13px 10px;
             border-radius: 3px;
@@ -249,7 +251,7 @@
       margin: 0 0 0 auto;
       padding: 15px 10px;
       border: none;
-      border-radius: 0 3px 3px 0;
+      border-radius: 3px;
       background: #0298f6;
       box-shadow: inset 0 0 0 1px @theme-color;
       color: white;
@@ -388,8 +390,8 @@
   height: 1px;
   padding: 15px 0;
   overflow: hidden;
-  background: #b7e6b7;
-  box-shadow: 0 0 10px 2px rgba(#2d6327, 0.66);
+  background: #c9e1c9;
+  box-shadow: 0 0 5px 2px rgba(37, 90, 36, .4);
 
   opacity: 0;
   transition: all .4s ease-out;
@@ -400,26 +402,34 @@
     width: fit-content;
     height: fit-content;
     margin: 10px auto;
-    color: #256424;
+    color: #255a24;
     font-family: @body-font-medium;
     font-size: 1.6em;
     text-align: center;
+    transition: @transition;
     @media (max-width: @mobile-breakpoint) {
       font-size: 1.3em;
     }
 
     .icon {
-      margin-right: 10px;
-      color: #256424;
-      font-size: .9em;
+      margin-right: 5px;
+      color: #163d15;
+      font-size: .75em;
+    }
+
+    div {
+      @media(max-width: @mobile-breakpoint) {
+        height: 15px;
+      }
     }
   }
 
   p {
     max-width: 90%;
     margin: auto;
-    color: #256424;
-    font-size: .85em;
+    color: #163d15;
+    font-size: 1.05em;
+    line-height: 1;
     text-align: center;
   }
 }
@@ -429,4 +439,8 @@
   top: 0;
   height: 70px;
   opacity: 1;
+}
+
+.inactive {
+  opacity: 0 !important;
 }

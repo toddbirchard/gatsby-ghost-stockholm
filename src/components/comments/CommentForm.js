@@ -23,6 +23,10 @@ const converter = new Showdown.Converter({
   emoji: true,
 })
 
+const wait = timeout => new Promise((resolve) => {
+  setTimeout(resolve, timeout)
+})
+
 const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
@@ -94,6 +98,7 @@ const CommentForm = ({ post }) => {
         .then(formRef.current.classList.add(`closed`))
         .then(formRef.current.classList.remove(`open`))
         .then(messageRef.current.classList.add(`active`))
+        .then(hideMessage)
         .catch(error => console.log(error))
     }
   }
@@ -111,14 +116,18 @@ const CommentForm = ({ post }) => {
     setUserProvider(``)
     setUserEmail(``)
   }
+  const hideMessage = () => {
+    wait(2000).then(() => messageRef.classList.add(`inactive`))
+      .catch(error => console.log(error))
+  }
 
   return (
     <>
       <div className="success-message" ref={messageRef}>
         <div className="message">
-          <FaCheck className="icon" /> <span className="">Comment Submitted!</span>
+          <FaCheck className="icon" /> <div>Comment Submitted!</div>
         </div>
-        <p>Thanks for contributing! Your comment will be visible shortly.</p>
+        <p>Your comment will be visible shortly.</p>
       </div>
 
       <div

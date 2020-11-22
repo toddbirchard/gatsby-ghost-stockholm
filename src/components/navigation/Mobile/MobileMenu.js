@@ -14,14 +14,14 @@ import {
   AiOutlineBook,
   AiOutlineUser,
   AiOutlineUserAdd,
-  AiOutlineDollarCircle
+  AiOutlineDollarCircle,
 } from "react-icons/ai"
 import PropTypes from 'prop-types'
-import {Link} from 'gatsby'
-import {StaticQuery, graphql} from 'gatsby'
-import {slide as Menu} from 'react-burger-menu'
-import {FaChevronDown} from 'react-icons/fa'
-import {FiRss} from 'react-icons/fi'
+import { Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import { slide as Menu } from 'react-burger-menu'
+import { FaChevronDown } from 'react-icons/fa'
+import { FiRss } from 'react-icons/fi'
 
 class MobileMenu extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class MobileMenu extends React.Component {
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                  {this.tags.map(({node}) => (
+                  {this.tags.map(({ node }) => (
                     <Link
                       to={`/tag/${node.slug}`}
                       className="tag-link"
@@ -73,7 +73,7 @@ class MobileMenu extends React.Component {
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                  {this.series.map(({node}) => (
+                  {this.series.map(({ node }) => (
                     <Link
                       to={`/series/${node.slug}`}
                       className="tag-link"
@@ -91,7 +91,7 @@ class MobileMenu extends React.Component {
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                  {this.authors.map(({node}) => (
+                  {this.authors.map(({ node }) => (
                     <Link
                       to={`/author/${node.slug}`}
                       className="tag-link"
