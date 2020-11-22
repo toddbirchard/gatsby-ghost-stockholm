@@ -11,7 +11,7 @@ const RelatedPost = ({ post }) => {
   return (
     <>
       <Link
-        to={`/${post.slug.includes(`lynx`) ? `/roundup/${post.slug}` : post.slug}/`}
+        to={`/${post.slug.includes(`lynx`) ? `roundup/${post.slug}` : post.slug}/`}
         className="related-post-card"
         key={post.ghostId}
       >

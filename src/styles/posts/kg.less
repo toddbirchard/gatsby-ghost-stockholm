@@ -277,14 +277,9 @@
 
 // Embedded iFrames, Tweets, etc.
 .kg-embed-card {
-  width: fit-content;
-  max-width: unset !important;
-  margin: 0 auto 30px;
-  overflow: hidden;
-  border: 1px solid #ececec;
-  border-radius: 5px;
-  box-shadow: 0 1px 4px rgba(39, 44, 49, 0.07);
-  text-decoration: none;
+  max-width: 100%;
+  border: 0;
+  border-radius: 5px;  text-decoration: none;
   transition: @transition;
   @media (max-width: @mobile-breakpoint) {
     width: 100%;
@@ -311,13 +306,18 @@
     margin: 0 !important;
   }
 
-  &:hover {
+  /*&:hover {
     border-color: @theme-color;
     background-color: @theme-color;
 
     * {
       color: white !important;
     }
+  }*/
+
+  & > div,
+  & > iframe {
+    margin: 0 auto !important;
   }
 
   .EmbeddedTweet {
