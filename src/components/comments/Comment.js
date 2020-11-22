@@ -20,7 +20,7 @@ const Comment = ({ comment }) => {
   const authorAvatar = comment.user_avatar === undefined ? null : comment.user_avatar
 
   return (
-    <div className="comment" key={comment.comment_id}>
+    <div className="comment" key={comment.comment_id} id={comment.comment_id}>
       <div className="comment-main">
         <div className="comment-head">
           { authorAvatar
