@@ -97,13 +97,16 @@
         .input-text-fields();
         min-width: 250px;
         height: 50px;
-        background: #fcfcfd !important;
+        background: #f1f3f7 !important;
+        color: #828fa1 !important;
         font-size: 1em !important;
         @media (max-width: 900px) {
           min-width: unset;
         }
         @media (max-width: @mobile-breakpoint) {
+          height: 45px;
           padding: 12px;
+          border: 1px solid #dde5e9;
         }
 
         &:hover {
@@ -202,8 +205,6 @@
       min-width: 200px;
       height: fit-content;
       padding: 20px;
-      background: white;
-      box-shadow: @box-shadow;
       @media (max-width: 900px) {
         display: none;
       }
@@ -460,9 +461,9 @@
 
     .ais-Pagination-item > .ais-Pagination-link {
       -webkit-transition: all 0.2s ease-out;
-      padding: 6px 9px;
-      height: 15px;
       display: block;
+      height: 15px;
+      padding: 6px 9px;
       border-radius: 3px;
       color: #8992aa;
       font-family: @body-font-bold;
@@ -487,8 +488,8 @@
   .ais-Pagination-item--previousPage,
   .ais-Pagination-item--nextPage {
     a, span {
-      padding: 6px !important;
       height: 18px !important;
+      padding: 6px !important;
     }
 
     &.ais-Pagination-item--disabled {
