@@ -27,7 +27,7 @@ const SeriesArchive = ({ data, location }) => {
 
   function getSeriesDetail(slug) {
     let seriesDetailPage = undefined
-    seriesDetailPages.forEach((seriesDetail, i) => {
+    seriesDetailPages.forEach((seriesDetail) => {
       if (seriesDetail.node.slug === slug) {
         seriesDetailPage = seriesDetail
       }

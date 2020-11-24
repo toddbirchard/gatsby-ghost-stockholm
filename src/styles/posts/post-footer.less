@@ -48,6 +48,8 @@
 
       .related-post-image-wrapper {
         width: 100%;
+        background-color: #dbe5f1;
+        min-height: 141px;
 
         img {
           width: 100%;
@@ -142,16 +144,14 @@
   }
 
   .widget.support {
-    display: flex;
-    position: relative;
-    flex-flow: wrap-reverse;
-    align-items: flex-end;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8%;
     margin: 40px auto 0;
     text-align: center;
     @media (max-width: @mobile-breakpoint) {
-      flex-direction: column;
-      margin: 40px 10px 70px;
+      grid-template-columns: 1fr;
+      margin: 50px 15px 80px;
     }
 
     .post-footer-title {
@@ -165,10 +165,16 @@
 
     .donate-section,
     .newsletter-section {
-      width: 43%;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       @media (max-width: @mobile-breakpoint) {
         width: 100%;
+      }
+
+      .support-description {
+        font-size: .9em;
+        line-height: 1.6;
       }
     }
 
@@ -182,41 +188,13 @@
     }
 
     .donate-section {
-      .support-description {
-        margin-bottom: 70px;
-        font-size: .9em;
-        line-height: 1.5;
-        @media (max-width: @mobile-breakpoint) {
-          margin-bottom: 20px;
-        }
-      }
 
-      .coffee-button {
-        border-radius: 3px;
-      }
-
-      .coffee-button-text {
-        font-family: @body-font;
-        font-size: 15px !important;
-        font-weight: 600;
-      }
-    }
-
-    .divider {
-      display: block;
-      width: 1px;
-      height: 206px;
-      margin: 0 5%;
-      background: #d9d9d9;
-      @media (max-width: @mobile-breakpoint) {
-        display: none;
-      }
     }
 
     .support-description {
       margin: 0 auto 20px;
       color: lighten(@body-color, 5%);
-      font-size: .9em;
+
       text-align: left;
       @media (max-width: @mobile-breakpoint) {
         max-width: unset;
@@ -243,23 +221,47 @@
       font-size: 0.85em;
       line-height: 1;
       .input-text-fields();
+      padding: 13px 13px 10px !important;
       @media (max-width: @mobile-breakpoint) {
         width: stretch;
         padding: 11px;
       }
     }
+  }
+  .support-widget-button {
+    width: stretch;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    font-family: @body-font;
+    font-size: .9em;
+    border: 2px solid #7488a9;
+    color: #7488a9;
+    justify-content: center;
+    background: unset;
+    transition: @transition;
 
-    button {
-      .button-styles();
-      width: stretch;
-      height: 40px;
-      border-radius: 3px;
-      font-family: @body-font;
-      font-size: .9em;
+    &:hover {
+      background: #7488a9;
+      color: white;
+      cursor: pointer;
 
-      svg {
-        margin-left: 5px;
+      * {
+        color: white;
       }
+    }
+
+    span {
+      font-family: @body-font;
+      font-size: 15px !important;
+      font-weight: 600;
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    img {
+      max-height: 30px;
     }
   }
 }

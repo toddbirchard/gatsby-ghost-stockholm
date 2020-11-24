@@ -24,7 +24,6 @@
       margin: 0 auto;
     }
 
-
     .post-head {
       display: flex;
       flex-direction: column-reverse;
@@ -73,9 +72,12 @@
       overflow: hidden;
       background-position-y: center !important;
       background-size: cover !important;
+      background-color: #dbe5f1;
       box-shadow: 0 1px 3px rgba(39, 44, 49, 0.1);
+      min-height: 490px;
       @media (max-width: @smallscreen-breakpoint) {
         margin: 0 30px;
+        min-height: unset;
         .mobile-full-width();
       }
       @media (max-width: @mobile-breakpoint) {
@@ -86,7 +88,11 @@
       img {
         width: 100%;
         height: auto;
+        min-height: 490px;
         line-height: 1;
+        @media (max-width: @smallscreen-breakpoint) {
+          min-height: unset;
+        }
         @media (max-width: @mobile-breakpoint) {
           border: 0;
         }

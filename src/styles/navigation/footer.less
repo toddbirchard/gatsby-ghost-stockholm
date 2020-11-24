@@ -46,9 +46,11 @@
     display: flex;
     justify-content: space-between;
     padding: 50px 0 0;
+    @media (max-width: @tablet-breakpoint) {
+      padding: 0;
+    }
     @media (max-width: @mobile-breakpoint) {
       display: block;
-      padding: 0;
     }
 
     .widget {
@@ -331,11 +333,13 @@
       width: unset;
       max-width: unset;
       border-top: 1px solid #d8e0e6;
+      @media (max-width: @tablet-breakpoint) {
+        border-top: unset;
+      }
       @media (max-width: @mobile-breakpoint) {
         width: 80%;
         max-width: unset;
         margin: 50px auto 30px;
-        border-top: unset;
       }
     }
   }
