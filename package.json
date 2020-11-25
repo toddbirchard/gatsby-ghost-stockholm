@@ -49,7 +49,7 @@
     "webpack": "5.4.0"
   },
   "dependencies": {
-    "@babel/core": "^7.12.8",
+    "@babel/core": "^7.12.9",
     "@babel/highlight": "^7.10.4",
     "@babel/runtime": "^7.12.5",
     "@reach/dialog": "^0.11.2",
