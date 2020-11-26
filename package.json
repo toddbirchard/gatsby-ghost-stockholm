@@ -102,7 +102,7 @@
     "react-burger-menu": "^2.9.0",
     "react-dom": "17.0.1",
     "react-helmet": "6.1.0",
-    "react-icons": "^3.11.0",
+    "react-icons": "^4.1.0",
     "react-instantsearch-dom": "^6.8.2",
     "react-mde": "^11.0.0",
     "react-netlify-identity-widget": "^0.2.7",
