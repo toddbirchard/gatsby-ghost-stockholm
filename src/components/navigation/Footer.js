@@ -24,42 +24,36 @@ const Footer = ({ navigation, site, data }) => {
               <Link to="/" className="footer-logo">
                 {logo
                   ? <img className="lazyload" data-src={logo} alt={`${site.title} Logo`} title={`${site.title} Logo`} />
-                  : <h1 className="site-headline">{site.title}</h1>}
+                  : <h1 className="site-headivine">{site.title}</h1>}
               </Link>
               <p className="description">{description}</p>
 
             </div>
-            <dl className="widget pages">
-              <dt className="footer-widget-title">Pages</dt>
+            <div className="widget pages">
+              <span className="footer-widget-title">Pages</span>
               {navigation.map((navItem, i) => {
                 if (navItem.url.includes(config.siteUrl)) {
-                  return <dd key={i}>
-                    <Link className={`footer-navigation-link ${navItem.label}`} to={navItem.url.replace(config.siteUrl, ``)}>
-                      {navItem.label}
-                    </Link>
-                  </dd>
+                  return <Link key={i} className={`footer-navigation-link ${navItem.label}`} to={navItem.url.replace(config.siteUrl, ``)}>
+                    {navItem.label}
+                  </Link>
                 } else {
-                  return <dd key={i}>
-                    <a className="footer-navigation-link donate" href={navItem.url} target="_blank" rel="noopener noreferrer">
-                      {navItem.label}
-                    </a>
-                  </dd>
+                  return <a className="footer-navigation-link donate" href={navItem.url} key={i} target="_blank" rel="noopener noreferrer">
+                    {navItem.label}
+                  </a>
                 }
               })}
               <AuthButton styleClass="footer-navigation-link" />
-            </dl>
-            <dl className="widget series">
-              <dt className="footer-widget-title">Series</dt>
+            </div>
+            <div className="widget series">
+              <span className="footer-widget-title">Series</span>
               {seriesLinks.map(({ node }) => (
-                <dd key={`${node.slug}-footer-link`}>
-                  <a href={`/series/${node.slug}`} className="footer-navigation-link">
-                    {node.name.replace(`#`, ``)}
-                  </a>
-                </dd>
+                <a href={`/series/${node.slug}`} key={`${node.slug}-footer-link`} className="footer-navigation-link">
+                  {node.name.replace(`#`, ``)}
+                </a>
               ))}
-            </dl>
-            <dl className="widget authors">
-              <dt className="footer-widget-title">Authors</dt>
+            </div>
+            <div className="widget authors">
+              <span className="footer-widget-title">Authors</span>
               {authorLinks.map(({ node }) => (
                 <dd key={`${node.name}-footer-link`}>
                   <a href={`/author/${node.slug}`} className="footer-navigation-link">
@@ -67,7 +61,7 @@ const Footer = ({ navigation, site, data }) => {
                   </a>
                 </dd>
               ))}
-            </dl>
+            </div>
           </div>
           <div className="subfooter">
             <SocialWidget site={site} />

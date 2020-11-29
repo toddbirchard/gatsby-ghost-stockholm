@@ -62,8 +62,8 @@ SeriesDetail.propTypes = {
       feature_image: PropTypes.string,
     }),
     seriesPage: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      ghostId: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      ghostId: PropTypes.string,
       title: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
