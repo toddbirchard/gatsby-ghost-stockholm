@@ -31,6 +31,7 @@ const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
   const authorName = post.primary_author.name
+  const authorEmail = post.primary_author.email
   const commentId = post.comment_id
   const identity = useIdentityContext()
   const user = identity.user
@@ -85,6 +86,7 @@ const CommentForm = ({ post }) => {
           postId: postId,
           postSlug: postSlug,
           authorName: authorName,
+          authorEmail: authorEmail,
           userId: userId,
           userName: userName,
           userAvatar: userAvatar,
@@ -188,6 +190,16 @@ const CommentForm = ({ post }) => {
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userProvider">User Provider</label>
             <input id="userProvider" name="userProvider" type="text" value={userProvider} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="authorName">Author Name</label>
+            <input id="authorName" name="authorName" type="text" value={authorName} />
+          </fieldset>
+
+          <fieldset className="hidden-label">
+            <label className="hidden-label" htmlFor="authorEmail">Author Email</label>
+            <input id="authorEmail" name="authorEmail" type="text" value={authorEmail} />
           </fieldset>
 
           <fieldset className="hidden-label">
