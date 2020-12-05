@@ -19,7 +19,7 @@ const AuthButton = ({ styleClass }) => {
   const handleLogin = (u) => {
     console.log(`Logging user in: ` + u)
     setUserSession(identity.isLoggedIn)
-    setButtonText(`Sign out`))
+    setButtonText(`Sign out`)
   }
 
   return (
