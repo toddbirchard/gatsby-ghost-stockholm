@@ -15,12 +15,12 @@ const AuthButton = ({ styleClass }) => {
       .then(() => setUserSession(identity.isLoggedIn))
       .then(() => setButtonText(`Sign up`))
       .catch(error => console.log(error))
-    console.log(`userSession: ` + userSession)
   }
   const handleLogin = (u) => {
     console.log(`Logging user in: ` + u)
-    setButtonText(`Sign out`)
     setUserSession(identity.isLoggedIn)
+      .then(() => setButtonText(`Sign out`))
+      .catch(error => console.log(error))
   }
 
   return (
