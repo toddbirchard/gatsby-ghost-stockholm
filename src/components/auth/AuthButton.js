@@ -7,7 +7,7 @@ const AuthButton = ({ styleClass }) => {
   const identity = useIdentityContext()
   const isLoggedIn = identity && identity.isLoggedIn
   const [userSession, setUserSession] = React.useState(isLoggedIn)
-  const [buttonText, setButtonText] = useState(isLoggedIn ? `Sign out` : `Sign up`)
+  const [buttonText, setButtonText] = useState(userSession ? `Sign out` : `Sign up`)
 
   const handleLogout = (u) => {
     console.log(`Logging user out: ` + u)
@@ -21,14 +21,13 @@ const AuthButton = ({ styleClass }) => {
     console.log(`Logging user in: ` + u)
     setButtonText(`Sign out`)
     setUserSession(identity.isLoggedIn)
-    console.log(`userSession: ` + userSession)
   }
 
   return (
     <>
       <a
         className={styleClass}
-        onClick={isLoggedIn ? u => handleLogout(u) : u => handleLogin(u)}
+        onClick={userSession ? u => handleLogout(u) : u => handleLogin(u)}
       >
         {buttonText}
       </a>
