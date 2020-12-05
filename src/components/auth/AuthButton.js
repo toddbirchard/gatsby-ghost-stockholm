@@ -26,16 +26,12 @@ const AuthButton = ({ styleClass }) => {
 
   return (
     <>
-      {isLoggedIn
-        ? <a
-          className={styleClass}
-          onClick={u => handleLogout(u)}
-        > {buttonText}</a>
-        : <a
-          className={styleClass}
-          onClick={() => setDialog(true)}
-        >{buttonText}</a>
-      }
+      <a
+        className={styleClass}
+        onClick={isLoggedIn ? u => handleLogout(u) : u => handleLogin(u)}
+      >
+        {buttonText}
+      </a>
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
