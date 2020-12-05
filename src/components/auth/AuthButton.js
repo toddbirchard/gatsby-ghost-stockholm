@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
@@ -7,31 +7,34 @@ const AuthButton = ({ styleClass }) => {
   const identity = useIdentityContext()
   const isLoggedIn = identity && identity.isLoggedIn
   const [userSession, setUserSession] = React.useState(isLoggedIn)
+  const [buttonText, setButtonText] = useState(isLoggedIn ? `Sign out` : `Sign up`)
 
   const handleLogout = (u) => {
-    console.log(`logging user out: ` + u)
+    console.log(`Logging user out: ` + u)
     identity.logoutUser()
       .then(() => setUserSession(identity.isLoggedIn))
+      .then(() => setButtonText(`Sign up`))
       .catch(error => console.log(error))
     console.log(`userSession: ` + userSession)
   }
   const handleLogin = (u) => {
-    console.log(`logging user in: ` + u)
+    console.log(`Logging user in: ` + u)
+    setButtonText(`Sign out`)
     setUserSession(identity.isLoggedIn)
     console.log(`userSession: ` + userSession)
   }
 
   return (
     <>
-      {userSession
+      {isLoggedIn
         ? <a
           className={styleClass}
           onClick={u => handleLogout(u)}
-        > Sign out</a>
+        > {buttonText}</a>
         : <a
           className={styleClass}
           onClick={() => setDialog(true)}
-        > Sign up </a>
+        >{buttonText}</a>
       }
       <IdentityModal
         showDialog={dialog}

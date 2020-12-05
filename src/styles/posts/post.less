@@ -595,27 +595,40 @@
     background: 0 0;
     background: #e9f3e9;
     box-shadow: -2px 2px 0 #d5e6d7;
-    @media (max-width: @mobile-breakpoint) {
+    @media (max-width: @smallscreen-breakpoint) {
+      margin: 70px 70px 40px;
+    }
+    @media (max-width: @tablet-breakpoint) {
       padding: 15px 20px;
+      margin: 70px 50px 40px;
+    }
+    @media (max-width: @mobile-breakpoint) {
+      margin: 70px 30px 40px;
     }
 
     svg {
       margin-right: 20px;
       color: #9dc29f;
-      font-size: 30px;
-      @media (max-width: @mobile-breakpoint) {
+      font-size: 40px;
+      @media (max-width: @tablet-breakpoint) {
         min-width: 30px;
         min-height: 30px;
         margin-right: 15px;
         color: #9dc29f;
-        font-size: 30px;
+        font-size: 3em;
+      }
+      @media (max-width: @mobile-breakpoint) {
+        font-size: 4em;
+        height: unset;
+        min-height: unset;
       }
     }
 
     p {
-      color: #69826b;
+      color: #789a7b;
       font-family: @body-font-bold;
       font-size: .9em;
+      line-height: 1.5;
     }
   }
 
