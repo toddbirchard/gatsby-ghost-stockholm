@@ -19,16 +19,14 @@ const AuthButton = ({ styleClass }) => {
   const handleLogin = (u) => {
     console.log(`Logging user in: ` + u)
     setUserSession(identity.isLoggedIn)
-      .then(() => setUserSession(identity.isLoggedIn))
-      .then(() => setButtonText(`Sign out`))
-      .catch(error => console.log(error))
+    setButtonText(`Sign out`)
   }
 
   return (
     <>
       <a
         className={styleClass}
-        onClick={userSession ? u => handleLogout(u) : u => handleLogin(u)}
+        onClick={isLoggedIn ? u => handleLogout(u) : setDialog(true)}
       >
         {buttonText}
       </a>
