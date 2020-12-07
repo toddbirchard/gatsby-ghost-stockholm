@@ -11,12 +11,12 @@ const SearchHit = ({ hit }) => {
     <Link to={`/${hit.slug}/`}>
       <div className="search-result">
         <div className="image-wrapper">
-            <img
-              className="search-result-image lazyload"
-              data-src={featureMobileImage}
-              alt={hit.title}
-              title={hit.title}
-            />
+          <img
+            className="search-result-image lazyload"
+            data-src={featureMobileImage}
+            alt={hit.title}
+            title={hit.title}
+          />
         </div>
         <div className="search-result-details">
           <div className="search-result-title">{hit.title}</div>

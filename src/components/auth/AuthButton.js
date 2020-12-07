@@ -12,24 +12,29 @@ const AuthButton = ({ styleClass }) => {
   const handleLogout = (u) => {
     console.log(`Logging user out: ` + u)
     identity.logoutUser()
-      .then(() => setUserSession(identity.isLoggedIn))
       .then(() => setButtonText(`Sign up`))
       .catch(error => console.log(error))
   }
-  const handleLogin = (u) => {
-    console.log(`Logging user in: ` + u)
+  const handleLogin = () => {
     setUserSession(identity.isLoggedIn)
     setButtonText(`Sign out`)
   }
 
   return (
     <>
-      <a
+      {userSession ? <a
         className={styleClass}
-        onClick={isLoggedIn ? u => handleLogout(u) : setDialog(true)}
+        onClick={u => handleLogout(u)}
       >
         {buttonText}
       </a>
+        : <a
+          className={styleClass}
+          onClick={() => setDialog(true)}
+        >
+          {buttonText}
+        </a>
+      }
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
