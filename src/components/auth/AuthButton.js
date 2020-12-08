@@ -9,38 +9,28 @@ const AuthButton = ({ styleClass }) => {
   const [userSession, setUserSession] = React.useState(isLoggedIn)
   const [buttonText, setButtonText] = useState(userSession ? `Sign out` : `Sign up`)
 
-  const handleLogout = (u) => {
-    console.log(`Logging user out: ` + u)
-    identity.logoutUser()
-      .then(() => setButtonText(`Sign up`))
-      .catch(error => console.log(error))
+  const handleClick = () => {
+    if (userSession) {
+      identity.logoutUser()
+        .catch(error => console.log(error))
+    } else {
+      setDialog(true)
+    }
   }
-  const handleLogin = () => {
-    setUserSession(identity.isLoggedIn)
-    setButtonText(`Sign out`)
-  }
-
   return (
     <>
-      {userSession ? <a
+      <a
         className={styleClass}
-        onClick={u => handleLogout(u)}
+        onClick={() => handleClick()}
       >
         {buttonText}
       </a>
-        : <a
-          className={styleClass}
-          onClick={() => setDialog(true)}
-        >
-          {buttonText}
-        </a>
-      }
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={u => handleLogin(u)}
-        onSignup={u => handleLogin(u)}
-        onLogout={u => handleLogout(u)}
+        onLogin={() => setUserSession(identity.isLoggedIn)}
+        onSignup={() => setUserSession(identity.isLoggedIn)}
+        onLogout={() => setButtonText(`Sign up`)}
       />
     </>
   )
