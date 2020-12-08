@@ -6,11 +6,10 @@ const AuthButton = ({ styleClass }) => {
   const [dialog, setDialog] = React.useState(false)
   const identity = useIdentityContext()
   const isLoggedIn = identity && identity.isLoggedIn
-  const [userSession, setUserSession] = React.useState(isLoggedIn)
-  const [buttonText, setButtonText] = useState(userSession ? `Sign out` : `Sign up`)
+  const [buttonText, setButtonText] = useState(isLoggedIn ? `Sign out` : `Sign up`)
 
   const handleClick = () => {
-    if (userSession) {
+    if (isLoggedIn) {
       identity.logoutUser()
         .catch(error => console.log(error))
     } else {
@@ -28,8 +27,6 @@ const AuthButton = ({ styleClass }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={() => setUserSession(identity.isLoggedIn)}
-        onSignup={() => setUserSession(identity.isLoggedIn)}
         onLogout={() => setButtonText(`Sign up`)}
       />
     </>
