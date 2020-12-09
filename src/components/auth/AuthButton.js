@@ -19,20 +19,6 @@ const AuthButton = ({ styleClass }) => {
       setDialog(true)
     }
   }
-  const handleLogin = (u) => {
-    console.log(`---user info----`)
-    console.log(u.id)
-    console.log(u.user_metadata.full_name)
-    console.log(u.user_metadata.user_avatar)
-    console.log(u.app_metadata.provider)
-    console.log(u.email)
-    console.log(`--- values ----`)
-    console.log(`isLoggedIn = ` + isLoggedIn)
-  }
-  const handleLogout = () => {
-    console.log(`--- values ----`)
-    console.log(`isLoggedIn = ` + isLoggedIn)
-  }
   return (
     <>
       <a
@@ -44,9 +30,6 @@ const AuthButton = ({ styleClass }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={u => handleLogin(u)}
-        onSignup={u => handleLogin(u)}
-        onLogout={() => handleLogout()}
       />
     </>
   )
