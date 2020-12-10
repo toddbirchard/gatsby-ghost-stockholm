@@ -55,7 +55,7 @@
     "@reach/dialog": "^0.12.1",
     "@reach/tabs": "^0.12.1",
     "@reach/visually-hidden": "^0.12.0",
-    "@tryghost/helpers": "1.1.34",
+    "@tryghost/helpers": "1.1.35",
     "@tryghost/helpers-gatsby": "1.0.39",
     "@tryghost/social-urls": "^0.1.16",
     "algoliasearch": "^4.8.3",
