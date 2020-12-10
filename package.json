@@ -68,7 +68,7 @@
     "dotenv": "^8.2.0",
     "gatsby": "^2.28.1",
     "gatsby-awesome-pagination": "0.3.6",
-    "gatsby-cli": "^2.15.0",
+    "gatsby-cli": "^2.15.1",
     "gatsby-image": "2.7.0",
     "gatsby-plugin-advanced-sitemap": "^1.5.6",
     "gatsby-plugin-algolia": "^0.16.1",
