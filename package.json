@@ -62,7 +62,7 @@
     "algoliasearch-helper": "^3.3.3",
     "babel-plugin-prismjs": "^2.0.1",
     "basiclightbox": "^5.0.3",
-    "browserslist": "^4.15.0",
+    "browserslist": "^4.16.0",
     "cheerio": "1.0.0-rc.3",
     "core-js": "^3.8.1",
     "dotenv": "^8.2.0",
