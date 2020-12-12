@@ -138,7 +138,7 @@ module.exports = {
             name: `algolia_top_searches`,
           },
           {
-            statement: `SELECT * FROM donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
+            statement: `SELECT * FROM hackers_prod.donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
             idFieldName: `id`,
             name: `donations`,
           },
@@ -150,6 +150,7 @@ module.exports = {
         ],
       },
     },
+
     {
       resolve: `gatsby-source-github`,
       options: {
