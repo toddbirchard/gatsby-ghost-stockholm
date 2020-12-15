@@ -198,7 +198,7 @@ Post.propTypes = {
     comments: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
-          comment_id: PropTypes.string,
+          id: PropTypes.number,
           body: PropTypes.string,
           user_name: PropTypes.string,
           user_avatar: PropTypes.string,
@@ -253,7 +253,7 @@ export const postQuery = graphql`
     comments: allMysqlComments(sort: {fields: created_at, order: ASC}, filter: {post_slug: {eq: $slug}}) {
       edges {
         node {
-          comment_id
+          id
           body
           user_name
           user_avatar
