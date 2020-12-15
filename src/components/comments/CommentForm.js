@@ -32,7 +32,6 @@ const CommentForm = ({ post }) => {
   const postSlug = post.slug
   const authorName = post.primary_author.name
   const authorEmail = post.primary_author.email
-  const commentId = post.comment_id
   const identity = useIdentityContext()
   const user = identity.user
   const isLoggedIn = identity.isLoggedIn
@@ -92,7 +91,6 @@ const CommentForm = ({ post }) => {
           userAvatar: userAvatar,
           userProvider: userProvider,
           userEmail: userEmail,
-          commentId: commentId,
           commentBody: value,
         }),
       })
@@ -151,11 +149,6 @@ const CommentForm = ({ post }) => {
           method="post"
           onSubmit={handleSubmit}
         >
-
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentId">Comment ID</label>
-            <input id="commentId" name="commentId" type="text" value={commentId} />
-          </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="userId" >User ID</label>
