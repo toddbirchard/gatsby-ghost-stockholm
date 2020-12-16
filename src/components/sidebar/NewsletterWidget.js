@@ -5,6 +5,7 @@ import { FaArrowRight } from 'react-icons/fa'
  * Newsletter widget
  */
 
+
 const NewsletterWidget = () => (
   <>
     <div className="widget newsletter">
