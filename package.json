@@ -106,7 +106,7 @@
     "react-instantsearch-dom": "^6.8.2",
     "react-mde": "^11.0.0",
     "react-netlify-identity-widget": "^0.2.7",
-    "react-player": "^2.7.0",
+    "react-player": "^2.7.2",
     "sharp": "^0.26.3",
     "showdown": "^1.9.1",
     "styled-components": "^5.2.1",
