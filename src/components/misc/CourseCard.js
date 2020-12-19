@@ -16,7 +16,10 @@ const CourseCard = ({ course, page }) => {
   return (
     <>
       <Link to={url} className="series-card">
-        <div className="series-card-image" style={{ backgroundImage: `url(${image})` }}> </div>
+        <div className="series-card-image-wrapper">
+          <img className="series-card-image" alt={name} src={image} title={name} />
+        </div>
+
         <div className="series-card-info">
           <h3 className="series-card-title">{name}</h3>
           {tags !== undefined ?

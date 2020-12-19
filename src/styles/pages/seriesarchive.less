@@ -84,26 +84,28 @@
         }
       }
 
-      .series-card-image {
-        height: 170px;
-        background-position-y: center;
-        background-size: cover;
-        @media(max-width: @mobile-breakpoint) {
-          height: 190px;
+      .series-card-image-wrapper{
+        height: 155px;
+        display: flex;
+        align-content: center;
+        .series-card-image {
+          width: 70%;
+          margin: auto;
+          height: auto;
         }
       }
     }
 
     .series-card-info {
-      padding: 20px;
+      padding: 0 20px 20px;
     }
 
     .series-card-title {
       margin-top: 0;
       margin-bottom: 5px;
-      color: lighten(@header-font-color, 10%);
+      color: #3d4b6a;
       font-family: @header-font-secondary;
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: unset;
       line-height: 1.1;
       transition: @transition;
