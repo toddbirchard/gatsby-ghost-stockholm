@@ -61,7 +61,7 @@
       margin: 40px;
     }
     @media (max-width: @mobile-breakpoint) {
-      margin: 40px 30px 30px;
+      margin: 30px;
       padding-bottom: 0;
     }
 
@@ -75,7 +75,6 @@
       }
       @media (max-width: @mobile-breakpoint) {
         margin: 0 0 15px;
-        font-size: 1.8em;
         line-height: 1;
       }
     }
@@ -114,14 +113,17 @@
   }
 
   .series-feature-image {
-    width: stretch;
-    width: -moz-available;
+    width: 50%;
+    margin: auto;
+    padding-top: 50px;
     overflow: hidden;
     @media (max-width: @tablet-breakpoint) {
-      height: 380px;
+      padding: 30px 0;
+      width: 60%;
     }
     @media (max-width: @mobile-breakpoint) {
-      height: unset;
+      width: 70%;
+      padding: 20px 0;
     }
 
     img {
