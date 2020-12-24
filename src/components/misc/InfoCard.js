@@ -7,7 +7,7 @@ const InfoCard = ({ tag, count }) => (
     <header className="info-card">
       <div className="info-card-wrapper">
         {tag.feature_image
-          ? <img src={tag.feature_image} alt={tag.name} className="tag-image" />
+          ? <img data-src={tag.feature_image} alt={tag.name} className="tag-image lazyload" />
           : <FaTag />}
         <div className="card-details">
           <div className="page-title-card">

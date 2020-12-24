@@ -37,7 +37,7 @@ const CoffeeWidget = ({ data }) => {
         <a rel="noopener noreferrer" target="_blank" href={config.links.buyMeACoffee}>
           <button className="widget-button coffee-button" >
             <span className="button-content">Buy me a coffee</span>
-            <img src={coffeeImg} className="coffee-icon" alt="Buy us a coffee" />
+            <img data-src={coffeeImg} className="coffee-icon lazyload" alt="Buy us a coffee" />
           </button>
         </a>
       </div>

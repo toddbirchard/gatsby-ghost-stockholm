@@ -64,7 +64,7 @@ class SearchMenu extends React.Component {
         <Menu
           right width={`90%`}
           burgerButtonClassName={`mobile-search-button`}
-          customBurgerIcon={<img src="/images/search.svg" alt="search-icon"/>}
+          customBurgerIcon={<img data-src="/images/search.svg" alt="mobile-menu" className={`lazyload`}/>}
           className="mobile-menu"
           htmlClassName={`menu-lock-screen`}
           disableAutoFocus

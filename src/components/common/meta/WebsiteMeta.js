@@ -28,10 +28,14 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
     <>
       <Helmet>
         <title>{title}</title>
-        {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null }
-        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href={canonical} />
+        {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null }
+        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
+        {googleVerificationID ? <meta name="google-site-verification" content={googleVerificationID} /> : null}
+
+        {/* Facebook */}
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
@@ -39,13 +43,14 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
         <meta property="og:url" content={canonical} />
         {facebookPageID ? <meta property="fb:page_id" content={facebookPageID} /> : null }
         {facebookAppID ? <meta property="fb:app_id" content={facebookAppID} /> : null }
+
+        {/* Twitter */}
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:url" content={canonical} />
         {settings.twitter ? <meta name="twitter:site" content={settings.twitter} /> : null}
         {config.creator.twitter ? <meta name="twitter:creator" content={config.creator.twitter} /> : null}
-        {googleVerificationID ? <meta name="google-site-verification" content={googleVerificationID} /> : null}
-        <link rel="canonical" href={canonical} />
+        
         <script type="application/ld+json">{`
               {
                   "@context": "https://schema.org/",

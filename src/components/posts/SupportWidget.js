@@ -64,7 +64,7 @@ const SupportWidget = () => {
           <span className="post-footer-title">Support us</span>
           <p className="support-description">{donateCopy}</p>
           <a className="support-widget-button" rel="noopener noreferrer" target="_blank" href={coffeeUrl}>
-            <img src={coffeeImg} alt="Buy us a coffee" />
+            <img data-src={coffeeImg} className="lazyload" alt="Buy us a coffee" title="Buy us a coffee" />
             <span className="coffee-button-text">Buy me a coffee</span>
           </a>
         </div>

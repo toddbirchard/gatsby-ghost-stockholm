@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, Link, graphql } from 'gatsby'
 
 /**
 * Tags widget
@@ -15,7 +15,7 @@ const TagsWidget = ({ data }) => {
         <h4 className="widget-title">Tags</h4>
         <div className="tag-cloud">
           {tags.map(({ node }) => (
-            <a href={`/tag/${node.slug}`} className="tag" key={node.name}>{node.name}</a>
+            <Link to={`/tag/${node.slug}/`} className="tag" key={node.name}>{node.name}</Link>
           ))}
         </div>
       </div>

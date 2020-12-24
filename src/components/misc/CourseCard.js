@@ -18,20 +18,20 @@ const CourseCard = ({ course, page }) => {
     <>
       <Link to={url} className="series-card">
         <div>
-        <div className="series-card-image-wrapper">
-          <img className="series-card-image" alt={name} src={image} title={name} />
-        </div>
+          <div className="series-card-image-wrapper">
+            <img className="series-card-image lazyload" alt={name} data-src={image} title={name}/>
+          </div>
 
-        <div className="series-card-info">
-          <h3 className="series-card-title">{name}</h3>
-          {tags !== undefined ?
-            <div className="series-topics">
-              {tags.map(tag => (
-                <div className="topic" key={tag.slug}>{tag.name}</div>
-              )) }
-            </div> : null }
-          <p className="series-card-description">{description}</p>
-        </div>
+          <div className="series-card-info">
+            <h3 className="series-card-title">{name}</h3>
+            {tags !== undefined ?
+              <div className="series-topics">
+                {tags.map(tag => (
+                  <div className="topic" key={tag.slug}>{tag.name}</div>
+                ))}
+              </div> : null}
+            <p className="series-card-description">{description}</p>
+          </div>
         </div>
 
         <div className="series-card-count">

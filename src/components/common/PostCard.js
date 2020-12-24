@@ -63,12 +63,13 @@ const PostCard = ({ post }) => {
                     <img
                       data-src={authorAvatar}
                       alt={authorFirstName}
+                      title={authorFirstName}
                       className="author-avatar lazyload"
                     />
                   </picture>
                   : <FaUserEdit /> }
                 <div>
-                  <Link to={`/author/${post.primary_author.slug}`} className="author-name">{authorFirstName}</Link>
+                  <Link to={`/author/${post.primary_author.slug}/`} className="author-name">{authorFirstName}</Link>
                   <div className="post-card-meta-info">
                     <span className="meta-item date">{createdDate}</span>
                     <span className="meta-item separator">•</span>
