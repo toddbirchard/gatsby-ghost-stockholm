@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+import { FaListUl } from 'react-icons/fa'
 
 const CourseCard = ({ course, page }) => {
   const url = `/series/${course.slug}`
@@ -16,6 +17,7 @@ const CourseCard = ({ course, page }) => {
   return (
     <>
       <Link to={url} className="series-card">
+        <div>
         <div className="series-card-image-wrapper">
           <img className="series-card-image" alt={name} src={image} title={name} />
         </div>
@@ -29,7 +31,11 @@ const CourseCard = ({ course, page }) => {
               )) }
             </div> : null }
           <p className="series-card-description">{description}</p>
-          <span className="series-card-count">{postCount} Posts</span>
+        </div>
+        </div>
+
+        <div className="series-card-count">
+          <FaListUl/> <span>{postCount} Posts</span>
         </div>
       </Link>
     </>

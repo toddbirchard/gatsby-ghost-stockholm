@@ -30,10 +30,10 @@
 
   .course-section-title {
     margin: 50px 0 0;
-    font-size: 1.9em;
+    font-size: 2em;
     font-weight: 200;
     @media (max-width: @mobile-breakpoint) {
-      font-size: 1.6em;
+      font-size: 1.7em;
       line-height: 1.2;
     }
   }
@@ -53,9 +53,11 @@
     }
 
     .series-card {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       overflow: hidden;
-      border-radius: 5px;
+      border-radius: 6px;
       background: white;
       box-shadow: 0 0 3px rgba(39, 44, 49, .15);
       transition: @transition;
@@ -98,15 +100,15 @@
     }
 
     .series-card-info {
-      padding: 0 20px 20px;
+      padding: 0 25px;
     }
 
     .series-card-title {
       margin-top: 0;
       margin-bottom: 5px;
       color: #3d4b6a;
-      font-family: @header-font-secondary;
-      font-size: 1.4em;
+      font-family: @body-font-bold;
+      font-size: 1.3em;
       font-weight: unset;
       line-height: 1.1;
       transition: @transition;
@@ -121,7 +123,7 @@
       margin: 10px 0 !important;
       color: #464a54;
       font-family: @body-font;
-      font-size: .85em;
+      font-size: .9em;
       line-height: 1.35 !important;
       text-align: left;
       transition: @transition;
@@ -133,11 +135,11 @@
       margin: 15px 0 10px;
 
       .topic {
-        margin-right: 9px;
+        margin-right: 10px;
         margin-bottom: 5px;
         color: lighten(@body-color, 20%);
-        font-family: @body-font-medium;
-        font-size: .8em;
+        font-family: @body-font-bold;
+        font-size: .85em;
         line-height: 1;
         white-space: nowrap;
       }
@@ -146,9 +148,20 @@
     .series-card-count {
       color: lighten(@text-color-light, 20%);
       font-family: @header-font;
-      font-size: 0.8em;
+      font-size: 0.85em;
       line-height: 1;
       text-align: right;
+      display: flex;
+      margin-top: 15px;
+      padding: 0 25px 25px;
+
+      svg {
+        margin-right: 8px;
+      }
+
+      span {
+        display: block;
+      }
     }
   }
 

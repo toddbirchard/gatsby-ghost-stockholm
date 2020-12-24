@@ -117,8 +117,7 @@ exports.createPages = async ({ graphql, actions }) => {
     Array.from({ length: numberOfPages }).forEach((_, i) => {
       const currentPage = i + 1
       const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
-      const nextPageNumber =
-                currentPage + 1 > numberOfPages ? null : currentPage + 1
+      const nextPageNumber = currentPage + 1 > numberOfPages ? null : currentPage + 1
       const previousPagePath = prevPageNumber
         ? prevPageNumber === 1
           ? node.url
