@@ -13,7 +13,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
   const authorTwitterUrl = author.twitter && twitter(author.twitter)
   const authorGithub = author.facebook && author.facebook.replace(`https://www.facebook.com/`, ``)
   const authorPostCount = author.postCount
-  const pageCount = pageContext && pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
+  const pageCount = pageContext && pageContext.currentPage > 1 ? pageContext.currentPage : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
   const authorAvatar = author.profile_image
   const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)

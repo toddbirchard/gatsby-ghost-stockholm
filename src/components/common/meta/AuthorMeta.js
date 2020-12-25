@@ -7,7 +7,7 @@ import ImageMeta from './ImageMeta'
 import getAuthorProperties from './getAuthorProperties'
 import config from '../../../utils/siteConfig'
 
-const AuthorMeta = ({ data, title, settings, canonical, pageContext }) => {
+const AuthorMeta = ({ data, settings, canonical, pageContext }) => {
   settings = settings.ghostSettings
 
   const author = getAuthorProperties(data)
@@ -15,6 +15,9 @@ const AuthorMeta = ({ data, title, settings, canonical, pageContext }) => {
   const description = data.bio || config.siteDescriptionMeta || settings.description
   const previousPagePath = pageContext ? pageContext.previousPagePath : null
   const nextPagePath = pageContext ? pageContext.nextPagePath : null
+  const currentPageIndex = pageContext && pageContext.currentPage
+  const lastPageIndex = pageContext && pageContext.numberOfPages
+  const title = currentPageIndex > 1 ? author.name + ` (page ${currentPageIndex} of ${lastPageIndex})` : author.name
 
   return (
     <>

@@ -17,22 +17,22 @@ import '../styles/pages/tag.less'
 const Tag = ({ data, location, pageContext }) => {
   const tag = data.ghostTag
   const posts = data.allGhostPost.edges
-  const baseTitle = tag.name
-  const title = pageContext.humanPageNumber > 1 ? baseTitle + ` (page ` + pageContext.humanPageNumber + ` of ` + pageContext.numberOfPages + `)` : baseTitle
-  const pageCount = pageContext.humanPageNumber > 1 ? pageContext.humanPageNumber : null
+  const currentPageIndex = pageContext && pageContext.currentPage
+  const lastPageIndex = pageContext && pageContext.numberOfPages
+  const title = currentPageIndex > 1 ? tag.name + ` (page ${currentPageIndex} of ${lastPageIndex})` : tag.name
 
   return (
     <>
       <MetaData
         data={data}
         title={title}
+        description={tag.description}
         location={location}
         pageContext={pageContext}
-        type="website"
       />
       <Layout template="tag-template" hasSidebar>
         <section className="post-feed">
-          <InfoCard tag={tag} count={pageCount}/>
+          <InfoCard tag={tag} count={currentPageIndex}/>
           {posts.map(({ node }) => (
             <PostCard key={node.id} post={node}/>
           ))}

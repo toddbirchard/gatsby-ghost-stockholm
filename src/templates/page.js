@@ -26,6 +26,7 @@ const Page = ({ data, location, pageContext }) => {
         location={location}
         title={metaTitle}
         description={metaDescription}
+        pageContext={pageContext}
         type="website"
       />
       <Layout template="page-template" hasSidebar>
