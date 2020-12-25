@@ -17,15 +17,15 @@ const Comment = ({ comment }) => {
   const authorIsAdmin = comment && comment.user_role
   const authorIsModerator = comment.user_role
   const commentBody = converter.makeHtml(comment.body)
-  const authorAvatar = comment.user_avatar === undefined ? null : comment.user_avatar
+  const authorAvatar = comment.user_avatar && comment.user_avatar
 
   return (
     <div className="comment" key={comment.id}>
       <div className="comment-main">
         <div className="comment-head">
           { authorAvatar
-            ? <img className="user-avatar lazyload" data-src={comment.user_avatar} alt={`${comment.user_avatar} avatar`}/>
-            : <AiOutlineUser className="user-avatar" />
+            ? <img className="user-avatar lazyload" data-src={comment.user_avatar} alt={`${comment.user_name}'s avatar`}/>
+            : <AiOutlineUser className="user-avatar" alt={`${comment.user_name}'s avatar`} />
           }
           <div>
             <div className="comment-author">

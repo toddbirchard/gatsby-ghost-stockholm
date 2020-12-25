@@ -100,11 +100,6 @@ const CommentForm = ({ post }) => {
         .then(messageRef.current.classList.add(`active`))
         .then(hideMessage)
         .catch(error => console.log(error))
-    } else {
-      console.log(`isLoggedIn = ` + isLoggedIn)
-      console.log(`value = ` + value)
-      console.log(`userEmail = ` + userEmail)
-      console.log(`userEmail.indexOf(\`.ru\`) = ` + userEmail.indexOf(`.ru`))
     }
   }
   const handleLogin = (u) => {

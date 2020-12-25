@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
-import {Layout, PostCard} from '../components/common'
-import {Pagination} from '../components/navigation'
-import {MetaData} from '../components/common/meta'
-import {InfoCard} from '../components/misc'
+import { graphql } from 'gatsby'
+import { Layout, PostCard } from '../components/common'
+import { Pagination } from '../components/navigation'
+import { MetaData } from '../components/common/meta'
+import { InfoCard } from '../components/misc'
 import '../styles/pages/tag.less'
 
 /**
@@ -14,7 +14,7 @@ import '../styles/pages/tag.less'
  *
  */
 
-const Tag = ({data, location, pageContext}) => {
+const Tag = ({ data, location, pageContext }) => {
   const tag = data.ghostTag
   const posts = data.allGhostPost.edges
   const title = pageContext.currentPage > 1 ? tag.name + ` (page ` + pageContext.currentPage + ` of ` + pageContext.numberOfPages + `)` : tag.name
@@ -31,7 +31,7 @@ const Tag = ({data, location, pageContext}) => {
       <Layout template="tag-template" hasSidebar>
         <section className="post-feed">
           <InfoCard tag={tag} count={pageContext.currentPage}/>
-          {posts.map(({node}) => (
+          {posts.map(({ node }) => (
             <PostCard key={node.id} post={node}/>
           ))}
           <Pagination pageContext={pageContext}/>
