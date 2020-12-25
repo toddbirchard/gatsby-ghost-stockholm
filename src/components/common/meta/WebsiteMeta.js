@@ -22,34 +22,39 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
   shareImage = shareImage ? url.resolve(config.siteUrl, shareImage) : null
 
   description = description || data.meta_description || data.description || config.siteDescriptionMeta || settings.description
-  title = `${title || data.meta_title || data.name || data.title} - ${settings.title}`
+  title = `${title || data.meta_title || data.name || data.title}`
 
   return (
     <>
       <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href={canonical} />
-        {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath} /> : null }
-        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath} /> : null}
-        {googleVerificationID ? <meta name="google-site-verification" content={googleVerificationID} /> : null}
+        <title>
+          {canonical === `/`
+            ? title
+            : title + ` - ${settings.title}`
+          }
+        </title>
+        <meta name="description" content={description}/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="canonical" href={canonical}/>
+        {previousPagePath ? <link rel="prev" href={pageContext.previousPagePath}/> : null}
+        {nextPagePath ? <link rel="next" href={pageContext.nextPagePath}/> : null}
+        {googleVerificationID ? <meta name="google-site-verification" content={googleVerificationID}/> : null}
 
         {/* Facebook */}
-        <meta property="og:site_name" content={settings.title} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:url" content={canonical} />
-        {facebookPageID ? <meta property="fb:page_id" content={facebookPageID} /> : null }
-        {facebookAppID ? <meta property="fb:app_id" content={facebookAppID} /> : null }
+        <meta property="og:site_name" content={settings.title}/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content={title}/>
+        <meta property="og:description" content={description}/>
+        <meta property="og:url" content={canonical}/>
+        {facebookPageID ? <meta property="fb:page_id" content={facebookPageID}/> : null}
+        {facebookAppID ? <meta property="fb:app_id" content={facebookAppID}/> : null}
 
         {/* Twitter */}
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:url" content={canonical} />
-        {settings.twitter ? <meta name="twitter:site" content={settings.twitter} /> : null}
-        {config.creator.twitter ? <meta name="twitter:creator" content={config.creator.twitter} /> : null}
+        <meta name="twitter:title" content={title}/>
+        <meta name="twitter:description" content={description}/>
+        <meta name="twitter:url" content={canonical}/>
+        {settings.twitter ? <meta name="twitter:site" content={settings.twitter}/> : null}
+        {config.creator.twitter ? <meta name="twitter:creator" content={config.creator.twitter}/> : null}
 
         <script type="application/ld+json">{`
               {
@@ -81,7 +86,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
           `}
         </script>
       </Helmet>
-      <ImageMeta image={shareImage} />
+      <ImageMeta image={shareImage}/>
     </>
   )
 }

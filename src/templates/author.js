@@ -35,8 +35,8 @@ const Author = ({ data, location, pageContext }) => {
             author={author}
             page="author"
             template="author-template"
-            pageContext={pageContext
-            }/>
+            pageContext={pageContext}
+          />
           <section className="post-feed">
             {posts.map(({ node }) => (
               <PostCard key={node.id} post={node}/>

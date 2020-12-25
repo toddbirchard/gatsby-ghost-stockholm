@@ -26,6 +26,8 @@ const MetaData = ({
   const { ghostPost, ghostTag, ghostAuthor, ghostPage } = data
   settings = settings.allGhostSettings.edges[0].node
 
+  console.log(`data = ` + data.name)
+
   if (ghostPost) {
     return (
       <ArticleMeta

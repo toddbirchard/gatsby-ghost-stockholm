@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout, PostCard } from '../components/common'
-import { Pagination } from '../components/navigation'
-import { MetaData } from '../components/common/meta'
-import { InfoCard } from '../components/misc'
+import {graphql} from 'gatsby'
+import {Layout, PostCard} from '../components/common'
+import {Pagination} from '../components/navigation'
+import {MetaData} from '../components/common/meta'
+import {InfoCard} from '../components/misc'
 import '../styles/pages/tag.less'
 
 /**
@@ -14,17 +14,15 @@ import '../styles/pages/tag.less'
  *
  */
 
-const Tag = ({ data, location, pageContext }) => {
+const Tag = ({data, location, pageContext}) => {
   const tag = data.ghostTag
   const posts = data.allGhostPost.edges
-  const currentPageIndex = pageContext && pageContext.currentPage
-  const lastPageIndex = pageContext && pageContext.numberOfPages
-  const title = currentPageIndex > 1 ? tag.name + ` (page ${currentPageIndex} of ${lastPageIndex})` : tag.name
+  const title = pageContext.currentPage > 1 ? tag.name + ` (page ` + pageContext.currentPage + ` of ` + pageContext.numberOfPages + `)` : tag.name
 
   return (
     <>
       <MetaData
-        data={data}
+        data={tag}
         title={title}
         description={tag.description}
         location={location}
@@ -32,8 +30,8 @@ const Tag = ({ data, location, pageContext }) => {
       />
       <Layout template="tag-template" hasSidebar>
         <section className="post-feed">
-          <InfoCard tag={tag} count={currentPageIndex}/>
-          {posts.map(({ node }) => (
+          <InfoCard tag={tag} count={pageContext.currentPage}/>
+          {posts.map(({node}) => (
             <PostCard key={node.id} post={node}/>
           ))}
           <Pagination pageContext={pageContext}/>
@@ -75,7 +73,7 @@ Tag.propTypes = {
 
 export default Tag
 
-export const tagQuery = graphql`
+export const pageQuery = graphql`
   query GhostTagQuery($slug: String!, $limit: Int!, $skip: Int!) {
     ghostTag(slug: { eq: $slug }) {
       ...GhostTagFields
