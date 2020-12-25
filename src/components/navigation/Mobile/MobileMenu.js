@@ -58,7 +58,7 @@ class MobileMenu extends React.Component {
                 <AccordionItemPanel>
                   {this.tags.map(({ node }) => (
                     <Link
-                      to={`/tag/${node.slug}`}
+                      to={`/tag/${node.slug}/`}
                       className="tag-link"
                       key={node.id}>
                       {node.name}
@@ -75,7 +75,7 @@ class MobileMenu extends React.Component {
                 <AccordionItemPanel>
                   {this.series.map(({ node }) => (
                     <Link
-                      to={`/series/${node.slug}`}
+                      to={`/series/${node.slug}/`}
                       className="tag-link"
                       key={node.ghostId}
                     >
@@ -93,7 +93,7 @@ class MobileMenu extends React.Component {
                 <AccordionItemPanel>
                   {this.authors.map(({ node }) => (
                     <Link
-                      to={`/author/${node.slug}`}
+                      to={`/author/${node.slug}/`}
                       className="tag-link"
                       key={node.id}
                     >

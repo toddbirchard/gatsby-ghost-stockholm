@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { FaListUl } from 'react-icons/fa'
 
 const CourseCard = ({ course, page }) => {
-  const url = `/series/${course.slug}`
+  const url = `/series/${course.slug}/`
   const image = course.feature_image
   const name = course.name.replace(`#`, ``)
   const description = course.description

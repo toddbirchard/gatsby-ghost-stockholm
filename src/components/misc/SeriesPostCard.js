@@ -5,7 +5,7 @@ import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { FaClock } from 'react-icons/fa'
 
 const SeriesPostCard = ({ post, count }) => {
-  const route = post.slug.includes(`lynx`) ? `/roundup/${post.slug}` : `/${post.slug}`
+  const route = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
   const readingTime = readingTimeHelper(post)
   const postNumber = count + 1
 
