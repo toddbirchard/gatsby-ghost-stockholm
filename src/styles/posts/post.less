@@ -68,16 +68,16 @@
       order: 3;
       width: 100%;
       max-width: 850px;
+      min-height: 490px;
       margin: 0 auto;
       overflow: hidden;
+      background-color: #dbe5f1;
       background-position-y: center !important;
       background-size: cover !important;
-      background-color: #dbe5f1;
       box-shadow: 0 1px 3px rgba(39, 44, 49, 0.1);
-      min-height: 490px;
       @media (max-width: @smallscreen-breakpoint) {
-        margin: 0 30px;
         min-height: unset;
+        margin: 0 30px;
         .mobile-full-width();
       }
       @media (max-width: @mobile-breakpoint) {
@@ -152,9 +152,9 @@
         }
 
         span {
-          font-size: .9em;
           display: inline-block;
           height: 11px;
+          font-size: .9em;
         }
 
         * {
@@ -520,6 +520,7 @@
 
         a {
           .link();
+          color: #868eab !important;
         }
       }
 
@@ -601,8 +602,8 @@
       margin: 70px 70px 40px;
     }
     @media (max-width: @tablet-breakpoint) {
-      padding: 15px 20px;
       margin: 70px 50px 40px;
+      padding: 15px 20px;
     }
     @media (max-width: @mobile-breakpoint) {
       margin: 70px 30px 40px;
@@ -620,9 +621,9 @@
         font-size: 3em;
       }
       @media (max-width: @mobile-breakpoint) {
-        font-size: 4em;
         height: unset;
         min-height: unset;
+        font-size: 4em;
       }
     }
 

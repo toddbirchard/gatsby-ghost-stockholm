@@ -19,6 +19,8 @@ const Page = ({ data, location, pageContext }) => {
   const metaTitle = page.meta_title
   const metaDescription = page.meta_description
 
+  console.log(`metaTitle = ` + metaTitle)
+
   return (
     <>
       <MetaData
