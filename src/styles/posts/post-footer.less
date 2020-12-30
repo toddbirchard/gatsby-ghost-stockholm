@@ -48,8 +48,8 @@
 
       .related-post-image-wrapper {
         width: 100%;
-        background-color: #dbe5f1;
         min-height: 141px;
+        background-color: #dbe5f1;
 
         img {
           width: 100%;
@@ -144,9 +144,9 @@
   }
 
   .widget.support {
+    grid-gap: 8%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 8%;
     margin: 40px auto 0;
     text-align: center;
     @media (max-width: @mobile-breakpoint) {
@@ -187,10 +187,6 @@
       }
     }
 
-    .donate-section {
-
-    }
-
     .support-description {
       margin: 0 auto 20px;
       color: lighten(@body-color, 5%);
@@ -229,21 +225,21 @@
     }
   }
   .support-widget-button {
-    width: stretch;
-    height: 43px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: stretch;
+    height: 43px;
+    border: 2px solid #a6b3c8;
     border-radius: 3px;
+    background: unset;
+    color: #7488a9;
     font-family: @body-font;
     font-size: .9em;
-    border: 2px solid #7488a9;
-    color: #7488a9;
-    justify-content: center;
-    background: unset;
     transition: @transition;
 
     &:hover {
-      background: #7488a9;
+      background: #a6b3c8;
       color: white;
       cursor: pointer;
 
@@ -253,10 +249,10 @@
     }
 
     span {
-      font-family: @body-font;
-      font-weight: 600;
       display: inline-block;
       margin: 0 20px;
+      font-family: @body-font;
+      font-weight: 600;
     }
 
     img {

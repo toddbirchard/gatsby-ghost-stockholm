@@ -24,7 +24,7 @@ const Comment = ({ comment }) => {
       <div className="comment-main">
         <div className="comment-head">
           { authorAvatar
-            ? <img className="user-avatar lazyload" data-src={comment.user_avatar} alt={`${comment.user_name}'s avatar`}/>
+            ? <img className="user-avatar avatar-border lazyload" data-src={comment.user_avatar} alt={`${comment.user_name}'s avatar`}/>
             : <AiOutlineUser className="user-avatar" alt={`${comment.user_name}'s avatar`} />
           }
           <div>

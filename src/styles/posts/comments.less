@@ -1,5 +1,9 @@
 #comments {
-  margin: 0 0 40px;
+  width: 90%;
+  margin: 0 auto 40px;
+  @media(max-width: @tablet-breakpoint) {
+    width: unset;
+  }
 
   .form-container {
     &:focus,
@@ -286,15 +290,13 @@
     margin-bottom: 40px;
 
     .comment {
-
-      margin-bottom: 30px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #dde0e6;
+      margin-bottom: 25px;
+      padding: 30px;
+      background: white;
+      box-shadow: 0 1px 4px rgba(39,44,49,.15);
 
       &:last-of-type {
         margin-bottom: unset;
-        padding-bottom: unset;
-        border-bottom: unset;
       }
 
       .comment-main {
@@ -306,9 +308,9 @@
           margin-bottom: 12px;
 
           .user-avatar {
-            width: 40px;
-            min-width: 40px;
-            height: 40px;
+            width: 50px;
+            min-width: 50px;
+            height: 50px;
             margin-right: 10px;
             border-radius: 50%;
             @media (max-width: @mobile-breakpoint) {
@@ -317,6 +319,10 @@
               height: 40px;
               margin-right: 15px;
             }
+          }
+
+          .avatar-border {
+            border: 1px solid #babfc8;
           }
 
           .comment-author {
@@ -357,8 +363,63 @@
         }
 
         .comment-body {
-          font-size: .9em;
-          line-height: 1.75;
+          font-size: .95em;
+          line-height: 1.6;
+
+          ol,
+          ul {
+            margin: 15px 30px;
+          }
+
+          p {
+            margin-bottom: 15px;
+          }
+
+          blockquote {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 15px;
+            overflow: hidden;
+            border-left: 0.4em solid #e0e4ea;
+            border-radius: 4px;
+            background: #eceff4;
+            color: #767f86;
+            @media (max-width: @mobile-breakpoint) {
+              margin: 20px 10px;
+            }
+
+            * {
+              color: #656d73;
+              font-family: @body-font-medium;
+              font-size: .95em;
+              line-height: 1.5;
+            }
+
+            code {
+              padding: 2px 4px 4px;
+              border-radius: 2px;
+              background: #e5e8ed;
+              color: #5d6a74;
+              font-family: @monospace-font;
+              font-size: 0.8em;
+              font-weight: 600;
+            }
+
+            ul {
+              margin-top: 10px;
+              margin-bottom: 0;
+              margin-left: 10px;
+              padding-left: 20px;
+
+              li {
+                margin-bottom: 5px !important;
+              }
+            }
+
+            P:last-of-type {
+              margin: 0;
+            }
+          }
         }
 
         .comment-buttons {

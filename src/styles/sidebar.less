@@ -12,14 +12,13 @@
   }
 
   .widget {
+    max-width: 260px;
     padding: 20px;
-    background: #fff 50%;
     border-radius: 4px;
+    background: #fff 50%;
     box-shadow: @box-shadow;
     transition: all 0.5s ease;
-    max-width: 260px;
     @media (max-width: @smallscreen-breakpoint) {
-      /* padding: 20px;*/
       max-width: 240px;
     }
 
@@ -27,8 +26,7 @@
       margin-bottom: 15px;
       padding: 0;
       color: @light-header-color;
-      font-family: @header-font;
-      font-weight: normal;
+      font-family: @body-font-bold;
       font-size: 1.1em;
       letter-spacing: 0.6px;
       line-height: 1;
@@ -326,11 +324,11 @@
         width: -moz-available;
         height: 18px !important;
         margin: 0 0 8px;
-        font-size: 0.8em;
+        padding: 8px 10px !important;
         color: @body-color;
+        font-size: 0.8em;
         transition: @transition;
         .input-text-fields();
-        padding: 8px 10px !important;
       }
 
       .newsletter-button {
@@ -410,7 +408,7 @@
         color: lighten(@header-font-color, 15%);
         font-family: @body-font-medium;
         font-size: 0.85em;
-        line-height: 1.4;
+        line-height: 1.5;
         text-overflow: ellipsis;
         @media (max-width: @smallscreen-breakpoint) {
           padding: 5px 0 10px;
