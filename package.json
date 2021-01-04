@@ -90,7 +90,7 @@
     "gatsby-source-github": "0.0.2",
     "gatsby-source-mysql": "^2.2.3",
     "gatsby-source-twitter": "^3.2.2",
-    "lazysizes": "^5.2.2",
+    "lazysizes": "^5.3.0",
     "lodash": "4.17.20",
     "netlify-identity-widget": "^1.9.1",
     "node-fetch": "^2.6.1",
