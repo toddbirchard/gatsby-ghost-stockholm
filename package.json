@@ -64,7 +64,7 @@
     "basiclightbox": "^5.0.3",
     "browserslist": "^4.16.0",
     "cheerio": "1.0.0-rc.5",
-    "core-js": "^3.8.1",
+    "core-js": "^3.8.2",
     "dotenv": "^8.2.0",
     "gatsby": "^2.29.3",
     "gatsby-awesome-pagination": "0.3.6",
