@@ -14,6 +14,7 @@ const AuthorMeta = ({ data, settings, canonical }) => {
   const title = `${data.name} - ${settings.title}`
   const description = data.bio || config.siteDescriptionMeta || settings.description
   const twitterSiteUrl = settings.twitter && `https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`
+  const siteCreatorTwitter = config.creator && config.creator.name
 
   const jsonLd = {
     "@context": `https://schema.org/`,
@@ -39,7 +40,6 @@ const AuthorMeta = ({ data, settings, canonical }) => {
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description}/>
-        <link rel="canonical" href={canonical}/>
         <meta property="og:site_name" content={settings.title}/>
         <meta property="og:type" content="profile"/>
         <meta property="og:title" content={title}/>
@@ -48,9 +48,8 @@ const AuthorMeta = ({ data, settings, canonical }) => {
         <meta name="twitter:title" content={title}/>
         <meta name="twitter:description" content={description}/>
         <meta name="twitter:url" content={canonical}/>
-        {settings.twitter &&
-        <meta name="twitter:site" content={twitterSiteUrl}/>}
-        {settings.twitter && <meta name="twitter:creator" content={settings.twitter}/>}
+        {twitterSiteUrl && <meta name="twitter:site" content={twitterSiteUrl}/>}
+        {settings.twitter && <meta name="twitter:creator" content={siteCreatorTwitter}/>}
         <script type="application/ld+json">{JSON.stringify(jsonLd, undefined, 4)}</script>
       </Helmet>
       <ImageMeta image={shareImage}/>
