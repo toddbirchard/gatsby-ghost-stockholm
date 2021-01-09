@@ -11,10 +11,15 @@ const AuthorTwitter = ({ data }) => {
     <>
       <div className="widget twitter">
         <div className="twitter-header">
-          <img className="twitter-avatar lazyload" data-src={data.profile_image_url_https} alt="twitter-avatar"/>
+          <img
+            className="twitter-avatar lazyload"
+            data-src={data.profile_image_url_https}
+            alt={`${data.name}-twitter-avatar`}
+            title={`${data.name}-twitter-avatar`}
+          />
           <div className="profile-details">
             <div className="profile-details">
-              <a href={twitterUrl} className="twitter-name" target="_blank" rel="noopener noreferrer">{data.name}</a>
+              <a href={twitterUrl} className="twitter-name" target="_blank" rel="noopener noreferrer">{data.name.toLowerCase()}</a>
               <a href={twitterUrl} className="twitter-user" rel="nofollow noreferrer">{`@${data.screen_name}`}</a>
             </div>
           </div>

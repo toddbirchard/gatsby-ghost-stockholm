@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
 import { StaticQuery, graphql } from 'gatsby'
 import ImageMeta from './ImageMeta'
 import getAuthorProperties from './getAuthorProperties'
@@ -11,9 +10,10 @@ const AuthorMeta = ({ data, settings, canonical }) => {
   settings = settings.allGhostSettings.edges[0].node
 
   const author = getAuthorProperties(data)
-  const shareImage = author.image || _.get(settings, `cover_image`, null)
+  const shareImage = settings.cover_image
   const title = `${data.name} - ${settings.title}`
   const description = data.bio || config.siteDescriptionMeta || settings.description
+  const twitterSiteUrl = settings.twitter && `https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`
 
   const jsonLd = {
     "@context": `https://schema.org/`,
@@ -49,7 +49,7 @@ const AuthorMeta = ({ data, settings, canonical }) => {
         <meta name="twitter:description" content={description}/>
         <meta name="twitter:url" content={canonical}/>
         {settings.twitter &&
-        <meta name="twitter:site" content={`https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`}/>}
+        <meta name="twitter:site" content={twitterSiteUrl}/>}
         {settings.twitter && <meta name="twitter:creator" content={settings.twitter}/>}
         <script type="application/ld+json">{JSON.stringify(jsonLd, undefined, 4)}</script>
       </Helmet>
@@ -68,9 +68,10 @@ AuthorMeta.propTypes = {
     facebook: PropTypes.string,
   }).isRequired,
   settings: PropTypes.shape({
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
     twitter: PropTypes.string,
     description: PropTypes.string,
+    cover_image: PropTypes.string,
     allGhostSettings: PropTypes.object.isRequired,
   }).isRequired,
   canonical: PropTypes.string.isRequired,
