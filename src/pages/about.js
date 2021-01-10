@@ -16,7 +16,7 @@ import '../styles/pages/about.less'
 * This file renders a single page and loads all the content.
 *
 */
-const AboutPage = ({ data, location }) => {
+const AboutPage = ({ data, location, pageContext }) => {
   const metaTitle = data.aboutPage.meta_title
   const metaDescription = data.aboutPage.meta_description
   const introVideo = config.introVideo
@@ -28,6 +28,7 @@ const AboutPage = ({ data, location }) => {
         location={location}
         title={metaTitle}
         description={metaDescription}
+        pageContext={pageContext}
         type="website"
       />
       <Layout template="page-template" hasSidebar>

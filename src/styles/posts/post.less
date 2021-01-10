@@ -287,25 +287,6 @@
         font-weight: unset;
       }
 
-      li {
-        -webkit-font-smoothing: auto;
-        color: @body-color;
-        font-family: @body-font;
-        text-align: left;
-        .body-font();
-        margin: 0 0 15px !important;
-        line-height: 1.6 !important;
-        counter-increment: item;
-
-        &:before {
-          font-weight: 600;
-        }
-
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-      }
-
       & > ol,
       & > ul {
         .lists();

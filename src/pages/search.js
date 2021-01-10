@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import {
   InstantSearch,
   SearchBox,
@@ -25,7 +25,7 @@ const searchClient = algoliasearch(
 const createURL = state => `?${qs.stringify(state)}`
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
-const SearchPage = ({ data, location }) => {
+const SearchPage = ({ data, location, pageContext }) => {
   const metaTitle = data.searchPage.meta_title
   const metaDescription = data.searchPage.meta_description
   const [searchState, setSearchState] = useState(urlToSearchState(location))
@@ -40,6 +40,7 @@ const SearchPage = ({ data, location }) => {
         location={location}
         title={metaTitle}
         description={metaDescription}
+        pageContext={pageContext}
         type="website"
       />
       <Layout template="search-template" hasSidebar={false}>
@@ -124,17 +125,19 @@ SearchPage.propTypes = {
     searchPage: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.object,
-  pageContext: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }),
 }
 
-export const SearchPageQuery = graphql`
-    query searchPage($slug: String) {
-        searchPage: ghostPage(slug: {eq: $slug}) {
-          ...GhostPageFields
-        }
-    }`
+const SearchPageQuery = props => (
+  <StaticQuery
+    query={graphql`
+          query SearchPageData {
+            searchPage: ghostPage(slug: {eq: "search"}) {
+              ...GhostPageFields
+            }
+          }
+        `}
+    render={data => <SearchPage data={data} {...props} />}
+  />
+)
 
-export default SearchPage
+export default SearchPageQuery

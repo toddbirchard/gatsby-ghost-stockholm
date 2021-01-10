@@ -55,6 +55,7 @@ const MetaData = ({
       <WebsiteMeta
         data={ghostPage}
         canonical={canonical}
+        pageContext={pageContext}
         type="WebSite"
       />
     )
@@ -72,6 +73,7 @@ const MetaData = ({
         title={title}
         description={description}
         image={image}
+        pageContext={pageContext}
         type="WebSite"
       />
     )

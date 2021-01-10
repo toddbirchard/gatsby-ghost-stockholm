@@ -20,8 +20,15 @@
   }
 
   li {
+    -webkit-font-smoothing: auto;
+    color: @body-color;
+    font-family: @body-font;
+    text-align: left;
+    .body-font();
+    margin: 0 0 10px !important;
+    line-height: 1.6 !important;
+    counter-increment: item;
     display: list-item;
-    margin: 0 0 10px;
     padding-left: 0;
     .body-font();
 
@@ -33,7 +40,12 @@
       margin: 10px 0;
 
       li {
-        margin: 0 0 0 10px;
+        margin: 0 0 5px 10px!important;
+        font-size: .9em;
+
+        &:before {
+          font-weight: 600;
+        }
 
         &:last-of-type {
           padding-bottom: 0;
@@ -56,7 +68,7 @@
 
 .input-text-fields() {
   padding: 10px;
-  border: 1px solid #e4e9f4;
+  border: 1px solid #d6dde9;
   border-radius: 3px !important;
   background: #f7f8fa;
   font-family: @body-font;
@@ -104,7 +116,6 @@
     display: flex;
     align-items: center;
     margin: 0 0 12px !important;
-    color: #697386;
     font-size: 1.2em;
     line-height: 1;
     @media (max-width: @tablet-breakpoint) {

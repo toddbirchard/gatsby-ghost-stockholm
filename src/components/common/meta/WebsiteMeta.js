@@ -28,7 +28,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
     <>
       <Helmet>
         <title>
-          {canonical === `/`
+          {canonical === config.siteUrl + `/`
             ? title
             : title + ` - ${settings.title}`
           }

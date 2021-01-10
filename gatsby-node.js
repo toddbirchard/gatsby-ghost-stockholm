@@ -62,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+            title
             url
             feature_image
           }
@@ -252,6 +253,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: node.slug,
+        title: node.title,
       },
     })
   })
@@ -348,6 +350,7 @@ exports.createPages = async ({ graphql, actions }) => {
     component: searchPage,
     context: {
       slug: `search`,
+      title: `Search all Posts`,
     },
   })
 
@@ -356,6 +359,7 @@ exports.createPages = async ({ graphql, actions }) => {
     component: aboutPage,
     context: {
       slug: `about`,
+      title: `About Us`,
     },
   })
 }
