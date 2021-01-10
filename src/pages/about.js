@@ -40,7 +40,6 @@ const AboutPage = ({ data, location, pageContext }) => {
                 <ReactPlayer
                   url={introVideo}
                   width="100%"
-                  // height="337px"
                   className="about-video"
                   controls={true}
                   config={{
