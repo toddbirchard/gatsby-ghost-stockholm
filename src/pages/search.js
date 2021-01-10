@@ -25,7 +25,7 @@ const searchClient = algoliasearch(
 const createURL = state => `?${qs.stringify(state)}`
 const urlToSearchState = location => qs.parse(location.search.slice(1))
 
-const SearchPage = ({ data, location, pageContext }) => {
+const SearchPage = ({ data, location }) => {
   const metaTitle = data.searchPage.meta_title
   const metaDescription = data.searchPage.meta_description
   const [searchState, setSearchState] = useState(urlToSearchState(location))
@@ -40,7 +40,6 @@ const SearchPage = ({ data, location, pageContext }) => {
         location={location}
         title={metaTitle}
         description={metaDescription}
-        pageContext={pageContext}
         type="website"
       />
       <Layout template="search-template" hasSidebar={false}>

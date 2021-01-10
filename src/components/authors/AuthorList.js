@@ -31,6 +31,7 @@ const AuthorCardsQuery = props => (
             allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}, sort: {fields: id, order: ASC}) {
               edges {
                 node {
+                  id
                   name
                   postCount
                   profile_image

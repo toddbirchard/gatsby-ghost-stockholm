@@ -42,7 +42,7 @@ const AboutPage = ({ data, location, pageContext }) => {
                   width="100%"
                   // height="337px"
                   className="about-video"
-                  controls="true"
+                  controls={true}
                   config={{
                     vimeo: {
                       width: `100%`,
