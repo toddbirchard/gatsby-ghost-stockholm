@@ -96,7 +96,7 @@
     "node-fetch": "^2.6.1",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
-    "qs": "^6.9.4",
+    "qs": "^6.9.6",
     "react": "17.0.1",
     "react-accessible-accordion": "^3.3.3",
     "react-burger-menu": "^3.0.3",
