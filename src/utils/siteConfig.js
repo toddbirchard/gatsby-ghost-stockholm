@@ -17,14 +17,6 @@ module.exports = {
   introVideo: `https://vimeo.com/265866802`, // OPTIONAL: Video URL to be used in "about" page
   categories: [`software`, `engineering`, `data`, `data science`, `data engineering`],
   lang: `en-US`,
-  social: {
-    twitter: `https://twitter.com/hackersslackers/`,
-    github: `https://github.com/hackersandslackers`,
-    linkedin: `https://www.linkedin.com/company/hackers-and-slackers/`,
-    angellist: `https://angel.co/company/hackers-and-slackers/`,
-    medium: `https://hackingandslacking.com`,
-    feedly: `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`,
-  },
   lambda: {
     scrape: `https://hackersandslackers.com/.netlify/functions/scrape?url=`,
     auth: `https://hackersandslackers.com/.netlify/functions/auth`,
@@ -34,8 +26,8 @@ module.exports = {
     twitter: `@toddrbirchard`,
   },
   links: {
+    twitter: `https://twitter.com/hackersslackers`,
     buyMeACoffee: `https://buymeacoff.ee/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
-    commentsApi: `https://hackersandslackers.tools/members/comments`,
   },
 }

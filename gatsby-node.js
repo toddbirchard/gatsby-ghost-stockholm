@@ -80,12 +80,12 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }`
   )
-  // Check for any errors
+  // Check for errors
   if (result.errors) {
     throw new Error(result.errors)
   }
 
-  // Extract query results
+  // Query results
   const tags = result.data.allGhostTag.edges
   const authors = result.data.allGhostAuthor.edges
   const pages = result.data.allGhostPage.edges
@@ -93,7 +93,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const series = result.data.series.edges
   const lynx = result.data.lynx.edges
 
-  // Load templates
+  // Templates
   const indexTemplate = path.resolve(`./src/templates/index.js`)
   const tagsTemplate = path.resolve(`./src/templates/tag.js`)
   const authorTemplate = path.resolve(`./src/templates/author.js`)
@@ -101,7 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const postTemplate = path.resolve(`./src/templates/post.js`)
   const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`)
 
-  // Load Pages
+  // Pages
   const aboutPage = path.resolve(`./src/pages/about.js`)
   const searchPage = path.resolve(`./src/pages/search.js`)
   const seriesArchivePage = path.resolve(`./src/pages/seriesarchive.js`)
@@ -153,8 +153,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const totalPosts = node.postCount !== null ? node.postCount : 0
     const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
-    // This part here defines, that our tag pages will use
-    // a `/tag/:slug/` permalink.
     node.url = `/series/${node.slug}/`
 
     Array.from({ length: numberOfPages }).forEach((_, i) => {
@@ -196,8 +194,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const totalPosts = node.postCount !== null ? node.postCount : 0
     const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
-    // This part here defines, that our author pages will use
-    // a `/author/:slug/` permalink.
     node.url = `/author/${node.slug}/`
     node.twitterRegex = ``
 
@@ -242,8 +238,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create pages
   pages.forEach(({ node }) => {
-    // This part here defines, that our pages will use
-    // a `/:slug/` permalink.
     node.url = `/${node.slug}/`
 
     createPage({
@@ -281,8 +275,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create post pages
   posts.forEach(({ node }) => {
-    // This part here defines, that our posts will use
-    // a `/:slug/` permalink.
     node.url = `/${node.slug}/`
     node.series = null
     node.name = null
@@ -302,7 +294,6 @@ exports.createPages = async ({ graphql, actions }) => {
       // determine if post is in series
       if (element.visibility === `internal`) {
         node.series = element.slug
-        // node.name = element = name
       }
     })
 
@@ -362,4 +353,20 @@ exports.createPages = async ({ graphql, actions }) => {
       title: `About Us`,
     },
   })
+
+  async function getSeriesPosts(seriesSlug) {
+    return await graphql(`
+        {
+          allGhostPost(filter: {tags: {elemMatch: {slug: {eq: ${seriesSlug}}}}}, sort: {fields: published_at, order: ASC}) {
+            edges {
+              node {
+                slug
+                id
+                title
+              }
+            }
+          }
+        }
+      `)
+  }
 }

@@ -43,7 +43,7 @@ module.exports = {
     description: config.siteDescriptionMeta,
     url: config.siteUrl, // No trailing slash allowed!
     image: config.siteIcon, // Path to your image you placed in the 'static' folder,
-    twitterUsername: config.social.twitter,
+    twitterUsername: config.links.twitter,
   },
   plugins: [
     /**

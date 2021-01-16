@@ -10,6 +10,7 @@ import {
   RelatedPost,
   SeriesTOC,
   SupportWidget,
+  SeriesNextPrev,
 } from '../components/posts'
 import { AuthorCard } from '../components/authors'
 import {
@@ -35,6 +36,8 @@ const Post = ({ data, location }) => {
   const relatedPosts = data.relatedPosts.edges
   const readingTime = readingTimeHelper(post)
   const seriesPosts = data.seriesPosts
+  const seriesIndex = seriesPosts && seriesPosts.edges.findIndex(element => element.node.slug === post.slug)
+  const seriesLength = seriesPosts && seriesPosts.edges.length
   const authorUrl = post.primary_author.slug && `/author/${post.primary_author.slug}/`
   const authorFirstName = author.name.split(` `)[0]
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
@@ -143,6 +146,7 @@ const Post = ({ data, location }) => {
                 separator={null}
                 suffix={false}
                 classes={`post-tag-footer ${tags.ghostId}`}/>
+              {seriesPosts && <SeriesNextPrev seriesPosts={seriesPosts} seriesIndex={seriesIndex} seriesLength={seriesLength} />}
             </div>
 
             {/*  Post Author Details  */}
@@ -241,7 +245,7 @@ export const postQuery = graphql`
         }
       }
     }
-    seriesPosts: allGhostPost(filter: {tags: {elemMatch: {slug: {eq: $seriesSlug}}}}) {
+    seriesPosts: allGhostPost(filter: {tags: {elemMatch: {slug: {eq: $seriesSlug}}}}, sort: {fields: published_at, order: DESC}) {
       edges {
         node {
           slug
