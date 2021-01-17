@@ -146,7 +146,7 @@ const Post = ({ data, location }) => {
                 separator={null}
                 suffix={false}
                 classes={`post-tag-footer ${tags.ghostId}`}/>
-              {seriesPosts && <SeriesNextPrev seriesPosts={seriesPosts} seriesIndex={seriesIndex} seriesLength={seriesLength} />}
+              {seriesLength > 1 ? <SeriesNextPrev seriesPosts={seriesPosts} seriesIndex={seriesIndex} seriesLength={seriesLength} /> : null}
             </div>
 
             {/*  Post Author Details  */}

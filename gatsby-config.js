@@ -37,6 +37,7 @@ if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhos
 }
 
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: config.shortTitle,
     siteUrl: config.siteUrl,
