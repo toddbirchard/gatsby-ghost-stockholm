@@ -11,19 +11,19 @@ const SeriesNextPrev = ({ seriesPosts, seriesIndex, seriesLength }) => {
   return (
     <>
       <div className="series-next-prev">
-        {prevPost &&
-        <Link to={`/${prevPost.slug}`} className="prev-post series-nextprev">
-          <span><AiOutlineArrowLeft /> Previous post</span>
-          <h6>{prevPost.title}</h6>
-        </Link>
-        }
+        {prevPost ?
+          <Link to={`/${prevPost.slug}`} className="prev-post series-nextprev">
+            <span><AiOutlineArrowLeft /> Previous post</span>
+            <h6>{prevPost.title}</h6>
+          </Link>
+          : <div className="series-next-prev-placeholder"></div> }
 
-        {nextPost &&
-        <Link to={`/${nextPost.slug}`} className="next-post series-nextprev">
-          <span>Next post <AiOutlineArrowRight/></span>
-          <h6>{nextPost.title}</h6>
-        </Link>
-        }
+        {nextPost ?
+          <Link to={`/${nextPost.slug}`} className="next-post series-nextprev">
+            <span>Next post <AiOutlineArrowRight/></span>
+            <h6>{nextPost.title}</h6>
+          </Link>
+          : <div className="series-next-prev-placeholder"></div> }
       </div>
     </>
   )
