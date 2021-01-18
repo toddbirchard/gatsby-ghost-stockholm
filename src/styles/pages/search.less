@@ -204,7 +204,7 @@
       grid-auto-rows: min-content;
       min-width: 200px;
       height: fit-content;
-      padding: 20px;
+      padding: 10px 20px;
       @media (max-width: 900px) {
         display: none;
       }
@@ -234,8 +234,8 @@
         transition: @transition;
 
         &:hover {
-          color: @theme-color;
-          cursor: pointer;
+          color: @theme-color !important;
+          cursor: pointer !important;
         }
 
         .ais-RefinementList-label {

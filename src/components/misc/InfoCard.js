@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaTag } from 'react-icons/fa'
+import { BsTag } from 'react-icons/bs'
 
 const InfoCard = ({ tag, count }) => (
   <>
@@ -8,7 +8,7 @@ const InfoCard = ({ tag, count }) => (
       <div className="info-card-wrapper">
         {tag.feature_image
           ? <img data-src={tag.feature_image} alt={tag.name} className="tag-image lazyload" />
-          : <FaTag />}
+          : <BsTag />}
         <div className="card-details">
           <div className="page-title-card">
             <h1>{tag.name}{count && <span>{` (page ${count})`}</span>}</h1>
