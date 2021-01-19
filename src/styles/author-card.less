@@ -102,10 +102,10 @@
         }
 
         span {
-          opacity: 0.8;
-          line-height: 1;
           display: inline-block;
           height: 11px;
+          line-height: 1;
+          opacity: 0.8;
           @media (max-width: @mobile-breakpoint) {
             display: inline-block;
             height: 12px;
@@ -246,6 +246,8 @@
 }*/
 
 .author-card.post {
+  max-width: 720px;
+  margin: auto;
   box-shadow: none !important;
   @media (max-width: @smallscreen-breakpoint) {
     width: auto;

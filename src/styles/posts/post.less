@@ -11,6 +11,8 @@
 @import './comments.less';
 
 .post-template {
+  background: #fff;
+
   .sidebar {
     display: none;
   }
@@ -67,10 +69,11 @@
     .post-image {
       order: 3;
       width: 100%;
-      max-width: 850px;
+      max-width: 950px;
       min-height: 490px;
       margin: 0 auto;
       overflow: hidden;
+      border-radius: 3px;
       background-color: #dbe5f1;
       background-position-y: center !important;
       background-size: cover !important;
@@ -215,11 +218,11 @@
 
   .post-wrapper > .post {
     position: relative;
-    margin: 60px 0 30px;
-    padding: 0 50px;
+    margin: 0 0 30px;
+    padding: 0 80px;
     padding-bottom: 40px;
     background: white;
-    box-shadow: @box-shadow;
+    // box-shadow: @box-shadow;
     @media (max-width: @smallscreen-breakpoint) {
       width: 100%;
       margin: 0 0 30px;
@@ -235,7 +238,8 @@
 
     .post-content {
       position: relative;
-      margin-top: 40px;
+      max-width: 720px;
+      margin: 40px auto 0;
       @media (max-width: @smallscreen-breakpoint) {
         padding: 0 8%;
       }
@@ -392,8 +396,9 @@
       justify-content: space-between;
       width: 100%;
       max-width: 100%;
+      max-width: 720px;
       height: fit-content;
-      margin: 40px 0;
+      margin: 40px auto;
       padding: 0 0 30px 0;
       border-bottom: 2px dotted #eaeaea;
       @media (max-width: @smallscreen-breakpoint) {
