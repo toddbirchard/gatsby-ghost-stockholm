@@ -73,7 +73,7 @@
     "gatsby-plugin-advanced-sitemap": "^1.5.6",
     "gatsby-plugin-algolia": "^0.16.2",
     "gatsby-plugin-canonical-urls": "^2.8.0",
-    "gatsby-plugin-catch-links": "2.8.0",
+    "gatsby-plugin-catch-links": "2.9.0",
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-feed": "2.11.0",
     "gatsby-plugin-force-trailing-slashes": "1.0.5",
