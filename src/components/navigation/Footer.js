@@ -32,7 +32,17 @@ const Footer = ({ navigation, site, data }) => {
             <div className="widget pages">
               <span className="footer-widget-title">Pages</span>
               {navigation.map((navItem, i) => {
-                if (navItem.url.includes(config.siteUrl)) {
+                if (navItem.url.includes(`/rss`)) {
+                  return <a
+                    className="footer-navigation-link rss"
+                    href={navItem.url}
+                    key={i}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {navItem.label}
+                  </a>
+                } else if (navItem.url.includes(config.siteUrl)) {
                   return <Link key={i} className={`footer-navigation-link ${navItem.label}`} to={navItem.url.replace(config.siteUrl, ``)}>
                     {navItem.label}
                   </Link>
