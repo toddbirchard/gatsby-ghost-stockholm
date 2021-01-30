@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as Showdown from "showdown"
 import { AiOutlineUser } from 'react-icons/ai'
+import { RiReplyLine } from 'react-icons/ri'
+import { FaRegArrowAltCircleUp } from 'react-icons/fa'
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -23,21 +25,29 @@ const Comment = ({ comment }) => {
     <div className="comment" key={comment.id}>
       <div className="comment-main">
         <div className="comment-head">
-          { authorAvatar
-            ? <img className="user-avatar avatar-border lazyload" data-src={comment.user_avatar} alt={`${comment.user_name}'s avatar`}/>
-            : <AiOutlineUser className="user-avatar" alt={`${comment.user_name}'s avatar`} />
-          }
-          <div>
-            <div className="comment-author">
-              <span className="user-name">{comment.user_name}</span>
-              {authorIsAdmin
-                ? <span className="badge author">Author</span>
-                : authorIsModerator
-                  ? <span className="badge moderator">Moderator</span>
-                  : null }
+          <div className="comment-author">
+            { authorAvatar
+              ? <img className="user-avatar avatar-border lazyload" data-src={comment.user_avatar} alt={`${comment.user_name}'s avatar`}/>
+              : <AiOutlineUser className="user-avatar" alt={`${comment.user_name}'s avatar`} />
+            }
+            <div>
+              <div className="comment-author-details">
+                <span className="user-name">{comment.user_name}</span>
+                {authorIsAdmin
+                  ? <span className="badge author">Author</span>
+                  : authorIsModerator
+                    ? <span className="badge moderator">Moderator</span>
+                    : null }
+              </div>
+              <div className="comment-date">{comment.created_at}</div>
             </div>
-            <div className="comment-date">{comment.created_at}</div>
           </div>
+
+          <div>
+            <RiReplyLine />
+            <FaRegArrowAltCircleUp />
+          </div>
+
         </div>
         <div
           className="comment-body"
@@ -59,7 +69,6 @@ Comment.propTypes = {
     user_name: PropTypes.string,
     user_avatar: PropTypes.string,
     user_email: PropTypes.string,
-    user_role: PropTypes.string,
     created_at: PropTypes.string.isRequired,
   }).isRequired,
   moderators: PropTypes.arrayOf(

@@ -241,7 +241,6 @@ module.exports = {
     /**
      *  Style Plugins
      */
-    // `@danbruegge/gatsby-plugin-stylelint`,
     {
       resolve: `gatsby-plugin-less`,
       options: {
