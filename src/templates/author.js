@@ -149,7 +149,7 @@ export const pageQuery = graphql`
       statuses_count
       favourites_count
     }
-    authorTrendingPosts: allMysqlMonthlyPageAnalytics(sort: {fields: views, order: DESC}, filter: {author_slug: {eq: $slug}, views: {gt: 10}}, limit: 10) {
+    authorTrendingPosts: allMysqlWeeklyPostAnalytics(sort: {fields: views, order: DESC}, filter: {author_slug: {eq: $slug}, views: {gt: 10}}, limit: 10) {
       edges {
         node {
           title
