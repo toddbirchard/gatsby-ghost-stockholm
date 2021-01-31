@@ -1,6 +1,6 @@
 #comments {
   width: 90%;
-  margin: 0 auto 40px;
+  margin: 40px auto;
   @media(max-width: @tablet-breakpoint) {
     width: unset;
   }
@@ -305,33 +305,36 @@
         .comment-head {
           display: flex;
           align-items: center;
+          justify-content: space-between;
           margin-bottom: 12px;
-
-          .user-avatar {
-            width: 50px;
-            min-width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            border-radius: 50%;
-            @media (max-width: @mobile-breakpoint) {
-              width: 40px;
-              min-width: 40px;
-              height: 40px;
-              margin-right: 15px;
-            }
-          }
 
           .avatar-border {
             border: 1px solid #babfc8;
           }
 
-          .comment-author-details {
+          .comment-author {
             display: flex;
             align-items: center;
             line-height: 1;
 
-            * {
-              display: inline-block;
+            .user-avatar {
+              width: 45px;
+              min-width: 45px;
+              height: 45px;
+              margin-right: 10px;
+              border-radius: 50%;
+              @media (max-width: @mobile-breakpoint) {
+                width: 40px;
+                min-width: 40px;
+                height: 40px;
+                margin-right: 15px;
+              }
+            }
+
+            .comment-author-details {
+              span {
+                display: block;
+              }
             }
 
             .user-name {
@@ -351,14 +354,35 @@
               font-size: 0.75em;
               line-height: 1;
             }
+
+            .comment-date {
+              margin-top: 4px;
+              font-family: @body-font-medium;
+              font-size: 0.9em;
+              line-height: 1;
+              opacity: 0.6;
+            }
           }
 
-          .comment-date {
-            margin-top: 4px;
-            font-family: @body-font-medium;
-            font-size: 0.9em;
-            line-height: 1;
-            opacity: 0.6;
+          .comment-actions {
+            display: none;  // temporarily disabled feature
+
+            .comment-action {
+              display: inline-block;
+              border: none;
+              background: unset;
+              transition: @transition;
+
+              &:hover {
+                color: @theme-color;
+                font-size: 1.1;
+                cursor: pointer;
+              }
+
+              svg {
+                font-size: 2em;
+              }
+            }
           }
         }
 

@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as Showdown from "showdown"
 import { AiOutlineUser } from 'react-icons/ai'
-import { RiReplyLine } from 'react-icons/ri'
-import { FaRegArrowAltCircleUp } from 'react-icons/fa'
+import { IoArrowUndoOutline, IoArrowUpCircleOutline } from 'react-icons/io5'
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -16,8 +15,8 @@ const converter = new Showdown.Converter({
 })
 
 const Comment = ({ comment }) => {
-  const authorIsAdmin = comment && comment.user_role
-  const authorIsModerator = comment.user_role
+  const userIsAuthor = comment && comment.user_role === `author`
+  const userIsModerator = comment && comment.user_role === `moderator`
   const commentBody = converter.makeHtml(comment.body)
   const authorAvatar = comment.user_avatar && comment.user_avatar
 
@@ -33,9 +32,9 @@ const Comment = ({ comment }) => {
             <div>
               <div className="comment-author-details">
                 <span className="user-name">{comment.user_name}</span>
-                {authorIsAdmin
+                {userIsAuthor
                   ? <span className="badge author">Author</span>
-                  : authorIsModerator
+                  : userIsModerator
                     ? <span className="badge moderator">Moderator</span>
                     : null }
               </div>
@@ -43,9 +42,9 @@ const Comment = ({ comment }) => {
             </div>
           </div>
 
-          <div>
-            <RiReplyLine />
-            <FaRegArrowAltCircleUp />
+          <div className="comment-actions">
+            <button className="comment-action"><IoArrowUndoOutline /></button>
+            <button className="comment-action"><IoArrowUpCircleOutline /></button>
           </div>
 
         </div>
@@ -69,6 +68,7 @@ Comment.propTypes = {
     user_name: PropTypes.string,
     user_avatar: PropTypes.string,
     user_email: PropTypes.string,
+    user_role: PropTypes.string,
     created_at: PropTypes.string.isRequired,
   }).isRequired,
   moderators: PropTypes.arrayOf(

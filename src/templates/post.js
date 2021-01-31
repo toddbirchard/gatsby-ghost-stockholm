@@ -156,12 +156,16 @@ const Post = ({ data, location }) => {
 
           {/*  Comments, related posts, & donation widgets   */}
           <section className="post-footer">
-            <Comments data={data} comments={data.comments} moderators={authors} />
             <div className="related-posts">
               {relatedPosts.map(({ node }) => (
                 <RelatedPost key={`${node.ghostId}_related`} post={node} />
               ))}
             </div>
+            <Comments
+              data={data}
+              comments={data.comments}
+              moderators={authors}
+            />
             <SupportWidget/>
           </section>
 
