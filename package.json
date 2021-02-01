@@ -50,7 +50,7 @@
   "dependencies": {
     "@babel/highlight": "^7.10.4",
     "@babel/runtime": "^7.12.5",
-    "@reach/dialog": "^0.12.1",
+    "@reach/dialog": "^0.13.0",
     "@reach/tabs": "^0.12.1",
     "@reach/visually-hidden": "^0.12.0",
     "@tryghost/helpers": "1.1.37",
