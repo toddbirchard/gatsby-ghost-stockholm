@@ -340,6 +340,9 @@
       display: flex;
       justify-content: space-between;
       margin-top: 40px;
+      @media(max-width: @mobile-breakpoint) {
+        flex-direction: column;
+      }
 
       .next-post {
         text-align: right;
@@ -352,6 +355,14 @@
         border-top: 1px solid #dedede;
         border-right: 1px solid #dedede;
         color: @body-color;
+        @media(max-width: @mobile-breakpoint) {
+          width: auto;
+          max-width: unset;
+
+          &:first-of-type {
+            margin-bottom: 20px;
+          }
+        }
 
         &:hover {
           border-color: @theme-color;
@@ -371,11 +382,13 @@
         }
 
         h6 {
-          font-family: @body-font;
+          font-family: @body-font-medium;
           font-size: .8em;
           .line-clamp();
-          -webkit-line-clamp: 1;
-          line-height: 1;
+          -webkit-line-clamp: 2;
+          font-weight: normal;
+          line-height: 1.5;
+
         }
       }
 

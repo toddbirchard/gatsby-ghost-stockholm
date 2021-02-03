@@ -19,10 +19,9 @@ table {
   margin-bottom: 0;
   border-spacing: 0;
   background-color: #fff;
-  font-family: @table-font;
 
   * {
-    font-family: @table-font;
+    font-family: @table-font !important;
   }
 
   tr {
@@ -58,10 +57,6 @@ table {
         @media (max-width: @mobile-breakpoint) {
           padding: 12px 8px;
           font-size: 0.75em;
-        }
-
-        p {
-          margin-bottom: 20px;
         }
       }
 
@@ -117,8 +112,6 @@ table {
     @media (max-width: @tablet-breakpoint) {
       width: 200px !important;
       padding: 0 !important;
-      overflow-x: hidden;
-      white-space: normal !important;
 
       &:first-child td {
         max-width: stretch !important;
@@ -126,16 +119,16 @@ table {
     }
 
     td {
+      line-height: 1.6;
       text-align: left;
+      white-space: normal !important;
       @media (max-width: @tablet-breakpoint) {
         margin: 0 !important;
         padding: 10px !important;
-        line-height: 1.5;
-        white-space: normal !important;
       }
 
       &:first-child {
-        max-width: 45px;
+        max-width: 55px;
         font-family: @table-font;
         font-size: 0.8em;
         font-weight: 600;
@@ -149,10 +142,9 @@ table {
       }
 
       &:nth-of-type(2) {
-        padding: 15px;
+        padding: 12px 15px !important;
         @media (max-width: @tablet-breakpoint) {
           width: 100%;
-          padding: 15px !important;
           line-height: 1.5;
           white-space: inherit;
         }
@@ -161,6 +153,10 @@ table {
       a {
         color: @theme-color;
         font-weight: 600;
+      }
+
+      p {
+        margin-bottom: 15px !important;
       }
     }
   }
