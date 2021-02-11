@@ -75,7 +75,7 @@
     "gatsby-plugin-eslint": "^2.0.8",
     "gatsby-plugin-feed": "2.11.0",
     "gatsby-plugin-force-trailing-slashes": "1.0.5",
-    "gatsby-plugin-less": "^4.5.0",
+    "gatsby-plugin-less": "^4.7.0",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-netlify-identity": "0.0.3",
     "gatsby-plugin-postcss": "^3.5.0",
