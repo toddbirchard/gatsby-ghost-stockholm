@@ -56,7 +56,7 @@
     "@tryghost/helpers": "1.1.37",
     "@tryghost/helpers-gatsby": "1.0.42",
     "@tryghost/social-urls": "^0.1.18",
-    "algoliasearch": "^4.8.3",
+    "algoliasearch": "^4.8.5",
     "algoliasearch-helper": "^3.3.4",
     "babel-plugin-prismjs": "^2.0.1",
     "basiclightbox": "^5.0.4",
