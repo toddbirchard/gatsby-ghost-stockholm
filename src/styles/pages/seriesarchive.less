@@ -87,14 +87,14 @@
       }
 
       .series-card-image-wrapper{
-        height: 155px;
         display: flex;
         align-content: center;
+        height: 155px;
         .series-card-image {
           max-width: 70%;
-          margin: auto;
-          max-height: 70%;
           height: auto;
+          max-height: 70%;
+          margin: auto;
         }
       }
     }
@@ -110,7 +110,7 @@
       font-family: @body-font-bold;
       font-size: 1.3em;
       font-weight: unset;
-      line-height: 1.1;
+      line-height: 1.2;
       transition: @transition;
       @media (max-width: @mobile-breakpoint) {
         letter-spacing: .7px;
@@ -146,13 +146,13 @@
     }
 
     .series-card-count {
+      display: flex;
+      margin-top: 15px;
+      padding: 0 25px 25px;
       color: lighten(@text-color-light, 20%);
       font-family: @header-font;
       line-height: 1;
       text-align: right;
-      display: flex;
-      margin-top: 15px;
-      padding: 0 25px 25px;
 
       svg {
         margin-right: 8px;
