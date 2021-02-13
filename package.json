@@ -44,8 +44,8 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-standard": "^4.1.0",
     "less": "^3.12.2",
-    "webpack": "^4.44.1",
-    "react-refresh": "^0.8.3"
+    "react-refresh": "^0.8.3",
+    "webpack": "^4.44.1"
   },
   "dependencies": {
     "@babel/highlight": "^7.10.4",
