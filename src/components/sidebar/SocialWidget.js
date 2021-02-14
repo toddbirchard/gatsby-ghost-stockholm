@@ -30,7 +30,7 @@ const SocialWidget = ({ data }) => {
           key={`${node.label}-social-link`}
           target="_blank" rel="noopener noreferrer"
         >
-          <button>
+          <button aria-label={node.label}>
             {icons[`${node.label}`]}
           </button>
         </a>

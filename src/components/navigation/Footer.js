@@ -65,11 +65,9 @@ const Footer = ({ navigation, site, data }) => {
             <div className="widget authors">
               <span className="footer-widget-title">Authors</span>
               {authorLinks.map(({ node }) => (
-                <dd key={`${node.name}-footer-link`}>
-                  <a href={`/author/${node.slug}`} className="footer-navigation-link">
-                    {node.name}
-                  </a>
-                </dd>
+                <a href={`/author/${node.slug}`} key={`${node.name}-footer-link`} className="footer-navigation-link">
+                  {node.name}
+                </a>
               ))}
             </div>
           </div>
