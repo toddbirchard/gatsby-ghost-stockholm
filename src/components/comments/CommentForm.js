@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import fetch from 'node-fetch'
 import ReactMde from "react-mde"
 import "react-mde/lib/styles/css/react-mde-all.css"
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaRegComment } from 'react-icons/fa'
 import * as Showdown from "showdown"
 import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
 
@@ -221,11 +221,9 @@ const CommentForm = ({ post }) => {
               value="Submit"
             />
             :
-            <button
-              className="comment-btn login"
-            >
-              Sign in to Comment
-            </button>
+            <div className="comment-login login">
+              <a>Sign in to comment</a> <FaRegComment />
+            </div>
           }
         </form>
       </div>
