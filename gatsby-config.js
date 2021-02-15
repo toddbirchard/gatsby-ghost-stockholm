@@ -422,9 +422,11 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries,
-        chunkSize: 100, // default: 1000
-        enablePartialUpdates: false,
-        matchFields: [`title`, `slug`, `modified`],
+        chunkSize: 500, // default: 1000
+        matchFields: [`objectID`, `title`, `slug`, `feature_image`, `modified`],
+        settings: {
+          replicaUpdateMode: `replace`,
+        },
       },
     },
     {
