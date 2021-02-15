@@ -19,7 +19,7 @@ all help:
 	@echo "$$HELP"
 
 build:
-	yarn run build
+	npm run-script build
 	mkdir -p functions
 	GOOS=linux
 	GOARCH=amd64
@@ -45,8 +45,11 @@ reset:
 	gatsby clean
 	find . -maxdepth 1 -name "package-lock.json" -delete
 	rm -rf "node_modules"
-	yarn
+	npm i
+	npm audit fix
 
 .PHONY: update
 update:
-	yarn up
+	ncu -u --dep=prod
+	npm i
+	npm audit fix
