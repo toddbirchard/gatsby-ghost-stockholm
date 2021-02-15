@@ -8,7 +8,7 @@
   functions = "/functions"
 
 [build.environment]
-  GO_VERSION = "1.15.3"
+  GO_VERSION = "1.15.7"
 
 [template]
   incoming-hooks = ["Ghost"]
@@ -604,7 +604,7 @@
         public'''
 
 [[headers]]
-  for = "https://storage.googleapis.com/*"
+  for = "https://cdn.hackersandslackers.com/*"
   [headers.values]
     cache-control = '''
         max-age=604800,
