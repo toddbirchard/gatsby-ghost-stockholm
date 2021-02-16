@@ -36,15 +36,11 @@ serve:
 .PHONY: clean
 clean:
 	gatsby clean
-	find . -maxdepth 1 -name "package-lock.json" -delete
-	rm package-lock.log
-	rm -rf "node_modules"
+	find . -name 'package-lock.json' -delete
+	rm -rf node_modules
 
 .PHONY: reset
-reset:
-	gatsby clean
-	find . -maxdepth 1 -name "package-lock.json" -delete
-	rm -rf "node_modules"
+reset: clean
 	npm i
 	npm audit fix
 
