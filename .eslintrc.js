@@ -10,7 +10,6 @@ module.exports = {
   plugins: [
     `ghost`,
     `react`,
-    `node`,
     `promise`,
     `import`,
     `standard`,

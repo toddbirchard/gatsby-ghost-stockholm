@@ -140,7 +140,7 @@ const CommentForm = ({ post }) => {
           name="comments"
           netlify
           data-netlify="true"
-          netlify-honeypot="address"
+          data-netlify-honeypot="streetAddress"
           method="post"
           onSubmit={handleSubmit}
         >
@@ -191,8 +191,8 @@ const CommentForm = ({ post }) => {
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentAddress">Address</label>
-            <input id="commentAddress" name="address" type="hidden" />
+            <label className="hidden-label" htmlFor="streetAddress">Address</label>
+            <input id="streetAddress" name="streetAddress" type="hidden" />
           </fieldset>
 
           <fieldset className="hidden-label">
