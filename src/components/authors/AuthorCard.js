@@ -16,8 +16,8 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
   const pageCount = pageContext && pageContext.currentPage > 1 ? pageContext.currentPage : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
   const authorAvatar = author.profile_image
-  const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)
-  const authorAvatarRetinaImage = authorAvatarSlash && [authorAvatar.slice(0, authorAvatarSlash), `/_retina`, authorAvatar.slice(authorAvatarSlash)].join(``)
+  // const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)
+  // const authorAvatarRetinaImage = authorAvatarSlash && [authorAvatar.slice(0, authorAvatarSlash), `/_retina`, authorAvatar.slice(authorAvatarSlash)].join(``)
 
   return (
     <>
@@ -27,7 +27,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
             {author.profile_image
               ?
               <picture>
-                <source data-srcset={authorAvatarRetinaImage} />
+                <source data-srcset={authorAvatar} />
                 <img
                   className="lazyload"
                   data-src={authorAvatar}
