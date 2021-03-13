@@ -10,7 +10,7 @@ import config from '../../utils/siteConfig'
 
 const SupportWidget = () => {
   const coffeeUrl = config.links.buyMeACoffee
-  const coffeeImg = `/images/bmc-new-btn-logo.svg`
+  const coffeeImg = config.images.buyMeACoffee
   const donateCopy = `We started sharing these tutorials to help and inspire new scientists and engineers around the world. If Hackers and Slackers has been helpful to you, feel free to buy us a coffee to keep us going :).`
 
   return (

@@ -35,7 +35,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         <Navigation
           data={site.navigation}
           navClass="site-nav-item"
-          smallLogo={config.mobileLogo}
+          smallLogo={config.images.mobileLogo}
         />
 
         <div className="viewport">

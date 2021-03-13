@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import config from '../../utils/siteConfig'
 import { StaticQuery, graphql } from 'gatsby'
 import { FiCoffee } from 'react-icons/fi'
+import config from '../../utils/siteConfig'
 
 /**
 * BuyMeACoffee widget
 */
 
 const CoffeeWidget = ({ data }) => {
-  const coffeeImg = `/images/bmc-new-btn-logo.svg`
+  const coffeeImg = config.images.buyMeACoffee
   const donations = data.coffees.edges
 
   return (

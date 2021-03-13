@@ -630,7 +630,7 @@
     set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
-  for = "/images/bmc-new-btn-logo.svg"
+  for = "/images/buymeacoffee.svg"
   [headers.values]
     content-type = "image/svg+xml"
     cache-control = '''

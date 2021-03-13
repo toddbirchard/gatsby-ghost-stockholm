@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import { StaticQuery, graphql } from 'gatsby'
 import url from 'url'
-
 import ImageMeta from './ImageMeta'
 import config from '../../../utils/siteConfig'
 
@@ -16,7 +15,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
   const previousPagePath = pageContext ? pageContext.previousPagePath : null
   const nextPagePath = pageContext ? pageContext.nextPagePath : null
 
-  const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.siteIcon))
+  const publisherLogo = url.resolve(config.siteUrl, (settings.logo || config.images.siteIcon)) || config.images.siteIcon
   let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
 
   shareImage = shareImage ? url.resolve(config.siteUrl, shareImage) : null
@@ -64,8 +63,8 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
                   ${shareImage ? `"image": {
                           "@type": "ImageObject",
                           "url": "${shareImage}",
-                          "width": "${config.shareImageWidth}",
-                          "height": "${config.shareImageHeight}"
+                          "width": "${config.images.shareImageWidth}",
+                          "height": "${config.images.shareImageHeight}"
                       },` : ``}
                   "publisher": {
                       "@type": "Organization",
@@ -86,7 +85,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
           `}
         </script>
       </Helmet>
-      <ImageMeta image={shareImage}/>
+      <ImageMeta image={shareImage} />
     </>
   )
 }
@@ -106,7 +105,7 @@ WebsiteMeta.propTypes = {
     ghostSettings: PropTypes.object.isRequired,
     twitter: PropTypes.object,
     title: PropTypes.string,
-    logo: PropTypes.string,
+    images: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
   canonical: PropTypes.string.isRequired,

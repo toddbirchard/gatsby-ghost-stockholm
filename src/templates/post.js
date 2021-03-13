@@ -21,7 +21,7 @@ import {
   AiTwotoneExperiment,
 } from 'react-icons/ai'
 import Prism from "prismjs"
-import { getRetinaImageUrl, getMobileImageUrl } from '../../utils/imageUrl'
+import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
 
 /**
  * Single post view (/:slug)

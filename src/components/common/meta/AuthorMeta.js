@@ -25,8 +25,8 @@ const AuthorMeta = ({ data, settings, canonical }) => {
     image: shareImage ? {
       "@type": `ImageObject`,
       url: shareImage,
-      width: config.shareImageWidth,
-      height: config.shareImageHeight,
+      width: config.images.shareImageWidth,
+      height: config.images.shareImageHeight,
     } : undefined,
     mainEntityOfPage: {
       "@type": `WebPage`,
