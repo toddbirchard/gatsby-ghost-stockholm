@@ -12,7 +12,6 @@ module.exports = {
     `react`,
     `promise`,
     `import`,
-    `standard`,
   ],
   extends: [
     `plugin:ghost/node`,
