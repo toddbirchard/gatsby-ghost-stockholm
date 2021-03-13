@@ -237,6 +237,7 @@ module.exports = {
               ghostSettings {
                 title
                 description
+                logo
               }
             }
           `,

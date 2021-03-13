@@ -105,6 +105,7 @@ WebsiteMeta.propTypes = {
     ghostSettings: PropTypes.object.isRequired,
     twitter: PropTypes.object,
     title: PropTypes.string,
+    logo: PropTypes.string,
     images: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
