@@ -155,7 +155,7 @@ module.exports = {
         ],
       },
     },
-    {
+    /*{
       resolve: `gatsby-source-github-api`,
       options: {
         token: process.env.GITHUB_ACCESS_TOKEN,
@@ -189,7 +189,7 @@ module.exports = {
           }`,
         ],
       },
-    },
+    },*/
     /**
      *  Style Plugins
      */
