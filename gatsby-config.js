@@ -155,86 +155,38 @@ module.exports = {
         ],
       },
     },
-
     {
-      resolve: `gatsby-source-github`,
+      resolve: `gatsby-source-github-api`,
       options: {
-        headers: {
-          Authorization: process.env.GITHUB_ACCESS_TOKEN,
-        },
-        queries: [
+        token: process.env.GITHUB_ACCESS_TOKEN,
+        graphQLQuery: [
           `{
-              organization(login: "hackersandslackers") {
-                name
-                description
-                login
-                url
-                itemShowcase {
-                  items(first: 3) {
-                    edges {
-                      node {
-                        ... on Repository {
-                          id
-                          name
-                          description
-                          url
-                          forkCount
-                          primaryLanguage {
-                            color
-                            name
-                          }
-                          stargazers {
-                            totalCount
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                repositories {
-                  totalCount
-                }
-                membersWithRole(first: 20) {
-                  totalCount
-                  nodes {
-                    bio
-                    avatarUrl
-                    login
+            organization(login: "hackersandslackers") {
+              repositories(orderBy: {field: STARGAZERS, direction: DESC}, first: 5, privacy: PUBLIC) {
+                edges {
+                  node {
                     name
-                    company
-                    followers {
+                    description
+                    url
+                    forks {
                       totalCount
                     }
-                    following {
+                    stargazers {
                       totalCount
                     }
-                    repositories(orderBy: {field: STARGAZERS, direction: DESC}, first: 5, privacy: PUBLIC) {
-                      edges {
-                        node {
-                          name
-                          description
-                          url
-                          forks {
-                            totalCount
-                          }
-                          stargazers {
-                            totalCount
-                          }
-                          watchers {
-                            totalCount
-                          }
-                          primaryLanguage {
-                            name
-                            color
-                          }
-                        }
-                      }
+                    watchers {
                       totalCount
+                    }
+                    primaryLanguage {
+                      name
+                      color
                     }
                   }
                 }
+                totalCount
               }
-            }`,
+            }
+          }`,
         ],
       },
     },

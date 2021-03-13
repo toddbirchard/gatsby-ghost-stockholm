@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { readingTime as readingTimeHelper } from '@tryghost/helpers'
 import { FaUserEdit } from 'react-icons/fa'
+import { getRetinaImageUrl, getMobileImageUrl } from '../../utils/imageUrl'
 
 const PostCard = ({ post }) => {
   const url = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
@@ -11,12 +12,9 @@ const PostCard = ({ post }) => {
   const authorAvatar = post.primary_author.profile_image ? post.primary_author.profile_image : null
   const createdDate = post.created_at_pretty
   const featureImage = post.feature_image
-  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
-  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
-  const featureRetinaImagePath = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
-  const featureRetinaImage = featureRetinaImagePath && featureRetinaImagePath.indexOf(`@2x`) !== -1 ? featureRetinaImagePath : featureRetinaImagePath.replace(`.jpg`, `@2x.jpg`)
-  const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)
-  const authorAvatarRetinaImage = authorAvatarSlash && [authorAvatar.slice(0, authorAvatarSlash), `/_retina`, authorAvatar.slice(authorAvatarSlash)].join(``)
+  const featureRetinaImage = post.feature_image && getRetinaImageUrl(post.feature_image)
+  const featureMobileImage = post.feature_image && getMobileImageUrl(post.feature_image)
+  // const authorAvatarRetinaImage = authorAvatar && getMobileImageUrl(authorAvatar)
 
   return (
     <>
@@ -59,7 +57,7 @@ const PostCard = ({ post }) => {
               <div className="meta-items">
                 {authorAvatar
                   ? <picture>
-                    <source data-srcset={authorAvatarRetinaImage} />
+                    <source data-srcset={authorAvatar} />
                     <img
                       data-src={authorAvatar}
                       alt={authorFirstName}

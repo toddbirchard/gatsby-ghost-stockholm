@@ -37,7 +37,9 @@ serve:
 clean:
 	gatsby clean
 	find . -name 'package-lock.json' -delete
-	rm -rf node_modules
+  find . -name 'yarn.lock' -delete
+	find . -wholename 'node_modules' -delete
+	find . -wholename '.yarn' -delete
 
 .PHONY: reset
 reset: clean

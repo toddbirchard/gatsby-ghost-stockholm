@@ -1,6 +1,9 @@
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"
 
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
 [build]
   base = "/"
   command = "make build"
@@ -8,7 +11,7 @@
   functions = "/functions"
 
 [build.environment]
-  GO_VERSION = "1.15.7"
+  GO_VERSION = "1.16"
 
 [template]
   incoming-hooks = ["Ghost"]

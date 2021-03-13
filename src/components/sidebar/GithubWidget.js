@@ -6,7 +6,7 @@ import { FaGithub, FaCode, FaStar, FaCodeBranch, FaProjectDiagram } from 'react-
 /**
 * Github widget
 */
-
+/*
 const GithubWidget = ({ data }) => {
   const githubOrg = data.githubOrganization
   const githubRepos = data.githubOrganization.itemShowcase.items.edges
@@ -84,38 +84,36 @@ const GithubWidgetQuery = props => (
   <StaticQuery
     query={graphql`
           query githubOrg {
-            githubOrganization {
-              name
-              description
-              url
-              login
-              repositories {
-                totalCount
-              }
-              itemShowcase {
-                items {
-                  edges {
-                    node {
-                      id
-                      description
+            organization(login: "hackersandslackers") {
+              repositories(orderBy: {field: STARGAZERS, direction: DESC}, first: 5, privacy: PUBLIC) {
+                edges {
+                  node {
+                    name
+                    description
+                    url
+                    forks {
+                      totalCount
+                    }
+                    stargazers {
+                      totalCount
+                    }
+                    watchers {
+                      totalCount
+                    }
+                    primaryLanguage {
                       name
-                      forkCount
-                      primaryLanguage {
-                        name
-                      }
-                      stargazers {
-                        totalCount
-                      }
-                      url
+                      color
                     }
                   }
                 }
+                totalCount
               }
             }
-          }`
+       }`
     }
     render={data => <GithubWidget data={data} {...props} />}
   />
 )
 
 export default GithubWidgetQuery
+*/

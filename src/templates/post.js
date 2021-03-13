@@ -235,7 +235,7 @@ export const postQuery = graphql`
   query($slug: String!, $tags: [String], $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
       ...GhostPostFields
-    }
+      }
     relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {in: $tags}}, slug: {ne: $slug}}) {
       edges {
         node {

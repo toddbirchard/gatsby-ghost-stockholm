@@ -22,7 +22,7 @@ const Sidebar = ({ site, template }) => (
       <TagsWidget />
       <NewsletterWidget />
       <CoffeeWidget />
-      {template === `home-template` ? <GithubWidget /> : null}
+      {/*template === `home-template` ? <GithubWidget /> : null*/}
       {template === `home-template` ? <TwitterWidget /> : null}
     </aside>
   </>
