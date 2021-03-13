@@ -16,8 +16,6 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
   const pageCount = pageContext && pageContext.currentPage > 1 ? pageContext.currentPage : null
   const authorCardClass = page ? `author-card ${page}` : `author-card`
   const authorAvatar = author.profile_image
-  // const authorAvatarSlash = authorAvatar && authorAvatar.lastIndexOf(`/`)
-  // const authorAvatarRetinaImage = authorAvatarSlash && [authorAvatar.slice(0, authorAvatarSlash), `/_retina`, authorAvatar.slice(authorAvatarSlash)].join(``)
 
   return (
     <>

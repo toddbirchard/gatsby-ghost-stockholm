@@ -21,6 +21,7 @@ import {
   AiTwotoneExperiment,
 } from 'react-icons/ai'
 import Prism from "prismjs"
+import { getRetinaImageUrl, getMobileImageUrl } from '../../utils/imageUrl'
 
 /**
  * Single post view (/:slug)
@@ -43,10 +44,8 @@ const Post = ({ data, location }) => {
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
   const authors = data.authors.edges
-  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
-  const featureMobileImage = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_mobile`, featureImage.slice(featureImageSlash)].join(``).replace(`.jpg`, `@2x.jpg`).replace(`.png`, `@2x.png`)
-  const featureRetinaImagePath = featureImageSlash && [featureImage.slice(0, featureImageSlash), `/_retina`, featureImage.slice(featureImageSlash)].join(``)
-  const featureRetinaImage = featureRetinaImagePath && featureRetinaImagePath.indexOf(`@2x`) !== -1 ? featureRetinaImagePath : featureRetinaImagePath.replace(`.jpg`, `@2x.jpg`)
+  const featureRetinaImage = post.feature_image && getRetinaImageUrl(post.feature_image)
+  const featureMobileImage = post.feature_image && getMobileImageUrl(post.feature_image)
   React.useEffect(() => {
     Prism.highlightAll()
   })
