@@ -24,7 +24,15 @@ build:
 	GOOS=linux
 	GOARCH=amd64
 	GOBIN=${PWD}/functions go get ./...
-	GOBIN=${PWD}/functions go install ./...
+	GOBIN=${PWD}/functions go build -o functions/scrape ./...
+
+functions:
+	mkdir -p functions
+	GOOS=linux
+	GOARCH=amd64
+	GOBIN=${PWD}/functions-src/scrape go get
+	GOBIN=${PWD}/functions-src/scrape go build -o functions/scrape ./...
+
 
 .PHONY: serve
 serve:
