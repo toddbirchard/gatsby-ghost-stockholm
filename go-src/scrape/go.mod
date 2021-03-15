@@ -1,8 +1,8 @@
 module github.com/toddbirchard/lambda-metadata-scraper
 
-go 1.14
+go 1.16
 
 require (
-	github.com/PuerkitoBio/goquery v1.5.1
-	github.com/aws/aws-lambda-go v1.18.0
+	github.com/PuerkitoBio/goquery v1.6.1
+	github.com/aws/aws-lambda-go v1.23.0
 )
