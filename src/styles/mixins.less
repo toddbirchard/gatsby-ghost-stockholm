@@ -542,7 +542,7 @@
   }
 }
 
-.post-intro-notice(){
+.post-intro-notice() {
   display: flex;
   align-items: center;
   justify-content: left;
@@ -569,6 +569,11 @@
       color: #638cca;
       word-break: break-word;
       transition: all .2s ease-out;
+
+      &:hover {
+        border-bottom: 1px solid @theme-color;
+        color: @theme-color;
+      }
     }
   }
 }
