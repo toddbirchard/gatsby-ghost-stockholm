@@ -80,7 +80,6 @@ yarn-error.log
 
 # Netlify
 .netlify
-functions/*
 
 # Jetbrains
 .idea
