@@ -78,9 +78,6 @@ typings/
 public
 yarn-error.log
 
-# Netlify
-.netlify
-
 # Jetbrains
 .idea
 
