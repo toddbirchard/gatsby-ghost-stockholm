@@ -6898,10 +6898,10 @@ gatsby-plugin-force-trailing-slashes@1.0.5:
   dependencies:
     "@babel/runtime" "7.12.5"
 
-gatsby-plugin-less@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-less/-/gatsby-plugin-less-4.7.0.tgz#f42aba748ee16681ec97e98d60f18d077255c569"
-  integrity sha512-iDiSd1pa+Va6XL+7HIdt5ocgSKtGQgBR0QDyjnR4MHeZ7FuJIV0tvmUK6Hb3/+4m93BC9mEPhrv6GPJz66e0Mw==
+gatsby-plugin-less@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-less/-/gatsby-plugin-less-5.0.0.tgz#510b8b3b129f4e7a3c2ca22a028be405826e7480"
+  integrity sha512-CGKdCU9Vp92ImXX9uWbID/6PBeNZbMmEqcMvBLH08QGBpJJdjY9UiA2+DM8/NMdJdcftkrZIPM0tflmkkHxgFw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     less-loader "^6.2.0"

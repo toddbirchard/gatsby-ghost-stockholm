@@ -20,18 +20,21 @@ all help:
 
 build:
 	npm run-script build
+
+buildbackup:
+	npm run-script build
 	mkdir -p functions
 	GOOS=linux
 	GOARCH=amd64
-	GOBIN=${PWD}/functions go get ./...
+	GOBIN=${PWD}/functions go install ./...
 	GOBIN=${PWD}/functions go build -o functions/scrape ./...
 
-functions:
+testfunctions:
 	mkdir -p functions
 	GOOS=linux
 	GOARCH=amd64
-	GOBIN=${PWD}/functions-src/scrape go get
-	GOBIN=${PWD}/functions-src/scrape go build -o functions/scrape ./...
+	GOBIN=${PWD}/functions-src/scrape go install ./...
+	# go build -o functions ./...
 
 
 .PHONY: serve
