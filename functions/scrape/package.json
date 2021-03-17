@@ -1,0 +1,13 @@
+{
+  "name": "scrape",
+  "version": "1.0.0",
+  "description": "Scrape URLs.",
+  "main": "index.js",
+  "author": "Todd Birchard",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "got": "^11.8.2",
+    "jsdom": "^16.5.1"
+  }
+}
