@@ -1,11 +1,10 @@
-import { got } from 'got'
-import { JSDOM } from jsdom;
+const got = require('got');
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 exports.handler = async function(event, context) {
   const url = context.queryStringParameters["url"]
   if (typeof url === 'undefined') { return false }
-
-  const response = await got(vgmUrl);
 
   (async () => {
 	   try {
