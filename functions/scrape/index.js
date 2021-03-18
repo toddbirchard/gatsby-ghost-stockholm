@@ -3,7 +3,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
 exports.handler = async function(event, context) {
-  const url = context.queryStringParameters["url"]
+  const url = context["queryStringParameters"]["url"]
   if (typeof url === 'undefined') { return false }
 
   (async () => {
@@ -13,6 +13,10 @@ exports.handler = async function(event, context) {
         const nodeList = [...dom.window.document.querySelectorAll('meta')];
     	  console.log("response.body = " + response.body);
         console.log("nodeList = " + nodeList);
+        return {
+          statusCode: 200,
+          body: JSON.stringify({message: nodeList})
+      };
     		//=> '<!doctype html> ...'
     	} catch (error) {
     		console.log(error.response.body);
