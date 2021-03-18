@@ -2,7 +2,7 @@ import { fetch } from 'node-fetch'
 import JSDOM from "jsdom"
 
 // Client to create HTTP requests
-const urlPreview = ({ url }) => {
+export const urlPreview = ({ url }) => {
   if (typeof url === `undefined`) {
     return false
   }
