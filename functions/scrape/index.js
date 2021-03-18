@@ -12,13 +12,9 @@ exports.handler = async function(event, context) {
   console.log("url = " + url)
 
   (async () => {
-    const response = await got(url);
-    console.log("response.body = " + response.body)
-    const dom = new JSDOM(response.body);
-    console.log("dom = " + dom)
-    const nodeList = [...dom.window.document.querySelectorAll('meta')];
-    console.log("response.body = " + response.body);
-    console.log("nodeList = " + nodeList);
+    const response = await got(url)
+    const dom = new JSDOM(response.body)
+    const nodeList = [...dom.window.document.querySelectorAll('meta')]
     return {
       statusCode: 200,
       body: JSON.stringify({
