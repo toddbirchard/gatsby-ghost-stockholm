@@ -4,6 +4,7 @@ const { JSDOM } = jsdom;
 
 exports.handler = async function(event, context) {
   console.log(event)
+  console.log(event["queryStringParameters"]["url"])
   const url = event["queryStringParameters"]["url"]
   if (typeof url === 'undefined') { return false }
 
