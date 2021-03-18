@@ -4,7 +4,7 @@ const {
   JSDOM
 } = jsdom;
 
-exports.handler = async function(event, context) {
+exports.handler = async function(event, context, callback) {
   const url = event["queryStringParameters"]["url"]
   if (typeof url === 'undefined') {
     return false
@@ -15,11 +15,11 @@ exports.handler = async function(event, context) {
     const response = await got(url)
     const dom = new JSDOM(response.body)
     const nodeList = [...dom.window.document.querySelectorAll('meta')]
-    return {
+    return callback(null, {
       statusCode: 200,
       body: JSON.stringify({
-        message: nodeList
+        message: nodeList,
       })
-    };
+    })
   })();
 }
