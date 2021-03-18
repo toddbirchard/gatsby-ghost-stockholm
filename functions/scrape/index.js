@@ -9,7 +9,6 @@ exports.handler = async function(event, context, callback) {
   if (typeof url === 'undefined') {
     return false
   }
-  console.log("url = " + url)
 
   try {
     (async () => {
@@ -32,4 +31,4 @@ exports.handler = async function(event, context, callback) {
       })
     })
   }
-  })()
+}
