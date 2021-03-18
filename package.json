@@ -84,6 +84,8 @@
     "gatsby-source-github-api": "^0.2.1",
     "gatsby-source-mysql": "^2.2.3",
     "gatsby-source-twitter": "^4.0.0",
+    "got": "^11.8.2",
+    "jsdom": "^16.5.1",
     "lazysizes": "^5.3.0",
     "lodash": "4.17.21",
     "netlify-identity-widget": "^1.9.1",
