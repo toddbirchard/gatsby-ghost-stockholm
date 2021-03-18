@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { urlPreview } from '../../../util/scrape'
 
 const AuthorWebsite = ({ authorWebsite }) => (
   <div className="widget website">
@@ -9,7 +8,7 @@ const AuthorWebsite = ({ authorWebsite }) => (
       id="author-website"
       target="_blank"
       rel="noopener noreferrer">
-      {urlPreview(authorWebsite)}
+      {authorWebsite}
     </a>
   </div>
 )

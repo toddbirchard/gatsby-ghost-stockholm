@@ -105,6 +105,7 @@
     "react-mde": "^11.0.6",
     "react-netlify-identity-widget": "^0.2.7",
     "react-player": "^2.9.0",
+    "request-promise": "^4.2.6",
     "sharp": "^0.27.2",
     "showdown": "^1.9.1",
     "styled-components": "^5.2.1",

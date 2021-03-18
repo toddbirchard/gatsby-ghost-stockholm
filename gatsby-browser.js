@@ -4,9 +4,6 @@ import 'lazysizes';
 import config from './src/utils/siteConfig'
 
 
-
-
-
 // -------------------------------------------
 // Events
 // -------------------------------------------
