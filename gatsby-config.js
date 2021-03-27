@@ -155,7 +155,7 @@ module.exports = {
         ],
       },
     },
-    {
+    /*{
       resolve: `gatsby-source-github-api`,
       options: {
         url: `https://api.github.com/graphql`,
@@ -190,7 +190,7 @@ module.exports = {
           }`,
         ],
       },
-    },
+    },*/
     /**
      *  Style Plugins
      */
