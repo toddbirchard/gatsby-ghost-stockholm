@@ -6,7 +6,7 @@
 
 [build]
   base = "/"
-  command = "make build"
+  command = "npm run-script build"
   publish = "public"
   functions = "functions"
 

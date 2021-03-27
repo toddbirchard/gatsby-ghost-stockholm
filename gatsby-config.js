@@ -155,10 +155,11 @@ module.exports = {
         ],
       },
     },
-    /*{
+    {
       resolve: `gatsby-source-github-api`,
       options: {
-        token: process.env.GITHUB_ACCESS_TOKEN,
+        url: `https://api.github.com/graphql`,
+        token: `Basic dG9kZGJpcmNoYXJkOmJlMTg4YTdjNTQ3N2Y2YWFkYzAxZWU3MGMwZjUzYzM4MDZkN2I5YjY=`,
         graphQLQuery: [
           `{
             organization(login: "hackersandslackers") {
@@ -189,7 +190,7 @@ module.exports = {
           }`,
         ],
       },
-    },*/
+    },
     /**
      *  Style Plugins
      */
