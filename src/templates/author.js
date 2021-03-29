@@ -19,6 +19,8 @@ const Author = ({ data, location, pageContext }) => {
   const baseTitle = author.name + `'s posts`
   const title = pageContext.currentPage > 1 ? baseTitle + ` (page ` + pageContext.currentPage + ` of ` + pageContext.numberOfPages + `)` : baseTitle
   const posts = data.allGhostPost.edges
+  const meta = pageContext.websiteMeta
+  console.log(`website meta =` + meta)
 
   return (
     <>

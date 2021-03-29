@@ -1,6 +1,9 @@
 const path = require(`path`)
 const { postsPerPage } = require(`./src/utils/siteConfig`)
 const { paginate } = require(`gatsby-awesome-pagination`)
+const got = require(`got`)
+const jsdom = require(`jsdom`)
+const { JSDOM } = jsdom
 
 /**
  * Here is the place where Gatsby creates the URLs for all the
@@ -55,6 +58,7 @@ exports.createPages = async ({ graphql, actions }) => {
             url
             postCount
             twitter
+            website
           }
         }
       }
@@ -193,12 +197,40 @@ exports.createPages = async ({ graphql, actions }) => {
   authors.forEach(({ node }) => {
     const totalPosts = node.postCount !== null ? node.postCount : 0
     const numberOfPages = Math.ceil(totalPosts / postsPerPage)
+    node.websiteMeta = ``
 
     node.url = `/author/${node.slug}/`
     node.twitterRegex = ``
 
     if (node.twitter !== null) {
       node.twitterRegex = `/(` + node.twitter.replace(`@`, ``) + `)/i`
+    }
+
+    if (node.website !== null && node.website !== `` && node.website !== `undefined`) {
+      (async () => {
+      	try {
+      		const response = await got(node.website)
+          const dom = new JSDOM(response.body, { contentType: `text/html` })
+          console.log(`Author ${node.slug} returned this dom:`)
+          console.log(dom.window.document.querySelector(`title`).textContent)
+      		//=> '<!doctype html> ...'
+      	} catch (error) {
+      		console.log(error.response.body)
+      		//=> 'Internal server error ...'
+      	}
+      })()
+
+      /*const response = got(node.website)
+        console.log(`response: ` + response.body)
+        const dom = new JSDOM(response.body)
+        console.log(`dom: ` + dom)
+        console.log(dom.window.document.innerHTML)
+        node.websiteMeta.title = dom.window.document.querySelector(`title`).textContent
+        node.websiteMeta.description = dom.window.document.querySelector(`meta[name="description"]`).textContent
+        console.log(`Author ${node.slug} returned these tags:` + node.websiteMeta)
+      } catch (error) {
+        console.log(`Author ${node.slug} has no website: `, error)
+      }*/
     }
 
     Array.from({ length: numberOfPages }).forEach((_, i) => {
@@ -231,6 +263,7 @@ exports.createPages = async ({ graphql, actions }) => {
           nextPageNumber: nextPageNumber,
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
+          websiteMeta: node.websiteMeta,
         },
       })
     })
