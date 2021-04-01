@@ -213,6 +213,8 @@ exports.createPages = async ({ graphql, actions }) => {
           const dom = new JSDOM(response.body, { contentType: `text/html` })
           console.log(`Author ${node.slug} returned this dom:`)
           console.log(dom.window.document.querySelector(`title`).textContent)
+          const title = dom.window.document.querySelector(`title`).textContent
+          node.websiteMeta = title
       		//=> '<!doctype html> ...'
       	} catch (error) {
       		console.log(error.response.body)
