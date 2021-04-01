@@ -15,7 +15,7 @@ export const onRouteUpdate = ({location}) => {
     enableLightboxImages();
   }
   if (path.indexOf('author')) {
-    scrapeUrlMetadata();
+    // scrapeUrlMetadata();
   }
 }
 

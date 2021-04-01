@@ -6,8 +6,7 @@ import { AboutWidget,
   TagsWidget,
   TrendingWidget,
   CoffeeWidget,
-  TwitterWidget,
-  GithubWidget } from '.'
+  TwitterWidget } from '.'
 
 /**
  * Sidebar

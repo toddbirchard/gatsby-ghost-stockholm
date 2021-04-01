@@ -1,8 +1,8 @@
-import React from 'react'
+/*import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { FaGithub, FaCode, FaStar, FaCodeBranch, FaProjectDiagram } from 'react-icons/fa'
-
+*/
 /**
 * Github widget
 */

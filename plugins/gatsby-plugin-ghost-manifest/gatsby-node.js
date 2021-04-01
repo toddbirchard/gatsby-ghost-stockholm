@@ -1,23 +1,13 @@
 "use strict";
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
-
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
 var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
 var fs = require("fs");
-
 var path = require("path");
-
 var Promise = require("bluebird");
-
 var sharp = require("sharp");
-
 var _require = require("./common.js"),
     defaultIcons = _require.defaultIcons,
     doesIconExist = _require.doesIconExist;
