@@ -154,7 +154,7 @@
         span {
           display: inline-block;
           height: 11px;
-          font-size: .9em;
+          font-size: 0.9em;
         }
 
         * {
@@ -216,8 +216,7 @@
   .post-wrapper > .post {
     position: relative;
     margin: 60px 0 30px;
-    padding: 0 50px;
-    padding-bottom: 40px;
+    padding: 0 50px 40px;
     background: white;
     box-shadow: @box-shadow;
     @media (max-width: @smallscreen-breakpoint) {
@@ -320,7 +319,6 @@
         .protip();
       }
 
-
       & > blockquote {
         .blockquote();
       }
@@ -374,25 +372,23 @@
           color: white !important;
         }
 
-
         span {
           display: block;
           margin-bottom: 8px;
           font-size: 1.2em;
 
           svg {
-            font-size: .85em;
+            font-size: 0.85em;
           }
         }
 
         h6 {
           font-family: @body-font-medium;
-          font-size: .8em;
+          font-size: 0.8em;
           .line-clamp();
           -webkit-line-clamp: 2;
           font-weight: normal;
           line-height: 1.5;
-
         }
       }
 
@@ -411,7 +407,7 @@
       max-width: 100%;
       height: fit-content;
       margin: 40px 0;
-      padding: 0 0 40px 0;
+      padding: 0 0 40px;
       border-bottom: 2px dotted #eaeaea;
       @media (max-width: @smallscreen-breakpoint) {
         width: auto;
@@ -457,14 +453,14 @@
   .basicLightbox {
     .lightbox();
   }
-}
 
-.noscroll {
-  overflow: hidden;
-}
+  .noscroll {
+    overflow: hidden;
+  }
 
-.login-button {
-  border: 1px solid #f4f8fb !important;
-  background: #f4f8fb !important;
-  color: #f4f8fb !important;
+  .login-button {
+    border: 1px solid #f4f8fb !important;
+    background: #f4f8fb !important;
+    color: #f4f8fb !important;
+  }
 }
