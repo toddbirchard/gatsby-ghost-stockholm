@@ -14,15 +14,14 @@ import {
  *
 */
 
-const AuthorSidebar = ({ authorData }) => {
+const AuthorSidebar = ({ authorData, websiteMeta }) => {
   const authorTwitter = authorData && authorData.authorTwitterProfile
-  const authorWebsite = authorData && authorData.ghostAuthor.website
   const authorTopPosts = authorData && authorData.authorTrendingPosts.edges
 
   return (
     <>
       <aside className="sidebar">
-        {authorWebsite && <AuthorWebsite authorWebsite={authorWebsite} />}
+        {websiteMeta.url && <AuthorWebsite websiteMeta={websiteMeta} />}
         {authorTopPosts && <AuthorTrending authorTopPosts={authorTopPosts} /> }
         {authorTwitter && <AuthorTwitter data={authorTwitter} />}
       </aside>
@@ -33,6 +32,7 @@ const AuthorSidebar = ({ authorData }) => {
 AuthorSidebar.propTypes = {
   template: PropTypes.string,
   authorData: PropTypes.object,
+  websiteMeta: PropTypes.object,
 }
 
 export default AuthorSidebar

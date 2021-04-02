@@ -1,9 +1,26 @@
 const path = require(`path`)
 const { postsPerPage } = require(`./src/utils/siteConfig`)
 const { paginate } = require(`gatsby-awesome-pagination`)
-const got = require(`got`)
-const jsdom = require(`jsdom`)
-const { JSDOM } = jsdom
+const cheerio = require(`cheerio`)
+const fetch = require(`node-fetch`)
+
+const fetchWebsiteData = async (url) => {
+  if (url === null || url === `` || url === `undefined`) {
+    return undefined
+  }
+  const response = await fetch(url)
+  const body = await response.text()
+  const $ = cheerio.load(body)
+  const websiteMeta = {
+    title: $(`title`).text() || $(`meta[property='og:title']`).attr(`content`),
+    description: $(`meta[name=description]`).attr(`content`) || $(`meta[property='og:description']`).attr(`content`),
+    image: $(`meta[property='og:image']`).attr(`content`),
+    icon: $(`link[rel='shortcut']`).attr(`href`) || $(`link[rel='fluid-icon']`).attr(`href`),
+    themeColor: $(`meta[name='theme-color']`).attr(`href`),
+    url: url,
+  }
+  return websiteMeta
+}
 
 /**
  * Here is the place where Gatsby creates the URLs for all the
@@ -197,42 +214,13 @@ exports.createPages = async ({ graphql, actions }) => {
   authors.forEach(({ node }) => {
     const totalPosts = node.postCount !== null ? node.postCount : 0
     const numberOfPages = Math.ceil(totalPosts / postsPerPage)
-    node.websiteMeta = ``
+    let websiteMeta = fetchWebsiteData(node.website)
 
     node.url = `/author/${node.slug}/`
     node.twitterRegex = ``
 
     if (node.twitter !== null) {
       node.twitterRegex = `/(` + node.twitter.replace(`@`, ``) + `)/i`
-    }
-
-    if (node.website !== null && node.website !== `` && node.website !== `undefined`) {
-      (async () => {
-      	try {
-      		const response = await got(node.website)
-          const dom = new JSDOM(response.body, { contentType: `text/html` })
-          console.log(`Author ${node.slug} returned this dom:`)
-          console.log(dom.window.document.querySelector(`title`).textContent)
-          const title = dom.window.document.querySelector(`title`).textContent
-          node.websiteMeta = title
-      		//=> '<!doctype html> ...'
-      	} catch (error) {
-      		console.log(error.response.body)
-      		//=> 'Internal server error ...'
-      	}
-      })()
-
-      /*const response = got(node.website)
-        console.log(`response: ` + response.body)
-        const dom = new JSDOM(response.body)
-        console.log(`dom: ` + dom)
-        console.log(dom.window.document.innerHTML)
-        node.websiteMeta.title = dom.window.document.querySelector(`title`).textContent
-        node.websiteMeta.description = dom.window.document.querySelector(`meta[name="description"]`).textContent
-        console.log(`Author ${node.slug} returned these tags:` + node.websiteMeta)
-      } catch (error) {
-        console.log(`Author ${node.slug} has no website: `, error)
-      }*/
     }
 
     Array.from({ length: numberOfPages }).forEach((_, i) => {
@@ -265,7 +253,7 @@ exports.createPages = async ({ graphql, actions }) => {
           nextPageNumber: nextPageNumber,
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
-          websiteMeta: node.websiteMeta,
+          websiteMeta: websiteMeta,
         },
       })
     })
@@ -388,20 +376,4 @@ exports.createPages = async ({ graphql, actions }) => {
       title: `About Us`,
     },
   })
-
-  async function getSeriesPosts(seriesSlug) {
-    return await graphql(`
-        {
-          allGhostPost(filter: {tags: {elemMatch: {slug: {eq: ${seriesSlug}}}}}, sort: {fields: published_at, order: ASC}) {
-            edges {
-              node {
-                slug
-                id
-                title
-              }
-            }
-          }
-        }
-      `)
-  }
 }
