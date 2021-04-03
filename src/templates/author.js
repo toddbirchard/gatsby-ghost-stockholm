@@ -39,10 +39,16 @@ const Author = ({ data, location, pageContext }) => {
             pageContext={pageContext}
           />
           <section className="post-feed">
-            {posts.map(({ node }) => (
-              <PostCard key={node.id} post={node}/>
-            ))}
-            <Pagination pageContext={pageContext} metaTitle={title} template="author-template"/>
+            {posts.map(({ node }) => {
+              return (
+                <PostCard key={node.id} post={node}/>
+              )
+            })}
+            <Pagination
+              pageContext={pageContext}
+              metaTitle={title}
+              template="author-template"
+            />
           </section>
         </div>
       </Layout>

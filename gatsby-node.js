@@ -11,7 +11,8 @@ const fetchWebsiteData = async (url) => {
   const response = await fetch(url)
   const body = await response.text()
   const $ = cheerio.load(body)
-  const websiteMeta = {
+  console.log(`website node = ` + $(`title`).text())
+  return {
     title: $(`title`).text() || $(`meta[property='og:title']`).attr(`content`),
     description: $(`meta[name=description]`).attr(`content`) || $(`meta[property='og:description']`).attr(`content`),
     image: $(`meta[property='og:image']`).attr(`content`),
@@ -19,7 +20,6 @@ const fetchWebsiteData = async (url) => {
     themeColor: $(`meta[name='theme-color']`).attr(`href`),
     url: url,
   }
-  return websiteMeta
 }
 
 /**

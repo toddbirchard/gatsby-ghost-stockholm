@@ -8,11 +8,12 @@ export const useClickOutside = (boxRef, menuRef, handler, events) => {
 
   useEffect(() => {
     for (const event of events) {
-      window.addEventListener(event, detectClickOutside)
+      if (event.target !== event){}
+      // window.addEventListener(event, detectClickOutside)
     }
     return () => {
       for (const event of events) {
-        window.removeEventListener(event, detectClickOutside)
+        // window.removeEventListener(event, detectClickOutside)
       }
     }
   })

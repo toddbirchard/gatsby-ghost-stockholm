@@ -57,6 +57,12 @@ DefaultLayout.propTypes = {
   hasSidebar: PropTypes.bool,
   template: PropTypes.string,
   authorData: PropTypes.object,
+  websiteMeta: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    url: PropTypes.string,
+    icon: PropTypes.string,
+  }),
   data: PropTypes.shape({
     ghostSettings: PropTypes.object.isRequired,
     allGhostTag: PropTypes.object,
