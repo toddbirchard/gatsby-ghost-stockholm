@@ -76,7 +76,12 @@ const CommentForm = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    if (isLoggedIn && value !== `Have something to say?` && value !== `` && value !== undefined) {
+    if (isLoggedIn === false) {
+      console.log('User is not logged in.')
+    }
+    if (value === `Have something to say?` || value === `` || value === undefined) {
+      console.log('Comment body is empty.')
+    }
       fetch(`/`, {
         method: `POST`,
         headers: { 'Content-Type': `application/x-www-form-urlencoded` },
