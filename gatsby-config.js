@@ -376,7 +376,7 @@ module.exports = {
         appId: process.env.ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.ALGOLIA_INDEX_NAME,
-        matchFields: [`slug`, `modified`],
+        matchFields: [`slug`, `updated_at`],
         queries,
         chunkSize: 500, // default: 1000
         enablePartialUpdates: true,

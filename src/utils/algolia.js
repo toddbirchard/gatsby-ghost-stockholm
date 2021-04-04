@@ -10,6 +10,7 @@ const postQuery = `{
         excerpt
         meta_description
         published_at
+        updated_at
         custom_excerpt
         created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
         tags {
