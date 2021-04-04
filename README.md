@@ -7,7 +7,6 @@ GatsbyJS theme sourcing content from Ghost.
 ![Node](https://img.shields.io/badge/NodeJS-v^14.0.0-green.svg?longCache=true&style=flat-square&logo=node.js&logoColor=white&colorB=a3be8c&colorA=4c566a)
 ![Go](https://img.shields.io/badge/Go-1.15-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
 ![Gatsby](https://img.shields.io/badge/Gatsby-v^3.2.0-red.svg?longCache=true&style=flat-square&logo=Gatsby&logoColor=white&colorA=4c566a&colorB=b48ead)
-![Commit Activity](https://img.shields.io/github/commit-activity/month/toddbirchard/stockholm?style=flat-square&colorB=ebcb8b&colorA=4c566a&logo=GitHub)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square&colorA=4c566a&colorB=a3be8c&logo=GitHub)
 [![GitHub Issues](https://img.shields.io/github/issues/toddbirchard/stockholm.svg?style=flat-square&colorB=ebcb8b&colorA=4c566a&logo=GitHub)](https://github.com/toddbirchard/stockholm/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/toddbirchard/stockholm.svg?style=flat-square&colorB=ebcb8b&colorA=4c566a&logo=GitHub)](https://github.com/toddbirchard/stockholm/stargazers)
