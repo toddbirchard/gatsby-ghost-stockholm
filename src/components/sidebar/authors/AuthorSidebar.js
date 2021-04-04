@@ -21,7 +21,7 @@ const AuthorSidebar = ({ authorData, websiteMeta }) => {
   return (
     <>
       <aside className="sidebar">
-        {websiteMeta.url && <AuthorWebsite websiteMeta={websiteMeta} />}
+        {websiteMeta && <AuthorWebsite websiteMeta={websiteMeta} />}
         {authorTopPosts && <AuthorTrending authorTopPosts={authorTopPosts} /> }
         {authorTwitter && <AuthorTwitter data={authorTwitter} />}
       </aside>
