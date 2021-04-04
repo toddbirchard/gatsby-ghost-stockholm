@@ -19,7 +19,7 @@ const Author = ({ data, location, pageContext }) => {
   const baseTitle = author.name + `'s posts`
   const title = pageContext.currentPage > 1 ? baseTitle + ` (page ` + pageContext.currentPage + ` of ` + pageContext.numberOfPages + `)` : baseTitle
   const posts = data.allGhostPost.edges
-  const websiteMeta = pageContext.websiteMeta
+  const websiteMeta = pageContext.websiteMeta ? pageContext.websiteMeta : undefined
 
   return (
     <>
@@ -30,7 +30,12 @@ const Author = ({ data, location, pageContext }) => {
         location={location}
         pageContext={pageContext}
       />
-      <Layout template="author-template" hasSidebar authorData={data} websiteMeta={websiteMeta}>
+      <Layout
+        template="author-template"
+        hasSidebar
+        authorData={data}
+        websiteMeta={websiteMeta}
+      >
         <div className="author-container">
           <AuthorCard
             author={author}
@@ -39,11 +44,9 @@ const Author = ({ data, location, pageContext }) => {
             pageContext={pageContext}
           />
           <section className="post-feed">
-            {posts.map(({ node }) => {
-              return (
-                <PostCard key={node.id} post={node}/>
-              )
-            })}
+            {posts.map(({ node }) => (
+              <PostCard key={node.id} post={node}/>
+            ))}
             <Pagination
               pageContext={pageContext}
               metaTitle={title}
