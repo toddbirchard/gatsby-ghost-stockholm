@@ -77,35 +77,34 @@ const CommentForm = ({ post }) => {
     e.preventDefault()
     const form = e.target
     if (isLoggedIn === false) {
-      console.log('User is not logged in.')
+      console.log(`User is not logged in.`)
     }
     if (value === `Have something to say?` || value === `` || value === undefined) {
-      console.log('Comment body is empty.')
+      console.log(`Comment body is empty.`)
     }
-      fetch(`/`, {
-        method: `POST`,
-        headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-        body: encode({
-          'form-name': form.getAttribute(`name`),
-          postId: postId,
-          postSlug: postSlug,
-          authorName: authorName,
-          authorEmail: authorEmail,
-          userId: userId,
-          userName: userName,
-          userAvatar: userAvatar,
-          userProvider: userProvider,
-          userEmail: userEmail,
-          commentBody: value,
-        }),
-      })
-        .then(() => setValue(`Have something else to say?`))
-        .then(formRef.current.classList.add(`closed`))
-        .then(formRef.current.classList.remove(`open`))
-        .then(messageRef.current.classList.add(`active`))
-        .then(hideMessage)
-        .catch(error => console.log(error))
-    }
+    fetch(`/`, {
+      method: `POST`,
+      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+      body: encode({
+        'form-name': form.getAttribute(`name`),
+        postId: postId,
+        postSlug: postSlug,
+        authorName: authorName,
+        authorEmail: authorEmail,
+        userId: userId,
+        userName: userName,
+        userAvatar: userAvatar,
+        userProvider: userProvider,
+        userEmail: userEmail,
+        commentBody: value,
+      }),
+    })
+      .then(() => setValue(`Have something else to say?`))
+      .then(formRef.current.classList.add(`closed`))
+      .then(formRef.current.classList.remove(`open`))
+      .then(messageRef.current.classList.add(`active`))
+      .then(hideMessage)
+      .catch(error => console.log(error))
   }
   const handleLogin = (u) => {
     setUserId(u.id)
