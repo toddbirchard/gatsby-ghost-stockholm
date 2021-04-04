@@ -1,6 +1,6 @@
 # Stockholm
 
-GatsbyJS theme sourcing content from Ghost.
+GatsbyJS theme for Ghost CMS. Implements a myriad of Gatsby source plugins to  enable features such as trending posts, advanced author profiles, and Github/Twitter activity.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/efe12261-c4b4-498c-b74a-ba438133c252/deploy-status)](https://app.netlify.com/sites/sleepy-shirley-d61a1e/deploys)
 ![Ghost](https://img.shields.io/badge/Ghost-^v4.0.0-lightgrey.svg?longCache=true&style=flat-square&logo=ghost&logoColor=white&colorB=656c82&colorA=4c566a)
