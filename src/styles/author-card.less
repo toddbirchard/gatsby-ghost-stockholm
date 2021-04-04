@@ -81,7 +81,6 @@
       margin: 12px 0;
       overflow: hidden;
       @media (max-width: @mobile-breakpoint) {
-        flex-wrap: wrap;
         margin: 10px 0;
       }
 
@@ -125,6 +124,9 @@
       font-family: @body-font;
       font-size: 0.95em;
       line-height: 1.5em;
+      @media(max-width: @mobile-breakpoint) {
+        font-size: .9rem;
+      }
     }
   }
 
@@ -135,6 +137,7 @@
       display: block;
       margin: 0 auto;
       color: @body-color;
+      line-height: 1.5;
     }
   }
 }
@@ -178,6 +181,12 @@
   &:last-of-type {
     padding: 30px 0 0;
     border-bottom: 0;
+  }
+
+  .author-card-bio {
+    @media(max-width: @mobile-breakpoint) {
+      display: none;
+    }
   }
 }
 
@@ -259,12 +268,12 @@
 
 .author-card.author {
   margin-bottom: 20px !important;
-  padding: 40px 5%;
+  padding: 10px 40px 5%;
   box-shadow: @box-shadow;
   @media (max-width: @tablet-breakpoint) {
     display: block;
     width: 90%;
-    margin: 50px auto !important;
+    margin: 30px auto 40px !important;
     padding: 0;
     background: unset;
     box-shadow: none;
@@ -303,21 +312,9 @@
     }
   }
   @media (max-width: @mobile-breakpoint) {
-    max-width: 93%;
-    margin: 10px auto 50px !important;
+    max-width: 87%;
+    margin: 0 auto 40px !important;
     border-bottom: unset;
-
-    .author-card-head {
-      display: block;
-    }
-
-    * {
-      text-align: center;
-    }
-
-    .author-card-meta {
-      justify-content: center;
-    }
 
     .author-card-bio {
       width: 100%;
@@ -331,15 +328,19 @@
 
   .author-card-image {
     @media (max-width: @mobile-breakpoint) {
-      width: 80px;
-      min-width: 80px;
-      height: 80px;
+      width: 60px;
+      min-width: 60px;
+      height: 60px;
+      margin-bottom: 0;
     }
   }
 
   .author-card-bio {
     font-family: @body-font;
     line-height: 1.5;
+    @media (max-width: @mobile-breakpoint) {
+      display: none;
+    }
   }
 }
 

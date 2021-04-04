@@ -89,6 +89,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
             }
           </div>
         </div>
+        <p className="author-card-bio-mobile">{author.bio}</p>
       </div>
     </>
   )

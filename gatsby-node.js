@@ -1,7 +1,7 @@
 const path = require(`path`)
-const {postsPerPage} = require(`./src/utils/siteConfig`)
-const {paginate} = require(`gatsby-awesome-pagination`)
-const cheerio = require(`cheerio`)
+const { postsPerPage } = require(`./src/utils/siteConfig`)
+const { paginate } = require(`gatsby-awesome-pagination`)
+/* const cheerio = require(`cheerio`)
 const fetch = require(`node-fetch`)
 
 const fetchWebsiteData = async (url) => {
@@ -40,14 +40,14 @@ exports.onCreateNode = async ({node, actions, getNode}) => {
       .then(meta => createAuthorFields(node, meta, actions))
       .catch(error => console.log(error))
   }
-}
+}*/
 
 /**
  * Here is the place where Gatsby creates the URLs for all the
  * posts, tags, pages and authors that we fetched from the Ghost site.
  */
 
-exports.createPages = async ({graphql, actions}) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
@@ -149,7 +149,7 @@ exports.createPages = async ({graphql, actions}) => {
   const seriesArchivePage = path.resolve(`./src/pages/seriesarchive.js`)
 
   // Create tag pages
-  tags.forEach(({node}) => {
+  tags.forEach(({ node }) => {
     const totalPosts = node.postCount !== null ? node.postCount : 0
     const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
@@ -157,7 +157,7 @@ exports.createPages = async ({graphql, actions}) => {
     // a `/tag/:slug/` permalink.
     node.url = `/tag/${node.slug}/`
 
-    Array.from({length: numberOfPages}).forEach((_, i) => {
+    Array.from({ length: numberOfPages }).forEach((_, i) => {
       const currentPage = i + 1
       const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
       const nextPageNumber = currentPage + 1 > numberOfPages ? null : currentPage + 1
@@ -191,13 +191,13 @@ exports.createPages = async ({graphql, actions}) => {
   })
 
   // Create series pages
-  series.forEach(({node}) => {
+  series.forEach(({ node }) => {
     const totalPosts = node.postCount !== null ? node.postCount : 0
     const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
     node.url = `/series/${node.slug}/`
 
-    Array.from({length: numberOfPages}).forEach((_, i) => {
+    Array.from({ length: numberOfPages }).forEach((_, i) => {
       const currentPage = i + 1
       const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
       const nextPageNumber =
@@ -232,7 +232,7 @@ exports.createPages = async ({graphql, actions}) => {
   })
 
   // Create author pages
-  authors.forEach(({node}) => {
+  authors.forEach(({ node }) => {
     const totalPosts = node.postCount !== null ? node.postCount : 0
     const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
@@ -243,7 +243,7 @@ exports.createPages = async ({graphql, actions}) => {
       node.twitterRegex = `/(` + node.twitter.replace(`@`, ``) + `)/i`
     }
 
-    Array.from({length: numberOfPages}).forEach((_, i) => {
+    Array.from({ length: numberOfPages }).forEach((_, i) => {
       const currentPage = i + 1
       const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
       const nextPageNumber =
@@ -280,7 +280,7 @@ exports.createPages = async ({graphql, actions}) => {
   })
 
   // Create pages
-  pages.forEach(({node}) => {
+  pages.forEach(({ node }) => {
     node.url = `/${node.slug}/`
 
     createPage({
@@ -295,7 +295,7 @@ exports.createPages = async ({graphql, actions}) => {
     })
   })
 
-  lynx.forEach(({node}) => {
+  lynx.forEach(({ node }) => {
     node.url = `/roundup/${node.slug}/`
     node.tagSlugs = []
     node.series = null
@@ -317,7 +317,7 @@ exports.createPages = async ({graphql, actions}) => {
   })
 
   // Create post pages
-  posts.forEach(({node}) => {
+  posts.forEach(({ node }) => {
     node.url = `/${node.slug}/`
     node.series = null
     node.name = null
@@ -362,7 +362,7 @@ exports.createPages = async ({graphql, actions}) => {
     items: posts,
     itemsPerPage: postsPerPage,
     component: indexTemplate,
-    pathPrefix: ({pageNumber}) => {
+    pathPrefix: ({ pageNumber }) => {
       if (pageNumber === 0) {
         return `/`
       } else {
