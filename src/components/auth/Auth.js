@@ -1,29 +1,13 @@
 import React from 'react'
-// import netlifyIdentity from 'netlify-identity-widget'
-import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import netlifyIdentity from 'netlify-identity-widget'
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  withRouter,
+} from 'react-router-dom'
 
-const Auth = ({ children }) => {
-  const [dialog, setDialog] = React.useState(false)
-  const identity = useIdentityContext()
-  const name =
-    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || `NoName`
-
-  const isLoggedIn = identity && identity.isLoggedIn
-  return (
-    <>
-      <div className="login-button">
-        {` `}
-        <div className="btn" onClick={() => setDialog(true)}>
-          {isLoggedIn ? `Hello ${name}, Log out here!` : `LOG IN`}
-        </div>
-      </div>
-      <main>{children}</main>
-      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
-    </>
-  )
-}
-
-/*const netlifyAuth = {
+const netlifyAuth = {
   isAuthenticated: false,
   user: null,
   authenticate(callback) {
@@ -43,10 +27,18 @@ const Auth = ({ children }) => {
     })
   },
 }
-*/
-/*const AuthButton = withRouter(
-  ({ history }) => (netlifyAuth.isAuthenticated ? (
 
+function Auth() {
+  return (
+    <Router>
+      <AuthButton />
+      <Route path="/login" component={Login} />
+    </Router>
+  )
+}
+
+const AuthButton = withRouter(
+  ({ history }) => (netlifyAuth.isAuthenticated ? (
     <p>
         Welcome!{` `}
       <button
@@ -60,32 +52,20 @@ const Auth = ({ children }) => {
   ) : (
     <p>You are not logged in.</p>
   ))
-)*/
+)
 
-/*function PrivateRoute({ component: Component, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={props => (netlifyAuth.isAuthenticated ? (
-        <Component {...props} />
-      ) : null)
-      }
-    />
-  )
-}*/
-
-/*class Login extends React.Component {
+class Login extends React.Component {
   state = { redirectToReferrer: false };
 
   login = () => {
-    this.event.preventDefault()
     netlifyAuth.authenticate(() => {
-      this.setState({ redirectToReferrer: false })
+      this.setState({ redirectToReferrer: true })
     })
   };
 
   render() {
     let { from } = this.props.location.state || { from: { pathname: `/` } }
+    let { redirectToReferrer } = this.state
 
     if (redirectToReferrer) {
       return <Redirect to={from} />
@@ -99,6 +79,4 @@ const Auth = ({ children }) => {
     )
   }
 }
-*/
-
 export default Auth

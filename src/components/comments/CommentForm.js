@@ -5,7 +5,7 @@ import ReactMde from "react-mde"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import { FaCheck, FaRegComment } from 'react-icons/fa'
 import * as Showdown from "showdown"
-import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import { Auth } from "../auth/"
 
 function encode(data) {
   return Object.keys(data)
@@ -32,9 +32,7 @@ const CommentForm = ({ post }) => {
   const postSlug = post.slug
   const authorName = post.primary_author.name
   const authorEmail = post.primary_author.email
-  const identity = useIdentityContext()
-  const user = identity.user
-  const isLoggedIn = identity.isLoggedIn
+  const user = NetlifyIdentity.currentUser()
   const formRef = React.useRef()
   const messageRef = React.useRef()
   const textAreaRef = React.useRef()
@@ -53,7 +51,7 @@ const CommentForm = ({ post }) => {
     setUserAvatar(user ? user.user_metadata.avatar_url : ``)
     setUserProvider(user ? user.app_metadata.provider : ``)
     setUserEmail(user ? user.email : ``)
-    if (isLoggedIn) {
+    if (user) {
       formRef.current.classList.add(`logged-in`)
       formRef.current.classList.remove(`logged-out`)
     } else {
@@ -63,7 +61,7 @@ const CommentForm = ({ post }) => {
   })
 
   const handleClick = () => {
-    if (isLoggedIn){
+    if (user){
       formRef.current.classList.add(`open`)
       formRef.current.classList.remove(`closed`)
     } else {
@@ -76,7 +74,7 @@ const CommentForm = ({ post }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    if (isLoggedIn === false) {
+    if (!user) {
       console.log(`User is not logged in.`)
     }
     if (value === `Have something to say?` || value === `` || value === undefined) {
@@ -135,7 +133,7 @@ const CommentForm = ({ post }) => {
       </div>
 
       <div
-        className={`form-container closed ${isLoggedIn ? `logged-in` : `logged-out`} `}
+        className={`form-container closed ${user ? `logged-in` : `logged-out`} `}
         ref={formRef}
         onClick={handleClick}
       >
@@ -218,12 +216,8 @@ const CommentForm = ({ post }) => {
             minPreviewHeight={50}
             initialEditorHeight={50}
           />
-          {isLoggedIn
-            ? <input
-              className="comment-btn submit"
-              type="submit"
-              value="Submit"
-            />
+          {user
+            ? <Auth />
             :
             <div className="comment-login login">
               <a>Sign in to comment</a> <FaRegComment />
@@ -231,13 +225,13 @@ const CommentForm = ({ post }) => {
           }
         </form>
       </div>
-      <IdentityModal
+      {/*<IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
         onLogin={u => handleLogin(u)}
         onSignup={u => handleLogin(u)}
         onLogout={() => handleLogout()}
-      />
+      />*/}
     </>
   )
 }

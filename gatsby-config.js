@@ -210,12 +210,6 @@ module.exports = {
      *  Netlify Plugins
      */
     `gatsby-plugin-netlify-cache`,
-    {
-      resolve: `gatsby-plugin-netlify-identity`,
-      options: {
-        url: `https://hackersandslackers.com`, // required!
-      },
-    },
     /**
      *  SEO & Feed Plugins
      */
@@ -376,7 +370,7 @@ module.exports = {
         appId: process.env.ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.ALGOLIA_INDEX_NAME,
-        matchFields: [`slug`, `updated_at`],
+        matchFields: [`slug`, `modified`],
         queries,
         chunkSize: 500, // default: 1000
         enablePartialUpdates: true,
