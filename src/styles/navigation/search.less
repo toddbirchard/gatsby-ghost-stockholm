@@ -1,11 +1,23 @@
 @import '../variables.less';
 @import '../mixins.less';
 
+#search-input {
+  grid-gap: 1em;
+  display: block;
+  position: relative;
+}
+
 .search-results {
+  z-index: 2;
+  position: absolute;
+  top: calc(100% + 0.1em);
+  right: 0;
   width: 377px !important;
-  max-height: unset !important;
   margin: 0;
   padding: 15px !important;
+  overflow: hidden;
+  border: 1px solid #dcdcdc;
+  background: white;
   box-shadow: 4px 4px 10px rgba(45, 47, 55, 0.2);
 
   header {

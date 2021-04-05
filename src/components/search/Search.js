@@ -1,33 +1,50 @@
-import React, { createRef, useState } from 'react'
+import React, { createRef, useState, useEffect } from 'react'
 import PropTypes from "prop-types"
 import { Configure,
   Hits,
   InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
-import { useClickOutside } from '../../utils/hooks'
-import { HitsWrapper, Root } from './SearchStyles'
 import { FaSearch } from 'react-icons/fa'
 import { SearchClient, SearchResults, SearchStats } from './SearchClient'
 import { SearchHit } from './'
 
-const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
+const useClickOutside = (boxRef, menuRef, handler, events) => {
+  if (!events) {
+    events = [`mousedown`, `touchstart`]
+  }
+  const detectClickOutside = event => !menuRef.current.contains(event.target) && handler()
+
+  useEffect(() => {
+    for (const event of events) {
+      window.addEventListener(event, detectClickOutside)
+    }
+    return () => {
+      for (const event of events) {
+        window.removeEventListener(event, detectClickOutside)
+      }
+    }
+  })
+}
+
+const Search = ({ collapse, forcedQuery }) => {
   const boxRef = createRef()
   const menuRef = createRef()
   const [searchQuery, setQuery] = useState(forcedQuery ? forcedQuery : ``)
   const [focus, setFocus] = useState(false)
   const focusFalse = () => setFocus(false)
+  const visibilityState = searchQuery.length > 0 && focus ? `visible` : `hidden`
   useClickOutside(menuRef, boxRef, focusFalse)
 
   return (
-    <Root ref={boxRef} className="search-root">
+    <div ref={boxRef} className="search-root">
       <InstantSearch
         searchClient={SearchClient}
         indexName="hackers_posts"
         onSearchStateChange={({ query }) => setQuery(query)}
         onSearchParameters={() => setFocus(true)} {...{ collapse, focus }}
       >
-        <Configure hitsPerPage={10} analytics={true} />
+        <Configure hitsPerPage={10} analytics={true}/>
         <label
           id="search-input-label"
           className="search-label"
@@ -45,10 +62,9 @@ const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
             placeholder: `Search all posts`,
           }}
         />
-        <FaSearch className="search-icon" />
-        <HitsWrapper
-          show={(searchQuery.length > 0 && focus) || (!!forcedQuery)}
-          asGrid={hitsAsGrid}
+        <FaSearch className="search-icon"/>
+        <div
+          style={{ visibility: visibilityState }}
           className="search-results"
           ref={menuRef}
         >
@@ -61,9 +77,9 @@ const Search = ({ collapse, hitsAsGrid, forcedQuery }) => {
               <Hits hitComponent={SearchHit}/>
             </SearchResults>
           </Index>
-        </HitsWrapper>
+        </div>
       </InstantSearch>
-    </Root>
+    </div>
   )
 }
 

@@ -18,7 +18,7 @@ import '../../styles/app.less'
  *
  */
 
-const DefaultLayout = ({ data, children, hasSidebar, template, authorData, websiteMeta }) => {
+const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => {
   const site = data.ghostSettings
   const corePages = [`home-template`, `page-template`, `tag-template`]
   const isCorePage = corePages.includes(template)
@@ -42,7 +42,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData, websi
           <div className={hasSidebar ? `sidebar-container` : `container`}>
             {/* All main content gets inserted here (comments.js, post.js, etc). */}
             {children}
-            {template === `author-template` && <AuthorSidebar authorData={authorData} websiteMeta={websiteMeta} /> }
+            {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
             {isCorePage && <Sidebar site={site} template={template} />}
           </div>
         </div>
