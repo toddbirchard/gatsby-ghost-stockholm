@@ -82,7 +82,7 @@
     "lazysizes": "^5.3.2",
     "lodash": "4.17.21",
     "netlify-identity-widget": "^1.9.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "2.6.1",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
     "qs": "^6.10.1",
