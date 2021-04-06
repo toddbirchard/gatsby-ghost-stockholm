@@ -8,7 +8,6 @@ import {
   SearchBox,
   Index,
 } from 'react-instantsearch-dom'
-import { HitsWrapper } from '../../search/SearchStyles'
 import { StaticQuery, graphql } from 'gatsby'
 import { slide as Menu } from 'react-burger-menu'
 import { SearchClient, SearchResults, SearchStats } from '../../search/SearchClient'
@@ -90,8 +89,7 @@ class SearchMenu extends React.Component {
                 }}
               />
               <FaSearch/>
-              <HitsWrapper
-                show={(this.state.query.length > 0 && this.state.focus)}
+              <div
                 className="search-results"
               >
                 <Index indexName="hackers_posts">
@@ -103,7 +101,7 @@ class SearchMenu extends React.Component {
                     <Hits hitComponent={this.PostHit(() => this.setState({ focus: true }))}/>
                   </SearchResults>
                 </Index>
-              </HitsWrapper>
+              </div>
             </InstantSearch>
           </div>
           <div className="top-searches">

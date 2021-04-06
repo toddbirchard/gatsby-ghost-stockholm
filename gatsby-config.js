@@ -155,42 +155,6 @@ module.exports = {
         ],
       },
     },
-    /*{
-      resolve: `gatsby-source-github-api`,
-      options: {
-        url: `https://api.github.com/graphql`,
-        token: `Basic dG9kZGJpcmNoYXJkOmJlMTg4YTdjNTQ3N2Y2YWFkYzAxZWU3MGMwZjUzYzM4MDZkN2I5YjY=`,
-        graphQLQuery: [
-          `{
-            organization(login: "hackersandslackers") {
-              repositories(orderBy: {field: STARGAZERS, direction: DESC}, first: 5, privacy: PUBLIC) {
-                edges {
-                  node {
-                    name
-                    description
-                    url
-                    forks {
-                      totalCount
-                    }
-                    stargazers {
-                      totalCount
-                    }
-                    watchers {
-                      totalCount
-                    }
-                    primaryLanguage {
-                      name
-                      color
-                    }
-                  }
-                }
-                totalCount
-              }
-            }
-          }`,
-        ],
-      },
-    },*/
     /**
      *  Style Plugins
      */
@@ -205,7 +169,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-styled-components`,
     /**
      *  Netlify Plugins
      */
@@ -367,10 +330,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
-        appId: process.env.ALGOLIA_APP_ID,
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME,
-        matchFields: [`slug`, `modified`],
+        indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+        matchFields: [`slug`, `updated_at`],
         queries,
         chunkSize: 500, // default: 1000
         enablePartialUpdates: true,

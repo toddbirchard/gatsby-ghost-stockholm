@@ -1,46 +1,6 @@
 const path = require(`path`)
 const { postsPerPage } = require(`./src/utils/siteConfig`)
 const { paginate } = require(`gatsby-awesome-pagination`)
-/* const cheerio = require(`cheerio`)
-const fetch = require(`node-fetch`)
-
-const fetchWebsiteData = async (url) => {
-  if (url === null || url === `` || url === `undefined`) {
-    return undefined
-  }
-  try {
-    return await fetch(url)
-      .then(res => res.text())
-      .then(body => cheerio.load(body))
-      .then($ => Object({
-        description: $(`meta[name=description]`).attr(`content`) || $(`meta[property='og:description']`).attr(`content`) || ``,
-        image: $(`meta[property='og:image']`).attr(`content`) || ``,
-        icon: $(`link[rel=shortcut]`).attr(`href`) || $(`link[rel='fluid-icon']`).attr(`href`) || ``,
-        themeColor: $(`meta[name='theme-color']`).attr(`href`) || ``,
-        url: url,
-      }))
-  } catch (error) {
-    console.log(error.response.body)
-  }
-}
-
-const createAuthorFields = async (node, websiteMeta, fields) => {
-  for (let [key, value] in Object.entries(websiteMeta)) {
-    fields.createNodeField({
-      node,
-      name: key,
-      value: value,
-    })
-  }
-}
-
-exports.onCreateNode = async ({node, actions, getNode}) => {
-  if (node.internal.type === `GhostAuthor`) {
-    await fetchWebsiteData(node.website)
-      .then(meta => createAuthorFields(node, meta, actions))
-      .catch(error => console.log(error))
-  }
-}*/
 
 /**
  * Here is the place where Gatsby creates the URLs for all the
@@ -273,7 +233,6 @@ exports.createPages = async ({ graphql, actions }) => {
           nextPageNumber: nextPageNumber,
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
-          // websiteMeta: node.websiteMeta,
         },
       })
     })
