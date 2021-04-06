@@ -39,7 +39,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
           <div className="author-card-content">
             {template === `author-template`
               ? <h1 className="author-card-name">{author.name}{pageCount && <span>{` (page ${pageCount})`}</span>}</h1>
-              : <div><Link to={`/author/${author.slug}/`} className="author-card-name">{author.name}</Link> <span className="post-count">{authorPostCount} Posts</span></div>
+              : <div className="author-card-name-wrapper"><Link to={`/author/${author.slug}/`} className="author-card-name">{author.name}</Link> <span className="post-count">{authorPostCount} Posts</span></div>
             }
             <div className="author-card-meta Posts">
               {/*authorPostCount &&

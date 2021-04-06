@@ -21,6 +21,10 @@
     align-items: top;
     justify-content: space-between;
     overflow: hidden;
+
+    .author-card-name-wrapper {
+      line-height: 1;
+    }
   }
 
   .author-card-name {
@@ -125,6 +129,7 @@
       font-size: 0.95em;
       line-height: 1.5em;
       @media(max-width: @mobile-breakpoint) {
+        display: none;
         font-size: .9rem;
       }
     }
@@ -135,7 +140,7 @@
     font-family: @body-font;
     @media (max-width: @mobile-breakpoint) {
       display: block;
-      margin: 0 auto;
+      margin: 12px auto 0;
       color: @body-color;
       line-height: 1.5;
     }
@@ -267,13 +272,13 @@
 }
 
 .author-card.author {
+  margin: 30px auto 40px !important;
   margin-bottom: 20px !important;
-  padding: 10px 40px 5%;
   box-shadow: @box-shadow;
   @media (max-width: @tablet-breakpoint) {
     display: block;
     width: 90%;
-    margin: 30px auto 40px !important;
+    margin: 10px auto 40px!important;
     padding: 0;
     background: unset;
     box-shadow: none;
