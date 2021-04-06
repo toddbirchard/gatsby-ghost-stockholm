@@ -30,31 +30,36 @@ const netlifyAuth = {
 
 function Auth() {
   return (
-    <Router>
-      <AuthButton />
-      <Route path="/login" component={Login} />
-    </Router>
+    <>
+      {netlifyAuth.isAuthenticated
+        ? <Router>
+          <LogoutButton />
+          <Route path="/login" component={LogoutButton} />
+        </Router>
+        : <Router>
+          <LoginButton />
+          <Route path="/login" component={LoginButton} />
+        </Router> }
+    </>
   )
 }
 
-const AuthButton = withRouter(
+const LogoutButton = withRouter(
   ({ history }) => (netlifyAuth.isAuthenticated ? (
-    <p>
-        Welcome!{` `}
-      <button
-        onClick={() => {
-          netlifyAuth.signout(() => history.push(`/`))
-        }}
-      >
+
+    <button
+      onClick={() => {
+        netlifyAuth.signout(() => history.push(`/`))
+      }}
+    >
           Sign out
-      </button>
-    </p>
+    </button>
   ) : (
     <p>You are not logged in.</p>
   ))
 )
 
-class Login extends React.Component {
+class LoginButton extends React.Component {
   state = { redirectToReferrer: false };
 
   login = () => {
@@ -73,8 +78,12 @@ class Login extends React.Component {
 
     return (
       <div>
-        <p>You must log in to view the page at {from.pathname}</p>
-        <button onClick={this.login}>Log in</button>
+        <button
+          onClick={this.login}
+          className="comment-btn login"
+        >
+        Log in
+        </button>
       </div>
     )
   }

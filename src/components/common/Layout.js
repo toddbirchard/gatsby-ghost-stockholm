@@ -5,7 +5,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import { AuthorSidebar } from '../sidebar/authors'
-import { IdentityContextProvider } from "react-netlify-identity"
+// import { IdentityContextProvider } from "react-netlify-identity"
+import netlifyIdentity from 'netlify-identity-widget'
 import config from '../../utils/siteConfig'
 import '../../styles/app.less'
 
@@ -18,36 +19,44 @@ import '../../styles/app.less'
  *
  */
 
+netlifyIdentity.init({
+  container: `#netlify-modal`,
+  APIUrl: ` https://hackersandslackers.com/.netlify/identity`,
+  locale: `en`,
+})
+
+netlifyIdentity.open()
+
 const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => {
   const site = data.ghostSettings
   const corePages = [`home-template`, `page-template`, `tag-template`]
   const isCorePage = corePages.includes(template)
-  const authUrl = `https://hackersandslackers.com`
+  // const authUrl = `https://hackersandslackers.com`
 
   return (
     <>
-      <IdentityContextProvider url={authUrl}>
-        <Helmet>
-          <html lang={site.lang} />
-          <body className={template} />
-        </Helmet>
+      {/*<IdentityContextProvider url={authUrl}>*/}
+      <Helmet>
+        <html lang={site.lang} />
+        <body className={template} />
+      </Helmet>
 
-        <Navigation
-          data={site.navigation}
-          navClass="site-nav-item"
-          smallLogo={config.images.mobileLogo}
-        />
+      <Navigation
+        data={site.navigation}
+        navClass="site-nav-item"
+        smallLogo={config.images.mobileLogo}
+      />
 
-        <div className="viewport">
-          <div className={hasSidebar ? `sidebar-container` : `container`}>
-            {/* All main content gets inserted here (comments.js, post.js, etc). */}
-            {children}
-            {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
-            {isCorePage && <Sidebar site={site} template={template} />}
-          </div>
+      <div className="viewport">
+        <div className={hasSidebar ? `sidebar-container` : `container`}>
+          {/* All main content gets inserted here (comments.js, post.js, etc). */}
+          {children}
+          {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
+          {isCorePage && <Sidebar site={site} template={template} />}
         </div>
-        <Footer navigation={site.navigation} site={site} template={template} />
-      </IdentityContextProvider>
+      </div>
+      <Footer navigation={site.navigation} site={site} template={template} />
+      {/*</IdentityContextProvider>*/}
     </>
   )
 }

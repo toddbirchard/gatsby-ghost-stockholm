@@ -5,7 +5,8 @@ import ReactMde from "react-mde"
 import "react-mde/lib/styles/css/react-mde-all.css"
 import { FaCheck, FaRegComment } from 'react-icons/fa'
 import * as Showdown from "showdown"
-import { Auth } from "../auth/"
+import netlifyIdentity from 'netlify-identity-widget'
+import { Auth } from "../common"
 
 function encode(data) {
   return Object.keys(data)
@@ -32,7 +33,7 @@ const CommentForm = ({ post }) => {
   const postSlug = post.slug
   const authorName = post.primary_author.name
   const authorEmail = post.primary_author.email
-  const user = NetlifyIdentity.currentUser()
+  const user = netlifyIdentity.currentUser()
   const formRef = React.useRef()
   const messageRef = React.useRef()
   const textAreaRef = React.useRef()
@@ -43,7 +44,9 @@ const CommentForm = ({ post }) => {
   const [userEmail, setUserEmail] = useState(user ? user.email : ``)
   const [value, setValue] = useState(`Have something to say?`)
   const [selectedTab, setSelectedTab] = React.useState(`write`)
-  const [dialog, setDialog] = React.useState(false)
+  // const [dialog, setDialog] = React.useState(false)
+  netlifyIdentity.on(`login`, currentuser => handleLogin(currentuser))
+  netlifyIdentity.on(`logout`, () => handleLogout)
 
   useEffect(() => {
     setUserId(user ? user.id : ``)
@@ -65,7 +68,7 @@ const CommentForm = ({ post }) => {
       formRef.current.classList.add(`open`)
       formRef.current.classList.remove(`closed`)
     } else {
-      setDialog(true)
+      netlifyIdentity.open()
     }
     if (value === `Have something to say?`){
       setValue(``)

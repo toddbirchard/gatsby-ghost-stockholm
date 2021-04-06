@@ -1,4 +1,4 @@
-import React from "react"
+/*import React from "react"
 import PropTypes from 'prop-types'
 import { useIdentityContext } from "react-netlify-identity-widget"
 
@@ -31,3 +31,4 @@ CommentSubmit.propTypes = {
 }
 
 export default CommentSubmit
+*/

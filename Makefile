@@ -52,9 +52,10 @@ clean:
 	find . -name 'node_modules' -delete
 
 .PHONY: reset
-reset: clean
-	npm i
-	npm audit fix
+reset:
+	make clean
+	yarn install
+	gatsby develop
 
 .PHONY: update
 update:
