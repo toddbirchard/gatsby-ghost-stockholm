@@ -32,17 +32,17 @@
   "devDependencies": {
     "autoprefixer": "^10.2.5",
     "babel-preset-gatsby": "^1.2.0",
-    "cssnano": "^4.1.10",
-    "eslint": "^7.23.0",
+    "cssnano": "^4.1.11",
+    "eslint": "^7.24.0",
     "eslint-plugin-ghost": "^2.0.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.23.2",
     "less": "^4.1.1",
     "postcss": "^8.2.9"
   },
   "dependencies": {
-    "@babel/core": "^7.13.14",
+    "@babel/core": "^7.13.15",
     "@babel/eslint-parser": "7.13.14",
     "@reach/dialog": "^0.14.0",
     "@reach/tabs": "^0.14.0",
