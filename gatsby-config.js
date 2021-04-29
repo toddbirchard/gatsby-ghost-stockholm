@@ -37,11 +37,12 @@ if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhos
 }
 
 module.exports = {
-  /* flags: {
-    PRESERVE_WEBPACK_CACHE: true,
+  flags: {
+    // PRESERVE_WEBPACK_CACHE: true,
     FAST_DEV: true,
     FAST_REFRESH: true,
-  }, */
+    PARALLEL_SOURCING: true,
+  },
   siteMetadata: {
     title: config.shortTitle,
     siteUrl: config.siteUrl,
