@@ -600,22 +600,6 @@
         public'''
 
 [[headers]]
-  for = "https://hackersandslackers-cdn.storage.googleapis.com/*"
-  [headers.values]
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
-  for = "https://cdn.hackersandslackers.com/*"
-  [headers.values]
-    cache-control = '''
-        max-age=604800,
-        no-cache,
-        public'''
-
-[[headers]]
   for = "https://secure.gaug.es/track.gif"
   [headers.values]
     set-cookie = "HttpOnly;Secure;SameSite=None"

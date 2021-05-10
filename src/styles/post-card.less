@@ -79,12 +79,14 @@
 
   .post-card-image {
     width: 100%;
+    min-width: 671px;
     min-height: 357px;
     background: @text-color-light no-repeat center center;
     background-color: #dbe5f1;
     background-size: cover;
     transition: opacity 0.2s ease-out;
     @media (max-width: 1040px) {
+      min-width: unset;
       height: auto !important;
       min-height: 256px;
     }
