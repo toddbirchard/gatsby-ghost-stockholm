@@ -305,10 +305,13 @@ module.exports = {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: config.siteUrl,
-        sitemap: config.siteMap,
-        policy: [{ userAgent: `*`,
-          allow: `/`,
-          disallow: [`/ghost/`, `/p/`, `/roundup/*`] }],
+        sitemap: `${config.siteUrl}/sitemap.xml`,
+        policy: [
+          { userAgent: `*`,
+            allow: `/`,
+            disallow: [`/ghost/`, `/p/`, `/roundup/*`] },
+        ],
+        output: `${config.siteUrl}/robots.txt`,
       },
     },
     {
