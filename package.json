@@ -74,6 +74,7 @@
     "gatsby-plugin-react-helmet": "^4.6.0",
     "gatsby-plugin-robots-txt": "^1.6.2",
     "gatsby-plugin-segment-js": "^3.6.1",
+    "gatsby-plugin-sharp": "^3.6.0",
     "gatsby-source-custom-api": "^2.1.4",
     "gatsby-source-filesystem": "^3.6.0",
     "gatsby-source-ghost": "^4.2.4",

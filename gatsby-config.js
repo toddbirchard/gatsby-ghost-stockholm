@@ -1,10 +1,10 @@
-require(`dotenv`).config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
-const queries = require(`./src/utils/algolia`)
+const searchqueries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
 const siteRSSFeed = require(`./src/utils/rss/site-feed`)
+const dotenv = require(`dotenv`).config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 let ghostConfig
 
@@ -350,7 +350,7 @@ module.exports = {
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
         matchFields: [`slug`, `updated_at`],
-        queries,
+        searchqueries,
         chunkSize: 500, // default: 1000
         enablePartialUpdates: true,
         settings: {

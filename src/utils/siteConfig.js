@@ -6,7 +6,7 @@ module.exports = {
   postsPerPage: 8, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
   siteTitleMeta: `Hackers and Slackers`, // This allows an alternative site title for meta data for pages.
   siteDescriptionMeta: `Community of hackers obsessed with data science, data engineering, and analysis. Openly pushing a pro-robot agenda.`, // This allows an alternative site description for meta data for pages.
-  siteCopyright: `©2020 Hackers and Slackers, All Rights Reserved.`,
+  siteCopyright: `©2021 Hackers and Slackers, All Rights Reserved.`,
   shortTitle: `Hackers and Slackers`, // Used for App manifest e.g. Mobile Home Screen
   backgroundColor: `#ecf1f9`, // Used for Offline Manifest
   themeColor: `#0297f6`, // Used for Offline Manifest
