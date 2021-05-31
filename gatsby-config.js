@@ -334,6 +334,12 @@ module.exports = {
         delayLoad: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `hackersandslackers.com`,
+      },
+    },
     /**
      *  Search Plugins
      */
