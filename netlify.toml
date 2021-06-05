@@ -24,19 +24,19 @@
 
 [[redirects]]
     from = "*.php"
-    to = "https://i.imgur.com/1Ia9tTG.gif"
+    to = "https://www.killyourself.gay/"
     force = true
     status = 301
 
 [[redirects]]
     from = "/wp-login.php"
-    to = "https://i.imgur.com/1Ia9tTG.gif"
+    to = "https://www.killyourself.gay/"
     force = true
     status = 301
 
 [[redirects]]
     from = "*/wp-login.*"
-    to = "https://i.imgur.com/1Ia9tTG.gif"
+    to = "https://www.killyourself.gay/"
     force = true
     status = 301
 
