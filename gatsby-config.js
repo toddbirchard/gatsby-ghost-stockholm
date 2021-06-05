@@ -310,7 +310,7 @@ module.exports = {
             allow: `/`,
             disallow: [`/ghost/`, `/p/`, `/roundup/*`] },
         ],
-        output: `${config.siteUrl}/robots.txt`,
+        output: `/robots.txt`,
       },
     },
     {
