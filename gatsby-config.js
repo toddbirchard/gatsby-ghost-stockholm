@@ -1,4 +1,4 @@
-const searchqueries = require(`./src/utils/algolia`)
+const algoliaQueries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
 const siteRSSFeed = require(`./src/utils/rss/site-feed`)
@@ -349,7 +349,7 @@ module.exports = {
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
         matchFields: [`slug`, `updated_at`],
-        searchqueries,
+        algoliaQueries,
         chunkSize: 500, // default: 1000
         enablePartialUpdates: true,
         settings: {

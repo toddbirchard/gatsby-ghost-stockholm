@@ -8,11 +8,13 @@ import { Configure,
 import { FaSearch } from 'react-icons/fa'
 import { SearchClient, SearchResults, SearchStats } from './SearchClient'
 import { SearchHit } from './'
+import { useIdentityContext } from "react-netlify-identity-widget"
 
 const useClickOutside = (boxRef, menuRef, handler, events) => {
   if (!events) {
     events = [`mousedown`, `touchstart`]
   }
+
   const detectClickOutside = event => !menuRef.current.contains(event.target) && handler()
 
   useEffect(() => {
@@ -34,6 +36,9 @@ const Search = ({ collapse, forcedQuery }) => {
   const [focus, setFocus] = useState(false)
   const focusFalse = () => setFocus(false)
   const visibilityState = searchQuery.length > 0 && focus ? `visible` : `hidden`
+  const identity = useIdentityContext()
+  const user = identity.user
+  const userId = user && user.id
   useClickOutside(menuRef, boxRef, focusFalse)
 
   return (
@@ -44,7 +49,7 @@ const Search = ({ collapse, forcedQuery }) => {
         onSearchStateChange={({ query }) => setQuery(query)}
         onSearchParameters={() => setFocus(true)} {...{ collapse, focus }}
       >
-        <Configure hitsPerPage={10} analytics={true}/>
+        <Configure hitsPerPage={10} analytics={true} userToken={userId}/>
         <label
           id="search-input-label"
           className="search-label"
