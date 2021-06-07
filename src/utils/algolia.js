@@ -1,5 +1,5 @@
 const postQuery = `{
-  posts: allGhostPost(filter: {primary_tag: {slug: {nin: ["roundup", null]}, visibility: {eq: "public"}}}) {
+  posts: allGhostPost(filter: {primary_tag: {slug: {nin: ["roundup"]}, visibility: {eq: "public"}}}) {
     edges {
       node {
         objectID: ghostId

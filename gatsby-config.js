@@ -2,7 +2,7 @@ const algoliaQueries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
 const siteRSSFeed = require(`./src/utils/rss/site-feed`)
-const dotenv = require(`dotenv`).config({
+require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -41,6 +41,7 @@ module.exports = {
     // PRESERVE_WEBPACK_CACHE: true,
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
+    FUNCTIONS: true,
   },
   siteMetadata: {
     title: config.shortTitle,
