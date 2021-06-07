@@ -1,4 +1,4 @@
-const algoliaQueries = require(`./src/utils/algolia`)
+const queries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
 const siteRSSFeed = require(`./src/utils/rss/site-feed`)
@@ -349,13 +349,15 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
         indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
-        matchFields: [`slug`, `updated_at`],
-        algoliaQueries,
+        queries,
         chunkSize: 500, // default: 1000
-        enablePartialUpdates: true,
         settings: {
           replicaUpdateMode: `replace`,
         },
+        enablePartialUpdates: true,
+        matchFields: [`slug`, `updated_at`],
+        concurrentQueries: false,
+        continueOnFailure: true,
       },
     },
     {
