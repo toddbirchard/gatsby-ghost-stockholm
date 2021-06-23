@@ -1,6 +1,3 @@
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-
 [build]
   base = "/"
   command = "npm run-script build"
@@ -10,6 +7,12 @@
 [build.environment]
   GO_VERSION = "1.16"
   GO_IMPORT_PATH = "github.com/toddbirchard/lambda-metadata-scraper"
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
 
 [template]
   incoming-hooks = ["Ghost"]

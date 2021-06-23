@@ -39,6 +39,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-webpack-plugin": "^2.5.4",
     "less": "^4.1.1",
+    "netlify-plugin-gatsby-cache": "^0.3.2",
     "postcss": "^8.3.5"
   },
   "dependencies": {
@@ -50,7 +51,6 @@
     "@tryghost/helpers": "^1.1.47",
     "@tryghost/helpers-gatsby": "^1.0.52",
     "@tryghost/social-urls": "^0.1.24",
-    "react-netlify-identity-widget": "0.2.7",
     "algoliasearch": "^4.9.3",
     "algoliasearch-helper": "^3.5.3",
     "babel-plugin-prismjs": "^2.0.1",
@@ -97,6 +97,7 @@
     "react-icons": "^4.2.0",
     "react-instantsearch-dom": "^6.11.1",
     "react-mde": "^11.5.0",
+    "react-netlify-identity-widget": "0.2.7",
     "react-player": "^2.9.0",
     "sharp": "^0.28.3",
     "showdown": "^1.9.1",
