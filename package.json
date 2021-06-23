@@ -69,7 +69,6 @@
     "gatsby-plugin-feed": "^3.8.0",
     "gatsby-plugin-force-trailing-slashes": "1.0.5",
     "gatsby-plugin-less": "^5.8.0",
-    "gatsby-plugin-netlify-cache": "^2.0.0",
     "gatsby-plugin-netlify-identity": "^0.0.3",
     "gatsby-plugin-plausible": "^0.0.7",
     "gatsby-plugin-postcss": "^4.8.0",

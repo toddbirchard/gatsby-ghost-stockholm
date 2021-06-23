@@ -84,7 +84,9 @@ exports.createPages = async ({ graphql, actions }) => {
   )
   // Check for errors
   if (result.errors) {
-    throw new Error(result.errors)
+    for (let error in result.errors){
+      throw error
+    }
   }
 
   // Query results
