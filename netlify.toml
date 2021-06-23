@@ -1,7 +1,4 @@
 [[plugins]]
-  package = "@netlify/plugin-gatsby"
-
-[[plugins]]
   package = "@netlify/plugin-lighthouse"
 
 [build]
