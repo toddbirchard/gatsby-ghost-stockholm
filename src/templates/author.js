@@ -38,7 +38,7 @@ const Author = ({ data, location, pageContext }) => {
         <div className="author-container">
           <AuthorCard
             author={author}
-            page="author"
+            page="author-page"
             template="author-template"
             pageContext={pageContext}
           />
@@ -110,7 +110,7 @@ Author.propTypes = {
       screen_name: PropTypes.string,
       name: PropTypes.string,
       description: PropTypes.string,
-      followers_count: PropTypes.string,
+      followers_count: PropTypes.number,
       profile_image_url_https: PropTypes.string,
       statuses_count: PropTypes.string,
       favourites_count: PropTypes.string,

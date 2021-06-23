@@ -1,4 +1,4 @@
-SRCPATH := $(CURDIR)
+SRC_PATH := $(shell pwd)
 
 define HELP
 This is the Stockholm project Makefile.
@@ -7,9 +7,10 @@ Usage:
 
 make build           - Build site & Lambdas for production.
 make serve           - Build & serve production build locally.
-make clean           - Purge cache & modules.
-make reset           - Purge cache & reinstall modules.
+make clean           - Purge cache, modules, & lockfiles.
+make reset           - Make clean & reinstall modules.
 make update          - Update npm production dependencies.
+
 endef
 export HELP
 
@@ -41,23 +42,25 @@ testfunctions:
 serve:
 	gatsby clean
 	gatsby build
-	gatsby serve
+	gatsby serve -o
 
 .PHONY: clean
 clean:
-	gatsby clean
+	if [ -d "./node_modules" ]; then gatsby clean; fi
 	find . -name 'package-lock.json' -delete
 	find . -name 'yarn.lock' -delete
 	find . -wholename '.yarn' -delete
 	find . -wholename '**/node_modules' -delete
+	find . -wholename '*/*.log' -delete
 
 .PHONY: reset
 reset: clean
-	npm i
-	npm audit fix
+	cd ${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest
+	yarn install && yarn link
+	cd ${SRC_PATH}
+	yarn install && yarn link "gatsby-plugin-ghost-manifest"
 
 .PHONY: update
 update:
-	ncu -u --dep=prod
-	npm i
-	npm audit fix
+	yarn upgrade
+	yarn check

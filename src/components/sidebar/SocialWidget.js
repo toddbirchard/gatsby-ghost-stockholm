@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import { AiOutlineTwitter, AiFillMediumSquare, AiFillLinkedin, AiOutlineGithub, AiFillFacebook } from 'react-icons/ai'
+import { AiOutlineTwitter, AiFillMediumSquare, AiOutlineGithub, AiFillFacebook } from 'react-icons/ai'
+import { FaDev } from 'react-icons/fa'
 import { FiRss } from 'react-icons/fi'
 import { BiCoffeeTogo } from 'react-icons/bi'
 
@@ -17,7 +18,7 @@ const SocialWidget = ({ data }) => {
     github: <AiOutlineGithub/>,
     buymeacoffee: <BiCoffeeTogo/>,
     medium: <AiFillMediumSquare/>,
-    linkedin: <AiFillLinkedin/>,
+    'dev.to': <FaDev/>,
     rss: <FiRss/>,
   }
 
