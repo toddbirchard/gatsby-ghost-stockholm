@@ -15,7 +15,6 @@ module.exports = {
   lang: `en-US`,
   images: {
     siteIcon: `favicon.png`,
-    mobileLogo: `/images/logo-small@2x.png`,
     buyMeACoffee: `/images/buymeacoffee.svg`,
     shareImageWidth: 1000, // Change to the width of your default share image
     shareImageHeight: 523, // Change to the height of your default share image

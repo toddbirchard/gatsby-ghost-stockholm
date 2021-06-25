@@ -17,13 +17,21 @@ import SearchMenu from './Mobile/SearchMenu'
 *
 */
 
-const Navigation = ({ data, smallLogo }) => (
+const Navigation = ({ data, icon }) => (
   <>
     <nav className="navigation" id="navigation">
       <div className="nav-wrapper">
         <div className="nav-left">
-          <Link to="/" className="logo">
-            <img data-src={smallLogo} alt={`Hackers and Slackers Logo`} title={`Hackers and Slackers Logo`} className="lazyload"/>
+          <Link to="/">
+            <picture>
+              <source data-srcset={icon} />
+              <img
+                data-src={icon}
+                alt={`Hackers and Slackers Logo`}
+                title={`Hackers and Slackers Logo`}
+                className="logo lazyload"
+              />
+            </picture>
           </Link>
           <NavLinks navigation={data} />
         </div>
@@ -43,7 +51,7 @@ Navigation.propTypes = {
       url: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  smallLogo: PropTypes.string,
+  icon: PropTypes.string.isRequired,
   template: PropTypes.string,
 }
 

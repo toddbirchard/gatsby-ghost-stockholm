@@ -8,8 +8,8 @@ Usage:
 make build           - Build site & Lambdas for production.
 make serve           - Build & serve production build locally.
 make clean           - Purge cache, modules, & lockfiles.
-make reset           - Make clean & reinstall modules.
-make update          - Update npm production dependencies.
+make reset           - Clean & reinstall all dependencies.
+make update          - Update production dependencies.
 
 endef
 export HELP
@@ -55,12 +55,13 @@ clean:
 
 .PHONY: reset
 reset: clean
-	cd ${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest
+	cd "${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest"
 	yarn install && yarn link
 	cd ${SRC_PATH}
 	yarn install && yarn link "gatsby-plugin-ghost-manifest"
 
 .PHONY: update
 update:
-	yarn upgrade
+	ncu -u
+	yarn install
 	yarn check

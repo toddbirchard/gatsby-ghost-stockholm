@@ -37,15 +37,6 @@ const PostCard = ({ post }) => {
             </Link>
         }
         <div className="post-card-detail">
-          {post.primary_tag &&
-            <Link
-              to={`/tag/${post.primary_tag.slug}/`}
-              className="primary-tag"
-              style={{
-                background: post.primary_tag.accent_color,
-                border: `1px solid ${post.primary_tag.accent_color}`,
-              }}> {post.primary_tag.name} </Link>
-          }
           <Link to={url}>
             <h2 className="post-card-title">{post.title}</h2>
           </Link>
@@ -54,7 +45,7 @@ const PostCard = ({ post }) => {
           }
           <footer className="post-card-footer">
             {post.primary_author &&
-              <div className="meta-items">
+              <div className="meta-items-left">
                 {authorAvatar
                   ? <picture>
                     <source data-srcset={authorAvatar} />
@@ -75,6 +66,16 @@ const PostCard = ({ post }) => {
                   </div>
                 </div>
               </div> }
+            {post.primary_tag &&
+              <Link
+                to={`/tag/${post.primary_tag.slug}/`}
+                className="primary-tag"
+                style={{
+                  background: post.primary_tag.accent_color,
+                  border: `1px solid ${post.primary_tag.accent_color}`,
+                }}>
+                {post.primary_tag.name}
+              </Link> }
           </footer>
         </div>
       </div>

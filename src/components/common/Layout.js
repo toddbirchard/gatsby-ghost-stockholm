@@ -6,7 +6,6 @@ import { Navigation, Footer } from '../navigation'
 import { Sidebar } from '../sidebar'
 import { AuthorSidebar } from '../sidebar/authors'
 import { IdentityContextProvider } from "react-netlify-identity"
-import config from '../../utils/siteConfig'
 import '../../styles/app.less'
 
 /**
@@ -35,7 +34,7 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
         <Navigation
           data={site.navigation}
           navClass="site-nav-item"
-          smallLogo={config.images.mobileLogo}
+          icon={site.icon}
         />
 
         <div className="viewport">
@@ -58,10 +57,10 @@ DefaultLayout.propTypes = {
   template: PropTypes.string,
   authorData: PropTypes.object,
   websiteMeta: PropTypes.shape({
-    title: PropTypes.string,
-    description: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
     url: PropTypes.string,
-    icon: PropTypes.string,
+    icon: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
     ghostSettings: PropTypes.object.isRequired,
