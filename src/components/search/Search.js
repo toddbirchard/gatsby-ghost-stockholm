@@ -5,41 +5,29 @@ import { Configure,
   InstantSearch,
   SearchBox,
   Index } from 'react-instantsearch-dom'
-import { FaSearch } from 'react-icons/fa'
 import { SearchClient, SearchResults, SearchStats } from './SearchClient'
 import { SearchHit } from './'
 import { useIdentityContext } from "react-netlify-identity-widget"
-
-const useClickOutside = (boxRef, menuRef, handler, events) => {
-  if (!events) {
-    events = [`mousedown`, `touchstart`]
-  }
-
-  const detectClickOutside = event => !menuRef.current.contains(event.target) && handler()
-
-  useEffect(() => {
-    for (const event of events) {
-      window.addEventListener(event, detectClickOutside)
-    }
-    return () => {
-      for (const event of events) {
-        window.removeEventListener(event, detectClickOutside)
-      }
-    }
-  })
-}
 
 const Search = ({ collapse, forcedQuery }) => {
   const boxRef = createRef()
   const menuRef = createRef()
   const [searchQuery, setQuery] = useState(forcedQuery ? forcedQuery : ``)
   const [focus, setFocus] = useState(false)
-  const focusFalse = () => setFocus(false)
   const visibilityState = searchQuery.length > 0 && focus ? `visible` : `hidden`
   const identity = useIdentityContext()
   const user = identity.user
   const userId = user && user.id
-  useClickOutside(menuRef, boxRef, focusFalse)
+
+  useEffect(() => {
+    if (focus) {
+      boxRef.current.classList.add(`focus`)
+    } else if (focus === false && searchQuery === ``) {
+      boxRef.current.classList.add(`focus`)
+    } else {
+      boxRef.current.classList.remove(`focus`)
+    }
+  })
 
   return (
     <div ref={boxRef} className="search-root">
@@ -61,13 +49,12 @@ const Search = ({ collapse, forcedQuery }) => {
           id="search-input"
           searchAsYouType={true}
           placeholder="Search all posts..."
-          onFocus={() => setFocus(true)} {...{ collapse, focus }}
+          onFocus={() => setFocus(true) } {...{ collapse, focus }}
           defaultRefinement={forcedQuery && forcedQuery}
           translations={{
             placeholder: `Search all posts`,
           }}
         />
-        <FaSearch className="search-icon"/>
         <div
           style={{ visibility: visibilityState }}
           className="search-results"

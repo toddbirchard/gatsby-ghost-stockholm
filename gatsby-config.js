@@ -192,7 +192,7 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: `standalone`,
-        icon: `static/${config.images.siteIcon}`,
+        icon: config.images.siteIcon,
         categories: config.categories,
         lang: config.lang,
         legacy: false,

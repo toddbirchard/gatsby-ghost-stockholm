@@ -90,6 +90,11 @@
     display: flex;
     justify-content: space-between;
 
+    * {
+      transition: @transition;
+    }
+
+
     h4 {
       color: #585f6d;
       font-weight: 600;
@@ -120,7 +125,7 @@
         display: block;
         width: -moz-fit-content;
         width: fit-content;
-        padding: 3px 3px 1px;
+        padding: 4px 4px 2px;
         border-radius: 2px;
         color: #fff;
         font-family: @body-font-medium;
@@ -136,13 +141,13 @@
         line-height: 1.1;
       }
     }
-  }
 
-  img {
-    max-width: 138px;
-    height: 82px !important;
-    margin-right: 12px;
-    border-radius: 0;
+    img {
+      max-width: 138px;
+      height: 82px !important;
+      margin-right: 12px;
+      border-radius: 0;
+    }
   }
 }
 
@@ -167,8 +172,30 @@
     }
   }
 
+  &.focus {
+    .ais-SearchBox-submit {
+      opacity: 0;
+    }
+  }
+
+  .ais-SearchBox-form {
+    &:focus {
+      .ais-SearchBox-submit {
+        opacity: 0;
+
+        svg {
+          color: #95aaba;
+        }
+      }
+
+      .ais-SearchBox-reset {
+        visibility: unset;
+      }
+    }
+  }
+
   input {
-    width: 315px !important;
+    width: 300px !important;
     .input-text-fields();
     margin-bottom: 0;
     padding: 16px 10px 12px !important;
@@ -181,7 +208,7 @@
       width: 297px !important;
     }
     @media (max-width: 900px) {
-      width: 237px !important;
+      width: 290px !important;
     }
 
     &::placeholder {
@@ -204,22 +231,51 @@
       }
     }
   }
+}
 
-  .ais-SearchBox-reset {
-    display: none;
-  }
+.ais-SearchBox-submit {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: center;
+  cursor: default;
+  border: 0;
+  background: none;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  opacity: .3;
+  transition: @transition;
 
-  &:focus,
-  &:hover {
-    svg {
-      color: #95aaba;
-    }
-  }
-
-  button {
-    display: none;
+  svg {
+    width: 20px;
+    height: 20px;
   }
 }
+
+.ais-SearchBox-reset {
+  visibility: hidden;
+  opacity: 0;
+  border: 0;
+  background: none;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  transition: @transition;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 
 .search-label {
   clip: rect(1px, 1px, 1px, 1px);

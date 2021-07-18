@@ -49,7 +49,7 @@ clean:
 	if [ -d "./node_modules" ]; then gatsby clean; fi
 	find . -name 'package-lock.json' -delete
 	find . -name 'yarn.lock' -delete
-	find . -wholename '.yarn' -delete
+	find . -wholename '**/.yarn' -delete
 	find . -wholename '**/node_modules' -delete
 	find . -wholename '*/*.log' -delete
 
@@ -62,6 +62,13 @@ reset: clean
 
 .PHONY: update
 update:
+	echo "Updating plugin dependencies..."
+	cd "${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest"
 	ncu -u
 	yarn install
 	yarn check
+	echo "Updating main project dependencies..."
+	cd ${SRC_PATH}
+	ncu -u
+  yarn install
+  yarn check
