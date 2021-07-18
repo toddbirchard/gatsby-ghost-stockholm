@@ -19,7 +19,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
   const publicTags = _.map(tagsHelper(ghostPost, { visibility: `public`, fn: tag => tag }), `name`)
   const primaryTag = publicTags[0] || ``
   const shareImage = ghostPost.feature_image ? ghostPost.feature_image : _.get(settings, `cover_image`, null)
-  const publisherLogo = (settings.logo || config.images.siteIcon) ? url.resolve(config.siteUrl, (settings.logo || config.images.siteIcon)) : null
+  const publisherLogo = (settings.logo || config.siteIcon) ? url.resolve(config.siteUrl, (settings.logo || config.siteIcon)) : null
 
   const jsonLd = {
     "@context": `https://schema.org/`,

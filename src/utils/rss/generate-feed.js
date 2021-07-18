@@ -56,7 +56,7 @@ function generateRssFeed(siteConfig, rssQuery, title, feedUrl, matchPattern, ext
         generator: `Ghost 2.9`,
         feed_url: `${siteConfig.siteUrl}/rss.xml`,
         site_url: `${siteConfig.siteUrl}/`,
-        image_url: `${siteConfig.siteUrl}/${siteConfig.images.siteIcon}`,
+        image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
         ttl: `60`,
         custom_namespaces: {
           content: `http://purl.org/rss/1.0/modules/content/`,

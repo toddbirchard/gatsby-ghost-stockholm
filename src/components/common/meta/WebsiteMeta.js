@@ -15,7 +15,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, pag
   const previousPagePath = pageContext ? pageContext.previousPagePath : null
   const nextPagePath = pageContext ? pageContext.nextPagePath : null
 
-  const publisherLogo = url.resolve(config.siteUrl, settings.logo) || config.images.siteIcon
+  const publisherLogo = url.resolve(config.siteUrl, settings.logo) || config.siteIcon
   let shareImage = image || data.feature_image || _.get(settings, `cover_image`, null)
 
   shareImage = shareImage ? url.resolve(config.siteUrl, shareImage) : null

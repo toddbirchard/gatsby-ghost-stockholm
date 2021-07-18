@@ -10,11 +10,11 @@ module.exports = {
   shortTitle: `Hackers and Slackers`, // Used for App manifest e.g. Mobile Home Screen
   backgroundColor: `#ecf1f9`, // Used for Offline Manifest
   themeColor: `#0297f6`, // Used for Offline Manifest
+  siteIcon: `favicon.png`,
   introVideo: `https://vimeo.com/265866802`, // OPTIONAL: Video URL to be used in "about" page
   categories: [`software`, `engineering`, `data`, `data science`, `data engineering`],
   lang: `en-US`,
   images: {
-    siteIcon: `favicon.png`,
     buyMeACoffee: `/images/buymeacoffee.svg`,
     shareImageWidth: 1000, // Change to the width of your default share image
     shareImageHeight: 523, // Change to the height of your default share image
