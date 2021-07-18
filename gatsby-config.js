@@ -48,7 +48,6 @@ module.exports = {
     siteUrl: config.siteUrl,
     description: config.siteDescriptionMeta,
     url: config.siteUrl, // No trailing slash allowed!
-    image: config.siteIcon, // Path to your image you placed in the 'static' folder,
     twitterUsername: config.links.twitter,
   },
   plugins: [
@@ -192,7 +191,7 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: `standalone`,
-        icon: config.siteIcon,
+        icon: `static/${config.siteIcon}`,
         categories: config.categories,
         lang: config.lang,
         legacy: false,
