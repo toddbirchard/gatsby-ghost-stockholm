@@ -1,4 +1,5 @@
 SRC_PATH := $(shell pwd)
+GHOST_MANIFEST_PATH := ${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest
 
 define HELP
 This is the Stockholm project Makefile.
@@ -55,7 +56,7 @@ clean:
 
 .PHONY: reset
 reset: clean
-	cd "${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest"
+	cd "${GHOST_MANIFEST_PATH}"
 	yarn install && yarn link
 	cd ${SRC_PATH}
 	yarn install && yarn link "gatsby-plugin-ghost-manifest"
@@ -63,12 +64,12 @@ reset: clean
 .PHONY: update
 update:
 	echo "Updating plugin dependencies..."
-	cd "${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest"
+	cd "${GHOST_MANIFEST_PATH}"
 	ncu -u
 	yarn install
 	yarn check
 	echo "Updating main project dependencies..."
 	cd ${SRC_PATH}
 	ncu -u
-  yarn install
-  yarn check
+	yarn install
+	yarn check
