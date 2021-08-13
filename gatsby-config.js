@@ -41,7 +41,7 @@ module.exports = {
     // PRESERVE_WEBPACK_CACHE: true,
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
-    FUNCTIONS: true,
+    PARALLEL_QUERY_RUNNING: true,
   },
   siteMetadata: {
     title: config.shortTitle,
