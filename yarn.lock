@@ -6624,7 +6624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.9.0":
+"core-js@npm:^3.16.1, core-js@npm:^3.9.0":
   version: 3.16.1
   resolution: "core-js@npm:3.16.1"
   checksum: 7924fa2a7f00e3a33bbe92fe42ba59fbbe7e01557a59824d000976300be3ba224cca20161f61654b3861ea80d244d6adfee6ed3ae6d6d9931210a37510fb7c9b
@@ -20717,6 +20717,7 @@ resolve@^2.0.0-next.3:
     basiclightbox: ^5.0.4
     bluebird: ^3.7.2
     browserslist: ^4.16.7
+    core-js: ^3.16.1
     cssnano: ^5.0.7
     dotenv: ^10.0.0
     eslint: ^7.32.0
@@ -20771,6 +20772,7 @@ resolve@^2.0.0-next.3:
     showdown: ^1.9.1
     stylelint: ^13.13.1
     stylelint-config-standard: ^22.0.0
+    webpack: ^5.50.0
   languageName: unknown
   linkType: soft
 
@@ -23118,7 +23120,7 @@ typescript@^3.4.5:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.35.0":
+"webpack@npm:^5.35.0, webpack@npm:^5.50.0":
   version: 5.50.0
   resolution: "webpack@npm:5.50.0"
   dependencies:
