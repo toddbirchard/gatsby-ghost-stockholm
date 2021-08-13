@@ -41,7 +41,6 @@ testfunctions:
 
 .PHONY: serve
 serve:
-	gatsby clean
 	gatsby build
 	gatsby serve -o
 
@@ -50,6 +49,7 @@ clean:
 	if [ -d "./node_modules" ]; then gatsby clean; fi
 	find . -name 'package-lock.json' -delete
 	find . -name 'yarn.lock' -delete
+	find . -name '.pnp.cjs' -delete
 	find . -wholename '**/.yarn' -delete
 	find . -wholename '**/node_modules' -delete
 	find . -wholename '*/*.log' -delete
@@ -67,9 +67,7 @@ update:
 	cd "${GHOST_MANIFEST_PATH}"
 	ncu -u
 	yarn install
-	yarn check
 	echo "Updating main project dependencies..."
 	cd ${SRC_PATH}
 	ncu -u
 	yarn install
-	yarn check
