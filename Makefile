@@ -38,11 +38,13 @@ testfunctions:
 	GOBIN=${PWD}/functions-src/scrape go install ./...
 	# go build -o functions ./...
 
+.PHONY: serve
+dev:
+	yarn run dev
 
 .PHONY: serve
 serve:
-	gatsby build
-	gatsby serve -o
+	yarn run serve
 
 .PHONY: clean
 clean:
