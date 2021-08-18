@@ -21,9 +21,6 @@ all help:
 	@echo "$$HELP"
 
 build:
-	yarn set version berry
-	make clean
-	yarn install
 	yarn gatsby build
 
 buildbackup:
