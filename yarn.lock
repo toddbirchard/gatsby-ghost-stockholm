@@ -524,7 +524,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.10.5, @babel/parser@npm:^7.14.5, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.15.0, @babel/parser@npm:^7.4.3":
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.10.5, @babel/parser@npm:^7.14.5, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.15.0, @babel/parser@npm:^7.4.3, @babel/parser@npm:^7.7.0":
   version: 7.15.3
   resolution: "@babel/parser@npm:7.15.3"
   bin:
@@ -1580,7 +1580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.1.0, @babel/traverse@npm:^7.10.5, @babel/traverse@npm:^7.13.0, @babel/traverse@npm:^7.14.5, @babel/traverse@npm:^7.14.7, @babel/traverse@npm:^7.15.0, @babel/traverse@npm:^7.4.3":
+"@babel/traverse@npm:^7.1.0, @babel/traverse@npm:^7.10.5, @babel/traverse@npm:^7.13.0, @babel/traverse@npm:^7.14.5, @babel/traverse@npm:^7.14.7, @babel/traverse@npm:^7.15.0, @babel/traverse@npm:^7.4.3, @babel/traverse@npm:^7.7.0":
   version: 7.15.0
   resolution: "@babel/traverse@npm:7.15.0"
   dependencies:
@@ -1597,7 +1597,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.0.0-beta.49, @babel/types@npm:^7.10.5, @babel/types@npm:^7.14.5, @babel/types@npm:^7.14.8, @babel/types@npm:^7.14.9, @babel/types@npm:^7.15.0, @babel/types@npm:^7.3.0, @babel/types@npm:^7.4.0, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.0.0-beta.49, @babel/types@npm:^7.10.5, @babel/types@npm:^7.14.5, @babel/types@npm:^7.14.8, @babel/types@npm:^7.14.9, @babel/types@npm:^7.15.0, @babel/types@npm:^7.3.0, @babel/types@npm:^7.4.0, @babel/types@npm:^7.4.4, @babel/types@npm:^7.7.0, @babel/types@npm:^7.8.3":
   version: 7.15.0
   resolution: "@babel/types@npm:7.15.0"
   dependencies:
@@ -4699,6 +4699,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-eslint@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "babel-eslint@npm:10.1.0"
+  dependencies:
+    "@babel/code-frame": ^7.0.0
+    "@babel/parser": ^7.7.0
+    "@babel/traverse": ^7.7.0
+    "@babel/types": ^7.7.0
+    eslint-visitor-keys: ^1.0.0
+    resolve: ^1.12.0
+  peerDependencies:
+    eslint: ">= 4.12.1"
+  checksum: bdc1f62b6b0f9c4d5108c96d835dad0c0066bc45b7c020fcb2d6a08107cf69c9217a99d3438dbd701b2816896190c4283ba04270ed9a8349ee07bd8dafcdc050
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^24.9.0":
   version: 24.9.0
   resolution: "babel-jest@npm:24.9.0"
@@ -6306,6 +6322,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"color@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "color@npm:4.0.1"
+  dependencies:
+    color-convert: ^2.0.1
+    color-string: ^1.6.0
+  checksum: 46b1e7c6a5d5b1db5e0a8f1f32eea015a1923c9a591cbef67e20b439d67fe8043a7c3beb96c602f0055068909c3ee73bc8ee1817e76a25861a92f64430d6118f
+  languageName: node
+  linkType: hard
+
 "colord@npm:^2.0.1":
   version: 2.7.0
   resolution: "colord@npm:2.7.0"
@@ -6639,7 +6665,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.16.1, core-js@npm:^3.9.0":
+"core-js@npm:^3.16.2":
+  version: 3.16.2
+  resolution: "core-js@npm:3.16.2"
+  checksum: f48b988ab6d144aad1a7c09a73174946f797ec050b4566dee9bf0227560296cdd0f714b37f0ee065303eccf0e7fb8115ccca52ab3e80db12e0dcc20a88219483
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.9.0":
   version: 3.16.1
   resolution: "core-js@npm:3.16.1"
   checksum: 7924fa2a7f00e3a33bbe92fe42ba59fbbe7e01557a59824d000976300be3ba224cca20161f61654b3861ea80d244d6adfee6ed3ae6d6d9931210a37510fb7c9b
@@ -8704,7 +8737,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^1.1.0, eslint-visitor-keys@npm:^1.3.0":
+"eslint-visitor-keys@npm:^1.0.0, eslint-visitor-keys@npm:^1.1.0, eslint-visitor-keys@npm:^1.3.0":
   version: 1.3.0
   resolution: "eslint-visitor-keys@npm:1.3.0"
   checksum: 37a19b712f42f4c9027e8ba98c2b06031c17e0c0a4c696cd429bd9ee04eb43889c446f2cd545e1ff51bef9593fcec94ecd2c2ef89129fcbbf3adadbef520376a
@@ -10552,14 +10585,14 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"gatsby-source-custom-api@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "gatsby-source-custom-api@npm:2.2.1"
+"gatsby-source-custom-api@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "gatsby-source-custom-api@npm:2.3.1"
   dependencies:
     gatsby-source-filesystem: ^2.0.29
     node-fetch: ^2.6.1
     uuid: ^3.3.2
-  checksum: 5ba7ee369f37d546fb50521607ea4ef1b056f42ef7b388d08980c171c13070482399b8693c66af514cc4a280b5be7aabf5539bdd94b2bd43426143223c256b40
+  checksum: 108b8ff65469bdf81ba02f57e1f1fac513e662e9186c83fbc47aa491aeba60a50e5197dd11cc7e38eaf68c321281663ca9d495b61800e3ef1553fe6819a4a06d
   languageName: node
   linkType: hard
 
@@ -15871,6 +15904,15 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"node-addon-api@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "node-addon-api@npm:4.0.0"
+  dependencies:
+    node-gyp: latest
+  checksum: a296fd70e10111ed599c20d6543f890aefa36285afafd1c9930af6d6250767b16b046fe14ae65929c473461db0fe6432f81ba3c7a7f8929204a4dbcf2e239a65
+  languageName: node
+  linkType: hard
+
 "node-eta@npm:^0.9.0":
   version: 0.9.0
   resolution: "node-eta@npm:0.9.0"
@@ -17843,7 +17885,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"prebuild-install@npm:^6.1.2":
+"prebuild-install@npm:^6.1.2, prebuild-install@npm:^6.1.4":
   version: 6.1.4
   resolution: "prebuild-install@npm:6.1.4"
   dependencies:
@@ -20121,6 +20163,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"sharp@npm:^0.29.0":
+  version: 0.29.0
+  resolution: "sharp@npm:0.29.0"
+  dependencies:
+    color: ^4.0.1
+    detect-libc: ^1.0.3
+    node-addon-api: ^4.0.0
+    node-gyp: latest
+    prebuild-install: ^6.1.4
+    semver: ^7.3.5
+    simple-get: ^3.1.0
+    tar-fs: ^2.1.1
+    tunnel-agent: ^0.6.0
+  checksum: ca70ee03e3052cef1bb441f80b0a8fd506e397d04c9a124848d6cc363debb3a95f2663bf1ef57994582a63036d540701765a884af8c72444b694319bc3c8d372
+  languageName: node
+  linkType: hard
+
 "shebang-command@npm:^1.2.0":
   version: 1.2.0
   resolution: "shebang-command@npm:1.2.0"
@@ -20805,13 +20864,14 @@ resolve@^2.0.0-next.3:
     algoliasearch: ^4.10.3
     algoliasearch-helper: ^3.5.5
     autoprefixer: ^10.3.1
+    babel-eslint: ^10.1.0
     babel-plugin-prismjs: ^2.1.0
     babel-preset-gatsby: ^1.11.0
     basiclightbox: ^5.0.4
     bluebird: ^3.7.2
     browserslist: ^4.16.7
     cheerio: ^1.0.0-rc.10
-    core-js: ^3.16.1
+    core-js: ^3.16.2
     cssnano: ^5.0.7
     dotenv: ^10.0.0
     eslint: ^7.32.0
@@ -20837,7 +20897,7 @@ resolve@^2.0.0-next.3:
     gatsby-plugin-robots-txt: ^1.6.9
     gatsby-plugin-segment-js: ^3.6.1
     gatsby-plugin-sharp: ^3.11.0
-    gatsby-source-custom-api: ^2.2.1
+    gatsby-source-custom-api: ^2.3.1
     gatsby-source-filesystem: ^3.11.0
     gatsby-source-ghost: ^4.2.4
     gatsby-source-mysql: ^2.2.3
@@ -20865,7 +20925,7 @@ resolve@^2.0.0-next.3:
     react-netlify-identity: ^0.2.5
     react-netlify-identity-widget: 0.2.7
     react-player: ^2.9.0
-    sharp: ^0.28.3
+    sharp: ^0.29.0
     showdown: ^1.9.1
     stylelint: ^13.13.1
     stylelint-config-standard: ^22.0.0
