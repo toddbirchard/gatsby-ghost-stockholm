@@ -49,6 +49,7 @@
   "dependencies": {
     "@babel/core": "^7.15.0",
     "@babel/eslint-parser": "7.15.0",
+    "@babel/runtime": "^7.15.3",
     "@reach/dialog": "^0.16.0",
     "@reach/tabs": "^0.16.1",
     "@reach/visually-hidden": "^0.16.0",

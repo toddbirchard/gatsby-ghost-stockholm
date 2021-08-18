@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@babel/core", "npm:7.15.0"],
             ["@babel/eslint-parser", "virtual:772de2eca85f704dfc6773141be4094ec2a81721ca2b4df9e84d7038c1e788de801776d54f09aa83e85a0d9e003273004567b75ed567cf49a355d8e7c8bdbac1#npm:7.15.0"],
+            ["@babel/runtime", "npm:7.15.3"],
             ["@netlify/plugin-gatsby", "npm:1.0.3"],
             ["@reach/dialog", "virtual:772de2eca85f704dfc6773141be4094ec2a81721ca2b4df9e84d7038c1e788de801776d54f09aa83e85a0d9e003273004567b75ed567cf49a355d8e7c8bdbac1#npm:0.16.0"],
             ["@reach/tabs", "virtual:772de2eca85f704dfc6773141be4094ec2a81721ca2b4df9e84d7038c1e788de801776d54f09aa83e85a0d9e003273004567b75ed567cf49a355d8e7c8bdbac1#npm:0.16.1"],
@@ -26448,6 +26449,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stockholm", "workspace:."],
             ["@babel/core", "npm:7.15.0"],
             ["@babel/eslint-parser", "virtual:772de2eca85f704dfc6773141be4094ec2a81721ca2b4df9e84d7038c1e788de801776d54f09aa83e85a0d9e003273004567b75ed567cf49a355d8e7c8bdbac1#npm:7.15.0"],
+            ["@babel/runtime", "npm:7.15.3"],
             ["@netlify/plugin-gatsby", "npm:1.0.3"],
             ["@reach/dialog", "virtual:772de2eca85f704dfc6773141be4094ec2a81721ca2b4df9e84d7038c1e788de801776d54f09aa83e85a0d9e003273004567b75ed567cf49a355d8e7c8bdbac1#npm:0.16.0"],
             ["@reach/tabs", "virtual:772de2eca85f704dfc6773141be4094ec2a81721ca2b4df9e84d7038c1e788de801776d54f09aa83e85a0d9e003273004567b75ed567cf49a355d8e7c8bdbac1#npm:0.16.1"],
