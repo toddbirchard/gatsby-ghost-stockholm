@@ -44,6 +44,7 @@ dev:
 
 .PHONY: serve
 serve:
+	yarn set version berry
 	yarn run serve
 
 .PHONY: clean
