@@ -30,9 +30,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
     "@netlify/plugin-gatsby": "^1.0.3",
     "autoprefixer": "^10.3.1",
-    "babel-eslint": "^10.1.0",
     "babel-preset-gatsby": "^1.11.0",
     "core-js": "^3.16.2",
     "eslint": "^7.32.0",
@@ -47,8 +48,6 @@
     "webpack": "^5.50.0"
   },
   "dependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/eslint-parser": "7.15.0",
     "@babel/runtime": "^7.15.3",
     "@reach/dialog": "^0.16.0",
     "@reach/tabs": "^0.16.1",
