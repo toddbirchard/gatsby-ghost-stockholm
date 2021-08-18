@@ -21,7 +21,8 @@ all help:
 	@echo "$$HELP"
 
 build:
-	npm run-script build
+	yarn set version berry
+	yarn gatsby build
 
 buildbackup:
 	npm run-script build
@@ -38,7 +39,7 @@ testfunctions:
 	GOBIN=${PWD}/functions-src/scrape go install ./...
 	# go build -o functions ./...
 
-.PHONY: serve
+.PHONY:
 dev:
 	yarn run dev
 

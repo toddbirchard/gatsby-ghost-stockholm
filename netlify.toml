@@ -1,6 +1,6 @@
 [build]
   base = "/"
-  command = "yarn run serve"
+  command = "make build"
   publish = "public"
   functions = "functions"
 
