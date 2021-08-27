@@ -5,6 +5,14 @@ const siteRSSFeed = require(`./src/utils/rss/site-feed`)
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const gatsbyRequiredRules = path.join(
+  process.cwd(),
+  "node_modules",
+  "gatsby",
+  "dist",
+  "utils",
+  "eslint-rules"
+);
 
 let ghostConfig
 
@@ -39,7 +47,7 @@ if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhos
 module.exports = {
   flags: {
     // PRESERVE_WEBPACK_CACHE: true,
-    FAST_DEV: true,
+    // FAST_DEV: false,
     PARALLEL_SOURCING: true,
     PARALLEL_QUERY_RUNNING: true,
   },
@@ -361,8 +369,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
+        rulePaths: [gatsbyRequiredRules],
         extensions: [`js`, `jsx`],
-        exclude: [`node_modules`, `.cache`, `public`],
+        exclude: ["node_modules", "bower_components", ".cache", "public"],
         stages: [`develop`],
         options: {
           emitWarning: true,
