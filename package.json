@@ -90,6 +90,7 @@
     "lmdb-store": "^1.6.6",
     "lodash": "4.17.21",
     "netlify-identity-widget": "^1.9.2",
+    "node-notifier": "^v10.0.0",
     "node-fetch": "2.6.1",
     "pify": "^5.0.0",
     "prismjs": "^1.24.1",
@@ -110,6 +111,7 @@
     "showdown": "^1.9.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
+    "trim": "^v1.0.1",
     "url": "^0.11.0"
   }
 }
