@@ -366,19 +366,6 @@ module.exports = {
         continueOnFailure: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-eslint`,
-      options: {
-        rulePaths: [gatsbyRequiredRules],
-        extensions: [`js`, `jsx`],
-        exclude: ["node_modules", "bower_components", ".cache", "public"],
-        stages: [`develop`],
-        options: {
-          emitWarning: true,
-          failOnError: false,
-        },
-      },
-    },
     /**
      *  Misc Plugins
      */
