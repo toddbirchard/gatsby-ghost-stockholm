@@ -38,10 +38,7 @@
     "core-js": "^3.16.3",
     "eslint": "^7.32.0",
     "eslint-plugin-ghost": "^2.6.0",
-    "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-webpack-plugin": "^3.0.1",
-    "gatsby-plugin-eslint": "^4.0.0",
     "less": "^4.1.1",
     "postcss": "8.3.6",
     "webpack": "^5.51.1"
