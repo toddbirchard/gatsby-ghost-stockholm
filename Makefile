@@ -7,8 +7,7 @@ This is the Stockholm project Makefile.
 Usage:
 
 make install         - Install NPM dependencies of project and plugins.
-make build           - Build site & Lambdas for production.
-make serve           - Build & serve production build locally.
+make serve           - Create & serve a production build locally.
 make clean           - Purge cache, modules, & lockfiles.
 make reset           - Clean & reinstall all dependencies.
 make update          - Update production dependencies.
@@ -16,7 +15,7 @@ make update          - Update production dependencies.
 endef
 export HELP
 
-.PHONY: install build dev clean update help
+.PHONY: install serve dev clean update help
 
 all help:
 	@echo "$$HELP"
@@ -30,8 +29,8 @@ install:
 	cd ${SRC_PATH}
 	npm i --force
 
-.PHONY: build
-build:
+.PHONY: serve
+serve:
 	gatsby build && gatsby serve -o
 
 buildbackup:
@@ -51,7 +50,7 @@ testfunctions:
 
 .PHONY: dev
 dev:
-	yarn run dev
+	npm run dev
 
 .PHONY: clean
 clean:
