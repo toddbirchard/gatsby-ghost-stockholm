@@ -1,27 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { Tags } from '@tryghost/helpers-gatsby'
-import { Layout } from '../components/common'
-import { MetaData } from '../components/common/meta'
-import { Comments } from '../components/comments'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql } from 'gatsby';
+import { readingTime as readingTimeHelper } from '@tryghost/helpers';
+import { Tags } from '@tryghost/helpers-gatsby';
+import { Layout } from '../components/common';
+import { MetaData } from '../components/common/meta';
+import { Comments } from '../components/comments';
 import {
   RelatedPost,
   SeriesTOC,
   SupportWidget,
   SeriesNextPrev,
-} from '../components/posts'
-import { AuthorCard } from '../components/authors'
+} from '../components/posts';
+import { AuthorCard } from '../components/authors';
 import {
   AiOutlineEye,
   AiOutlineTags,
   AiOutlineCalendar,
   AiOutlineUser,
   AiTwotoneExperiment,
-} from 'react-icons/ai'
-import Prism from "prismjs"
-import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
+} from 'react-icons/ai';
+import Prism from 'prismjs';
+import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl';
 
 /**
  * Single post view (/:slug)
@@ -31,24 +31,29 @@ import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
  */
 
 const Post = ({ data, location }) => {
-  const post = data.ghostPost
-  const tags = data.ghostPost.tags
-  const author = data.ghostPost.primary_author
-  const relatedPosts = data.relatedPosts.edges
-  const readingTime = readingTimeHelper(post)
-  const seriesPosts = data.seriesPosts
-  const seriesIndex = seriesPosts && seriesPosts.edges.findIndex(element => element.node.slug === post.slug)
-  const seriesLength = seriesPosts && seriesPosts.edges.length
-  const authorUrl = post.primary_author.slug && `/author/${post.primary_author.slug}/`
-  const authorFirstName = author.name.split(` `)[0]
-  const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
-  const featureImage = post.feature_image
-  const authors = data.authors.edges
-  const featureRetinaImage = post.feature_image && getRetinaImageUrl(post.feature_image)
-  const featureMobileImage = post.feature_image && getMobileImageUrl(post.feature_image)
+  const post = data.ghostPost;
+  const tags = data.ghostPost.tags;
+  const author = data.ghostPost.primary_author;
+  const relatedPosts = data.relatedPosts.edges;
+  const readingTime = readingTimeHelper(post);
+  const seriesPosts = data.seriesPosts;
+  const seriesIndex =
+    seriesPosts &&
+    seriesPosts.edges.findIndex((element) => element.node.slug === post.slug);
+  const seriesLength = seriesPosts && seriesPosts.edges.length;
+  const authorUrl =
+    post.primary_author.slug && `/author/${post.primary_author.slug}/`;
+  const authorFirstName = author.name.split(` `)[0];
+  const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`;
+  const featureImage = post.feature_image;
+  const authors = data.authors.edges;
+  const featureRetinaImage =
+    post.feature_image && getRetinaImageUrl(post.feature_image);
+  const featureMobileImage =
+    post.feature_image && getMobileImageUrl(post.feature_image);
   React.useEffect(() => {
-    Prism.highlightAll()
-  })
+    Prism.highlightAll();
+  });
 
   return (
     <>
@@ -62,7 +67,6 @@ const Post = ({ data, location }) => {
       <Layout template="post-template">
         <div className="post-wrapper">
           <article className="post">
-
             {/*    Post head     */}
             <div className="post-head">
               <h1 className="post-title">{post.title}</h1>
@@ -73,19 +77,20 @@ const Post = ({ data, location }) => {
                     <span>{authorFirstName}</span>
                   </Link>
                 </div>
-                {tags &&
-                <div className="meta-item tag">
-                  <AiOutlineTags />
-                  <Tags
-                    post={post}
-                    limit={1}
-                    visibility="public"
-                    autolink
-                    separator={null}
-                    permalink="/tag/:slug"
-                    classes={tags.ghostId}
-                  />
-                </div>}
+                {tags && (
+                  <div className="meta-item tag">
+                    <AiOutlineTags />
+                    <Tags
+                      post={post}
+                      limit={1}
+                      visibility="public"
+                      autolink
+                      separator={null}
+                      permalink="/tag/:slug"
+                      classes={tags.ghostId}
+                    />
+                  </div>
+                )}
                 <div className="meta-item reading-time">
                   <AiOutlineEye />
                   <span>{readingTime}</span>
@@ -97,37 +102,38 @@ const Post = ({ data, location }) => {
               </div>
 
               {/* Feature image  */}
-              {post.feature_image &&
-                  <picture className="post-image">
-                    <source
-                      media="(max-width:600px)"
-                      data-srcset={featureMobileImage}
-                    />
-                    <source data-srcset={featureRetinaImage} />
-                    <img
-                      className="post-card-image lazyload"
-                      data-src={featureImage}
-                      alt={post.title}
-                      title={post.title}
-                    />
-                  </picture> }
+              {post.feature_image && (
+                <picture className="post-image">
+                  <source
+                    media="(max-width:600px)"
+                    data-srcset={featureMobileImage}
+                  />
+                  <source data-srcset={featureRetinaImage} />
+                  <img
+                    className="post-card-image lazyload"
+                    data-src={featureImage}
+                    alt={post.title}
+                    title={post.title}
+                  />
+                </picture>
+              )}
             </div>
 
             {/*  Series table of contents  */}
-            {seriesPosts &&
+            {seriesPosts && (
               <SeriesTOC
                 seriesPosts={seriesPosts.edges}
                 postCount={seriesPosts.totalCount}
                 currentPost={post.slug}
               />
-            }
+            )}
 
             {/*  Lynx blurb  */}
-            {post.slug.includes(`lynx`) &&
-               <div className="post-roundup-blurb">
-                 <AiTwotoneExperiment /> <p>{lynxBlurb}</p>
-               </div>
-            }
+            {post.slug.includes(`lynx`) && (
+              <div className="post-roundup-blurb">
+                <AiTwotoneExperiment /> <p>{lynxBlurb}</p>
+              </div>
+            )}
 
             {/*  Lynx blurb  */}
             <main
@@ -144,13 +150,19 @@ const Post = ({ data, location }) => {
                 autolink
                 separator={null}
                 suffix={false}
-                classes={`post-tag-footer ${tags.ghostId}`}/>
-              {seriesLength > 1 ? <SeriesNextPrev seriesPosts={seriesPosts} seriesIndex={seriesIndex} seriesLength={seriesLength} /> : null}
+                classes={`post-tag-footer ${tags.ghostId}`}
+              />
+              {seriesLength > 1 ? (
+                <SeriesNextPrev
+                  seriesPosts={seriesPosts}
+                  seriesIndex={seriesIndex}
+                  seriesLength={seriesLength}
+                />
+              ) : null}
             </div>
 
             {/*  Post Author Details  */}
-            <AuthorCard author={author} page={`post`}/>
-
+            <AuthorCard author={author} page={`post`} />
           </article>
 
           {/*  Comments, related posts, & donation widgets   */}
@@ -165,14 +177,13 @@ const Post = ({ data, location }) => {
               comments={data.comments}
               moderators={authors}
             />
-            <SupportWidget/>
+            <SupportWidget />
           </section>
-
         </div>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 Post.propTypes = {
   data: PropTypes.shape({
@@ -188,7 +199,7 @@ Post.propTypes = {
         PropTypes.shape({
           name: PropTypes.string.isRequired,
           slug: PropTypes.string.isRequired,
-        })
+        }),
       ),
       published_at_pretty: PropTypes.string,
       primary_author: PropTypes.shape({
@@ -226,16 +237,20 @@ Post.propTypes = {
     seriesPosts: PropTypes.object,
   }).isRequired,
   location: PropTypes.object.isRequired,
-}
+};
 
-export default Post
+export default Post;
 
 export const postQuery = graphql`
-  query($slug: String!, $tags: [String], $seriesSlug: String) {
+  query ($slug: String!, $tags: [String], $seriesSlug: String) {
     ghostPost(slug: { eq: $slug }) {
       ...GhostPostFields
-      }
-    relatedPosts: allGhostPost(limit: 3, sort: {order: DESC, fields: published_at}, filter: {primary_tag: {slug: {in: $tags}}, slug: {ne: $slug}}) {
+    }
+    relatedPosts: allGhostPost(
+      limit: 3
+      sort: { order: DESC, fields: published_at }
+      filter: { primary_tag: { slug: { in: $tags } }, slug: { ne: $slug } }
+    ) {
       edges {
         node {
           ghostId
@@ -248,7 +263,10 @@ export const postQuery = graphql`
         }
       }
     }
-    seriesPosts: allGhostPost(filter: {tags: {elemMatch: {slug: {eq: $seriesSlug}}}}, sort: {fields: published_at, order: DESC}) {
+    seriesPosts: allGhostPost(
+      filter: { tags: { elemMatch: { slug: { eq: $seriesSlug } } } }
+      sort: { fields: published_at, order: DESC }
+    ) {
       edges {
         node {
           slug
@@ -256,8 +274,11 @@ export const postQuery = graphql`
         }
       }
       totalCount
-    },
-    comments: allMysqlComments(sort: {fields: created_at, order: ASC}, filter: {post_slug: {eq: $slug}}) {
+    }
+    comments: allMysqlComments(
+      sort: { fields: created_at, order: ASC }
+      filter: { post_slug: { eq: $slug } }
+    ) {
       edges {
         node {
           id
@@ -268,7 +289,7 @@ export const postQuery = graphql`
           created_at(fromNow: true)
         }
       }
-    },
+    }
     authors: allGhostAuthor {
       edges {
         node {
@@ -277,4 +298,4 @@ export const postQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout } from '../components/common'
-import { AuthorList } from '../components/authors'
-import { MetaData } from '../components/common/meta'
-import '../styles/pages/page.less'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import { Layout } from '../components/common';
+import { AuthorList } from '../components/authors';
+import { MetaData } from '../components/common/meta';
+import '../styles/pages/page.less';
 
 /**
  * Single page (/:slug)
@@ -13,11 +13,12 @@ import '../styles/pages/page.less'
  *
  */
 const Page = ({ data, location, pageContext }) => {
-  const page = data.ghostPage
-  const pageNumber = pageContext.pageNumber
-  const title = pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
-  const metaTitle = page.meta_title
-  const metaDescription = page.meta_description
+  const page = data.ghostPage;
+  const pageNumber = pageContext.pageNumber;
+  const title =
+    pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title;
+  const metaTitle = page.meta_title;
+  const metaDescription = page.meta_description;
 
   return (
     <>
@@ -37,13 +38,13 @@ const Page = ({ data, location, pageContext }) => {
               className="content-body load-external-scripts"
               dangerouslySetInnerHTML={{ __html: page.html }}
             />
-            {pageContext.slug === `about` ? <AuthorList page="about"/> : null}
+            {pageContext.slug === `about` ? <AuthorList page="about" /> : null}
           </div>
         </main>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 Page.propTypes = {
   data: PropTypes.shape({
@@ -61,14 +62,14 @@ Page.propTypes = {
     pageNumber: PropTypes.number,
   }),
   location: PropTypes.object.isRequired,
-}
+};
 
-export default Page
+export default Page;
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     ghostPage(slug: { eq: $slug }) {
       ...GhostPageFields
     }
   }
-`
+`;

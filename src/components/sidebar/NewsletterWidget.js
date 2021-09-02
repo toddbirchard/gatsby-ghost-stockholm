@@ -1,7 +1,6 @@
-import React from "react"
-import { FaArrowRight } from 'react-icons/fa'
-import fetch from 'node-fetch'
-import { navigate } from 'gatsby'
+import React from 'react';
+import { FaArrowRight } from 'react-icons/fa';
+import { navigate } from 'gatsby';
 
 /**
  * Newsletter widget
@@ -9,14 +8,14 @@ import { navigate } from 'gatsby'
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
-    .join(`&`)
+    .map((key) => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+    .join(`&`);
 }
 
 const NewsletterWidget = () => {
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
+    e.preventDefault();
+    const form = e.target;
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
@@ -27,8 +26,8 @@ const NewsletterWidget = () => {
       }),
     })
       .then(() => navigate(`/subscribed/`))
-      .catch(error => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -43,7 +42,9 @@ const NewsletterWidget = () => {
           onSubmit={handleSubmit}
         >
           <fieldset>
-            <label className="hidden-label" htmlFor="name">Name</label>
+            <label className="hidden-label" htmlFor="name">
+              Name
+            </label>
             <input
               id="newsletter-name-field"
               className="subscribe-input-class"
@@ -54,7 +55,9 @@ const NewsletterWidget = () => {
             />
           </fieldset>
           <fieldset>
-            <label className="hidden-label" htmlFor="email">Email</label>
+            <label className="hidden-label" htmlFor="email">
+              Email
+            </label>
             <input
               id="newsletter-email-field"
               className="subscribe-input-class"
@@ -65,7 +68,9 @@ const NewsletterWidget = () => {
             />
           </fieldset>
           <fieldset>
-            <label className="hidden-label" htmlFor="phone-number">Phone</label>
+            <label className="hidden-label" htmlFor="phone-number">
+              Phone
+            </label>
             <input
               className="hidden-label"
               type="phone"
@@ -81,7 +86,7 @@ const NewsletterWidget = () => {
         </form>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default NewsletterWidget
+export default NewsletterWidget;

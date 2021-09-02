@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react"
-import PropTypes from 'prop-types'
-import fetch from 'node-fetch'
-import ReactMde from "react-mde"
-import "react-mde/lib/styles/css/react-mde-all.css"
-import { FaCheck, FaRegComment } from 'react-icons/fa'
-import * as Showdown from "showdown"
-import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import ReactMde from 'react-mde';
+import 'react-mde/lib/styles/css/react-mde-all.css';
+import { FaCheck, FaRegComment } from 'react-icons/fa';
+import * as Showdown from 'showdown';
+import IdentityModal, {
+  useIdentityContext,
+} from 'react-netlify-identity-widget';
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
-    .join(`&`)
+    .map((key) => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+    .join(`&`);
 }
 
 const converter = new Showdown.Converter({
@@ -21,66 +22,77 @@ const converter = new Showdown.Converter({
   code: true,
   ghMentions: true,
   emoji: true,
-})
+});
 
-const wait = timeout => new Promise((resolve) => {
-  setTimeout(resolve, timeout)
-})
+const wait = (timeout) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
 
 const CommentForm = ({ post }) => {
-  const postId = post.ghostId
-  const postSlug = post.slug
-  const authorName = post.primary_author.name
-  const authorEmail = post.primary_author.email
-  const identity = useIdentityContext()
-  const user = identity.user
-  const isLoggedIn = identity.isLoggedIn
-  const formRef = React.useRef()
-  const messageRef = React.useRef()
-  const textAreaRef = React.useRef()
-  const [userId, setUserId] = useState(user ? user.id : ``)
-  const [userName, setUserName] = useState(user ? user.user_metadata.full_name : ``)
-  const [userAvatar, setUserAvatar] = useState(user ? user.user_metadata.avatar_url : ``)
-  const [userProvider, setUserProvider] = useState(user ? user.app_metadata.provider : ``)
-  const [userEmail, setUserEmail] = useState(user ? user.email : ``)
-  const [value, setValue] = useState(`Have something to say?`)
-  const [selectedTab, setSelectedTab] = React.useState(`write`)
-  const [dialog, setDialog] = React.useState(false)
+  const postId = post.ghostId;
+  const postSlug = post.slug;
+  const authorName = post.primary_author.name;
+  const authorEmail = post.primary_author.email;
+  const identity = useIdentityContext();
+  const user = identity.user;
+  const isLoggedIn = identity.isLoggedIn;
+  const formRef = React.useRef();
+  const messageRef = React.useRef();
+  const textAreaRef = React.useRef();
+  const [userId, setUserId] = useState(user ? user.id : ``);
+  const [userName, setUserName] = useState(
+    user ? user.user_metadata.full_name : ``,
+  );
+  const [userAvatar, setUserAvatar] = useState(
+    user ? user.user_metadata.avatar_url : ``,
+  );
+  const [userProvider, setUserProvider] = useState(
+    user ? user.app_metadata.provider : ``,
+  );
+  const [userEmail, setUserEmail] = useState(user ? user.email : ``);
+  const [value, setValue] = useState(`Have something to say?`);
+  const [selectedTab, setSelectedTab] = React.useState(`write`);
+  const [dialog, setDialog] = React.useState(false);
 
   useEffect(() => {
-    setUserId(user ? user.id : ``)
-    setUserName(user ? user.user_metadata.full_name : ``)
-    setUserAvatar(user ? user.user_metadata.avatar_url : ``)
-    setUserProvider(user ? user.app_metadata.provider : ``)
-    setUserEmail(user ? user.email : ``)
+    setUserId(user ? user.id : ``);
+    setUserName(user ? user.user_metadata.full_name : ``);
+    setUserAvatar(user ? user.user_metadata.avatar_url : ``);
+    setUserProvider(user ? user.app_metadata.provider : ``);
+    setUserEmail(user ? user.email : ``);
     if (isLoggedIn) {
-      formRef.current.classList.add(`logged-in`)
-      formRef.current.classList.remove(`logged-out`)
+      formRef.current.classList.add(`logged-in`);
+      formRef.current.classList.remove(`logged-out`);
     } else {
-      formRef.current.classList.add(`logged-out`)
-      formRef.current.classList.remove(`logged-in`)
+      formRef.current.classList.add(`logged-out`);
+      formRef.current.classList.remove(`logged-in`);
     }
-  })
+  });
 
   const handleClick = () => {
-    if (isLoggedIn){
-      formRef.current.classList.add(`open`)
-      formRef.current.classList.remove(`closed`)
+    if (isLoggedIn) {
+      formRef.current.classList.add(`open`);
+      formRef.current.classList.remove(`closed`);
     } else {
-      setDialog(true)
+      setDialog(true);
     }
-    if (value === `Have something to say?`){
-      setValue(``)
+    if (value === `Have something to say?`) {
+      setValue(``);
     }
-  }
+  };
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
+    e.preventDefault();
+    const form = e.target;
     if (isLoggedIn === false) {
-      console.log(`User is not logged in.`)
+      console.log(`User is not logged in.`);
     }
-    if (value === `Have something to say?` || value === `` || value === undefined) {
-      console.log(`Comment body is empty.`)
+    if (
+      value === `Have something to say?` ||
+      value === `` ||
+      value === undefined
+    ) {
+      console.log(`Comment body is empty.`);
     }
     fetch(`/`, {
       method: `POST`,
@@ -104,26 +116,27 @@ const CommentForm = ({ post }) => {
       .then(formRef.current.classList.remove(`open`))
       .then(messageRef.current.classList.add(`active`))
       .then(hideMessage)
-      .catch(error => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
   const handleLogin = (u) => {
-    setUserId(u.id)
-    setUserName(u.user_metadata.full_name)
-    setUserAvatar(u.user_metadata.user_avatar)
-    setUserProvider(u.app_metadata.provider)
-    setUserEmail(u.email)
-  }
+    setUserId(u.id);
+    setUserName(u.user_metadata.full_name);
+    setUserAvatar(u.user_metadata.user_avatar);
+    setUserProvider(u.app_metadata.provider);
+    setUserEmail(u.email);
+  };
   const handleLogout = () => {
-    setUserId(``)
-    setUserName(``)
-    setUserAvatar(``)
-    setUserProvider(``)
-    setUserEmail(``)
-  }
+    setUserId(``);
+    setUserName(``);
+    setUserAvatar(``);
+    setUserProvider(``);
+    setUserEmail(``);
+  };
   const hideMessage = () => {
-    wait(2000).then(() => messageRef.classList.add(`inactive`))
-      .catch(error => console.log(error))
-  }
+    wait(2000)
+      .then(() => messageRef.classList.add(`inactive`))
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -135,11 +148,12 @@ const CommentForm = ({ post }) => {
       </div>
 
       <div
-        className={`form-container closed ${isLoggedIn ? `logged-in` : `logged-out`} `}
+        className={`form-container closed ${
+          isLoggedIn ? `logged-in` : `logged-out`
+        } `}
         ref={formRef}
         onClick={handleClick}
       >
-
         <form
           name="comments"
           netlify
@@ -148,60 +162,110 @@ const CommentForm = ({ post }) => {
           method="post"
           onSubmit={handleSubmit}
         >
-
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userId" >User ID</label>
+            <label className="hidden-label" htmlFor="userId">
+              User ID
+            </label>
             <input id="userId" name="userId" type="text" value={userId} />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="postSlug">Post Slug</label>
+            <label className="hidden-label" htmlFor="postSlug">
+              Post Slug
+            </label>
             <input id="postSlug" name="postSlug" type="text" value={postSlug} />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="postId">Post ID</label>
+            <label className="hidden-label" htmlFor="postId">
+              Post ID
+            </label>
             <input id="postId" name="postId" type="text" value={postId} />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userEmail">User Email</label>
-            <input id="userEmail" name="userEmail" type="email" value={userEmail} />
+            <label className="hidden-label" htmlFor="userEmail">
+              User Email
+            </label>
+            <input
+              id="userEmail"
+              name="userEmail"
+              type="email"
+              value={userEmail}
+            />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userName">User Name</label>
+            <label className="hidden-label" htmlFor="userName">
+              User Name
+            </label>
             <input id="userName" name="userName" type="text" value={userName} />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userAvatar">User Avatar</label>
-            <input id="userAvatar" name="userAvatar" type="text" value={userAvatar} />
+            <label className="hidden-label" htmlFor="userAvatar">
+              User Avatar
+            </label>
+            <input
+              id="userAvatar"
+              name="userAvatar"
+              type="text"
+              value={userAvatar}
+            />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="userProvider">User Provider</label>
-            <input id="userProvider" name="userProvider" type="text" value={userProvider} />
+            <label className="hidden-label" htmlFor="userProvider">
+              User Provider
+            </label>
+            <input
+              id="userProvider"
+              name="userProvider"
+              type="text"
+              value={userProvider}
+            />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorName">Author Name</label>
-            <input id="authorName" name="authorName" type="text" value={authorName} />
+            <label className="hidden-label" htmlFor="authorName">
+              Author Name
+            </label>
+            <input
+              id="authorName"
+              name="authorName"
+              type="text"
+              value={authorName}
+            />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorEmail">Author Email</label>
-            <input id="authorEmail" name="authorEmail" type="text" value={authorEmail} />
+            <label className="hidden-label" htmlFor="authorEmail">
+              Author Email
+            </label>
+            <input
+              id="authorEmail"
+              name="authorEmail"
+              type="text"
+              value={authorEmail}
+            />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="streetAddress">Address</label>
+            <label className="hidden-label" htmlFor="streetAddress">
+              Address
+            </label>
             <input id="streetAddress" name="streetAddress" type="hidden" />
           </fieldset>
 
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="commentBody">Comment</label>
-            <textarea id="commentBody" name="commentBody" value={value}></textarea>
+            <label className="hidden-label" htmlFor="commentBody">
+              Comment
+            </label>
+            <textarea
+              id="commentBody"
+              name="commentBody"
+              value={value}
+            ></textarea>
           </fieldset>
 
           <ReactMde
@@ -210,7 +274,9 @@ const CommentForm = ({ post }) => {
             onChange={setValue}
             selectedTab={selectedTab}
             onTabChange={setSelectedTab}
-            generateMarkdownPreview={markdown => Promise.resolve(converter.makeHtml(markdown))}
+            generateMarkdownPreview={(markdown) =>
+              Promise.resolve(converter.makeHtml(markdown))
+            }
             placeholder={`What'd you think?`}
             onClick={handleClick}
             minEditorHeight={100}
@@ -218,29 +284,29 @@ const CommentForm = ({ post }) => {
             minPreviewHeight={50}
             initialEditorHeight={50}
           />
-          {isLoggedIn
-            ? <input
+          {isLoggedIn ? (
+            <input
               className="comment-btn submit"
               type="submit"
               value="Submit"
             />
-            :
+          ) : (
             <div className="comment-login login">
               <a>Sign in to comment</a> <FaRegComment />
             </div>
-          }
+          )}
         </form>
       </div>
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={u => handleLogin(u)}
-        onSignup={u => handleLogin(u)}
+        onLogin={(u) => handleLogin(u)}
+        onSignup={(u) => handleLogin(u)}
         onLogout={() => handleLogout()}
       />
     </>
-  )
-}
+  );
+};
 
 CommentForm.propTypes = {
   post: PropTypes.shape({
@@ -250,6 +316,6 @@ CommentForm.propTypes = {
     comment_id: PropTypes.string.isRequired,
   }).isRequired,
   identity: PropTypes.object,
-}
+};
 
-export default CommentForm
+export default CommentForm;

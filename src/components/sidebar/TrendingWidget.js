@@ -1,16 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql, Link } from 'gatsby'
-import { FaChartLine } from 'react-icons/fa'
-import config from '../../utils/siteConfig'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql, Link } from 'gatsby';
+import { FaChartLine } from 'react-icons/fa';
+import config from '../../utils/siteConfig';
 
 const TrendingWidget = ({ data }) => {
-  const topPages = data.allMysqlWeeklyPostAnalytics.edges
+  const topPages = data.allMysqlWeeklyPostAnalytics.edges;
 
   return (
     <div className="widget trending">
       <div className="widget-header">
-        <div className="label trending"><FaChartLine /> <span>Trending Posts</span></div>
+        <div className="label trending">
+          <FaChartLine /> <span>Trending Posts</span>
+        </div>
       </div>
       <div className="widget-content">
         {topPages.map(({ node }) => (
@@ -24,32 +26,32 @@ const TrendingWidget = ({ data }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 TrendingWidget.propTypes = {
   data: PropTypes.shape({
     allMysqlWeeklyPostAnalytics: PropTypes.object.isRequired,
   }).isRequired,
-}
+};
 
-const TrendingWidgetQuery = props => (
+const TrendingWidgetQuery = (props) => (
   <StaticQuery
     query={graphql`
-          query TrendingPages {
-            allMysqlWeeklyPostAnalytics(limit: 8) {
-              edges {
-                node {
-                  title
-                  url
-                  views
-                }
-              }
+      query TrendingPages {
+        allMysqlWeeklyPostAnalytics(limit: 8) {
+          edges {
+            node {
+              title
+              url
+              views
             }
           }
-        `}
-    render={data => <TrendingWidget data={data} {...props} />}
+        }
+      }
+    `}
+    render={(data) => <TrendingWidget data={data} {...props} />}
   />
-)
+);
 
-export default TrendingWidgetQuery
+export default TrendingWidgetQuery;

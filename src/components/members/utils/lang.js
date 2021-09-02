@@ -21,6 +21,6 @@ const lang = {
     SUBSCRIBE_TO: `Abboniere`,
     YOUR_EMAIL: `noreply@hackersandslackers.com`,
   },
-}
+};
 
-module.exports = lang
+module.exports = lang;

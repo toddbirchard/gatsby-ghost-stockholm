@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import { Navigation, Footer } from '../navigation'
-import { Sidebar } from '../sidebar'
-import { AuthorSidebar } from '../sidebar/authors'
-import { IdentityContextProvider } from "react-netlify-identity"
-import '../../styles/app.less'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
+import { Navigation, Footer } from '../navigation';
+import { Sidebar } from '../sidebar';
+import { AuthorSidebar } from '../sidebar/authors';
+import { IdentityContextProvider } from 'react-netlify-identity';
+import '../../styles/app.less';
 
 /**
  * Main layout component
@@ -17,11 +17,17 @@ import '../../styles/app.less'
  *
  */
 
-const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => {
-  const site = data.ghostSettings
-  const corePages = [`home-template`, `page-template`, `tag-template`]
-  const isCorePage = corePages.includes(template)
-  const authUrl = `https://hackersandslackers.com`
+const DefaultLayout = ({
+  data,
+  children,
+  hasSidebar,
+  template,
+  authorData,
+}) => {
+  const site = data.ghostSettings;
+  const corePages = [`home-template`, `page-template`, `tag-template`];
+  const isCorePage = corePages.includes(template);
+  const authUrl = `https://hackersandslackers.com`;
 
   return (
     <>
@@ -41,15 +47,17 @@ const DefaultLayout = ({ data, children, hasSidebar, template, authorData }) => 
           <div className={hasSidebar ? `sidebar-container` : `container`}>
             {/* All main content gets inserted here (comments.js, post.js, etc). */}
             {children}
-            {template === `author-template` && <AuthorSidebar authorData={authorData} /> }
+            {template === `author-template` && (
+              <AuthorSidebar authorData={authorData} />
+            )}
             {isCorePage && <Sidebar site={site} template={template} />}
           </div>
         </div>
         <Footer navigation={site.navigation} site={site} template={template} />
       </IdentityContextProvider>
     </>
-  )
-}
+  );
+};
 
 DefaultLayout.propTypes = {
   children: PropTypes.node.isRequired,
@@ -66,19 +74,19 @@ DefaultLayout.propTypes = {
     ghostSettings: PropTypes.object.isRequired,
     allGhostTag: PropTypes.object,
   }).isRequired,
-}
+};
 
-const DefaultLayoutSettingsQuery = props => (
+const DefaultLayoutSettingsQuery = (props) => (
   <StaticQuery
     query={graphql`
-            query GhostSettings {
-              ghostSettings {
-                ...GhostSettingsFields
-              }
-            }
-        `}
-    render={data => <DefaultLayout data={data} {...props} />}
+      query GhostSettings {
+        ghostSettings {
+          ...GhostSettingsFields
+        }
+      }
+    `}
+    render={(data) => <DefaultLayout data={data} {...props} />}
   />
-)
+);
 
-export default DefaultLayoutSettingsQuery
+export default DefaultLayoutSettingsQuery;

@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import { AuthorCard } from './'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import { AuthorCard } from './';
 
 const AuthorCards = ({ allAuthors }) => {
-  const authors = allAuthors.allGhostAuthor.edges
+  const authors = allAuthors.allGhostAuthor.edges;
 
   return (
     <>
@@ -15,40 +15,43 @@ const AuthorCards = ({ allAuthors }) => {
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
 AuthorCards.propTypes = {
   allAuthors: PropTypes.shape({
     allGhostAuthor: PropTypes.object.isRequired,
   }).isRequired,
-}
+};
 
-const AuthorCardsQuery = props => (
+const AuthorCardsQuery = (props) => (
   <StaticQuery
     query={graphql`
-          query AuthorCardsQuery {
-            allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}, sort: {fields: id, order: ASC}) {
-              edges {
-                node {
-                  id
-                  name
-                  postCount
-                  profile_image
-                  slug
-                  twitter
-                  facebook
-                  website
-                  location
-                  cover_image
-                  bio
-                }
-              }
+      query AuthorCardsQuery {
+        allGhostAuthor(
+          filter: { postCount: { gte: 1 }, slug: { ne: "data-schema-author" } }
+          sort: { fields: id, order: ASC }
+        ) {
+          edges {
+            node {
+              id
+              name
+              postCount
+              profile_image
+              slug
+              twitter
+              facebook
+              website
+              location
+              cover_image
+              bio
             }
           }
-        `}
-    render={data => <AuthorCards allAuthors={data} {...props} />}
+        }
+      }
+    `}
+    render={(data) => <AuthorCards allAuthors={data} {...props} />}
   />
-)
+);
 
-export default AuthorCardsQuery
+export default AuthorCardsQuery;

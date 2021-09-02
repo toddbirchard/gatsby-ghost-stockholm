@@ -1,23 +1,15 @@
-const queries = require(`./src/utils/algolia`)
-const path = require(`path`)
-const config = require(`./src/utils/siteConfig`)
-const siteRSSFeed = require(`./src/utils/rss/site-feed`)
+const queries = require(`./src/utils/algolia`);
+const path = require(`path`);
+const config = require(`./src/utils/siteConfig`);
+const siteRSSFeed = require(`./src/utils/rss/site-feed`);
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
-})
-const gatsbyRequiredRules = path.join(
-  process.cwd(),
-  "node_modules",
-  "gatsby",
-  "dist",
-  "utils",
-  "eslint-rules"
-);
+});
 
-let ghostConfig
+let ghostConfig;
 
 try {
-  ghostConfig = require(`./.ghost`)
+  ghostConfig = require(`./.ghost`);
 } catch (e) {
   ghostConfig = {
     production: {
@@ -28,26 +20,39 @@ try {
       apiUrl: process.env.GHOST_API_URL,
       contentApiKey: process.env.GHOST_CONTENT_API_KEY,
     },
-  }
+  };
 } finally {
-  const {
-    apiUrl,
-    contentApiKey,
-  } = process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production
+  const { apiUrl, contentApiKey } =
+    process.env.NODE_ENV === `development`
+      ? ghostConfig.development
+      : ghostConfig.production;
 
   if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
         throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`) // eslint-disable-line
   }
 }
 
-if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhost:8000` && !process.env.SITEURL) {
+if (
+  process.env.NODE_ENV === `production` &&
+  config.siteUrl === `http://localhost:8000` &&
+  !process.env.SITEURL
+) {
     throw new Error(`siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`) // eslint-disable-line
 }
+
+const gatsbyRequiredRules = path.join(
+  process.cwd(),
+  "node_modules",
+  "gatsby",
+  "dist",
+  "utils",
+  "eslint-rules"
+);
 
 module.exports = {
   flags: {
     // PRESERVE_WEBPACK_CACHE: true,
-    // FAST_DEV: false,
+    FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PARALLEL_QUERY_RUNNING: true,
   },
@@ -74,11 +79,12 @@ module.exports = {
       apiUrl: process.env.GHOST_API_URL,
       contentApiKey: process.env.GHOST_CONTENT_API_KEY,
       version: `v3`,
-      options: process.env.NODE_ENV === `development`
-        ? ghostConfig.development
-        : ghostConfig.production,
+      options:
+        process.env.NODE_ENV === `development`
+          ? ghostConfig.development
+          : ghostConfig.production,
     },
-    /*{
+    /* {
       resolve: `gatsby-source-pocket`,
       options: {
         consumerKey: process.env.POCKET_CONSUMER_KEY,
@@ -177,6 +183,54 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-eslint",
+      options: {
+        // Gatsby required rules directory
+        rulePaths: [gatsbyRequiredRules],
+        // Default settings that may be ommitted or customized
+        stages: ["develop"],
+        extensions: ["js", "jsx", "ts", "tsx"],
+        exclude: ["node_modules", "bower_components", ".cache", "public"],
+        // Any additional eslint-webpack-plugin options below
+        // ...
+      },
+    },
+    {
+      resolve: "gatsby-plugin-prettier-eslint",
+      // this is the default configuration, override only what you need
+      options: {
+        cwd: process.cwd(), // path to a directory that should be considered as the current working directory
+        watch: true, // format/lint on save
+        initialScan: true, // if true, will format/lint the whole project on Gatsby startup
+        onChangeFullScanLint: false, // if true, on file save always perform full scan lint
+        onChangeFullScanFormat: false, // if true, on file save always perform full scan format
+        prettierLast: false, // if true, will run Prettier after ESLint
+        ignorePatterns: [
+          "**/node_modules/**/*",
+          "**/.git/**/*",
+          "**/dist/**/*",
+          ".cache/**/*",
+          "public/**/*",
+        ], // string or array of paths/files/globs to ignore
+        prettier: {
+          patterns: [], // string or array of paths/files/globs to include related only to Prettier
+          ignorePatterns: [], // string or array of paths/files/globs to exclude related only to Prettier
+          customOptions: {}, // see: https://prettier.io/docs/en/options.html
+        },
+        eslint: {
+          patterns: [], // string or array of paths/files/globs to include related only to ESLint
+          ignorePatterns: [], // string or array of paths/files/globs to exclude related only to ESLint
+          formatter: "stylish", // set custom or third party formatter
+          maxWarnings: undefined, // number of max warnings allowed, when exceed it will fail Gatsby build
+          emitWarning: true, // if true, will emit lint warnings
+          failOnError: false, // if true, any lint error will fail the build, you may set true only in your prod config
+          failOnWarning: false, // same as failOnError but for warnings
+          plugins: [], // an array of plugins to load for ESLint
+          customOptions: {}, // see: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
+        },
+      },
+    },
     /**
      *  Netlify Plugins
      */
@@ -227,9 +281,7 @@ module.exports = {
             }
           }
         `,
-        feeds: [
-          siteRSSFeed,
-        ],
+        feeds: [siteRSSFeed],
       },
     },
     {
@@ -313,9 +365,11 @@ module.exports = {
         host: config.siteUrl,
         sitemap: `${config.siteUrl}/sitemap.xml`,
         policy: [
-          { userAgent: `*`,
+          {
+            userAgent: `*`,
             allow: `/`,
-            disallow: [`/ghost/`, `/p/`, `/roundup/*`] },
+            disallow: [`/ghost/`, `/p/`, `/roundup/*`],
+          },
         ],
         output: `/robots.txt`,
       },
@@ -371,4 +425,4 @@ module.exports = {
      */
     `gatsby-plugin-force-trailing-slashes`,
   ],
-}
+};

@@ -1,13 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { FaClock } from 'react-icons/fa'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import { readingTime as readingTimeHelper } from '@tryghost/helpers';
+import { FaClock } from 'react-icons/fa';
 
 const SeriesPostCard = ({ post, count }) => {
-  const route = post.slug.includes(`lynx`) ? `/roundup/${post.slug}/` : `/${post.slug}/`
-  const readingTime = readingTimeHelper(post)
-  const postNumber = count + 1
+  const route = post.slug.includes(`lynx`)
+    ? `/roundup/${post.slug}/`
+    : `/${post.slug}/`;
+  const readingTime = readingTimeHelper(post);
+  const postNumber = count + 1;
 
   return (
     <>
@@ -19,13 +21,15 @@ const SeriesPostCard = ({ post, count }) => {
               <span className="series-post-title-text">{post.title}</span>
             </h2>
             <div className="excerpt">{post.excerpt}</div>
-            <div className="reading-time"><FaClock /> <span>{readingTime}</span></div>
+            <div className="reading-time">
+              <FaClock /> <span>{readingTime}</span>
+            </div>
           </div>
         </div>
       </Link>
     </>
-  )
-}
+  );
+};
 
 SeriesPostCard.propTypes = {
   post: PropTypes.shape({
@@ -36,6 +40,6 @@ SeriesPostCard.propTypes = {
     published_at: PropTypes.string.isRequired,
   }).isRequired,
   count: PropTypes.number,
-}
+};
 
-export default SeriesPostCard
+export default SeriesPostCard;

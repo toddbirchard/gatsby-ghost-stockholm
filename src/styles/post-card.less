@@ -1,5 +1,5 @@
-@import './variables.less';
-@import './mixins.less';
+@import "./variables.less";
+@import "./mixins.less";
 
 .post-card {
   overflow: hidden;
@@ -25,7 +25,6 @@
     }
   }
 
-
   .post-card-title {
     margin: 0;
     padding: 0;
@@ -33,7 +32,7 @@
     font-family: @header-font;
     font-size: 1.9em;
     font-weight: unset;
-    letter-spacing: -.3px;
+    letter-spacing: -0.3px;
     line-height: 1.1;
     transition: @transition;
     @media (max-width: @smallscreen-breakpoint) {
@@ -42,7 +41,7 @@
     @media (max-width: @tablet-breakpoint) {
       margin-bottom: 0;
     }
-    @media(max-width: @mobile-breakpoint) {
+    @media (max-width: @mobile-breakpoint) {
       font-size: 1.7em !important;
       line-height: 1;
     }
@@ -86,7 +85,7 @@
       color: #5e6877;
       font-family: @body-font-medium;
       font-size: 1.2em;
-      letter-spacing: -.5px;
+      letter-spacing: -0.5px;
       line-height: 1.3;
       transition: all 0.2s ease-out;
       @media (max-width: @smallscreen-breakpoint) {
@@ -168,13 +167,13 @@
           margin-right: 8px;
 
           &.separator {
-            @media(max-width: @mobile-breakpoint) {
+            @media (max-width: @mobile-breakpoint) {
               display: none;
             }
           }
 
           &.reading-time {
-            @media(max-width: @mobile-breakpoint) {
+            @media (max-width: @mobile-breakpoint) {
               display: none;
             }
           }
@@ -204,6 +203,3 @@
     }
   }
 }
-
-
-

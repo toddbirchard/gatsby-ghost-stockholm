@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout } from '../components/common'
-import { SeriesPostCard } from '../components/misc'
-import { MetaData } from '../components/common/meta'
-import '../styles/pages/seriesdetail.less'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import { Layout } from '../components/common';
+import { SeriesPostCard } from '../components/misc';
+import { MetaData } from '../components/common/meta';
+import '../styles/pages/seriesdetail.less';
 
 /**
  * Series detail page (/tag/:slug)
@@ -13,10 +13,10 @@ import '../styles/pages/seriesdetail.less'
  */
 
 const SeriesDetail = ({ data, location }) => {
-  const tag = data.seriesTag
-  const tagName = tag.name.replace(`#`, ``)
-  const posts = data.allGhostPost.edges
-  const page = data.seriesPage
+  const tag = data.seriesTag;
+  const tagName = tag.name.replace(`#`, ``);
+  const posts = data.allGhostPost.edges;
+  const page = data.seriesPage;
 
   return (
     <>
@@ -27,32 +27,41 @@ const SeriesDetail = ({ data, location }) => {
         location={location}
         type="series"
       />
-      <Layout template="tag-template page-template series-template series-container" hasSidebar={false}>
-        {tag.feature_image ?
+      <Layout
+        template="tag-template page-template series-template series-container"
+        hasSidebar={false}
+      >
+        {tag.feature_image ? (
           <figure className="series-feature-image">
-            <img className="lazyload" data-src={tag.feature_image} alt={tag.name}/>
-          </figure> : null}
+            <img
+              className="lazyload"
+              data-src={tag.feature_image}
+              alt={tag.name}
+            />
+          </figure>
+        ) : null}
         <main>
           <header className="series-header">
             <h1 className="series-title">{tagName}</h1>
-            {page
-              ? <main
+            {page ? (
+              <main
                 className="post-content content-body load-external-scripts"
                 dangerouslySetInnerHTML={{ __html: page.html }}
               />
-              : <p className="series-description">{tag.description}</p>
-            }
+            ) : (
+              <p className="series-description">{tag.description}</p>
+            )}
           </header>
           <section className="post-feed">
             {posts.map(({ node }, index) => (
-              <SeriesPostCard key={node.id} post={node} count={index}/>
+              <SeriesPostCard key={node.id} post={node} count={index} />
             ))}
           </section>
         </main>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 SeriesDetail.propTypes = {
   data: PropTypes.shape({
@@ -80,7 +89,7 @@ SeriesDetail.propTypes = {
             PropTypes.shape({
               name: PropTypes.string.isRequired,
               slug: PropTypes.string.isRequired,
-            })
+            }),
           ).isRequired,
           published_at_pretty: PropTypes.string,
         }).isRequired,
@@ -92,9 +101,9 @@ SeriesDetail.propTypes = {
   }).isRequired,
   pageContext: PropTypes.object,
   icon: PropTypes.string,
-}
+};
 
-export default SeriesDetail
+export default SeriesDetail;
 
 export const pageQuery = graphql`
   query GhostSeriesQuery($slug: String!) {
@@ -105,8 +114,8 @@ export const pageQuery = graphql`
       ...GhostPageFields
     }
     allGhostPost(
-      sort: { order: ASC, fields: [published_at] },
-      filter: {tags: {elemMatch: {slug: {eq: $slug}}}},
+      sort: { order: ASC, fields: [published_at] }
+      filter: { tags: { elemMatch: { slug: { eq: $slug } } } }
     ) {
       edges {
         node {
@@ -118,4 +127,4 @@ export const pageQuery = graphql`
       icon
     }
   }
-`
+`;

@@ -1,8 +1,8 @@
 [build]
   base = "/"
   command = "make build"
-  publish = "public"
-  functions = "functions"
+  publish = "/public"
+  functions = "/functions"
 
 [build.environment]
   GO_VERSION = "1.17"
@@ -10,9 +10,6 @@
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
-
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
 
 [template]
   incoming-hooks = ["Ghost"]
@@ -22,23 +19,6 @@
     to = "https://hackersandslackers.app/ghost"
     status = 301
 
-[[redirects]]
-    from = "*.php"
-    to = "https://www.killyourself.gay/"
-    force = true
-    status = 301
-
-[[redirects]]
-    from = "/wp-login.php"
-    to = "https://www.killyourself.gay/"
-    force = true
-    status = 301
-
-[[redirects]]
-    from = "*/wp-login.*"
-    to = "https://www.killyourself.gay/"
-    force = true
-    status = 301
 
 [[redirects]]
     from = "/structuring-your-flask-app/"
@@ -406,6 +386,26 @@
     from = "/serve-docker-containers-with-custom-dns-and-ssl/"
     to = "/caddy-webserver-for-docker-etc/"
     status = 301
+
+[[redirects]]
+    from = "*.php"
+    to = "https://www.killyourself.gay/"
+    force = true
+    status = 301
+
+[[redirects]]
+    from = "/wp-login.php"
+    to = "https://www.killyourself.gay/"
+    force = true
+    status = 301
+
+
+[[redirects]]
+    from = "*/wp-login.*"
+    to = "https://www.killyourself.gay/"
+    force = true
+    status = 301
+
 
 [[redirects]]
     from = "/code-snippet-corner-removing-duplicate-columns-in-pandas/"

@@ -1,17 +1,26 @@
 {
-  "parser": "babel-eslint", // uses babel-eslint transforms
   "settings": {
     "react": {
-      "version": "detect" // detect react version
+      "version": "detect"
     }
   },
   "env": {
-    "node": true // defines things like process.env when generating through node
+    "commonjs": true,
+    "node": true, // defines things like process.env when generating through node
+    "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
   },
   "extends": [
-    "eslint:recommended", // use recommended configs
+    "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "ignorePatterns": ["node_modules/", ".cache/", "public/"],
   "rules": {
     "no-anonymous-exports-page-templates": "warn",
     "limited-exports-page-templates": "warn"
