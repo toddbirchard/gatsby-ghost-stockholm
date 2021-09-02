@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 import {
   Accordion,
   AccordionItem,
   AccordionItemHeading,
   AccordionItemButton,
   AccordionItemPanel,
-} from 'react-accessible-accordion'
+} from 'react-accessible-accordion';
 import {
   AiOutlineHome,
   AiOutlineInfoCircle,
@@ -15,20 +15,20 @@ import {
   AiOutlineUser,
   AiOutlineUserAdd,
   AiOutlineDollarCircle,
-} from "react-icons/ai"
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { StaticQuery, graphql } from 'gatsby'
-import { slide as Menu } from 'react-burger-menu'
-import { FaChevronDown } from 'react-icons/fa'
-import { FiRss } from 'react-icons/fi'
+} from 'react-icons/ai';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
+import { slide as Menu } from 'react-burger-menu';
+import { FaChevronDown } from 'react-icons/fa';
+import { FiRss } from 'react-icons/fi';
 
 class MobileMenu extends React.Component {
   constructor(props) {
-    super(props)
-    this.tags = props.data.tags.edges
-    this.series = props.data.series.edges
-    this.authors = props.data.authors.edges
+    super(props);
+    this.tags = props.data.tags.edges;
+    this.series = props.data.series.edges;
+    this.authors = props.data.authors.edges;
   }
 
   render() {
@@ -45,14 +45,28 @@ class MobileMenu extends React.Component {
           disableAutoFocus
         >
           <div className="pages">
-            <Link className={`navigation-link`} to={`/`}><AiOutlineHome/>Home</Link>
-            <Link className={`navigation-link`} to={`/about/`}><AiOutlineInfoCircle/>About</Link>
-            <Link className={`navigation-link`} to={`/search/`}><AiOutlineSearch/>Search</Link>
+            <Link className={`navigation-link`} to={`/`}>
+              <AiOutlineHome />
+              Home
+            </Link>
+            <Link className={`navigation-link`} to={`/about/`}>
+              <AiOutlineInfoCircle />
+              About
+            </Link>
+            <Link className={`navigation-link`} to={`/search/`}>
+              <AiOutlineSearch />
+              Search
+            </Link>
             <Accordion allowZeroExpanded>
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span><AiOutlineTags/>Tags</span> <FaChevronDown className="chevron"/>
+                    <span>
+                      <AiOutlineTags />
+                      Tags
+                    </span>
+                    {` `}
+                    <FaChevronDown className="chevron" />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -60,7 +74,8 @@ class MobileMenu extends React.Component {
                     <Link
                       to={`/tag/${node.slug}/`}
                       className="tag-link"
-                      key={node.id}>
+                      key={node.id}
+                    >
                       {node.name}
                     </Link>
                   ))}
@@ -69,7 +84,12 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span><AiOutlineBook/>Series</span> <FaChevronDown className="chevron"/>
+                    <span>
+                      <AiOutlineBook />
+                      Series
+                    </span>
+                    {` `}
+                    <FaChevronDown className="chevron" />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -87,7 +107,12 @@ class MobileMenu extends React.Component {
               <AccordionItem>
                 <AccordionItemHeading>
                   <AccordionItemButton>
-                    <span><AiOutlineUser/>Authors</span> <FaChevronDown className="chevron"/>
+                    <span>
+                      <AiOutlineUser />
+                      Authors
+                    </span>
+                    {` `}
+                    <FaChevronDown className="chevron" />
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -104,11 +129,11 @@ class MobileMenu extends React.Component {
               </AccordionItem>
             </Accordion>
             <Link to="/join-us/" className={`navigation-link`}>
-              <AiOutlineUserAdd/>
+              <AiOutlineUserAdd />
               <span>Join</span>
             </Link>
             <Link to="/rss.xml" className={`navigation-link`}>
-              <FiRss/>
+              <FiRss />
               <span>RSS</span>
             </Link>
             <a
@@ -117,12 +142,12 @@ class MobileMenu extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <AiOutlineDollarCircle/> Donate
+              <AiOutlineDollarCircle /> Donate
             </a>
           </div>
         </Menu>
       </>
-    )
+    );
   }
 }
 
@@ -147,53 +172,70 @@ MobileMenu.propTypes = {
     tags: PropTypes.object.isRequired,
     authors: PropTypes.object.isRequired,
   }).isRequired,
-}
+};
 
-const MobileMenuQuery = props => (
+const MobileMenuQuery = (props) => (
   <StaticQuery
     query={graphql`
-          query HamburgerNavQuery {
-            ghostSettings {
-              navigation {
-                label
-                url
-              }
+      query HamburgerNavQuery {
+        ghostSettings {
+          navigation {
+            label
+            url
+          }
+        }
+        tags: allGhostTag(
+          sort: { order: DESC, fields: postCount }
+          filter: {
+            visibility: { eq: "public" }
+            slug: { nin: ["roundup", "excel"] }
+            postCount: { gt: 10 }
+          }
+        ) {
+          edges {
+            node {
+              id
+              name
+              slug
             }
-            tags: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "public"}, slug: {nin: ["roundup", "excel"]}, postCount: {gt: 10}}) {
-              edges {
-                node {
-                  id
-                  name
-                  slug
-                }
-              }
+          }
+        }
+        series: allGhostTag(
+          sort: { order: DESC, fields: postCount }
+          filter: {
+            visibility: { eq: "internal" }
+            postCount: { gt: 1 }
+            slug: { nin: ["adventures-in-excel", "code-snippet-corner"] }
+          }
+        ) {
+          edges {
+            node {
+              ghostId
+              slug
+              description
+              meta_title
             }
-            series: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {nin: ["adventures-in-excel", "code-snippet-corner"]}}) {
-              edges {
-                node {
-                  ghostId
-                  slug
-                  description
-                  meta_title
-                }
-              }
-            }
-            authors: allGhostAuthor(filter: {postCount: {gte: 1}, slug: {ne: "data-schema-author"}}, sort: {fields: id, order: ASC}) {
-              edges {
-                node {
-                  name
-                  slug
-                  id
-                  count {
-                    posts
-                  }
-                }
+          }
+        }
+        authors: allGhostAuthor(
+          filter: { postCount: { gte: 1 }, slug: { ne: "data-schema-author" } }
+          sort: { fields: id, order: ASC }
+        ) {
+          edges {
+            node {
+              name
+              slug
+              id
+              count {
+                posts
               }
             }
           }
-        `}
-    render={data => <MobileMenu data={data} {...props} />}
+        }
+      }
+    `}
+    render={(data) => <MobileMenu data={data} {...props} />}
   />
-)
+);
 
-export default MobileMenuQuery
+export default MobileMenuQuery;

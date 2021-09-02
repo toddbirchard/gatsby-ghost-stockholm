@@ -1,7 +1,7 @@
 #comments {
   width: 95%;
   margin: 50px auto;
-  @media(max-width: @tablet-breakpoint) {
+  @media (max-width: @tablet-breakpoint) {
     width: unset;
   }
 
@@ -47,8 +47,6 @@
             padding: 13px 10px;
             border-radius: 3px;
             opacity: 1;
-
-
           }
         }
       }
@@ -88,7 +86,7 @@
           font-family: @body-font-medium;
           font-size: 1.1em;
           text-decoration: none;
-          transition: all .2s ease-out;
+          transition: all 0.2s ease-out;
         }
       }
 
@@ -131,7 +129,6 @@
       border: 1px solid @theme-color;
 
       .mde-tabs button {
-
         &.open {
           border-color: #427fa7;
         }
@@ -188,7 +185,7 @@
     border-bottom: unset;
     background: none;
     opacity: 0;
-    transition: all .4s ease-out;
+    transition: all 0.4s ease-out;
 
     .mde-tabs button {
       color: #767f91;
@@ -217,7 +214,7 @@
     &.open {
       height: auto;
       margin-bottom: 115px;
-      @media(max-width: @mobile-breakpoint) {
+      @media (max-width: @mobile-breakpoint) {
         margin-bottom: 70px;
       }
 
@@ -229,7 +226,7 @@
         display: flex;
         height: 42px;
         opacity: 1;
-        @media(max-width: @mobile-breakpoint) {
+        @media (max-width: @mobile-breakpoint) {
           display: none;
         }
       }
@@ -266,7 +263,7 @@
       font-size: 1.1em;
       line-height: 1.8;
       resize: none;
-      @media(max-width: @mobile-breakpoint) {
+      @media (max-width: @mobile-breakpoint) {
         font-size: 1em;
       }
     }
@@ -284,7 +281,7 @@
       box-shadow: inset 0 0 0 1px @theme-color;
       color: white;
       font-family: @body-font-medium;
-      font-size: .95em;
+      font-size: 0.95em;
       opacity: 0;
       transition: @transition;
       @media (max-width: @mobile-breakpoint) {
@@ -390,7 +387,7 @@
           }
 
           .comment-actions {
-            display: none;  // temporarily disabled feature
+            display: none; // temporarily disabled feature
 
             .comment-action {
               display: inline-block;
@@ -412,7 +409,7 @@
         }
 
         .comment-body {
-          font-size: .95em;
+          font-size: 0.95em;
           line-height: 1.6;
 
           ol,
@@ -448,7 +445,7 @@
             * {
               color: #656d73;
               font-family: @body-font-medium;
-              font-size: .95em;
+              font-size: 0.95em;
               line-height: 1.5;
             }
 
@@ -505,10 +502,10 @@
   padding: 15px 0;
   overflow: hidden;
   background: #c9e1c9;
-  box-shadow: 0 0 5px 2px rgba(37, 90, 36, .4);
+  box-shadow: 0 0 5px 2px rgba(37, 90, 36, 0.4);
 
   opacity: 0;
-  transition: all .4s ease-out;
+  transition: all 0.4s ease-out;
 
   .message {
     display: flex;
@@ -528,11 +525,11 @@
     .icon {
       margin-right: 5px;
       color: #163d15;
-      font-size: .75em;
+      font-size: 0.75em;
     }
 
     div {
-      @media(max-width: @mobile-breakpoint) {
+      @media (max-width: @mobile-breakpoint) {
         height: 15px;
       }
     }
@@ -547,7 +544,6 @@
     text-align: center;
   }
 }
-
 
 .active {
   top: 0;

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { graphql, StaticQuery } from 'gatsby';
 import {
   InstantSearch,
   SearchBox,
@@ -10,28 +10,28 @@ import {
   SortBy,
   RefinementList,
   Panel,
-} from 'react-instantsearch-dom'
-import { FaArrowRight, FaArrowLeft, FaSearch } from 'react-icons/fa'
-import algoliasearch from 'algoliasearch'
-import qs from 'qs'
-import { MetaData } from '../components/common/meta'
-import { Layout, PostCard } from '../components/common'
-import '../styles/pages/search.less'
+} from 'react-instantsearch-dom';
+import { FaArrowRight, FaArrowLeft, FaSearch } from 'react-icons/fa';
+import algoliasearch from 'algoliasearch';
+import qs from 'qs';
+import { MetaData } from '../components/common/meta';
+import { Layout, PostCard } from '../components/common';
+import '../styles/pages/search.less';
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-)
-const createURL = state => `?${qs.stringify(state)}`
-const urlToSearchState = location => qs.parse(location.search.slice(1))
+);
+const createURL = (state) => `?${qs.stringify(state)}`;
+const urlToSearchState = (location) => qs.parse(location.search.slice(1));
 
 const SearchPage = ({ data, location }) => {
-  const metaTitle = data.searchPage.meta_title
-  const metaDescription = data.searchPage.meta_description
-  const [searchState, setSearchState] = useState(urlToSearchState(location))
+  const metaTitle = data.searchPage.meta_title;
+  const metaDescription = data.searchPage.meta_description;
+  const [searchState, setSearchState] = useState(urlToSearchState(location));
   const onSearchStateChange = (updatedSearchState) => {
-    setSearchState(updatedSearchState)
-  }
+    setSearchState(updatedSearchState);
+  };
 
   return (
     <>
@@ -69,8 +69,14 @@ const SearchPage = ({ data, location }) => {
                   <SortBy
                     items={[
                       { value: `hackers_posts`, label: `Relevance` },
-                      { value: `hackers_posts_published_at_desc`, label: `Published (desc)` },
-                      { value: `hackers_posts_published_at_asc`, label: `Published (asc)` },
+                      {
+                        value: `hackers_posts_published_at_desc`,
+                        label: `Published (desc)`,
+                      },
+                      {
+                        value: `hackers_posts_published_at_asc`,
+                        label: `Published (asc)`,
+                      },
                     ]}
                     defaultRefinement="hackers_posts"
                   />
@@ -85,16 +91,18 @@ const SearchPage = ({ data, location }) => {
                       limit={100}
                       showMore
                       showMoreLimit={30}
-                      transformItems={items => items.filter(item => item.label.indexOf(`#`) === -1 && item.count > 1)}
+                      transformItems={(items) =>
+                        items.filter(
+                          (item) =>
+                            item.label.indexOf(`#`) === -1 && item.count > 1,
+                        )
+                      }
                     />
                   </Panel>
                   <Panel header="Authors">
-                    <RefinementList
-                      attribute="primary_author.name"
-                    />
+                    <RefinementList attribute="primary_author.name" />
                   </Panel>
                 </aside>
-
               </div>
               <Pagination
                 showFirst={false}
@@ -108,35 +116,33 @@ const SearchPage = ({ data, location }) => {
         </div>
       </Layout>
     </>
-  )
-}
+  );
+};
 
-const Hit = ({ hit }) => (
-  <PostCard post={hit} key={hit.objectID} />
-)
+const Hit = ({ hit }) => <PostCard post={hit} key={hit.objectID} />;
 
 Hit.propTypes = {
   hit: PropTypes.object.isRequired,
-}
+};
 
 SearchPage.propTypes = {
   data: PropTypes.shape({
     searchPage: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.object,
-}
+};
 
-const SearchPageQuery = props => (
+const SearchPageQuery = (props) => (
   <StaticQuery
     query={graphql`
-          query SearchPageData {
-            searchPage: ghostPage(slug: {eq: "search"}) {
-              ...GhostPageFields
-            }
-          }
-        `}
-    render={data => <SearchPage data={data} {...props} />}
+      query SearchPageData {
+        searchPage: ghostPage(slug: { eq: "search" }) {
+          ...GhostPageFields
+        }
+      }
+    `}
+    render={(data) => <SearchPage data={data} {...props} />}
   />
-)
+);
 
-export default SearchPageQuery
+export default SearchPageQuery;

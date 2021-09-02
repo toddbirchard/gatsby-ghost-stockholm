@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout, PostCard } from '../components/common'
-import { Pagination } from '../components/navigation'
-import { AuthorCard } from '../components/authors'
-import { MetaData } from '../components/common/meta'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import { Layout, PostCard } from '../components/common';
+import { Pagination } from '../components/navigation';
+import { AuthorCard } from '../components/authors';
+import { MetaData } from '../components/common/meta';
 
-import '../styles/pages/page.less'
+import '../styles/pages/page.less';
 
 /**
  * Author page (/author/:slug)
@@ -15,10 +15,18 @@ import '../styles/pages/page.less'
  *
  */
 const Author = ({ data, location, pageContext }) => {
-  const author = data.ghostAuthor
-  const baseTitle = author.name + `'s posts`
-  const title = pageContext.currentPage > 1 ? baseTitle + ` (page ` + pageContext.currentPage + ` of ` + pageContext.numberOfPages + `)` : baseTitle
-  const posts = data.allGhostPost.edges
+  const author = data.ghostAuthor;
+  const baseTitle = author.name + `'s posts`;
+  const title =
+    pageContext.currentPage > 1
+      ? baseTitle +
+        ` (page ` +
+        pageContext.currentPage +
+        ` of ` +
+        pageContext.numberOfPages +
+        `)`
+      : baseTitle;
+  const posts = data.allGhostPost.edges;
   // const websiteMeta = pageContext.websiteMeta ? pageContext.websiteMeta : undefined
 
   return (
@@ -30,11 +38,7 @@ const Author = ({ data, location, pageContext }) => {
         location={location}
         pageContext={pageContext}
       />
-      <Layout
-        template="author-template"
-        hasSidebar
-        authorData={data}
-      >
+      <Layout template="author-template" hasSidebar authorData={data}>
         <div className="author-container">
           <AuthorCard
             author={author}
@@ -44,7 +48,7 @@ const Author = ({ data, location, pageContext }) => {
           />
           <section className="post-feed">
             {posts.map(({ node }) => (
-              <PostCard key={node.id} post={node}/>
+              <PostCard key={node.id} post={node} />
             ))}
             <Pagination
               pageContext={pageContext}
@@ -55,8 +59,8 @@ const Author = ({ data, location, pageContext }) => {
         </div>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 Author.propTypes = {
   data: PropTypes.shape({
@@ -127,20 +131,28 @@ Author.propTypes = {
     pathname: PropTypes.string.isRequired,
   }).isRequired,
   pageContext: PropTypes.object,
-}
+};
 
-export default Author
+export default Author;
 
 export const pageQuery = graphql`
-  query GhostAuthorQuery($slug: String!, $twitterUsernameRegex: String, $limit: Int!, $skip: Int!) {
+  query GhostAuthorQuery(
+    $slug: String!
+    $twitterUsernameRegex: String
+    $limit: Int!
+    $skip: Int!
+  ) {
     ghostAuthor(slug: { eq: $slug }) {
       ...GhostAuthorFields
       postCount
     }
     allGhostPost(
-      sort: { order: DESC, fields: [published_at] },
-      filter: {tags: {elemMatch: {slug: {ne: "hash-newsletter"}}}, authors: {elemMatch: {slug: {eq: $slug}}}},
-      limit: $limit,
+      sort: { order: DESC, fields: [published_at] }
+      filter: {
+        tags: { elemMatch: { slug: { ne: "hash-newsletter" } } }
+        authors: { elemMatch: { slug: { eq: $slug } } }
+      }
+      limit: $limit
       skip: $skip
     ) {
       edges {
@@ -149,7 +161,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    authorTwitterProfile: twitterListsMembersAuthorTwitterProfiles(screen_name: {regex: $twitterUsernameRegex}) {
+    authorTwitterProfile: twitterListsMembersAuthorTwitterProfiles(
+      screen_name: { regex: $twitterUsernameRegex }
+    ) {
       screen_name
       name
       description
@@ -158,7 +172,11 @@ export const pageQuery = graphql`
       statuses_count
       favourites_count
     }
-    authorTrendingPosts: allMysqlWeeklyPostAnalytics(sort: {fields: views, order: DESC}, filter: {author_slug: {eq: $slug}, views: {gt: 10}}, limit: 10) {
+    authorTrendingPosts: allMysqlWeeklyPostAnalytics(
+      sort: { fields: views, order: DESC }
+      filter: { author_slug: { eq: $slug }, views: { gt: 10 } }
+      limit: 10
+    ) {
       edges {
         node {
           title
@@ -169,4 +187,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

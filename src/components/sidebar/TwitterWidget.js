@@ -1,13 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import { FaTwitter, FaUsers, FaRetweet, FaHeartbeat, FaReply } from 'react-icons/fa'
-import { AiOutlineCalendar } from 'react-icons/ai'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import {
+  FaTwitter,
+  FaUsers,
+  FaRetweet,
+  FaHeartbeat,
+  FaReply,
+} from 'react-icons/fa';
+import { AiOutlineCalendar } from 'react-icons/ai';
 
 const TwitterWidget = ({ data }) => {
-  const tweets = data.tweets.edges
-  const twitterProfile = data.twitterProfile.user
-  const twitterProfileURL = `https://twitter.com/${twitterProfile.screen_name}/`
+  const tweets = data.tweets.edges;
+  const twitterProfile = data.twitterProfile.user;
+  const twitterProfileURL = `https://twitter.com/${twitterProfile.screen_name}/`;
 
   return (
     <>
@@ -21,66 +27,92 @@ const TwitterWidget = ({ data }) => {
                   href={twitterProfileURL}
                   className="twitter-name"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   {`@${twitterProfile.screen_name}`}
                 </a>
                 <div className="twitter-followers">
-                  <FaUsers /> <span>{twitterProfile.followers_count} Followers</span>
+                  <FaUsers />
+                  {` `}
+                  <span>{twitterProfile.followers_count} Followers</span>
                 </div>
               </div>
             </div>
           </div>
           {tweets.map(({ node }) => (
             <div className="tweet" key={node.id}>
-
-              {node.retweeted_status &&
-                 <div className="retweeted-tweet">
-                   <div className="retweeted-header">
-                     <FaRetweet /> <span>{`${node.user.screen_name} retweeted`}</span>
-                   </div>
-                   <div className="retweeted-body">
-                     <p className="tweet-content">{node.full_text.split(`http`)[0]}</p>
-                     {node.entities.urls &&
-                      node.entities.urls.map(({ url }) => (
-                        <a href={url} className="tweet-link" key={url} rel="nofollow noreferrer">{ url }</a>
-                      ))}
-                   </div>
-                 </div>
-              }
-
-              {node.in_reply_to_screen_name &&
-                  <div className="reply-tweet">
-                    <div className="retweeted-header">
-                      <FaReply /> <span>{`Replying to @${node.in_reply_to_screen_name}`}</span>
-                    </div>
-                    <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
+              {node.retweeted_status && (
+                <div className="retweeted-tweet">
+                  <div className="retweeted-header">
+                    <FaRetweet />
+                    {` `}
+                    <span>{`${node.user.screen_name} retweeted`}</span>
                   </div>
-              }
+                  <div className="retweeted-body">
+                    <p className="tweet-content">
+                      {node.full_text.split(`http`)[0]}
+                    </p>
+                    {node.entities.urls &&
+                      node.entities.urls.map(({ url }) => (
+                        <a
+                          href={url}
+                          className="tweet-link"
+                          key={url}
+                          rel="nofollow noreferrer"
+                        >
+                          {url}
+                        </a>
+                      ))}
+                  </div>
+                </div>
+              )}
 
-              {!node.retweeted_status && !node.in_reply_to_screen_name &&
-                    <div>
-                      <p className="tweet-content">{node.full_text.split(`#`)[0].split(`https`)[0]}</p>
-                      {node.entities.hashtags.length > 0 ?
-                        <div className="tweet-hashtags">
-                          {node.entities.hashtags.map(({ text }) => (
-                            <a
-                              href={`https://twitter.com/hashtag/${text}`}
-                              key={`${node.id}-${text}`}
-                              className="hashtag"
-                              rel="nofollow noreferrer"
-                            >
-                                #{text}
-                            </a>
-                          ))}
-                        </div>
-                        : null}
-                      {node.entities.urls.length > 0 ?
-                        node.entities.urls.map(({ url }) => (
-                          <a href={url} className="tweet-link" key={`${node.id}`} rel="nofollow noreferrer">{url}</a>
-                        ))
-                        : null}
+              {node.in_reply_to_screen_name && (
+                <div className="reply-tweet">
+                  <div className="retweeted-header">
+                    <FaReply />
+                    {` `}
+                    <span>{`Replying to @${node.in_reply_to_screen_name}`}</span>
+                  </div>
+                  <p className="tweet-content">
+                    {node.full_text.split(`#`)[0].split(`https`)[0]}
+                  </p>
+                </div>
+              )}
+
+              {!node.retweeted_status && !node.in_reply_to_screen_name && (
+                <div>
+                  <p className="tweet-content">
+                    {node.full_text.split(`#`)[0].split(`https`)[0]}
+                  </p>
+                  {node.entities.hashtags.length > 0 ? (
+                    <div className="tweet-hashtags">
+                      {node.entities.hashtags.map(({ text }) => (
+                        <a
+                          href={`https://twitter.com/hashtag/${text}`}
+                          key={`${node.id}-${text}`}
+                          className="hashtag"
+                          rel="nofollow noreferrer"
+                        >
+                          #{text}
+                        </a>
+                      ))}
                     </div>
-              }
+                  ) : null}
+                  {node.entities.urls.length > 0
+                    ? node.entities.urls.map(({ url }) => (
+                        <a
+                          href={url}
+                          className="tweet-link"
+                          key={`${node.id}`}
+                          rel="nofollow noreferrer"
+                        >
+                          {url}
+                        </a>
+                      ))
+                    : null}
+                </div>
+              )}
 
               <div className="tweet-footer">
                 <div className="retweets meta-item">
@@ -93,17 +125,18 @@ const TwitterWidget = ({ data }) => {
                 </div>
                 <div className="date meta-item">
                   <AiOutlineCalendar />
-                  <span className="meta-count">{node.created_at.split(` `, 3).join(` `)}</span>
+                  <span className="meta-count">
+                    {node.created_at.split(` `, 3).join(` `)}
+                  </span>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 TwitterWidget.propTypes = {
   data: PropTypes.shape({
@@ -150,9 +183,9 @@ TwitterWidget.propTypes = {
       }).isRequired,
     }),
   }),
-}
+};
 
-const TwitterQuery = props => (
+const TwitterQuery = (props) => (
   <StaticQuery
     query={graphql`
       query TwitterQuery {
@@ -204,10 +237,10 @@ const TwitterQuery = props => (
             followers_count
           }
         }
-      }`
-    }
-    render={data => <TwitterWidget data={data} {...props} />}
+      }
+    `}
+    render={(data) => <TwitterWidget data={data} {...props} />}
   />
-)
+);
 
-export default TwitterQuery
+export default TwitterQuery;

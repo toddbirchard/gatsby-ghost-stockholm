@@ -1,30 +1,30 @@
-import React from "react"
-import PropTypes from 'prop-types'
-import { CommentForm, Comment } from "./"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CommentForm, Comment } from './';
 
 const Comments = ({ data, moderators }) => {
-  const post = data.ghostPost
-  const comments = data.comments && data.comments.edges
+  const post = data.ghostPost;
+  const comments = data.comments && data.comments.edges;
 
   return (
     <>
       <div id="comments" className="markdown-render">
-        {comments &&
-        <div className="user-comments">
-          {comments.map(({ node }) => (
-            <Comment
-              key={node.comment_id}
-              comment={node}
-              moderators={moderators}
-            />
-          ))}
-        </div>
-        }
+        {comments && (
+          <div className="user-comments">
+            {comments.map(({ node }) => (
+              <Comment
+                key={node.comment_id}
+                comment={node}
+                moderators={moderators}
+              />
+            ))}
+          </div>
+        )}
         <CommentForm post={post} />
       </div>
     </>
-  )
-}
+  );
+};
 
 Comments.propTypes = {
   data: PropTypes.object.isRequired,
@@ -46,6 +46,6 @@ Comments.propTypes = {
       name: PropTypes.string,
     }),
   ),
-}
+};
 
-export default Comments
+export default Comments;

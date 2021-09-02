@@ -12,7 +12,13 @@ module.exports = {
   themeColor: `#0297f6`, // Used for Offline Manifest
   siteIcon: `favicon.png`,
   introVideo: `https://vimeo.com/265866802`, // OPTIONAL: Video URL to be used in "about" page
-  categories: [`software`, `engineering`, `data`, `data science`, `data engineering`],
+  categories: [
+    `software`,
+    `engineering`,
+    `data`,
+    `data science`,
+    `data engineering`,
+  ],
   lang: `en-US`,
   images: {
     buyMeACoffee: `/images/buymeacoffee.svg`,
@@ -32,4 +38,4 @@ module.exports = {
     buyMeACoffee: `https://buymeacoff.ee/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
   },
-}
+};

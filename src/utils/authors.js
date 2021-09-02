@@ -7,7 +7,7 @@ export const authorTwitterAccounts = `{
       }
     }
   }
-}`
+}`;
 
 export const authorWebsites = `{
   allGhostAuthor(filter: {website: {ne: null}}) {
@@ -18,4 +18,4 @@ export const authorWebsites = `{
       }
     }
   }
-}`
+}`;

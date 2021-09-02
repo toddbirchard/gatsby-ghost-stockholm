@@ -1,41 +1,41 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Layout } from '../components/common'
-import { MetaData } from '../components/common/meta'
-import { CourseCard } from '../components/misc'
-import '../styles/pages/seriesarchive.less'
-import '../styles/pages/page.less'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import { Layout } from '../components/common';
+import { MetaData } from '../components/common/meta';
+import { CourseCard } from '../components/misc';
+import '../styles/pages/seriesarchive.less';
+import '../styles/pages/page.less';
 
 /**
-* Series page (/series/)
-*
-* Lists multi-part post series.
-*
-*/
+ * Series page (/series/)
+ *
+ * Lists multi-part post series.
+ *
+ */
 
 const SeriesArchive = ({ data, location }) => {
-  const dataScienceCourses = data.datascience.edges
-  const softwareCourses = data.software.edges
-  const analysisCourses = data.analysis.edges
-  const cloudCourses = data.cloud.edges
-  const title = data.seriesPage.title
-  const metaTitle = data.seriesPage.meta_title
-  const metaDescription = data.seriesPage.meta_description
-  const html = data.seriesPage.html
-  const seriesDetailPages = data.seriesDetail.edges
+  const dataScienceCourses = data.datascience.edges;
+  const softwareCourses = data.software.edges;
+  const analysisCourses = data.analysis.edges;
+  const cloudCourses = data.cloud.edges;
+  const title = data.seriesPage.title;
+  const metaTitle = data.seriesPage.meta_title;
+  const metaDescription = data.seriesPage.meta_description;
+  const html = data.seriesPage.html;
+  const seriesDetailPages = data.seriesDetail.edges;
 
   function getSeriesDetail(slug) {
-    let seriesDetailPage = undefined
+    let seriesDetailPage = undefined;
     seriesDetailPages.forEach((seriesDetail) => {
       if (seriesDetail.node.slug === slug) {
-        seriesDetailPage = seriesDetail
+        seriesDetailPage = seriesDetail;
       }
-    })
+    });
     if (seriesDetailPage) {
-      return seriesDetailPage.node
+      return seriesDetailPage.node;
     }
-    return seriesDetailPage
+    return seriesDetailPage;
   }
 
   return (
@@ -47,7 +47,10 @@ const SeriesArchive = ({ data, location }) => {
         description={metaDescription}
         type="series"
       />
-      <Layout template="seriesarchive-template page-template" hasSidebar={false}>
+      <Layout
+        template="seriesarchive-template page-template"
+        hasSidebar={false}
+      >
         <div className="info-card">
           <div className="page-title-card">
             <h1>{title}</h1>
@@ -61,7 +64,11 @@ const SeriesArchive = ({ data, location }) => {
           <h2 className="course-section-title">Data Science & Engineering</h2>
           <div className="series-grid">
             {dataScienceCourses.map(({ node }) => (
-              <CourseCard course={node} page={getSeriesDetail(node.slug)} key={node.id} />
+              <CourseCard
+                course={node}
+                page={getSeriesDetail(node.slug)}
+                key={node.id}
+              />
             ))}
           </div>
           <h2 className="course-section-title">Software Engineering</h2>
@@ -77,20 +84,28 @@ const SeriesArchive = ({ data, location }) => {
           <h2 className="course-section-title">Data Analysis</h2>
           <div className="series-grid">
             {analysisCourses.map(({ node }) => (
-              <CourseCard course={node} page={getSeriesDetail(node.slug)} key={node.id} />
+              <CourseCard
+                course={node}
+                page={getSeriesDetail(node.slug)}
+                key={node.id}
+              />
             ))}
           </div>
           <h2 className="course-section-title">Cloud Architecture</h2>
           <div className="series-grid">
             {cloudCourses.map(({ node }) => (
-              <CourseCard course={node} page={getSeriesDetail(node.slug)} key={node.id} />
+              <CourseCard
+                course={node}
+                page={getSeriesDetail(node.slug)}
+                key={node.id}
+              />
             ))}
           </div>
         </main>
       </Layout>
     </>
-  )
-}
+  );
+};
 
 SeriesArchive.propTypes = {
   data: PropTypes.shape({
@@ -133,7 +148,7 @@ SeriesArchive.propTypes = {
           feature_image: PropTypes.string.isRequired,
           description: PropTypes.string.isRequired,
           name: PropTypes.string.isRequired,
-        })
+        }),
       ),
     }).isRequired,
     cloud: PropTypes.shape({
@@ -145,7 +160,7 @@ SeriesArchive.propTypes = {
           feature_image: PropTypes.string.isRequired,
           description: PropTypes.string.isRequired,
           name: PropTypes.string.isRequired,
-        })
+        }),
       ),
     }).isRequired,
     analysis: PropTypes.shape({
@@ -162,74 +177,130 @@ SeriesArchive.propTypes = {
     }).isRequired,
   }),
   location: PropTypes.object.isRequired,
-}
+};
 
 export const seriesQuery = graphql`
-    query seriesPage($slug: String) {
-      seriesPage: ghostPage(slug: {eq: $slug}) {
-        ...GhostPageFields
-      }
-      seriesDetail: allGhostPage(filter: {tags: {elemMatch: {visibility: {eq: "internal"}}}}) {
-        edges {
-          node {
-            title
-            slug
-            tags {
-              name
-              slug
-              visibility
-            }
-          }
-        }
-      }
-      datascience: allGhostTag(sort: {order: ASC, fields: meta_title}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["data-analysis-pandas", "code-snippet-corner", "mapping-data-with-mapbox", "learning-apache-spark", "welcome-to-sql", "web-scraping-with-python"]}}) {
-        edges {
-          node {
-            id
-            slug
-            postCount
-            feature_image
-            description
+  query seriesPage($slug: String) {
+    seriesPage: ghostPage(slug: { eq: $slug }) {
+      ...GhostPageFields
+    }
+    seriesDetail: allGhostPage(
+      filter: { tags: { elemMatch: { visibility: { eq: "internal" } } } }
+    ) {
+      edges {
+        node {
+          title
+          slug
+          tags {
             name
-          }
-        }
-      }
-      software: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["build-flask-apps", "starting-django", "mastering-sqlalchemy", "graphql-hype", "working-with-mysql"]}}) {
-        edges {
-          node {
-            id
             slug
-            postCount
-            feature_image
-            description
-            name
+            visibility
           }
         }
       }
-      cloud: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["the-rise-of-google-cloud", "create-an-aws-api", "mongodb-cloud"]}}) {
-        edges {
-          node {
-            id
-            slug
-            postCount
-            feature_image
-            description
-            name
-          }
+    }
+    datascience: allGhostTag(
+      sort: { order: ASC, fields: meta_title }
+      filter: {
+        visibility: { eq: "internal" }
+        postCount: { gt: 1 }
+        slug: {
+          in: [
+            "data-analysis-pandas"
+            "code-snippet-corner"
+            "mapping-data-with-mapbox"
+            "learning-apache-spark"
+            "welcome-to-sql"
+            "web-scraping-with-python"
+          ]
         }
       }
-      analysis: allGhostTag(sort: {order: DESC, fields: postCount}, filter: {visibility: {eq: "internal"}, postCount: {gt: 1}, slug: {in: ["adventures-in-excel", "microsoft-powerpivot", "hacking-tableau-server"]}}) {
-        edges {
-          node {
-            id
-            slug
-            postCount
-            feature_image
-            description
-            name
-          }
+    ) {
+      edges {
+        node {
+          id
+          slug
+          postCount
+          feature_image
+          description
+          name
         }
       }
-    }`
+    }
+    software: allGhostTag(
+      sort: { order: DESC, fields: postCount }
+      filter: {
+        visibility: { eq: "internal" }
+        postCount: { gt: 1 }
+        slug: {
+          in: [
+            "build-flask-apps"
+            "starting-django"
+            "mastering-sqlalchemy"
+            "graphql-hype"
+            "working-with-mysql"
+          ]
+        }
+      }
+    ) {
+      edges {
+        node {
+          id
+          slug
+          postCount
+          feature_image
+          description
+          name
+        }
+      }
+    }
+    cloud: allGhostTag(
+      sort: { order: DESC, fields: postCount }
+      filter: {
+        visibility: { eq: "internal" }
+        postCount: { gt: 1 }
+        slug: {
+          in: ["the-rise-of-google-cloud", "create-an-aws-api", "mongodb-cloud"]
+        }
+      }
+    ) {
+      edges {
+        node {
+          id
+          slug
+          postCount
+          feature_image
+          description
+          name
+        }
+      }
+    }
+    analysis: allGhostTag(
+      sort: { order: DESC, fields: postCount }
+      filter: {
+        visibility: { eq: "internal" }
+        postCount: { gt: 1 }
+        slug: {
+          in: [
+            "adventures-in-excel"
+            "microsoft-powerpivot"
+            "hacking-tableau-server"
+          ]
+        }
+      }
+    ) {
+      edges {
+        node {
+          id
+          slug
+          postCount
+          feature_image
+          description
+          name
+        }
+      }
+    }
+  }
+`;
 
-export default SeriesArchive
+export default SeriesArchive;

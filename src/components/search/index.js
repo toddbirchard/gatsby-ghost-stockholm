@@ -1,2 +1,2 @@
-export { default as Search } from './Search'
-export { default as SearchHit } from './SearchHit'
+export { default as Search } from './Search';
+export { default as SearchHit } from './SearchHit';

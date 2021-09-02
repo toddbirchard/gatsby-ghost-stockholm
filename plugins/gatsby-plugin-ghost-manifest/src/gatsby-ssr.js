@@ -1,16 +1,16 @@
-import React from "react"
-import { withPrefix } from "gatsby"
-import { defaultIcons } from "./common.js"
+import React from "react";
+import { withPrefix } from "gatsby";
+import { defaultIcons } from "./common.js";
 
 exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
   // We use this to build a final array to pass as the argument to setHeadComponents at the end of onRenderBody.
-  let headComponents = []
+  let headComponents = [];
 
-  const icons = pluginOptions.icons || defaultIcons
+  const icons = pluginOptions.icons || defaultIcons;
 
   // If icons were generated, also add a favicon link.
   if (pluginOptions.icon) {
-    let favicon = icons && icons.length ? icons[0].src : null
+    let favicon = icons && icons.length ? icons[0].src : null;
 
     if (favicon) {
       headComponents.push(
@@ -19,7 +19,7 @@ exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
           rel="shortcut icon"
           href={withPrefix(favicon)}
         />
-      )
+      );
     }
   }
 
@@ -30,14 +30,14 @@ exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
       rel="manifest"
       href={withPrefix(`/manifest.webmanifest`)}
     />
-  )
+  );
   // The user has an option to opt out of the theme_color meta tag being inserted into the head.
   if (pluginOptions.theme_color) {
     let insertMetaTag = Object.keys(pluginOptions).includes(
       `theme_color_in_head`
     )
       ? pluginOptions.theme_color_in_head
-      : true
+      : true;
 
     if (insertMetaTag) {
       headComponents.push(
@@ -46,22 +46,22 @@ exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
           name="theme-color"
           content={pluginOptions.theme_color}
         />
-      )
+      );
     }
   }
 
   if (pluginOptions.legacy) {
-    const iconLinkTags = icons.map(icon => (
+    const iconLinkTags = icons.map((icon) => (
       <link
         key={`gatsby-plugin-manifest-apple-touch-icon-${icon.sizes}`}
         rel="apple-touch-icon"
         sizes={icon.sizes}
         href={withPrefix(`${icon.src}`)}
       />
-    ))
+    ));
 
-    headComponents = [...headComponents, ...iconLinkTags]
+    headComponents = [...headComponents, ...iconLinkTags];
   }
 
-  setHeadComponents(headComponents)
-}
+  setHeadComponents(headComponents);
+};

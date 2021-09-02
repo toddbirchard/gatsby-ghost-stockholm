@@ -1,46 +1,56 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import { FaListUl } from 'react-icons/fa'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import { FaListUl } from 'react-icons/fa';
 
 const CourseCard = ({ course, page }) => {
-  const url = `/series/${course.slug}/`
-  const image = course.feature_image
-  const name = course.name.replace(`#`, ``)
-  const description = course.description
-  const postCount = course.postCount
-  const courseTags = page && page.tags
-  const tags = courseTags && courseTags.filter(function (tag) {
-    return tag.name.indexOf(`#`) === -1
-  })
+  const url = `/series/${course.slug}/`;
+  const image = course.feature_image;
+  const name = course.name.replace(`#`, ``);
+  const description = course.description;
+  const postCount = course.postCount;
+  const courseTags = page && page.tags;
+  const tags =
+    courseTags &&
+    courseTags.filter(function (tag) {
+      return tag.name.indexOf(`#`) === -1;
+    });
 
   return (
     <>
       <Link to={url} className="series-card">
         <div>
           <div className="series-card-image-wrapper">
-            <img className="series-card-image lazyload" alt={name} data-src={image} title={name}/>
+            <img
+              className="series-card-image lazyload"
+              alt={name}
+              data-src={image}
+              title={name}
+            />
           </div>
 
           <div className="series-card-info">
             <h3 className="series-card-title">{name}</h3>
-            {tags !== undefined ?
+            {tags !== undefined ? (
               <div className="series-topics">
-                {tags.map(tag => (
-                  <div className="topic" key={tag.slug}>{tag.name}</div>
+                {tags.map((tag) => (
+                  <div className="topic" key={tag.slug}>
+                    {tag.name}
+                  </div>
                 ))}
-              </div> : null}
+              </div>
+            ) : null}
             <p className="series-card-description">{description}</p>
           </div>
         </div>
 
         <div className="series-card-count">
-          <FaListUl/> <span>{postCount} Posts</span>
+          <FaListUl /> <span>{postCount} Posts</span>
         </div>
       </Link>
     </>
-  )
-}
+  );
+};
 
 CourseCard.propTypes = {
   course: PropTypes.shape({
@@ -64,6 +74,6 @@ CourseCard.propTypes = {
       ),
     }),
   }),
-}
+};
 
-export default CourseCard
+export default CourseCard;

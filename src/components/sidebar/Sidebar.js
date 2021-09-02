@@ -1,16 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { AboutWidget,
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  AboutWidget,
   NewsletterWidget,
   SocialWidget,
   TagsWidget,
   TrendingWidget,
   CoffeeWidget,
-  TwitterWidget } from '.'
+  TwitterWidget,
+} from '.';
 
 /**
  * Sidebar
-*/
+ */
 
 const Sidebar = ({ site, template }) => (
   <>
@@ -21,11 +23,11 @@ const Sidebar = ({ site, template }) => (
       <TagsWidget />
       <NewsletterWidget />
       <CoffeeWidget />
-      {/*template === `home-template` ? <GithubWidget /> : null*/}
+      {/* template === `home-template` ? <GithubWidget /> : null*/}
       {template === `home-template` ? <TwitterWidget /> : null}
     </aside>
   </>
-)
+);
 
 Sidebar.propTypes = {
   site: PropTypes.shape({
@@ -37,6 +39,6 @@ Sidebar.propTypes = {
   }).isRequired,
   template: PropTypes.string.isRequired,
   authorData: PropTypes.object,
-}
+};
 
-export default Sidebar
+export default Sidebar;

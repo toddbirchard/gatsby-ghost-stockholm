@@ -65,7 +65,7 @@ exports.onPostBuild = /*#__PURE__*/function () {
             } // Determine destination path for icons.
 
 
-            iconPath = path.join("public", path.dirname(manifest.icons[0].src)); //create destination directory if it doesn't exist
+            iconPath = path.join("public", path.dirname(manifest.icons[0].src)); // create destination directory if it doesn't exist
 
             if (!fs.existsSync(iconPath)) {
               fs.mkdirSync(iconPath);
@@ -80,7 +80,7 @@ exports.onPostBuild = /*#__PURE__*/function () {
               }
 
               generateIcons(manifest.icons, icon).then(function () {
-                //images have been generated
+                // images have been generated
                 console.log("done generating icons for manifest");
                 Promise.resolve();
               });

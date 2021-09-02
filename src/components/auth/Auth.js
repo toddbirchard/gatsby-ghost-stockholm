@@ -1,14 +1,20 @@
-import React from 'react'
+import React from 'react';
 // import netlifyIdentity from 'netlify-identity-widget'
-import IdentityModal, { useIdentityContext } from "react-netlify-identity-widget"
+import IdentityModal, {
+  useIdentityContext,
+} from 'react-netlify-identity-widget';
 
 const Auth = ({ children }) => {
-  const [dialog, setDialog] = React.useState(false)
-  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false);
+  const identity = useIdentityContext();
   const name =
-    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || `NoName`
+    (identity &&
+      identity.user &&
+      identity.user.user_metadata &&
+      identity.user.user_metadata.name) ||
+    `NoName`;
 
-  const isLoggedIn = identity && identity.isLoggedIn
+  const isLoggedIn = identity && identity.isLoggedIn;
   return (
     <>
       <div className="login-button">
@@ -18,12 +24,15 @@ const Auth = ({ children }) => {
         </div>
       </div>
       <main>{children}</main>
-      <IdentityModal showDialog={dialog} onCloseDialog={() => setDialog(false)} />
+      <IdentityModal
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+      />
     </>
-  )
-}
+  );
+};
 
-/*const netlifyAuth = {
+/* const netlifyAuth = {
   isAuthenticated: false,
   user: null,
   authenticate(callback) {
@@ -44,7 +53,7 @@ const Auth = ({ children }) => {
   },
 }
 */
-/*const AuthButton = withRouter(
+/* const AuthButton = withRouter(
   ({ history }) => (netlifyAuth.isAuthenticated ? (
 
     <p>
@@ -62,7 +71,7 @@ const Auth = ({ children }) => {
   ))
 )*/
 
-/*function PrivateRoute({ component: Component, ...rest }) {
+/* function PrivateRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
@@ -74,7 +83,7 @@ const Auth = ({ children }) => {
   )
 }*/
 
-/*class Login extends React.Component {
+/* class Login extends React.Component {
   state = { redirectToReferrer: false };
 
   login = () => {
@@ -101,4 +110,4 @@ const Auth = ({ children }) => {
 }
 */
 
-export default Auth
+export default Auth;
