@@ -89,6 +89,9 @@ MetaData.propTypes = {
   }).isRequired,
   settings: PropTypes.shape({
     allGhostSettings: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    cover_image: PropTypes.string,
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
@@ -96,6 +99,7 @@ MetaData.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  pageContext: PropTypes.object,
 };
 
 const MetaDataQuery = (props) => (

@@ -3,6 +3,7 @@ import React from 'react';
 import IdentityModal, {
   useIdentityContext,
 } from 'react-netlify-identity-widget';
+import PropTypes from "prop-types"
 
 const Auth = ({ children }) => {
   const [dialog, setDialog] = React.useState(false);
@@ -109,5 +110,9 @@ const Auth = ({ children }) => {
   }
 }
 */
+
+Auth.propTypes = {
+  children: PropTypes.object
+}
 
 export default Auth;

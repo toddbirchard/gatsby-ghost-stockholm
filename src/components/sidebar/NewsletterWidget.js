@@ -36,8 +36,7 @@ const NewsletterWidget = () => {
         <form
           name="newsletter"
           method="POST"
-          netlify="true"
-          data-netlify="true"
+          netlify
           netlify-honeypot="phone-number"
           onSubmit={handleSubmit}
         >
