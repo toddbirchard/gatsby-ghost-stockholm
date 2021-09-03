@@ -33,10 +33,7 @@
       "error", 2
     ],
     "no-anonymous-exports-page-templates": "warn",
-    "limited-exports-page-templates": "warn",
-    "semi": [
-      "error",
-      "never"
+    "limited-exports-page-templates": "warn"
     ]
   }
 }
