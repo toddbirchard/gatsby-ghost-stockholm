@@ -220,13 +220,13 @@ module.exports = {
         },
         eslint: {
           patterns: [], // string or array of paths/files/globs to include related only to ESLint
-          ignorePatterns: [], // string or array of paths/files/globs to exclude related only to ESLint
+          ignorePatterns: ["node_modules", ".cache", "public", "plugins"], // string or array of paths/files/globs to exclude related only to ESLint
           formatter: "stylish", // set custom or third party formatter
           maxWarnings: undefined, // number of max warnings allowed, when exceed it will fail Gatsby build
           emitWarning: true, // if true, will emit lint warnings
           failOnError: false, // if true, any lint error will fail the build, you may set true only in your prod config
           failOnWarning: false, // same as failOnError but for warnings
-          plugins: [`eslint-plugin-react`, `eslint-plugin-ghost`, ], // an array of plugins to load for ESLint
+          plugins: [`eslint-plugin-react`, `eslint-plugin-ghost`], // an array of plugins to load for ESLint
           customOptions: {
             "indent": [
               "error", 2
