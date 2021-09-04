@@ -7,6 +7,8 @@ import * as Showdown from 'showdown';
 import IdentityModal, {
   useIdentityContext,
 } from 'react-netlify-identity-widget';
+import fetch from 'node-fetch'
+
 
 function encode(data) {
   return Object.keys(data)
