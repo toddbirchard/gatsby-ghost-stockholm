@@ -62,7 +62,7 @@
     "babel-plugin-prismjs": "^2.1.0",
     "basiclightbox": "^5.0.4",
     "bluebird": "^3.7.2",
-    "browserslist": "^4.16.8",
+    "browserslist": "^4.17.0",
     "cheerio": "1.0.0-rc.10",
     "cssnano": "^5.0.8",
     "dotenv": "^10.0.0",

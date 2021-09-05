@@ -4,13 +4,13 @@
   "version": "0.0.1",
   "author": "Ghost Foundation",
   "dependencies": {
-    "@babel/runtime": "7.15.3",
+    "@babel/runtime": "7.15.4",
     "bluebird": "3.7.2",
     "sharp": "^0.29.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.14.8",
-    "@babel/core": "7.15.0",
+    "@babel/cli": "7.15.4",
+    "@babel/core": "7.15.5",
     "babel-preset-gatsby-package": "1.13.0",
     "cross-env": "7.0.3"
   },
@@ -23,7 +23,7 @@
     "pwa"
   ],
   "resolutions": {
-    "sharp": "0.25.4"
+    "sharp": "0.29.0"
   },
   "license": "MIT",
   "main": "index.js",
