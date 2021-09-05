@@ -69,7 +69,7 @@
     "gatsby": "^3.13.0",
     "gatsby-cli": "^3.13.0",
     "gatsby-awesome-pagination": "0.3.8",
-    "gatsby-plugin-advanced-sitemap": "^1.6.0",
+    "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-algolia": "^0.22.1",
     "gatsby-plugin-canonical-urls": "^2.10.0",
     "gatsby-plugin-catch-links": "^2.10.0",
