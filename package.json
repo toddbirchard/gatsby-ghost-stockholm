@@ -71,7 +71,7 @@
     "gatsby-awesome-pagination": "0.3.8",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-algolia": "^0.22.1",
-    "gatsby-plugin-canonical-urls": "^2.10.0",
+    "gatsby-plugin-canonical-urls": "^3.13.3",
     "gatsby-plugin-catch-links": "^2.10.0",
     "gatsby-plugin-eslint": "^4.0.0",
     "gatsby-plugin-feed": "^2.13.1",
