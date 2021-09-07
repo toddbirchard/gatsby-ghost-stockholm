@@ -33,7 +33,7 @@ install:
 
 .PHONY: build
 build:
-	gatsby install
+	make install
 	gatsby build
 
 .PHONY: serve
