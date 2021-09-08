@@ -112,7 +112,7 @@
     "react-netlify-identity": "^0.2.5",
     "react-netlify-identity-widget": "0.2.7",
     "react-player": "^2.9.0",
-    "sharp": "^0.29.0",
+    "sharp": "^0.29.1",
     "showdown": "^1.9.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
