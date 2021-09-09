@@ -21,8 +21,8 @@ const SearchHit = ({ hit }) => {
       <div className="search-result">
         <div className="image-wrapper">
           <img
-            className="search-result-image lazyload"
-            data-src={featureMobileImage}
+            className="search-result-image"
+            src={featureMobileImage}
             alt={hit.title}
             title={hit.title}
           />
