@@ -1,4 +1,4 @@
-# Stockholm
+# Gatsby Ghost Stockholm
 
 GatsbyJS theme for sites to be sourced primarily from Ghost CMS.
 
@@ -20,7 +20,7 @@ Get up running with `make serve`:
 
 ```shell
 $ git clone https://github.com/hackersandslackers/gatsby-ghost-stockholm.git
-$ cd
+$ cd gatsby-ghost-stockholm
 $ make serve
 ``` 
 
