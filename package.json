@@ -100,7 +100,7 @@
     "netlify-identity-widget": "^1.9.2",
     "node-notifier": "^v10.0.0",
     "pify": "^5.0.0",
-    "prismjs": "^1.24.1",
+    "prismjs": "^1.25.0",
     "prop-types": "^15.7.2",
     "qs": "^6.10.1",
     "react": "^17.0.2",
