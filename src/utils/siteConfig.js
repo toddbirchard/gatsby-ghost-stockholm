@@ -38,4 +38,4 @@ module.exports = {
     buyMeACoffee: `https://buymeacoff.ee/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
   },
-};
+}

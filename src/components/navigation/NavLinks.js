@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import config from '../../utils/siteConfig';
-import { Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import config from '../../utils/siteConfig'
+import { Link } from 'gatsby'
 // import AuthButton from "../auth/AuthButton"
 
 const NavLinks = ({ navigation }) => (
@@ -19,7 +19,7 @@ const NavLinks = ({ navigation }) => (
             >
               {navItem.label}
             </a>
-          );
+          )
         } else if (navItem.url.includes(`coffee`)) {
           return (
             <a
@@ -31,7 +31,7 @@ const NavLinks = ({ navigation }) => (
             >
               {navItem.label}
             </a>
-          );
+          )
         } else {
           return (
             <Link
@@ -41,13 +41,13 @@ const NavLinks = ({ navigation }) => (
             >
               {navItem.label}
             </Link>
-          );
+          )
         }
       })}
       {/* <AuthButton />*/}
     </div>
   </>
-);
+)
 
 NavLinks.propTypes = {
   navigation: PropTypes.arrayOf(
@@ -56,6 +56,6 @@ NavLinks.propTypes = {
       url: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-};
+}
 
-export default NavLinks;
+export default NavLinks

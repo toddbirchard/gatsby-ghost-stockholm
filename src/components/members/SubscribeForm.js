@@ -1,39 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FaArrowRight, FaRegTimesCircle } from 'react-icons/fa';
-import LoaderIcon from './icons/loader-icon';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { FaArrowRight, FaRegTimesCircle } from 'react-icons/fa'
+import LoaderIcon from './icons/loader-icon'
 
 class SubscribeForm extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       value: ``,
       message: ``,
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDismiss = this.handleDismiss.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleDismiss = this.handleDismiss.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ value: event.target.value })
   }
 
   handleDismiss() {
-    this.setState({ message: `` });
+    this.setState({ message: `` })
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
-    const cmsUrl = this.props.url;
-    const postURL = `${cmsUrl}members/api/send-magic-link/`;
+    const cmsUrl = this.props.url
+    const postURL = `${cmsUrl}members/api/send-magic-link/`
 
     const values = {
       email: this.state.value,
       emailType: `subscribe`,
       labels: [],
-    };
+    }
 
     fetch(postURL, {
       method: `POST`,
@@ -42,15 +42,15 @@ class SubscribeForm extends React.Component {
       body: JSON.stringify(values),
     })
       .then(() => {
-        this.setState({ message: `success` });
+        this.setState({ message: `success` })
       })
       .catch(() => {
-        this.setState({ message: `error` });
-      });
+        this.setState({ message: `error` })
+      })
   }
 
   render() {
-    const text = this.props.text;
+    const text = this.props.text
 
     return (
       <div className={this.state.message}>
@@ -64,7 +64,7 @@ class SubscribeForm extends React.Component {
             className="close-announcement"
             onClick={() => this.handleDismiss()}
           >
-            <FaRegTimesCircle />
+            <FaRegTimesCircle/>
           </div>
         </div>
         <div className="announcement message-error">
@@ -73,7 +73,7 @@ class SubscribeForm extends React.Component {
             className="close-announcement"
             onClick={() => this.handleDismiss()}
           >
-            <FaRegTimesCircle />
+            <FaRegTimesCircle/>
           </div>
         </div>
         <form data-members-form="subscribe" onSubmit={this.handleSubmit}>
@@ -95,20 +95,20 @@ class SubscribeForm extends React.Component {
             <button className="widget-button" type="submit" value="Submit">
               <span className="button-content">{text(`SUBSCRIBE`)}</span>
               <span className="button-loader">
-                <LoaderIcon />
+                <LoaderIcon/>
               </span>
-              <FaArrowRight />
+              <FaArrowRight/>
             </button>
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
 SubscribeForm.propTypes = {
   url: PropTypes.string.isRequired,
   text: PropTypes.func.isRequired,
-};
+}
 
-export default SubscribeForm;
+export default SubscribeForm

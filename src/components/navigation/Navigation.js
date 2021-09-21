@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import Search from '../search/Search';
-import NavLinks from './NavLinks';
-import MobileMenu from './Mobile/MobileMenu';
-import SearchMenu from './Mobile/SearchMenu';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import Search from '../search/Search'
+import NavLinks from './NavLinks'
+import MobileMenu from './Mobile/MobileMenu'
+import SearchMenu from './Mobile/SearchMenu'
 
 /**
  * Navigation component
@@ -24,7 +24,7 @@ const Navigation = ({ data, icon }) => (
         <div className="nav-left">
           <Link to="/">
             <picture>
-              <source data-srcset={icon} />
+              <source data-srcset={icon}/>
               <img
                 data-src={icon}
                 alt={`Hackers and Slackers Logo`}
@@ -33,17 +33,17 @@ const Navigation = ({ data, icon }) => (
               />
             </picture>
           </Link>
-          <NavLinks navigation={data} />
+          <NavLinks navigation={data}/>
         </div>
         <div className="nav-right">
-          <Search collapse className="search-widget" />
-          <SearchMenu />
-          <MobileMenu />
+          <Search collapse className="search-widget"/>
+          <SearchMenu/>
+          <MobileMenu/>
         </div>
       </div>
     </nav>
   </>
-);
+)
 
 Navigation.propTypes = {
   data: PropTypes.arrayOf(
@@ -53,6 +53,6 @@ Navigation.propTypes = {
   ).isRequired,
   icon: PropTypes.string.isRequired,
   template: PropTypes.string,
-};
+}
 
-export default Navigation;
+export default Navigation

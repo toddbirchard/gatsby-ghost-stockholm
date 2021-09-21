@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { FaListUl } from 'react-icons/fa';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { FaListUl } from 'react-icons/fa'
 
 const CourseCard = ({ course, page }) => {
-  const url = `/series/${course.slug}/`;
-  const image = course.feature_image;
-  const name = course.name.replace(`#`, ``);
-  const description = course.description;
-  const postCount = course.postCount;
-  const courseTags = page && page.tags;
+  const url = `/series/${course.slug}/`
+  const image = course.feature_image
+  const name = course.name.replace(`#`, ``)
+  const description = course.description
+  const postCount = course.postCount
+  const courseTags = page && page.tags
   const tags =
     courseTags &&
     courseTags.filter(function (tag) {
-      return tag.name.indexOf(`#`) === -1;
-    });
+      return tag.name.indexOf(`#`) === -1
+    })
 
   return (
     <>
@@ -45,12 +45,12 @@ const CourseCard = ({ course, page }) => {
         </div>
 
         <div className="series-card-count">
-          <FaListUl /> <span>{postCount} Posts</span>
+          <FaListUl/> <span>{postCount} Posts</span>
         </div>
       </Link>
     </>
-  );
-};
+  )
+}
 
 CourseCard.propTypes = {
   course: PropTypes.shape({
@@ -74,6 +74,6 @@ CourseCard.propTypes = {
       ),
     }),
   }),
-};
+}
 
-export default CourseCard;
+export default CourseCard

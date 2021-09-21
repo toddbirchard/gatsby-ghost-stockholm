@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import * as Showdown from 'showdown';
-import { AiOutlineUser } from 'react-icons/ai';
-import { IoArrowUndoOutline, IoArrowUpCircleOutline } from 'react-icons/io5';
+import React from 'react'
+import PropTypes from 'prop-types'
+import * as Showdown from 'showdown'
+import { AiOutlineUser } from 'react-icons/ai'
+import { IoArrowUndoOutline, IoArrowUpCircleOutline } from 'react-icons/io5'
 
 const converter = new Showdown.Converter({
   tables: true,
@@ -12,13 +12,13 @@ const converter = new Showdown.Converter({
   code: true,
   ghMentions: true,
   emoji: true,
-});
+})
 
 const Comment = ({ comment }) => {
-  const userIsAuthor = comment && comment.user_role === `author`;
-  const userIsModerator = comment && comment.user_role === `moderator`;
-  const commentBody = converter.makeHtml(comment.body);
-  const authorAvatar = comment.user_avatar && comment.user_avatar;
+  const userIsAuthor = comment && comment.user_role === `author`
+  const userIsModerator = comment && comment.user_role === `moderator`
+  const commentBody = converter.makeHtml(comment.body)
+  const authorAvatar = comment.user_avatar && comment.user_avatar
 
   return (
     <div className="comment" key={comment.id}>
@@ -52,10 +52,10 @@ const Comment = ({ comment }) => {
 
           <div className="comment-actions">
             <button className="comment-action">
-              <IoArrowUndoOutline />
+              <IoArrowUndoOutline/>
             </button>
             <button className="comment-action">
-              <IoArrowUpCircleOutline />
+              <IoArrowUpCircleOutline/>
             </button>
           </div>
         </div>
@@ -69,8 +69,8 @@ const Comment = ({ comment }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 Comment.propTypes = {
   comment: PropTypes.shape({
@@ -87,6 +87,6 @@ Comment.propTypes = {
       email: PropTypes.string,
     }),
   ),
-};
+}
 
-export default Comment;
+export default Comment

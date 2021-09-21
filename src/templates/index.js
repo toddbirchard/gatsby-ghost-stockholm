@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { Layout, PostCard } from '../components/common';
-import { Pagination } from '../components/navigation';
-import { MetaData } from '../components/common/meta';
-import config from '../utils/siteConfig';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import { Layout, PostCard } from '../components/common'
+import { Pagination } from '../components/navigation'
+import { MetaData } from '../components/common/meta'
+import config from '../utils/siteConfig'
 
 /**
  * Main index page (home page)
@@ -15,19 +15,19 @@ import config from '../utils/siteConfig';
  *
  */
 const Index = ({ data, location, pageContext }) => {
-  const posts = data.allGhostPost.edges;
-  const pageNumber = pageContext.pageNumber;
-  const baseTitle = config.siteTitleMeta;
+  const posts = data.allGhostPost.edges
+  const pageNumber = pageContext.pageNumber
+  const baseTitle = config.siteTitleMeta
   const title =
     pageContext.pageNumber > 0
       ? baseTitle +
-        ` (page ` +
-        pageNumber +
-        ` of ` +
-        pageContext.numberOfPages +
-        `)`
-      : baseTitle;
-  const description = config.siteDescriptionMeta;
+      ` (page ` +
+      pageNumber +
+      ` of ` +
+      pageContext.numberOfPages +
+      `)`
+      : baseTitle
+  const description = config.siteDescriptionMeta
 
   return (
     <>
@@ -42,7 +42,7 @@ const Index = ({ data, location, pageContext }) => {
         <main className="site-main">
           <section className="post-feed">
             {posts.map(({ node }) => (
-              <PostCard key={node.id} post={node} />
+              <PostCard key={node.id} post={node}/>
             ))}
             <Pagination
               pageContext={pageContext}
@@ -53,8 +53,8 @@ const Index = ({ data, location, pageContext }) => {
         </main>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 Index.propTypes = {
   data: PropTypes.shape({
@@ -64,9 +64,9 @@ Index.propTypes = {
     pathname: PropTypes.string.isRequired,
   }).isRequired,
   pageContext: PropTypes.object,
-};
+}
 
-export default Index;
+export default Index
 
 // This page query loads all posts sorted descending by published date
 // The `limit` and `skip` values are used for pagination
@@ -92,4 +92,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

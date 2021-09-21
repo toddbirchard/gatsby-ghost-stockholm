@@ -1,6 +1,6 @@
-import React from 'react';
-import { FaArrowRight } from 'react-icons/fa';
-import { navigate } from 'gatsby';
+import React from 'react'
+import { FaArrowRight } from 'react-icons/fa'
+import { navigate } from 'gatsby'
 
 /**
  * Newsletter widget
@@ -9,13 +9,13 @@ import { navigate } from 'gatsby';
 function encode(data) {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
-    .join(`&`);
+    .join(`&`)
 }
 
 const NewsletterWidget = () => {
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
+    e.preventDefault()
+    const form = e.target
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
@@ -26,8 +26,8 @@ const NewsletterWidget = () => {
       }),
     })
       .then(() => navigate(`/subscribed/`))
-      .catch((error) => console.log(error));
-  };
+      .catch((error) => console.log(error))
+  }
 
   return (
     <>
@@ -80,12 +80,12 @@ const NewsletterWidget = () => {
             />
           </fieldset>
           <button type="submit" className="newsletter-button">
-            <span>Sign Up</span> <FaArrowRight />
+            <span>Sign Up</span> <FaArrowRight/>
           </button>
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default NewsletterWidget;
+export default NewsletterWidget

@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const SearchHit = ({ hit }) => {
-  const featureImage = hit.feature_image;
-  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`);
+  const featureImage = hit.feature_image
+  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
   const featureMobileImage =
     featureImageSlash &&
     [
@@ -14,7 +14,7 @@ const SearchHit = ({ hit }) => {
     ]
       .join(``)
       .replace(`.jpg`, `@2x.jpg`)
-      .replace(`.png`, `@2x.png`);
+      .replace(`.png`, `@2x.png`)
 
   return (
     <Link to={`/${hit.slug}/`}>
@@ -46,8 +46,8 @@ const SearchHit = ({ hit }) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}
 
 SearchHit.propTypes = {
   hit: PropTypes.shape({
@@ -56,6 +56,6 @@ SearchHit.propTypes = {
     feature_image: PropTypes.string,
     primary_tag: PropTypes.object,
   }).isRequired,
-};
+}
 
-export default SearchHit;
+export default SearchHit

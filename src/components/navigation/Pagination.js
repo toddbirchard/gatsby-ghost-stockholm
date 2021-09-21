@@ -1,19 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const Pagination = ({ pageContext, metaTitle, template }) => {
   const { previousPagePath, nextPagePath, currentPage, numberOfPages } =
-    pageContext;
+    pageContext
   const title =
     pageContext.pageNumber > 0
       ? metaTitle +
-        ` (page ` +
-        pageContext.pageNumber +
-        ` of ` +
-        numberOfPages +
-        `)`
-      : metaTitle;
+      ` (page ` +
+      pageContext.pageNumber +
+      ` of ` +
+      numberOfPages +
+      `)`
+      : metaTitle
 
   return (
     <>
@@ -38,13 +38,13 @@ const Pagination = ({ pageContext, metaTitle, template }) => {
         )}
       </nav>
     </>
-  );
-};
+  )
+}
 
 Pagination.propTypes = {
   pageContext: PropTypes.object.isRequired,
   metaTitle: PropTypes.string,
   template: PropTypes.string,
-};
+}
 
-export default Pagination;
+export default Pagination

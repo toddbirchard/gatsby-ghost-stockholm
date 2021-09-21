@@ -1,31 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 import {
   AiOutlineTwitter,
   AiFillMediumSquare,
   AiOutlineGithub,
   AiFillFacebook,
-} from 'react-icons/ai';
-import { FaDev } from 'react-icons/fa';
-import { FiRss } from 'react-icons/fi';
-import { BiCoffeeTogo } from 'react-icons/bi';
+} from 'react-icons/ai'
+import { FaDev } from 'react-icons/fa'
+import { FiRss } from 'react-icons/fi'
+import { BiCoffeeTogo } from 'react-icons/bi'
 
 /**
  * Social widget
  */
 
 const SocialWidget = ({ data }) => {
-  const socialNav = data.ghostSettings.secondary_navigation;
+  const socialNav = data.ghostSettings.secondary_navigation
   const icons = {
-    twitter: <AiOutlineTwitter />,
-    facebook: <AiFillFacebook />,
-    github: <AiOutlineGithub />,
-    buymeacoffee: <BiCoffeeTogo />,
-    medium: <AiFillMediumSquare />,
-    'dev.to': <FaDev />,
-    rss: <FiRss />,
-  };
+    twitter: <AiOutlineTwitter/>,
+    facebook: <AiFillFacebook/>,
+    github: <AiOutlineGithub/>,
+    buymeacoffee: <BiCoffeeTogo/>,
+    medium: <AiFillMediumSquare/>,
+    'dev.to': <FaDev/>,
+    rss: <FiRss/>,
+  }
 
   return (
     <>
@@ -43,8 +43,8 @@ const SocialWidget = ({ data }) => {
         ))}
       </div>
     </>
-  );
-};
+  )
+}
 
 SocialWidget.propTypes = {
   data: PropTypes.shape({
@@ -57,7 +57,7 @@ SocialWidget.propTypes = {
       ),
     }),
   }),
-};
+}
 
 const SocialWidgetQuery = (props) => (
   <StaticQuery
@@ -73,6 +73,6 @@ const SocialWidgetQuery = (props) => (
     `}
     render={(data) => <SocialWidget data={data} {...props} />}
   />
-);
+)
 
-export default SocialWidgetQuery;
+export default SocialWidgetQuery

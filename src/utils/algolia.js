@@ -30,15 +30,15 @@ const postQuery = `{
       }
     }
   }
-}`;
+}`
 
 const flatten = (arr) =>
   arr.map(({ node: { frontmatter, ...rest } }) => {
     return {
       ...frontmatter,
       ...rest,
-    };
-  });
+    }
+  })
 
 const queries = [
   {
@@ -46,6 +46,6 @@ const queries = [
     transformer: ({ data }) => flatten(data.posts.edges), // optional
     indexName: `hackers_posts`,
   },
-];
+]
 
-module.exports = queries;
+module.exports = queries

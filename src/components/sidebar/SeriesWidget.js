@@ -1,18 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql, Link } from 'gatsby';
-import { FaChartLine } from 'react-icons/fa';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql, Link } from 'gatsby'
+import { FaChartLine } from 'react-icons/fa'
 
 const SeriesWidget = ({ data }) => {
-  const series = data.ghostTag;
-  const url = `/series/${series.slug}/`;
-  const title = series.name.replace(`#`, ``);
+  const series = data.ghostTag
+  const url = `/series/${series.slug}/`
+  const title = series.name.replace(`#`, ``)
 
   return (
     <div className="widget series">
       <div className="widget-trending-header">
         <div className="trending">
-          <FaChartLine /> <span>Trending</span>
+          <FaChartLine/> <span>Trending</span>
         </div>
         <div className="trend-type">Top Series This Week</div>
       </div>
@@ -40,8 +40,8 @@ const SeriesWidget = ({ data }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 SeriesWidget.propTypes = {
   data: PropTypes.shape({
@@ -53,7 +53,7 @@ SeriesWidget.propTypes = {
       postCount: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
-};
+}
 
 const SeriesWidgetQuery = (props) => (
   <StaticQuery
@@ -70,6 +70,6 @@ const SeriesWidgetQuery = (props) => (
     `}
     render={(data) => <SeriesWidget data={data} {...props} />}
   />
-);
+)
 
-export default SeriesWidgetQuery;
+export default SeriesWidgetQuery

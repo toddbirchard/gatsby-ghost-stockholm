@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const LoaderIcon = () => (
   <svg
@@ -34,6 +34,6 @@ const LoaderIcon = () => (
       />
     </path>
   </svg>
-);
+)
 
-export default LoaderIcon;
+export default LoaderIcon

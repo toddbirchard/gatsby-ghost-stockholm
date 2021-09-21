@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, StaticQuery, graphql } from 'gatsby';
-import config from '../../utils/siteConfig';
-import SocialWidget from '../sidebar/SocialWidget';
-import AuthButton from '../auth/AuthButton';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, StaticQuery, graphql } from 'gatsby'
+import config from '../../utils/siteConfig'
+import SocialWidget from '../sidebar/SocialWidget'
+import AuthButton from '../auth/AuthButton'
 
 const Footer = ({ navigation, site, data }) => {
-  const authorLinks = data.authors.edges;
-  const seriesLinks = data.series.edges;
-  const logo = site.logo;
-  const description = site.description;
+  const authorLinks = data.authors.edges
+  const seriesLinks = data.series.edges
+  const logo = site.logo
+  const description = site.description
 
   return (
     <>
@@ -45,7 +45,7 @@ const Footer = ({ navigation, site, data }) => {
                     >
                       {navItem.label}
                     </a>
-                  );
+                  )
                 } else if (navItem.url.includes(config.siteUrl)) {
                   return (
                     <Link
@@ -55,7 +55,7 @@ const Footer = ({ navigation, site, data }) => {
                     >
                       {navItem.label}
                     </Link>
-                  );
+                  )
                 } else {
                   return (
                     <a
@@ -67,10 +67,10 @@ const Footer = ({ navigation, site, data }) => {
                     >
                       {navItem.label}
                     </a>
-                  );
+                  )
                 }
               })}
-              <AuthButton styleClass="footer-navigation-link" />
+              <AuthButton styleClass="footer-navigation-link"/>
             </div>
             <div className="widget series">
               <span className="footer-widget-title">Series</span>
@@ -98,14 +98,14 @@ const Footer = ({ navigation, site, data }) => {
             </div>
           </div>
           <div className="subfooter">
-            <SocialWidget site={site} />
+            <SocialWidget site={site}/>
             <div className="copyright">{config.siteCopyright}</div>
           </div>
         </div>
       </footer>
     </>
-  );
-};
+  )
+}
 
 Footer.propTypes = {
   data: PropTypes.shape({
@@ -126,7 +126,7 @@ Footer.propTypes = {
       name: PropTypes.string,
     }),
   ).isRequired,
-};
+}
 
 const FooterQuery = (props) => (
   <StaticQuery
@@ -191,6 +191,6 @@ const FooterQuery = (props) => (
     `}
     render={(data) => <Footer data={data} {...props} />}
   />
-);
+)
 
-export default FooterQuery;
+export default FooterQuery

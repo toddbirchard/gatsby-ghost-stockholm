@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { graphql, StaticQuery } from 'gatsby';
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import { graphql, StaticQuery } from 'gatsby'
 import {
   InstantSearch,
   SearchBox,
@@ -10,28 +10,28 @@ import {
   SortBy,
   RefinementList,
   Panel,
-} from 'react-instantsearch-dom';
-import { FaArrowRight, FaArrowLeft, FaSearch } from 'react-icons/fa';
-import algoliasearch from 'algoliasearch';
-import qs from 'qs';
-import { MetaData } from '../components/common/meta';
-import { Layout, PostCard } from '../components/common';
-import '../styles/pages/search.less';
+} from 'react-instantsearch-dom'
+import { FaArrowRight, FaArrowLeft, FaSearch } from 'react-icons/fa'
+import algoliasearch from 'algoliasearch'
+import qs from 'qs'
+import { MetaData } from '../components/common/meta'
+import { Layout, PostCard } from '../components/common'
+import '../styles/pages/search.less'
 
 const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
   process.env.GATSBY_ALGOLIA_SEARCH_KEY,
-);
-const createURL = (state) => `?${qs.stringify(state)}`;
-const urlToSearchState = (location) => qs.parse(location.search.slice(1));
+)
+const createURL = state => `?${qs.stringify(state)}`
+const urlToSearchState = location => qs.parse(location.search.slice(1))
 
 const SearchPage = ({ data, location }) => {
-  const metaTitle = data.searchPage.meta_title;
-  const metaDescription = data.searchPage.meta_description;
-  const [searchState, setSearchState] = useState(urlToSearchState(location));
+  const metaTitle = data.searchPage.meta_title
+  const metaDescription = data.searchPage.meta_description
+  const [searchState, setSearchState] = useState(urlToSearchState(location))
   const onSearchStateChange = (updatedSearchState) => {
-    setSearchState(updatedSearchState);
-  };
+    setSearchState(updatedSearchState)
+  }
 
   return (
     <>
@@ -53,7 +53,7 @@ const SearchPage = ({ data, location }) => {
             searchState={searchState}
             onSearchStateChange={onSearchStateChange}
           >
-            <Configure query="allPostQuery" hitsPerPage={40} analytics />
+            <Configure query="allPostQuery" hitsPerPage={40} analytics/>
             <div className="search-body">
               <div className="search-header">
                 <h1>Search All Posts</h1>
@@ -64,7 +64,7 @@ const SearchPage = ({ data, location }) => {
                       placeholder="Search"
                       showLoadingIndicator
                     />
-                    <FaSearch className="search-icon" />
+                    <FaSearch className="search-icon"/>
                   </div>
                   <SortBy
                     items={[
@@ -83,7 +83,7 @@ const SearchPage = ({ data, location }) => {
                 </div>
               </div>
               <div className="search-sidebar-container">
-                <Hits hitComponent={Hit} />
+                <Hits hitComponent={Hit}/>
                 <aside className="search-sidebar">
                   <Panel header="Tags">
                     <RefinementList
@@ -91,24 +91,22 @@ const SearchPage = ({ data, location }) => {
                       limit={100}
                       showMore
                       showMoreLimit={30}
-                      transformItems={(items) =>
-                        items.filter(
-                          (item) =>
-                            item.label.indexOf(`#`) === -1 && item.count > 1,
-                        )
+                      transformItems={items => items.filter(
+                        item => item.label.indexOf(`#`) === -1 && item.count > 1,
+                      )
                       }
                     />
                   </Panel>
                   <Panel header="Authors">
-                    <RefinementList attribute="primary_author.name" />
+                    <RefinementList attribute="primary_author.name"/>
                   </Panel>
                 </aside>
               </div>
               <Pagination
                 showFirst={false}
                 translations={{
-                  previous: <FaArrowLeft />,
-                  next: <FaArrowRight />,
+                  previous: <FaArrowLeft/>,
+                  next: <FaArrowRight/>,
                 }}
               />
             </div>
@@ -116,23 +114,23 @@ const SearchPage = ({ data, location }) => {
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}
 
-const Hit = ({ hit }) => <PostCard post={hit} key={hit.objectID} />;
+const Hit = ({ hit }) => <PostCard post={hit} key={hit.objectID}/>
 
 Hit.propTypes = {
   hit: PropTypes.object.isRequired,
-};
+}
 
 SearchPage.propTypes = {
   data: PropTypes.shape({
     searchPage: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.object,
-};
+}
 
-const SearchPageQuery = (props) => (
+const SearchPageQuery = props => (
   <StaticQuery
     query={graphql`
       query SearchPageData {
@@ -141,8 +139,8 @@ const SearchPageQuery = (props) => (
         }
       }
     `}
-    render={(data) => <SearchPage data={data} {...props} />}
+    render={data => <SearchPage data={data} {...props} />}
   />
-);
+)
 
-export default SearchPageQuery;
+export default SearchPageQuery

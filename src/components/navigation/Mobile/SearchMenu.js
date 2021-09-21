@@ -1,73 +1,73 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import {
   Configure,
   Hits,
   InstantSearch,
   SearchBox,
   Index,
-} from 'react-instantsearch-dom';
-import { StaticQuery, graphql } from 'gatsby';
-import { slide as Menu } from 'react-burger-menu';
+} from 'react-instantsearch-dom'
+import { StaticQuery, graphql } from 'gatsby'
+import { slide as Menu } from 'react-burger-menu'
 import {
   SearchClient,
   SearchResults,
   SearchStats,
-} from '../../search/SearchClient';
-import { FaSearch, FaChartLine } from 'react-icons/fa';
+} from '../../search/SearchClient'
+import { FaSearch, FaChartLine } from 'react-icons/fa'
 
 class SearchMenu extends React.Component {
   constructor(props) {
-    super(props);
-    this.topSearches = props.data.topSearches.edges;
-    this.state = { query: `` };
+    super(props)
+    this.topSearches = props.data.topSearches.edges
+    this.state = { query: `` }
   }
 
   PostHit =
     (clickHandler) =>
-    ({ hit }) => {
-      const featureImage = hit.feature_image;
-      const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`);
-      const featureMobileImage =
-        featureImageSlash &&
-        [
-          featureImage.slice(0, featureImageSlash),
-          `/_mobile`,
-          featureImage.slice(featureImageSlash),
-        ].join(``);
+      ({ hit }) => {
+        const featureImage = hit.feature_image
+        const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
+        const featureMobileImage =
+          featureImageSlash &&
+          [
+            featureImage.slice(0, featureImageSlash),
+            `/_mobile`,
+            featureImage.slice(featureImageSlash),
+          ].join(``)
 
-      return (
-        <div className="search-result">
-          <div className="image-wrapper">
-            <picture>
-              <source
-                media="(max-width:600px)"
-                data-srcset={featureMobileImage}
-              />
-              <img
-                className="search-result-image lazyload"
-                data-src={featureImage}
-                alt={hit.title}
-                title={hit.title}
-              />
-            </picture>
-          </div>
-          <div className="search-result-details">
-            <Link
-              to={`/${hit.slug}/`}
-              onClick={clickHandler}
-              className="search-result-title"
-            >
-              {hit.title}
-            </Link>
-            <div className="search-result-tag">
-              <span>{hit.primary_tag.name}</span>
+        return (
+          <div className="search-result">
+            <div className="image-wrapper">
+              <picture>
+                <source
+                  media="(max-width:600px)"
+                  data-srcset={featureMobileImage}
+                />
+                <img
+                  className="search-result-image lazyload"
+                  data-src={featureImage}
+                  alt={hit.title}
+                  title={hit.title}
+                />
+              </picture>
+            </div>
+            <div className="search-result-details">
+              <Link
+                to={`/${hit.slug}/`}
+                onClick={clickHandler}
+                className="search-result-title"
+              >
+                {hit.title}
+              </Link>
+              <div className="search-result-tag">
+                <span>{hit.primary_tag.name}</span>
+              </div>
             </div>
           </div>
-        </div>
-      );
-    };
+        )
+      }
 
   render() {
     return (
@@ -97,7 +97,7 @@ class SearchMenu extends React.Component {
               }
               onSearchParameters={() => this.setState({ focus: true })}
             >
-              <Configure hitsPerPage={10} analytics={true} />
+              <Configure hitsPerPage={10} analytics={true}/>
               <label
                 id="search-input-label"
                 className="search-label"
@@ -113,13 +113,13 @@ class SearchMenu extends React.Component {
                   placeholder: `Search all posts`,
                 }}
               />
-              <FaSearch />
+              <FaSearch/>
               <div className="search-results">
                 <Index indexName="hackers_posts">
                   <header>
                     <div className="search-results-title">Search results</div>
                     <div className="search-results-count">
-                      <SearchStats />
+                      <SearchStats/>
                     </div>
                   </header>
                   <SearchResults>
@@ -135,7 +135,7 @@ class SearchMenu extends React.Component {
           </div>
           <div className="top-searches">
             <div className="top-search-title">
-              <FaChartLine /> Trending Searches
+              <FaChartLine/> Trending Searches
             </div>
             <div className="sublinks">
               {this.topSearches.map(({ node }) => (
@@ -151,7 +151,7 @@ class SearchMenu extends React.Component {
           </div>
         </Menu>
       </>
-    );
+    )
   }
 }
 
@@ -159,7 +159,7 @@ SearchMenu.propTypes = {
   data: PropTypes.shape({
     topSearches: PropTypes.object,
   }).isRequired,
-};
+}
 
 const SearchMenuQuery = (props) => (
   <StaticQuery
@@ -177,6 +177,6 @@ const SearchMenuQuery = (props) => (
     `}
     render={(data) => <SearchMenu data={data} {...props} />}
   />
-);
+)
 
-export default SearchMenuQuery;
+export default SearchMenuQuery

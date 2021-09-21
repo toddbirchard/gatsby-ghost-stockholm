@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { BsTag } from 'react-icons/bs';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { BsTag } from 'react-icons/bs'
 
 const InfoCard = ({ tag, count }) => (
   <>
@@ -13,7 +13,7 @@ const InfoCard = ({ tag, count }) => (
             className="tag-image lazyload"
           />
         ) : (
-          <BsTag />
+          <BsTag/>
         )}
         <div className="card-details">
           <div className="page-title-card">
@@ -29,7 +29,7 @@ const InfoCard = ({ tag, count }) => (
       </div>
     </header>
   </>
-);
+)
 
 InfoCard.propTypes = {
   tag: PropTypes.shape({
@@ -38,6 +38,6 @@ InfoCard.propTypes = {
     feature_image: PropTypes.string,
   }).isRequired,
   count: PropTypes.number,
-};
+}
 
-export default InfoCard;
+export default InfoCard

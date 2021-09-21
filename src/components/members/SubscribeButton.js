@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { useLang, get } from './utils/use-lang';
+import { useLang, get } from './utils/use-lang'
 
 const SubscribeButton = ({ overlay }) => {
-  const text = get(useLang());
+  const text = get(useLang())
 
   return (
     <React.Fragment>
@@ -14,11 +14,11 @@ const SubscribeButton = ({ overlay }) => {
         </button>
       )}
     </React.Fragment>
-  );
-};
+  )
+}
 
 SubscribeButton.propTypes = {
   overlay: PropTypes.object,
-};
+}
 
-export default SubscribeButton;
+export default SubscribeButton

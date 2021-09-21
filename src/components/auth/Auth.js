@@ -1,21 +1,21 @@
-import React from 'react';
+import React from 'react'
 // import netlifyIdentity from 'netlify-identity-widget'
 import IdentityModal, {
   useIdentityContext,
-} from 'react-netlify-identity-widget';
+} from 'react-netlify-identity-widget'
 import PropTypes from "prop-types"
 
 const Auth = ({ children }) => {
-  const [dialog, setDialog] = React.useState(false);
-  const identity = useIdentityContext();
+  const [dialog, setDialog] = React.useState(false)
+  const identity = useIdentityContext()
   const name =
     (identity &&
       identity.user &&
       identity.user.user_metadata &&
       identity.user.user_metadata.name) ||
-    `NoName`;
+    `NoName`
 
-  const isLoggedIn = identity && identity.isLoggedIn;
+  const isLoggedIn = identity && identity.isLoggedIn
   return (
     <>
       <div className="login-button">
@@ -30,8 +30,8 @@ const Auth = ({ children }) => {
         onCloseDialog={() => setDialog(false)}
       />
     </>
-  );
-};
+  )
+}
 
 /* const netlifyAuth = {
   isAuthenticated: false,
@@ -112,7 +112,7 @@ const Auth = ({ children }) => {
 */
 
 Auth.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
 }
 
-export default Auth;
+export default Auth

@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { Layout } from '../components/common';
-import { SeriesPostCard } from '../components/misc';
-import { MetaData } from '../components/common/meta';
-import '../styles/pages/seriesdetail.less';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import { Layout } from '../components/common'
+import { SeriesPostCard } from '../components/misc'
+import { MetaData } from '../components/common/meta'
+import '../styles/pages/seriesdetail.less'
 
 /**
  * Series detail page (/tag/:slug)
@@ -13,10 +13,10 @@ import '../styles/pages/seriesdetail.less';
  */
 
 const SeriesDetail = ({ data, location }) => {
-  const tag = data.seriesTag;
-  const tagName = tag.name.replace(`#`, ``);
-  const posts = data.allGhostPost.edges;
-  const page = data.seriesPage;
+  const tag = data.seriesTag
+  const tagName = tag.name.replace(`#`, ``)
+  const posts = data.allGhostPost.edges
+  const page = data.seriesPage
 
   return (
     <>
@@ -54,14 +54,14 @@ const SeriesDetail = ({ data, location }) => {
           </header>
           <section className="post-feed">
             {posts.map(({ node }, index) => (
-              <SeriesPostCard key={node.id} post={node} count={index} />
+              <SeriesPostCard key={node.id} post={node} count={index}/>
             ))}
           </section>
         </main>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 SeriesDetail.propTypes = {
   data: PropTypes.shape({
@@ -101,9 +101,9 @@ SeriesDetail.propTypes = {
   }).isRequired,
   pageContext: PropTypes.object,
   icon: PropTypes.string,
-};
+}
 
-export default SeriesDetail;
+export default SeriesDetail
 
 export const pageQuery = graphql`
   query GhostSeriesQuery($slug: String!) {
@@ -127,4 +127,4 @@ export const pageQuery = graphql`
       icon
     }
   }
-`;
+`

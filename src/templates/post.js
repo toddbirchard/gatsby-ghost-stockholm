@@ -1,27 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
-import { readingTime as readingTimeHelper } from '@tryghost/helpers';
-import { Tags } from '@tryghost/helpers-gatsby';
-import { Layout } from '../components/common';
-import { MetaData } from '../components/common/meta';
-import { Comments } from '../components/comments';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
+import { readingTime as readingTimeHelper } from '@tryghost/helpers'
+import { Tags } from '@tryghost/helpers-gatsby'
+import { Layout } from '../components/common'
+import { MetaData } from '../components/common/meta'
+import { Comments } from '../components/comments'
 import {
   RelatedPost,
   SeriesTOC,
   SupportWidget,
   SeriesNextPrev,
-} from '../components/posts';
-import { AuthorCard } from '../components/authors';
+} from '../components/posts'
+import { AuthorCard } from '../components/authors'
 import {
   AiOutlineEye,
   AiOutlineTags,
   AiOutlineCalendar,
   AiOutlineUser,
   AiTwotoneExperiment,
-} from 'react-icons/ai';
-import Prism from 'prismjs';
-import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl';
+} from 'react-icons/ai'
+import Prism from 'prismjs'
+import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
 
 /**
  * Single post view (/:slug)
@@ -31,29 +31,29 @@ import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl';
  */
 
 const Post = ({ data, location }) => {
-  const post = data.ghostPost;
-  const tags = data.ghostPost.tags;
-  const author = data.ghostPost.primary_author;
-  const relatedPosts = data.relatedPosts.edges;
-  const readingTime = readingTimeHelper(post);
-  const seriesPosts = data.seriesPosts;
+  const post = data.ghostPost
+  const tags = data.ghostPost.tags
+  const author = data.ghostPost.primary_author
+  const relatedPosts = data.relatedPosts.edges
+  const readingTime = readingTimeHelper(post)
+  const seriesPosts = data.seriesPosts
   const seriesIndex =
     seriesPosts &&
-    seriesPosts.edges.findIndex((element) => element.node.slug === post.slug);
-  const seriesLength = seriesPosts && seriesPosts.edges.length;
+    seriesPosts.edges.findIndex(element => element.node.slug === post.slug)
+  const seriesLength = seriesPosts && seriesPosts.edges.length
   const authorUrl =
-    post.primary_author.slug && `/author/${post.primary_author.slug}/`;
-  const authorFirstName = author.name.split(` `)[0];
-  const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`;
-  const featureImage = post.feature_image;
-  const authors = data.authors.edges;
+    post.primary_author.slug && `/author/${post.primary_author.slug}/`
+  const authorFirstName = author.name.split(` `)[0]
+  const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
+  const featureImage = post.feature_image
+  const authors = data.authors.edges
   const featureRetinaImage =
-    post.feature_image && getRetinaImageUrl(post.feature_image);
+    post.feature_image && getRetinaImageUrl(post.feature_image)
   const featureMobileImage =
-    post.feature_image && getMobileImageUrl(post.feature_image);
+    post.feature_image && getMobileImageUrl(post.feature_image)
   React.useEffect(() => {
-    Prism.highlightAll();
-  });
+    Prism.highlightAll()
+  })
 
   return (
     <>
@@ -73,13 +73,13 @@ const Post = ({ data, location }) => {
               <div className="post-meta">
                 <div className="meta-item author">
                   <Link to={authorUrl}>
-                    <AiOutlineUser />
+                    <AiOutlineUser/>
                     <span>{authorFirstName}</span>
                   </Link>
                 </div>
                 {tags && (
                   <div className="meta-item tag">
-                    <AiOutlineTags />
+                    <AiOutlineTags/>
                     <Tags
                       post={post}
                       limit={1}
@@ -92,11 +92,11 @@ const Post = ({ data, location }) => {
                   </div>
                 )}
                 <div className="meta-item reading-time">
-                  <AiOutlineEye />
+                  <AiOutlineEye/>
                   <span>{readingTime}</span>
                 </div>
                 <div className="meta-item date">
-                  <AiOutlineCalendar />
+                  <AiOutlineCalendar/>
                   <span>{post.published_at_pretty}</span>
                 </div>
               </div>
@@ -108,7 +108,7 @@ const Post = ({ data, location }) => {
                     media="(max-width:600px)"
                     data-srcset={featureMobileImage}
                   />
-                  <source data-srcset={featureRetinaImage} />
+                  <source data-srcset={featureRetinaImage}/>
                   <img
                     className="post-card-image lazyload"
                     data-src={featureImage}
@@ -131,7 +131,7 @@ const Post = ({ data, location }) => {
             {/*  Lynx blurb  */}
             {post.slug.includes(`lynx`) && (
               <div className="post-roundup-blurb">
-                <AiTwotoneExperiment /> <p>{lynxBlurb}</p>
+                <AiTwotoneExperiment/> <p>{lynxBlurb}</p>
               </div>
             )}
 
@@ -162,14 +162,14 @@ const Post = ({ data, location }) => {
             </div>
 
             {/*  Post Author Details  */}
-            <AuthorCard author={author} page={`post`} />
+            <AuthorCard author={author} page={`post`}/>
           </article>
 
           {/*  Comments, related posts, & donation widgets   */}
           <section className="post-footer">
             <div className="related-posts">
               {relatedPosts.map(({ node }) => (
-                <RelatedPost key={`${node.ghostId}_related`} post={node} />
+                <RelatedPost key={`${node.ghostId}_related`} post={node}/>
               ))}
             </div>
             <Comments
@@ -177,13 +177,13 @@ const Post = ({ data, location }) => {
               comments={data.comments}
               moderators={authors}
             />
-            <SupportWidget />
+            <SupportWidget/>
           </section>
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 Post.propTypes = {
   data: PropTypes.shape({
@@ -237,9 +237,9 @@ Post.propTypes = {
     seriesPosts: PropTypes.object,
   }).isRequired,
   location: PropTypes.object.isRequired,
-};
+}
 
-export default Post;
+export default Post
 
 export const postQuery = graphql`
   query ($slug: String!, $tags: [String], $seriesSlug: String) {
@@ -298,4 +298,4 @@ export const postQuery = graphql`
       }
     }
   }
-`;
+`

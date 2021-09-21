@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
-  const numberOfPosts = postCount + 1;
+  const numberOfPosts = postCount + 1
   const listStyle = {
     counterReset: `li ${numberOfPosts}`,
-  };
+  }
 
   return (
     <>
@@ -25,8 +25,8 @@ const SeriesTOC = ({ seriesPosts, postCount, currentPost }) => {
         </div>
       ) : null}
     </>
-  );
-};
+  )
+}
 
 SeriesTOC.propTypes = {
   seriesPosts: PropTypes.arrayOf(
@@ -37,6 +37,6 @@ SeriesTOC.propTypes = {
   ),
   postCount: PropTypes.number,
   currentPost: PropTypes.string,
-};
+}
 
-export default SeriesTOC;
+export default SeriesTOC

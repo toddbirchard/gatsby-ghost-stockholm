@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { Layout, PostCard } from '../components/common';
-import { Pagination } from '../components/navigation';
-import { AuthorCard } from '../components/authors';
-import { MetaData } from '../components/common/meta';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import { Layout, PostCard } from '../components/common'
+import { Pagination } from '../components/navigation'
+import { AuthorCard } from '../components/authors'
+import { MetaData } from '../components/common/meta'
 
-import '../styles/pages/page.less';
+import '../styles/pages/page.less'
 
 /**
  * Author page (/author/:slug)
@@ -15,18 +15,18 @@ import '../styles/pages/page.less';
  *
  */
 const Author = ({ data, location, pageContext }) => {
-  const author = data.ghostAuthor;
-  const baseTitle = author.name + `'s posts`;
+  const author = data.ghostAuthor
+  const baseTitle = author.name + `'s posts`
   const title =
     pageContext.currentPage > 1
       ? baseTitle +
-        ` (page ` +
-        pageContext.currentPage +
-        ` of ` +
-        pageContext.numberOfPages +
-        `)`
-      : baseTitle;
-  const posts = data.allGhostPost.edges;
+      ` (page ` +
+      pageContext.currentPage +
+      ` of ` +
+      pageContext.numberOfPages +
+      `)`
+      : baseTitle
+  const posts = data.allGhostPost.edges
   // const websiteMeta = pageContext.websiteMeta ? pageContext.websiteMeta : undefined
 
   return (
@@ -48,7 +48,7 @@ const Author = ({ data, location, pageContext }) => {
           />
           <section className="post-feed">
             {posts.map(({ node }) => (
-              <PostCard key={node.id} post={node} />
+              <PostCard key={node.id} post={node}/>
             ))}
             <Pagination
               pageContext={pageContext}
@@ -59,8 +59,8 @@ const Author = ({ data, location, pageContext }) => {
         </div>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 Author.propTypes = {
   data: PropTypes.shape({
@@ -131,9 +131,9 @@ Author.propTypes = {
     pathname: PropTypes.string.isRequired,
   }).isRequired,
   pageContext: PropTypes.object,
-};
+}
 
-export default Author;
+export default Author
 
 export const pageQuery = graphql`
   query GhostAuthorQuery(
@@ -187,4 +187,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

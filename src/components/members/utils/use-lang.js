@@ -1,5 +1,5 @@
-import { graphql, useStaticQuery } from 'gatsby';
-import lang from './lang';
+import { graphql, useStaticQuery } from 'gatsby'
+import lang from './lang'
 
 const useLang = (locale) => {
   const data = useStaticQuery(graphql`
@@ -8,21 +8,21 @@ const useLang = (locale) => {
         lang
       }
     }
-  `);
+  `)
 
-  return lang[locale || data.ghostSettings.lang || `en`];
-};
+  return lang[locale || data.ghostSettings.lang || `en`]
+}
 
 const get = (text) => (name, fallback) => {
   if (text[name] === undefined && fallback === null) {
-    throw new Error(`Cannot find ${name} in lang file.`);
+    throw new Error(`Cannot find ${name} in lang file.`)
   }
 
   if (text[name] === undefined) {
-    return fallback;
+    return fallback
   }
 
-  return text[name];
-};
+  return text[name]
+}
 
-export { useLang, get };
+export { useLang, get }

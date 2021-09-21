@@ -1,10 +1,10 @@
-const generateRssFeed = require(`./generate-feed`);
-const siteConfig = require(`../siteConfig`);
+const generateRssFeed = require(`./generate-feed`)
+const siteConfig = require(`../siteConfig`)
 
-const feedTitle = siteConfig.siteTitleMeta;
-const feedUrl = siteConfig.siteUrl;
-const matchPattern = undefined;
-const externalLink = `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`;
+const feedTitle = siteConfig.siteTitleMeta
+const feedUrl = siteConfig.siteUrl
+const matchPattern = undefined
+const externalLink = `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`
 const feedRssQuery = `{
   allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_author: {slug: {eq: "todd"}}}) {
     edges {
@@ -33,7 +33,7 @@ const feedRssQuery = `{
       }
     }
   }
-}`;
+}`
 
 const siteRssFeed = generateRssFeed(
   siteConfig,
@@ -42,6 +42,6 @@ const siteRssFeed = generateRssFeed(
   feedUrl,
   matchPattern,
   externalLink,
-);
+)
 
-module.exports = siteRssFeed;
+module.exports = siteRssFeed
