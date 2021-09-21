@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
-import { FiCoffee } from 'react-icons/fi';
-import config from '../../utils/siteConfig';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
+import { FiCoffee } from 'react-icons/fi'
+import config from '../../utils/siteConfig'
 
 /**
  * BuyMeACoffee widget
  */
 
 const CoffeeWidget = ({ data }) => {
-  const coffeeImg = config.images.buyMeACoffee;
-  const donations = data.coffees.edges;
+  const coffeeImg = config.images.buyMeACoffee
+  const donations = data.coffees.edges
 
   return (
     <>
@@ -32,7 +32,7 @@ const CoffeeWidget = ({ data }) => {
                 <div className="number-coffees">
                   <div>
                     <span className="count">{node.count}</span>
-                    <FiCoffee />
+                    <FiCoffee/>
                   </div>
                 </div>
               </div>
@@ -56,8 +56,8 @@ const CoffeeWidget = ({ data }) => {
         </a>
       </div>
     </>
-  );
-};
+  )
+}
 
 CoffeeWidget.propTypes = {
   data: PropTypes.shape({
@@ -73,7 +73,7 @@ CoffeeWidget.propTypes = {
       ),
     }),
   }),
-};
+}
 
 const CoffeeWidgetQuery = (props) => (
   <StaticQuery
@@ -98,6 +98,6 @@ const CoffeeWidgetQuery = (props) => (
     `}
     render={(data) => <CoffeeWidget data={data} {...props} />}
   />
-);
+)
 
-export default CoffeeWidgetQuery;
+export default CoffeeWidgetQuery

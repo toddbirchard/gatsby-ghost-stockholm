@@ -1,26 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 import {
   FaTwitter,
   FaUsers,
   FaRetweet,
   FaHeartbeat,
   FaReply,
-} from 'react-icons/fa';
-import { AiOutlineCalendar } from 'react-icons/ai';
+} from 'react-icons/fa'
+import { AiOutlineCalendar } from 'react-icons/ai'
 
 const TwitterWidget = ({ data }) => {
-  const tweets = data.tweets.edges;
-  const twitterProfile = data.twitterProfile.user;
-  const twitterProfileURL = `https://twitter.com/${twitterProfile.screen_name}/`;
+  const tweets = data.tweets.edges
+  const twitterProfile = data.twitterProfile.user
+  const twitterProfileURL = `https://twitter.com/${twitterProfile.screen_name}/`
 
   return (
     <>
       <div className="widget twitter">
         <div className="tweets">
           <div className="twitter-header">
-            <FaTwitter className="twitter-avatar" />
+            <FaTwitter className="twitter-avatar"/>
             <div className="profile-details">
               <div className="profile-details">
                 <a
@@ -32,7 +32,7 @@ const TwitterWidget = ({ data }) => {
                   {`@${twitterProfile.screen_name}`}
                 </a>
                 <div className="twitter-followers">
-                  <FaUsers />
+                  <FaUsers/>
                   {` `}
                   <span>{twitterProfile.followers_count} Followers</span>
                 </div>
@@ -44,7 +44,7 @@ const TwitterWidget = ({ data }) => {
               {node.retweeted_status && (
                 <div className="retweeted-tweet">
                   <div className="retweeted-header">
-                    <FaRetweet />
+                    <FaRetweet/>
                     {` `}
                     <span>{`${node.user.screen_name} retweeted`}</span>
                   </div>
@@ -53,16 +53,16 @@ const TwitterWidget = ({ data }) => {
                       {node.full_text.split(`http`)[0]}
                     </p>
                     {node.entities.urls &&
-                      node.entities.urls.map(({ url }) => (
-                        <a
-                          href={url}
-                          className="tweet-link"
-                          key={url}
-                          rel="nofollow noreferrer"
-                        >
-                          {url}
-                        </a>
-                      ))}
+                    node.entities.urls.map(({ url }) => (
+                      <a
+                        href={url}
+                        className="tweet-link"
+                        key={url}
+                        rel="nofollow noreferrer"
+                      >
+                        {url}
+                      </a>
+                    ))}
                   </div>
                 </div>
               )}
@@ -70,7 +70,7 @@ const TwitterWidget = ({ data }) => {
               {node.in_reply_to_screen_name && (
                 <div className="reply-tweet">
                   <div className="retweeted-header">
-                    <FaReply />
+                    <FaReply/>
                     {` `}
                     <span>{`Replying to @${node.in_reply_to_screen_name}`}</span>
                   </div>
@@ -101,30 +101,30 @@ const TwitterWidget = ({ data }) => {
                   ) : null}
                   {node.entities.urls.length > 0
                     ? node.entities.urls.map(({ url }) => (
-                        <a
-                          href={url}
-                          className="tweet-link"
-                          key={`${node.id}`}
-                          rel="nofollow noreferrer"
-                        >
-                          {url}
-                        </a>
-                      ))
+                      <a
+                        href={url}
+                        className="tweet-link"
+                        key={`${node.id}`}
+                        rel="nofollow noreferrer"
+                      >
+                        {url}
+                      </a>
+                    ))
                     : null}
                 </div>
               )}
 
               <div className="tweet-footer">
                 <div className="retweets meta-item">
-                  <FaRetweet />
+                  <FaRetweet/>
                   <span className="meta-count">{node.retweet_count}</span>
                 </div>
                 <div className="favorites meta-item">
-                  <FaHeartbeat />
+                  <FaHeartbeat/>
                   <span className="meta-count">{node.favorite_count}</span>
                 </div>
                 <div className="date meta-item">
-                  <AiOutlineCalendar />
+                  <AiOutlineCalendar/>
                   <span className="meta-count">
                     {node.created_at.split(` `, 3).join(` `)}
                   </span>
@@ -135,8 +135,8 @@ const TwitterWidget = ({ data }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 TwitterWidget.propTypes = {
   data: PropTypes.shape({
@@ -183,7 +183,7 @@ TwitterWidget.propTypes = {
       }).isRequired,
     }),
   }),
-};
+}
 
 const TwitterQuery = (props) => (
   <StaticQuery
@@ -241,6 +241,6 @@ const TwitterQuery = (props) => (
     `}
     render={(data) => <TwitterWidget data={data} {...props} />}
   />
-);
+)
 
-export default TwitterQuery;
+export default TwitterQuery

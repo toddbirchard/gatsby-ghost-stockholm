@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import {
   Accordion,
   AccordionItem,
   AccordionItemHeading,
   AccordionItemButton,
   AccordionItemPanel,
-} from 'react-accessible-accordion';
+} from 'react-accessible-accordion'
 import {
   AiOutlineHome,
   AiOutlineInfoCircle,
@@ -15,20 +15,20 @@ import {
   AiOutlineUser,
   AiOutlineUserAdd,
   AiOutlineDollarCircle,
-} from 'react-icons/ai';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { StaticQuery, graphql } from 'gatsby';
-import { slide as Menu } from 'react-burger-menu';
-import { FaChevronDown } from 'react-icons/fa';
-import { FiRss } from 'react-icons/fi';
+} from 'react-icons/ai'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+import { slide as Menu } from 'react-burger-menu'
+import { FaChevronDown } from 'react-icons/fa'
+import { FiRss } from 'react-icons/fi'
 
 class MobileMenu extends React.Component {
   constructor(props) {
-    super(props);
-    this.tags = props.data.tags.edges;
-    this.series = props.data.series.edges;
-    this.authors = props.data.authors.edges;
+    super(props)
+    this.tags = props.data.tags.edges
+    this.series = props.data.series.edges
+    this.authors = props.data.authors.edges
   }
 
   render() {
@@ -46,15 +46,15 @@ class MobileMenu extends React.Component {
         >
           <div className="pages">
             <Link className={`navigation-link`} to={`/`}>
-              <AiOutlineHome />
+              <AiOutlineHome/>
               Home
             </Link>
             <Link className={`navigation-link`} to={`/about/`}>
-              <AiOutlineInfoCircle />
+              <AiOutlineInfoCircle/>
               About
             </Link>
             <Link className={`navigation-link`} to={`/search/`}>
-              <AiOutlineSearch />
+              <AiOutlineSearch/>
               Search
             </Link>
             <Accordion allowZeroExpanded>
@@ -62,11 +62,11 @@ class MobileMenu extends React.Component {
                 <AccordionItemHeading>
                   <AccordionItemButton>
                     <span>
-                      <AiOutlineTags />
+                      <AiOutlineTags/>
                       Tags
                     </span>
                     {` `}
-                    <FaChevronDown className="chevron" />
+                    <FaChevronDown className="chevron"/>
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -85,11 +85,11 @@ class MobileMenu extends React.Component {
                 <AccordionItemHeading>
                   <AccordionItemButton>
                     <span>
-                      <AiOutlineBook />
+                      <AiOutlineBook/>
                       Series
                     </span>
                     {` `}
-                    <FaChevronDown className="chevron" />
+                    <FaChevronDown className="chevron"/>
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -108,11 +108,11 @@ class MobileMenu extends React.Component {
                 <AccordionItemHeading>
                   <AccordionItemButton>
                     <span>
-                      <AiOutlineUser />
+                      <AiOutlineUser/>
                       Authors
                     </span>
                     {` `}
-                    <FaChevronDown className="chevron" />
+                    <FaChevronDown className="chevron"/>
                   </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -129,11 +129,11 @@ class MobileMenu extends React.Component {
               </AccordionItem>
             </Accordion>
             <Link to="/join-us/" className={`navigation-link`}>
-              <AiOutlineUserAdd />
+              <AiOutlineUserAdd/>
               <span>Join</span>
             </Link>
             <Link to="/rss.xml" className={`navigation-link`}>
-              <FiRss />
+              <FiRss/>
               <span>RSS</span>
             </Link>
             <a
@@ -142,12 +142,12 @@ class MobileMenu extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <AiOutlineDollarCircle /> Donate
+              <AiOutlineDollarCircle/> Donate
             </a>
           </div>
         </Menu>
       </>
-    );
+    )
   }
 }
 
@@ -172,7 +172,7 @@ MobileMenu.propTypes = {
     tags: PropTypes.object.isRequired,
     authors: PropTypes.object.isRequired,
   }).isRequired,
-};
+}
 
 const MobileMenuQuery = (props) => (
   <StaticQuery
@@ -236,6 +236,6 @@ const MobileMenuQuery = (props) => (
     `}
     render={(data) => <MobileMenu data={data} {...props} />}
   />
-);
+)
 
-export default MobileMenuQuery;
+export default MobileMenuQuery

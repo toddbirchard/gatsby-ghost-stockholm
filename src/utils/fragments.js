@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql } from 'gatsby'
 
 // Used for tag archive pages
 export const ghostTagFields = graphql`
@@ -12,7 +12,7 @@ export const ghostTagFields = graphql`
     meta_description
     accent_color
   }
-`;
+`
 
 // Used for author pages
 export const ghostAuthorFields = graphql`
@@ -31,7 +31,7 @@ export const ghostAuthorFields = graphql`
       posts
     }
   }
-`;
+`
 
 // Used for single posts
 export const ghostPostFields = graphql`
@@ -117,7 +117,7 @@ export const ghostPostFields = graphql`
     uuid
     comment_id
   }
-`;
+`
 
 // Used for single pages
 export const ghostPageFields = graphql`
@@ -175,7 +175,7 @@ export const ghostPageFields = graphql`
     uuid
     comment_id
   }
-`;
+`
 
 // Used for settings
 export const ghostSettingsFields = graphql`
@@ -194,4 +194,4 @@ export const ghostSettingsFields = graphql`
       url
     }
   }
-`;
+`

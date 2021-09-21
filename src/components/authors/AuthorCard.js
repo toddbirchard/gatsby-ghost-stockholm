@@ -1,25 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { twitter } from '@tryghost/social-urls';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { twitter } from '@tryghost/social-urls'
 import {
   AiOutlineTwitter,
   AiOutlineHome,
   AiOutlineLink,
   AiOutlineUser,
   AiOutlineGithub,
-} from 'react-icons/ai';
-import '../../styles/author-card.less';
+} from 'react-icons/ai'
+import '../../styles/author-card.less'
 
 const AuthorCard = ({ author, page, template, pageContext }) => {
-  const authorTwitterUrl = author.twitter && twitter(author.twitter);
+  const authorTwitterUrl = author.twitter && twitter(author.twitter)
   const authorGithub =
-    author.facebook && author.facebook.replace(`https://www.facebook.com/`, ``);
-  const authorPostCount = author.postCount;
+    author.facebook && author.facebook.replace(`https://www.facebook.com/`, ``)
+  const authorPostCount = author.postCount
   const pageCount =
-    pageContext && pageContext.currentPage > 1 ? pageContext.currentPage : null;
-  const authorCardClass = page ? `author-card ${page}` : `author-card`;
-  const authorAvatar = author.profile_image;
+    pageContext && pageContext.currentPage > 1 ? pageContext.currentPage : null
+  const authorCardClass = page ? `author-card ${page}` : `author-card`
+  const authorAvatar = author.profile_image
 
   return (
     <>
@@ -28,7 +28,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
           <div className="author-card-image">
             {author.profile_image ? (
               <picture>
-                <source data-srcset={authorAvatar} />
+                <source data-srcset={authorAvatar}/>
                 <img
                   className="lazyload"
                   data-src={authorAvatar}
@@ -37,7 +37,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
                 />
               </picture>
             ) : (
-              <AiOutlineUser />
+              <AiOutlineUser/>
             )}
           </div>
           <div className="author-card-content">
@@ -66,7 +66,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
               */}
               {author.location && (
                 <div className="author-card-item location">
-                  <AiOutlineHome />
+                  <AiOutlineHome/>
                   <span>{author.location}</span>
                 </div>
               )}
@@ -77,7 +77,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <AiOutlineLink />
+                  <AiOutlineLink/>
                   <span>Site</span>
                 </a>
               )}
@@ -88,7 +88,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <AiOutlineGithub />
+                  <AiOutlineGithub/>
                   <span>Github</span>
                 </a>
               )}
@@ -99,7 +99,7 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <AiOutlineTwitter />
+                  <AiOutlineTwitter/>
                   <span>Twitter</span>
                 </a>
               )}
@@ -110,8 +110,8 @@ const AuthorCard = ({ author, page, template, pageContext }) => {
         <p className="author-card-bio-mobile">{author.bio}</p>
       </div>
     </>
-  );
-};
+  )
+}
 
 AuthorCard.propTypes = {
   author: PropTypes.shape({
@@ -128,6 +128,6 @@ AuthorCard.propTypes = {
   pageContext: PropTypes.object,
   template: PropTypes.string,
   page: PropTypes.string.isRequired,
-};
+}
 
-export default AuthorCard;
+export default AuthorCard

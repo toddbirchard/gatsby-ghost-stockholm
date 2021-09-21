@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ReactPlayer from 'react-player';
-import { Layout } from '../components/common';
-import { AuthorList } from '../components/authors';
-import { MetaData } from '../components/common/meta';
-import { graphql, Link } from 'gatsby';
-import config from '../utils/siteConfig';
+import React from 'react'
+import PropTypes from 'prop-types'
+import ReactPlayer from 'react-player'
+import { Layout } from '../components/common'
+import { AuthorList } from '../components/authors'
+import { MetaData } from '../components/common/meta'
+import { graphql, Link } from 'gatsby'
+import config from '../utils/siteConfig'
 
-import '../styles/pages/page.less';
-import '../styles/pages/about.less';
+import '../styles/pages/page.less'
+import '../styles/pages/about.less'
 
 /**
  * About page (/:slug)
@@ -17,9 +17,9 @@ import '../styles/pages/about.less';
  *
  */
 const AboutPage = ({ data, location, pageContext }) => {
-  const metaTitle = data.aboutPage.meta_title;
-  const metaDescription = data.aboutPage.meta_description;
-  const introVideo = config.introVideo;
+  const metaTitle = data.aboutPage.meta_title
+  const metaDescription = data.aboutPage.meta_description
+  const introVideo = config.introVideo
 
   return (
     <>
@@ -74,13 +74,13 @@ const AboutPage = ({ data, location, pageContext }) => {
               If you&apos;re somebody who likes to learn (and be casually
               badass), maybe you should <Link to="/about/"> join us.</Link>
             </p>
-            <AuthorList page="about" />
+            <AuthorList page="about"/>
           </div>
         </main>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 AboutPage.propTypes = {
   data: PropTypes.shape({
@@ -95,7 +95,7 @@ AboutPage.propTypes = {
   }).isRequired,
   pageContext: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-};
+}
 
 export const AboutPageQuery = graphql`
   query aboutPage($slug: String) {
@@ -103,6 +103,6 @@ export const AboutPageQuery = graphql`
       ...GhostPageFields
     }
   }
-`;
+`
 
-export default AboutPage;
+export default AboutPage

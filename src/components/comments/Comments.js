@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { CommentForm, Comment } from './';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { CommentForm, Comment } from './'
 
 const Comments = ({ data, moderators }) => {
-  const post = data.ghostPost;
-  const comments = data.comments && data.comments.edges;
+  const post = data.ghostPost
+  const comments = data.comments && data.comments.edges
 
   return (
     <>
@@ -20,11 +20,11 @@ const Comments = ({ data, moderators }) => {
             ))}
           </div>
         )}
-        <CommentForm post={post} />
+        <CommentForm post={post}/>
       </div>
     </>
-  );
-};
+  )
+}
 
 Comments.propTypes = {
   data: PropTypes.object.isRequired,
@@ -46,6 +46,6 @@ Comments.propTypes = {
       name: PropTypes.string,
     }),
   ),
-};
+}
 
-export default Comments;
+export default Comments

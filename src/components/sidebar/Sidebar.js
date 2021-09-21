@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import {
   AboutWidget,
   NewsletterWidget,
@@ -8,7 +8,7 @@ import {
   TrendingWidget,
   CoffeeWidget,
   TwitterWidget,
-} from '.';
+} from '.'
 
 /**
  * Sidebar
@@ -17,17 +17,17 @@ import {
 const Sidebar = ({ site, template }) => (
   <>
     <aside className="sidebar">
-      <AboutWidget site={site} />
-      <SocialWidget site={site} />
-      <TrendingWidget />
-      <TagsWidget />
-      <NewsletterWidget />
-      <CoffeeWidget />
+      <AboutWidget site={site}/>
+      <SocialWidget site={site}/>
+      <TrendingWidget/>
+      <TagsWidget/>
+      <NewsletterWidget/>
+      <CoffeeWidget/>
       {/* template === `home-template` ? <GithubWidget /> : null*/}
-      {template === `home-template` ? <TwitterWidget /> : null}
+      {template === `home-template` ? <TwitterWidget/> : null}
     </aside>
   </>
-);
+)
 
 Sidebar.propTypes = {
   site: PropTypes.shape({
@@ -39,6 +39,6 @@ Sidebar.propTypes = {
   }).isRequired,
   template: PropTypes.string.isRequired,
   authorData: PropTypes.object,
-};
+}
 
-export default Sidebar;
+export default Sidebar

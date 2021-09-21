@@ -1,33 +1,33 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { StaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-import _ from 'lodash';
-import url from 'url';
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import _ from 'lodash'
+import url from 'url'
 
-import getAuthorProperties from './getAuthorProperties';
-import ImageMeta from './ImageMeta';
-import config from '../../../utils/siteConfig';
+import getAuthorProperties from './getAuthorProperties'
+import ImageMeta from './ImageMeta'
+import config from '../../../utils/siteConfig'
 
-import { tags as tagsHelper } from '@tryghost/helpers';
+import { tags as tagsHelper } from '@tryghost/helpers'
 
 const ArticleMetaGhost = ({ data, settings, canonical }) => {
-  const ghostPost = data;
-  settings = settings.allGhostSettings.edges[0].node;
+  const ghostPost = data
+  settings = settings.allGhostSettings.edges[0].node
 
-  const author = getAuthorProperties(ghostPost.primary_author);
+  const author = getAuthorProperties(ghostPost.primary_author)
   const publicTags = _.map(
-    tagsHelper(ghostPost, { visibility: `public`, fn: (tag) => tag }),
+    tagsHelper(ghostPost, { visibility: `public`, fn: tag => tag }),
     `name`,
-  );
-  const primaryTag = publicTags[0] || ``;
+  )
+  const primaryTag = publicTags[0] || ``
   const shareImage = ghostPost.feature_image
     ? ghostPost.feature_image
-    : _.get(settings, `cover_image`, null);
+    : _.get(settings, `cover_image`, null)
   const publisherLogo =
     settings.logo || config.siteIcon
       ? url.resolve(config.siteUrl, settings.logo || config.siteIcon)
-      : null;
+      : null
 
   const jsonLd = {
     '@context': `https://schema.org/`,
@@ -45,11 +45,11 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
     dateModified: ghostPost.updated_at,
     image: shareImage
       ? {
-          '@type': `ImageObject`,
-          url: shareImage,
-          width: config.images.shareImageWidth,
-          height: config.images.shareImageHeight,
-        }
+        '@type': `ImageObject`,
+        url: shareImage,
+        width: config.images.shareImageWidth,
+        height: config.images.shareImageHeight,
+      }
       : undefined,
     publisher: {
       '@type': `Organization`,
@@ -66,7 +66,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
       '@type': `WebPage`,
       '@id': config.siteUrl,
     },
-  };
+  }
 
   return (
     <>
@@ -76,10 +76,10 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
           name="description"
           content={ghostPost.meta_description || ghostPost.excerpt}
         />
-        <link rel="canonical" href={canonical} />
+        <link rel="canonical" href={canonical}/>
 
-        <meta property="og:site_name" content={settings.title} />
-        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content={settings.title}/>
+        <meta property="og:type" content="article"/>
         <meta
           property="og:title"
           content={
@@ -94,17 +94,17 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
             ghostPost.meta_description
           }
         />
-        <meta property="og:url" content={canonical} />
+        <meta property="og:url" content={canonical}/>
         <meta
           property="article:published_time"
           content={ghostPost.published_at}
         />
-        <meta property="article:modified_time" content={ghostPost.updated_at} />
+        <meta property="article:modified_time" content={ghostPost.updated_at}/>
         {publicTags.map((keyword, i) => (
-          <meta property="article:tag" content={keyword} key={i} />
+          <meta property="article:tag" content={keyword} key={i}/>
         ))}
         {author.facebookUrl && (
-          <meta property="article:author" content={author.facebookUrl} />
+          <meta property="article:author" content={author.facebookUrl}/>
         )}
 
         <meta
@@ -121,11 +121,11 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
             ghostPost.meta_description
           }
         />
-        <meta name="twitter:url" content={canonical} />
-        <meta name="twitter:label1" content="Written by" />
-        <meta name="twitter:data1" content={author.name} />
-        {primaryTag && <meta name="twitter:label2" content="Filed under" />}
-        {primaryTag && <meta name="twitter:data2" content={primaryTag} />}
+        <meta name="twitter:url" content={canonical}/>
+        <meta name="twitter:label1" content="Written by"/>
+        <meta name="twitter:data1" content={author.name}/>
+        {primaryTag && <meta name="twitter:label2" content="Filed under"/>}
+        {primaryTag && <meta name="twitter:data2" content={primaryTag}/>}
 
         {settings.twitter && (
           <meta
@@ -137,16 +137,16 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
           />
         )}
         {settings.twitter && (
-          <meta name="twitter:creator" content={settings.twitter} />
+          <meta name="twitter:creator" content={settings.twitter}/>
         )}
         <script type="application/ld+json">
           {JSON.stringify(jsonLd, undefined, 4)}
         </script>
       </Helmet>
-      <ImageMeta image={shareImage} />
+      <ImageMeta image={shareImage}/>
     </>
-  );
-};
+  )
+}
 
 ArticleMetaGhost.propTypes = {
   data: PropTypes.shape({
@@ -180,9 +180,9 @@ ArticleMetaGhost.propTypes = {
     allGhostSettings: PropTypes.object.isRequired,
   }).isRequired,
   canonical: PropTypes.string.isRequired,
-};
+}
 
-const ArticleMetaQuery = (props) => (
+const ArticleMetaQuery = props => (
   <StaticQuery
     query={graphql`
       query GhostSettingsArticleMeta {
@@ -195,8 +195,8 @@ const ArticleMetaQuery = (props) => (
         }
       }
     `}
-    render={(data) => <ArticleMetaGhost settings={data} {...props} />}
+    render={data => <ArticleMetaGhost settings={data} {...props} />}
   />
-);
+)
 
-export default ArticleMetaQuery;
+export default ArticleMetaQuery

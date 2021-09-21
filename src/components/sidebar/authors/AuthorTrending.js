@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { FaChartLine } from 'react-icons/fa';
-import config from '../../../utils/siteConfig';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { FaChartLine } from 'react-icons/fa'
+import config from '../../../utils/siteConfig'
 
 const AuthorTrending = ({ authorTopPosts }) => (
   <div className="widget trending">
     <div className="widget-header">
       <div className="label trending">
-        <FaChartLine /> <span>Trending</span>
+        <FaChartLine/> <span>Trending</span>
       </div>
       <div className="trend-type">Top Posts This Month</div>
     </div>
@@ -24,7 +24,7 @@ const AuthorTrending = ({ authorTopPosts }) => (
       ))}
     </div>
   </div>
-);
+)
 
 AuthorTrending.propTypes = {
   authorTopPosts: PropTypes.arrayOf(
@@ -34,6 +34,6 @@ AuthorTrending.propTypes = {
       views: PropTypes.number,
     }),
   ),
-};
+}
 
-export default AuthorTrending;
+export default AuthorTrending

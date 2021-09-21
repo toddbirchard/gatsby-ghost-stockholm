@@ -55,6 +55,7 @@ module.exports = {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PARALLEL_QUERY_RUNNING: true,
+    DEV_SSR: true,
   },
   siteMetadata: {
     title: config.shortTitle,
@@ -360,7 +361,7 @@ module.exports = {
           `/confirmed`,
           `/roundup`,
           `/roundup/*`,
-          `/(\/)?roundup\S*/`,
+          `/(/)?roundupS*/`,
         ],
         createLinkInHead: false,
         addUncaughtPages: false,

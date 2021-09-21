@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const AuthorWebsite = ({ websiteMeta }) => {
-  const title = websiteMeta.title;
-  const url = websiteMeta.url;
-  const description = websiteMeta.description;
-  const icon = websiteMeta.icon;
+  const title = websiteMeta.title
+  const url = websiteMeta.url
+  const description = websiteMeta.description
+  const icon = websiteMeta.icon
 
   return (
     <div className="widget website">
@@ -14,10 +14,10 @@ const AuthorWebsite = ({ websiteMeta }) => {
       </a>
       {`hello`}
       {description && <p>{description}</p>}
-      {icon && <img src={icon} alt={title} />}
+      {icon && <img src={icon} alt={title}/>}
     </div>
-  );
-};
+  )
+}
 
 AuthorWebsite.propTypes = {
   websiteMeta: PropTypes.shape({
@@ -26,6 +26,6 @@ AuthorWebsite.propTypes = {
     url: PropTypes.string,
     icon: PropTypes.string,
   }),
-};
+}
 
-export default AuthorWebsite;
+export default AuthorWebsite

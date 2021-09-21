@@ -1,12 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
-import url from 'url';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 
-import config from '../../../utils/siteConfig';
-import ArticleMeta from './ArticleMeta';
-import WebsiteMeta from './WebsiteMeta';
-import AuthorMeta from './AuthorMeta';
+import config from '../../../utils/siteConfig'
+import ArticleMeta from './ArticleMeta'
+import WebsiteMeta from './WebsiteMeta'
+import AuthorMeta from './AuthorMeta'
 
 /**
  * MetaData will generate all relevant meta data information incl.
@@ -22,45 +21,46 @@ const MetaData = ({
   location,
   pageContext,
 }) => {
-  const canonical = url.resolve(config.siteUrl, location.pathname);
-  const { ghostPost, ghostTag, ghostAuthor, ghostPage } = data;
-  settings = settings.allGhostSettings.edges[0].node;
+  const canonical = config.siteUrl + location.pathname
+  const { ghostPost, ghostTag, ghostAuthor, ghostPage, ghostSettings } = data
+  settings = ghostSettings
 
   if (ghostPost) {
-    return <ArticleMeta data={ghostPost} canonical={canonical} />;
+    return <ArticleMeta data={ghostPost} canonical={canonical}/>
   } else if (ghostTag) {
     return (
       <WebsiteMeta
         data={ghostTag}
         canonical={canonical}
         pageContext={pageContext}
+        image={image}
         type="Series"
       />
-    );
+    )
   } else if (ghostAuthor) {
     return (
       <AuthorMeta
         data={ghostAuthor}
         canonical={canonical}
+        image={image}
         pageContext={pageContext}
       />
-    );
+    )
   } else if (ghostPage) {
     return (
       <WebsiteMeta
         data={ghostPage}
         canonical={canonical}
         pageContext={pageContext}
+        image={image}
         type="WebSite"
       />
-    );
+    )
   } else {
-    title = title || config.siteTitleMeta || settings.title;
+    title = title || config.siteTitleMeta || settings.title
     description =
-      description || config.siteDescriptionMeta || settings.description;
-    image = image || settings.cover_image || null;
-
-    image = image ? url.resolve(config.siteUrl, image) : null;
+      description || config.siteDescriptionMeta || settings.description
+    image = image || config.images.shareImage || settings.og_image || settings.twitter_image || ``
 
     return (
       <WebsiteMeta
@@ -72,13 +72,9 @@ const MetaData = ({
         pageContext={pageContext}
         type="WebSite"
       />
-    );
+    )
   }
-};
-
-MetaData.defaultProps = {
-  data: {},
-};
+}
 
 MetaData.propTypes = {
   data: PropTypes.shape({
@@ -86,38 +82,33 @@ MetaData.propTypes = {
     ghostTag: PropTypes.object,
     ghostAuthor: PropTypes.object,
     ghostPage: PropTypes.object,
-  }).isRequired,
-  settings: PropTypes.shape({
-    allGhostSettings: PropTypes.object.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    cover_image: PropTypes.string,
+    ghostSettings: PropTypes.object,
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
   pageContext: PropTypes.object,
-};
+  settings: PropTypes.object,
+  title: PropTypes.object,
+  description: PropTypes.object,
+  image: PropTypes.object,
+}
 
-const MetaDataQuery = (props) => (
+const MetaDataQuery = props => (
   <StaticQuery
     query={graphql`
       query GhostSettingsMetaData {
-        allGhostSettings {
-          edges {
-            node {
+        ghostSettings {
               title
               description
-            }
-          }
+              cover_image
+              og_image
+              twitter_image
         }
       }
     `}
-    render={(data) => <MetaData settings={data} {...props} />}
+    render={data => <MetaData settings={data} {...props} />}
   />
-);
+)
 
-export default MetaDataQuery;
+export default MetaDataQuery

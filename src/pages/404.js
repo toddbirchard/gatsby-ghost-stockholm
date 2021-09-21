@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { Layout } from '../components/common';
-import { StaticQuery, graphql } from 'gatsby';
-import '../styles/pages/404.less';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { Layout } from '../components/common'
+import { StaticQuery, graphql } from 'gatsby'
+import '../styles/pages/404.less'
 
 const NotFoundPage = ({ data }) => {
-  const topPages = data.allMysqlWeeklyPostAnalytics.edges;
+  const topPages = data.allMysqlWeeklyPostAnalytics.edges
 
   return (
     <>
@@ -55,16 +55,16 @@ const NotFoundPage = ({ data }) => {
         </main>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 NotFoundPage.propTypes = {
   data: PropTypes.shape({
     allMysqlWeeklyPostAnalytics: PropTypes.object.isRequired,
   }),
-};
+}
 
-const NotFoundPageQuery = (props) => (
+const NotFoundPageQuery = props => (
   <StaticQuery
     query={graphql`
       query PopularPostsQuery {
@@ -89,8 +89,8 @@ const NotFoundPageQuery = (props) => (
         }
       }
     `}
-    render={(data) => <NotFoundPage data={data} {...props} />}
+    render={data => <NotFoundPage data={data} {...props} />}
   />
-);
+)
 
-export default NotFoundPageQuery;
+export default NotFoundPageQuery

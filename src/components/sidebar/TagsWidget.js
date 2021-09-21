@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StaticQuery, Link, graphql } from 'gatsby';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StaticQuery, Link, graphql } from 'gatsby'
 
 /**
  * Tags widget
  */
 
 const TagsWidget = ({ data }) => {
-  const tags = data.allGhostTag.edges;
+  const tags = data.allGhostTag.edges
 
   return (
     <>
@@ -22,8 +22,8 @@ const TagsWidget = ({ data }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 const TagsWidgetQuery = (props) => (
   <StaticQuery
@@ -49,12 +49,12 @@ const TagsWidgetQuery = (props) => (
     `}
     render={(data) => <TagsWidget data={data} {...props} />}
   />
-);
+)
 
 TagsWidget.propTypes = {
   data: PropTypes.shape({
     allGhostTag: PropTypes.object,
   }),
-};
+}
 
-export default TagsWidgetQuery;
+export default TagsWidgetQuery

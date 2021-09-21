@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import { Layout } from '../components/common';
-import { MetaData } from '../components/common/meta';
-import { CourseCard } from '../components/misc';
-import '../styles/pages/seriesarchive.less';
-import '../styles/pages/page.less';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import { Layout } from '../components/common'
+import { MetaData } from '../components/common/meta'
+import { CourseCard } from '../components/misc'
+import '../styles/pages/seriesarchive.less'
+import '../styles/pages/page.less'
 
 /**
  * Series page (/series/)
@@ -15,27 +15,27 @@ import '../styles/pages/page.less';
  */
 
 const SeriesArchive = ({ data, location }) => {
-  const dataScienceCourses = data.datascience.edges;
-  const softwareCourses = data.software.edges;
-  const analysisCourses = data.analysis.edges;
-  const cloudCourses = data.cloud.edges;
-  const title = data.seriesPage.title;
-  const metaTitle = data.seriesPage.meta_title;
-  const metaDescription = data.seriesPage.meta_description;
-  const html = data.seriesPage.html;
-  const seriesDetailPages = data.seriesDetail.edges;
+  const dataScienceCourses = data.datascience.edges
+  const softwareCourses = data.software.edges
+  const analysisCourses = data.analysis.edges
+  const cloudCourses = data.cloud.edges
+  const title = data.seriesPage.title
+  const metaTitle = data.seriesPage.meta_title
+  const metaDescription = data.seriesPage.meta_description
+  const html = data.seriesPage.html
+  const seriesDetailPages = data.seriesDetail.edges
 
   function getSeriesDetail(slug) {
-    let seriesDetailPage = undefined;
+    let seriesDetailPage = undefined
     seriesDetailPages.forEach((seriesDetail) => {
       if (seriesDetail.node.slug === slug) {
-        seriesDetailPage = seriesDetail;
+        seriesDetailPage = seriesDetail
       }
-    });
+    })
     if (seriesDetailPage) {
-      return seriesDetailPage.node;
+      return seriesDetailPage.node
     }
-    return seriesDetailPage;
+    return seriesDetailPage
   }
 
   return (
@@ -104,8 +104,8 @@ const SeriesArchive = ({ data, location }) => {
         </main>
       </Layout>
     </>
-  );
-};
+  )
+}
 
 SeriesArchive.propTypes = {
   data: PropTypes.shape({
@@ -177,7 +177,7 @@ SeriesArchive.propTypes = {
     }).isRequired,
   }),
   location: PropTypes.object.isRequired,
-};
+}
 
 export const seriesQuery = graphql`
   query seriesPage($slug: String) {
@@ -301,6 +301,6 @@ export const seriesQuery = graphql`
       }
     }
   }
-`;
+`
 
-export default SeriesArchive;
+export default SeriesArchive

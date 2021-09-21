@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { Tags } from '@tryghost/helpers-gatsby';
-import { AiOutlineTags } from 'react-icons/ai';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { Tags } from '@tryghost/helpers-gatsby'
+import { AiOutlineTags } from 'react-icons/ai'
 
 const RelatedPost = ({ post }) => {
-  const featureImage = post.feature_image;
-  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`);
+  const featureImage = post.feature_image
+  const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
   const featureMobileImage =
     featureImageSlash &&
     [
@@ -16,7 +16,7 @@ const RelatedPost = ({ post }) => {
     ]
       .join(``)
       .replace(`.jpg`, `@2x.jpg`)
-      .replace(`.png`, `@2x.png`);
+      .replace(`.png`, `@2x.png`)
   return (
     <>
       <Link
@@ -28,7 +28,7 @@ const RelatedPost = ({ post }) => {
       >
         {post.feature_image && (
           <picture className="related-post-image-wrapper">
-            <source data-srcset={featureMobileImage} />
+            <source data-srcset={featureMobileImage}/>
             <img
               className="related-post-image lazyload"
               data-src={featureImage}
@@ -40,7 +40,7 @@ const RelatedPost = ({ post }) => {
         <div className="related-post-info">
           <h5 className="related-post-title">{post.title}</h5>
           <div className="related-post-tags">
-            <AiOutlineTags className="tags-icon" />
+            <AiOutlineTags className="tags-icon"/>
             <Tags
               post={post}
               limit={2}
@@ -54,11 +54,11 @@ const RelatedPost = ({ post }) => {
         </div>
       </Link>
     </>
-  );
-};
+  )
+}
 
 RelatedPost.propTypes = {
   post: PropTypes.object,
-};
+}
 
-export default RelatedPost;
+export default RelatedPost

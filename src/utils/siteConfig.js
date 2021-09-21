@@ -22,6 +22,7 @@ module.exports = {
   lang: `en-US`,
   images: {
     buyMeACoffee: `/images/buymeacoffee.svg`,
+    shareImage: `https://storage.googleapis.com/hackersandslackers-cdn/social/share.png`,
     shareImageWidth: 1000, // Change to the width of your default share image
     shareImageHeight: 523, // Change to the height of your default share image
   },
@@ -38,4 +39,4 @@ module.exports = {
     buyMeACoffee: `https://buymeacoff.ee/hackersslackers`,
     githubOrg: `https://github.com/hackersandslackers/`,
   },
-};
+}

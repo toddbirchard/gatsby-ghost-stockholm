@@ -1,27 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import { readingTime as readingTimeHelper } from '@tryghost/helpers';
-import { FaUserEdit } from 'react-icons/fa';
-import { getRetinaImageUrl, getMobileImageUrl } from '../../utils/imageUrl';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
+import { readingTime as readingTimeHelper } from '@tryghost/helpers'
+import { FaUserEdit } from 'react-icons/fa'
+import { getRetinaImageUrl, getMobileImageUrl } from '../../utils/imageUrl'
 
 const PostCard = ({ post }) => {
   const url = post.slug.includes(`lynx`)
     ? `/roundup/${post.slug}/`
-    : `/${post.slug}/`;
-  const readingTime = readingTimeHelper(post);
+    : `/${post.slug}/`
+  const readingTime = readingTimeHelper(post)
   const authorFirstName = post.primary_author.name
     ? post.primary_author.name.split(` `)[0]
-    : null;
+    : null
   const authorAvatar = post.primary_author.profile_image
     ? post.primary_author.profile_image
-    : null;
-  const createdDate = post.created_at_pretty;
-  const featureImage = post.feature_image;
+    : null
+  const createdDate = post.created_at_pretty
+  const featureImage = post.feature_image
   const featureRetinaImage =
-    post.feature_image && getRetinaImageUrl(post.feature_image);
+    post.feature_image && getRetinaImageUrl(post.feature_image)
   const featureMobileImage =
-    post.feature_image && getMobileImageUrl(post.feature_image);
+    post.feature_image && getMobileImageUrl(post.feature_image)
   // const authorAvatarRetinaImage = authorAvatar && getMobileImageUrl(authorAvatar)
 
   return (
@@ -34,7 +34,7 @@ const PostCard = ({ post }) => {
                 media="(max-width:600px)"
                 data-srcset={featureMobileImage}
               />
-              <source data-srcset={featureRetinaImage} />
+              <source data-srcset={featureRetinaImage}/>
               <img
                 className="post-card-image lazyload"
                 data-src={featureImage}
@@ -54,7 +54,7 @@ const PostCard = ({ post }) => {
               <div className="meta-items-left">
                 {authorAvatar ? (
                   <picture>
-                    <source data-srcset={authorAvatar} />
+                    <source data-srcset={authorAvatar}/>
                     <img
                       data-src={authorAvatar}
                       alt={authorFirstName}
@@ -63,7 +63,7 @@ const PostCard = ({ post }) => {
                     />
                   </picture>
                 ) : (
-                  <FaUserEdit />
+                  <FaUserEdit/>
                 )}
                 <div>
                   <Link
@@ -98,8 +98,8 @@ const PostCard = ({ post }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 PostCard.propTypes = {
   post: PropTypes.shape({
@@ -127,6 +127,6 @@ PostCard.propTypes = {
       accent_color: PropTypes.string,
     }),
   }).isRequired,
-};
+}
 
-export default PostCard;
+export default PostCard
