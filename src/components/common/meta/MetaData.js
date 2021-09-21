@@ -60,7 +60,7 @@ const MetaData = ({
     title = title || config.siteTitleMeta || settings.title
     description =
       description || config.siteDescriptionMeta || settings.description
-    image = image || settings.cover_image || settings.og_image || settings.twitter_image
+    image = image || settings.cover_image || settings.og_image || settings.twitter_image || null
 
     return (
       <WebsiteMeta
@@ -94,7 +94,7 @@ MetaData.propTypes = {
   image: PropTypes.object,
 }
 
-const MetaDataQuery = (props) => (
+const MetaDataQuery = props => (
   <StaticQuery
     query={graphql`
       query GhostSettingsMetaData {
@@ -107,7 +107,7 @@ const MetaDataQuery = (props) => (
         }
       }
     `}
-    render={(data) => <MetaData settings={data} {...props} />}
+    render={data => <MetaData settings={data} {...props} />}
   />
 )
 
