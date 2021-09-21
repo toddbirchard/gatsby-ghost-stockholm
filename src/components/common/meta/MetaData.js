@@ -60,7 +60,7 @@ const MetaData = ({
     title = title || config.siteTitleMeta || settings.title
     description =
       description || config.siteDescriptionMeta || settings.description
-    image = image || settings.og_image || settings.twitter_image || ``
+    image = image || config.images.shareImage || settings.og_image || settings.twitter_image || ``
 
     return (
       <WebsiteMeta
