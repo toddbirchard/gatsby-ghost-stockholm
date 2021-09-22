@@ -30,7 +30,7 @@ const SocialWidget = ({ data }) => {
   return (
     <>
       <div className="widget social">
-        {socialNav.map((node) => (
+        {socialNav.map(node => (
           <a
             href={node.url}
             className={node.label}
@@ -59,7 +59,7 @@ SocialWidget.propTypes = {
   }),
 }
 
-const SocialWidgetQuery = (props) => (
+const SocialWidgetQuery = props => (
   <StaticQuery
     query={graphql`
       query secondaryNav {
@@ -71,7 +71,7 @@ const SocialWidgetQuery = (props) => (
         }
       }
     `}
-    render={(data) => <SocialWidget data={data} {...props} />}
+    render={data => <SocialWidget data={data} {...props} />}
   />
 )
 

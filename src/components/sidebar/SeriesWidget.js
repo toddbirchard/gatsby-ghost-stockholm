@@ -55,7 +55,7 @@ SeriesWidget.propTypes = {
   }).isRequired,
 }
 
-const SeriesWidgetQuery = (props) => (
+const SeriesWidgetQuery = props => (
   <StaticQuery
     query={graphql`
       query FeaturedSeries {
@@ -68,7 +68,7 @@ const SeriesWidgetQuery = (props) => (
         }
       }
     `}
-    render={(data) => <SeriesWidget data={data} {...props} />}
+    render={data => <SeriesWidget data={data} {...props} />}
   />
 )
 

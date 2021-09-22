@@ -75,7 +75,7 @@ CoffeeWidget.propTypes = {
   }),
 }
 
-const CoffeeWidgetQuery = (props) => (
+const CoffeeWidgetQuery = props => (
   <StaticQuery
     query={graphql`
       query coffeeQuery {
@@ -96,7 +96,7 @@ const CoffeeWidgetQuery = (props) => (
         }
       }
     `}
-    render={(data) => <CoffeeWidget data={data} {...props} />}
+    render={data => <CoffeeWidget data={data} {...props} />}
   />
 )
 

@@ -35,7 +35,7 @@ TrendingWidget.propTypes = {
   }).isRequired,
 }
 
-const TrendingWidgetQuery = (props) => (
+const TrendingWidgetQuery = props => (
   <StaticQuery
     query={graphql`
       query TrendingPages {
@@ -50,7 +50,7 @@ const TrendingWidgetQuery = (props) => (
         }
       }
     `}
-    render={(data) => <TrendingWidget data={data} {...props} />}
+    render={data => <TrendingWidget data={data} {...props} />}
   />
 )
 

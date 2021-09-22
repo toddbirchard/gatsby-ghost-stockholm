@@ -174,7 +174,7 @@ MobileMenu.propTypes = {
   }).isRequired,
 }
 
-const MobileMenuQuery = (props) => (
+const MobileMenuQuery = props => (
   <StaticQuery
     query={graphql`
       query HamburgerNavQuery {
@@ -234,7 +234,7 @@ const MobileMenuQuery = (props) => (
         }
       }
     `}
-    render={(data) => <MobileMenu data={data} {...props} />}
+    render={data => <MobileMenu data={data} {...props} />}
   />
 )
 

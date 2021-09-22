@@ -70,17 +70,21 @@
           img,
           .post-card-image {
             min-height: unset !important;
+            background-size: cover;
+            grid-auto-columns: 200px;
           }
         }
 
         .primary-tag {
           margin-bottom: 7px;
-          padding: unset;
         }
 
         .primary-tag a {
           text-transform: uppercase;
-          font-size: 0.9em;
+          font-size: 0.8em;
+          font-family: @body-font-bold;
+          line-height: 1;
+          padding: 4px 6px 2px 4px;
         }
 
         .post-card-title {

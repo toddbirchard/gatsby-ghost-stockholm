@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { navigate } from 'gatsby'
+import { fetch } from 'node-fetch'
 
 /**
  * Newsletter widget
@@ -8,7 +9,7 @@ import { navigate } from 'gatsby'
 
 function encode(data) {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
     .join(`&`)
 }
 
@@ -26,7 +27,7 @@ const NewsletterWidget = () => {
       }),
     })
       .then(() => navigate(`/subscribed/`))
-      .catch((error) => console.log(error))
+      .catch(error => console.log(error))
   }
 
   return (

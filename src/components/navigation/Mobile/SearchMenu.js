@@ -25,11 +25,10 @@ class SearchMenu extends React.Component {
   }
 
   PostHit =
-    (clickHandler) =>
-      ({ hit }) => {
-        const featureImage = hit.feature_image
-        const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
-        const featureMobileImage =
+    clickHandler => ({ hit }) => {
+      const featureImage = hit.feature_image
+      const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
+      const featureMobileImage =
           featureImageSlash &&
           [
             featureImage.slice(0, featureImageSlash),
@@ -37,37 +36,37 @@ class SearchMenu extends React.Component {
             featureImage.slice(featureImageSlash),
           ].join(``)
 
-        return (
-          <div className="search-result">
-            <div className="image-wrapper">
-              <picture>
-                <source
-                  media="(max-width:600px)"
-                  data-srcset={featureMobileImage}
-                />
-                <img
-                  className="search-result-image lazyload"
-                  data-src={featureImage}
-                  alt={hit.title}
-                  title={hit.title}
-                />
-              </picture>
-            </div>
-            <div className="search-result-details">
-              <Link
-                to={`/${hit.slug}/`}
-                onClick={clickHandler}
-                className="search-result-title"
-              >
-                {hit.title}
-              </Link>
-              <div className="search-result-tag">
-                <span>{hit.primary_tag.name}</span>
-              </div>
+      return (
+        <div className="search-result">
+          <div className="image-wrapper">
+            <picture>
+              <source
+                media="(max-width:600px)"
+                data-srcset={featureMobileImage}
+              />
+              <img
+                className="search-result-image lazyload"
+                data-src={featureImage}
+                alt={hit.title}
+                title={hit.title}
+              />
+            </picture>
+          </div>
+          <div className="search-result-details">
+            <Link
+              to={`/${hit.slug}/`}
+              onClick={clickHandler}
+              className="search-result-title"
+            >
+              {hit.title}
+            </Link>
+            <div className="search-result-tag">
+              <span>{hit.primary_tag.name}</span>
             </div>
           </div>
-        )
-      }
+        </div>
+      )
+    }
 
   render() {
     return (
@@ -92,8 +91,7 @@ class SearchMenu extends React.Component {
               searchClient={SearchClient}
               indexName="hackers_posts"
               searchState={{ query: this.state.query }}
-              onSearchStateChange={({ query }) =>
-                this.setState({ query: query })
+              onSearchStateChange={({ query }) => this.setState({ query: query })
               }
               onSearchParameters={() => this.setState({ focus: true })}
             >
@@ -124,8 +122,7 @@ class SearchMenu extends React.Component {
                   </header>
                   <SearchResults>
                     <Hits
-                      hitComponent={this.PostHit(() =>
-                        this.setState({ focus: true }),
+                      hitComponent={this.PostHit(() => this.setState({ focus: true }),
                       )}
                     />
                   </SearchResults>
@@ -161,7 +158,7 @@ SearchMenu.propTypes = {
   }).isRequired,
 }
 
-const SearchMenuQuery = (props) => (
+const SearchMenuQuery = props => (
   <StaticQuery
     query={graphql`
       query MobileSearchQuery {
@@ -175,7 +172,7 @@ const SearchMenuQuery = (props) => (
         }
       }
     `}
-    render={(data) => <SearchMenu data={data} {...props} />}
+    render={data => <SearchMenu data={data} {...props} />}
   />
 )
 

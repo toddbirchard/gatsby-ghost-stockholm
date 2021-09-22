@@ -25,7 +25,7 @@ const TagsWidget = ({ data }) => {
   )
 }
 
-const TagsWidgetQuery = (props) => (
+const TagsWidgetQuery = props => (
   <StaticQuery
     query={graphql`
       query allGhostTags {
@@ -47,7 +47,7 @@ const TagsWidgetQuery = (props) => (
         }
       }
     `}
-    render={(data) => <TagsWidget data={data} {...props} />}
+    render={data => <TagsWidget data={data} {...props} />}
   />
 )
 

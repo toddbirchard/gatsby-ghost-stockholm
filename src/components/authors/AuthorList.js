@@ -24,7 +24,7 @@ AuthorCards.propTypes = {
   }).isRequired,
 }
 
-const AuthorCardsQuery = (props) => (
+const AuthorCardsQuery = props => (
   <StaticQuery
     query={graphql`
       query AuthorCardsQuery {
@@ -50,7 +50,7 @@ const AuthorCardsQuery = (props) => (
         }
       }
     `}
-    render={(data) => <AuthorCards allAuthors={data} {...props} />}
+    render={data => <AuthorCards allAuthors={data} {...props} />}
   />
 )
 

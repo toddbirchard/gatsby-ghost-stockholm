@@ -8,7 +8,7 @@ import IdentityModal, {
   useIdentityContext,
 } from 'react-netlify-identity-widget'
 
-// import fetch from 'node-fetch'
+import fetch from 'node-fetch'
 
 function encode(data) {
   return Object.keys(data)

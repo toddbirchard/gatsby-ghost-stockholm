@@ -185,7 +185,7 @@ TwitterWidget.propTypes = {
   }),
 }
 
-const TwitterQuery = (props) => (
+const TwitterQuery = props => (
   <StaticQuery
     query={graphql`
       query TwitterQuery {
@@ -239,7 +239,7 @@ const TwitterQuery = (props) => (
         }
       }
     `}
-    render={(data) => <TwitterWidget data={data} {...props} />}
+    render={data => <TwitterWidget data={data} {...props} />}
   />
 )
 
