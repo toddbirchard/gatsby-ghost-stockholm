@@ -10,7 +10,7 @@ const AuthorMeta = ({ data, settings, canonical }) => {
   settings = settings.allGhostSettings.edges[0].node
 
   const author = getAuthorProperties(data)
-  const shareImage = settings.cover_image
+  const shareImage = settings.cover_image || settings.og_image || settings.twitter_image || config.images.shareImage
   const title = `${data.name} - ${settings.title}`
   const description =
     data.bio || config.siteDescriptionMeta || settings.description
