@@ -189,7 +189,10 @@ const TwitterQuery = props => (
   <StaticQuery
     query={graphql`
       query TwitterQuery {
-        tweets: allTwitterStatusesUserTimelineHackersTweets(limit: 4) {
+        tweets: allTwitterStatusesUserTimelineHackersTweets(
+          limit: 4
+          filter: {full_text: {ne: "Lynx"}}
+        ) {
           edges {
             node {
               full_text
