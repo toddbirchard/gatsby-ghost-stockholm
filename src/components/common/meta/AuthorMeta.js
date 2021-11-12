@@ -82,6 +82,8 @@ AuthorMeta.propTypes = {
     twitter: PropTypes.string,
     description: PropTypes.string,
     cover_image: PropTypes.string,
+    og_image: PropTypes.string,
+    twitter_image: PropTypes.string,
     allGhostSettings: PropTypes.object.isRequired,
   }).isRequired,
   canonical: PropTypes.string.isRequired,

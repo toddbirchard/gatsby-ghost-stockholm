@@ -92,6 +92,7 @@ WebsiteMeta.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  type: PropTypes.string,
 }
 
 const WebsiteMetaQuery = props => (
