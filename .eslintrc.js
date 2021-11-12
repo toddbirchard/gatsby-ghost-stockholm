@@ -45,18 +45,14 @@ module.exports = {
       `error`, `backtick`,
     ],
     "consistent-return": [`error`],
-    "arrow-body-style": [
-      `error`,
-      `as-needed`, {
-        requireReturnForObjectLiteral: true,
-      },
-    ],
     semi: [
       `error`, `never`,
     ],
     "object-curly-spacing": [
       `warn`, `always`,
     ],
+    "max-lines": `off`,
+    "arrow-parens": `off`,
     "comma-dangle": [
       `error`, {
         arrays: `always-multiline`,

@@ -11,6 +11,7 @@ const ImageMeta = ({ image }) => {
   return (
     <>
       <Helmet>
+        <link rel="icon" type="image/png" href="/images/logo-small@2x.png"/>
         <meta name="twitter:card" content="summary_large_image"/>
         <meta name="twitter:image" content={image}/>
         <meta property="og:image" content={image}/>
