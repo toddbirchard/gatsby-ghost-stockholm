@@ -51,7 +51,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description}/>
-        <meta name="icon" content={image}/>
+        <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content={settings.title}/>
         <meta property="og:type" content="website"/>
         <meta property="og:title" content={title}/>
