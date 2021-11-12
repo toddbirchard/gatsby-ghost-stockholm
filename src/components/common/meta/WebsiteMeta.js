@@ -51,7 +51,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description}/>
-        <link rel="canonical" href={canonical}/>
+        <meta name="icon" content={image}/>
         <meta property="og:site_name" content={settings.title}/>
         <meta property="og:type" content="website"/>
         <meta property="og:title" content={title}/>
@@ -63,6 +63,7 @@ const WebsiteMeta = ({ data, settings, canonical, title, description, image, typ
         {settings.twitter &&
         <meta name="twitter:site" content={`https://twitter.com/${settings.twitter.replace(/^@/, ``)}/`}/>}
         {settings.twitter && <meta name="twitter:creator" content={settings.twitter}/>}
+        <link rel="canonical" href={canonical}/>
         <script type="application/ld+json">{JSON.stringify(jsonLd, undefined, 4)}</script>
       </Helmet>
       <ImageMeta image={shareImage}/>
