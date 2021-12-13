@@ -12,7 +12,7 @@
     "JAMStack"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "repository": "git+https://github.com/toddbirchard/stockholm.git",
   "bugs": {

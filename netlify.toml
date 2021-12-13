@@ -8,17 +8,19 @@
   GO_VERSION = "1.17"
   GO_IMPORT_PATH = "github.com/toddbirchard/lambda-metadata-scraper"
 
+
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
+
 [template]
   incoming-hooks = ["Ghost"]
+
 
 [[redirects]]
     from = "/ghost"
     to = "https://hackersandslackers.app/ghost"
     status = 301
-
 
 [[redirects]]
     from = "/structuring-your-flask-app/"

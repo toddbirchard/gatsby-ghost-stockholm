@@ -4,7 +4,7 @@ GatsbyJS theme for sites to be sourced primarily from Ghost CMS.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0641111d-1c93-4886-8dbe-5f26ae995b36/deploy-status)](https://app.netlify.com/sites/hackersandslackers/deploys)
 ![Ghost](https://img.shields.io/badge/Ghost-^v4.0.0-lightgrey.svg?longCache=true&style=flat-square&logo=ghost&logoColor=white&colorB=656c82&colorA=4c566a)
-![Node](https://img.shields.io/badge/NodeJS-v^14.0.0-green.svg?longCache=true&style=flat-square&logo=node.js&logoColor=white&colorB=a3be8c&colorA=4c566a)
+![Node](https://img.shields.io/badge/NodeJS-v^16.0.0-green.svg?longCache=true&style=flat-square&logo=node.js&logoColor=white&colorB=a3be8c&colorA=4c566a)
 ![Go](https://img.shields.io/badge/Go-1.17-blue.svg?logo=go&longCache=true&logoColor=white&colorB=88C0D0&style=flat-square&colorA=4c566a)
 ![Gatsby](https://img.shields.io/badge/Gatsby-v^3.13.0-red.svg?longCache=true&style=flat-square&logo=Gatsby&logoColor=white&colorA=4c566a&colorB=b48ead)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square&colorA=4c566a&colorB=a3be8c&logo=GitHub)

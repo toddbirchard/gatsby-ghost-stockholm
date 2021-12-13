@@ -28,7 +28,7 @@
   "license": "MIT",
   "main": "index.js",
   "peerDependencies": {
-    "gatsby": ">=3.13.0"
+    "gatsby": ">=4.1.4"
   },
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",
