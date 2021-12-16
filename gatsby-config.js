@@ -206,7 +206,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify-identity`,
       options: {
-        url: `https://hackersandslackers.com`, // required!
+        url: `https://hackersandslackers.com/`, // required!
       },
     },
     /**
