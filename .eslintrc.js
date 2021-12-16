@@ -8,7 +8,6 @@ module.exports = {
     },
   },
   plugins: [
-    `ghost`,
     `react`,
     `promise`,
     `import`,

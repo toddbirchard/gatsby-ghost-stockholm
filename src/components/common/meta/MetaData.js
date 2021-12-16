@@ -89,7 +89,7 @@ MetaData.propTypes = {
   }).isRequired,
   pageContext: PropTypes.object,
   settings: PropTypes.object,
-  title: PropTypes.object,
+  title: PropTypes.string,
   description: PropTypes.object,
   image: PropTypes.object,
 }
