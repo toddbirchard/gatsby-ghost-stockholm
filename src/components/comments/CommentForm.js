@@ -35,7 +35,7 @@ const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
   const authorName = post.primary_author.name
-  const authorEmail = post.primary_author.email
+  const authorId = post.primary_author.ghostId
   const identity = useIdentityContext()
   const user = identity.user
   const isLoggedIn = identity.isLoggedIn
@@ -92,8 +92,7 @@ const CommentForm = ({ post }) => {
     }
     if (
       value === `Leave a comment!` ||
-      value === `` ||
-      value === null
+      value === ``
     ) {
       commentSubmittedRef.current.classList.add(`active`)
         .then(hideMessage)
@@ -107,7 +106,7 @@ const CommentForm = ({ post }) => {
         postId: postId,
         postSlug: postSlug,
         authorName: authorName,
-        authorEmail: authorEmail,
+        authorId: authorId,
         userId: userId,
         userName: userName,
         userAvatar: userAvatar,
@@ -154,7 +153,7 @@ const CommentForm = ({ post }) => {
         <p>Your comment will be visible shortly.</p>
       </div>
 
-      {/* Success message for submitted comments. */}
+      {/* Failure message for problematic comments. */}
       <div className="submission-message failure" ref={commentFailedRef}>
         <div className="message">
           <FaRegWindowClose className="icon"/>
@@ -263,16 +262,16 @@ const CommentForm = ({ post }) => {
             />
           </fieldset>
 
-          {/* Primary author's email address. */}
+          {/* Primary author's Ghost ID. */}
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorEmail">
-              Author Email
+            <label className="hidden-label" htmlFor="authorId">
+              Author Id
             </label>
             <input
-              id="authorEmail"
-              name="authorEmail"
+              id="authorId"
+              name="authorId"
               type="text"
-              value={authorEmail}
+              value={authorId}
             />
           </fieldset>
 
@@ -311,6 +310,8 @@ const CommentForm = ({ post }) => {
             minPreviewHeight={50}
             initialEditorHeight={50}
           />
+
+          {/* Account login/logout button */}
           {isLoggedIn ? (
             <input
               className="comment-btn submit"
@@ -324,6 +325,8 @@ const CommentForm = ({ post }) => {
           )}
         </form>
       </div>
+
+      {/* Account modal */}
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
@@ -339,7 +342,10 @@ CommentForm.propTypes = {
   post: PropTypes.shape({
     ghostId: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    primary_author: PropTypes.object.isRequired,
+    primary_author: PropTypes.shape({
+      ghostId: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
     comment_id: PropTypes.string.isRequired,
   }).isRequired,
   identity: PropTypes.object,

@@ -55,14 +55,13 @@ module.exports = {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PARALLEL_QUERY_RUNNING: true,
-    DEV_SSR: true,
   },
   siteMetadata: {
     title: config.shortTitle,
     siteUrl: config.siteUrl,
     description: config.siteDescriptionMeta,
     url: config.siteUrl, // No trailing slash allowed!
-    twitterUsername: config.links.twitter,
+    twitterUsername: config.creator.twitter,
   },
   plugins: [
     /**

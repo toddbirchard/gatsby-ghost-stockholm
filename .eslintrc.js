@@ -1,7 +1,7 @@
 module.exports = {
   parser: `@babel/eslint-parser`,
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: `latest`,
     ecmaFeatures: {
       jsx: true,
       experimentalObjectRestSpread: true,
@@ -11,6 +11,7 @@ module.exports = {
     `react`,
     `promise`,
     `import`,
+    `graphql`
   ],
   extends: [
     `plugin:react/recommended`,

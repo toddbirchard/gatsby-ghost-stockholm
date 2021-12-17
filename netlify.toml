@@ -1,17 +1,15 @@
 [build]
   base = "/"
-  command = "make build"
+  command = "npm run build"
   publish = "/public"
   functions = "/functions"
-
-[build.environment]
-  GO_VERSION = "1.17"
-  GO_IMPORT_PATH = "github.com/toddbirchard/lambda-metadata-scraper"
-
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"
 
+[build.environment]
+  GO_VERSION = "1.17"
+  GO_IMPORT_PATH = "github.com/toddbirchard/lambda-metadata-scraper"
 
 [template]
   incoming-hooks = ["Ghost"]
