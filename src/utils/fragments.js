@@ -17,6 +17,7 @@ export const ghostTagFields = graphql`
 // Used for author pages
 export const ghostAuthorFields = graphql`
   fragment GhostAuthorFields on GhostAuthor {
+    ghostId
     slug
     name
     bio
