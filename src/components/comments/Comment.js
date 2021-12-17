@@ -18,14 +18,14 @@ const Comment = ({ comment }) => {
   const userIsAuthor = comment && comment.user_role === `author`
   const userIsModerator = comment && comment.user_role === `moderator`
   const commentBody = converter.makeHtml(comment.body)
-  const authorAvatar = comment.user_avatar && comment.user_avatar
+  const userAvatar = comment.user_avatar && comment.user_avatar
 
   return (
     <div className="comment" key={comment.id}>
       <div className="comment-main">
         <div className="comment-head">
           <div className="comment-author">
-            {authorAvatar ? (
+            {userAvatar ? (
               <img
                 className="user-avatar avatar-border lazyload"
                 data-src={comment.user_avatar}

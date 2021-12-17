@@ -22,7 +22,7 @@ const SupportWidget = () => {
             name="newsletter"
             method="POST"
             netlify
-            data-netlify="true"
+            data-netlify
             netlify-honeypot="phone-number"
             action="/subscribed/"
           >

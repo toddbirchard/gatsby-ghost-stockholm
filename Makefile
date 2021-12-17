@@ -68,6 +68,7 @@ clean:
 	find . -name '.pnp.cjs' -delete
 	find . -wholename '**/.yarn' -delete
 	find . -wholename '*/*.log' -delete
+	find . -wholename 'public' -delete
 
 .PHONY: update
 update:

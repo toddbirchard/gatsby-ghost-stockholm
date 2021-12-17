@@ -112,6 +112,10 @@
     .success-message {
       display: none !important;
     }
+
+    .failure-message {
+      display: none !important;
+    }
   }
 
   #commentBody,
@@ -233,7 +237,6 @@
 
       .mde-textarea-wrapper {
         // height: 200px;
-
         .mde-text {
           color: @body-color;
           font-size: unset;
@@ -489,7 +492,7 @@
   margin-top: -15px;
 }
 
-.success-message {
+.submission-message {
   display: flex !important;
   z-index: 100;
   position: fixed;
@@ -501,9 +504,7 @@
   height: 1px;
   padding: 15px 0;
   overflow: hidden;
-  background: #c9e1c9;
   box-shadow: 0 0 5px 2px rgba(37, 90, 36, 0.4);
-
   opacity: 0;
   transition: all 0.4s ease-out;
 
@@ -513,7 +514,6 @@
     width: fit-content;
     height: fit-content;
     margin: 10px auto;
-    color: #255a24;
     font-family: @body-font-medium;
     font-size: 1.6em;
     text-align: center;
@@ -524,7 +524,6 @@
 
     .icon {
       margin-right: 5px;
-      color: #163d15;
       font-size: 0.75em;
     }
 
@@ -538,19 +537,50 @@
   p {
     max-width: 90%;
     margin: auto;
-    color: #163d15;
     font-size: 1.05em;
     line-height: 1;
     text-align: center;
   }
-}
 
-.active {
-  top: 0;
-  height: 70px;
-  opacity: 1;
-}
+  &.success {
+    background: @message-success-background-color;
 
-.inactive {
-  opacity: 0 !important;
+    .message {
+      color: @message-success-message-color;
+    }
+
+    .icon {
+      color: @message-success-font-color;
+    }
+
+    p {
+      color: @message-success-font-color;
+    }
+  }
+
+  &.failure {
+    background: @message-failure-background-color;
+
+    .message {
+      color: @message-failure-message-color;
+    }
+
+    .icon {
+      color: @message-failure-font-color;
+    }
+
+    p {
+      color: @message-failure-font-color;
+    }
+  }
+
+  .active {
+    top: 0;
+    height: 70px;
+    opacity: 1;
+  }
+
+  .inactive {
+    opacity: 0 !important;
+  }
 }

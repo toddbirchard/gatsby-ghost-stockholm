@@ -13,7 +13,6 @@ module.exports = {
     `import`,
   ],
   extends: [
-    `plugin:ghost/node`,
     `plugin:react/recommended`,
     `plugin:promise/recommended`,
     `eslint:recommended`,
