@@ -61,11 +61,11 @@ dev:
 .PHONY: clean
 clean:
 	if [ -d "./node_modules" ]; then gatsby clean; fi
-	rm -rf 'node_modules'
-	rm -rf 'plugins/gatsby-plugin-ghost-manifest/node_modules'
 	find . -name 'package-lock.json' -delete
 	find . -name 'yarn.lock' -delete
 	find . -name '.pnp.cjs' -delete
+	find . -wholename 'node_modules' -delete
+	find . -wholename 'plugins/gatsby-plugin-ghost-manifest/node_modules' -delete
 	find . -wholename '**/.yarn' -delete
 	find . -wholename '*/*.log' -delete
 	find . -wholename 'public' -delete

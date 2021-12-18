@@ -1,6 +1,6 @@
 "use strict";
 
-var fs = require("fs"); // default icons for generating icons
+const fs = require("fs"); // default icons for generating icons
 
 
 exports.defaultIcons = [{

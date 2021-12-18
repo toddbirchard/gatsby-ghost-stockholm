@@ -12,6 +12,7 @@
     "@babel/cli": "7.16.0",
     "@babel/core": "7.16.5",
     "babel-preset-gatsby-package": "2.4.0",
+    "cheerio": "^1.0.0-rc.10",
     "cross-env": "7.0.3"
   },
   "keywords": [
