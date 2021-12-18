@@ -93,13 +93,15 @@ const CommentForm = ({ post }) => {
     }
     if (
       value === `Leave a comment!` ||
-      value === ``
+      value === `` ||
+      value == null
     ) {
-      commentFailedRef.current.classList.add(`active`)
+      commentSubmittedRef.current.classList.add(`active`)
         .then(hideMessage)
         .catch(error => console.log(error))
+
     } else {
-      commentSubmittedRef.current.classList.add(`active`)
+      commentFailedRef.current.classList.add(`active`)
         .then(hideMessage)
         .catch(error => console.log(error))
     }
