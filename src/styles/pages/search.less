@@ -163,7 +163,7 @@
         padding: 15px 15px 10px !important;
         border: 1px solid #dfdede;
         border-radius: 0;
-        background: #fcfcfd !important;
+        background: #f7f8fb !important;
         font-size: 1em;
         line-height: normal;
         transition: all 0.2s ease-out;
@@ -384,10 +384,11 @@
         padding-left: 0;
         overflow: hidden;
         line-height: 0;
+        box-shadow: 0 1px 4px rgba(39,44,49,.15);
 
         .post-card {
           padding: 0;
-          box-shadow: @box-shadow;
+          box-shadow: unset;
 
           & > a {
             width: 100%;
@@ -403,7 +404,7 @@
 
           .primary-tag {
             height: unset;
-            margin-bottom: 8px;
+            margin-bottom: 0;
             padding: 3px 4px 1px;
             font-size: 0.7em;
             text-align: center;
@@ -424,7 +425,7 @@
             letter-spacing: -0.5px;
             line-height: 1.2;
             @media (max-width: @mobile-breakpoint) {
-              font-size: 1.3em !important;
+              font-size: 1.3em;
             }
           }
 
@@ -448,7 +449,7 @@
 
             .author-name {
               margin-bottom: 2px;
-              font-size: 1em;
+              font-size: .9em;
             }
 
             .meta-item {
@@ -457,7 +458,7 @@
             }
 
             .meta-items-left * {
-              line-height: .7;
+              line-height: .8;
             }
 
             .separator {

@@ -16,6 +16,20 @@ export const onRouteUpdate = ({ location }) => {
   if (path.indexOf('author')) {
     // scrapeUrlMetadata();
   }
+
+  if (
+    process.env.NODE_ENV === `production` &&
+    typeof window.plausible === `object`
+  ) {
+    const pathIsExcluded =
+      location &&
+      typeof window.plausibleExcludePaths !== `undefined` &&
+      window.plausibleExcludePaths.some((rx) => rx.test(location.pathname));
+
+    if (pathIsExcluded) return null;
+
+    window.plausible('pageview');
+  }
 }
 
 // -------------------------------------------

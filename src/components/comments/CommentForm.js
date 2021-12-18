@@ -7,7 +7,7 @@ import * as Showdown from 'showdown'
 import IdentityModal, {
   useIdentityContext,
 } from 'react-netlify-identity-widget'
-import { Promise } from 'promise'
+import Promise from 'promise'
 
 import fetch from 'node-fetch'
 

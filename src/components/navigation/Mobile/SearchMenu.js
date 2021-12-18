@@ -41,6 +41,7 @@ class SearchMenu extends React.Component {
           <div className="image-wrapper">
             <picture>
               <source
+                className="lazyload"
                 media="(max-width:600px)"
                 data-srcset={featureMobileImage}
               />
