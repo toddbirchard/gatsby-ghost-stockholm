@@ -35,7 +35,7 @@ const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
   const authorName = post.primary_author.name
-  const authorEmail = post.primary_author.email
+  const authorId = post.primary_author.id
   const identity = useIdentityContext()
   const user = identity.user
   const isLoggedIn = identity.isLoggedIn
@@ -92,8 +92,7 @@ const CommentForm = ({ post }) => {
     }
     if (
       value === `Leave a comment!` ||
-      value === `` ||
-      value === null
+      value === ``
     ) {
       commentSubmittedRef.current.classList.add(`active`)
         .then(hideMessage)
@@ -107,7 +106,7 @@ const CommentForm = ({ post }) => {
         postId: postId,
         postSlug: postSlug,
         authorName: authorName,
-        authorEmail: authorEmail,
+        authorId: authorId,
         userId: userId,
         userName: userName,
         userAvatar: userAvatar,
@@ -263,16 +262,16 @@ const CommentForm = ({ post }) => {
             />
           </fieldset>
 
-          {/* Primary author's email address. */}
+          {/* Primary author's ID. */}
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="authorEmail">
-              Author Email
+              Author ID
             </label>
             <input
-              id="authorEmail"
-              name="authorEmail"
+              id="authorId"
+              name="authorId"
               type="text"
-              value={authorEmail}
+              value={authorId}
             />
           </fieldset>
 
