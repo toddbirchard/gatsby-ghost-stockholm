@@ -77,6 +77,7 @@ export const ghostPostFields = graphql`
       website
     }
     primary_author {
+      ghostId
       name
       slug
       bio

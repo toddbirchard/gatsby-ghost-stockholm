@@ -35,7 +35,7 @@ const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
   const authorName = post.primary_author.name
-  const authorId = post.primary_author.id
+  const authorId = post.primary_author.ghostId
   const identity = useIdentityContext()
   const user = identity.user
   const isLoggedIn = identity.isLoggedIn
@@ -73,6 +73,7 @@ const CommentForm = ({ post }) => {
     }
   })
 
+
   const handleClick = () => {
     if (isLoggedIn) {
       formRef.current.classList.add(`open`)
@@ -94,6 +95,10 @@ const CommentForm = ({ post }) => {
       value === `Leave a comment!` ||
       value === ``
     ) {
+      commentFailedRef.current.classList.add(`active`)
+        .then(hideMessage)
+        .catch(error => console.log(error))
+    } else {
       commentSubmittedRef.current.classList.add(`active`)
         .then(hideMessage)
         .catch(error => console.log(error))
@@ -122,12 +127,12 @@ const CommentForm = ({ post }) => {
       .then(hideMessage)
       .catch(error => console.log(error))
   }
-  const handleLogin = (u) => {
-    setUserId(u.id)
-    setUserName(u.user_metadata.full_name)
-    setUserAvatar(u.user_metadata.user_avatar)
-    setUserProvider(u.app_metadata.provider)
-    setUserEmail(u.email)
+  const handleLogin = (user) => {
+    setUserId(user.id)
+    setUserName(user.user_metadata.full_name)
+    setUserAvatar(user.user_metadata.user_avatar)
+    setUserProvider(user.app_metadata.provider)
+    setUserEmail(user.email)
   }
   const handleLogout = () => {
     setUserId(``)
@@ -171,8 +176,7 @@ const CommentForm = ({ post }) => {
       >
         <form
           name="comments"
-          netlify
-          data-netlify
+          data-netlify="true"
           data-netlify-honeypot="streetAddress"
           method="post"
           onSubmit={handleSubmit}
@@ -270,7 +274,7 @@ const CommentForm = ({ post }) => {
             <input
               id="authorId"
               name="authorId"
-              type="text"
+              type="number"
               value={authorId}
             />
           </fieldset>
@@ -279,7 +283,7 @@ const CommentForm = ({ post }) => {
             <label className="hidden-label" htmlFor="streetAddress">
               Address
             </label>
-            <input id="streetAddress" name="streetAddress" type="hidden"/>
+            <input id="streetAddress" name="comments" value="streetAddress" type="hidden"/>
           </fieldset>
 
           <fieldset className="hidden-label">
@@ -326,8 +330,8 @@ const CommentForm = ({ post }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={u => handleLogin(u)}
-        onSignup={u => handleLogin(u)}
+        onLogin={user => handleLogin(user)}
+        onSignup={user => handleLogin(user)}
         onLogout={() => handleLogout()}
       />
     </>
@@ -338,7 +342,10 @@ CommentForm.propTypes = {
   post: PropTypes.shape({
     ghostId: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    primary_author: PropTypes.object.isRequired,
+    primary_author: PropTypes.shape({
+      ghostId: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
     comment_id: PropTypes.string.isRequired,
   }).isRequired,
   identity: PropTypes.object,
