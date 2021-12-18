@@ -34,7 +34,6 @@ const wait = timeout => new Promise((resolve) => {
 const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
-  const authorName = post.primary_author.name
   const authorId = post.primary_author.ghostId
   const identity = useIdentityContext()
   const user = identity.user
@@ -105,7 +104,6 @@ const CommentForm = ({ post }) => {
         'form-name': form.getAttribute(`name`),
         postId: postId,
         postSlug: postSlug,
-        authorName: authorName,
         authorId: authorId,
         userId: userId,
         userName: userName,
@@ -246,19 +244,6 @@ const CommentForm = ({ post }) => {
               name="userProvider"
               type="text"
               value={userProvider}
-            />
-          </fieldset>
-
-          {/* Primary author's name. */}
-          <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorName">
-              Author Name
-            </label>
-            <input
-              id="authorName"
-              name="authorName"
-              type="text"
-              value={authorName}
             />
           </fieldset>
 
