@@ -384,7 +384,7 @@ module.exports = {
           replicaUpdateMode: `replace`,
         },
         enablePartialUpdates: true,
-        matchFields: [`slug`, `updated_at`],
+        matchFields: [`slug`, `updated_at`, `created_at_pretty`],
         concurrentQueries: false,
         continueOnFailure: true,
       },
