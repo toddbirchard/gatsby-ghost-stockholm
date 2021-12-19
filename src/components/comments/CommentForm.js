@@ -97,12 +97,12 @@ const CommentForm = ({ post }) => {
       value == null
     ) {
       commentSubmittedRef.current.classList.add(`active`)
-        .then(hideMessage)
+        .then(hideMessage(commentSubmittedRef))
         .catch(error => console.log(error))
 
     } else {
       commentFailedRef.current.classList.add(`active`)
-        .then(hideMessage)
+        .then(hideMessage(commentFailedRef))
         .catch(error => console.log(error))
     }
     fetch(`/`, {
@@ -143,10 +143,11 @@ const CommentForm = ({ post }) => {
     setUserProvider(``)
     setUserEmail(``)
   }
-  const hideMessage = () => {
+  const hideMessage = (message) => {
     wait(2000)
-      .then(() => commentSubmittedRef.classList.add(`inactive`))
+      .then(() => message.classList.add(`inactive`))
       .catch(error => console.log(error))
+    return message
   }
 
   return (
