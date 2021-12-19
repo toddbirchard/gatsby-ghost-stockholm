@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import ReactMde from 'react-mde'
 import 'react-mde/lib/styles/css/react-mde-all.css'
-import { FaCheck, FaRegWindowClose, FaRegComment } from 'react-icons/fa'
+import { FaCheck, FaRegComment } from 'react-icons/fa'
 import * as Showdown from 'showdown'
 import IdentityModal, {
   useIdentityContext,
@@ -40,8 +40,7 @@ const CommentForm = ({ post }) => {
   const user = identity.user
   const isLoggedIn = identity.isLoggedIn
   const formRef = React.useRef()
-  const commentSubmittedRef = React.useRef()
-  const commentFailedRef = React.useRef()
+  const messageRef = React.useRef()
   const textAreaRef = React.useRef()
   const [userId, setUserId] = useState(user ? user.id : ``)
   const [userName, setUserName] = useState(
@@ -92,18 +91,11 @@ const CommentForm = ({ post }) => {
       console.log(`User is not logged in.`)
     }
     if (
-      value === `Leave a comment!` ||
+      value === `Have something to say?` ||
       value === `` ||
-      value == null
+      value === undefined
     ) {
-      commentSubmittedRef.current.classList.add(`active`)
-        .then(hideMessage(commentSubmittedRef))
-        .catch(error => console.log(error))
-
-    } else {
-      commentFailedRef.current.classList.add(`active`)
-        .then(hideMessage(commentFailedRef))
-        .catch(error => console.log(error))
+      console.log(`Comment body is empty.`)
     }
     fetch(`/`, {
       method: `POST`,
@@ -125,8 +117,8 @@ const CommentForm = ({ post }) => {
       .then(() => setValue(`Leave a comment!`))
       .then(formRef.current.classList.add(`closed`))
       .then(formRef.current.classList.remove(`open`))
-      .then(commentSubmittedRef.current.classList.add(`active`))
-      .then(hideMessage(commentSubmittedRef))
+      .then(messageRef.current.classList.add(`active`))
+      .then(hideMessage)
       .catch(error => console.log(error))
   }
   const handleLogin = (user) => {
@@ -143,17 +135,16 @@ const CommentForm = ({ post }) => {
     setUserProvider(``)
     setUserEmail(``)
   }
-  const hideMessage = (message) => {
+  const hideMessage = () => {
     wait(2000)
-      .then(() => message.classList.add(`inactive`))
+      .then(() => messageRef.classList.add(`inactive`))
       .catch(error => console.log(error))
-    return message
   }
 
   return (
     <>
       {/* Success message for submitted comments. */}
-      <div className="submission-message success" ref={commentSubmittedRef}>
+      <div className="submission-message success" ref={messageRef}>
         <div className="message">
           <FaCheck className="icon"/>
           <div>Comment Submitted!</div>
@@ -161,14 +152,14 @@ const CommentForm = ({ post }) => {
         <p>Your comment will be visible shortly.</p>
       </div>
 
-      {/* Success message for submitted comments. */}
-      <div className="submission-message failure" ref={commentFailedRef}>
+      {/* Failure message for submitted comments. */}
+      {/*<div className="submission-message failure" ref={commentFailedRef}>
         <div className="message">
           <FaRegWindowClose className="icon"/>
           <div>Comment failed to submit!</div>
         </div>
         <p>Make sure your comment body was not left empty.</p>
-      </div>
+      </div>*/}
 
       <div
         className={`form-container closed ${
@@ -179,6 +170,7 @@ const CommentForm = ({ post }) => {
       >
         <form
           name="comments"
+          netlify
           data-netlify="true"
           data-netlify-honeypot="streetAddress"
           method="post"
@@ -256,7 +248,7 @@ const CommentForm = ({ post }) => {
             />
           </fieldset>
 
-          {/* Primary author's name. */}
+          {/* Post author's name. */}
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="authorName">
               Author Name
@@ -269,7 +261,7 @@ const CommentForm = ({ post }) => {
             />
           </fieldset>
 
-          {/* Primary author's ID. */}
+          {/* Post author's ID. */}
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="authorId">
               Author ID
@@ -277,7 +269,7 @@ const CommentForm = ({ post }) => {
             <input
               id="authorId"
               name="authorId"
-              type="number"
+              type="text"
               value={authorId}
             />
           </fieldset>
@@ -346,7 +338,7 @@ CommentForm.propTypes = {
     ghostId: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     primary_author: PropTypes.shape({
-      ghostId: PropTypes.number.isRequired,
+      ghostId: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
     }).isRequired,
     comment_id: PropTypes.string.isRequired,
