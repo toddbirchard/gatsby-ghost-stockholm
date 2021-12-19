@@ -126,7 +126,7 @@ const CommentForm = ({ post }) => {
       .then(formRef.current.classList.add(`closed`))
       .then(formRef.current.classList.remove(`open`))
       .then(commentSubmittedRef.current.classList.add(`active`))
-      .then(hideMessage)
+      .then(hideMessage(commentSubmittedRef))
       .catch(error => console.log(error))
   }
   const handleLogin = (user) => {
@@ -271,7 +271,7 @@ const CommentForm = ({ post }) => {
 
           {/* Primary author's ID. */}
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorEmail">
+            <label className="hidden-label" htmlFor="authorId">
               Author ID
             </label>
             <input
@@ -284,7 +284,7 @@ const CommentForm = ({ post }) => {
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="streetAddress">
-              Address
+              Street Address
             </label>
             <input id="streetAddress" name="comments" value="streetAddress" type="hidden"/>
           </fieldset>
