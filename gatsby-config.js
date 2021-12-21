@@ -158,12 +158,12 @@ module.exports = {
             name: `algolia_top_searches`,
           },
           {
-            statement: `SELECT * FROM hackers_prod.donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
+            statement: `SELECT * FROM hackers_dev.donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
             idFieldName: `id`,
             name: `donations`,
           },
           {
-            statement: `SELECT * FROM hackers_prod.comments`,
+            statement: `SELECT * FROM hackers_dev.comments`,
             idFieldName: `id`,
             name: `comments`,
           },
