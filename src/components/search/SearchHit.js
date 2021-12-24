@@ -4,17 +4,15 @@ import { Link } from 'gatsby'
 
 const SearchHit = ({ hit }) => {
   const featureImage = hit.feature_image
+  const featureImageRetina = featureImage.replaceAll(`.jpg`, `@2x.jpg`).replaceAll(`.png`, `@2x.png`)
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
   const featureMobileImage =
     featureImageSlash &&
     [
-      featureImage.slice(0, featureImageSlash),
+      featureImageRetina.slice(0, featureImageSlash),
       `/_mobile`,
-      featureImage.slice(featureImageSlash),
-    ]
-      .join(``)
-      .replace(`.jpg`, `@2x.jpg`)
-      .replace(`.png`, `@2x.png`)
+      featureImageRetina.slice(featureImageSlash),
+    ].join(``)
 
   return (
     <Link to={`/${hit.slug}/`}>
