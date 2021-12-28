@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { BsTag } from 'react-icons/bs'
 
-const InfoCard = ({ tag, count }) => (
+const InfoCard = ({ tag, count, version }) => (
   <>
-    <header className="info-card">
+    <header className={`info-card ${version}`}>
       <div className="info-card-wrapper">
         {tag.feature_image ? (
           <img
@@ -38,6 +38,7 @@ InfoCard.propTypes = {
     feature_image: PropTypes.string,
   }).isRequired,
   count: PropTypes.number,
+  version: PropTypes.string.isRequired,
 }
 
 export default InfoCard

@@ -55,7 +55,7 @@ module.exports = {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PARALLEL_QUERY_RUNNING: true,
-    DEV_SSR: true,
+    // DEV_SSR: true,
   },
   siteMetadata: {
     title: config.shortTitle,
@@ -192,7 +192,7 @@ module.exports = {
       options: {
         // Gatsby required rules directory
         rulePaths: [gatsbyRequiredRules],
-        // Default settings that may be ommitted or customized
+        // Default settings that may be omitted or customized
         stages: [`develop`],
         extensions: [`js`, `jsx`, `ts`, `tsx`],
         exclude: [`node_modules`, `bower_components`, `.cache`, `public`],

@@ -10,6 +10,33 @@
       padding: 20px 6% 40px !important;
     }
 
+    &.mobile {
+      display: None;
+      @media (max-width: @tablet-breakpoint) {
+        display: block;
+        width: initial;
+        max-width: 100%;
+        margin-bottom: 20px;
+        padding: 30px 20px;
+      }
+      @media (max-width: @mobile-breakpoint) {
+        margin-bottom: 0;
+        padding: 20px 6% 40px !important;
+      }
+
+      .page-title-card {
+        h1 {
+          font-size: 1.3em;
+        }
+      }
+    }
+
+    &.desktop {
+      @media (max-width: @tablet-breakpoint) {
+        display: None;
+      }
+    }
+
     .info-card-wrapper {
       display: flex;
       justify-content: space-between;
@@ -47,5 +74,11 @@
     color: @body-color;
     font-family: @body-font;
     line-height: 1.3em;
+  }
+
+  .post-card-title {
+    @media (max-width: @mobile-breakpoint) {
+      margin-bottom: 15px;
+    }
   }
 }

@@ -1,5 +1,5 @@
 .body-font() {
-  -webkit-font-smoothing: auto;
+  -webkit-font-smoothing: antialiased;
   margin: 0 0 20px;
   color: @body-color;
   font-family: @body-font;
@@ -20,7 +20,7 @@
   }
 
   li {
-    -webkit-font-smoothing: auto;
+    -webkit-font-smoothing: antialiased;
     color: @body-color;
     font-family: @body-font;
     text-align: left;
@@ -101,20 +101,11 @@
 }
 
 .info-card() {
-  width: stretch;
+  width: fit-content;
   width: -moz-available;
   padding: 40px !important;
   background: white;
   box-shadow: @box-shadow;
-  @media (max-width: @tablet-breakpoint) {
-    .mobile-full-width();
-    margin-bottom: 20px;
-    padding: 30px 20px;
-  }
-  @media (max-width: @mobile-breakpoint) {
-    margin-bottom: 0;
-    padding: 20px 6% 40px !important;
-  }
 
   .page-title-card {
     display: flex;
@@ -122,12 +113,6 @@
     margin: 0 0 12px !important;
     font-size: 1.2em;
     line-height: 1;
-    @media (max-width: @tablet-breakpoint) {
-      font-size: 1.3em;
-    }
-    @media (max-width: @mobile-breakpoint) {
-      font-size: 1.1em;
-    }
 
     h1 {
       margin: 0 !important;
@@ -140,7 +125,7 @@
     display: inline;
     margin-right: 10px;
     font-size: 1.1em;
-    opacity: 0.9s;
+    opacity: 0.9;
     @media (max-width: @mobile-breakpoint) {
       font-size: 1.1em;
     }

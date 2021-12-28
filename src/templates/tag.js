@@ -37,8 +37,9 @@ const Tag = ({ data, location, pageContext }) => {
         pageContext={pageContext}
       />
       <Layout template="tag-template" hasSidebar>
+        <InfoCard tag={tag} count={pageContext.currentPage} version={`mobile`}/>
         <section className="post-feed">
-          <InfoCard tag={tag} count={pageContext.currentPage}/>
+          <InfoCard tag={tag} count={pageContext.currentPage} version={`desktop`}/>
           {posts.map(({ node }) => (
             <PostCard key={node.id} post={node}/>
           ))}
