@@ -4,12 +4,12 @@
   publish = "/public"
   functions = "/functions"
 
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+
 [build.environment]
   GO_VERSION = "1.17.5"
   GO_IMPORT_PATH = "github.com/toddbirchard/lambda-metadata-scraper"
-
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
 
 [template]
   incoming-hooks = ["Ghost"]

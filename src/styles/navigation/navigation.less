@@ -82,15 +82,11 @@
           outline: none;
           color: #57657e;
           font-family: @body-font-medium;
-          font-size: 1em;
+          font-size: 1.1em;
           letter-spacing: 0.5px;
           transition: @transition;
-          @media (max-width: @smallscreen-breakpoint) {
-            font-size: 0.95em;
-          }
           @media (max-width: @tablet-breakpoint) {
             margin: 0 0 0 25px;
-            font-size: 1em;
           }
 
           &.rss {
@@ -268,6 +264,11 @@
   }
   @media (max-width: @mobile-breakpoint) {
     margin: 0 10px -5px;
+  }
+
+  .pagination-button {
+    font-size: 1.1em;
+    line-height: 1;
   }
 
   .pagination-location {
