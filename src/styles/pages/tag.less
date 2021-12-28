@@ -25,8 +25,10 @@
       }
 
       .page-title-card {
+        font-size: 1em;
+
         h1 {
-          font-size: 1.3em;
+          font-size: 1.7em;
         }
       }
     }
@@ -77,8 +79,15 @@
   }
 
   .post-card-title {
+
+    @media (max-width: @tablet-breakpoint) {
+      margin: 10px auto 20px;
+    }
+
     @media (max-width: @mobile-breakpoint) {
+      font-size: 1.6em;
       margin-bottom: 15px;
+      margin-top: 0;
     }
   }
 }

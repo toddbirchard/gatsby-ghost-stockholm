@@ -17,6 +17,7 @@
   @media (max-width: @mobile-breakpoint) {
     border-bottom: 0;
     box-shadow: unset;
+    margin-bottom: 0;
   }
 
   .nav-wrapper {
@@ -205,10 +206,12 @@
   }
 }
 
-.author-template .navigation {
+/* Tag template navigation hacks
+/* ---------------------------------------------------------- */
+.author-template .navigation,
+.tag-template .navigation {
   @media (max-width: @tablet-breakpoint) {
     border: 0;
-    background: unset;
     box-shadow: unset;
   }
 }
