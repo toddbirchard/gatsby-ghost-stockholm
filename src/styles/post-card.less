@@ -42,7 +42,7 @@
       margin-bottom: 15px;
     }
     @media (max-width: @mobile-breakpoint) {
-      font-size: 1.7em;
+      font-size: 1.6em;
       line-height: 1;
     }
 
@@ -76,6 +76,9 @@
   .post-card-detail {
     padding: 25px;
     overflow: hidden;
+    @media (max-width: @mobile-breakpoint) {
+      padding: 20px;
+    }
 
     .post-card-excerpt {
       -webkit-line-clamp: 3;
@@ -181,16 +184,17 @@
 
   .primary-tag {
     display: block;
-    width: fit-content;
-    height: 14px;
+    width: min-content;
+    min-width: 60px;
     padding: 4px 6px;
     border-radius: 3px;
     color: white;
     font-family: @body-font-medium;
     line-height: 1;
+    text-align: center;
     @media (max-width: @mobile-breakpoint) {
-      height: 14px;
-      padding: 5px;
+      padding: 5px 5px 3px;
+      font-size: .9em;
     }
 
     &:hover {

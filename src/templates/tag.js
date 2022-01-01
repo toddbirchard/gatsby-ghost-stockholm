@@ -56,23 +56,23 @@ Tag.propTypes = {
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
-      allGhostPost: PropTypes.shape({
-        edges: PropTypes.arrayOf(
-          PropTypes.shape({
-            title: PropTypes.string.isRequired,
-            slug: PropTypes.string.isRequired,
-            primary_author: PropTypes.object.isRequired,
-            feature_image: PropTypes.string.isRequired,
-            tags: PropTypes.arrayOf(
-              PropTypes.shape({
-                name: PropTypes.string.isRequired,
-                slug: PropTypes.string.isRequired,
-              }),
-            ),
-            published_at_pretty: PropTypes.string.isRequired,
-          }).isRequired,
-        ),
-      }),
+    }),
+    allGhostPost: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+          primary_author: PropTypes.object.isRequired,
+          feature_image: PropTypes.string.isRequired,
+          tags: PropTypes.arrayOf(
+            PropTypes.shape({
+              name: PropTypes.string.isRequired,
+              slug: PropTypes.string.isRequired,
+            }),
+          ),
+          published_at_pretty: PropTypes.string.isRequired,
+        }).isRequired,
+      ),
     }),
   }),
   location: PropTypes.shape({

@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import { readingTime as readingTimeHelper } from '@tryghost/helpers'
-import { Tags } from '@tryghost/helpers-gatsby'
-import { Layout } from '../components/common'
-import { MetaData } from '../components/common/meta'
-import { Comments } from '../components/comments'
+import {Link, graphql} from 'gatsby'
+import {readingTime as readingTimeHelper} from '@tryghost/helpers'
+import {Tags} from '@tryghost/helpers-gatsby'
+import {Layout} from '../components/common'
+import {MetaData} from '../components/common/meta'
+import {Comments} from '../components/comments'
 import {
   RelatedPost,
   SeriesTOC,
   SupportWidget,
   SeriesNextPrev,
 } from '../components/posts'
-import { AuthorCard } from '../components/authors'
+import {AuthorCard} from '../components/authors'
 import {
   AiOutlineEye,
   AiOutlineTags,
@@ -21,7 +21,7 @@ import {
   AiTwotoneExperiment,
 } from 'react-icons/ai'
 import Prism from 'prismjs'
-import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
+import {getRetinaImageUrl, getMobileImageUrl} from '../utils/imageUrl'
 
 /**
  * Single post view (/:slug)
@@ -30,7 +30,7 @@ import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
  *
  */
 
-const Post = ({ data, location }) => {
+const Post = ({data, location}) => {
   const post = data.ghostPost
   const tags = data.ghostPost.tags
   const author = data.ghostPost.primary_author
@@ -138,7 +138,7 @@ const Post = ({ data, location }) => {
             {/*  Lynx blurb  */}
             <main
               className="post-content content-body load-external-scripts"
-              dangerouslySetInnerHTML={{ __html: post.html }}
+              dangerouslySetInnerHTML={{__html: post.html}}
             />
 
             {/*  Tags  */}
@@ -168,7 +168,7 @@ const Post = ({ data, location }) => {
           {/*  Comments, related posts, & donation widgets   */}
           <section className="post-footer">
             <div className="related-posts">
-              {relatedPosts.map(({ node }) => (
+              {relatedPosts.map(({node}) => (
                 <RelatedPost key={`${node.ghostId}_related`} post={node}/>
               ))}
             </div>
@@ -276,7 +276,7 @@ export const postQuery = graphql`
       totalCount
     }
     comments: allMysqlComments(
-      sort: { fields: created_at, order: ASC }
+      sort: { fields: created_at, order: DESC }
       filter: { post_slug: { eq: $slug } }
     ) {
       edges {
