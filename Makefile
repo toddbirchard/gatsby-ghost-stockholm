@@ -1,5 +1,6 @@
 SRC_PATH := $(shell pwd)
 GHOST_MANIFEST_PATH := ${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest
+GATSBY_FUNCTIONS_PATH := ${SRC_PATH}/functions
 
 define HELP
 This is the Stockholm project Makefile.
@@ -29,6 +30,9 @@ install:
 	echo "Installing plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	npm i --force
+	echo "Installing function dependencies..."
+	cd "${GATSBY_FUNCTIONS_PATH}/scrape"
+	npm i --force
 	cd ${SRC_PATH}
 
 .PHONY: build
@@ -39,26 +43,18 @@ build:
 serve:
 	gatsby build && gatsby serve -o
 
-buildbackup:
-	npm run-script build
-	mkdir -p functions
+.PHONY: functions
+functions:
 	GOOS=linux
 	GOARCH=amd64
-	GOBIN=${PWD}/functions go install ./...
+	GOBIN=${PWD}/functions/scrape go install ./...
 	GOBIN=${PWD}/functions go build -o functions/scrape ./...
-
-testfunctions:
-	mkdir -p functions
-	GOOS=linux
-	GOARCH=amd64
-	GOBIN=${PWD}/functions-src/scrape go install ./...
-	# go build -o functions ./...
 
 .PHONY: dev
 dev:
 	npm run dev
 
-.PHONY: clean
+.PHONY: cleannetlify dev
 clean:
 	if [ -d "./node_modules" ]; then gatsby clean; fi
 	find . -name 'package-lock.json' -delete
@@ -75,6 +71,9 @@ update:
 	echo "Updating plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	ncu -u
+	npm i --force
+	echo "Installing function dependencies..."
+	cd "${GATSBY_FUNCTIONS_PATH}/scrape"
 	npm i --force
 	echo "Updating main project dependencies..."
 	cd ${SRC_PATH}

@@ -23,6 +23,7 @@ const DefaultLayout = ({
   hasSidebar,
   template,
   authorData,
+  authorTrendingPosts,
 }) => {
   const site = data.ghostSettings
   const corePages = [`home-template`, `page-template`, `tag-template`]
@@ -48,7 +49,7 @@ const DefaultLayout = ({
             {/* All main content gets inserted here (comments.js, post.js, etc). */}
             {children}
             {template === `author-template` && (
-              <AuthorSidebar authorData={authorData}/>
+              <AuthorSidebar authorData={authorData} authorTrendingPosts={authorTrendingPosts}/>
             )}
             {isCorePage && <Sidebar site={site} template={template}/>}
           </div>
@@ -73,6 +74,7 @@ DefaultLayout.propTypes = {
   data: PropTypes.shape({
     ghostSettings: PropTypes.object.isRequired,
     allGhostTag: PropTypes.object,
+    allGhostAuthor: PropTypes.object,
   }).isRequired,
 }
 

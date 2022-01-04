@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link, graphql} from 'gatsby'
-import {readingTime as readingTimeHelper} from '@tryghost/helpers'
-import {Tags} from '@tryghost/helpers-gatsby'
-import {Layout} from '../components/common'
-import {MetaData} from '../components/common/meta'
-import {Comments} from '../components/comments'
+import { Link, graphql } from 'gatsby'
+import { readingTime as readingTimeHelper} from '@tryghost/helpers'
+import { Tags } from '@tryghost/helpers-gatsby'
+import { Layout } from '../components/common'
+import {MetaData } from '../components/common/meta'
+import { Comments } from '../components/comments'
 import {
   RelatedPost,
   SeriesTOC,
   SupportWidget,
   SeriesNextPrev,
 } from '../components/posts'
-import {AuthorCard} from '../components/authors'
+import { AuthorCard } from '../components/authors'
 import {
   AiOutlineEye,
   AiOutlineTags,
@@ -21,7 +21,7 @@ import {
   AiTwotoneExperiment,
 } from 'react-icons/ai'
 import Prism from 'prismjs'
-import {getRetinaImageUrl, getMobileImageUrl} from '../utils/imageUrl'
+import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
 
 /**
  * Single post view (/:slug)
@@ -37,9 +37,7 @@ const Post = ({data, location}) => {
   const relatedPosts = data.relatedPosts.edges
   const readingTime = readingTimeHelper(post)
   const seriesPosts = data.seriesPosts
-  const seriesIndex =
-    seriesPosts &&
-    seriesPosts.edges.findIndex(element => element.node.slug === post.slug)
+  const seriesIndex = seriesPosts && seriesPosts.edges.findIndex(element => element.node.slug === post.slug)
   const seriesLength = seriesPosts && seriesPosts.edges.length
   const authorUrl =
     post.primary_author.slug && `/author/${post.primary_author.slug}/`
@@ -47,10 +45,8 @@ const Post = ({data, location}) => {
   const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
   const authors = data.authors.edges
-  const featureRetinaImage =
-    post.feature_image && getRetinaImageUrl(post.feature_image)
-  const featureMobileImage =
-    post.feature_image && getMobileImageUrl(post.feature_image)
+  const featureRetinaImage = post.feature_image && getRetinaImageUrl(post.feature_image)
+  const featureMobileImage = post.feature_image && getMobileImageUrl(post.feature_image)
   React.useEffect(() => {
     Prism.highlightAll()
   })
@@ -67,6 +63,7 @@ const Post = ({data, location}) => {
       <Layout template="post-template">
         <div className="post-wrapper">
           <article className="post">
+
             {/*    Post head     */}
             <div className="post-head">
               <h1 className="post-title">{post.title}</h1>

@@ -15,8 +15,7 @@ import '../styles/pages/page.less'
 const Page = ({ data, location, pageContext }) => {
   const page = data.ghostPage
   const pageNumber = pageContext.pageNumber
-  const title =
-    pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
+  const title = pageNumber > 1 ? page.title + `(page` + pageNumber + `)` : page.title
   const metaTitle = page.meta_title
   const metaDescription = page.meta_description
 
