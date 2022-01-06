@@ -1,7 +1,7 @@
 const queries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
-const siteRSSFeed = require(`./src/utils/rss/site-feed`)
+const siteRssFeed = require(`./src/utils/rss/site-feed`)
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -79,7 +79,7 @@ module.exports = {
       resolve: `gatsby-source-ghost`,
       apiUrl: process.env.GHOST_API_URL,
       contentApiKey: process.env.GHOST_CONTENT_API_KEY,
-      version: `v3`,
+      version: `v4`,
       options:
         process.env.NODE_ENV === `development`
           ? ghostConfig.development
@@ -170,6 +170,19 @@ module.exports = {
         ],
       },
     },
+    /*{
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: "https://hackersandslackers.com/.netlify/functions/scrape",
+        rootKey: 'authors',
+        schemas:  {
+          authors: `
+             name: String
+             description: String
+            `
+        }
+      }
+    },*/
     /**
      *  Style Plugins
      */
@@ -261,7 +274,7 @@ module.exports = {
             }
           }
         `,
-        feeds: [siteRSSFeed],
+        feeds: [siteRssFeed],
       },
     },
     {

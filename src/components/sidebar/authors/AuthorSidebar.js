@@ -37,6 +37,7 @@ AuthorSidebar.propTypes = {
   template: PropTypes.string,
   authorData: PropTypes.object,
   websiteMeta: PropTypes.object,
+  authorTrendingPosts: PropTypes.array,
 }
 
 export default AuthorSidebar

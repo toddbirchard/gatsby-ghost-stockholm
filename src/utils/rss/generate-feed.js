@@ -59,6 +59,7 @@ function generateRssFeed(
   feedUrl,
   matchPattern,
   externalLink,
+  outputUrl,
 ) {
   return {
     serialize: ({ query: { allGhostPost } }) =>
@@ -71,7 +72,7 @@ function generateRssFeed(
       const feed = {
         title: siteTitle,
         description: siteDescription,
-        generator: `Ghost 2.9`,
+        generator: `Ghost 4.0`,
         feed_url: `${siteConfig.siteUrl}/rss.xml`,
         site_url: `${siteConfig.siteUrl}/`,
         image_url: `${siteConfig.siteUrl}/${siteConfig.siteIcon}`,
@@ -88,7 +89,7 @@ function generateRssFeed(
     match: matchPattern,
     link: externalLink,
     query: rssQuery,
-    output: `/rss.xml`,
+    output: outputUrl,
     title: title,
   }
 }
