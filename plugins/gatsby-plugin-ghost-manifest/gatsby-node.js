@@ -1,15 +1,26 @@
 "use strict";
-const _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-const _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
-const _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-const _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-const _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-const _excluded = ["icon"];
-const fs = require("fs");
-const path = require("path");
-const Promise = require("bluebird");
-const sharp = require("sharp");
-const _require = require("./common.js"),
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _excluded = ["icon"];
+
+var fs = require("fs");
+
+var path = require("path");
+
+var Promise = require("bluebird");
+
+var sharp = require("sharp");
+
+var _require = require("./common.js"),
     defaultIcons = _require.defaultIcons,
     doesIconExist = _require.doesIconExist;
 

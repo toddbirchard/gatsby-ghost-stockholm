@@ -1,9 +1,12 @@
 "use strict";
 
-const _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-const _react = _interopRequireDefault(require("react"));
-const _gatsby = require("gatsby");
-const _common = require("./common.js");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _react = _interopRequireDefault(require("react"));
+
+var _gatsby = require("gatsby");
+
+var _common = require("./common.js");
 
 exports.onRenderBody = function (_ref, pluginOptions) {
   var setHeadComponents = _ref.setHeadComponents;
