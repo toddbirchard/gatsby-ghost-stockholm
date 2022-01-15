@@ -140,7 +140,7 @@
     font-family: @body-font;
     @media (max-width: @mobile-breakpoint) {
       display: block;
-      margin: 12px auto 0;
+      margin: 5px auto 0;
       color: @body-color;
       line-height: 1.5;
     }
@@ -181,6 +181,11 @@
   @media (max-width: @tablet-breakpoint) {
     padding: 25px 0;
     border-bottom: unset !important;
+  }
+
+  &:first-of-type {
+    padding: 25px 0 40px;
+    border-bottom: 0;
   }
 
   &:last-of-type {
@@ -261,7 +266,6 @@
     max-width: 90%;
     font-size: 1em;
   }
-
 
   @media (max-width: @mobile-breakpoint) {
     max-width: 87%;

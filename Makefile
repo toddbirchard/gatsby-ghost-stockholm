@@ -24,16 +24,13 @@ all help:
 
 .PHONY: install
 install:
-	echo "Installing project dependencies..."
-	cd ${SRC_PATH}
-	npm i --force
 	echo "Installing plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	npm i --force
-	echo "Installing function dependencies..."
-	cd "${GATSBY_FUNCTIONS_PATH}/scrape"
-	npm i --force
+	echo "Installing project dependencies..."
 	cd ${SRC_PATH}
+	npm i --force
+
 
 .PHONY: build
 build:
@@ -71,9 +68,6 @@ update:
 	echo "Updating plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	ncu -u
-	npm i --force
-	echo "Installing function dependencies..."
-	cd "${GATSBY_FUNCTIONS_PATH}/scrape"
 	npm i --force
 	echo "Updating main project dependencies..."
 	cd ${SRC_PATH}

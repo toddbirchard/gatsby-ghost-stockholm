@@ -76,6 +76,12 @@ DefaultLayout.propTypes = {
     allGhostTag: PropTypes.object,
     allGhostAuthor: PropTypes.object,
   }).isRequired,
+  authorTrendingPosts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ),
 }
 
 const DefaultLayoutSettingsQuery = props => (

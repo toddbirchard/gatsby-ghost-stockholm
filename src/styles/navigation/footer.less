@@ -19,6 +19,7 @@
 
     @media (max-width: @smallscreen-breakpoint) {
       width: auto;
+      max-width: 90%;
     }
 
     .link-grid {
@@ -269,6 +270,9 @@
 .footer-wrapper {
   width: auto;
   max-width: unset;
+  @media (max-width: @mobile-breakpoint) {
+    width: 85% !important;
+  }
 
   .widget.about {
     @media (max-width: @tablet-breakpoint) {

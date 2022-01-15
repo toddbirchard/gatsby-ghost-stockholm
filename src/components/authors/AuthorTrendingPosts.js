@@ -30,7 +30,10 @@ const AuthorTrendingPosts = ({ authorData }) => {
 
 AuthorTrendingPosts.propTypes = {
   authorData: PropTypes.shape({
-    authorTrendingPosts: PropTypes.object.isRequired,
+    authorTrendingPosts: PropTypes.arrayOf({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
   }).isRequired,
 }
 
