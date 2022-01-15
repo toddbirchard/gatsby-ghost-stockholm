@@ -216,7 +216,7 @@ module.exports = {
     /**
      *  Netlify Plugins
      */
-    {
+    /*{
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
@@ -226,7 +226,7 @@ module.exports = {
         transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
         generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
       },
-    },
+    },*/
     {
       resolve: `gatsby-plugin-netlify-identity`,
       options: {
