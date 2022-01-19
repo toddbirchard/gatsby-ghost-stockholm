@@ -45,7 +45,7 @@ functions:
 	GOOS=linux
 	GOARCH=amd64
 	GOBIN=${PWD}/functions/scrape go install ./...
-	GOBIN=${PWD}/functions go build -o functions/scrape ./...
+	GOBIN=${PWD}/functions go build -o functions/scrape functions/scrape/main.go
 
 .PHONY: dev
 dev:
