@@ -14,7 +14,6 @@ export const onRouteUpdate = ({ location }) => {
     enableLightboxImages()
   }
   if (path.indexOf('author')) {
-    console.log(path);
     scrapeUrlMetadata();
   }
 
@@ -67,12 +66,16 @@ function scrapeUrlMetadata() {
   let websiteWidget = document.getElementById('author-website-widget')
   let linkElement = document.getElementById('author-website')
   if (linkElement) {
-    let url = linkElement.getAttribute('href')
+    let endpoint = scrapeEndpoint + linkElement.getAttribute('href')
     let client = new XMLHttpRequest()
-    client.open('GET', scrapeEndpoint + url, true)
-    client.setRequestHeader('Content-type', 'text/plain;charset=utf-8')
+    client.open('GET',  endpoint, true)
+    client.responseType = "text"
+    client.setRequestHeader('Content-Type', 'application/json')
+    client.setRequestHeader('Access-Control-Allow-Credentials', 'true')
+    client.withCredentials = true
     client.onload = function () {
       let data = JSON.parse(response)
+      console.log("response " + data)
       websiteWidget.innerHTML = ('<div class="website-title">'
         + data['Title'] + '</div>'
         + '<div class="website-description">'
@@ -80,6 +83,7 @@ function scrapeUrlMetadata() {
         '<img src="' + data['Image'] + '" alt="'
         + data['Title'] + '" class="website-image" />')
     }
+    client.send()
   }
 }
 
