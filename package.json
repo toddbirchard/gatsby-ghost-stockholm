@@ -30,7 +30,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
+    "@babel/core": "^7.16.10",
     "@babel/eslint-plugin": "^7.16.5",
     "autoprefixer": "^10.4.2",
     "babel-preset-gatsby": "^2.5.2",
@@ -66,7 +66,7 @@
     "cheerio": "1.0.0-rc.10",
     "cssnano": "^5.0.15",
     "dotenv": "^14.2.0",
-    "gatsby": "^4.5.3",
+    "gatsby": "^4.5.4",
     "gatsby-awesome-pagination": "0.3.8",
     "gatsby-cli": "^4.5.2",
     "gatsby-plugin-advanced-sitemap": "^2.0.0",
