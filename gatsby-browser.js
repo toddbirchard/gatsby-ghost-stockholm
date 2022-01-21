@@ -74,7 +74,7 @@ function scrapeUrlMetadata() {
     client.setRequestHeader('Access-Control-Allow-Credentials', 'true')
     client.withCredentials = true
     client.onload = function () {
-      let data = JSON.parse(client.response)
+      let data = client.response
       console.log("response " + data)
       websiteWidget.innerHTML = ('<div class="website-title">'
         + data['Title'] + '</div>'
