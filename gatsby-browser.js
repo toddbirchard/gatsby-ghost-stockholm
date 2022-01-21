@@ -69,7 +69,7 @@ function scrapeUrlMetadata() {
     let endpoint = scrapeEndpoint + linkElement.getAttribute('href')
     let client = new XMLHttpRequest()
     client.open('GET',  endpoint, true)
-    client.responseType = "text"
+    client.responseType = "json"
     client.setRequestHeader('Content-Type', 'application/json')
     client.setRequestHeader('Access-Control-Allow-Credentials', 'true')
     client.withCredentials = true
