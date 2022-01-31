@@ -5,6 +5,7 @@ const feedTitle = siteConfig.siteTitleMeta
 const feedUrl = siteConfig.siteUrl
 const matchPattern = undefined
 const externalLink = `https://feedly.com/i/subscription/feed/https://hackersandslackers.com/rss.xml`
+const outputUrlFeed = `/rss.xml`
 const feedRssQuery = `{
   allGhostPost(sort: {order: DESC, fields: published_at}, filter: {primary_author: {slug: {eq: "todd"}}}) {
     edges {
@@ -42,6 +43,7 @@ const siteRssFeed = generateRssFeed(
   feedUrl,
   matchPattern,
   externalLink,
+  outputUrlFeed,
 )
 
 module.exports = siteRssFeed

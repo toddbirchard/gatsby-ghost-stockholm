@@ -1,7 +1,7 @@
 const queries = require(`./src/utils/algolia`)
 const path = require(`path`)
 const config = require(`./src/utils/siteConfig`)
-const siteRSSFeed = require(`./src/utils/rss/site-feed`)
+const siteRssFeed = require(`./src/utils/rss/site-feed`)
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -79,7 +79,7 @@ module.exports = {
       resolve: `gatsby-source-ghost`,
       apiUrl: process.env.GHOST_API_URL,
       contentApiKey: process.env.GHOST_CONTENT_API_KEY,
-      version: `v3`,
+      version: `v4`,
       options:
         process.env.NODE_ENV === `development`
           ? ghostConfig.development
@@ -158,18 +158,31 @@ module.exports = {
             name: `algolia_top_searches`,
           },
           {
-            statement: `SELECT * FROM hackers_prod.donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
+            statement: `SELECT * FROM hackers_dev.donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
             idFieldName: `id`,
             name: `donations`,
           },
           {
-            statement: `SELECT * FROM hackers_prod.comments`,
+            statement: `SELECT * FROM hackers_dev.comments`,
             idFieldName: `id`,
             name: `comments`,
           },
         ],
       },
     },
+    /*{
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: "https://hackersandslackers.com/.netlify/functions/scrape",
+        rootKey: 'authors',
+        schemas:  {
+          authors: `
+             name: String
+             description: String
+            `
+        }
+      }
+    },*/
     /**
      *  Style Plugins
      */
@@ -192,7 +205,7 @@ module.exports = {
       options: {
         // Gatsby required rules directory
         rulePaths: [gatsbyRequiredRules],
-        // Default settings that may be ommitted or customized
+        // Default settings that may be omitted or customized
         stages: [`develop`],
         extensions: [`js`, `jsx`, `ts`, `tsx`],
         exclude: [`node_modules`, `bower_components`, `.cache`, `public`],
@@ -203,6 +216,17 @@ module.exports = {
     /**
      *  Netlify Plugins
      */
+    /*{
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+      },
+    },*/
     {
       resolve: `gatsby-plugin-netlify-identity`,
       options: {
@@ -250,7 +274,7 @@ module.exports = {
             }
           }
         `,
-        feeds: [siteRSSFeed],
+        feeds: [siteRssFeed],
       },
     },
     {
@@ -384,7 +408,7 @@ module.exports = {
           replicaUpdateMode: `replace`,
         },
         enablePartialUpdates: true,
-        matchFields: [`slug`, `updated_at`],
+        matchFields: [`slug`, `updated_at`, `created_at_pretty`],
         concurrentQueries: false,
         continueOnFailure: true,
       },

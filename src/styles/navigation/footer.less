@@ -4,20 +4,22 @@
 .site-footer {
   position: relative;
   margin: auto;
+  background: white;
+  box-shadow: @box-shadow;
+
+  @media (max-width: @tablet-breakpoint) {
+    margin-top: 40px;
+  }
 
   .footer-wrapper {
+    margin: 0 auto;
+    max-width: 95%;
     width: 1020px;
-    max-width: 90%;
-    margin: 0 auto 20px;
-    border-top: 1px solid #d8e0e6;
-    @media (max-width: @tablet-breakpoint) {
-      padding-top: 40px;
-    }
-    @media (max-width: @mobile-breakpoint) {
-      width: 80%;
-      max-width: unset;
-      margin: 50px auto 30px;
-      border-top: unset;
+    padding: 40px 0 20px;
+
+    @media (max-width: @smallscreen-breakpoint) {
+      width: auto;
+      max-width: 90%;
     }
 
     .link-grid {
@@ -48,10 +50,6 @@
   .footer-widgets {
     display: flex;
     justify-content: space-between;
-    padding: 50px 0 0;
-    @media (max-width: @tablet-breakpoint) {
-      padding: 0;
-    }
     @media (max-width: @mobile-breakpoint) {
       display: block;
     }
@@ -71,7 +69,7 @@
 
       .footer-widget-title {
         display: block;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         color: #4b5863;
         font-family: @header-font-secondary;
         font-size: 1.2em;
@@ -96,7 +94,7 @@
         margin: 0 0 15px;
         padding-left: 0;
         color: #5a626f;
-        font-family: @body-font;
+        font-family: @body-font-medium;
         font-size: 0.95em;
         line-height: 1.2;
         text-align: right;
@@ -131,11 +129,10 @@
           display: block;
           width: 90%;
           max-width: 230px;
-          margin-bottom: 25px;
+          margin-bottom: 20px;
           transition: all 0.2s ease-out;
           @media (max-width: @mobile-breakpoint) {
             max-width: 230px;
-            margin-bottom: 20px;
           }
 
           &:hover {
@@ -151,6 +148,7 @@
           color: #4c5c71;
           font-family: @body-font;
           line-height: 1.5;
+          font-size: 1.05em;
           @media (max-width: @tablet-breakpoint) {
             font-size: 0.95em;
             line-height: 1.6;
@@ -272,6 +270,9 @@
 .footer-wrapper {
   width: auto;
   max-width: unset;
+  @media (max-width: @mobile-breakpoint) {
+    width: 85% !important;
+  }
 
   .widget.about {
     @media (max-width: @tablet-breakpoint) {
@@ -334,7 +335,6 @@
     .footer-wrapper {
       width: unset;
       max-width: unset;
-      border-top: 1px solid #d8e0e6;
       @media (max-width: @tablet-breakpoint) {
         border-top: unset;
       }

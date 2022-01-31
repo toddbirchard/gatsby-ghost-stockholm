@@ -17,6 +17,7 @@
   @media (max-width: @mobile-breakpoint) {
     border-bottom: 0;
     box-shadow: unset;
+    margin-bottom: 0;
   }
 
   .nav-wrapper {
@@ -47,8 +48,8 @@
       }
 
       .logo {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         margin-right: 30px;
         transition: @transition;
 
@@ -81,15 +82,11 @@
           outline: none;
           color: #57657e;
           font-family: @body-font-medium;
-          font-size: 1em;
+          font-size: 1.1em;
           letter-spacing: 0.5px;
           transition: @transition;
-          @media (max-width: @smallscreen-breakpoint) {
-            font-size: 0.95em;
-          }
           @media (max-width: @tablet-breakpoint) {
             margin: 0 0 0 25px;
-            font-size: 1em;
           }
 
           &.rss {
@@ -107,7 +104,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 100px;
+        width: 90px;
       }
 
       .search-root > svg {
@@ -205,10 +202,12 @@
   }
 }
 
-.author-template .navigation {
+/* Tag template navigation hacks
+/* ---------------------------------------------------------- */
+.author-template .navigation,
+.tag-template .navigation {
   @media (max-width: @tablet-breakpoint) {
     border: 0;
-    background: unset;
     box-shadow: unset;
   }
 }
@@ -238,7 +237,6 @@
       @media (max-width: @tablet-breakpoint) {
         width: auto;
         max-width: unset;
-        margin: auto 25px;
       }
       @media (max-width: @mobile-breakpoint) {
         width: auto;
@@ -265,6 +263,11 @@
   }
   @media (max-width: @mobile-breakpoint) {
     margin: 0 10px -5px;
+  }
+
+  .pagination-button {
+    font-size: 1.1em;
+    line-height: 1;
   }
 
   .pagination-location {

@@ -36,14 +36,14 @@
     line-height: 1.1;
     transition: @transition;
     @media (max-width: @smallscreen-breakpoint) {
-      font-size: 1.8em !important;
+      font-size: 1.8em;
     }
     @media (max-width: @tablet-breakpoint) {
-      margin-bottom: 0;
+      margin-bottom: 15px;
     }
     @media (max-width: @mobile-breakpoint) {
-      font-size: 1.7em !important;
-      line-height: 1;
+      font-size: 1.6em;
+      line-height: 1.1;
     }
 
     &:hover {
@@ -76,6 +76,9 @@
   .post-card-detail {
     padding: 25px;
     overflow: hidden;
+    @media (max-width: @mobile-breakpoint) {
+      padding: 20px;
+    }
 
     .post-card-excerpt {
       -webkit-line-clamp: 3;
@@ -91,11 +94,10 @@
         font-size: 1.1em;
       }
       @media (max-width: @tablet-breakpoint) {
-        margin: 10px auto 30px;
+        margin: 10px auto 20px;
       }
       @media (max-width: @mobile-breakpoint) {
         display: none;
-        margin: 10px auto 20px;
         font-size: 1.05em;
       }
     }
@@ -182,16 +184,16 @@
 
   .primary-tag {
     display: block;
-    width: fit-content;
-    height: 14px;
+    min-width: 60px;
     padding: 4px 6px;
     border-radius: 3px;
     color: white;
     font-family: @body-font-medium;
     line-height: 1;
+    text-align: center;
     @media (max-width: @mobile-breakpoint) {
-      height: 14px;
-      padding: 5px;
+      padding: 5px 5px 3px;
+      font-size: .9em;
     }
 
     &:hover {

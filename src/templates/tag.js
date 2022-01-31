@@ -37,8 +37,9 @@ const Tag = ({ data, location, pageContext }) => {
         pageContext={pageContext}
       />
       <Layout template="tag-template" hasSidebar>
+        <InfoCard tag={tag} count={pageContext.currentPage} version={`mobile`}/>
         <section className="post-feed">
-          <InfoCard tag={tag} count={pageContext.currentPage}/>
+          <InfoCard tag={tag} count={pageContext.currentPage} version={`desktop`}/>
           {posts.map(({ node }) => (
             <PostCard key={node.id} post={node}/>
           ))}
@@ -53,25 +54,26 @@ Tag.propTypes = {
   data: PropTypes.shape({
     ghostTag: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      description: PropTypes.string,
+      description: PropTypes.string.isRequired,
+      feature_image: PropTypes.string,
     }),
     allGhostPost: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
-          title: PropTypes.string,
-          slug: PropTypes.string,
-          primary_author: PropTypes.object,
-          feature_image: PropTypes.string,
+          title: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired,
+          primary_author: PropTypes.object.isRequired,
+          feature_image: PropTypes.string.isRequired,
           tags: PropTypes.arrayOf(
             PropTypes.shape({
               name: PropTypes.string.isRequired,
               slug: PropTypes.string.isRequired,
             }),
           ),
-          published_at_pretty: PropTypes.string,
+          published_at_pretty: PropTypes.string.isRequired,
         }).isRequired,
       ),
-    }).isRequired,
+    }),
   }),
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,

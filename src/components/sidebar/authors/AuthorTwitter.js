@@ -4,11 +4,8 @@ import { FaTwitter, FaUserFriends, FaHeartbeat } from 'react-icons/fa'
 
 const AuthorTwitter = ({ data }) => {
   const twitterUsername = data && data.screen_name
-  const twitterUrl =
-    twitterUsername && `https://twitter.com/` + twitterUsername + `/`
-  const twitterFollowUrl =
-    twitterUsername &&
-    `https://twitter.com/intent/user?screen_name=` + twitterUsername
+  const twitterUrl = twitterUsername && `https://twitter.com/` + twitterUsername + `/`
+  const twitterFollowUrl = twitterUsername && `https://twitter.com/intent/user?screen_name=` + twitterUsername
 
   return (
     <>

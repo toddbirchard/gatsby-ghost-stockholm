@@ -26,43 +26,51 @@ class SearchMenu extends React.Component {
 
   PostHit =
     clickHandler => ({ hit }) => {
+      const title = hit.title
+      const slug = hit.slug
+      const primary_tag = hit.primary_tag
       const featureImage = hit.feature_image
+      const featureImageRetina = featureImage.replaceAll(`.jpg`, `@2x.jpg`).replaceAll(`.png`, `@2x.png`)
       const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
-      const featureMobileImage =
-          featureImageSlash &&
-          [
-            featureImage.slice(0, featureImageSlash),
-            `/_mobile`,
-            featureImage.slice(featureImageSlash),
-          ].join(``)
+      const featureImageSmall =
+        featureImageSlash &&
+        [
+          featureImageRetina.slice(0, featureImageSlash),
+          `/_mobile`,
+          featureImageRetina.slice(featureImageSlash),
+        ].join(``)
 
       return (
         <div className="search-result">
           <div className="image-wrapper">
-            <picture>
-              <source
-                media="(max-width:600px)"
-                data-srcset={featureMobileImage}
-              />
-              <img
-                className="search-result-image lazyload"
-                data-src={featureImage}
-                alt={hit.title}
-                title={hit.title}
-              />
-            </picture>
+            <img
+              className="search-result-image lazyload"
+              data-src={featureImageSmall}
+              alt={title}
+              title={title}
+            />
           </div>
           <div className="search-result-details">
             <Link
-              to={`/${hit.slug}/`}
+              to={`/${slug}/`}
               onClick={clickHandler}
               className="search-result-title"
             >
-              {hit.title}
+              {title}
             </Link>
-            <div className="search-result-tag">
-              <span>{hit.primary_tag.name}</span>
-            </div>
+            {primary_tag ? (
+              <div
+                className="primary-tag"
+                style={{
+                  background: primary_tag.accent_color,
+                  border: `1px solid ${primary_tag.accent_color}`,
+                }}
+              >
+                {` `}
+                {primary_tag.name}
+                {` `}
+              </div>
+            ) : null}
           </div>
         </div>
       )

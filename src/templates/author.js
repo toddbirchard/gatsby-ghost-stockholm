@@ -7,6 +7,7 @@ import { AuthorCard } from '../components/authors'
 import { MetaData } from '../components/common/meta'
 
 import '../styles/pages/page.less'
+import '../styles/pages/author.less'
 
 /**
  * Author page (/author/:slug)
@@ -16,6 +17,7 @@ import '../styles/pages/page.less'
  */
 const Author = ({ data, location, pageContext }) => {
   const author = data.ghostAuthor
+  const authorTrendingPosts = data.authorTrendingPosts
   const baseTitle = author.name + `'s posts`
   const title =
     pageContext.currentPage > 1
@@ -38,7 +40,7 @@ const Author = ({ data, location, pageContext }) => {
         location={location}
         pageContext={pageContext}
       />
-      <Layout template="author-template" hasSidebar authorData={data}>
+      <Layout template="author-template" hasSidebar authorData={author} authorTrendingPosts={authorTrendingPosts}>
         <div className="author-container">
           <AuthorCard
             author={author}

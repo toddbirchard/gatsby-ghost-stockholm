@@ -13,7 +13,7 @@ import '../../styles/app.less'
  *
  * The Layout component wraps around each page and template.
  * It also provides the header, footer as well as the main
- * styles, and meta data for each page.
+ * styles, and metadata for each page.
  *
  */
 
@@ -23,6 +23,7 @@ const DefaultLayout = ({
   hasSidebar,
   template,
   authorData,
+  authorTrendingPosts,
 }) => {
   const site = data.ghostSettings
   const corePages = [`home-template`, `page-template`, `tag-template`]
@@ -48,7 +49,7 @@ const DefaultLayout = ({
             {/* All main content gets inserted here (comments.js, post.js, etc). */}
             {children}
             {template === `author-template` && (
-              <AuthorSidebar authorData={authorData}/>
+              <AuthorSidebar authorData={authorData} authorTrendingPosts={authorTrendingPosts}/>
             )}
             {isCorePage && <Sidebar site={site} template={template}/>}
           </div>
@@ -73,7 +74,14 @@ DefaultLayout.propTypes = {
   data: PropTypes.shape({
     ghostSettings: PropTypes.object.isRequired,
     allGhostTag: PropTypes.object,
+    allGhostAuthor: PropTypes.object,
   }).isRequired,
+  authorTrendingPosts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ),
 }
 
 const DefaultLayoutSettingsQuery = props => (

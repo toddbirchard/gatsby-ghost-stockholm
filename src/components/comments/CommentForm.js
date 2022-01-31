@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import ReactMde from 'react-mde'
 import 'react-mde/lib/styles/css/react-mde-all.css'
-import { FaCheck, FaRegWindowClose, FaRegComment } from 'react-icons/fa'
+import { FaCheck, FaRegComment } from 'react-icons/fa'
 import * as Showdown from 'showdown'
 import IdentityModal, {
   useIdentityContext,
 } from 'react-netlify-identity-widget'
-import { Promise } from 'promise'
+import Promise from 'promise'
 
 import fetch from 'node-fetch'
 
@@ -35,13 +35,12 @@ const CommentForm = ({ post }) => {
   const postId = post.ghostId
   const postSlug = post.slug
   const authorName = post.primary_author.name
-  const authorEmail = post.primary_author.email
+  const authorId = post.primary_author.ghostId
   const identity = useIdentityContext()
   const user = identity.user
   const isLoggedIn = identity.isLoggedIn
   const formRef = React.useRef()
-  const commentSubmittedRef = React.useRef()
-  const commentFailedRef = React.useRef()
+  const messageRef = React.useRef()
   const textAreaRef = React.useRef()
   const [userId, setUserId] = useState(user ? user.id : ``)
   const [userName, setUserName] = useState(
@@ -73,6 +72,7 @@ const CommentForm = ({ post }) => {
     }
   })
 
+
   const handleClick = () => {
     if (isLoggedIn) {
       formRef.current.classList.add(`open`)
@@ -91,13 +91,11 @@ const CommentForm = ({ post }) => {
       console.log(`User is not logged in.`)
     }
     if (
-      value === `Leave a comment!` ||
+      value === `Have something to say?` ||
       value === `` ||
-      value === null
+      value === undefined
     ) {
-      commentSubmittedRef.current.classList.add(`active`)
-        .then(hideMessage)
-        .catch(error => console.log(error))
+      console.log(`Comment body is empty.`)
     }
     fetch(`/`, {
       method: `POST`,
@@ -107,7 +105,7 @@ const CommentForm = ({ post }) => {
         postId: postId,
         postSlug: postSlug,
         authorName: authorName,
-        authorEmail: authorEmail,
+        authorId: authorId,
         userId: userId,
         userName: userName,
         userAvatar: userAvatar,
@@ -119,16 +117,16 @@ const CommentForm = ({ post }) => {
       .then(() => setValue(`Leave a comment!`))
       .then(formRef.current.classList.add(`closed`))
       .then(formRef.current.classList.remove(`open`))
-      .then(commentSubmittedRef.current.classList.add(`active`))
+      .then(messageRef.current.classList.add(`active`))
       .then(hideMessage)
       .catch(error => console.log(error))
   }
-  const handleLogin = (u) => {
-    setUserId(u.id)
-    setUserName(u.user_metadata.full_name)
-    setUserAvatar(u.user_metadata.user_avatar)
-    setUserProvider(u.app_metadata.provider)
-    setUserEmail(u.email)
+  const handleLogin = (user) => {
+    setUserId(user.id)
+    setUserName(user.user_metadata.full_name)
+    setUserAvatar(user.user_metadata.user_avatar)
+    setUserProvider(user.app_metadata.provider)
+    setUserEmail(user.email)
   }
   const handleLogout = () => {
     setUserId(``)
@@ -139,14 +137,14 @@ const CommentForm = ({ post }) => {
   }
   const hideMessage = () => {
     wait(2000)
-      .then(() => commentSubmittedRef.classList.add(`inactive`))
+      .then(() => messageRef.classList.add(`inactive`))
       .catch(error => console.log(error))
   }
 
   return (
     <>
       {/* Success message for submitted comments. */}
-      <div className="submission-message success" ref={commentSubmittedRef}>
+      <div className="submission-message success" ref={messageRef}>
         <div className="message">
           <FaCheck className="icon"/>
           <div>Comment Submitted!</div>
@@ -154,14 +152,14 @@ const CommentForm = ({ post }) => {
         <p>Your comment will be visible shortly.</p>
       </div>
 
-      {/* Success message for submitted comments. */}
-      <div className="submission-message failure" ref={commentFailedRef}>
+      {/* Failure message for submitted comments. */}
+      {/*<div className="submission-message failure" ref={commentFailedRef}>
         <div className="message">
           <FaRegWindowClose className="icon"/>
           <div>Comment failed to submit!</div>
         </div>
         <p>Make sure your comment body was not left empty.</p>
-      </div>
+      </div>*/}
 
       <div
         className={`form-container closed ${
@@ -173,7 +171,7 @@ const CommentForm = ({ post }) => {
         <form
           name="comments"
           netlify
-          data-netlify
+          data-netlify="true"
           data-netlify-honeypot="streetAddress"
           method="post"
           onSubmit={handleSubmit}
@@ -250,7 +248,7 @@ const CommentForm = ({ post }) => {
             />
           </fieldset>
 
-          {/* Primary author's name. */}
+          {/* Post author's name. */}
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="authorName">
               Author Name
@@ -263,24 +261,24 @@ const CommentForm = ({ post }) => {
             />
           </fieldset>
 
-          {/* Primary author's email address. */}
+          {/* Post author's ID. */}
           <fieldset className="hidden-label">
-            <label className="hidden-label" htmlFor="authorEmail">
-              Author Email
+            <label className="hidden-label" htmlFor="authorId">
+              Author ID
             </label>
             <input
-              id="authorEmail"
-              name="authorEmail"
+              id="authorId"
+              name="authorId"
               type="text"
-              value={authorEmail}
+              value={authorId}
             />
           </fieldset>
 
           <fieldset className="hidden-label">
             <label className="hidden-label" htmlFor="streetAddress">
-              Address
+              Street Address
             </label>
-            <input id="streetAddress" name="streetAddress" type="hidden"/>
+            <input id="streetAddress" name="comments" value="streetAddress" type="hidden"/>
           </fieldset>
 
           <fieldset className="hidden-label">
@@ -327,8 +325,8 @@ const CommentForm = ({ post }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={u => handleLogin(u)}
-        onSignup={u => handleLogin(u)}
+        onLogin={user => handleLogin(user)}
+        onSignup={user => handleLogin(user)}
         onLogout={() => handleLogout()}
       />
     </>
@@ -339,7 +337,10 @@ CommentForm.propTypes = {
   post: PropTypes.shape({
     ghostId: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    primary_author: PropTypes.object.isRequired,
+    primary_author: PropTypes.shape({
+      ghostId: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
     comment_id: PropTypes.string.isRequired,
   }).isRequired,
   identity: PropTypes.object,

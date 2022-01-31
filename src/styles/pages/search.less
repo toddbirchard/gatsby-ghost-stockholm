@@ -163,7 +163,7 @@
         padding: 15px 15px 10px !important;
         border: 1px solid #dfdede;
         border-radius: 0;
-        background: #fcfcfd !important;
+        background: #f7f8fb !important;
         font-size: 1em;
         line-height: normal;
         transition: all 0.2s ease-out;
@@ -249,7 +249,7 @@
           .ais-RefinementList-labelText {
             width: 80%;
             margin: 0 8px;
-            font-size: 0.8em;
+            font-size: 0.9em;
             line-height: 1;
           }
 
@@ -258,7 +258,7 @@
             margin-left: 0;
             color: #99a4bd;
             font-family: @body-font-bold;
-            font-size: 0.75em;
+            font-size: 0.8em;
             line-height: 1;
             text-align: center;
           }
@@ -276,7 +276,9 @@
       }
     }
 
+    // Unused button at the moment
     .ais-RefinementList-showMore {
+      display: None;
       margin-top: 10px;
       padding: 0;
       border: unset;
@@ -383,75 +385,87 @@
         position: relative;
         padding-left: 0;
         overflow: hidden;
-        box-shadow: @box-shadow;
         line-height: 0;
-      }
+        box-shadow: 0 1px 4px rgba(39,44,49,.15);
 
-      .post-card {
-        padding: 0;
+        .post-card {
+          padding: 0;
+          box-shadow: unset;
 
-        & > a {
-          width: 100%;
-          display: block;
-          height: 118px;
-        }
-
-        .post-card-image {
-          height: 118px;
-          min-height: unset;
-          min-width: unset;
-        }
-
-        .primary-tag {
-          height: unset;
-          margin-bottom: 8px;
-          padding: 3px 4px 1px;
-          font-size: 0.7em;
-        }
-
-        .post-card-title {
-          -webkit-line-clamp: 2;
-          .line-clamp();
-          min-height: 36px;
-          font-family: @body-font-bold;
-          font-size: 1em;
-          letter-spacing: -0.5px;
-          line-height: 1.2;
-          @media (max-width: @mobile-breakpoint) {
-            font-size: 1.3em !important;
-          }
-        }
-
-        .post-card-excerpt {
-          display: none;
-        }
-
-        .post-card-detail {
-          padding: 10px;
-        }
-
-        .post-card-footer {
-          margin-top: 10px;
-          padding: 10px 0 0;
-
-          .author-avatar {
-            width: 30px;
-            height: 30px;
-            margin-right: 8px;
+          & > a {
+            width: 100%;
+            display: block;
+            height: auto;
           }
 
-          .author-name {
-            margin-bottom: 2px;
-            font-size: 1em;
+          .post-card-image {
+            height: 118px;
+            min-height: unset !important;
+            min-width: unset;
           }
 
-          .meta-item {
-            font-size: 0.7em !important;
+          .primary-tag {
+            height: unset;
+            margin-bottom: 0;
+            padding: 3px 4px 1px;
+            font-size: 0.7em;
+            text-align: center;
+            overflow-y: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
             line-height: 1.1;
           }
 
-          .separator {
+          .post-card-title {
+            -webkit-line-clamp: 2;
+            .line-clamp();
+            min-height: 36px;
+            font-family: @body-font-bold;
+            font-size: 1em;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            @media (max-width: @mobile-breakpoint) {
+              font-size: 1.3em;
+            }
+          }
+
+          .post-card-excerpt {
             display: none;
+          }
+
+          .post-card-detail {
+            padding: 15px 10px 10px;
+          }
+
+          .post-card-footer {
+            margin-top: 10px;
+            padding: 10px 0 0;
+
+            .author-avatar {
+              width: 30px;
+              height: 30px;
+              margin-right: 8px;
+            }
+
+            .author-name {
+              margin-bottom: 2px;
+              font-size: .9em;
+            }
+
+            .meta-item {
+              font-size: 0.7em !important;
+              line-height: 1.1;
+            }
+
+            .meta-items-left * {
+              line-height: .8;
+            }
+
+            .separator {
+              display: none;
+            }
           }
         }
       }

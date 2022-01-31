@@ -12,7 +12,7 @@ const postQuery = `{
         published_at
         updated_at
         custom_excerpt
-        created_at_pretty: created_at(formatString: "DD MMMM, YYYY")
+        created_at_pretty: created_at(formatString: "MM/DD/YYYY")
         tags {
           name
           slug

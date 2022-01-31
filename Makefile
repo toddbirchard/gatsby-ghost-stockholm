@@ -51,7 +51,7 @@ functions:
 dev:
 	npm run dev
 
-.PHONY: cleannetlify dev
+.PHONY: clean
 clean:
 	if [ -d "./node_modules" ]; then gatsby clean; fi
 	find . -name 'package-lock.json' -delete

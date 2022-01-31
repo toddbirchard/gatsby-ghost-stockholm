@@ -18,9 +18,9 @@ const Pagination = ({ pageContext, metaTitle, template }) => {
   return (
     <>
       <nav className="pagination" role="navigation">
-        <div className="pagination-button">
+        <div>
           {previousPagePath && (
-            <Link to={previousPagePath} rel="prev" className="prev">
+            <Link to={previousPagePath} rel="prev" className="prev pagination-button">
               Previous
             </Link>
           )}
@@ -32,7 +32,7 @@ const Pagination = ({ pageContext, metaTitle, template }) => {
           </span>
         </div>
         {nextPagePath && (
-          <Link to={nextPagePath} rel="next" className="next">
+          <Link to={nextPagePath} rel="next" className="next pagination-button">
             Next
           </Link>
         )}

@@ -1,5 +1,5 @@
 .body-font() {
-  -webkit-font-smoothing: auto;
+  -webkit-font-smoothing: antialiased;
   margin: 0 0 20px;
   color: @body-color;
   font-family: @body-font;
@@ -20,7 +20,7 @@
   }
 
   li {
-    -webkit-font-smoothing: auto;
+    -webkit-font-smoothing: antialiased;
     color: @body-color;
     font-family: @body-font;
     text-align: left;
@@ -101,21 +101,11 @@
 }
 
 .info-card() {
-  width: stretch;
+  width: fit-content;
   width: -moz-available;
-  padding: 40px !important;
+  padding: 30px !important;
   background: white;
   box-shadow: @box-shadow;
-  @media (max-width: @tablet-breakpoint) {
-    .mobile-full-width();
-    min-width: unset !important;
-    margin-bottom: 20px;
-    padding: 30px 20px;
-  }
-  @media (max-width: @mobile-breakpoint) {
-    margin-bottom: 0;
-    padding: 20px 6% 40px !important;
-  }
 
   .page-title-card {
     display: flex;
@@ -123,12 +113,6 @@
     margin: 0 0 12px !important;
     font-size: 1.2em;
     line-height: 1;
-    @media (max-width: @tablet-breakpoint) {
-      font-size: 1.3em;
-    }
-    @media (max-width: @mobile-breakpoint) {
-      font-size: 1.1em;
-    }
 
     h1 {
       margin: 0 !important;
@@ -141,7 +125,7 @@
     display: inline;
     margin-right: 10px;
     font-size: 1.1em;
-    opacity: 0.9s;
+    opacity: 0.9;
     @media (max-width: @mobile-breakpoint) {
       font-size: 1.1em;
     }
@@ -341,10 +325,10 @@
   padding: 2px 4px;
   overflow-y: visible;
   border-radius: 3px;
-  background: rgba(144, 181, 223, 0.15);
-  color: #3e6c97;
+  background: rgba(144, 181, 223, 0.1);
+  color: #517aa1;
   font-family: @monospace-font;
-  font-size: 0.9em;
+  font-size: 0.85em;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -352,19 +336,15 @@
 .protip() {
   position: relative;
   margin: 40px auto;
-  padding: 60px 20px 14px;
+  padding: 50px 20px 10px;
   overflow: hidden;
   border-radius: 5px;
   background: rgba(255, 222, 196, 0.42);
   box-shadow: -2px 2px 0 #ede2db;
   color: #615649;
   font-family: @body-font;
-  font-size: 0.95em;
-  line-height: 1.4;
   @media (max-width: @mobile-breakpoint) {
     padding: 60px 20px 14px;
-    font-size: 0.9em;
-    line-height: 1.3;
   }
 
   p,
@@ -376,10 +356,25 @@
     }
   }
 
+  p,
+  strong,
+  a {
+    @media (max-width: @mobile-breakpoint) {
+      line-height: 1.6em;
+    }
+  }
+
   a {
     border-bottom: 1px solid #a47954;
     color: #a47954;
     font-weight: 600;
+    font-size: .95em;
+    transition: @transition;
+
+    &:hover {
+      color: #db7d2c !important;
+      border-bottom: 1px solid #db7d2c !important;
+    }
   }
 
   &::before {
@@ -395,7 +390,7 @@
     margin-right: unset;
     margin-bottom: 24px;
     margin-left: unset;
-    padding: 14px 15px;
+    padding: 14px 15px 8px;
     background: #f5dfce;
     color: #847059;
     font-family: @body-font-bold;

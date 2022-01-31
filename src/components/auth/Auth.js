@@ -56,7 +56,6 @@ const Auth = ({ children }) => {
 */
 /* const AuthButton = withRouter(
   ({ history }) => (netlifyAuth.isAuthenticated ? (
-
     <p>
         Welcome!{` `}
       <button
@@ -86,21 +85,17 @@ const Auth = ({ children }) => {
 
 /* class Login extends React.Component {
   state = { redirectToReferrer: false };
-
   login = () => {
     this.event.preventDefault()
     netlifyAuth.authenticate(() => {
       this.setState({ redirectToReferrer: false })
     })
   };
-
   render() {
     let { from } = this.props.location.state || { from: { pathname: `/` } }
-
     if (redirectToReferrer) {
       return <Redirect to={from} />
     }
-
     return (
       <div>
         <p>You must log in to view the page at {from.pathname}</p>
