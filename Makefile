@@ -1,5 +1,6 @@
 SRC_PATH := $(shell pwd)
 GHOST_MANIFEST_PATH := ${SRC_PATH}/plugins/gatsby-plugin-ghost-manifest
+GATSBY_FUNCTIONS_PATH := ${SRC_PATH}/functions
 
 define HELP
 This is the Stockholm project Makefile.
@@ -23,13 +24,13 @@ all help:
 
 .PHONY: install
 install:
-	echo "Installing project dependencies..."
-	cd ${SRC_PATH}
-	npm i --force
 	echo "Installing plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	npm i --force
+	echo "Installing project dependencies..."
 	cd ${SRC_PATH}
+	npm i --force
+
 
 .PHONY: build
 build:
@@ -39,44 +40,39 @@ build:
 serve:
 	gatsby build && gatsby serve -o
 
-buildbackup:
-	npm run-script build
-	mkdir -p functions
+.PHONY: functions
+functions:
 	GOOS=linux
 	GOARCH=amd64
-	GOBIN=${PWD}/functions go install ./...
-	GOBIN=${PWD}/functions go build -o functions/scrape ./...
-
-testfunctions:
-	mkdir -p functions
-	GOOS=linux
-	GOARCH=amd64
-	GOBIN=${PWD}/functions-src/scrape go install ./...
-	# go build -o functions ./...
+	GOBIN=${PWD}/functions/scrape go install ./...
+	GOBIN=${PWD}/functions go build -o functions/scrape functions/scrape/main.go
 
 .PHONY: dev
 dev:
 	npm run dev
 
-.PHONY: clean
+.PHONY: cleannetlify dev
 clean:
 	if [ -d "./node_modules" ]; then gatsby clean; fi
-	rm -rf 'node_modules'
-	rm -rf 'plugins/gatsby-plugin-ghost-manifest/node_modules'
 	find . -name 'package-lock.json' -delete
 	find . -name 'yarn.lock' -delete
 	find . -name '.pnp.cjs' -delete
+	find . -wholename 'node_modules' -delete
+	find . -wholename 'plugins/gatsby-plugin-ghost-manifest/node_modules' -delete
 	find . -wholename '**/.yarn' -delete
 	find . -wholename '*/*.log' -delete
 	find . -wholename 'public' -delete
 
 .PHONY: update
 update:
-	echo "Updating plugin dependencies..."
+	echo "1. Ensure latest version of NPM & Gatsby-ClI"
+	npm i -g npm@latest
+	npm i -g gatsby-cli@latest
+	echo "2. Updating plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	ncu -u
 	npm i --force
-	echo "Updating main project dependencies..."
+	echo "3. Updating main project dependencies..."
 	cd ${SRC_PATH}
 	ncu -u
 	npm i --force

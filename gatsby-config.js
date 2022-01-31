@@ -55,7 +55,7 @@ module.exports = {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PARALLEL_QUERY_RUNNING: true,
-    DEV_SSR: true,
+    DETECT_NODE_MUTATIONS: true,
   },
   siteMetadata: {
     title: config.shortTitle,
