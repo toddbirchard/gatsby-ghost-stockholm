@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
 import { CourseCard } from '../components/misc'
-import '../styles/pages/seriesarchive.less'
+import '../styles/pages/series-archive.less'
 import '../styles/pages/page.less'
 
 /**
@@ -48,7 +48,7 @@ const SeriesArchive = ({ data, location }) => {
         type="series"
       />
       <Layout
-        template="seriesarchive-template page-template"
+        template="series-archive-template page-template"
         hasSidebar={false}
       >
         <div className="info-card">
@@ -239,6 +239,7 @@ export const seriesQuery = graphql`
             "mastering-sqlalchemy"
             "graphql-hype"
             "working-with-mysql"
+            "python-concurrency-with-asyncio"
           ]
         }
       }

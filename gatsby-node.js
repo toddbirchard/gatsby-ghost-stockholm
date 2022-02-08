@@ -121,12 +121,12 @@ exports.createPages = async ({ graphql, actions }) => {
   const authorTemplate = path.resolve(`./src/templates/author.js`);
   const pageTemplate = path.resolve(`./src/templates/page.js`);
   const postTemplate = path.resolve(`./src/templates/post.js`);
-  const seriesDetail = path.resolve(`./src/templates/seriesdetail.js`);
+  const seriesDetail = path.resolve(`./src/templates/series-detail.js`);
 
   // Pages
   const aboutPage = path.resolve(`./src/pages/about.js`);
   const searchPage = path.resolve(`./src/pages/search.js`);
-  const seriesArchivePage = path.resolve(`./src/pages/seriesarchive.js`);
+  const seriesArchivePage = path.resolve(`./src/pages/series-archive.js`);
 
   // Create tag pages
   tags.forEach(({ node }) => {
