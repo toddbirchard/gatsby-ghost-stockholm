@@ -65,8 +65,9 @@ clean:
 
 .PHONY: update
 update:
-	echo "1. Ensure latest version of NPM & Gatsby-ClI"
+	echo "1. Ensure latest version of NPM, NCU & Gatsby-ClI"
 	npm i -g npm@latest
+	npm i -g npm-check-updates
 	npm i -g gatsby-cli@latest
 	echo "2. Updating plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
