@@ -1,5 +1,6 @@
 /* eslint-disable */
 import * as basicLightbox from 'basiclightbox'
+import './src/styles/font.less'
 import 'lazysizes'
 import config from './src/utils/siteConfig'
 
