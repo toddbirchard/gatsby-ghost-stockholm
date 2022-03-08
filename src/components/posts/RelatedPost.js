@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from "react"
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
@@ -19,40 +19,42 @@ const RelatedPost = ({ post }) => {
       .replace(`.png`, `@2x.png`)
   return (
     <>
-      <Link
-        to={`/${
-          post.slug.includes(`lynx`) ? `roundup/${post.slug}` : post.slug
-        }/`}
-        className="related-post-card"
-        key={post.ghostId}
-      >
-        {post.feature_image && (
-          <picture className="related-post-image-wrapper">
-            <source data-srcset={featureMobileImage}/>
-            <img
-              className="related-post-image lazyload"
-              data-src={featureImage}
-              alt={post.title}
-              title={post.title}
-            />
-          </picture>
-        )}
-        <div className="related-post-info">
-          <h5 className="related-post-title">{post.title}</h5>
-          <div className="related-post-tags">
-            <AiOutlineTags className="tags-icon"/>
-            <Tags
-              post={post}
-              limit={2}
-              visibility="public"
-              autolink={false}
-              classes="tag"
-              separator=", "
-              separatorClasses={`${post.ghostId} tag-separator`}
-            />
+      <Suspense fallback={<div><p>Loading related articles...</p></div>}>
+        <Link
+          to={`/${
+            post.slug.includes(`lynx`) ? `roundup/${post.slug}` : post.slug
+          }/`}
+          className="related-post-card"
+          key={post.ghostId}
+        >
+          {post.feature_image && (
+            <picture className="related-post-image-wrapper">
+              <source data-srcset={featureMobileImage}/>
+              <img
+                className="related-post-image lazyload"
+                data-src={featureImage}
+                alt={post.title}
+                title={post.title}
+              />
+            </picture>
+          )}
+          <div className="related-post-info">
+            <h5 className="related-post-title">{post.title}</h5>
+            <div className="related-post-tags">
+              <AiOutlineTags className="tags-icon"/>
+              <Tags
+                post={post}
+                limit={2}
+                visibility="public"
+                autolink={false}
+                classes="tag"
+                separator=", "
+                separatorClasses={`${post.ghostId} tag-separator`}
+              />
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </Suspense>
     </>
   )
 }
