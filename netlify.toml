@@ -43,11 +43,6 @@
     status = 301
 
 [[redirects]]
-    from = "/the-one-formula-to-rule-them-all-adventures-in-excel/"
-    to = "/the-one-excel-formula-to-rule-them-all/"
-    status = 301
-
-[[redirects]]
     from = "/pivoting-not-just-for-startups-anymore-adventures-in-excel/"
     to = "/the-art-of-excel-pivot-tables/"
     status = 301
