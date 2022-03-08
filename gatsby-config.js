@@ -64,6 +64,7 @@ module.exports = {
     url: config.siteUrl, // No trailing slash allowed!
     twitterUsername: config.links.twitter,
   },
+  trailingSlash: "always",
   plugins: [
     /**
      *  Source Plugins
@@ -413,9 +414,5 @@ module.exports = {
         continueOnFailure: true,
       },
     },
-    /**
-     *  Misc Plugins
-     */
-    `gatsby-plugin-force-trailing-slashes`,
   ],
 }
