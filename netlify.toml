@@ -98,11 +98,6 @@
     status = 301
 
 [[redirects]]
-    from = "/powering-up-your-pivot/"
-    to = "/powering-up-your-excel-pivot-tables/"
-    status = 301
-
-[[redirects]]
     from = "/creating-endpoints-with-lambda/"
     to = "/create-a-rest-api-endpoint-using-aws-lambda/"
     status = 301
