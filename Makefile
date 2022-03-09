@@ -8,8 +8,8 @@ This is the Stockholm project Makefile.
 Usage:
 
 make install         - Install NPM dependencies of project and plugins.
-make build           - Create & a production build.
-make serve           - Create & a production build and serve it locally.
+make build           - Create production build.
+make serve           - Create production build and serve it locally.
 make clean           - Purge cache, modules, & lockfiles.
 make reset           - Clean & reinstall all dependencies.
 make update          - Update production dependencies.

@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"
+import React from "react"
 import PropTypes from 'prop-types'
 import { CommentForm, Comment } from './'
 
@@ -8,22 +8,20 @@ const Comments = ({ data, moderators }) => {
 
   return (
     <>
-      <Suspense fallback={<div><p>Loading comments...</p></div>}>
-        <div id="comments" className="markdown-render">
-          {comments && (
-            <div className="user-comments">
-              {comments.map(({ node }) => (
-                <Comment
-                  key={node.comment_id}
-                  comment={node}
-                  moderators={moderators}
-                />
-              ))}
-            </div>
-          )}
-          <CommentForm post={post}/>
-        </div>
-      </Suspense>
+      <div id="comments" className="markdown-render">
+        {comments && (
+          <div className="user-comments">
+            {comments.map(({node}) => (
+              <Comment
+                key={node.comment_id}
+                comment={node}
+                moderators={moderators}
+              />
+            ))}
+          </div>
+        )}
+        <CommentForm post={post}/>
+      </div>
     </>
   )
 }
