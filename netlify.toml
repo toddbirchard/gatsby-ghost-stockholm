@@ -484,7 +484,7 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer-when-downgrade"
     cache-control = '''
-      max-age=86400,
+      max-age=604800,
       no-cache,
       public'''
       set-cookie = "HttpOnly;Secure;SameSite=None"
