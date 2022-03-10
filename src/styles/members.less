@@ -1,39 +1,39 @@
 .subscribe-form {
   margin: 0;
   text-align: center;
-}
-
-.subscribe-form form {
-  margin: 0 auto;
-}
-
-.subscribe-form .form-group {
-  align-self: stretch;
-}
-
-.subscribe-email {
-  -webkit-appearance: none;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: #ced5da 1px solid;
-  border-radius: 5px;
-  color: @body-color;
-  font-size: 1.8rem;
-  font-weight: normal;
-  line-height: 1em;
-  transition: border-color 0.15s linear;
-  user-select: text;
-}
-
-.subscribe-email:focus {
-  border-color: @body-color;
-  outline: 0;
-}
-
-.subscribe-form button:active,
-.subscribe-form button:focus {
-  background: @theme-color;
+  
+  form {
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    align-self: stretch;
+  }
+  
+  .subscribe-email {
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: #ced5da 1px solid;
+    border-radius: 5px;
+    color: @body-color;
+    font-size: 1.8rem;
+    font-weight: normal;
+    line-height: 1em;
+    transition: border-color 0.15s linear;
+    user-select: text;
+  
+    &:focus {
+      border-color: @body-color;
+      outline: 0;
+    }
+  }
+  
+  button:active,
+  button:focus {
+    background: @theme-color;
+  }
 }
 
 .subscribe-form .button-loader,
@@ -292,11 +292,11 @@
   font-weight: 400;
   line-height: 38px;
   text-align: center;
-}
-
-.subscribe-overlay button:active,
-.subscribe-overlay button:focus {
-  background: @theme-color;
+  
+  &:active,
+  &:focus {
+    background: @theme-color;
+  }
 }
 
 .subscribe-overlay .loading .button-loader {
