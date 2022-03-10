@@ -15,6 +15,11 @@
     background-color: #fff;
     table-layout: fixed;
 
+    @media (max-width: @mobile-breakpoint) {
+      width: unset;
+      min-width: 100%;
+    }
+
     * {
       font-family: @table-font !important;
     }
@@ -78,6 +83,8 @@
         @media (max-width: @mobile-breakpoint) {
           padding: 12px 8px;
           font-size: 0.8em;
+          min-width: 150px;
+          max-width: unset;
         }
 
         a {
