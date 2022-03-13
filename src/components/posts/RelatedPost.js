@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { Tags } from '@tryghost/helpers-gatsby'
 import { AiOutlineTags } from 'react-icons/ai'
 
-const RelatedPost = ({post}) => {
+const RelatedPost = ({ post }) => {
   const featureImage = post.feature_image
   const featureImageSlash = featureImage && featureImage.lastIndexOf(`/`)
   const featureMobileImage =

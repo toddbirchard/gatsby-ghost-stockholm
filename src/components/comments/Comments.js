@@ -11,7 +11,7 @@ const Comments = ({ data, moderators }) => {
       <div id="comments" className="markdown-render">
         {comments && (
           <div className="user-comments">
-            {comments.map(({node}) => (
+            {comments.map(({ node }) => (
               <Comment
                 key={node.comment_id}
                 comment={node}

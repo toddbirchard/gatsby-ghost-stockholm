@@ -131,8 +131,7 @@
 
         .footer-logo {
           display: block;
-          width: 90%;
-          max-width: 230px;
+          width: 230px;
           margin-bottom: 20px;
           transition: all 0.2s ease-out;
           @media (max-width: @mobile-breakpoint) {
@@ -144,7 +143,8 @@
           }
 
           img {
-            width: 100%;
+            width: 230px;
+            height: 47px;
           }
         }
 
@@ -245,8 +245,11 @@
         color: #8f9fa8;
         font-size: 2em;
         transition: 0.2s all ease-out;
+        @media (max-width: @tablet-breakpoint) {
+          font-size: 2.2em;
+        }
         @media (max-width: @mobile-breakpoint) {
-          font-size: 2.4em;
+          font-size: 2.5em;
         }
 
         &:hover {
