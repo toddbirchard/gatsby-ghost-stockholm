@@ -82,6 +82,7 @@ const CoffeeWidgetQuery = props => (
         coffees: allMysqlDonations(
           limit: 5
           sort: { fields: created_at, order: DESC }
+          filter: {email: {ne: "fake@example.com"}}
         ) {
           edges {
             node {
