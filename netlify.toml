@@ -483,6 +483,11 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer-when-downgrade"
+    Content-Security-Policy = '''
+      default-src 'self';
+      img-src https://cdn.hackersandslackers.com/*;
+      media-src https://cdn.hackersandslackers.com/*;
+      script-src https://cdn.hackersandslackers.com/* https://secure.gaug.es/* https://cdn.segment.io/* https://plausible.io/* https://api.segment.io/*;'''
     cache-control = '''
       max-age=604800,
       no-cache,

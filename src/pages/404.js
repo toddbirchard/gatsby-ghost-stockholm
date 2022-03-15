@@ -4,15 +4,22 @@ import { Link } from 'gatsby'
 import { Layout } from '../components/common'
 import { StaticQuery, graphql } from 'gatsby'
 import '../styles/pages/404.less'
+import { MetaData } from "../components/common/meta"
 
-const NotFoundPage = ({ data }) => {
+const NotFoundPage = ({ data, location }) => {
   const topPages = data.allMysqlWeeklyPostAnalytics.edges
 
   return (
     <>
+      <MetaData
+        data={data}
+        title={`Page not found`}
+        description={`Whoops! The page you're looking for could not be found (404).`}
+        location={location}
+      />
       <Layout template="error-template" hasSidebar={false}>
         <header className="not-found-header">
-          <h1 className="title">404</h1>
+          <h1 className="title">Page not found</h1>
           <p className="go-home">
             Page not found, <Link to="/">return home</Link> to start over.
           </p>
@@ -62,6 +69,7 @@ NotFoundPage.propTypes = {
   data: PropTypes.shape({
     allMysqlWeeklyPostAnalytics: PropTypes.object.isRequired,
   }),
+  location: PropTypes.object.isRequired,
 }
 
 const NotFoundPageQuery = props => (

@@ -24,12 +24,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 990px;
+    width: 970px;
     height: 100%;
     margin: auto;
-    @media (max-width: 1100px) {
-      max-width: 95%;
-    }
+    max-width: 95%;
     @media (max-width: @tablet-breakpoint) {
       align-items: center;
       justify-content: space-between;
@@ -52,6 +50,7 @@
         height: 45px;
         margin-right: 30px;
         transition: @transition;
+        display: block;
 
         &:hover {
           cursor: pointer;
@@ -152,10 +151,15 @@
 
 /* Page-specific navigation hacks
 /* ---------------------------------------------------------- */
-@media (max-width: @tablet-breakpoint) {
-  .home-template {
-    .navigation {
+.home-template {
+  .navigation {
+    @media (max-width: @tablet-breakpoint) {
       margin-bottom: 30px !important;
+    }
+    @media (max-width: @mobile-breakpoint) {
+      margin-bottom: 0 !important;
+      background: unset;
+      box-shadow: unset;
     }
 
     .navigation-links {
@@ -172,13 +176,6 @@
   }
 }
 
-@media (max-width: @mobile-breakpoint) {
-  .home-template .navigation {
-    margin-bottom: 15px !important;
-    background: unset;
-    box-shadow: unset;
-  }
-}
 
 .series-template {
   .navigation {

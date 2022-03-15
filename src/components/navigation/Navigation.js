@@ -23,13 +23,13 @@ const Navigation = ({ data, icon }) => (
       <div className="nav-wrapper">
         <div className="nav-left">
           <Link to="/">
-            <picture>
+            <picture className={`logo`}>
               <source data-srcset={icon}/>
               <img
                 data-src={icon}
                 alt={`Hackers and Slackers Logo`}
                 title={`Hackers and Slackers Logo`}
-                className="logo lazyload"
+                className="lazyload"
               />
             </picture>
           </Link>

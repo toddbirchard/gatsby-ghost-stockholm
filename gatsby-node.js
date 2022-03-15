@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      posts: allGhostPost(
+      allGhostPost(
         sort: { order: ASC, fields: published_at }
         filter: {
           slug: { ne: "data-schema" }
@@ -30,22 +30,6 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
               name
               visibility
-            }
-          }
-        }
-      }
-      lynx: allGhostPost(
-        sort: { order: ASC, fields: published_at }
-        filter: { primary_tag: { slug: { eq: "roundup" } } }
-      ) {
-        edges {
-          node {
-            slug
-            primary_tag {
-              slug
-            }
-            tags {
-              slug
             }
           }
         }
@@ -111,9 +95,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const tags = result.data.allGhostTag.edges;
   const authors = result.data.allGhostAuthor.edges;
   const pages = result.data.allGhostPage.edges;
-  const posts = result.data.posts.edges;
+  const posts = result.data.allGhostPost.edges;
   const series = result.data.series.edges;
-  const lynx = result.data.lynx.edges;
 
   // Templates
   const indexTemplate = path.resolve(`./src/templates/index.js`);
@@ -275,27 +258,6 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  lynx.forEach(({ node }) => {
-    node.url = `/roundup/${node.slug}/`;
-    node.tagSlugs = [];
-    node.series = null;
-
-    node.tags.forEach(function (element) {
-      node.tagSlugs.push(element.slug);
-    });
-
-    createPage({
-      path: node.url,
-      component: postTemplate,
-      context: {
-        slug: node.slug,
-        url: node.url,
-        tags: node.tagSlugs,
-        seriesSlug: node.series,
-      },
-    });
-  });
-
   // Create post pages
   posts.forEach(({ node }) => {
     node.url = `/${node.slug}/`;
@@ -303,7 +265,7 @@ exports.createPages = async ({ graphql, actions }) => {
     node.name = null;
     node.tagSlugs = [];
     node.primary = null;
-    node.primary_tag_name;
+    node.primary_tag_name = null;
 
     node.tags.forEach(function (element, index) {
       node.tagSlugs.push(element.slug);
