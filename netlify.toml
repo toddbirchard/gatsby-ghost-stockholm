@@ -485,6 +485,7 @@
     Referrer-Policy = "no-referrer-when-downgrade"
     Content-Security-Policy = '''
       default-src 'self';
+      style-src 'self';
       img-src https://cdn.hackersandslackers.com/*;
       media-src https://cdn.hackersandslackers.com/*;
       script-src https://cdn.hackersandslackers.com/* https://secure.gaug.es/* https://cdn.segment.io/* https://plausible.io/* https://api.segment.io/*;'''
