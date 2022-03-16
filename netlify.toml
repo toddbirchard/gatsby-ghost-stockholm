@@ -485,10 +485,10 @@
     Referrer-Policy = "no-referrer-when-downgrade"
     Content-Security-Policy = '''
       default-src 'self';
-      style-src 'self';
+      style-src 'self' 'unsafe-inline';
       img-src https://cdn.hackersandslackers.com/*;
       media-src https://cdn.hackersandslackers.com/*;
-      script-src https://cdn.hackersandslackers.com/* https://secure.gaug.es/* https://cdn.segment.io/* https://plausible.io/* https://api.segment.io/*;'''
+      script-src 'unsafe-inline' https://cdn.hackersandslackers.com/* https://secure.gaug.es/* https://cdn.segment.io/* https://plausible.io/* https://api.segment.io/*;'''
     cache-control = '''
       max-age=604800,
       no-cache,
