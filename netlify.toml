@@ -501,7 +501,7 @@
 [[headers]]
   for = "https://cdn.hackersandslackers.com/fonts/*"
   [headers.values]
-    Content-Type = 'font/woff2'
+    content-type = 'font/woff2'
     cache-control = '''
       max-age=31536000,
       no-cache,
