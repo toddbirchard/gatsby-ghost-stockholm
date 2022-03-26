@@ -5,7 +5,7 @@
   functions = "/functions"
 
 [build.environment]
-  GO_VERSION = "1.17"
+  GO_VERSION = "1.18"
   GO_IMPORT_PATH = "github.com/toddbirchard/lambda-metadata-scraper"
 
 [template]
@@ -512,15 +512,6 @@
   [headers.values]
     cache-control = '''
       max-age=2592000,
-      no-cache,
-      public'''
-
-[[headers]]
-  for = "cdn.hackersandslackers.com/fonts/*"
-  [headers.values]
-    Content-Type = 'font/woff2'
-    cache-control = '''
-      max-age=31536000,
       no-cache,
       public'''
 
