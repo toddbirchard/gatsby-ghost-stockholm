@@ -477,17 +477,18 @@
     to = "/rss.xml"
     status = 301
 
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "no-referrer-when-downgrade"
+    set-cookie = "HttpOnly;Secure;SameSite=None"
     cache-control = '''
       max-age=2592000,
       no-cache,
       public'''
-      set-cookie = "HttpOnly;Secure;SameSite=None"
 
 [[headers]]
   for = "https://cdn.hackersandslackers.com/*"
@@ -500,10 +501,26 @@
 [[headers]]
   for = "https://cdn.hackersandslackers.com/fonts/*"
   [headers.values]
-  cache-control = '''
-        max-age=31536000,
-        no-cache,
-        public'''
+    cache-control = '''
+      max-age=31536000,
+      no-cache,
+      public'''
+
+[[headers]]
+  for = "cdn.hackersandslackers.com/*"
+  [headers.values]
+    cache-control = '''
+      max-age=2592000,
+      no-cache,
+      public'''
+
+[[headers]]
+  for = "cdn.hackersandslackers.com/fonts/*"
+  [headers.values]
+    cache-control = '''
+      max-age=31536000,
+      no-cache,
+      public'''
 
 [[headers]]
   for = "http://secure.gaug.es/*"
@@ -518,11 +535,19 @@
   for = "https://secure.gaug.es/track.gif"
   [headers.values]
     set-cookie = "HttpOnly;Secure;SameSite=None"
+    cache-control = '''
+      max-age=2592000,
+      no-cache,
+      public'''
 
 [[headers]]
-  for = "http://secure.gaug.es/track.js"
+  for = "https://secure.gaug.es/track.js"
   [headers.values]
     set-cookie = "HttpOnly;Secure;SameSite=None"
+    cache-control = '''
+      max-age=2592000,
+      no-cache,
+      public'''
 
 [[headers]]
   for = "/images/buymeacoffee.svg"
@@ -537,16 +562,28 @@
   for = "/.netlify/functions/scrape"
   [headers.values]
     access-control-allow-origin = "*"
+    cache-control = '''
+      max-age=2592000,
+      no-cache,
+      public'''
 
 [[headers]]
   for = "/.netlify/functions/user"
   [headers.values]
     access-control-allow-origin = "*"
+    cache-control = '''
+      max-age=2592000,
+      no-cache,
+      public'''
 
 [[headers]]
-    for = "/rss.xml"
-    [headers.values]
-      content-type = "application/xml; charset=utf-8"
+  for = "/rss.xml"
+  [headers.values]
+    content-type = "application/xml; charset=utf-8"
+    cache-control = '''
+      max-age=2592000,
+      no-cache,
+      public'''
 
 [build.processing]
   skip_processing = false

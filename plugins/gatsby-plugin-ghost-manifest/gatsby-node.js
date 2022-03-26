@@ -1,26 +1,16 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
-
-var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
-var _excluded = ["icon"];
-
-var fs = require("fs");
-
-var path = require("path");
-
-var Promise = require("bluebird");
-
-var sharp = require("sharp");
-
-var _require = require("./common.js"),
+const _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+const _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+const _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+const _objectWithoutPropertiesLoose2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutPropertiesLoose"));
+const _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+const _excluded = ["icon"];
+const fs = require("fs");
+const path = require("path");
+const Promise = require("bluebird");
+const sharp = require("sharp");
+const _require = require("./common.js"),
     defaultIcons = _require.defaultIcons,
     doesIconExist = _require.doesIconExist;
 
@@ -28,15 +18,15 @@ sharp.simd(true);
 
 function generateIcons(icons, srcIcon) {
   return Promise.map(icons, function (icon) {
-    var size = parseInt(icon.sizes.substring(0, icon.sizes.lastIndexOf("x")));
-    var imgPath = path.join("public", icon.src);
+    let size = parseInt(icon.sizes.substring(0, icon.sizes.lastIndexOf("x")));
+    let imgPath = path.join("public", icon.src);
     return sharp(srcIcon).resize(size).toFile(imgPath).then(function () {});
   });
 }
 
 exports.onPostBuild = /*#__PURE__*/function () {
-  var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref, pluginOptions) {
-    var graphql, icon, manifest, _yield$graphql, data, siteTitle, iconPath;
+  let _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref, pluginOptions) {
+    let graphql, icon, manifest, _yield$graphql, data, siteTitle, iconPath;
 
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {

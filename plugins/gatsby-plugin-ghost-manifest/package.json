@@ -3,16 +3,12 @@
   "description": "Gatsby plugin which adds a manifest.webmanifest to make sites progressive web apps",
   "version": "0.0.1",
   "author": "Ghost Foundation",
-  "dependencies": {
-    "@babel/runtime": "7.17.7",
-    "bluebird": "3.7.2",
-    "sharp": "^0.30.3"
-  },
-  "devDependencies": {
-    "@babel/cli": "7.17.6",
-    "@babel/core": "7.17.7",
-    "babel-preset-gatsby-package": "2.10.0",
-    "cross-env": "7.0.3"
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir . --ignore **/__tests__",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore **/__tests__"
   },
   "keywords": [
     "gatsby",
@@ -22,17 +18,21 @@
     "progressive-web-app",
     "pwa"
   ],
+  "dependencies": {
+    "@babel/runtime": "7.17.8",
+    "bluebird": "3.7.2",
+    "sharp": "^0.30.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.17.6",
+    "@babel/core": "7.17.8",
+    "babel-preset-gatsby": "^2.10.1",
+    "cross-env": "7.0.3"
+  },
   "resolutions": {
     "sharp": "^0.30.3"
   },
-  "license": "MIT",
-  "main": "index.js",
   "peerDependencies": {
-    "gatsby": ">=4.6.0"
-  },
-  "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__"
+    "gatsby": ">=4.10.2"
   }
 }
