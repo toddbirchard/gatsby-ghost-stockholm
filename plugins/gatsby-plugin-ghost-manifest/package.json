@@ -18,14 +18,14 @@
     "pwa"
   ],
   "dependencies": {
-    "@babel/runtime": "7.17.8",
+    "@babel/runtime": "7.17.9",
     "bluebird": "3.7.2",
     "sharp": "^0.30.3"
   },
   "devDependencies": {
     "@babel/cli": "7.17.6",
-    "@babel/core": "7.17.8",
-    "babel-preset-gatsby": "^2.10.1",
+    "@babel/core": "7.17.9",
+    "babel-preset-gatsby": "^2.12.1",
     "cross-env": "7.0.3"
   },
   "resolutions": {
