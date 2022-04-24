@@ -24,10 +24,10 @@ all help:
 
 .PHONY: install
 install:
-	echo "Installing plugin dependencies..."
+	@echo "Installing plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	npm i --force
-	echo "Installing project dependencies..."
+	@echo "Installing project dependencies..."
 	cd ${SRC_PATH}
 	npm i --force
 
@@ -65,15 +65,15 @@ clean:
 
 .PHONY: update
 update:
-	echo "1. Ensure latest version of NPM, NCU & Gatsby-ClI"
+	@echo "1. Ensure latest version of NPM, NCU & Gatsby-ClI"
 	npm i -g npm@latest
 	npm i -g npm-check-updates
 	npm i -g gatsby-cli@latest
-	echo "2. Updating plugin dependencies..."
+	@echo "2. Updating plugin dependencies..."
 	cd "${GHOST_MANIFEST_PATH}"
 	ncu -u
 	npm i --force
-	echo "3. Updating main project dependencies..."
+	@echo "3. Updating main project dependencies..."
 	cd ${SRC_PATH}
 	ncu -u
 	npm i --force
