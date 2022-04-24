@@ -20,7 +20,7 @@
   "dependencies": {
     "@babel/runtime": "7.17.9",
     "bluebird": "3.7.2",
-    "sharp": "^0.30.3"
+    "sharp": "^0.30.4"
   },
   "devDependencies": {
     "@babel/cli": "7.17.6",
@@ -29,7 +29,7 @@
     "cross-env": "7.0.3"
   },
   "resolutions": {
-    "sharp": "^0.30.3"
+    "sharp": "^0.30.4"
   },
   "peerDependencies": {
     "gatsby": ">=4.10.2"
