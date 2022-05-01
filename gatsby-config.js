@@ -217,6 +217,7 @@ module.exports = {
     /**
      *  Netlify Plugins
      */
+    `gatsby-plugin-netlify`,
     /*{
       resolve: `gatsby-plugin-netlify`,
       options: {
