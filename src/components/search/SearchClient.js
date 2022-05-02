@@ -9,19 +9,14 @@ const algoliaClient = algoliasearch(
 
 export const SearchClient = {
   search(requests) {
-    if (requests.every(({ params }) => !params.query)) {
-      return Promise.resolve({
-        results: requests.map(() => {
-          return {
-            hits: [],
-            nbHits: 0,
-            nbPages: 0,
-            processingTimeMS: 0,
-          }
-        }),
-      })
-    }
-    return algoliaClient.search(requests)
+    const newRequests = requests.map((request)=>{
+      // Test for empty string and change request parameter: analytics
+      if(!request.params.query || request.params.query.length===0) {
+        request.params.analytics=false
+      }
+      return request
+    });
+    return algoliaClient.search(newRequests);
   },
 }
 
