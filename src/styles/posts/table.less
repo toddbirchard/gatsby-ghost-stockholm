@@ -1,15 +1,26 @@
 .kg-table-card {
-  margin: 30px 0 0;
-}
+  margin: 30px 0;
 
-.kg-table-card .tableContainer {
-  margin: 0;
+  .tableContainer {
+    margin: 0;
+  }
 }
-
 
 .tableContainer {
+  overflow-x: scroll;
+  margin: 30px 0;
+  border: 1px solid #e3ecf3;
+  border-radius: 3px;
+  border-spacing: 0;
+  @media (max-width: @mobile-breakpoint) {
+    .mobile-full-width();
+    .mobile-horizontal-scroll();
+    width: 120%;
+    min-width: 120%;
+    max-width: 115%;
+  }
+
   table {
-    width: 100%;
     margin-bottom: 0;
     border-spacing: 0;
     background-color: #fff;
@@ -98,19 +109,6 @@
         border-bottom: 0;
       }
     }
-  }
-
-  margin: 30px 0 0;
-  overflow: hidden;
-  border: 1px solid #e3ecf3;
-  border-radius: 3px;
-  border-spacing: 0;
-  @media (max-width: @mobile-breakpoint) {
-    .mobile-full-width();
-    .mobile-horizontal-scroll();
-    width: 120%;
-    min-width: 120%;
-    max-width: 115%;
   }
 
   .table-wrap {
