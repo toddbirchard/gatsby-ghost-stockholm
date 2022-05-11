@@ -1,6 +1,5 @@
 import algoliasearch from 'algoliasearch/lite'
 import { connectStateResults } from 'react-instantsearch-dom'
-import Promise from 'promise'
 
 const algoliaClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID,
@@ -15,8 +14,8 @@ export const SearchClient = {
         request.params.analytics=false
       }
       return request
-    });
-    return algoliaClient.search(newRequests);
+    })
+    return algoliaClient.search(newRequests)
   },
 }
 
