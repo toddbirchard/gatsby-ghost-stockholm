@@ -18,20 +18,20 @@
     "pwa"
   ],
   "dependencies": {
-    "@babel/runtime": "7.17.9",
+    "@babel/runtime": "7.18.3",
     "bluebird": "3.7.2",
-    "sharp": "^0.30.4"
+    "sharp": "^0.30.5"
   },
   "devDependencies": {
     "@babel/cli": "7.17.10",
-    "@babel/core": "7.17.10",
-    "babel-preset-gatsby": "2.13.0",
+    "@babel/core": "7.18.2",
+    "babel-preset-gatsby": "2.15.0",
     "cross-env": "7.0.3"
   },
   "resolutions": {
-    "sharp": "^0.30.4"
+    "sharp": "^0.30.5"
   },
   "peerDependencies": {
-    "gatsby": ">=4.13.1"
+    "gatsby": ">=4.15.1"
   }
 }

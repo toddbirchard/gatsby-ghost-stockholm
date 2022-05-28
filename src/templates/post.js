@@ -18,7 +18,6 @@ import {
   AiOutlineTags,
   AiOutlineCalendar,
   AiOutlineUser,
-  AiTwotoneExperiment,
 } from 'react-icons/ai'
 import Prism from 'prismjs'
 import { getRetinaImageUrl, getMobileImageUrl } from '../utils/imageUrl'
@@ -42,7 +41,6 @@ const Post = ({ data, location }) => {
   const authorUrl =
     post.primary_author.slug && `/author/${post.primary_author.slug}/`
   const authorFirstName = author.name.split(` `)[0]
-  const lynxBlurb = `Resident Scientist Snkia works tirelessly towards robot utopia. These are his findings.`
   const featureImage = post.feature_image
   const authors = data.authors.edges
   const featureRetinaImage = post.feature_image && getRetinaImageUrl(post.feature_image)
@@ -67,6 +65,7 @@ const Post = ({ data, location }) => {
             {/*    Post head     */}
             <div className="post-head">
               <h1 className="post-title">{post.title}</h1>
+              {post.excerpt && <p className="post-excerpt">{post.excerpt}</p>}
               <div className="post-meta">
                 <div className="meta-item author">
                   <Link to={authorUrl}>
@@ -125,14 +124,7 @@ const Post = ({ data, location }) => {
               />
             )}
 
-            {/*  Lynx blurb  */}
-            {post.slug.includes(`lynx`) && (
-              <div className="post-roundup-blurb">
-                <AiTwotoneExperiment/> <p>{lynxBlurb}</p>
-              </div>
-            )}
-
-            {/*  Lynx blurb  */}
+            {/*  Post content  */}
             <main
               className="post-content content-body load-external-scripts"
               dangerouslySetInnerHTML={{ __html: post.html }}
