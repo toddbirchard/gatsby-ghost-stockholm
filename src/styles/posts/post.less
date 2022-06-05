@@ -29,9 +29,8 @@
     .post-head {
       display: flex;
       flex-direction: column-reverse;
-      margin: 0 auto;
       padding: 0;
-      .mobile-full-width();
+      align-items: center;
       @media (max-width: @post-max-width) {
         padding: 0;
       }
@@ -40,17 +39,19 @@
       }
 
       .post-head-details {
-        padding: 60px 8% 20px;
-        max-width: 720px;
+        padding: 60px 0 20px;
+        width: 100%;
         margin: 0 auto;
 
         @media (max-width: @smallscreen-breakpoint) {
-          padding: 40px 8% 0;
-          margin: unset;
+          margin: 0 8%;
+          padding: 40px 0 0;
+          width: -webkit-fill-available;
         }
 
         @media (max-width: @mobile-breakpoint) {
           padding: 0 20px;
+          margin: unset;
         }
       }
 
@@ -88,7 +89,6 @@
 
     .post-image {
       order: 3;
-      width: 100%;
       max-width: 850px;
       min-height: 490px;
       margin: 0 auto;
@@ -97,6 +97,7 @@
       background-position-y: center !important;
       background-size: cover !important;
       box-shadow: 0 1px 3px rgba(39, 44, 49, 0.1);
+      .mobile-full-width();
       @media (max-width: @smallscreen-breakpoint) {
         min-height: unset;
         margin: 0 30px;
@@ -123,7 +124,6 @@
 
     .post-meta {
       display: flex;
-      width: 720px;
       margin: 15px auto 0;
       @media (max-width: @mobile-breakpoint) {
         flex-wrap: wrap;

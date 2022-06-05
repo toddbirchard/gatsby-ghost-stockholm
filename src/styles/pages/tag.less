@@ -13,7 +13,7 @@
       min-width: 100%;
     }
     @media (max-width: @mobile-breakpoint) {
-      padding: 10px 10px 30px !important;
+      padding: 10px 20px 30px !important;
     }
 
     &.mobile {
@@ -46,6 +46,10 @@
         height: 110px;
         margin-right: 20px;
         max-width: 25%;
+        @media(max-width: @mobile-breakpoint) {
+          height: fit-content;
+          max-width: 20%;
+        }
       }
 
       .card-details {
