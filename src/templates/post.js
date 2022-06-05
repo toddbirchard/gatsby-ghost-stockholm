@@ -64,36 +64,38 @@ const Post = ({ data, location }) => {
 
             {/*    Post head     */}
             <div className="post-head">
-              <h1 className="post-title">{post.title}</h1>
-              {post.excerpt && <p className="post-excerpt">{post.excerpt}</p>}
-              <div className="post-meta">
-                <div className="meta-item author">
-                  <Link to={authorUrl}>
-                    <AiOutlineUser/>
-                    <span>{authorFirstName}</span>
-                  </Link>
-                </div>
-                {tags && (
-                  <div className="meta-item tag">
-                    <AiOutlineTags/>
-                    <Tags
-                      post={post}
-                      limit={1}
-                      visibility="public"
-                      autolink
-                      separator={null}
-                      permalink="/tag/:slug"
-                      classes={tags.ghostId}
-                    />
+              <div className="post-head-details">
+                <h1 className="post-title">{post.title}</h1>
+                {post.excerpt && <p className="post-excerpt">{post.excerpt}</p>}
+                <div className="post-meta">
+                  <div className="meta-item author">
+                    <Link to={authorUrl}>
+                      <AiOutlineUser/>
+                      <span>{authorFirstName}</span>
+                    </Link>
                   </div>
-                )}
-                <div className="meta-item reading-time">
-                  <AiOutlineEye/>
-                  <span>{readingTime}</span>
-                </div>
-                <div className="meta-item date">
-                  <AiOutlineCalendar/>
-                  <span>{post.published_at_pretty}</span>
+                  {tags && (
+                    <div className="meta-item tag">
+                      <AiOutlineTags/>
+                      <Tags
+                        post={post}
+                        limit={1}
+                        visibility="public"
+                        autolink
+                        separator={null}
+                        permalink="/tag/:slug"
+                        classes={tags.ghostId}
+                      />
+                    </div>
+                  )}
+                  <div className="meta-item reading-time">
+                    <AiOutlineEye/>
+                    <span>{readingTime}</span>
+                  </div>
+                  <div className="meta-item date">
+                    <AiOutlineCalendar/>
+                    <span>{post.published_at_pretty}</span>
+                  </div>
                 </div>
               </div>
 
