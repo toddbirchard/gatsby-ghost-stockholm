@@ -13,7 +13,7 @@
   ],
   "engines": {
     "node": ">=16",
-    "npm": "~8.4.0"
+    "npm": ">=8.11.0"
   },
   "repository": "git+https://github.com/toddbirchard/gatsby-ghost-stockholm.git",
   "bugs": {
@@ -90,7 +90,7 @@
     "lmdb-store": ">=1.6.14",
     "lodash": "4.17.21",
     "netlify-identity-widget": ">=1.9.2",
-    "node-notifier": ">=v10.0.1",
+    "node-notifier": ">=10.0.1",
     "pify": ">=5.0.0",
     "prismjs": ">=1.28.0",
     "promise": ">=8.1.0",
@@ -111,7 +111,7 @@
     "showdown": ">=2.1.0",
     "stylelint": ">=14.8.5",
     "stylelint-config-standard": ">=25.0.0",
-    "trim": ">=v1.0.1",
+    "trim": ">=1.0.1",
     "url": ">=0.11.0"
   },
   "peerDependencies": {
