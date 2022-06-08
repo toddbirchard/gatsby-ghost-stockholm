@@ -11,8 +11,6 @@ const AuthButton = ({ styleClass }) => {
   const [buttonText, setButtonText] = useState(
     isLoggedIn ? `Sign out` : `Sign up`,
   )
-  const name =
-    (identity && identity.user && identity.user.user_metadata && identity.user.user_metadata.name) || `NoName`
 
   useEffect(() => {
     setButtonText(isLoggedIn ? `Sign out` : `Sign up`)
@@ -32,9 +30,6 @@ const AuthButton = ({ styleClass }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={(user) => console.log(`hello `, user.user_metadata)}
-        onSignup={(user) => console.log(`welcome `, user.user_metadata)}
-        onLogout={() => console.log(`bye `, name)}
       />
     </>
   )
