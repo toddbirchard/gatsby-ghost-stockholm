@@ -4,7 +4,7 @@ import IdentityModal, {
   useIdentityContext,
 } from 'react-netlify-identity-widget'
 
-const AuthButton = ({ styleClass }) => {
+const AuthButton = ({ styleClass, location }) => {
   const [dialog, setDialog] = React.useState(false)
   const identity = useIdentityContext()
   const isLoggedIn = identity && identity.isLoggedIn
@@ -30,6 +30,8 @@ const AuthButton = ({ styleClass }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
+        onLogin={() => res.redirect(location)}
+        onLogout={() => res.redirect(location)}
       />
     </>
   )

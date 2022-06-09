@@ -10,6 +10,7 @@ const Footer = ({ navigation, site, data }) => {
   const seriesLinks = data.series.edges
   const logo = site.logo
   const description = site.description
+  const location = data.location
 
   return (
     <>
@@ -70,7 +71,7 @@ const Footer = ({ navigation, site, data }) => {
                   )
                 }
               })}
-              <AuthButton styleClass="footer-navigation-link"/>
+              <AuthButton styleClass="footer-navigation-link" location={location} />
             </div>
             <div className="widget series">
               <span className="footer-widget-title">Series</span>
