@@ -54,7 +54,6 @@ module.exports = {
     // PRESERVE_WEBPACK_CACHE: true,
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
-    PARALLEL_QUERY_RUNNING: true,
     DETECT_NODE_MUTATIONS: true,
   },
   siteMetadata: {
