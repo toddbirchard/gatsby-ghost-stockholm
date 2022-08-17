@@ -35,13 +35,14 @@ build:
 
 .PHONY: serve
 serve:
-	gatsby build && gatsby serve -o
+	gatsby build && \
+	gatsby serve -o
 
 .PHONY: functions
 functions:
-	GOOS=linux
-	GOARCH=amd64
-	GOBIN=${PWD}/functions/scrape go install ./...
+	GOOS=linux && \
+	GOARCH=amd64 && \
+	GOBIN=${PWD}/functions/scrape go install ./... && \
 	GOBIN=${PWD}/functions go build -o functions/scrape functions/scrape/main.go
 
 .PHONY: dev
@@ -50,27 +51,27 @@ dev:
 
 .PHONY: clean
 clean:
-	if [ -d "./node_modules" ]; then gatsby clean; fi
-	find . -name 'package-lock.json' -delete
-	find . -name 'yarn.lock' -delete
-	find . -name '.pnp.cjs' -delete
-	find . -wholename 'node_modules' -delete
-	find . -wholename 'plugins/gatsby-plugin-ghost-manifest/node_modules' -delete
-	find . -wholename '**/.yarn' -delete
-	find . -wholename '*/*.log' -delete
-	find . -wholename 'public' -delete
+	if [ -d "./node_modules" ]; then gatsby clean; fi && \
+	find . -name 'package-lock.json' -delete && \
+	find . -name 'yarn.lock' -delete && \
+	find . -name '.pnp.cjs' -delete && \
+	find . -wholename 'node_modules' -delete && \
+	find . -wholename 'plugins/gatsby-plugin-ghost-manifest/node_modules' -delete && \
+	find . -wholename '**/.yarn' -delete && \
+	find . -wholename '*/*.log' -delete && \
+	find . -wholename 'public' -delete && \
 
 .PHONY: update
 update:
-	@echo "1. Ensure latest version of NPM, NCU & Gatsby-ClI"
-	npm i -g npm@latest
-	npm i -g npm-check-updates
-	npm i -g gatsby-cli@latest
-	@echo "2. Updating plugin dependencies..."
-	cd "${GHOST_MANIFEST_PATH}"
-	ncu -u
-	npm i --force
-	@echo "3. Updating main project dependencies..."
-	cd ${SRC_PATH}
-	ncu -u
+	@echo "1. Ensure latest version of NPM, NCU & Gatsby-ClI" && \
+	npm i -g npm@latest && \
+	npm i -g npm-check-updates && \
+	npm i -g gatsby-cli@latest && \
+	@echo "2. Updating plugin dependencies..." && \
+	cd "${GHOST_MANIFEST_PATH}" && \
+	ncu -u && \
+	npm i --force && \
+	@echo "3. Updating main project dependencies..." && \
+	cd ${SRC_PATH} && \
+	ncu -u && \
 	npm i --force
