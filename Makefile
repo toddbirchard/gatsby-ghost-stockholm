@@ -24,9 +24,9 @@ all help:
 
 .PHONY: install
 install:
-	@echo "Installing plugin dependencies..."
-	cd "${GHOST_MANIFEST_PATH}" && npm i --force
-	@echo "Installing project dependencies..."
+	@echo "Installing plugin dependencies..." && \
+	cd "${GHOST_MANIFEST_PATH}" && npm i --force && \
+	@echo "Installing project dependencies..." && \
 	cd ${SRC_PATH} && npm i --force
 
 .PHONY: build
