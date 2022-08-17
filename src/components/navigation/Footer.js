@@ -113,6 +113,7 @@ Footer.propTypes = {
     authors: PropTypes.object.isRequired,
     tags: PropTypes.object,
     series: PropTypes.object,
+    location: PropTypes.string,
   }).isRequired,
   site: PropTypes.shape({
     title: PropTypes.string.isRequired,

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { navigate } from "gatsby"
 import PropTypes from 'prop-types'
 import IdentityModal, {
   useIdentityContext,
@@ -30,8 +31,9 @@ const AuthButton = ({ styleClass, location }) => {
       <IdentityModal
         showDialog={dialog}
         onCloseDialog={() => setDialog(false)}
-        onLogin={() => res.redirect(location)}
-        onLogout={() => res.redirect(location)}
+        onLogin={() => navigate(location)}
+        onSignup={() => navigate(location)}
+        onLogout={() => navigate(location)}
       />
     </>
   )
@@ -39,6 +41,7 @@ const AuthButton = ({ styleClass, location }) => {
 
 AuthButton.propTypes = {
   isLoggedIn: PropTypes.bool,
+  location: PropTypes.string,
   styleClass: PropTypes.string,
 }
 
