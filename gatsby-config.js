@@ -143,27 +143,27 @@ module.exports = {
         },
         queries: [
           {
-            statement: `SELECT * FROM monthly_page_analytics`,
+            statement: `SELECT * FROM hackers_features.monthly_page_analytics`,
             idFieldName: `id`,
             name: `monthly_page_analytics`,
           },
           {
-            statement: `SELECT * FROM weekly_post_analytics`,
+            statement: `SELECT * FROM hackers_features.weekly_post_analytics`,
             idFieldName: `id`,
             name: `weekly_post_analytics`,
           },
           {
-            statement: `SELECT * FROM algolia_top_suggested_searches`,
+            statement: `SELECT * FROM hackers_features.algolia_top_suggested_searches`,
             idFieldName: `search`,
             name: `algolia_top_searches`,
           },
           {
-            statement: `SELECT * FROM hackers_dev.donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
+            statement: `SELECT * FROM hackers_features.donation WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
             idFieldName: `id`,
             name: `donations`,
           },
           {
-            statement: `SELECT * FROM hackers_dev.comments`,
+            statement: `SELECT * FROM hackers_features.comments`,
             idFieldName: `id`,
             name: `comments`,
           },
