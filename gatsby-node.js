@@ -1,6 +1,6 @@
-const path = require(`path`);
-const { postsPerPage } = require(`./src/utils/siteConfig`);
-const { paginate } = require(`gatsby-awesome-pagination`);
+const path = require(`path`)
+const { postsPerPage } = require(`./src/utils/siteConfig`)
+const { paginate } = require(`gatsby-awesome-pagination`)
 
 /**
  * Here is the place where Gatsby creates the URLs for all the
@@ -8,7 +8,7 @@ const { paginate } = require(`gatsby-awesome-pagination`);
  */
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   const result = await graphql(`
     {
@@ -83,56 +83,56 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)
   // Check for errors
   if (result.errors) {
     for (let error in result.errors) {
-      throw error;
+      throw error
     }
   }
 
   // Query results
-  const tags = result.data.allGhostTag.edges;
-  const authors = result.data.allGhostAuthor.edges;
-  const pages = result.data.allGhostPage.edges;
-  const posts = result.data.allGhostPost.edges;
-  const series = result.data.series.edges;
+  const tags = result.data.allGhostTag.edges
+  const authors = result.data.allGhostAuthor.edges
+  const pages = result.data.allGhostPage.edges
+  const posts = result.data.allGhostPost.edges
+  const series = result.data.series.edges
 
   // Templates
-  const indexTemplate = path.resolve(`./src/templates/index.js`);
-  const tagsTemplate = path.resolve(`./src/templates/tag.js`);
-  const authorTemplate = path.resolve(`./src/templates/author.js`);
-  const pageTemplate = path.resolve(`./src/templates/page.js`);
-  const postTemplate = path.resolve(`./src/templates/post.js`);
-  const seriesDetail = path.resolve(`./src/templates/series-detail.js`);
+  const indexTemplate = path.resolve(`./src/templates/index.js`)
+  const tagsTemplate = path.resolve(`./src/templates/tag.js`)
+  const authorTemplate = path.resolve(`./src/templates/author.js`)
+  const pageTemplate = path.resolve(`./src/templates/page.js`)
+  const postTemplate = path.resolve(`./src/templates/post.js`)
+  const seriesDetail = path.resolve(`./src/templates/series-detail.js`)
 
   // Pages
-  const aboutPage = path.resolve(`./src/pages/about.js`);
-  const searchPage = path.resolve(`./src/pages/search.js`);
-  const seriesArchivePage = path.resolve(`./src/pages/series-archive.js`);
+  const aboutPage = path.resolve(`./src/pages/about.js`)
+  const searchPage = path.resolve(`./src/pages/search.js`)
+  const seriesArchivePage = path.resolve(`./src/pages/series-archive.js`)
 
   // Create tag pages
   tags.forEach(({ node }) => {
-    const totalPosts = node.postCount !== null ? node.postCount : 0;
-    const numberOfPages = Math.ceil(totalPosts / postsPerPage);
+    const totalPosts = node.postCount !== null ? node.postCount : 0
+    const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
     // This part here defines, that our tag pages will use
     // a `/tag/:slug/` permalink.
-    node.url = `/tag/${node.slug}/`;
+    node.url = `/tag/${node.slug}/`
 
     Array.from({ length: numberOfPages }).forEach((_, i) => {
-      const currentPage = i + 1;
-      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
+      const currentPage = i + 1
+      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
       const nextPageNumber =
-        currentPage + 1 > numberOfPages ? null : currentPage + 1;
+        currentPage + 1 > numberOfPages ? null : currentPage + 1
       const previousPagePath = prevPageNumber
         ? prevPageNumber === 1
           ? node.url
           : `${node.url}page/${prevPageNumber}/`
-        : null;
+        : null
       const nextPagePath = nextPageNumber
         ? `${node.url}page/${nextPageNumber}/`
-        : null;
+        : null
 
       createPage({
         path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
@@ -150,30 +150,30 @@ exports.createPages = async ({ graphql, actions }) => {
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
         },
-      });
-    });
-  });
+      })
+    })
+  })
 
   // Create series pages
   series.forEach(({ node }) => {
-    const totalPosts = node.postCount !== null ? node.postCount : 0;
-    const numberOfPages = Math.ceil(totalPosts / postsPerPage);
+    const totalPosts = node.postCount !== null ? node.postCount : 0
+    const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
-    node.url = `/series/${node.slug}/`;
+    node.url = `/series/${node.slug}/`
 
     Array.from({ length: numberOfPages }).forEach((_, i) => {
-      const currentPage = i + 1;
-      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
+      const currentPage = i + 1
+      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
       const nextPageNumber =
-        currentPage + 1 > numberOfPages ? null : currentPage + 1;
+        currentPage + 1 > numberOfPages ? null : currentPage + 1
       const previousPagePath = prevPageNumber
         ? prevPageNumber === 1
           ? node.url
           : `${node.url}page/${prevPageNumber}/`
-        : null;
+        : null
       const nextPagePath = nextPageNumber
         ? `${node.url}page/${nextPageNumber}/`
-        : null;
+        : null
 
       createPage({
         path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
@@ -191,35 +191,35 @@ exports.createPages = async ({ graphql, actions }) => {
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
         },
-      });
-    });
-  });
+      })
+    })
+  })
 
   // Create author pages
   authors.forEach(({ node }) => {
-    const totalPosts = node.postCount !== null ? node.postCount : 0;
-    const numberOfPages = Math.ceil(totalPosts / postsPerPage);
+    const totalPosts = node.postCount !== null ? node.postCount : 0
+    const numberOfPages = Math.ceil(totalPosts / postsPerPage)
 
-    node.url = `/author/${node.slug}/`;
-    node.twitterRegex = ``;
+    node.url = `/author/${node.slug}/`
+    node.twitterRegex = ``
 
     if (node.twitter !== null) {
-      node.twitterRegex = `/(` + node.twitter.replace(`@`, ``) + `)/i`;
+      node.twitterRegex = `/(` + node.twitter.replace(`@`, ``) + `)/i`
     }
 
     Array.from({ length: numberOfPages }).forEach((_, i) => {
-      const currentPage = i + 1;
-      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1;
+      const currentPage = i + 1
+      const prevPageNumber = currentPage <= 1 ? null : currentPage - 1
       const nextPageNumber =
-        currentPage + 1 > numberOfPages ? null : currentPage + 1;
+        currentPage + 1 > numberOfPages ? null : currentPage + 1
       const previousPagePath = prevPageNumber
         ? prevPageNumber === 1
           ? node.url
           : `${node.url}page/${prevPageNumber}/`
-        : null;
+        : null
       const nextPagePath = nextPageNumber
         ? `${node.url}page/${nextPageNumber}/`
-        : null;
+        : null
 
       createPage({
         path: i === 0 ? node.url : `${node.url}page/${i + 1}/`,
@@ -238,13 +238,13 @@ exports.createPages = async ({ graphql, actions }) => {
           previousPagePath: previousPagePath,
           nextPagePath: nextPagePath,
         },
-      });
-    });
-  });
+      })
+    })
+  })
 
   // Create pages
   pages.forEach(({ node }) => {
-    node.url = `/${node.slug}/`;
+    node.url = `/${node.slug}/`
 
     createPage({
       path: node.url,
@@ -255,32 +255,32 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: node.slug,
         title: node.title,
       },
-    });
-  });
+    })
+  })
 
   // Create post pages
   posts.forEach(({ node }) => {
-    node.url = `/${node.slug}/`;
-    node.series = null;
-    node.name = null;
-    node.tagSlugs = [];
-    node.primary = null;
-    node.primary_tag_name = null;
+    node.url = `/${node.slug}/`
+    node.series = null
+    node.name = null
+    node.tagSlugs = []
+    node.primary = null
+    node.primary_tag_name = null
 
     node.tags.forEach(function (element, index) {
-      node.tagSlugs.push(element.slug);
+      node.tagSlugs.push(element.slug)
 
       // get primary tag
       if (index === 0) {
-        node.primary = element.slug;
-        node.primary_tag_name = element.name;
+        node.primary = element.slug
+        node.primary_tag_name = element.name
       }
 
       // determine if post is in series
       if (element.visibility === `internal`) {
-        node.series = element.slug;
+        node.series = element.slug
       }
-    });
+    })
 
     createPage({
       path: node.url,
@@ -295,8 +295,8 @@ exports.createPages = async ({ graphql, actions }) => {
         seriesSlug: node.series,
         seriesTitle: node.name,
       },
-    });
-  });
+    })
+  })
 
   // Create pagination
   paginate({
@@ -306,12 +306,12 @@ exports.createPages = async ({ graphql, actions }) => {
     component: indexTemplate,
     pathPrefix: ({ pageNumber }) => {
       if (pageNumber === 0) {
-        return `/`;
+        return `/`
       } else {
-        return `/page`;
+        return `/page`
       }
     },
-  });
+  })
 
   createPage({
     path: `/series/`,
@@ -319,7 +319,7 @@ exports.createPages = async ({ graphql, actions }) => {
     context: {
       slug: `series`,
     },
-  });
+  })
 
   createPage({
     path: `/search/`,
@@ -328,7 +328,7 @@ exports.createPages = async ({ graphql, actions }) => {
       slug: `search`,
       title: `Search all Posts`,
     },
-  });
+  })
 
   createPage({
     path: `/about/`,
@@ -337,5 +337,5 @@ exports.createPages = async ({ graphql, actions }) => {
       slug: `about`,
       title: `About Us`,
     },
-  });
-};
+  })
+}
