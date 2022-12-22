@@ -1,8 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import { FiCoffee } from 'react-icons/fi'
-import config from '../../utils/siteConfig'
+import React from "react"
+import PropTypes from "prop-types"
+import { StaticQuery, graphql } from "gatsby"
+import { FiCoffee } from "react-icons/fi"
+import config from "../../utils/siteConfig"
 
 /**
  * BuyMeACoffee widget
@@ -21,7 +21,7 @@ const CoffeeWidget = ({ data }) => {
             <a
               rel="noopener noreferrer"
               target="_blank"
-              href={node.link}
+              href={node.url}
               className="donation"
               key={node.id}
             >
@@ -32,7 +32,7 @@ const CoffeeWidget = ({ data }) => {
                 <div className="number-coffees">
                   <div>
                     <span className="count">{node.count}</span>
-                    <FiCoffee/>
+                    <FiCoffee />
                   </div>
                 </div>
               </div>
@@ -68,28 +68,28 @@ CoffeeWidget.propTypes = {
           name: PropTypes.string,
           count: PropTypes.number,
           message: PropTypes.string,
-          link: PropTypes.string,
-        }),
+          url: PropTypes.string,
+        })
       ),
     }),
   }),
 }
 
-const CoffeeWidgetQuery = props => (
+const CoffeeWidgetQuery = (props) => (
   <StaticQuery
     query={graphql`
       query coffeeQuery {
         coffees: allMysqlDonations(
           limit: 5
           sort: { fields: created_at, order: DESC }
-          filter: {email: {ne: "fake@example.com"}}
+          filter: { email: { ne: "fake@example.com" } }
         ) {
           edges {
             node {
               email
               id
               count
-              link
+              url
               message
               name
             }
@@ -97,7 +97,7 @@ const CoffeeWidgetQuery = props => (
         }
       }
     `}
-    render={data => <CoffeeWidget data={data} {...props} />}
+    render={(data) => <CoffeeWidget data={data} {...props} />}
   />
 )
 

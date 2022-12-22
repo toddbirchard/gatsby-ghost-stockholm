@@ -1,15 +1,15 @@
-const queries = require(`./src/utils/algolia`)
-const path = require(`path`)
-const config = require(`./src/utils/siteConfig`)
-const siteRssFeed = require(`./src/utils/rss/site-feed`)
+const queries = require(`./src/utils/algolia`);
+const path = require(`path`);
+const config = require(`./src/utils/siteConfig`);
+const siteRssFeed = require(`./src/utils/rss/site-feed`);
 require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
-let ghostConfig
+let ghostConfig;
 
 try {
-  ghostConfig = require(`./.ghost`)
+  ghostConfig = require(`./.ghost`);
 } catch (e) {
   ghostConfig = {
     production: {
@@ -20,15 +20,17 @@ try {
       apiUrl: process.env.GHOST_API_URL,
       contentApiKey: process.env.GHOST_CONTENT_API_KEY,
     },
-  }
+  };
 } finally {
   const { apiUrl, contentApiKey } =
     process.env.NODE_ENV === `development`
       ? ghostConfig.development
-      : ghostConfig.production
+      : ghostConfig.production;
 
   if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
-        throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`) // eslint-disable-line
+    throw new Error(
+      `GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`
+    ); // eslint-disable-line
   }
 }
 
@@ -37,7 +39,9 @@ if (
   config.siteUrl === `http://localhost:8000` &&
   !process.env.SITEURL
 ) {
-    throw new Error(`siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`) // eslint-disable-line
+  throw new Error(
+    `siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`
+  ); // eslint-disable-line
 }
 
 const gatsbyRequiredRules = path.join(
@@ -47,7 +51,7 @@ const gatsbyRequiredRules = path.join(
   `dist`,
   `utils`,
   `eslint-rules`
-)
+);
 
 module.exports = {
   flags: {
@@ -143,27 +147,27 @@ module.exports = {
         },
         queries: [
           {
-            statement: `SELECT * FROM monthly_page_analytics`,
+            statement: `SELECT * FROM hackers_features.monthly_page_analytics`,
             idFieldName: `id`,
             name: `monthly_page_analytics`,
           },
           {
-            statement: `SELECT * FROM weekly_post_analytics`,
+            statement: `SELECT * FROM hackers_features.weekly_post_analytics`,
             idFieldName: `id`,
             name: `weekly_post_analytics`,
           },
           {
-            statement: `SELECT * FROM algolia_top_suggested_searches`,
+            statement: `SELECT * FROM hackers_features.algolia_top_suggested_searches`,
             idFieldName: `search`,
             name: `algolia_top_searches`,
           },
           {
-            statement: `SELECT * FROM hackers_dev.donations WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
+            statement: `SELECT * FROM hackers_features.donation WHERE message <> '' ORDER BY created_at DESC LIMIT 5`,
             idFieldName: `id`,
             name: `donations`,
           },
           {
-            statement: `SELECT * FROM hackers_dev.comments`,
+            statement: `SELECT * FROM hackers_features.comments`,
             idFieldName: `id`,
             name: `comments`,
           },
@@ -415,4 +419,4 @@ module.exports = {
       },
     },
   ],
-}
+};
