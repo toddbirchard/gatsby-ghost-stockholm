@@ -21,7 +21,7 @@ const CoffeeWidget = ({ data }) => {
             <a
               rel="noopener noreferrer"
               target="_blank"
-              href={node.link}
+              href={node.url}
               className="donation"
               key={node.id}
             >
@@ -68,7 +68,7 @@ CoffeeWidget.propTypes = {
           name: PropTypes.string,
           count: PropTypes.number,
           message: PropTypes.string,
-          link: PropTypes.string,
+          url: PropTypes.string,
         }),
       ),
     }),
@@ -89,7 +89,7 @@ const CoffeeWidgetQuery = props => (
               email
               id
               count
-              link
+              url
               message
               name
             }
